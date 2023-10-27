@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Writing Client-Side Prediction code | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Writing Client-Side Prediction code | Netick Networking Engine ">
+      
+      <link rel="icon" href="../../images/logo.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="Netick Documentation">
+            Netick Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="writing-client-side-prediction-code">Writing Client-Side Prediction code</h1>
+
+<h2 id="network-input-"><strong>Network Input</strong> <a href="#network-input" id="network-input"></a></h2>
+<p>Network Input describes what the player wants to do, which will be used to simulate the state of objects they want to control. This ensures that the client can’t directly change the state – the change happens by executing the input, which, even if tampered with, won’t be game-breaking.</p>
+<h2 id="defining-inputs-"><strong>Defining Inputs</strong> <a href="#defining-inputs" id="defining-inputs"></a></h2>
+<p>To define a new input, create a class that inherits from NetworkInput:</p>
+<pre><code class="lang-csharp">public class MyInput : NetworkInput
+{
+    public bool       ShootInput;
+    public float      MoveDirX, MoveDirY;
+}
+</code></pre>
+<h2 id="setting-inputs-"><strong>Setting Inputs</strong> <a href="#setting-inputs" id="setting-inputs"></a></h2>
+<p>To set the variables of an input, you first need to acquire the input object of the next tick, using <code>Sandbox.GetInput</code>.<br>
+Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
+<pre><code class="lang-csharp">public override void NetworkUpdate()
+{
+    var input = Sandbox.GetInput&lt;MyInput&gt;();
+
+    input.MoveDirX = Input.GetAxis(&quot;Horizontal&quot;);
+    input.MoveDirY = Input.GetAxis(&quot;Vertical&quot;);
+}
+</code></pre>
+<p>You could also set them on <code>OnInput</code> of NetworkEventsListner, which is preferred.</p>
+<h2 id="simulatingexecuting-inputs"><strong>Simulating/Executing Inputs</strong></h2>
+<p>To drive the gameplay based on the input object, you must do that in <code>NetworkFixedUpdate</code>:</p>
+<pre><code class="lang-csharp">public override void NetworkFixedUpdate()
+{
+    if (FetchInput(out MyInput input))
+    {
+        // movement
+        var movement = transform.TransformVector(new   Vector3(input.MoveDirX, 0, input.MoveDirY)) * Speed;
+        movement.y       = 0;
+  	    _CC.Move(movement * Time.fixedDeltaTime);
+
+	    // shooting
+        if (input.ShootInput == true &amp;&amp; !IsResimulating)
+            Shot();
+    }
+}
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Sandbox.GetInput is used to read/set the user inputs into the input object.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>FetchInput is used to actually use the input object in the simulation.</p>
+</div>
+<p>FetchInput tries to fetch an input for the state/tick being simulated/resimulated. It only returns true if either:</p>
+<ol>
+<li>We are providing inputs to this object – meaning we are the Input Source of the object.</li>
+<li>We are the owner (the server) of this object – receiving inputs from the client who’s the Input Source. And only if we have an input for the current tick being simulated. If not, it would return false. Usually, that happens due to packet loss.</li>
+</ol>
+<p>And to avoid the previous issue we talked about, we make sure that we are only shooting if we are simulating a new input, by checking <code>IsResimulating</code>.</p>
+<h2 id="input-source"><strong>Input Source</strong></h2>
+<p>For a client to be able to provide inputs to be used in an Object’s <code>NetworkFixedUpdate</code>, and hence take control of it, that client must be the Input Source of that object. Otherwise, <code>FetchInput</code> will return false. To check if you are the Input Source, use IsInputSource.</p>
+<p>The server can also be the Input Source of objects, although it won’t do any CSP, since it needs not to, after all, it’s the server.</p>
+<p>You can set the Input Source of an object when instantiating it:</p>
+<pre><code class="lang-csharp">sandbox.NetworkInstantiate(PlayerPrefab, spawnPos, Quaternion.identity, client);
+</code></pre>
+<p>To set/remove the Input Source (must only be called on the server):</p>
+<ol>
+<li>Call <code>PermitInput</code> to set the Input Source of the object: <code>Object.PermitInput(client);</code></li>
+<li>Call <code>RevokeInput</code> to remove the Input Source of the object: <code>Object.RevokeInput();</code></li>
+</ol>
+<p>There are several methods you can override to run code when Input Source is assigned/removed or has left:</p>
+<ol>
+<li><code>OnInputPermitted</code>: called on the player who was given permission to provide inputs to this object.</li>
+<li><code>OnInputRevoked</code>: called on the player whose permission to provide inputs to this object has been revoked by the owner (server).</li>
+<li><code>OnInputSourceLeft</code>: called on the owner (server) when the Input Source client has left the game.</li>
+</ol>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

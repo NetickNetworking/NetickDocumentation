@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interpolation | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interpolation | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
+            Netick Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="interpolation">Interpolation</h1>
+
+<p>Netick runs at a fixed-time step, the same as the <code>Time.fixedDeltaTime</code> of Unity, which you can specify in the Project Settings. Because of that, the motion of network objects will appear unsmooth and jittery. The reason for this is that, usually, your update rate (render rate) is way higher than your fixed network tick rate. The solution to this problem is called interpolation, which means filling in the gaps between these fixed-time steps/ticks:</p>
+<!-- <figure><img src="https://netick.net/wp-content/uploads/2022/09/interpolation-2-1024x444.png" alt=""><figcaption></figcaption></figure> -->
+<figure><img src="../../images/interpolation.png" alt=""><figcaption></figcaption></figure>
+<p>So, for example, at tick 6, the value of a network property is 2.0. And at tick 7, it becomes 3.0.<br>
+Since there are 5 frames between two ticks, the values at each frame would be:</p>
+<ul>
+<li>Frame 1: 2.0 — Beginning of tick 6</li>
+<li>Frame 2: 2.25</li>
+<li>Frame 3: 2.5</li>
+<li>Frame 4: 2.75</li>
+<li>Frame 5: 3 — End of tick 6, beginning of tick 7</li>
+</ul>
+<h2 id="interpolation-of-network-transform"><strong>Interpolation of Network Transform</strong></h2>
+<p>For moving objects, this is important to deal with. Every NetworkTransform has a slot for a Render transform, which is basically the smoothed/interpolated mesh of the object, while the parent would be the simulated/non-interpolated object.</p>
+<p>So, you must break your moving objects into a parent (which has the NetworkTransform), and a child which is the interpolated object, and has the mesh/s. Then you specify that child in the Network Transform Render Transform property in the inspector. Check the samples if you are confused.</p>
+<h2 id="interpolation-of-network-properties"><strong>Interpolation of Network Properties</strong></h2>
+<p>To interpolate a property, add the <code>[Smooth]</code> attribute to its declaration:</p>
+<pre><code class="lang-csharp">[Networked][Smooth]
+public Vector3 Movement {get; set;}
+</code></pre>
+<h2 id="accessing-interpolated-values"><strong>Accessing Interpolated Values</strong></h2>
+<p>To access the interpolated value, by referencing the property in <code>NetworkRender</code>, you automatically get interpolated values:</p>
+<pre><code class="lang-csharp">public override NetworkRender()
+{
+    var interpolatedValue = Movement;
+}
+</code></pre>
+<p>Interpolation is implemented by Netick on these types:</p>
+<ul>
+<li>Float</li>
+<li>Double</li>
+<li>Vector2/Vector3</li>
+<li>Quaternion</li>
+</ul>
+<p>Other types just return the From snapshot between the two snapshots being interpolated.</p>
+<h2 id="interpolation-of-other-types"><strong>Interpolation of Other Types</strong></h2>
+<p>To interpolate other types, you can do that using the <code>Interpolator&lt;T&gt;</code> object.</p>
+<p>First, you must include an id in <code>[Smooth]</code>:</p>
+<pre><code class="lang-csharp">[Networked][Smooth(6)]
+public MyType SomeProperty {get; set;}
+</code></pre>
+<p>And to access the interpolated value, you first need to acquire a reference to the Interpolator object, through which you can get the From and To values, and the Alpha, which you use to interpolate the property.</p>
+<pre><code class="lang-csharp">public override NetworkRender()
+{
+    var interpolator      = FindInterpolator&lt;MyType&gt;(6);
+    var from              = interpolator.From;
+    var to                = interpolator.To;
+    var alpha             = interpolator.Alpha;
+    var interpolatedValue = LerpMyType(from,to,alpha);
+}
+
+private MyType LerpMyType(MyType from, MyType to, float alpha)
+{
+    // write the interpolation code here
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Note: you should cache the result to <code>FindInterpolator&lt;MyType&gt;(5)</code> on NetworkStart, instead of calling it repeatedly every frame (NetworkRender is called every frame), since it might be a bit slow.</p>
+</div>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

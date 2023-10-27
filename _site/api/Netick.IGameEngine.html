@@ -1,0 +1,779 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IGameEngine
+ | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IGameEngine
+ | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
+            Netick Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Netick.IGameEngine">
+
+
+
+  <h1 id="Netick_IGameEngine" data-uid="Netick.IGameEngine" class="text-break">
+    Interface IGameEngine
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Netick.html">Netick</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Netick.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IGameEngine</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Netick_IGameEngine_GetConnectionMetaSizeWords_" data-uid="Netick.IGameEngine.GetConnectionMetaSizeWords*"></a>
+
+  <h3 id="Netick_IGameEngine_GetConnectionMetaSizeWords" data-uid="Netick.IGameEngine.GetConnectionMetaSizeWords">
+  GetConnectionMetaSizeWords()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Implements this to inform Netick about the size (in 32 bit words) of your connection meta data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int GetConnectionMetaSizeWords()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_GetEntityMetaSizeWords_" data-uid="Netick.IGameEngine.GetEntityMetaSizeWords*"></a>
+
+  <h3 id="Netick_IGameEngine_GetEntityMetaSizeWords" data-uid="Netick.IGameEngine.GetEntityMetaSizeWords">
+  GetEntityMetaSizeWords()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Implements this to inform Netick about the size (in 32 bit words) of your entity meta data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int GetEntityMetaSizeWords()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_GetPredictionInterestList_" data-uid="Netick.IGameEngine.GetPredictionInterestList*"></a>
+
+  <h3 id="Netick_IGameEngine_GetPredictionInterestList" data-uid="Netick.IGameEngine.GetPredictionInterestList">
+  GetPredictionInterestList()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ExecutionList GetPredictionInterestList()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.ExecutionList.html">ExecutionList</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnBeforeSend_" data-uid="Netick.IGameEngine.OnBeforeSend*"></a>
+
+  <h3 id="Netick_IGameEngine_OnBeforeSend_Netick_NetworkConnection_" data-uid="Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)">
+  OnBeforeSend(NetworkConnection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is called before sending packets to the dest connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnBeforeSend(NetworkConnection dest)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dest</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnClientConnected_" data-uid="Netick.IGameEngine.OnClientConnected*"></a>
+
+  <h3 id="Netick_IGameEngine_OnClientConnected" data-uid="Netick.IGameEngine.OnClientConnected">
+  OnClientConnected()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnClientConnected()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnClientDisconnected_" data-uid="Netick.IGameEngine.OnClientDisconnected*"></a>
+
+  <h3 id="Netick_IGameEngine_OnClientDisconnected_Netick_TransportDisconnectReason_" data-uid="Netick.IGameEngine.OnClientDisconnected(Netick.TransportDisconnectReason)">
+  OnClientDisconnected(TransportDisconnectReason)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnClientDisconnected(TransportDisconnectReason transportDisconnectReason)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transportDisconnectReason</code> <a class="xref" href="Netick.TransportDisconnectReason.html">TransportDisconnectReason</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnConnectFailed_" data-uid="Netick.IGameEngine.OnConnectFailed*"></a>
+
+  <h3 id="Netick_IGameEngine_OnConnectFailed_Netick_ConnectionFailedReason_" data-uid="Netick.IGameEngine.OnConnectFailed(Netick.ConnectionFailedReason)">
+  OnConnectFailed(ConnectionFailedReason)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnConnectFailed(ConnectionFailedReason reason)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reason</code> <a class="xref" href="Netick.ConnectionFailedReason.html">ConnectionFailedReason</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnEntityDespawned_" data-uid="Netick.IGameEngine.OnEntityDespawned*"></a>
+
+  <h3 id="Netick_IGameEngine_OnEntityDespawned_Netick_Entity_" data-uid="Netick.IGameEngine.OnEntityDespawned(Netick.Entity)">
+  OnEntityDespawned(Entity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is called when an entity has been removed from the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnEntityDespawned(Entity entity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnEntityMetaChanged_" data-uid="Netick.IGameEngine.OnEntityMetaChanged*"></a>
+
+  <h3 id="Netick_IGameEngine_OnEntityMetaChanged_Netick_NetickEntityMeta_System_Byte__" data-uid="Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*)">
+  OnEntityMetaChanged(NetickEntityMeta, byte*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This method is called on the client when it receives new entity meta data. This must be used to create/setup network entities on the client. It can be called many times not only when the data has changed.</p>
+<p>Note: user entity meta data can be used for custom user data that might be used in creating entities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnEntityMetaChanged(NetickEntityMeta netickMeta, byte* userMetaData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>netickMeta</code> <a class="xref" href="Netick.NetickEntityMeta.html">NetickEntityMeta</a></dt>
+    <dd></dd>
+    <dt><code>userMetaData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnEntityMetaChangedPhaseTwo_" data-uid="Netick.IGameEngine.OnEntityMetaChangedPhaseTwo*"></a>
+
+  <h3 id="Netick_IGameEngine_OnEntityMetaChangedPhaseTwo_Netick_NetickEntityMeta_System_Byte__" data-uid="Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*)">
+  OnEntityMetaChangedPhaseTwo(NetickEntityMeta, byte*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnEntityMetaChangedPhaseTwo(NetickEntityMeta netickMeta, byte* userMetaData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>netickMeta</code> <a class="xref" href="Netick.NetickEntityMeta.html">NetickEntityMeta</a></dt>
+    <dd></dd>
+    <dt><code>userMetaData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnEntitySpawned_" data-uid="Netick.IGameEngine.OnEntitySpawned*"></a>
+
+  <h3 id="Netick_IGameEngine_OnEntitySpawned_Netick_Entity_" data-uid="Netick.IGameEngine.OnEntitySpawned(Netick.Entity)">
+  OnEntitySpawned(Entity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is called when a new entity has been added to the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnEntitySpawned(Entity entity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnInputRead_" data-uid="Netick.IGameEngine.OnInputRead*"></a>
+
+  <h3 id="Netick_IGameEngine_OnInputRead" data-uid="Netick.IGameEngine.OnInputRead">
+  OnInputRead()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnInputRead()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnNetworkFixedUpdate_" data-uid="Netick.IGameEngine.OnNetworkFixedUpdate*"></a>
+
+  <h3 id="Netick_IGameEngine_OnNetworkFixedUpdate" data-uid="Netick.IGameEngine.OnNetworkFixedUpdate">
+  OnNetworkFixedUpdate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnNetworkFixedUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnNetworkRender_" data-uid="Netick.IGameEngine.OnNetworkRender*"></a>
+
+  <h3 id="Netick_IGameEngine_OnNetworkRender" data-uid="Netick.IGameEngine.OnNetworkRender">
+  OnNetworkRender()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnNetworkRender()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnNetworkUpdate_" data-uid="Netick.IGameEngine.OnNetworkUpdate*"></a>
+
+  <h3 id="Netick_IGameEngine_OnNetworkUpdate" data-uid="Netick.IGameEngine.OnNetworkUpdate">
+  OnNetworkUpdate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnNetworkUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnPacketReceived_" data-uid="Netick.IGameEngine.OnPacketReceived*"></a>
+
+  <h3 id="Netick_IGameEngine_OnPacketReceived_Netick_NetworkConnection_" data-uid="Netick.IGameEngine.OnPacketReceived(Netick.NetworkConnection)">
+  OnPacketReceived(NetworkConnection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is called when a full packet has been received.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnPacketReceived(NetworkConnection source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnPeerConnected_" data-uid="Netick.IGameEngine.OnPeerConnected*"></a>
+
+  <h3 id="Netick_IGameEngine_OnPeerConnected_Netick_NetworkConnection_" data-uid="Netick.IGameEngine.OnPeerConnected(Netick.NetworkConnection)">
+  OnPeerConnected(NetworkConnection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnPeerConnected(NetworkConnection connection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connection</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnPeerDisconnected_" data-uid="Netick.IGameEngine.OnPeerDisconnected*"></a>
+
+  <h3 id="Netick_IGameEngine_OnPeerDisconnected_Netick_NetworkConnection_Netick_TransportDisconnectReason_" data-uid="Netick.IGameEngine.OnPeerDisconnected(Netick.NetworkConnection,Netick.TransportDisconnectReason)">
+  OnPeerDisconnected(NetworkConnection, TransportDisconnectReason)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnPeerDisconnected(NetworkConnection connection, TransportDisconnectReason transportDisconnectReason)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connection</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+    <dt><code>transportDisconnectReason</code> <a class="xref" href="Netick.TransportDisconnectReason.html">TransportDisconnectReason</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_PopulateEntityMeta_" data-uid="Netick.IGameEngine.PopulateEntityMeta*"></a>
+
+  <h3 id="Netick_IGameEngine_PopulateEntityMeta_Netick_Entity_" data-uid="Netick.IGameEngine.PopulateEntityMeta(Netick.Entity)">
+  PopulateEntityMeta(Entity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is used to populate the user meta data for an entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PopulateEntityMeta(Entity entity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_SimulatePhysics_" data-uid="Netick.IGameEngine.SimulatePhysics*"></a>
+
+  <h3 id="Netick_IGameEngine_SimulatePhysics" data-uid="Netick.IGameEngine.SimulatePhysics">
+  SimulatePhysics()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SimulatePhysics()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_SyncTransformsToPhysics_" data-uid="Netick.IGameEngine.SyncTransformsToPhysics*"></a>
+
+  <h3 id="Netick_IGameEngine_SyncTransformsToPhysics" data-uid="Netick.IGameEngine.SyncTransformsToPhysics">
+  SyncTransformsToPhysics()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SyncTransformsToPhysics()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

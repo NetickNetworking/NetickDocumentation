@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Listening to Network Events | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Listening to Network Events | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
+            Netick Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="listening-to-network-events">Listening to Network Events</h1>
+
+<p>Netick has several useful callbacks you can use:</p>
+<table>
+<thead>
+<tr>
+<th>Callbacks</th>
+<th>Description</th>
+<th>Invoke target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnStartup(NetworkSandbox sandbox)</td>
+<td>Called when Netick has been started.</td>
+<td>Client/Server</td>
+</tr>
+<tr>
+<td>OnShutdown(NetworkSandbox sandbox)</td>
+<td>Called when Netick has been shut down.</td>
+<td>Client/Server</td>
+</tr>
+<tr>
+<td>OnInput(NetworkSandbox sandbox)</td>
+<td>Called to read inputs.</td>
+<td>Client/Server</td>
+</tr>
+<tr>
+<td>OnConnectRequest(NetworkSandbox sandbox, NetworkConnectionRequest request)</td>
+<td>Called on the server when a client tries to connect. Use request to decide whether or not to allow this client to connect.</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>OnConnectFailed(NetworkSandbox sandbox, ConnectionFailedReason reason)</td>
+<td>Called on the client when the connection to the server was refused, or simply failed.</td>
+<td>Client</td>
+</tr>
+<tr>
+<td>OnConnectedToServer(NetworkSandbox sandbox, NetworkConnection server)</td>
+<td>Called on the client when the connection to the server has succeeded.</td>
+<td>Client</td>
+</tr>
+<tr>
+<td>OnClientConnected(NetworkSandbox sandbox, NetworkConnection client)</td>
+<td>Called on the server when a specific client has connected.</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>OnClientDisconnected(NetworkSandbox sandbox, NetworkConnection client)</td>
+<td>Called on the server when a specific client has disconnected.</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>OnSceneLoaded(NetworkSandbox sandbox)</td>
+<td>Called on both the client and the server when the scene has been loaded.</td>
+<td>Client/Server</td>
+</tr>
+<tr>
+<td>OnSceneLoadStarted(NetworkSandbox sandbox)</td>
+<td>Called on both the client and the server before beginning to load the new scene.</td>
+<td>Client/Server</td>
+</tr>
+<tr>
+<td>OnClientSceneLoaded(NetworkSandbox sandbox, NetworkConnection client)</td>
+<td>Called on the server when a specific client finished loading the scene.</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>OnObjectCreated(NetworkObject obj)</td>
+<td>Called when a network object has been created/initialized.</td>
+<td>Client/Server</td>
+</tr>
+<tr>
+<td>OnObjectDestroyed(NetworkObject obj)</td>
+<td>Called when a network object has been destroyed/recycled.</td>
+<td>Client/Server</td>
+</tr>
+</tbody>
+</table>
+<p>You can override these methods on a class inheriting from NetworkEventsListner, and add it to an object in the scene, and Netick will find it automatically. Or, you can add it to a network prefab that you instantiate, and Netick will also find it can call methods on it.</p>
+<p>You could also add the component NetworkEvents to an object, which does the same, but the difference is that you can plug your events right into it.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Core Concepts | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Core Concepts | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
+            Netick Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="core-concepts">Core Concepts</h1>
+
+<h3 id="network-sandbox-"><strong>Network Sandbox</strong> <a href="#network-sandbox" id="network-sandbox"></a></h3>
+<p>Network Sandbox is what controls the whole network simulation. It can be thought of as the manager of the simulation. You can have more than one network sandbox in a single Unity game, and that happens when you start both a client and a server on the same project. This can be extremely useful for testing/debugging, because it allows you to run a server and a client (or multiple thereof) in the same project and therefore see what happens at both at the same time, without interference.</p>
+<ul>
+<li>Therefore you can think of a sandbox as representing a server or a client.</li>
+<li>You can show/hide the current sandboxes from the Network Sandboxes panel.</li>
+</ul>
+<h3 id="network-object-"><strong>Network Object</strong> <a href="#network-object" id="network-object"></a></h3>
+<p>Any GameObject which needs to be synced/replicated must be a Network Object (has the Network Object added to it). If you want to see something on everyone’s screen, it has to have a Network Object component added to it. It’s the component that tells Netick that a GameObject is networked. The Network Object component by itself just informs Netick that the object is networked. To add networked gameplay-logic to it, you must do so in a component of a class derived from Network Behavior. Netick comes with a few essential built-in components:</p>
+<ul>
+<li>Network Transform: used to sync position and rotation</li>
+<li>Network Rigidbody: used to sync controllable physical objects</li>
+<li>Network Animator: used to sync Unity’s animator’s state</li>
+</ul>
+<h3 id="network-behavior-"><strong>Network Behavior</strong> <a href="#network-behavior" id="network-behavior"></a></h3>
+<p>The Network Behavior class is your old friend MonoBehaviour, just the networked version of it. To implement your networked functionality, just create a new class and derive it from NetworkBehavior. You have several methods you can override which correspond to Unity’s non-networked equivalents (they must be used instead of Unity’s equivalents when doing anything related to the network simulation):</p>
+<ul>
+<li>NetworkStart</li>
+<li>NetworkDestroy</li>
+<li>NetworkFixedUpdate</li>
+<li>NetworkUpdate</li>
+<li>NetworkRender</li>
+</ul>
+<p>Example:</p>
+<pre><code class="lang-csharp">using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Netick;
+
+public class MyBehaviour : NetworkBehaviour
+{
+    [Networked]
+    public int   IntPropertyExample   { get; set;}
+    
+    [Networked]
+    public float FloatPropertyExample { get; set;}
+    
+    public override void NetworkStart() 
+    {
+        // Called when this object has been added to the simulation.
+    }
+
+    public override void NetworkDestroy() 
+    {
+        // Called when this object has been removed from the simulation.
+    }
+
+    public override void NetworkUpdate() 
+    {
+        // Called every frame. Executed before NetworkFixedUpdate.      
+    }
+
+    public override void NetworkRender() 
+    {
+        // Called every frame. Executed after NetworkUpdate and NetworkFixedUpdate.
+        // IMPORTANT NOTE: properties (which can be interpolated) marked with [Smooth] attribute will return interpolated values when accessed in this method.
+    }
+
+    public override void NetworkFixedUpdate() 
+    {
+        // Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.
+        // Check out the chapter named &quot;Writing Client-Side Prediction code&quot; to learn more about this method. 
+    }
+
+}
+</code></pre>
+<p>Don’t forget to include <code>using Netick</code></p>
+<p>A class derived from Networked Behavior is almost useless without the utilization of Network Properties, which are the building blocks of your networked synced state. These properties are ensured to be eventually synced to everyone in the network, letting you create objects with complex states and not worry about it.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

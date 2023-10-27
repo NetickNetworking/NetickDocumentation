@@ -1,0 +1,1554 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UDP
+ | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UDP
+ | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
+            Netick Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NanoSockets.UDP">
+
+
+
+  <h1 id="NanoSockets_UDP" data-uid="NanoSockets.UDP" class="text-break">
+    Class UDP
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NanoSockets.html">NanoSockets</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Netick.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class UDP</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">UDP</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="NanoSockets_UDP_hostNameSize" data-uid="NanoSockets.UDP.hostNameSize">
+  hostNameSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int hostNameSize = 1025</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NanoSockets_UDP_Bind_" data-uid="NanoSockets.UDP.Bind*"></a>
+
+  <h3 id="NanoSockets_UDP_Bind_NanoSockets_Socket_NanoSockets_Address__" data-uid="NanoSockets.UDP.Bind(NanoSockets.Socket,NanoSockets.Address@)">
+  Bind(Socket, ref Address)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Bind(Socket socket, ref Address address)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Bind_" data-uid="NanoSockets.UDP.Bind*"></a>
+
+  <h3 id="NanoSockets_UDP_Bind_NanoSockets_Socket_System_IntPtr_" data-uid="NanoSockets.UDP.Bind(NanoSockets.Socket,System.IntPtr)">
+  Bind(Socket, IntPtr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Bind(Socket socket, IntPtr address)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Connect_" data-uid="NanoSockets.UDP.Connect*"></a>
+
+  <h3 id="NanoSockets_UDP_Connect_NanoSockets_Socket_NanoSockets_Address__" data-uid="NanoSockets.UDP.Connect(NanoSockets.Socket,NanoSockets.Address@)">
+  Connect(Socket, ref Address)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Connect(Socket socket, ref Address address)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Create_" data-uid="NanoSockets.UDP.Create*"></a>
+
+  <h3 id="NanoSockets_UDP_Create_System_Int32_System_Int32_" data-uid="NanoSockets.UDP.Create(System.Int32,System.Int32)">
+  Create(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Socket Create(int sendBufferSize, int receiveBufferSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sendBufferSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>receiveBufferSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Deinitialize_" data-uid="NanoSockets.UDP.Deinitialize*"></a>
+
+  <h3 id="NanoSockets_UDP_Deinitialize" data-uid="NanoSockets.UDP.Deinitialize">
+  Deinitialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern void Deinitialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Destroy_" data-uid="NanoSockets.UDP.Destroy*"></a>
+
+  <h3 id="NanoSockets_UDP_Destroy_NanoSockets_Socket__" data-uid="NanoSockets.UDP.Destroy(NanoSockets.Socket@)">
+  Destroy(ref Socket)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern void Destroy(ref Socket socket)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_GetAddress_" data-uid="NanoSockets.UDP.GetAddress*"></a>
+
+  <h3 id="NanoSockets_UDP_GetAddress_NanoSockets_Socket_NanoSockets_Address__" data-uid="NanoSockets.UDP.GetAddress(NanoSockets.Socket,NanoSockets.Address@)">
+  GetAddress(Socket, ref Address)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status GetAddress(Socket socket, ref Address address)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_GetHostName_" data-uid="NanoSockets.UDP.GetHostName*"></a>
+
+  <h3 id="NanoSockets_UDP_GetHostName_NanoSockets_Address__System_IntPtr_System_Int32_" data-uid="NanoSockets.UDP.GetHostName(NanoSockets.Address@,System.IntPtr,System.Int32)">
+  GetHostName(ref Address, IntPtr, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status GetHostName(ref Address address, IntPtr name, int nameLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>nameLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_GetHostName_" data-uid="NanoSockets.UDP.GetHostName*"></a>
+
+  <h3 id="NanoSockets_UDP_GetHostName_NanoSockets_Address__System_Text_StringBuilder_System_Int32_" data-uid="NanoSockets.UDP.GetHostName(NanoSockets.Address@,System.Text.StringBuilder,System.Int32)">
+  GetHostName(ref Address, StringBuilder, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status GetHostName(ref Address address, StringBuilder name, int nameLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd></dd>
+    <dt><code>nameLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_GetIP_" data-uid="NanoSockets.UDP.GetIP*"></a>
+
+  <h3 id="NanoSockets_UDP_GetIP_NanoSockets_Address__System_IntPtr_System_Int32_" data-uid="NanoSockets.UDP.GetIP(NanoSockets.Address@,System.IntPtr,System.Int32)">
+  GetIP(ref Address, IntPtr, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status GetIP(ref Address address, IntPtr ip, int ipLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>ip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>ipLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_GetIP_" data-uid="NanoSockets.UDP.GetIP*"></a>
+
+  <h3 id="NanoSockets_UDP_GetIP_NanoSockets_Address__System_Text_StringBuilder_System_Int32_" data-uid="NanoSockets.UDP.GetIP(NanoSockets.Address@,System.Text.StringBuilder,System.Int32)">
+  GetIP(ref Address, StringBuilder, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status GetIP(ref Address address, StringBuilder ip, int ipLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>ip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd></dd>
+    <dt><code>ipLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_GetOption_" data-uid="NanoSockets.UDP.GetOption*"></a>
+
+  <h3 id="NanoSockets_UDP_GetOption_NanoSockets_Socket_System_Int32_System_Int32_System_Int32__System_Int32__" data-uid="NanoSockets.UDP.GetOption(NanoSockets.Socket,System.Int32,System.Int32,System.Int32@,System.Int32@)">
+  GetOption(Socket, int, int, ref int, ref int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status GetOption(Socket socket, int level, int optionName, ref int optionValue, ref int optionLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>level</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>optionName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>optionValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>optionLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Initialize_" data-uid="NanoSockets.UDP.Initialize*"></a>
+
+  <h3 id="NanoSockets_UDP_Initialize" data-uid="NanoSockets.UDP.Initialize">
+  Initialize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status Initialize()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_IsEqual_" data-uid="NanoSockets.UDP.IsEqual*"></a>
+
+  <h3 id="NanoSockets_UDP_IsEqual_NanoSockets_Address__NanoSockets_Address__" data-uid="NanoSockets.UDP.IsEqual(NanoSockets.Address@,NanoSockets.Address@)">
+  IsEqual(ref Address, ref Address)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status IsEqual(ref Address left, ref Address right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Poll_" data-uid="NanoSockets.UDP.Poll*"></a>
+
+  <h3 id="NanoSockets_UDP_Poll_NanoSockets_Socket_System_Int64_" data-uid="NanoSockets.UDP.Poll(NanoSockets.Socket,System.Int64)">
+  Poll(Socket, long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Poll(Socket socket, long timeout)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>timeout</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Receive_" data-uid="NanoSockets.UDP.Receive*"></a>
+
+  <h3 id="NanoSockets_UDP_Receive_NanoSockets_Socket_NanoSockets_Address__System_Byte___System_Int32_" data-uid="NanoSockets.UDP.Receive(NanoSockets.Socket,NanoSockets.Address@,System.Byte[],System.Int32)">
+  Receive(Socket, ref Address, byte[], int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Receive(Socket socket, ref Address address, byte[] buffer, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Receive_" data-uid="NanoSockets.UDP.Receive*"></a>
+
+  <h3 id="NanoSockets_UDP_Receive_NanoSockets_Socket_NanoSockets_Address__System_Byte___System_Int32_System_Int32_" data-uid="NanoSockets.UDP.Receive(NanoSockets.Socket,NanoSockets.Address@,System.Byte[],System.Int32,System.Int32)">
+  Receive(Socket, ref Address, byte[], int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Receive(Socket socket, ref Address address, byte[] buffer, int offset, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Receive_" data-uid="NanoSockets.UDP.Receive*"></a>
+
+  <h3 id="NanoSockets_UDP_Receive_NanoSockets_Socket_NanoSockets_Address__System_IntPtr_System_Int32_" data-uid="NanoSockets.UDP.Receive(NanoSockets.Socket,NanoSockets.Address@,System.IntPtr,System.Int32)">
+  Receive(Socket, ref Address, IntPtr, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Receive(Socket socket, ref Address address, IntPtr buffer, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Receive_" data-uid="NanoSockets.UDP.Receive*"></a>
+
+  <h3 id="NanoSockets_UDP_Receive_NanoSockets_Socket_System_IntPtr_System_Byte___System_Int32_" data-uid="NanoSockets.UDP.Receive(NanoSockets.Socket,System.IntPtr,System.Byte[],System.Int32)">
+  Receive(Socket, IntPtr, byte[], int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Receive(Socket socket, IntPtr address, byte[] buffer, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Receive_" data-uid="NanoSockets.UDP.Receive*"></a>
+
+  <h3 id="NanoSockets_UDP_Receive_NanoSockets_Socket_System_IntPtr_System_Byte___System_Int32_System_Int32_" data-uid="NanoSockets.UDP.Receive(NanoSockets.Socket,System.IntPtr,System.Byte[],System.Int32,System.Int32)">
+  Receive(Socket, IntPtr, byte[], int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Receive(Socket socket, IntPtr address, byte[] buffer, int offset, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Receive_" data-uid="NanoSockets.UDP.Receive*"></a>
+
+  <h3 id="NanoSockets_UDP_Receive_NanoSockets_Socket_System_IntPtr_System_IntPtr_System_Int32_" data-uid="NanoSockets.UDP.Receive(NanoSockets.Socket,System.IntPtr,System.IntPtr,System.Int32)">
+  Receive(Socket, IntPtr, IntPtr, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Receive(Socket socket, IntPtr address, IntPtr buffer, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Send_" data-uid="NanoSockets.UDP.Send*"></a>
+
+  <h3 id="NanoSockets_UDP_Send_NanoSockets_Socket_NanoSockets_Address__System_Byte___System_Int32_" data-uid="NanoSockets.UDP.Send(NanoSockets.Socket,NanoSockets.Address@,System.Byte[],System.Int32)">
+  Send(Socket, ref Address, byte[], int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Send(Socket socket, ref Address address, byte[] buffer, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Send_" data-uid="NanoSockets.UDP.Send*"></a>
+
+  <h3 id="NanoSockets_UDP_Send_NanoSockets_Socket_NanoSockets_Address__System_Byte___System_Int32_System_Int32_" data-uid="NanoSockets.UDP.Send(NanoSockets.Socket,NanoSockets.Address@,System.Byte[],System.Int32,System.Int32)">
+  Send(Socket, ref Address, byte[], int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Send(Socket socket, ref Address address, byte[] buffer, int offset, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Send_" data-uid="NanoSockets.UDP.Send*"></a>
+
+  <h3 id="NanoSockets_UDP_Send_NanoSockets_Socket_NanoSockets_Address__System_IntPtr_System_Int32_" data-uid="NanoSockets.UDP.Send(NanoSockets.Socket,NanoSockets.Address@,System.IntPtr,System.Int32)">
+  Send(Socket, ref Address, IntPtr, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Send(Socket socket, ref Address address, IntPtr buffer, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Send_" data-uid="NanoSockets.UDP.Send*"></a>
+
+  <h3 id="NanoSockets_UDP_Send_NanoSockets_Socket_System_IntPtr_System_Byte___System_Int32_" data-uid="NanoSockets.UDP.Send(NanoSockets.Socket,System.IntPtr,System.Byte[],System.Int32)">
+  Send(Socket, IntPtr, byte[], int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Send(Socket socket, IntPtr address, byte[] buffer, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Send_" data-uid="NanoSockets.UDP.Send*"></a>
+
+  <h3 id="NanoSockets_UDP_Send_NanoSockets_Socket_System_IntPtr_System_Byte___System_Int32_System_Int32_" data-uid="NanoSockets.UDP.Send(NanoSockets.Socket,System.IntPtr,System.Byte[],System.Int32,System.Int32)">
+  Send(Socket, IntPtr, byte[], int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Send(Socket socket, IntPtr address, byte[] buffer, int offset, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_Send_" data-uid="NanoSockets.UDP.Send*"></a>
+
+  <h3 id="NanoSockets_UDP_Send_NanoSockets_Socket_System_IntPtr_System_IntPtr_System_Int32_" data-uid="NanoSockets.UDP.Send(NanoSockets.Socket,System.IntPtr,System.IntPtr,System.Int32)">
+  Send(Socket, IntPtr, IntPtr, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern int Send(Socket socket, IntPtr address, IntPtr buffer, int bufferLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>address</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+    <dt><code>bufferLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_SetDontFragment_" data-uid="NanoSockets.UDP.SetDontFragment*"></a>
+
+  <h3 id="NanoSockets_UDP_SetDontFragment_NanoSockets_Socket_" data-uid="NanoSockets.UDP.SetDontFragment(NanoSockets.Socket)">
+  SetDontFragment(Socket)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status SetDontFragment(Socket socket)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_SetHostName_" data-uid="NanoSockets.UDP.SetHostName*"></a>
+
+  <h3 id="NanoSockets_UDP_SetHostName_NanoSockets_Address__System_IntPtr_" data-uid="NanoSockets.UDP.SetHostName(NanoSockets.Address@,System.IntPtr)">
+  SetHostName(ref Address, IntPtr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status SetHostName(ref Address address, IntPtr name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_SetHostName_" data-uid="NanoSockets.UDP.SetHostName*"></a>
+
+  <h3 id="NanoSockets_UDP_SetHostName_NanoSockets_Address__System_String_" data-uid="NanoSockets.UDP.SetHostName(NanoSockets.Address@,System.String)">
+  SetHostName(ref Address, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status SetHostName(ref Address address, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_SetIP_" data-uid="NanoSockets.UDP.SetIP*"></a>
+
+  <h3 id="NanoSockets_UDP_SetIP_NanoSockets_Address__System_IntPtr_" data-uid="NanoSockets.UDP.SetIP(NanoSockets.Address@,System.IntPtr)">
+  SetIP(ref Address, IntPtr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status SetIP(ref Address address, IntPtr ip)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>ip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_SetIP_" data-uid="NanoSockets.UDP.SetIP*"></a>
+
+  <h3 id="NanoSockets_UDP_SetIP_NanoSockets_Address__System_String_" data-uid="NanoSockets.UDP.SetIP(NanoSockets.Address@,System.String)">
+  SetIP(ref Address, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status SetIP(ref Address address, string ip)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>address</code> <a class="xref" href="NanoSockets.Address.html">Address</a></dt>
+    <dd></dd>
+    <dt><code>ip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_SetNonBlocking_" data-uid="NanoSockets.UDP.SetNonBlocking*"></a>
+
+  <h3 id="NanoSockets_UDP_SetNonBlocking_NanoSockets_Socket_System_Boolean_" data-uid="NanoSockets.UDP.SetNonBlocking(NanoSockets.Socket,System.Boolean)">
+  SetNonBlocking(Socket, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Status SetNonBlocking(Socket socket, bool shouldBlock = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>shouldBlock</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NanoSockets_UDP_SetOption_" data-uid="NanoSockets.UDP.SetOption*"></a>
+
+  <h3 id="NanoSockets_UDP_SetOption_NanoSockets_Socket_System_Int32_System_Int32_System_Int32__System_Int32_" data-uid="NanoSockets.UDP.SetOption(NanoSockets.Socket,System.Int32,System.Int32,System.Int32@,System.Int32)">
+  SetOption(Socket, int, int, ref int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern Status SetOption(Socket socket, int level, int optionName, ref int optionValue, int optionLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>socket</code> <a class="xref" href="NanoSockets.Socket.html">Socket</a></dt>
+    <dd></dd>
+    <dt><code>level</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>optionName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>optionValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>optionLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NanoSockets.Status.html">Status</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

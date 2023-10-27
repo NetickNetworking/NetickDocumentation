@@ -1,0 +1,2971 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NetworkSandbox
+ | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NetworkSandbox
+ | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
+            Netick Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Netick.NetworkSandbox">
+
+
+
+  <h1 id="Netick_NetworkSandbox" data-uid="Netick.NetworkSandbox" class="text-break">
+    Class NetworkSandbox
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Netick.html">Netick</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Netick.Unity.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class NetworkSandbox : MonoBehaviour, IGameEngine</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Object</span></div>
+      <div><span class="xref">Component</span></div>
+      <div><span class="xref">Behaviour</span></div>
+      <div><span class="xref">MonoBehaviour</span></div>
+      <div><span class="xref">NetworkSandbox</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Netick.IGameEngine.html">IGameEngine</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">MonoBehaviour.IsInvoking()</span>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.CancelInvoke()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.Invoke(string, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.InvokeRepeating(string, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.CancelInvoke(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.IsInvoking(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.StartCoroutine(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.StartCoroutine(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">MonoBehaviour.StartCoroutine(IEnumerator)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">MonoBehaviour.StartCoroutine_Auto(IEnumerator)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">MonoBehaviour.StopCoroutine(IEnumerator)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.StopCoroutine(Coroutine)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.StopCoroutine(string)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.StopAllCoroutines()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">MonoBehaviour.print(object)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.destroyCancellationToken</span>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.useGUILayout</span>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.runInEditMode</span>
+    </div>
+    <div>
+      <span class="xref">Behaviour.enabled</span>
+    </div>
+    <div>
+      <span class="xref">Behaviour.isActiveAndEnabled</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponent(Type)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponent&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.TryGetComponent(Type, out Component)</a>
+    </div>
+    <div>
+      <span class="xref">Component.TryGetComponent&lt;T&gt;(out T)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.GetComponent(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInChildren(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInChildren(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentInChildren&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentInChildren&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInChildren(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInChildren(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInChildren&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInChildren&lt;T&gt;(bool, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentsInChildren&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">Component.GetComponentsInChildren&lt;T&gt;(List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInParent(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInParent(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentInParent&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentInParent&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInParent(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInParent(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInParent&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInParent&lt;T&gt;(bool, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentsInParent&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponents(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponents(Type, List&lt;Component&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">Component.GetComponents&lt;T&gt;(List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponents&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.CompareTag(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string, object, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string, object, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string, object, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string, SendMessageOptions)</a>
+    </div>
+    <div>
+      <span class="xref">Component.transform</span>
+    </div>
+    <div>
+      <span class="xref">Component.gameObject</span>
+    </div>
+    <div>
+      <span class="xref">Component.tag</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetInstanceID()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetHashCode()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object.Equals(object)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate(Object, Transform, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate&lt;T&gt;(T, Transform, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.Destroy(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Destroy(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.DestroyImmediate(Object, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyImmediate(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DontDestroyOnLoad(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.DestroyObject(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyObject(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindSceneObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeIncludingAssets(Type)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <span class="xref">Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Object.name</span>
+    </div>
+    <div>
+      <span class="xref">Object.hideFlags</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Netick.ComponentExtensions.html#Netick_ComponentExtensions_SetEnabled_UnityEngine_Component_Netick_NetworkSandbox_System_Boolean_">ComponentExtensions.SetEnabled(Component, NetworkSandbox, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Netick_NetworkSandbox__ctor_" data-uid="Netick.NetworkSandbox.#ctor*"></a>
+
+  <h3 id="Netick_NetworkSandbox__ctor" data-uid="Netick.NetworkSandbox.#ctor">
+  NetworkSandbox()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkSandbox()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Netick_NetworkSandbox_ClientTransform" data-uid="Netick.NetworkSandbox.ClientTransform">
+  ClientTransform
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Transform ClientTransform</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Transform</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_NetworkSandbox_Radius" data-uid="Netick.NetworkSandbox.Radius">
+  Radius
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Radius</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Netick_NetworkSandbox_Config_" data-uid="Netick.NetworkSandbox.Config*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Config" data-uid="Netick.NetworkSandbox.Config">
+  Config
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configuration data for Netick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetickConfig Config { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickConfig.html">NetickConfig</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_ConnectedClients_" data-uid="Netick.NetworkSandbox.ConnectedClients*"></a>
+
+  <h3 id="Netick_NetworkSandbox_ConnectedClients" data-uid="Netick.NetworkSandbox.ConnectedClients">
+  ConnectedClients
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A list containing all connected clients currently.</p>
+<p>Note: if you want the clients + the server, use <a class="xref" href="Netick.NetworkSandbox.html#Netick_NetworkSandbox_ConnectedPlayers">ConnectedPlayers</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetickList&lt;ServerConnection&gt; ConnectedClients { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickList-1.html">NetickList</a>&lt;<a class="xref" href="Netick.ServerConnection.html">ServerConnection</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_ConnectedPlayers_" data-uid="Netick.NetworkSandbox.ConnectedPlayers*"></a>
+
+  <h3 id="Netick_NetworkSandbox_ConnectedPlayers" data-uid="Netick.NetworkSandbox.ConnectedPlayers">
+  ConnectedPlayers
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A list containing all connected clients currently, in addition to the server.</p>
+<p>Note: if you only want the clients, use <a class="xref" href="Netick.NetworkSandbox.html#Netick_NetworkSandbox_ConnectedClients">ConnectedClients</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetickList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickList-1.html">NetickList</a>&lt;<a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_ConnectedServer_" data-uid="Netick.NetworkSandbox.ConnectedServer*"></a>
+
+  <h3 id="Netick_NetworkSandbox_ConnectedServer" data-uid="Netick.NetworkSandbox.ConnectedServer">
+  ConnectedServer
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The server the client is connected to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkConnection ConnectedServer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_CurrentRpcCaller_" data-uid="Netick.NetworkSandbox.CurrentRpcCaller*"></a>
+
+  <h3 id="Netick_NetworkSandbox_CurrentRpcCaller" data-uid="Netick.NetworkSandbox.CurrentRpcCaller">
+  CurrentRpcCaller
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkPlayer CurrentRpcCaller { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_CurrentRpcSource_" data-uid="Netick.NetworkSandbox.CurrentRpcSource*"></a>
+
+  <h3 id="Netick_NetworkSandbox_CurrentRpcSource" data-uid="Netick.NetworkSandbox.CurrentRpcSource">
+  CurrentRpcSource
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Always always returns null except when called inside the body of an RPC method, it returns the <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a> we are executing RPCs from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkConnection CurrentRpcSource { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_DeltaTime_" data-uid="Netick.NetworkSandbox.DeltaTime*"></a>
+
+  <h3 id="Netick_NetworkSandbox_DeltaTime" data-uid="Netick.NetworkSandbox.DeltaTime">
+  DeltaTime
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float DeltaTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Engine_" data-uid="Netick.NetworkSandbox.Engine*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Engine" data-uid="Netick.NetworkSandbox.Engine">
+  Engine
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetickEngine Engine { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickEngine.html">NetickEngine</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_FixedDeltaTime_" data-uid="Netick.NetworkSandbox.FixedDeltaTime*"></a>
+
+  <h3 id="Netick_NetworkSandbox_FixedDeltaTime" data-uid="Netick.NetworkSandbox.FixedDeltaTime">
+  FixedDeltaTime
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Time period between network simulation steps. Same as <span class="xref">UnityEngine.Time.fixedDeltaTime</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FixedDeltaTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_HasLoadScene_" data-uid="Netick.NetworkSandbox.HasLoadScene*"></a>
+
+  <h3 id="Netick_NetworkSandbox_HasLoadScene" data-uid="Netick.NetworkSandbox.HasLoadScene">
+  HasLoadScene
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasLoadScene { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_InKBps_" data-uid="Netick.NetworkSandbox.InKBps*"></a>
+
+  <h3 id="Netick_NetworkSandbox_InKBps" data-uid="Netick.NetworkSandbox.InKBps">
+  InKBps
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Incoming data in kilobytes per second (KBps).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float InKBps { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_InputEnabled_" data-uid="Netick.NetworkSandbox.InputEnabled*"></a>
+
+  <h3 id="Netick_NetworkSandbox_InputEnabled" data-uid="Netick.NetworkSandbox.InputEnabled">
+  InputEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool InputEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_InterpolationDelay_" data-uid="Netick.NetworkSandbox.InterpolationDelay*"></a>
+
+  <h3 id="Netick_NetworkSandbox_InterpolationDelay" data-uid="Netick.NetworkSandbox.InterpolationDelay">
+  InterpolationDelay
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Interpolation delay in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float InterpolationDelay { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_IsClient_" data-uid="Netick.NetworkSandbox.IsClient*"></a>
+
+  <h3 id="Netick_NetworkSandbox_IsClient" data-uid="Netick.NetworkSandbox.IsClient">
+  IsClient
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if this <a class="xref" href="Netick.NetworkSandbox.html">NetworkSandbox</a> is a client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsClient { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_IsConnected_" data-uid="Netick.NetworkSandbox.IsConnected*"></a>
+
+  <h3 id="Netick_NetworkSandbox_IsConnected" data-uid="Netick.NetworkSandbox.IsConnected">
+  IsConnected
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Returns true if this client is currently connected to a server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsConnected { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_IsResimulating_" data-uid="Netick.NetworkSandbox.IsResimulating*"></a>
+
+  <h3 id="Netick_NetworkSandbox_IsResimulating" data-uid="Netick.NetworkSandbox.IsResimulating">
+  IsResimulating
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if we are currently resimulating a previous input/tick of the past. On the server, it always returns false since <b>only the clients resimulate</b>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsResimulating { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_IsServer_" data-uid="Netick.NetworkSandbox.IsServer*"></a>
+
+  <h3 id="Netick_NetworkSandbox_IsServer" data-uid="Netick.NetworkSandbox.IsServer">
+  IsServer
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if this <a class="xref" href="Netick.NetworkSandbox.html">NetworkSandbox</a> is the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsServer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_IsVisiable_" data-uid="Netick.NetworkSandbox.IsVisiable*"></a>
+
+  <h3 id="Netick_NetworkSandbox_IsVisiable" data-uid="Netick.NetworkSandbox.IsVisiable">
+  IsVisiable
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsVisiable { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_LocalInterpolation_" data-uid="Netick.NetworkSandbox.LocalInterpolation*"></a>
+
+  <h3 id="Netick_NetworkSandbox_LocalInterpolation" data-uid="Netick.NetworkSandbox.LocalInterpolation">
+  LocalInterpolation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LocalInterpolation LocalInterpolation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.LocalInterpolation.html">LocalInterpolation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_LocalPlayer_" data-uid="Netick.NetworkSandbox.LocalPlayer*"></a>
+
+  <h3 id="Netick_NetworkSandbox_LocalPlayer" data-uid="Netick.NetworkSandbox.LocalPlayer">
+  LocalPlayer
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkPlayer LocalPlayer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Name_" data-uid="Netick.NetworkSandbox.Name*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Name" data-uid="Netick.NetworkSandbox.Name">
+  Name
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_NetworkTime_" data-uid="Netick.NetworkSandbox.NetworkTime*"></a>
+
+  <h3 id="Netick_NetworkSandbox_NetworkTime" data-uid="Netick.NetworkSandbox.NetworkTime">
+  NetworkTime
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float NetworkTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Objects_" data-uid="Netick.NetworkSandbox.Objects*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Objects" data-uid="Netick.NetworkSandbox.Objects">
+  Objects
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A list containing all simulated/registered network objects [<a class="xref" href="Netick.NetworkObject.html">NetworkObject</a>] currently.</p>
+<p>Note: to get a network object by id, use: <a class="xref" href="Netick.NetworkSandbox.html#Netick_NetworkSandbox_TryGetObject_System_Int32_Netick_NetworkObject__">TryGetObject(int, out NetworkObject)</a> </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ObjectList Objects { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.ObjectList.html">ObjectList</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_OutKBps_" data-uid="Netick.NetworkSandbox.OutKBps*"></a>
+
+  <h3 id="Netick_NetworkSandbox_OutKBps" data-uid="Netick.NetworkSandbox.OutKBps">
+  OutKBps
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Outgoing data in kilobytes per second (KBps).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float OutKBps { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Physics_" data-uid="Netick.NetworkSandbox.Physics*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Physics" data-uid="Netick.NetworkSandbox.Physics">
+  Physics
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <span class="xref">UnityEngine.PhysicsScene</span> associated with this <a class="xref" href="Netick.NetworkSandbox.html">NetworkSandbox</a>. Always use this to perform physics queries inside the sandbox instead of <span class="xref">UnityEngine.Physics</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PhysicsScene Physics { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">PhysicsScene</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Physics2D_" data-uid="Netick.NetworkSandbox.Physics2D*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Physics2D" data-uid="Netick.NetworkSandbox.Physics2D">
+  Physics2D
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <span class="xref">UnityEngine.PhysicsScene2D</span> associated with this <a class="xref" href="Netick.NetworkSandbox.html">NetworkSandbox</a>. Always use this to perform physics queries inside the sandbox instead of <span class="xref">UnityEngine.Physics2D</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PhysicsScene2D Physics2D { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">PhysicsScene2D</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_RTT_" data-uid="Netick.NetworkSandbox.RTT*"></a>
+
+  <h3 id="Netick_NetworkSandbox_RTT" data-uid="Netick.NetworkSandbox.RTT">
+  RTT
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> The round-trip time (RTT) of the client in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double RTT { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_RemoteInterpolation_" data-uid="Netick.NetworkSandbox.RemoteInterpolation*"></a>
+
+  <h3 id="Netick_NetworkSandbox_RemoteInterpolation" data-uid="Netick.NetworkSandbox.RemoteInterpolation">
+  RemoteInterpolation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RemoteInterpolation RemoteInterpolation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.RemoteInterpolation.html">RemoteInterpolation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_ResimulationStep_" data-uid="Netick.NetworkSandbox.ResimulationStep*"></a>
+
+  <h3 id="Netick_NetworkSandbox_ResimulationStep" data-uid="Netick.NetworkSandbox.ResimulationStep">
+  ResimulationStep
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ResimulationStep { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Resimulations_" data-uid="Netick.NetworkSandbox.Resimulations*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Resimulations" data-uid="Netick.NetworkSandbox.Resimulations">
+  Resimulations
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Resimulations { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_ScaledFixedDeltaTime_" data-uid="Netick.NetworkSandbox.ScaledFixedDeltaTime*"></a>
+
+  <h3 id="Netick_NetworkSandbox_ScaledFixedDeltaTime" data-uid="Netick.NetworkSandbox.ScaledFixedDeltaTime">
+  ScaledFixedDeltaTime
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ScaledFixedDeltaTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Scene_" data-uid="Netick.NetworkSandbox.Scene*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Scene" data-uid="Netick.NetworkSandbox.Scene">
+  Scene
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <span class="xref">UnityEngine.SceneManagement.Scene</span> associated with this <a class="xref" href="Netick.NetworkSandbox.html">NetworkSandbox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Scene Scene { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Scene</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_SceneBuildIndex_" data-uid="Netick.NetworkSandbox.SceneBuildIndex*"></a>
+
+  <h3 id="Netick_NetworkSandbox_SceneBuildIndex" data-uid="Netick.NetworkSandbox.SceneBuildIndex">
+  SceneBuildIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SceneBuildIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_StartMode_" data-uid="Netick.NetworkSandbox.StartMode*"></a>
+
+  <h3 id="Netick_NetworkSandbox_StartMode" data-uid="Netick.NetworkSandbox.StartMode">
+  StartMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StartMode StartMode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.StartMode.html">StartMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Tick_" data-uid="Netick.NetworkSandbox.Tick*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Tick" data-uid="Netick.NetworkSandbox.Tick">
+  Tick
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current simulation tick.</p>
+<p>On the server, <b>it's always going forward/increasing.</b></p>
+<p>On the client, <b>during resimulations it returns the current resimulated tick. </b> To check for resimulations, use <a class="xref" href="Netick.NetworkSandbox.html#Netick_NetworkSandbox_IsResimulating">IsResimulating</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tick Tick { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Tick.html">Tick</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Timer_" data-uid="Netick.NetworkSandbox.Timer*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Timer" data-uid="Netick.NetworkSandbox.Timer">
+  Timer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimulationClock Timer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.SimulationClock.html">SimulationClock</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_UserObject_" data-uid="Netick.NetworkSandbox.UserObject*"></a>
+
+  <h3 id="Netick_NetworkSandbox_UserObject" data-uid="Netick.NetworkSandbox.UserObject">
+  UserObject
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Use this to associate an object with this sandbox.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object UserObject { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Netick_NetworkSandbox_Connect_" data-uid="Netick.NetworkSandbox.Connect*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Connect_System_Int32_System_String_System_Byte___System_Int32_" data-uid="Netick.NetworkSandbox.Connect(System.Int32,System.String,System.Byte[],System.Int32)">
+  Connect(int, string, byte[], int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Connect(int port, string ip, byte[] connectionData = null, int connectionDataLength = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>ip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>connectionData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>connectionDataLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_CreateMatch_" data-uid="Netick.NetworkSandbox.CreateMatch*"></a>
+
+  <h3 id="Netick_NetworkSandbox_CreateMatch_System_String_" data-uid="Netick.NetworkSandbox.CreateMatch(System.String)">
+  CreateMatch(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i> Creates a match. Only functional if the low-level transport has support for matchmaking.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CreateMatch(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Name of the match.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Destroy_" data-uid="Netick.NetworkSandbox.Destroy*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Destroy_Netick_NetworkObject_" data-uid="Netick.NetworkSandbox.Destroy(Netick.NetworkObject)">
+  Destroy(NetworkObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Destroys a network object. Only call this on the server or on the client for spawn-predicted objects which have -1 Ids.</p>
+<p>Note: never call this on a child <a class="xref" href="Netick.NetworkObject.html">NetworkObject</a> of the original prefab, only the root of the prefab.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Destroy(NetworkObject obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="Netick.NetworkObject.html">NetworkObject</a></dt>
+    <dd><p>The object to destroy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_DestroyPool_" data-uid="Netick.NetworkSandbox.DestroyPool*"></a>
+
+  <h3 id="Netick_NetworkSandbox_DestroyPool_UnityEngine_GameObject_" data-uid="Netick.NetworkSandbox.DestroyPool(UnityEngine.GameObject)">
+  DestroyPool(GameObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DestroyPool(GameObject networkedPrefab)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkedPrefab</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_DisableComponent_" data-uid="Netick.NetworkSandbox.DisableComponent*"></a>
+
+  <h3 id="Netick_NetworkSandbox_DisableComponent_UnityEngine_Component_" data-uid="Netick.NetworkSandbox.DisableComponent(UnityEngine.Component)">
+  DisableComponent(Component)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DisableComponent(Component component)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <span class="xref">Component</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_DisconnectFromServer_" data-uid="Netick.NetworkSandbox.DisconnectFromServer*"></a>
+
+  <h3 id="Netick_NetworkSandbox_DisconnectFromServer" data-uid="Netick.NetworkSandbox.DisconnectFromServer">
+  DisconnectFromServer()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Disconnects this client from the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DisconnectFromServer()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_EnableComponent_" data-uid="Netick.NetworkSandbox.EnableComponent*"></a>
+
+  <h3 id="Netick_NetworkSandbox_EnableComponent_UnityEngine_Component_" data-uid="Netick.NetworkSandbox.EnableComponent(UnityEngine.Component)">
+  EnableComponent(Component)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EnableComponent(Component component)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <span class="xref">Component</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_FindGameObjectWithTag_" data-uid="Netick.NetworkSandbox.FindGameObjectWithTag*"></a>
+
+  <h3 id="Netick_NetworkSandbox_FindGameObjectWithTag_System_String_System_Boolean_" data-uid="Netick.NetworkSandbox.FindGameObjectWithTag(System.String,System.Boolean)">
+  FindGameObjectWithTag(string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject FindGameObjectWithTag(string tag, bool activeOnly = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>activeOnly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_FindGameObjectsWithTag_" data-uid="Netick.NetworkSandbox.FindGameObjectsWithTag*"></a>
+
+  <h3 id="Netick_NetworkSandbox_FindGameObjectsWithTag_System_String_System_Boolean_" data-uid="Netick.NetworkSandbox.FindGameObjectsWithTag(System.String,System.Boolean)">
+  FindGameObjectsWithTag(string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;GameObject&gt; FindGameObjectsWithTag(string tag, bool activeOnly = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>activeOnly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">GameObject</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_FindGameObjectsWithTag_" data-uid="Netick.NetworkSandbox.FindGameObjectsWithTag*"></a>
+
+  <h3 id="Netick_NetworkSandbox_FindGameObjectsWithTag_System_String_System_Collections_Generic_List_UnityEngine_GameObject__System_Boolean_" data-uid="Netick.NetworkSandbox.FindGameObjectsWithTag(System.String,System.Collections.Generic.List{UnityEngine.GameObject},System.Boolean)">
+  FindGameObjectsWithTag(string, List&lt;GameObject&gt;, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;GameObject&gt; FindGameObjectsWithTag(string tag, List&lt;GameObject&gt; results, bool activeOnly = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>results</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">GameObject</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>activeOnly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">GameObject</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_FindObjectOfType_" data-uid="Netick.NetworkSandbox.FindObjectOfType*"></a>
+
+  <h3 id="Netick_NetworkSandbox_FindObjectOfType__1_System_Boolean_" data-uid="Netick.NetworkSandbox.FindObjectOfType``1(System.Boolean)">
+  FindObjectOfType&lt;T&gt;(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T FindObjectOfType&lt;T&gt;(bool activeOnly = true) where T : Component</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>activeOnly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_FindObjectsOfType_" data-uid="Netick.NetworkSandbox.FindObjectsOfType*"></a>
+
+  <h3 id="Netick_NetworkSandbox_FindObjectsOfType__1_System_Boolean_" data-uid="Netick.NetworkSandbox.FindObjectsOfType``1(System.Boolean)">
+  FindObjectsOfType&lt;T&gt;(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;T&gt; FindObjectsOfType&lt;T&gt;(bool activeOnly = true) where T : Component</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>activeOnly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_FindObjectsOfType_" data-uid="Netick.NetworkSandbox.FindObjectsOfType*"></a>
+
+  <h3 id="Netick_NetworkSandbox_FindObjectsOfType__1_System_Collections_Generic_List___0__System_Boolean_" data-uid="Netick.NetworkSandbox.FindObjectsOfType``1(System.Collections.Generic.List{``0},System.Boolean)">
+  FindObjectsOfType&lt;T&gt;(List&lt;T&gt;, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FindObjectsOfType&lt;T&gt;(List&lt;T&gt; results, bool activeOnly = true) where T : Component</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>results</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>activeOnly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_GetInput_" data-uid="Netick.NetworkSandbox.GetInput*"></a>
+
+  <h3 id="Netick_NetworkSandbox_GetInput__1" data-uid="Netick.NetworkSandbox.GetInput``1">
+  GetInput&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T GetInput&lt;T&gt;() where T : unmanaged</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_GetObject_" data-uid="Netick.NetworkSandbox.GetObject*"></a>
+
+  <h3 id="Netick_NetworkSandbox_GetObject_System_Int32_" data-uid="Netick.NetworkSandbox.GetObject(System.Int32)">
+  GetObject(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Netick.NetworkObject.html">NetworkObject</a> with the specified id. Returns null in case no object with that id exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkObject GetObject(int id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The id of the <a class="xref" href="Netick.NetworkObject.html">NetworkObject</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_GetPrefab_" data-uid="Netick.NetworkSandbox.GetPrefab*"></a>
+
+  <h3 id="Netick_NetworkSandbox_GetPrefab_System_String_" data-uid="Netick.NetworkSandbox.GetPrefab(System.String)">
+  GetPrefab(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a Network Prefab by name.</p>
+<p>Note: this causes GC.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject GetPrefab(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GameObject</span></dt>
+    <dd><p>The Network Prefab</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Hide_" data-uid="Netick.NetworkSandbox.Hide*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Hide" data-uid="Netick.NetworkSandbox.Hide">
+  Hide()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Hide()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_InitializePool_" data-uid="Netick.NetworkSandbox.InitializePool*"></a>
+
+  <h3 id="Netick_NetworkSandbox_InitializePool_UnityEngine_GameObject_System_Int32_System_Boolean_" data-uid="Netick.NetworkSandbox.InitializePool(UnityEngine.GameObject,System.Int32,System.Boolean)">
+  InitializePool(GameObject, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the pool for the specified prefab. After this method has been called for a certain prefab, all instances of that prefab will be recycled and reset when created/destroyed.</p>
+<p>Note: this method should only be called on <a class="xref" href="Netick.NetworkEventsListner.html#Netick_NetworkEventsListner_OnStartup_Netick_NetworkSandbox_">OnStartup(NetworkSandbox)</a>, in other words, just after Netick has been started. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InitializePool(GameObject networkedPrefab, int preloadedAmount, bool hideInactiveMembers = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkedPrefab</code> <span class="xref">GameObject</span></dt>
+    <dd><p>Prefab to enable pooling for.</p>
+</dd>
+    <dt><code>preloadedAmount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>How many instances to be preloaded.</p>
+</dd>
+    <dt><code>hideInactiveMembers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Pass true to hide inactive pool members.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Kick_" data-uid="Netick.NetworkSandbox.Kick*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Kick_Netick_ServerConnection_" data-uid="Netick.NetworkSandbox.Kick(Netick.ServerConnection)">
+  Kick(ServerConnection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i> Disconnects a client from the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Kick(ServerConnection client)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>client</code> <a class="xref" href="Netick.ServerConnection.html">ServerConnection</a></dt>
+    <dd><p>The client to be disconnected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Log_" data-uid="Netick.NetworkSandbox.Log*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Log_System_Object_" data-uid="Netick.NetworkSandbox.Log(System.Object)">
+  Log(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Log(object message)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_LogError_" data-uid="Netick.NetworkSandbox.LogError*"></a>
+
+  <h3 id="Netick_NetworkSandbox_LogError_System_Object_" data-uid="Netick.NetworkSandbox.LogError(System.Object)">
+  LogError(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LogError(object message)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_LogWarning_" data-uid="Netick.NetworkSandbox.LogWarning*"></a>
+
+  <h3 id="Netick_NetworkSandbox_LogWarning_System_Object_" data-uid="Netick.NetworkSandbox.LogWarning(System.Object)">
+  LogWarning(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LogWarning(object message)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.NetworkSandbox.NetworkInstantiate*"></a>
+
+  <h3 id="Netick_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_Netick_SpawnPredictionKey_" data-uid="Netick.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer,Netick.SpawnPredictionKey)">
+  NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer, SpawnPredictionKey)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Instantiates a network prefab.</p>
+<p>Commonly, this should only be called on the server, since only the server can instantiate network prefabs. However, the client can also call this to spawn-predict a prefab by providing a spawn key which must be the same on the server and client when this method is called. Read the docs to learn more about how to use spawn-prediction.</p>
+<p>Note: make sure the prefab has been registered. </p> 
+<p>Note: the specified input source will be given to every <a class="xref" href="Netick.NetworkObject.html">NetworkObject</a> child of this prefab.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, Quaternion rotation, NetworkPlayer inputSource = null, SpawnPredictionKey predictedSpawnKey = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dd><p>The prefab to be instantiated.</p>
+</dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Position of the instantiated object.</p>
+</dd>
+    <dt><code>rotation</code> <span class="xref">Quaternion</span></dt>
+    <dd><p>Rotation of the instantiated object.</p>
+</dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd><p>Input source of the instantiated object.</p>
+</dd>
+    <dt><code>predictedSpawnKey</code> <a class="xref" href="Netick.SpawnPredictionKey.html">SpawnPredictionKey</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_NetworkUpdate_" data-uid="Netick.NetworkSandbox.NetworkUpdate*"></a>
+
+  <h3 id="Netick_NetworkSandbox_NetworkUpdate" data-uid="Netick.NetworkSandbox.NetworkUpdate">
+  NetworkUpdate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void NetworkUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_OnSceneSwitchStart_" data-uid="Netick.NetworkSandbox.OnSceneSwitchStart*"></a>
+
+  <h3 id="Netick_NetworkSandbox_OnSceneSwitchStart_System_Int32_" data-uid="Netick.NetworkSandbox.OnSceneSwitchStart(System.Int32)">
+  OnSceneSwitchStart(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnSceneSwitchStart(int sceneBuildIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sceneBuildIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_RefreshMatchList_" data-uid="Netick.NetworkSandbox.RefreshMatchList*"></a>
+
+  <h3 id="Netick_NetworkSandbox_RefreshMatchList" data-uid="Netick.NetworkSandbox.RefreshMatchList">
+  RefreshMatchList()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Requests an update to the match list. Only functional if the low-level transport has support for matchmaking.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RefreshMatchList()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_SetComponentEnabled_" data-uid="Netick.NetworkSandbox.SetComponentEnabled*"></a>
+
+  <h3 id="Netick_NetworkSandbox_SetComponentEnabled_UnityEngine_Component_System_Boolean_" data-uid="Netick.NetworkSandbox.SetComponentEnabled(UnityEngine.Component,System.Boolean)">
+  SetComponentEnabled(Component, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetComponentEnabled(Component component, bool enabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <span class="xref">Component</span></dt>
+    <dd></dd>
+    <dt><code>enabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_SetInput_" data-uid="Netick.NetworkSandbox.SetInput*"></a>
+
+  <h3 id="Netick_NetworkSandbox_SetInput__1___0_" data-uid="Netick.NetworkSandbox.SetInput``1(``0)">
+  SetInput&lt;T&gt;(T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetInput&lt;T&gt;(T input) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_Show_" data-uid="Netick.NetworkSandbox.Show*"></a>
+
+  <h3 id="Netick_NetworkSandbox_Show" data-uid="Netick.NetworkSandbox.Show">
+  Show()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Show()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_SwitchScene_" data-uid="Netick.NetworkSandbox.SwitchScene*"></a>
+
+  <h3 id="Netick_NetworkSandbox_SwitchScene_System_Int32_" data-uid="Netick.NetworkSandbox.SwitchScene(System.Int32)">
+  SwitchScene(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i> Switches to a different scene. This must be called instead of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">LoadSceneAsync(int)</a> or its variations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SwitchScene(int sceneBuildIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sceneBuildIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Index of the desired scene.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_TickToTime_" data-uid="Netick.NetworkSandbox.TickToTime*"></a>
+
+  <h3 id="Netick_NetworkSandbox_TickToTime_Netick_Tick_" data-uid="Netick.NetworkSandbox.TickToTime(Netick.Tick)">
+  TickToTime(Tick)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts <code class="paramref">tick</code> to time in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float TickToTime(Tick tick)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tick</code> <a class="xref" href="Netick.Tick.html">Tick</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_TickToTime_" data-uid="Netick.NetworkSandbox.TickToTime*"></a>
+
+  <h3 id="Netick_NetworkSandbox_TickToTime_System_Single_" data-uid="Netick.NetworkSandbox.TickToTime(System.Single)">
+  TickToTime(float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts <code class="paramref">tick</code> to time in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float TickToTime(float tick)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tick</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_TryGetBehaviour_" data-uid="Netick.NetworkSandbox.TryGetBehaviour*"></a>
+
+  <h3 id="Netick_NetworkSandbox_TryGetBehaviour__1_System_Int32___0__" data-uid="Netick.NetworkSandbox.TryGetBehaviour``1(System.Int32,``0@)">
+  TryGetBehaviour&lt;T&gt;(int, out T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Trys to get the <a class="xref" href="Netick.NetworkBehaviour.html">NetworkBehaviour</a> of a <a class="xref" href="Netick.NetworkObject.html">NetworkObject</a> with the specified id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetBehaviour&lt;T&gt;(int id, out T behaviour) where T : NetworkBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The id of the network object</p>
+</dd>
+    <dt><code>behaviour</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkSandbox_TryGetObject_" data-uid="Netick.NetworkSandbox.TryGetObject*"></a>
+
+  <h3 id="Netick_NetworkSandbox_TryGetObject_System_Int32_Netick_NetworkObject__" data-uid="Netick.NetworkSandbox.TryGetObject(System.Int32,Netick.NetworkObject@)">
+  TryGetObject(int, out NetworkObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Trys to get the <a class="xref" href="Netick.NetworkObject.html">NetworkObject</a> with the specified id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetObject(int id, out NetworkObject obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The id of the <a class="xref" href="Netick.NetworkObject.html">NetworkObject</a></p>
+</dd>
+    <dt><code>obj</code> <a class="xref" href="Netick.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

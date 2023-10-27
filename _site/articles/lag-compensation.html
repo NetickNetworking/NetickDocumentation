@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Lag Compensation | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Lag Compensation | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
+            Netick Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="lag-compensation">Lag Compensation</h1>
+
+<p><strong>Lag Compensation Requires Premium. Click</strong> <a href="https://www.patreon.com/user?u=82493081"><em><strong>here</strong></em></a><a href="https://www.patreon.com/user/u=82493081"> </a><strong>to get Netick Premium</strong></p>
+<h2 id="understanding-the-need-for-lag-compensation">Understanding the Need for Lag Compensation</h2>
+<p>Due to varying latencies (ping) of connected players, each player will see the world at a different point in time than the server. For instance, when the client sends an input to the server to shoot its weapon, the target that the client was aiming at would be at a different place in the client than the server. Therefore the client would miss its shoots. Because, usually, from the perspective of the client, the positions of other objects (players) are in the <em><strong>remote snapshot timeline</strong></em>, which is always in the past compared to the timeline of the player-controlled character, which’s the <em><strong>predicted snapshot timeline</strong></em>.<br>
+<br>
+On the server, <strong>everything is in the present</strong>. While on the client, <strong>only the player-controlled character is in the present, while other players’ (proxies) positions are in the past.</strong> Though this is not always the case, because due to the ability of Netick to do full-world prediction, it’s possible to put proxies in the predicted snapshot timeline, in which case lag compensation wouldn’t be needed.<br>
+<br>
+<strong>So, what’s Lag Compensation?</strong></p>
+<p>Lag Compensation basically means going back in time to what the client was seeing at the time of the shooting, and simulating its shooting in that past view.<br>
+<br>
+<strong>Question</strong>: why not just let the client tell the server the target that it hit and how much damage it dealt?<br>
+<strong>Answer</strong>: we can’t trust the client. We should never trust the client, especially in game-critical aspects like applying damage. <strong>Lag Compensation gives us authority over hit detection.</strong><br>
+<br>
+Watch this video for a visual explanation:</p>
+<div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/6EwaW2iz4iA" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="lag-compensation-in-netick">Lag Compensation in Netick</h2>
+<h3 id="setting-up-your-character-for-lag-compensation"><strong>Setting up your character for Lag Compensation</strong></h3>
+<p>You have to add a HitShape component (commonly known as a hitbox) on every part of your character which can move. And in the root of your character, you have to add a HitShape Container component which will register all child HitShapes.</p>
+<figure><img src="https://netick.net/wp-content/uploads/2022/11/image-1-1024x600.png" alt=""><figcaption><p>HitShape on each bone</p></figcaption></figure>
+<figure><img src="https://netick.net/wp-content/uploads/2022/11/image-3.png" alt="" height="391" width="407"><figcaption><p>HitShape Container on the root of the character.</p></figcaption></figure>
+<h3 id="performing-a-lag-compensated-raycast"><strong>Performing a Lag-Compensated Raycast</strong></h3>
+<pre><code class="lang-csharp">          // lag-compensated raycast
+            if (Sandbox.GetComponent&lt;LagCompensation&gt;().Raycast(
+                shootPos, 
+                shootDirection, 
+                out var hit, 
+                Object.InputSource, 
+                Mathf.Infinity, 
+                includeUnityColliders: true,
+                queryTriggerInteraction: QueryTriggerInteraction.Ignore))
+            {
+                if (hit.HitShape != null)
+                {
+                    // code to be executed when a HitShape was hit
+                }
+            }  
+</code></pre>
+<p>For a practical example, you might want to get our comprehensive Arena Shooter sample which covers everything we talked about and more: <a href="https://netick.net/arena-shooter-sample/">https://netick.net/arena-shooter-sample/</a></p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

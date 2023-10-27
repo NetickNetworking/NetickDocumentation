@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Network Prefab Pool | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Network Prefab Pool | Netick Networking Engine ">
+      
+      <link rel="icon" href="../../images/logo.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="Netick Documentation">
+            Netick Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="network-prefab-pool">Network Prefab Pool</h1>
+
+<p>Object pooling is a very effective technique to avoid run-time allocations (and thus, improve performance), by creating a pool of objects of the same type, at the start of the game. So that when you want to instantiate a certain prefab, you will not create a new object in memory. But rather, all instances of that prefab are already created, and you simply grab one out of the pool and initialize it. And when you want to destroy an instance, instead of removing it from memory (which causes GC), you put it back on the pool – recycling it.<br>
+<br>
+Pooling is extremely useful and effective if you have a prefab in your game that you instantiate and destroy repeatedly. For instance, the bomb in Bomberman.<br>
+<br>
+Netick has a built-in pooling system that you can use.<br>
+<br>
+By default, all prefabs are not pooled. To enable pooling for a certain prefab, you must call <code>InitializePool</code> <strong>(must be called at the start of Netick in NetworkEventsListner)</strong> on that prefab and pass it the initial amount to create:\</p>
+<pre><code class="lang-csharp">public override void OnStartup(NetworkSandbox sandbox)
+{
+     var bombPrefab = sandbox.GetPrefab(&quot;Bomb&quot;);
+     sandbox.InitializePool(bombPrefab, 5);
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Check out the Bomberman sample if you are confused. It demonstrates pooling of the bomb prefab.</p>
+</div>
+<p>And if this amount happens to be exceeded, Netick will simply create more objects in the pool automatically.</p>
+<p>And you don’t need to use special instantiate or destroy methods to deal with pooled prefabs, it all works through the same <code>Sandbox.NetworkInstantiate</code> and <code>Sandbox.Destroy</code> methods.<br>
+<br>
+Although you still need to reset your objects. However, Netick automatically resets all network properties to their declaration values.</p>
+<h4 id="resetting-prefab-instances">Resetting Prefab Instances</h4>
+<p>To reset your object, override NetworkReset on your class inheriting from NetworkBehaviour:</p>
+<pre><code class="lang-csharp">public override void NetworkReset()
+{
+     // reset all non-networked state which need to be reset so that your object is ready to be used again
+}
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

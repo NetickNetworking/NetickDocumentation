@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface INetickScript
+ | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface INetickScript
+ | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
+            Netick Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Netick.INetickScript">
+
+
+
+  <h1 id="Netick_INetickScript" data-uid="Netick.INetickScript" class="text-break">
+    Interface INetickScript
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Netick.html">Netick</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Netick.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A script which can be added to netick internal simulation loop.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface INetickScript</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Netick_INetickScript_Engine_" data-uid="Netick.INetickScript.Engine*"></a>
+
+  <h3 id="Netick_INetickScript_Engine" data-uid="Netick.INetickScript.Engine">
+  Engine
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">NetickEngine Engine { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickEngine.html">NetickEngine</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_INetickScript_Entity_" data-uid="Netick.INetickScript.Entity*"></a>
+
+  <h3 id="Netick_INetickScript_Entity" data-uid="Netick.INetickScript.Entity">
+  Entity
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Entity Entity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Netick_INetickScript_Initialize_" data-uid="Netick.INetickScript.Initialize*"></a>
+
+  <h3 id="Netick_INetickScript_Initialize_Netick_NetickEngine_" data-uid="Netick.INetickScript.Initialize(Netick.NetickEngine)">
+  Initialize(NetickEngine)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used to initialize the user script and assign Engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Initialize(NetickEngine netickEngine)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>netickEngine</code> <a class="xref" href="Netick.NetickEngine.html">NetickEngine</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_INetickScript_NetworkDestroy_" data-uid="Netick.INetickScript.NetworkDestroy*"></a>
+
+  <h3 id="Netick_INetickScript_NetworkDestroy" data-uid="Netick.INetickScript.NetworkDestroy">
+  NetworkDestroy()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when this behaviour has been removed from the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void NetworkDestroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_INetickScript_NetworkFixedUpdate_" data-uid="Netick.INetickScript.NetworkFixedUpdate*"></a>
+
+  <h3 id="Netick_INetickScript_NetworkFixedUpdate" data-uid="Netick.INetickScript.NetworkFixedUpdate">
+  NetworkFixedUpdate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.</p>
+<p>On the client, if you are the Input Source or if this Entity.PredictionMode is set to Everyone, it will be called several times in one update/tick during resimulations. To check for resimulations, use [<a class="xref" href="Netick.Entity.html#Netick_Entity_IsResimulating">IsResimulating</a>].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void NetworkFixedUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_INetickScript_NetworkRender_" data-uid="Netick.INetickScript.NetworkRender*"></a>
+
+  <h3 id="Netick_INetickScript_NetworkRender" data-uid="Netick.INetickScript.NetworkRender">
+  NetworkRender()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called every frame. Executed after NetworkUpdate and NetworkFixedUpdate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void NetworkRender()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_INetickScript_NetworkStart_" data-uid="Netick.INetickScript.NetworkStart*"></a>
+
+  <h3 id="Netick_INetickScript_NetworkStart" data-uid="Netick.INetickScript.NetworkStart">
+  NetworkStart()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when this behaviour has been added to the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void NetworkStart()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_INetickScript_NetworkUpdate_" data-uid="Netick.INetickScript.NetworkUpdate*"></a>
+
+  <h3 id="Netick_INetickScript_NetworkUpdate" data-uid="Netick.INetickScript.NetworkUpdate">
+  NetworkUpdate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called every frame. Executed before NetworkFixedUpdate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void NetworkUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
