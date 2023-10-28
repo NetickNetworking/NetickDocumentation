@@ -1,10 +1,10 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home3/netickne/public_html/xdocs/
-    - /bin/cp -a /_site/. $DEPLOYPATH
 # ---
 # deployment:
 #   tasks:
 #     - export DEPLOYPATH=/home3/netickne/public_html/xdocs/
-#     - /bin/cp -R /_site/ $DEPLOYPATH
+#     - /bin/cp -a /_site/. $DEPLOYPATH
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home3/netickne/public_html/xdocs/
+    - /bin/cp -R _site $DEPLOYPATH
