@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Network Object Instantiation and Destruction | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Network Object Instantiation and Destruction | Netick Networking Engine ">
+      
+      <link rel="icon" href="../../images/logo.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="network-object-instantiation-and-destruction">Network Object Instantiation and Destruction</h1>
+
+<p>To Instantiate a network prefab:</p>
+<pre><code class="lang-csharp">sandbox.NetworkInstantiate(prefab);
+</code></pre>
+<p>Normally, it’s only possible to instantiate network prefabs on the server. However, it’s possible to spawn-predict them on the client, check out the next section for that.</p>
+<p>To destroy any networked object:</p>
+<pre><code class="lang-csharp">sandbox.Destroy(obj)
+</code></pre>
+<p>This will destroy obj and all of its nested Network Objects. Should be called only from the server/owner, although it can also be used to destroy spawn-predicted objects on the client with invalid Ids.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Make sure to never use Unity’s instantiate/destroy methods to create/destroy a network object, only Netick’s methods.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Make sure that all your prefabs are registered by Netick in Netick Settings panel. And also make sure the prefab list is identical in both the client and the server (if you are running two Unity editors), otherwise, weird stuff will occur.</p>
+</div>
+<h2 id="spawn-prediction">Spawn-Prediction</h2>
+<p>Spawn-Prediction allows you to instantiate/spawn network objects on the client, without having to wait for the server to spawn them. The client would create a local copy of the object, and when the server actually creates the object and the confirmation arrives on the client, the client version of that object would then obtain a valid network Id – meaning it now exists on the network and has been successfully spawn-predicted.</p>
+<p><strong>How To Use</strong></p>
+<p>To use Spawn-Prediction, you must pass a key (SpawnPredictionKey) to the NetworkInstantiate method.</p>
+<p>Notes on the key:</p>
+<ul>
+<li><strong>The key must be unique between calls, and usually also between different clients.</strong></li>
+<li><strong>The key must be the same key when the NetworkInstantiate method is called on both the client and the server, for the object to correctly be spawned and confirmed on the network.</strong></li>
+</ul>
+<p>When the client locally instantiates the object, and before the confirmation arrives from the server, the object would have an Id of -1 (invalid id). That means it has yet to be confirmed to have been spawned on the server. Using this knowledge, you can know whether or not the object has been successfully spawn-predicted at this point in time. If after a relatively long period the server has yet to create, and therefore confirm, the object, you can choose to destory it on the client.</p>
+<p>But It’s important to know that you mustn’t destroy objects, successfully spawn-predicted or not, on the client. Only objects, prefab instances precisely, which have -1 Id are allowed to be destroyed on the client. In the case where you destroy a pending spawn-predicted object which happen to be spawned on the server later on, that object would be re-created on the client.</p>
+<p>Notes:</p>
+<ul>
+<li>Netick does not destroy spawn-predicted objects on the client which weren’t spawned on the server. You must destroy them yourself.</li>
+<li>Netick would only call NetworkStart once for the spawn-predicted object on the client, and it’s when the client spawns it. It won’t be called when the object has been confirmed. Instead, you can override OnSpawnPredictionSucceeded for that.</li>
+<li>Netick automatically destroys all pending spawn-predicted (yet to be confirmed) network objects when input loss occurs on the client.</li>
+</ul>
+<p>Check out the Bomberman sample to see the usage of Spawn-Prediction on the Bomb prefab.\</p>
+<p><strong>Spawn-Prediction Example</strong></p>
+<pre><code class="lang-csharp">public override void NetworkFixedUpdate()
+        {
+            if (FetchInput(out BombermanInput input))
+            {
+                if (!IsResimulating &amp;&amp; input.PlantBomb)
+                {
+                    var spawnKey = new SpawnPredictionKey((byte)Sandbox.Tick.TickValue, (byte)InputSource.PlayerId);
+                    Sandbox.NetworkInstantiate(_bombPrefab, Round(transform.position), Quaternion.identity, spawnPredictionKey: spawnKey);
+                }
+            }
+        }
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

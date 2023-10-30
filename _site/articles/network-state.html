@@ -42,8 +42,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
-            Netick Documentation
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -86,7 +86,7 @@
 <h1 id="network-state">Network State</h1>
 
 <h3 id="network-property-"><strong>Network Property</strong> <a href="#network-property" id="network-property"></a></h3>
-<p>A Network Property is a C# property which is replicated across the network. For a property to be networked, the Attribute [Networked] must be added to it. An example of a networked property:</p>
+<p>A Network Property is a C# property which is replicated across the network. For a property to be networked, the Attribute <a class="xref" href="../api/Netick.Networked.html">Networked</a> must be added to it. An example of a networked property:</p>
 <pre><code class="lang-csharp">[Networked]
 public int Health {get; set;}
 </code></pre>
@@ -109,12 +109,12 @@ public int Health {get; set;}
 <li>Color</li>
 </ol>
 <h3 id="network-arrays">Network Arrays</h3>
-<p>Network arrays are just like regular C# arrays, but their syntax is a bit different. They are defined using the NetworkArray generic class.</p>
+<p>Network arrays are just like regular C# arrays, but their syntax is a bit different. They are defined using the <a class="xref" href="../api/Netick.NetworkArray-1.html">NetworkArray&lt;T&gt;</a> generic class.</p>
 <p>Example of a network array:</p>
 <pre><code class="lang-csharp">[Networked (size: 10)] public NetworkArray Items { get; set; }
 </code></pre>
 <h3 id="custom-networked-structs-"><strong>Custom Networked Structs</strong> <a href="#custom-networked-structs" id="custom-networked-structs"></a></h3>
-<p>You can define custom structs that can be networked/replicated by adding the attribute [Networked] to them, like this:</p>
+<p>You can define custom structs that can be networked/replicated by adding the attribute <a class="xref" href="../api/Netick.Networked.html">Networked</a> to them, like this:</p>
 <pre><code class="lang-csharp">[Networked]
 public struct Inventory
 {

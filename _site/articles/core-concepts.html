@@ -42,8 +42,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
-            Netick Documentation
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -86,26 +86,26 @@
 <h1 id="core-concepts">Core Concepts</h1>
 
 <h3 id="network-sandbox-"><strong>Network Sandbox</strong> <a href="#network-sandbox" id="network-sandbox"></a></h3>
-<p>Network Sandbox is what controls the whole network simulation. It can be thought of as the manager of the simulation. You can have more than one network sandbox in a single Unity game, and that happens when you start both a client and a server on the same project. This can be extremely useful for testing/debugging, because it allows you to run a server and a client (or multiple thereof) in the same project and therefore see what happens at both at the same time, without interference.</p>
+<p><a class="xref" href="../api/Netick.NetworkSandbox.html">NetworkSandbox</a> is what controls the whole network simulation. It can be thought of as the manager of the simulation. You can have more than one network sandbox in a single Unity game, and that happens when you start both a client and a server on the same project. This can be extremely useful for testing/debugging, because it allows you to run a server and a client (or multiple thereof) in the same project and therefore see what happens at both at the same time, without interference.</p>
 <ul>
 <li>Therefore you can think of a sandbox as representing a server or a client.</li>
 <li>You can show/hide the current sandboxes from the Network Sandboxes panel.</li>
 </ul>
 <h3 id="network-object-"><strong>Network Object</strong> <a href="#network-object" id="network-object"></a></h3>
-<p>Any GameObject which needs to be synced/replicated must be a Network Object (has the Network Object added to it). If you want to see something on everyone’s screen, it has to have a Network Object component added to it. It’s the component that tells Netick that a GameObject is networked. The Network Object component by itself just informs Netick that the object is networked. To add networked gameplay-logic to it, you must do so in a component of a class derived from Network Behavior. Netick comes with a few essential built-in components:</p>
+<p>Any GameObject which needs to be synced/replicated must be a <a class="xref" href="../api/Netick.NetworkObject.html">NetworkObject</a> (has the <a class="xref" href="../api/Netick.NetworkObject.html">NetworkObject</a> added to it). If you want to see something on everyone’s screen, it has to have a <a class="xref" href="../api/Netick.NetworkObject.html">NetworkObject</a> component added to it. It’s the component that tells Netick that a GameObject is networked. The <a class="xref" href="../api/Netick.NetworkObject.html">NetworkObject</a> component by itself just informs Netick that the object is networked. To add networked gameplay-logic to it, you must do so in a component of a class derived from Network Behavior. Netick comes with a few essential built-in components:</p>
 <ul>
-<li>Network Transform: used to sync position and rotation</li>
-<li>Network Rigidbody: used to sync controllable physical objects</li>
-<li>Network Animator: used to sync Unity’s animator’s state</li>
+<li><a class="xref" href="../api/Netick.NetworkTransform.html">NetworkTransform</a>: used to sync position and rotation</li>
+<li><a class="xref" href="../api/Netick.NetworkRigidbody.html">NetworkRigidbody</a>: used to sync controllable physical objects</li>
+<li><a class="xref" href="../api/Netick.NetworkAnimator.html">NetworkAnimator</a>: used to sync Unity’s animator’s state</li>
 </ul>
-<h3 id="network-behavior-"><strong>Network Behavior</strong> <a href="#network-behavior" id="network-behavior"></a></h3>
-<p>The Network Behavior class is your old friend MonoBehaviour, just the networked version of it. To implement your networked functionality, just create a new class and derive it from NetworkBehavior. You have several methods you can override which correspond to Unity’s non-networked equivalents (they must be used instead of Unity’s equivalents when doing anything related to the network simulation):</p>
+<h3 id="network-behaviour-"><strong>Network Behaviour</strong> <a href="#network-behaviour" id="network-behaviour"></a></h3>
+<p>The <a class="xref" href="../api/Netick.NetworkBehaviour.html">NetworkBehaviour</a> class is your old friend MonoBehaviour, just the networked version of it. To implement your networked functionality, just create a new class and derive it from <a class="xref" href="../api/Netick.NetworkBehaviour.html">NetworkBehaviour</a>. You have several methods you can override which correspond to Unity’s non-networked equivalents (they must be used instead of Unity’s equivalents when doing anything related to the network simulation):</p>
 <ul>
-<li>NetworkStart</li>
-<li>NetworkDestroy</li>
-<li>NetworkFixedUpdate</li>
-<li>NetworkUpdate</li>
-<li>NetworkRender</li>
+<li><a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkStart</a></li>
+<li><a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkDestroy</a></li>
+<li><a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkFixedUpdate</a></li>
+<li><a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkUpdate</a></li>
+<li><a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkRender</a></li>
 </ul>
 <p>Example:</p>
 <pre><code class="lang-csharp">using System.Collections;
@@ -117,41 +117,41 @@ public class MyBehaviour : NetworkBehaviour
 {
     [Networked]
     public int   IntPropertyExample   { get; set;}
-    
+
     [Networked]
     public float FloatPropertyExample { get; set;}
-    
-    public override void NetworkStart() 
+
+    public override void NetworkStart()
     {
         // Called when this object has been added to the simulation.
     }
 
-    public override void NetworkDestroy() 
+    public override void NetworkDestroy()
     {
         // Called when this object has been removed from the simulation.
     }
 
-    public override void NetworkUpdate() 
+    public override void NetworkUpdate()
     {
-        // Called every frame. Executed before NetworkFixedUpdate.      
+        // Called every frame. Executed before NetworkFixedUpdate.
     }
 
-    public override void NetworkRender() 
+    public override void NetworkRender()
     {
         // Called every frame. Executed after NetworkUpdate and NetworkFixedUpdate.
         // IMPORTANT NOTE: properties (which can be interpolated) marked with [Smooth] attribute will return interpolated values when accessed in this method.
     }
 
-    public override void NetworkFixedUpdate() 
+    public override void NetworkFixedUpdate()
     {
         // Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.
-        // Check out the chapter named &quot;Writing Client-Side Prediction code&quot; to learn more about this method. 
+        // Check out the chapter named &quot;Writing Client-Side Prediction code&quot; to learn more about this method.
     }
 
 }
 </code></pre>
 <p>Don’t forget to include <code>using Netick</code></p>
-<p>A class derived from Networked Behavior is almost useless without the utilization of Network Properties, which are the building blocks of your networked synced state. These properties are ensured to be eventually synced to everyone in the network, letting you create objects with complex states and not worry about it.</p>
+<p>A class derived from <a class="xref" href="../api/Netick.NetworkBehaviour.html">NetworkBehaviour</a> is almost useless without the utilization of Network Properties, which are the building blocks of your networked synced state. These properties are ensured to be eventually synced to everyone in the network, letting you create objects with complex states and not worry about it.</p>
 
 </article>
 

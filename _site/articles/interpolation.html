@@ -42,8 +42,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
-            Netick Documentation
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -97,15 +97,15 @@ Since there are 5 frames between two ticks, the values at each frame would be:</
 <li>Frame 5: 3 — End of tick 6, beginning of tick 7</li>
 </ul>
 <h2 id="interpolation-of-network-transform"><strong>Interpolation of Network Transform</strong></h2>
-<p>For moving objects, this is important to deal with. Every NetworkTransform has a slot for a Render transform, which is basically the smoothed/interpolated mesh of the object, while the parent would be the simulated/non-interpolated object.</p>
-<p>So, you must break your moving objects into a parent (which has the NetworkTransform), and a child which is the interpolated object, and has the mesh/s. Then you specify that child in the Network Transform Render Transform property in the inspector. Check the samples if you are confused.</p>
+<p>For moving objects, this is important to deal with. Every <a class="xref" href="../api/Netick.NetworkTransform.html">NetworkTransform</a> has a slot for a Render transform, which is basically the smoothed/interpolated mesh of the object, while the parent would be the simulated/non-interpolated object.</p>
+<p>So, you must break your moving objects into a parent (which has the <a class="xref" href="../api/Netick.NetworkTransform.html">NetworkTransform</a>), and a child which is the interpolated object, and has the mesh/s. Then you specify that child in the NetworkTransform RenderTransform property in the inspector. Check the samples if you are confused.</p>
 <h2 id="interpolation-of-network-properties"><strong>Interpolation of Network Properties</strong></h2>
-<p>To interpolate a property, add the <code>[Smooth]</code> attribute to its declaration:</p>
+<p>To interpolate a property, add the [&lt;xref:Netick.Smooth&gt;] attribute to its declaration:</p>
 <pre><code class="lang-csharp">[Networked][Smooth]
 public Vector3 Movement {get; set;}
 </code></pre>
 <h2 id="accessing-interpolated-values"><strong>Accessing Interpolated Values</strong></h2>
-<p>To access the interpolated value, by referencing the property in <code>NetworkRender</code>, you automatically get interpolated values:</p>
+<p>To access the interpolated value, by referencing the property in <a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkRender</a>, you automatically get interpolated values:</p>
 <pre><code class="lang-csharp">public override NetworkRender()
 {
     var interpolatedValue = Movement;
@@ -120,12 +120,12 @@ public Vector3 Movement {get; set;}
 </ul>
 <p>Other types just return the From snapshot between the two snapshots being interpolated.</p>
 <h2 id="interpolation-of-other-types"><strong>Interpolation of Other Types</strong></h2>
-<p>To interpolate other types, you can do that using the <code>Interpolator&lt;T&gt;</code> object.</p>
-<p>First, you must include an id in <code>[Smooth]</code>:</p>
+<p>To interpolate other types, you can do that using the <a class="xref" href="../api/Netick.Interpolator-1.html">Interpolator&lt;T&gt;</a> object.</p>
+<p>First, you must include an id in [&lt;xref:Netick.Smooth&gt;]:</p>
 <pre><code class="lang-csharp">[Networked][Smooth(6)]
 public MyType SomeProperty {get; set;}
 </code></pre>
-<p>And to access the interpolated value, you first need to acquire a reference to the Interpolator object, through which you can get the From and To values, and the Alpha, which you use to interpolate the property.</p>
+<p>And to access the interpolated value, you first need to acquire a reference to the <a class="xref" href="../api/Netick.Interpolator-1.html">Interpolator&lt;T&gt;</a> object, through which you can get the From and To values, and the Alpha, which you use to interpolate the property.</p>
 <pre><code class="lang-csharp">public override NetworkRender()
 {
     var interpolator      = FindInterpolator&lt;MyType&gt;(6);
@@ -140,9 +140,10 @@ private MyType LerpMyType(MyType from, MyType to, float alpha)
     // write the interpolation code here
 }
 </code></pre>
+<p><a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkStart</a></p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Note: you should cache the result to <code>FindInterpolator&lt;MyType&gt;(5)</code> on NetworkStart, instead of calling it repeatedly every frame (NetworkRender is called every frame), since it might be a bit slow.</p>
+<p>You should cache the result to <code>FindInterpolator&lt;MyType&gt;(5)</code> on <a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkStart</a>, instead of calling it repeatedly every frame (NetworkRender is called every frame), since it might be a bit slow.</p>
 </div>
 
 </article>

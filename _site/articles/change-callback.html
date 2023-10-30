@@ -42,8 +42,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Documentation">
-            Netick Documentation
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -86,7 +86,7 @@
 <h1 id="change-callback">Change Callback</h1>
 
 <h2 id="for-properties">For Properties</h2>
-<p>You can have a method get called whenever a networked property changes, which is very useful. To do that, add the attribute <code>[OnChanged]</code> to the method and give it the name of the property. The method must have one parameter of the same type of the property which would contain its previous value.</p>
+<p>You can have a method get called whenever a networked property changes, which is very useful. To do that, add the attribute [<a class="xref" href="../api/Netick.OnChanged.html">OnChanged</a>] to the method and give it the name of the property. The method must have one parameter of the same type of the property which would contain its previous value.</p>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked]
 public int Health { get; set; }
@@ -94,7 +94,7 @@ public int Health { get; set; }
 [OnChanged(nameof(Health ))]
 private void OnHealthChanged(int previous)
 {
-        // Something that happens when the Health property changes
+      // Something that happens when the Health property changes
 }
 </code></pre>
 <h2 id="for-arrays"><strong>For Arrays</strong></h2>
