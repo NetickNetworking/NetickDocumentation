@@ -1,0 +1,1564 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NetworkEvents
+ | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NetworkEvents
+ | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Netick.Unity.NetworkEvents">
+
+
+
+  <h1 id="Netick_Unity_NetworkEvents" data-uid="Netick.Unity.NetworkEvents" class="text-break">
+    Class NetworkEvents
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Netick.html">Netick</a>.<a class="xref" href="Netick.Unity.html">Unity</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Netick.Unity.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[AddComponentMenu(&quot;Netick/Network Events&quot;)]
+public class NetworkEvents : NetworkEventsListener</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Object</span></div>
+      <div><span class="xref">Component</span></div>
+      <div><span class="xref">Behaviour</span></div>
+      <div><span class="xref">MonoBehaviour</span></div>
+      <div><a class="xref" href="Netick.Unity.NetworkEventsListener.html">NetworkEventsListener</a></div>
+      <div><span class="xref">NetworkEvents</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_UnlinkFromNetick">NetworkEventsListener.UnlinkFromNetick()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_Sandbox">NetworkEventsListener.Sandbox</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.IsInvoking()</span>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.CancelInvoke()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.Invoke(string, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.InvokeRepeating(string, float, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.CancelInvoke(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.IsInvoking(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.StartCoroutine(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.StartCoroutine(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">MonoBehaviour.StartCoroutine(IEnumerator)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">MonoBehaviour.StartCoroutine_Auto(IEnumerator)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">MonoBehaviour.StopCoroutine(IEnumerator)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.StopCoroutine(Coroutine)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">MonoBehaviour.StopCoroutine(string)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.StopAllCoroutines()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">MonoBehaviour.print(object)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.destroyCancellationToken</span>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.useGUILayout</span>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.runInEditMode</span>
+    </div>
+    <div>
+      <span class="xref">Behaviour.enabled</span>
+    </div>
+    <div>
+      <span class="xref">Behaviour.isActiveAndEnabled</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponent(Type)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponent&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.TryGetComponent(Type, out Component)</a>
+    </div>
+    <div>
+      <span class="xref">Component.TryGetComponent&lt;T&gt;(out T)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.GetComponent(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInChildren(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInChildren(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentInChildren&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentInChildren&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInChildren(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInChildren(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInChildren&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInChildren&lt;T&gt;(bool, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentsInChildren&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">Component.GetComponentsInChildren&lt;T&gt;(List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInParent(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentInParent(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentInParent&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentInParent&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInParent(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponentsInParent(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInParent&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Component.GetComponentsInParent&lt;T&gt;(bool, List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponentsInParent&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponents(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Component.GetComponents(Type, List&lt;Component&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">Component.GetComponents&lt;T&gt;(List&lt;T&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">Component.GetComponents&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.CompareTag(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string, object, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessageUpwards(string, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string, object, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.SendMessage(string, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string, object, SendMessageOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">Component.BroadcastMessage(string, SendMessageOptions)</a>
+    </div>
+    <div>
+      <span class="xref">Component.transform</span>
+    </div>
+    <div>
+      <span class="xref">Component.gameObject</span>
+    </div>
+    <div>
+      <span class="xref">Component.tag</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetInstanceID()</span>
+    </div>
+    <div>
+      <span class="xref">Object.GetHashCode()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object.Equals(object)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate(Object, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate(Object, Transform, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, Transform)</span>
+    </div>
+    <div>
+      <span class="xref">Object.Instantiate&lt;T&gt;(T, Transform)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.Instantiate&lt;T&gt;(T, Transform, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.Destroy(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.Destroy(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.DestroyImmediate(Object, bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyImmediate(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DontDestroyOnLoad(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Object.DestroyObject(Object, float)</a>
+    </div>
+    <div>
+      <span class="xref">Object.DestroyObject(Object)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindSceneObjectsOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeIncludingAssets(Type)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <span class="xref">Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Object.name</span>
+    </div>
+    <div>
+      <span class="xref">Object.hideFlags</span>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Netick.Unity.ComponentExtensions.html#Netick_Unity_ComponentExtensions_SetEnabled_UnityEngine_Component_Netick_Unity_NetworkSandbox_System_Boolean_">ComponentExtensions.SetEnabled(Component, NetworkSandbox, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Netick_Unity_NetworkEvents__ctor_" data-uid="Netick.Unity.NetworkEvents.#ctor*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents__ctor" data-uid="Netick.Unity.NetworkEvents.#ctor">
+  NetworkEvents()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onClientConnected" data-uid="Netick.Unity.NetworkEvents.onClientConnected">
+  onClientConnected
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnClientConnectedEvent onClientConnected</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnClientConnectedEvent.html">OnClientConnectedEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onClientDisconnected" data-uid="Netick.Unity.NetworkEvents.onClientDisconnected">
+  onClientDisconnected
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnClientDisconnectedEvent onClientDisconnected</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnClientDisconnectedEvent.html">OnClientDisconnectedEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onClientSceneLoaded" data-uid="Netick.Unity.NetworkEvents.onClientSceneLoaded">
+  onClientSceneLoaded
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnClientSceneLoadeddEvent onClientSceneLoaded</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnClientSceneLoadeddEvent.html">OnClientSceneLoadeddEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onConnectFailedEvent" data-uid="Netick.Unity.NetworkEvents.onConnectFailedEvent">
+  onConnectFailedEvent
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnConnectFailedEvent onConnectFailedEvent</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnConnectFailedEvent.html">OnConnectFailedEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onConnectRequest" data-uid="Netick.Unity.NetworkEvents.onConnectRequest">
+  onConnectRequest
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnConnectRequestEvent onConnectRequest</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnConnectRequestEvent.html">OnConnectRequestEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onConnectedToServer" data-uid="Netick.Unity.NetworkEvents.onConnectedToServer">
+  onConnectedToServer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnConnectedToServerEvent onConnectedToServer</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnConnectedToServerEvent.html">OnConnectedToServerEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onDisconnectedFromServer" data-uid="Netick.Unity.NetworkEvents.onDisconnectedFromServer">
+  onDisconnectedFromServer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnDisconnectedFromServerEvent onDisconnectedFromServer</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnDisconnectedFromServerEvent.html">OnDisconnectedFromServerEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onInput" data-uid="Netick.Unity.NetworkEvents.onInput">
+  onInput
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnInputEvent onInput</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnInputEvent.html">OnInputEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onMatchCreated" data-uid="Netick.Unity.NetworkEvents.onMatchCreated">
+  onMatchCreated
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnMatchCreatedEvent onMatchCreated</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnMatchCreatedEvent.html">OnMatchCreatedEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onMatchList" data-uid="Netick.Unity.NetworkEvents.onMatchList">
+  onMatchList
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnMatchListUpdateEvent onMatchList</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnMatchListUpdateEvent.html">OnMatchListUpdateEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onObjectCreated" data-uid="Netick.Unity.NetworkEvents.onObjectCreated">
+  onObjectCreated
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnObjectCreatedEvent onObjectCreated</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnObjectCreatedEvent.html">OnObjectCreatedEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onObjectDestroyed" data-uid="Netick.Unity.NetworkEvents.onObjectDestroyed">
+  onObjectDestroyed
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnObjectDestroyedEvent onObjectDestroyed</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnObjectDestroyedEvent.html">OnObjectDestroyedEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onSceneLoadStarted" data-uid="Netick.Unity.NetworkEvents.onSceneLoadStarted">
+  onSceneLoadStarted
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnSceneLoadStartedEvent onSceneLoadStarted</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnSceneLoadStartedEvent.html">OnSceneLoadStartedEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onSceneLoaded" data-uid="Netick.Unity.NetworkEvents.onSceneLoaded">
+  onSceneLoaded
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnSceneLoadedEvent onSceneLoaded</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnSceneLoadedEvent.html">OnSceneLoadedEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onShutdown" data-uid="Netick.Unity.NetworkEvents.onShutdown">
+  onShutdown
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnShutdownEvent onShutdown</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnShutdownEvent.html">OnShutdownEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkEvents_onStartup" data-uid="Netick.Unity.NetworkEvents.onStartup">
+  onStartup
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkEvents.OnStartupEvent onStartup</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a>.<a class="xref" href="Netick.Unity.NetworkEvents.OnStartupEvent.html">OnStartupEvent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Netick_Unity_NetworkEvents_OnClientConnected_" data-uid="Netick.Unity.NetworkEvents.OnClientConnected*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnClientConnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_" data-uid="Netick.Unity.NetworkEvents.OnClientConnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)">
+  OnClientConnected(NetworkSandbox, NetworkConnection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on the server when a specific client has connected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnClientConnected(NetworkSandbox sandbox, NetworkConnection client)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>client</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnClientDisconnected_" data-uid="Netick.Unity.NetworkEvents.OnClientDisconnected*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnClientDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_" data-uid="Netick.Unity.NetworkEvents.OnClientDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)">
+  OnClientDisconnected(NetworkSandbox, NetworkConnection, TransportDisconnectReason)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on the server when a specific client has disconnected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnClientDisconnected(NetworkSandbox sandbox, NetworkConnection client, TransportDisconnectReason transportDisconnectReason)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>client</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+    <dt><code>transportDisconnectReason</code> <a class="xref" href="Netick.TransportDisconnectReason.html">TransportDisconnectReason</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnClientSceneLoaded_" data-uid="Netick.Unity.NetworkEvents.OnClientSceneLoaded*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnClientSceneLoaded_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_" data-uid="Netick.Unity.NetworkEvents.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)">
+  OnClientSceneLoaded(NetworkSandbox, NetworkConnection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on the server when a specific client finished loading the scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnClientSceneLoaded(NetworkSandbox sandbox, NetworkConnection client)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>client</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnConnectFailed_" data-uid="Netick.Unity.NetworkEvents.OnConnectFailed*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnConnectFailed_Netick_Unity_NetworkSandbox_Netick_ConnectionFailedReason_" data-uid="Netick.Unity.NetworkEvents.OnConnectFailed(Netick.Unity.NetworkSandbox,Netick.ConnectionFailedReason)">
+  OnConnectFailed(NetworkSandbox, ConnectionFailedReason)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on the client when the connection to the server was refused, or simply failed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnConnectFailed(NetworkSandbox sandbox, ConnectionFailedReason reason)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>reason</code> <a class="xref" href="Netick.ConnectionFailedReason.html">ConnectionFailedReason</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnConnectRequest_" data-uid="Netick.Unity.NetworkEvents.OnConnectRequest*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnConnectRequest_Netick_Unity_NetworkSandbox_Netick_NetworkConnectionRequest_" data-uid="Netick.Unity.NetworkEvents.OnConnectRequest(Netick.Unity.NetworkSandbox,Netick.NetworkConnectionRequest)">
+  OnConnectRequest(NetworkSandbox, NetworkConnectionRequest)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on the server when a client tries to connect. Use <code class="paramref">request</code> to decide whether or not to allow this client to connect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnConnectRequest(NetworkSandbox sandbox, NetworkConnectionRequest request)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>request</code> <a class="xref" href="Netick.NetworkConnectionRequest.html">NetworkConnectionRequest</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnConnectedToServer_" data-uid="Netick.Unity.NetworkEvents.OnConnectedToServer*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnConnectedToServer_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_" data-uid="Netick.Unity.NetworkEvents.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)">
+  OnConnectedToServer(NetworkSandbox, NetworkConnection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on the client when connection to the server has been initiated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnConnectedToServer(NetworkSandbox sandbox, NetworkConnection server)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>server</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnDisconnectedFromServer_" data-uid="Netick.Unity.NetworkEvents.OnDisconnectedFromServer*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnDisconnectedFromServer_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_" data-uid="Netick.Unity.NetworkEvents.OnDisconnectedFromServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)">
+  OnDisconnectedFromServer(NetworkSandbox, NetworkConnection, TransportDisconnectReason)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on the client when connection to the server ended, or when a network error caused the disconnection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnDisconnectedFromServer(NetworkSandbox sandbox, NetworkConnection server, TransportDisconnectReason transportDisconnectReason)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>server</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+    <dt><code>transportDisconnectReason</code> <a class="xref" href="Netick.TransportDisconnectReason.html">TransportDisconnectReason</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnInput_" data-uid="Netick.Unity.NetworkEvents.OnInput*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnInput_Netick_Unity_NetworkSandbox_" data-uid="Netick.Unity.NetworkEvents.OnInput(Netick.Unity.NetworkSandbox)">
+  OnInput(NetworkSandbox)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called to read inputs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnInput(NetworkSandbox sandbox)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnMatchCreated_" data-uid="Netick.Unity.NetworkEvents.OnMatchCreated*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnMatchCreated_Netick_Unity_NetworkSandbox_" data-uid="Netick.Unity.NetworkEvents.OnMatchCreated(Netick.Unity.NetworkSandbox)">
+  OnMatchCreated(NetworkSandbox)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnMatchCreated(NetworkSandbox sandbox)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnMatchListUpdate_" data-uid="Netick.Unity.NetworkEvents.OnMatchListUpdate*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnMatchListUpdate_Netick_Unity_NetworkSandbox_System_Collections_Generic_List_Netick_Session__" data-uid="Netick.Unity.NetworkEvents.OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})">
+  OnMatchListUpdate(NetworkSandbox, List&lt;Session&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnMatchListUpdate(NetworkSandbox sandbox, List&lt;Session&gt; sessions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>sessions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.Session.html">Session</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnObjectCreated_" data-uid="Netick.Unity.NetworkEvents.OnObjectCreated*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnObjectCreated_Netick_Unity_NetworkObject_" data-uid="Netick.Unity.NetworkEvents.OnObjectCreated(Netick.Unity.NetworkObject)">
+  OnObjectCreated(NetworkObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when a network object has been created/initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnObjectCreated(NetworkObject obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnObjectDestroyed_" data-uid="Netick.Unity.NetworkEvents.OnObjectDestroyed*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnObjectDestroyed_Netick_Unity_NetworkObject_" data-uid="Netick.Unity.NetworkEvents.OnObjectDestroyed(Netick.Unity.NetworkObject)">
+  OnObjectDestroyed(NetworkObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when a network object has been destroyed/recycled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnObjectDestroyed(NetworkObject obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnSceneLoadStarted_" data-uid="Netick.Unity.NetworkEvents.OnSceneLoadStarted*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnSceneLoadStarted_Netick_Unity_NetworkSandbox_" data-uid="Netick.Unity.NetworkEvents.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)">
+  OnSceneLoadStarted(NetworkSandbox)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on both the client and the server before beginning to load the new scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnSceneLoadStarted(NetworkSandbox sandbox)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnSceneLoaded_" data-uid="Netick.Unity.NetworkEvents.OnSceneLoaded*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnSceneLoaded_Netick_Unity_NetworkSandbox_" data-uid="Netick.Unity.NetworkEvents.OnSceneLoaded(Netick.Unity.NetworkSandbox)">
+  OnSceneLoaded(NetworkSandbox)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on both the client and the server when the scene has been loaded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnSceneLoaded(NetworkSandbox sandbox)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnShutdown_" data-uid="Netick.Unity.NetworkEvents.OnShutdown*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnShutdown_Netick_Unity_NetworkSandbox_" data-uid="Netick.Unity.NetworkEvents.OnShutdown(Netick.Unity.NetworkSandbox)">
+  OnShutdown(NetworkSandbox)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when Netick has been shut down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnShutdown(NetworkSandbox sandbox)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEvents_OnStartup_" data-uid="Netick.Unity.NetworkEvents.OnStartup*"></a>
+
+  <h3 id="Netick_Unity_NetworkEvents_OnStartup_Netick_Unity_NetworkSandbox_" data-uid="Netick.Unity.NetworkEvents.OnStartup(Netick.Unity.NetworkSandbox)">
+  OnStartup(NetworkSandbox)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when Netick has been started.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnStartup(NetworkSandbox sandbox)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

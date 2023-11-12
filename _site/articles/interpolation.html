@@ -100,7 +100,7 @@ Since there are 5 frames between two ticks, the values at each frame would be:</
 <p>For moving objects, this is important to deal with. Every <a class="xref" href="../api/Netick.NetworkTransform.html">NetworkTransform</a> has a slot for a Render transform, which is basically the smoothed/interpolated mesh of the object, while the parent would be the simulated/non-interpolated object.</p>
 <p>So, you must break your moving objects into a parent (which has the <a class="xref" href="../api/Netick.NetworkTransform.html">NetworkTransform</a>), and a child which is the interpolated object, and has the mesh/s. Then you specify that child in the NetworkTransform RenderTransform property in the inspector. Check the samples if you are confused.</p>
 <h2 id="interpolation-of-network-properties"><strong>Interpolation of Network Properties</strong></h2>
-<p>To interpolate a property, add the [&lt;xref:Netick.Smooth&gt;] attribute to its declaration:</p>
+<p>To interpolate a property, add the [<a class="xref" href="../api/Netick.Smooth.html">Smooth</a>] attribute to its declaration:</p>
 <pre><code class="lang-csharp">[Networked][Smooth]
 public Vector3 Movement {get; set;}
 </code></pre>
@@ -121,7 +121,7 @@ public Vector3 Movement {get; set;}
 <p>Other types just return the From snapshot between the two snapshots being interpolated.</p>
 <h2 id="interpolation-of-other-types"><strong>Interpolation of Other Types</strong></h2>
 <p>To interpolate other types, you can do that using the <a class="xref" href="../api/Netick.Interpolator-1.html">Interpolator&lt;T&gt;</a> object.</p>
-<p>First, you must include an id in [&lt;xref:Netick.Smooth&gt;]:</p>
+<p>First, you must include an id in [<a class="xref" href="../api/Netick.Smooth.html">Smooth</a>]:</p>
 <pre><code class="lang-csharp">[Networked][Smooth(6)]
 public MyType SomeProperty {get; set;}
 </code></pre>

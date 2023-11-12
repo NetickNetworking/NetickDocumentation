@@ -95,15 +95,14 @@
 
   <div class="facts text-secondary">
     <dl><dt>Namespace</dt><dd><a class="xref" href="Netick.html">Netick</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>Netick.Premium.dll</dd></dl>
+  <dl><dt>Assembly</dt><dd>Netick.Pro.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[ExecutionOrder(1500)]
-public sealed class LagCompensation : INetickComponent</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class LagCompensation : INetickComponent</code></pre>
   </div>
 
 
@@ -268,12 +267,12 @@ public sealed class LagCompensation : INetickComponent</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void FetchHitShapePosAndRot(LagCompShape hitshape, NetworkPlayer inputSource, out Vector3 pos, out Quaternion rot)</code></pre>
+    <pre><code class="lang-csharp hljs">public void FetchHitShapePosAndRot(LagCompShape hitShape, NetworkPlayer inputSource, out Vector3 pos, out Quaternion rot)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>hitshape</code> <a class="xref" href="Netick.LagCompShape.html">LagCompShape</a></dt>
+    <dt><code>hitShape</code> <a class="xref" href="Netick.LagCompShape.html">LagCompShape</a></dt>
     <dd></dd>
     <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
     <dd></dd>
@@ -296,36 +295,40 @@ public sealed class LagCompensation : INetickComponent</code></pre>
 
   <a id="Netick_LagCompensation_OverlapSphere_" data-uid="Netick.LagCompensation.OverlapSphere*"></a>
 
-  <h3 id="Netick_LagCompensation_OverlapSphere_System_Numerics_Vector3_System_Single_System_Collections_Generic_List_Netick_NetHit__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_System_Boolean_" data-uid="Netick.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
-  OverlapSphere(Vector3, float, List&lt;NetHit&gt;, NetworkPlayer, int, bool, bool, bool)
+  <h3 id="Netick_LagCompensation_OverlapSphere_System_Numerics_Vector3_System_Single_System_Collections_Generic_List_Netick_NetHit__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_" data-uid="Netick.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean)">
+  OverlapSphere(Vector3, float, List&lt;NetHit&gt;, NetworkPlayer, int, bool, bool)
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Performs a lag compensated OverlapSphere which computes and stores HitShapes and Colliders (if includeUnityColliders is equal to true) touching or inside the sphere.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void OverlapSphere(Vector3 center, float radius, List&lt;NetHit&gt; hits, NetworkPlayer inputSource, int layerMask = -1, bool includeUnityColliders = true, bool includeInputSource = false, bool oneHitPerHitshapeContainer = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public void OverlapSphere(Vector3 center, float radius, List&lt;NetHit&gt; hits, NetworkPlayer inputSource, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>center</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
-    <dd></dd>
+    <dd><p>Center of the sphere.</p>
+</dd>
     <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>Radius of the sphere.</p>
+</dd>
     <dt><code>hits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.NetHit.html">NetHit</a>&gt;</dt>
     <dd></dd>
     <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
-    <dd></dd>
+    <dd><p>The input source to compensate for.</p>
+</dd>
     <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>includeUnityColliders</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>A defines which layers of colliders to include in the query.</p>
+</dd>
     <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
-    <dt><code>oneHitPerHitshapeContainer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dt><code>oneHitPerHitShapeContainer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Choose whether you want to include only one HitShape per HitShapeContainer</p>
+</dd>
   </dl>
 
 
@@ -346,7 +349,9 @@ public sealed class LagCompensation : INetickComponent</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Casts a lag compensated ray, from point origin, in direction direction, of length maxDistance,
+against all HitShapes and Colliders (if includeUnityColliders is equal to true) in the Scene.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -356,17 +361,22 @@ public sealed class LagCompensation : INetickComponent</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>origin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
-    <dd></dd>
+    <dd><p>The starting point of the ray in world coordinates.</p>
+</dd>
     <dt><code>direction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
-    <dd></dd>
+    <dd><p>The direction of the ray.</p>
+</dd>
     <dt><code>hitData</code> <a class="xref" href="Netick.NetHit.html">NetHit</a></dt>
     <dd></dd>
     <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
-    <dd></dd>
+    <dd><p>The input source to compensate for.</p>
+</dd>
     <dt><code>maxDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>The max distance the ray should check for collisions.</p>
+</dd>
     <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>A that is used to selectively ignore Colliders when casting a ray.</p>
+</dd>
     <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
@@ -374,7 +384,8 @@ public sealed class LagCompensation : INetickComponent</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>Returns true if the ray intersects with a Collider/HitShape, otherwise false.</p>
+</dd>
   </dl>
 
 

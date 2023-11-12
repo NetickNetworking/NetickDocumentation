@@ -503,7 +503,8 @@
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Time period between simulation ticks.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -716,6 +717,37 @@
 
 
 
+  <a id="Netick_NetickEngine_IsInvokingNetworkRender_" data-uid="Netick.NetickEngine.IsInvokingNetworkRender*"></a>
+
+  <h3 id="Netick_NetickEngine_IsInvokingNetworkRender" data-uid="Netick.NetickEngine.IsInvokingNetworkRender">
+  IsInvokingNetworkRender
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsInvokingNetworkRender { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_NetickEngine_IsResimulating_" data-uid="Netick.NetickEngine.IsResimulating*"></a>
 
   <h3 id="Netick_NetickEngine_IsResimulating" data-uid="Netick.NetickEngine.IsResimulating">
@@ -893,6 +925,37 @@
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.NetworkPeer.html">NetworkPeer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_Monitor_" data-uid="Netick.NetickEngine.Monitor*"></a>
+
+  <h3 id="Netick_NetickEngine_Monitor" data-uid="Netick.NetickEngine.Monitor">
+  Monitor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Monitor Monitor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Monitor.html">Monitor</a></dt>
     <dd></dd>
   </dl>
 
@@ -1308,6 +1371,38 @@
 
 
 
+  <a id="Netick_NetickEngine_ServerEndPoint_" data-uid="Netick.NetickEngine.ServerEndPoint*"></a>
+
+  <h3 id="Netick_NetickEngine_ServerEndPoint" data-uid="Netick.NetickEngine.ServerEndPoint">
+  ServerEndPoint
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.ipendpoint">IPEndPoint</a> of the server you are connected to. Returns null if you are not connected to any server, or if you are the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEndPoint ServerEndPoint { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.IEndPoint.html">IEndPoint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_NetickEngine_ServerSimulation_" data-uid="Netick.NetickEngine.ServerSimulation*"></a>
 
   <h3 id="Netick_NetickEngine_ServerSimulation" data-uid="Netick.NetickEngine.ServerSimulation">
@@ -1525,8 +1620,71 @@
 
 
 
+  <a id="Netick_NetickEngine_UserObject_" data-uid="Netick.NetickEngine.UserObject*"></a>
+
+  <h3 id="Netick_NetickEngine_UserObject" data-uid="Netick.NetickEngine.UserObject">
+  UserObject
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object UserObject { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="Netick_NetickEngine_AttachBehaviour_" data-uid="Netick.NetickEngine.AttachBehaviour*"></a>
+
+  <h3 id="Netick_NetickEngine_AttachBehaviour_Netick_INetickScript_" data-uid="Netick.NetickEngine.AttachBehaviour(Netick.INetickScript)">
+  AttachBehaviour(INetickScript)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attachs a NetickBehaviour to the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AttachBehaviour(INetickScript behaviour)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>behaviour</code> <a class="xref" href="Netick.INetickScript.html">INetickScript</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Netick_NetickEngine_ClientAddEntity_" data-uid="Netick.NetickEngine.ClientAddEntity*"></a>
@@ -1634,6 +1792,38 @@
     <dt><a class="xref" href="Netick.Entity.html">Entity</a></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_DeattachBehaviour_" data-uid="Netick.NetickEngine.DeattachBehaviour*"></a>
+
+  <h3 id="Netick_NetickEngine_DeattachBehaviour_Netick_INetickScript_" data-uid="Netick.NetickEngine.DeattachBehaviour(Netick.INetickScript)">
+  DeattachBehaviour(INetickScript)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deattachs a NetickBehaviour from the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DeattachBehaviour(INetickScript behaviour)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>behaviour</code> <a class="xref" href="Netick.INetickScript.html">INetickScript</a></dt>
+    <dd></dd>
+  </dl>
+
 
 
 

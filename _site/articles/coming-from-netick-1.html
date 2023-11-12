@@ -1,0 +1,611 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Coming from Netick 1 (Unity) | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Coming from Netick 1 (Unity) | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="coming-from-netick-1-unity">Coming from Netick 1 (Unity)</h1>
+
+<p>This a guide to help you migrate from Netick 1 to Netick 2, for Unity users.</p>
+<p>First of all, please make a back-up copy of your project. Then carefully read each section of this article. If you need help, please feel free to join our <a href="https://discord.com/invite/uV6bfG66Fx">discord</a>.</p>
+<h2 id="project-settings">Project Settings</h2>
+<p>Go to Project Settings -&gt; Player -&gt; Other Settings and change these settings to be as follows:</p>
+<ul>
+<li>Allow 'unsafe' code: <code>true</code></li>
+<li>Api compatibility level: <code>.NET Standard 2.1</code></li>
+</ul>
+<h2 id="api-naming-changes">API Naming Changes:</h2>
+<table>
+<thead>
+<tr>
+<th>Netick 1</th>
+<th>Netick 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkSandbox.GetRpcCaller</td>
+<td>NetworkSandbox.CurrentRpcCaller</td>
+</tr>
+<tr>
+<td>NetworkSandbox.RpcSource</td>
+<td>NetworkSandbox.CurrentRpcSource</td>
+</tr>
+<tr>
+<td>NetworkEventsListner</td>
+<td>NetworkEventsListener</td>
+</tr>
+<tr>
+<td>NetworkBehaviour.UnityToNetcode</td>
+<td>NetworkBehaviour.GameEngineIntoNetcode</td>
+</tr>
+<tr>
+<td>NetworkBehaviour.NetcodeToUnity</td>
+<td>NetworkBehaviour.NetcodeIntoGameEngine</td>
+</tr>
+<tr>
+<td>NetHit</td>
+<td>LagCompHit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="game-starter">Game Starter</h2>
+<p>Now the transport is specified when starting Netick and not using NetickConfig. A field has been added to GameStarter for that.</p>
+<h2 id="network-events-listener">Network Events Listener</h2>
+<p>A parameter for disconnection reason (<a class="xref" href="../api/Netick.TransportDisconnectReason.html">TransportDisconnectReason</a>) has been added to OnClientDisconnected:</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_1" role="tab" aria-controls="tabpanel_1_1" data-tab="1" tabindex="0" aria-selected="true">Netick 1</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_2" role="tab" aria-controls="tabpanel_1_2" data-tab="2" tabindex="-1">Netick 2</a>
+</li>
+</ul>
+<section id="tabpanel_1_1" role="tabpanel" data-tab="1">
+
+<pre><code class="lang-csharp">public override void OnClientDisconnected(NetworkSandbox sandbox, NetworkConnection client)
+{
+}
+</code></pre>
+</section>
+<section id="tabpanel_1_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-csharp">public override void OnClientDisconnected(NetworkSandbox sandbox, NetworkConnection client, TransportDisconnectReason reason)
+{
+}
+</code></pre>
+</section>
+</div>
+<h2 id="network-behaviour">Network Behaviour</h2>
+<p>Add <code>using Netick.Unity</code> to every script that you have which inherits from <a class="xref" href="../api/Netick.Unity.NetworkBehaviour.html">NetworkBehaviour</a>.</p>
+<pre><code class="lang-csharp">using Netick;
+using Netick.Unity;
+
+public class MyScript : NetworkBehaviour
+{
+    ...
+}
+</code></pre>
+<h2 id="network-input">Network Input</h2>
+<p>Network inputs are now structs instead of classes, which makes it easy to sync them as network properties if needed.</p>
+<div class="tabGroup" id="tabgroup_2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_2_1" role="tab" aria-controls="tabpanel_2_1" data-tab="1" tabindex="0" aria-selected="true">Netick 1</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_2_2" role="tab" aria-controls="tabpanel_2_2" data-tab="2" tabindex="-1">Netick 2</a>
+</li>
+</ul>
+<section id="tabpanel_2_1" role="tabpanel" data-tab="1">
+
+<pre><code class="lang-csharp">public class MyInput : NetworkInput
+{
+    public bool       ShootInput;
+    public float      MoveDirX, MoveDirY;
+}
+</code></pre>
+</section>
+<section id="tabpanel_2_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-csharp">public struct MyInput : INetworkInput
+{
+    public bool       ShootInput;
+    public float      MoveDirX, MoveDirY;
+}
+</code></pre>
+</section>
+</div>
+
+<p>Because they are now value types instead of reference types, this means the previous method of populating them won't work anymore. Instead, you have to use another call to update the input.</p>
+<div class="tabGroup" id="tabgroup_3">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_3_1" role="tab" aria-controls="tabpanel_3_1" data-tab="1" tabindex="0" aria-selected="true">Netick 1</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_3_2" role="tab" aria-controls="tabpanel_3_2" data-tab="2" tabindex="-1">Netick 2</a>
+</li>
+</ul>
+<section id="tabpanel_3_1" role="tabpanel" data-tab="1">
+
+<pre><code class="lang-csharp">public override void OnInput(NetworkSandbox sandbox)
+{
+    var input        = sandbox.GetInput&lt;BombermanInput&gt;();
+    input.Movement   = GetMovementDir();
+    input.PlantBomb |= Input.GetKeyDown(KeyCode.Space);
+}
+</code></pre>
+</section>
+<section id="tabpanel_3_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-csharp">public override void OnInput(NetworkSandbox sandbox)
+{
+    var input        = sandbox.GetInput&lt;BombermanInput&gt;();
+    input.Movement   = GetMovementDir();
+    input.PlantBomb |= Input.GetKeyDown(KeyCode.Space);
+
+    // since this is a struct, you have to call this method too to update input
+    sandbox.SetInput&lt;FPSInput&gt;(input);
+}
+</code></pre>
+</section>
+</div>
+<h2 id="onchanged">OnChanged</h2>
+<p>Now OnChanged methods must have a parameter of <a class="xref" href="../api/Netick.OnChangedData.html">OnChangedData</a> type which can be used to retrieve the previous property value:</p>
+<div class="tabGroup" id="tabgroup_4">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_4_1" role="tab" aria-controls="tabpanel_4_1" data-tab="1" tabindex="0" aria-selected="true">Netick 1</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_4_2" role="tab" aria-controls="tabpanel_4_2" data-tab="2" tabindex="-1">Netick 2</a>
+</li>
+</ul>
+<section id="tabpanel_4_1" role="tabpanel" data-tab="1">
+
+<pre><code class="lang-csharp">[Networked]
+public int Health { get; set; }
+
+[OnChanged(nameof(Health ))]
+private void OnHealthChanged(int previous)
+{
+      // Something that happens when the Health property changes
+}
+</code></pre>
+</section>
+<section id="tabpanel_4_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-csharp">[Networked]
+public int Health { get; set; }
+
+[OnChanged(nameof(Health ))]
+private void OnHealthChanged(OnChangedData onChangedData)
+{
+    var previous = onChangedData.GetPreviousValue&lt;int&gt;();
+}
+</code></pre>
+</section>
+</div>
+
+<p>It also now supports retrieving previous array values:</p>
+<pre><code class="lang-csharp">[Networked(size: 32)]
+public NetworkArray&lt;int&gt; ArrayExample = new NetworkArray&lt;int&gt;(32);
+
+[OnChanged(nameof(IntArray))]
+private void OnArrayExampleChanged(OnChangedData onChangedData)
+{
+  // getting the changed element value directly
+
+  var changedPreviousElementValue = onChangedData.GetArrayPreviousElementValue&lt;int&gt;();
+
+  // or just getting the index
+
+  var changedPreviousElementIndex = onChangedData.GetArrayChangedElementIndex();
+
+  // or maybe getting the previous value of another index we want
+
+  var someRandomPreviousElementValue = onChangedData.GetArrayPreviousElementValue&lt;int&gt;(13);
+}
+</code></pre>
+<h3 id="behavioral-change">Behavioral Change</h3>
+<p>[OnChanged] methods now will be called for all non-default initialization values - property definition assignments and inspector values. And this happens for the first time when the object is first created, before NetworkStart is called. So if you try to access a class instance variable inside the [OnChanged] method which is initialized inside NetworkStart, it can cause a null reference exception - because NetworkStart is invoked after [OnChanged] method, not before. To fix this, transfer all class instance variables initialization into NetworkAwake (which is called before the first [OnChanged] ever).</p>
+<h2 id="network-arrays">Network Arrays</h2>
+<p>Network arrays syntax has changed a little bit. They are now field members instead of property members.</p>
+<div class="tabGroup" id="tabgroup_5">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_5_1" role="tab" aria-controls="tabpanel_5_1" data-tab="1" tabindex="0" aria-selected="true">Netick 1</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_5_2" role="tab" aria-controls="tabpanel_5_2" data-tab="2" tabindex="-1">Netick 2</a>
+</li>
+</ul>
+<section id="tabpanel_5_1" role="tabpanel" data-tab="1">
+
+<pre><code class="lang-csharp">[Networked (size: 3)]
+public NetworkArray&lt;int&gt; IntArrayExample { get; set; }
+</code></pre>
+</section>
+<section id="tabpanel_5_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-csharp">[Networked(size: 32)]
+public NetworkArray&lt;int&gt; IntArrayExample = new NetworkArray&lt;int&gt;(32) { 55, 66, 77 };
+</code></pre>
+<p>As you can see, it's now possible to have initialization values for network arrays.</p>
+</section>
+</div>
+
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Regarding network arrays for Netick 2: <code>size</code> of [<a class="xref" href="../api/Netick.Networked.html">Networked</a>(size: 32)] must be the same as the value that is passed to the array constructor <code>new NetworkArray&lt;int&gt;(32)</code></p>
+</div>
+<h2 id="network-structs">Network Structs</h2>
+<p>Now all structs are networked by default, so you don't need to add [<a class="xref" href="../api/Netick.Networked.html">Networked</a>] to them or even implement custom equality. You no longer have a limit size for a single struct too. You can also now have nested structs. So this works as expected:</p>
+<pre><code class="lang-csharp">public struct MyNestedStruct
+{
+    public int    Int1;
+    public bool   Bool1;
+    public float  Float1;
+    public double Double1;
+  }
+
+public struct MyStruct
+{
+    public MyNestedStruct MyNestedStruct;
+    public int            Int1;
+    public bool           Bool1;
+    public float          Float1;
+    public double         Double1;
+}
+[Networked]
+public MyStruct MyStructProperty {get; set;}
+</code></pre>
+<h2 id="input-source">Input Source</h2>
+<p>Now, to change the input source of an object you do that directly using the InputSource property setter:</p>
+<div class="tabGroup" id="tabgroup_6">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_6_1" role="tab" aria-controls="tabpanel_6_1" data-tab="1" tabindex="0" aria-selected="true">Netick 1</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_6_2" role="tab" aria-controls="tabpanel_6_2" data-tab="2" tabindex="-1">Netick 2</a>
+</li>
+</ul>
+<section id="tabpanel_6_1" role="tabpanel" data-tab="1">
+
+<pre><code class="lang-csharp">
+// assigning an input source to network object:
+
+Object.PermitInput(myNewInputSource);
+
+// removing the input source from the object:
+
+Object.RevokeInput();
+</code></pre>
+</section>
+<section id="tabpanel_6_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-csharp">
+// assigning an input source to network object:
+
+Object.InputSource = myNewInputSource;
+
+// removing the input source from the object:
+
+Object.InputSource = null;
+
+</code></pre>
+</section>
+</div>
+
+<p>Callbacks of NetworkBehaviour, OnInputPermitted and OnInputRevoked, have been removed and replaced by one single callback:</p>
+<div class="tabGroup" id="tabgroup_7">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_7_1" role="tab" aria-controls="tabpanel_7_1" data-tab="1" tabindex="0" aria-selected="true">Netick 1</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_7_2" role="tab" aria-controls="tabpanel_7_2" data-tab="2" tabindex="-1">Netick 2</a>
+</li>
+</ul>
+<section id="tabpanel_7_1" role="tabpanel" data-tab="1">
+
+<pre><code class="lang-csharp">
+public override void OnInputPermitted()
+{
+  // called on the InputSource machine when InputSource is now equal to this machine.
+}
+
+public override void OnInputRevoked()
+{
+  // called on the InputSource machine when this machine is no longer the InputSource.
+}
+
+</code></pre>
+</section>
+<section id="tabpanel_7_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-csharp">
+public override void OnInputSourceChanged(NetworkPlayer previous)
+{
+  // this method is called on the server not only on the client InputSource, so the behaviour is different from OnInputPermitted and OnInputRevoked.
+  // to imitate the behaviour of OnInputPermitted and OnInputRevoked:
+
+  if (IsInputSource) // same as OnInputPermitted
+  {
+     // called on the InputSource machine when InputSource is now equal to this machine.
+  }
+
+  else if (previous == Sandbox.LocalPlayer) // same as OnInputRevoked
+  {
+    // called on the InputSource machine when this machine is no longer the InputSource.
+  }
+
+}
+
+</code></pre>
+</section>
+</div>
+<h2 id="rpcs">Rpcs</h2>
+<p>At this moment in time, <code>string</code> is not supported as a parameter to Rpcs. Instead, fixed-size structs can be used:</p>
+<div class="tabGroup" id="tabgroup_8">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_8_1" role="tab" aria-controls="tabpanel_8_1" data-tab="1" tabindex="0" aria-selected="true">Netick 1</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_8_2" role="tab" aria-controls="tabpanel_8_2" data-tab="2" tabindex="-1">Netick 2</a>
+</li>
+</ul>
+<section id="tabpanel_8_1" role="tabpanel" data-tab="1">
+
+<pre><code class="lang-csharp">
+[Rpc]
+public void MyRpc(string myString)
+{
+
+}
+
+</code></pre>
+</section>
+<section id="tabpanel_8_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-csharp">[Rpc]
+public void MyRpc(NetworkString32 myString)
+{
+  string asString = myString.ToString();
+}
+
+
+// this is how you would call the rpc:
+
+var myString = &quot;Hello World!&quot;;
+
+myRpc(new NetworkString32(myString));
+
+</code></pre>
+</section>
+</div>
+
+<p>Now, you can have static Rpcs on NetworkBehaviour classes which can be pretty useful.</p>
+<pre><code class="lang-csharp">[Rpc]
+public static void MyStaticRpc(NetickEngine engine, int someRpcPara)
+{
+  var sandbox = engine.UserObject as NetworkSandbox;
+}
+
+
+// this is how you would call the rpc:
+
+MyStaticRpc(Sandbox.Engine, 56);
+
+</code></pre>
+<p>Note that they must have a NetickEngine as the first parameter.</p>
+<h2 id="lag-compensation">Lag Compensation</h2>
+<p>LagCompensation component class has been removed.</p>
+<div class="tabGroup" id="tabgroup_9">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_9_1" role="tab" aria-controls="tabpanel_9_1" data-tab="1" tabindex="0" aria-selected="true">Netick 1</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_9_2" role="tab" aria-controls="tabpanel_9_2" data-tab="2" tabindex="-1">Netick 2</a>
+</li>
+</ul>
+<section id="tabpanel_9_1" role="tabpanel" data-tab="1">
+
+<pre><code class="lang-csharp">Sandbox.GetComponent&lt;LagCompensation&gt;().Raycast(...);
+</code></pre>
+</section>
+<section id="tabpanel_9_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-csharp">Sandbox.Raycast(...);
+</code></pre>
+</section>
+</div>
+<h2 id="interpolation">Interpolation</h2>
+<p><a class="xref" href="../api/Netick.Interpolator.html">Interpolator</a> is now an non-generic struct.</p>
+<p>To find an <a class="xref" href="../api/Netick.Interpolator.html">Interpolator</a>, now you simply use the name of the property instead of using an Id.</p>
+<div class="tabGroup" id="tabgroup_10">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_10_1" role="tab" aria-controls="tabpanel_10_1" data-tab="1" tabindex="0" aria-selected="true">Netick 1</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_10_2" role="tab" aria-controls="tabpanel_10_2" data-tab="2" tabindex="-1">Netick 2</a>
+</li>
+</ul>
+<section id="tabpanel_10_1" role="tabpanel" data-tab="1">
+
+<pre><code class="lang-csharp">[Networked][Smooth(6)]
+public MyType SomeProperty {get; set;}
+public override void NetworkStart()
+{
+    var interpolator = FindInterpolator&lt;MyType&gt;(6);
+}
+
+</code></pre>
+</section>
+<section id="tabpanel_10_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-csharp">[Networked][Smooth]
+public MyType SomeProperty {get; set;}
+public override void NetworkStart()
+{
+    var interpolator = FindInterpolator(nameof(SomeProperty));
+}
+</code></pre>
+</section>
+</div>
+
+<p>Also, now [<a class="xref" href="../api/Netick.Smooth.html">Smooth</a>] takes a parameter to specify if it should give auto-interpolated values inside NetworkRender or not, by specifying a true or false value for <code>auto</code> parameter of [<a class="xref" href="../api/Netick.Smooth.html">Smooth</a>].</p>
+<h3 id="accessing-interpolation-data">Accessing Interpolation Data</h3>
+<p>To get interpolation data, now instead of using To, From, and Alpha fields of <a class="xref" href="../api/Netick.Interpolator.html">Interpolator</a>, you use GetInterpolationData method of <a class="xref" href="../api/Netick.Interpolator.html">Interpolator</a> struct:</p>
+<pre><code class="lang-csharp">bool didGetData = interpolator.GetInterpolationData&lt;int&gt;(InterpolationMode.Auto, out var from, out var to, out float alpha);
+</code></pre>
+<p>It also now supports getting interpolation data for network arrays:</p>
+<pre><code class="lang-csharp">int myIndex = 4;
+bool didGetData = interpolator.GetInterpolationData&lt;int&gt;(InterpolationMode.Auto, myIndex, out var from, out var to, out float alpha);
+</code></pre>
+<h2 id="replication">Replication</h2>
+<p>Netick 2 introduces a new replication method called Pessimistic Replication (in contrast to Optimistic Replication, which was the only replication method in Netick 1), which ensures that the client always receives the full state together, not partial, but always the full state. In addition, this new replication method uses delta encoding to highly reduce the bandwidth required. This replication method eliminates the burden of having to account for the potential bugs caused by not always having the entire changed state together using Optimistic Replication.</p>
+<p>As of now, this is the default and only replication method. But the old Optimistic Replication will come back later in the future. Pessimistic Replication as of now works with AoI by disabling delta encoding, but this will change in the future. When that happens, Pessimistic Replication will be better than Optimistic Replication for almost every single situation. This is why it has not been a priority to make Optimistic Replication present in Netick 2 from the start.</p>
+<h2 id="network-transport">Network Transport</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you are not a transport or a transport wrapper developer, you can ignore this section.</p>
+</div>
+<p>In Netick 1, your network transport main script was inheriting from <a class="xref" href="../api/Netick.NetworkTransport.html">NetworkTransport</a>, which by itself was inheriting from ScriptableObject. But now that's not possible anymore, since ScriptableObject is a Unity class.</p>
+<p>Now, <a class="xref" href="../api/Netick.NetworkTransport.html">NetworkTransport</a> does not inherit from ScriptableObject, which means you no longer can have assets on your project representing a transport like in Netick 1.</p>
+<p>To solve this, a wrapper class has been added <a class="xref" href="../api/Netick.NetworkTransportProvider.html">NetworkTransportProvider</a>, which inherits from ScriptableObject and wraps the network transport:</p>
+<pre><code class="lang-csharp">[CreateAssetMenu(fileName = &quot;LiteNetLibTransportProvider&quot;, menuName = &quot;Netick/Transport/LiteNetLibTransportProvider&quot;, order = 1)]
+public class LiteNetLibTransportProvider : NetworkTransportProvider
+{
+  public override NetworkTransport MakeTransportInstance() =&gt; new LiteNetLibTransport();
+}
+
+</code></pre>
+<p><code>MakeTransportInstance</code> is called by Netick to create an instance of the transport.</p>
+<p>Netick now only receives data in the form of <a class="xref" href="../api/Netick.BitBuffer.html">BitBuffer</a>. BitBuffer.SetFrom is used to set a pointer to the data which BitBuffer will use. Take a look at the new LiteNetLib transport to understand how it all works.</p>
+<pre><code class="lang-csharp">public unsafe void INetEventListener.OnNetworkReceive(NetPeer peer, NetPacketReader reader, DeliveryMethod deliveryMethod)
+{
+  if (_clients.TryGetValue(peer, out var c))
+  {
+    var len = reader.AvailableBytes;
+    reader.GetBytes(_bytes, 0, reader.AvailableBytes);
+
+    fixed(byte* ptr = _bytes)
+    {
+      _buffer.SetFrom(ptr, len, _bytes.Length);
+      NetworkPeer.Receive(c, _buffer);
+    }
+  }
+}
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
