@@ -1817,6 +1817,37 @@
 
 
 
+  <a id="Netick_Unity_NetworkSandbox_Transport_" data-uid="Netick.Unity.NetworkSandbox.Transport*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_Transport" data-uid="Netick.Unity.NetworkSandbox.Transport">
+  Transport
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkTransport Transport { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkTransport.html">NetworkTransport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_UserObject_" data-uid="Netick.Unity.NetworkSandbox.UserObject*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_UserObject" data-uid="Netick.Unity.NetworkSandbox.UserObject">
@@ -1923,7 +1954,10 @@
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Connects to a remote server.</p>
+<p>Note: if you are already connected to a server, and you want to connect to a different one, you have to disconnect before calling this. Otherwise this method does nothing.</p>
+<p>Note: connectionData array length should not be more than 300 if you are using Netick Transport.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1933,11 +1967,14 @@
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>Port of the server.</p>
+</dd>
     <dt><code>ip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>IP address of the server.</p>
+</dd>
     <dt><code>connectionData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
-    <dd></dd>
+    <dd><p>Data sent with the connection request. Could be used to decide whether or not to allow the connection.</p>
+</dd>
     <dt><code>connectionDataLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
@@ -2607,6 +2644,51 @@
 </dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_Instantiate_" data-uid="Netick.Unity.NetworkSandbox.Instantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_Instantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_" data-uid="Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)">
+  Instantiate(GameObject, Vector3, Quaternion)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Instantiates a prefab. This must be called instead of <span class="xref">UnityEngine.Object.Instantiate(UnityEngine.Object)</span> or its variations.</p>
+<p>Note: this must be called only for non-networked prefabs. If you want to instantiate a network prefab, use NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer) instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dd><p>The prefab to be instantiated.</p>
+</dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Position of the instantiated object.</p>
+</dd>
+    <dt><code>rotation</code> <span class="xref">Quaternion</span></dt>
+    <dd><p>Rotation of the instantiated object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
 
 
 

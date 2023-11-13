@@ -321,8 +321,8 @@
 
   <a id="Netick_CustomizableSocketTransport_Connect_" data-uid="Netick.CustomizableSocketTransport.Connect*"></a>
 
-  <h3 id="Netick_CustomizableSocketTransport_Connect_System_String_System_Int32_" data-uid="Netick.CustomizableSocketTransport.Connect(System.String,System.Int32)">
-  Connect(string, int)
+  <h3 id="Netick_CustomizableSocketTransport_Connect_System_String_System_Int32_System_Byte___System_Int32_" data-uid="Netick.CustomizableSocketTransport.Connect(System.String,System.Int32,System.Byte[],System.Int32)">
+  Connect(string, int, byte[], int)
   
   </h3>
 
@@ -330,7 +330,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Connect(string ip, int port)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Connect(string ip, int port, byte[] connectRequest, int connectRequestSizeBytes)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -338,6 +338,10 @@
     <dt><code>ip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>connectRequest</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>connectRequestSizeBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -409,10 +413,10 @@
 
 
 
-  <a id="Netick_CustomizableSocketTransport_SendPaylod_" data-uid="Netick.CustomizableSocketTransport.SendPaylod*"></a>
+  <a id="Netick_CustomizableSocketTransport_SendPayload_" data-uid="Netick.CustomizableSocketTransport.SendPayload*"></a>
 
-  <h3 id="Netick_CustomizableSocketTransport_SendPaylod_Netick_Connection_Netick_BitBuffer_" data-uid="Netick.CustomizableSocketTransport.SendPaylod(Netick.Connection,Netick.BitBuffer)">
-  SendPaylod(Connection, BitBuffer)
+  <h3 id="Netick_CustomizableSocketTransport_SendPayload_Netick_Connection_Netick_BitBuffer_" data-uid="Netick.CustomizableSocketTransport.SendPayload(Netick.Connection,Netick.BitBuffer)">
+  SendPayload(Connection, BitBuffer)
   
   </h3>
 
@@ -420,7 +424,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SendPaylod(Connection connection, BitBuffer buffer)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SendPayload(Connection connection, BitBuffer buffer)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -442,10 +446,10 @@
 
 
 
-  <a id="Netick_CustomizableSocketTransport_SendPaylod_" data-uid="Netick.CustomizableSocketTransport.SendPaylod*"></a>
+  <a id="Netick_CustomizableSocketTransport_SendPayload_" data-uid="Netick.CustomizableSocketTransport.SendPayload*"></a>
 
-  <h3 id="Netick_CustomizableSocketTransport_SendPaylod_Netick_Connection_System_IntPtr_System_Int32_" data-uid="Netick.CustomizableSocketTransport.SendPaylod(Netick.Connection,System.IntPtr,System.Int32)">
-  SendPaylod(Connection, IntPtr, int)
+  <h3 id="Netick_CustomizableSocketTransport_SendPayload_Netick_Connection_System_IntPtr_System_Int32_" data-uid="Netick.CustomizableSocketTransport.SendPayload(Netick.Connection,System.IntPtr,System.Int32)">
+  SendPayload(Connection, IntPtr, int)
   
   </h3>
 
@@ -453,7 +457,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SendPaylod(Connection connection, IntPtr ptr, int size)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SendPayload(Connection connection, IntPtr ptr, int size)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -658,8 +662,8 @@
 
 
 
-  <h3 id="Netick_CustomizableSocketTransport_OnConnectFailed" data-uid="Netick.CustomizableSocketTransport.OnConnectFailed">
-  OnConnectFailed
+  <h3 id="Netick_CustomizableSocketTransport_OnConnectFailedEvent" data-uid="Netick.CustomizableSocketTransport.OnConnectFailedEvent">
+  OnConnectFailedEvent
   
   </h3>
 
@@ -667,7 +671,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event OnConnectFailed OnConnectFailed</code></pre>
+    <pre><code class="lang-csharp hljs">public event OnConnectFailed OnConnectFailedEvent</code></pre>
   </div>
 
 
@@ -678,6 +682,36 @@
   <h4 class="section">Event Type</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.OnConnectFailed.html">OnConnectFailed</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Netick_CustomizableSocketTransport_OnConnectionRequestEvent" data-uid="Netick.CustomizableSocketTransport.OnConnectionRequestEvent">
+  OnConnectionRequestEvent
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event OnConnectionRequest OnConnectionRequestEvent</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.OnConnectionRequest.html">OnConnectionRequest</a></dt>
     <dd></dd>
   </dl>
 

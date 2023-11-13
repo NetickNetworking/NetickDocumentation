@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Interface INetworkArray
+      <title>Delegate OnConnectionRequest
  | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Interface INetworkArray
+      <meta name="title" content="Delegate OnConnectionRequest
  | Netick Networking Engine ">
       
       <link rel="icon" href="../images/logo.png">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Netick.INetworkArray">
+        <article data-uid="Netick.OnConnectionRequest">
 
 
 
-  <h1 id="Netick_INetworkArray" data-uid="Netick.INetworkArray" class="text-break">
-    Interface INetworkArray
+  <h1 id="Netick_OnConnectionRequest" data-uid="Netick.OnConnectionRequest" class="text-break">
+    Delegate OnConnectionRequest
   
   </h1>
 
@@ -102,9 +102,51 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface INetworkArray</code></pre>
+    <pre><code class="lang-csharp hljs">public delegate void OnConnectionRequest(NetworkConnectionRequest request)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="Netick.NetworkConnectionRequest.html">NetworkConnectionRequest</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Netick_OnConnectionRequest__ctor_" data-uid="Netick.OnConnectionRequest.#ctor*"></a>
+
+  <h3 id="Netick_OnConnectionRequest__ctor_System_Object_System_IntPtr_" data-uid="Netick.OnConnectionRequest.#ctor(System.Object,System.IntPtr)">
+  OnConnectionRequest(object, IntPtr)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnConnectionRequest(object @object, IntPtr method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>object</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -121,10 +163,10 @@
 </h2>
 
 
-  <a id="Netick_INetworkArray_InternalInit_" data-uid="Netick.INetworkArray.InternalInit*"></a>
+  <a id="Netick_OnConnectionRequest_BeginInvoke_" data-uid="Netick.OnConnectionRequest.BeginInvoke*"></a>
 
-  <h3 id="Netick_INetworkArray_InternalInit_Netick_INetickNetworkScript_System_Int32__System_Int32_System_Int32_" data-uid="Netick.INetworkArray.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32,System.Int32)">
-  InternalInit(INetickNetworkScript, int*, int, int)
+  <h3 id="Netick_OnConnectionRequest_BeginInvoke_Netick_NetworkConnectionRequest_System_AsyncCallback_System_Object_" data-uid="Netick.OnConnectionRequest.BeginInvoke(Netick.NetworkConnectionRequest,System.AsyncCallback,System.Object)">
+  BeginInvoke(NetworkConnectionRequest, AsyncCallback, object)
   
   </h3>
 
@@ -132,18 +174,52 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void InternalInit(INetickNetworkScript beh, int* state, int elementSizeWords, int isInputSourceOnly)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual IAsyncResult BeginInvoke(NetworkConnectionRequest request, AsyncCallback callback, object @object)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>beh</code> <a class="xref" href="Netick.INetickNetworkScript.html">INetickNetworkScript</a></dt>
+    <dt><code>request</code> <a class="xref" href="Netick.NetworkConnectionRequest.html">NetworkConnectionRequest</a></dt>
     <dd></dd>
-    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.asynccallback">AsyncCallback</a></dt>
     <dd></dd>
-    <dt><code>elementSizeWords</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>object</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
     <dd></dd>
-    <dt><code>isInputSourceOnly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncresult">IAsyncResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_OnConnectionRequest_EndInvoke_" data-uid="Netick.OnConnectionRequest.EndInvoke*"></a>
+
+  <h3 id="Netick_OnConnectionRequest_EndInvoke_System_IAsyncResult_" data-uid="Netick.OnConnectionRequest.EndInvoke(System.IAsyncResult)">
+  EndInvoke(IAsyncResult)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void EndInvoke(IAsyncResult result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncresult">IAsyncResult</a></dt>
     <dd></dd>
   </dl>
 
@@ -158,10 +234,10 @@
 
 
 
-  <a id="Netick_INetworkArray_InternalReset_" data-uid="Netick.INetworkArray.InternalReset*"></a>
+  <a id="Netick_OnConnectionRequest_Invoke_" data-uid="Netick.OnConnectionRequest.Invoke*"></a>
 
-  <h3 id="Netick_INetworkArray_InternalReset" data-uid="Netick.INetworkArray.InternalReset">
-  InternalReset()
+  <h3 id="Netick_OnConnectionRequest_Invoke_Netick_NetworkConnectionRequest_" data-uid="Netick.OnConnectionRequest.Invoke(Netick.NetworkConnectionRequest)">
+  Invoke(NetworkConnectionRequest)
   
   </h3>
 
@@ -169,9 +245,14 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void InternalReset()</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void Invoke(NetworkConnectionRequest request)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="Netick.NetworkConnectionRequest.html">NetworkConnectionRequest</a></dt>
+    <dd></dd>
+  </dl>
 
 
 

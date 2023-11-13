@@ -85,8 +85,10 @@
         <article data-uid="">
 <h1 id="coming-from-netick-1-unity">Coming from Netick 1 (Unity)</h1>
 
-<p>This a guide to help you migrate from Netick 1 to Netick 2, for Unity users.</p>
+<p>This is a guide to help you migrate from Netick 1 to Netick 2, for Unity users. It shows you what has changed in Netick 2 and it also shows you many of the new features that Netick 2 brings to your toolset.</p>
 <p>First of all, please make a back-up copy of your project. Then carefully read each section of this article. If you need help, please feel free to join our <a href="https://discord.com/invite/uV6bfG66Fx">discord</a>.</p>
+<h2 id="importing-netick-2">Importing Netick 2</h2>
+<p>Assuming you have already downloaded Netick 2 package, delete the root folder of Netick 1 from your project, which is located at <code>Assets/Netick</code>. After that, simply unpack/copy Netick 2 into your project. It is recommended to do this in your operating system's File Explorer instead of Unity Project Panel.</p>
 <h2 id="project-settings">Project Settings</h2>
 <p>Go to Project Settings -&gt; Player -&gt; Other Settings and change these settings to be as follows:</p>
 <ul>
@@ -312,7 +314,6 @@ public NetworkArray&lt;int&gt; IntArrayExample { get; set; }
 <pre><code class="lang-csharp">[Networked(size: 32)]
 public NetworkArray&lt;int&gt; IntArrayExample = new NetworkArray&lt;int&gt;(32) { 55, 66, 77 };
 </code></pre>
-<p>As you can see, it's now possible to have initialization values for network arrays.</p>
 </section>
 </div>
 
@@ -320,6 +321,27 @@ public NetworkArray&lt;int&gt; IntArrayExample = new NetworkArray&lt;int&gt;(32)
 <h5>Warning</h5>
 <p>Regarding network arrays for Netick 2: <code>size</code> of [<a class="xref" href="../api/Netick.Networked.html">Networked</a>(size: 32)] must be the same as the value that is passed to the array constructor <code>new NetworkArray&lt;int&gt;(32)</code></p>
 </div>
+<p>As you can see, it's now possible to have initialization values for network arrays.</p>
+<h3 id="network-array-struct">Network Array Struct</h3>
+<p>Netick 2 introduces a new type of network array, network arrays that are completely value types - Network Array Structs. These are fixed-size struct arrays available only in 4 fixed sizes: 8, 16, 32, and 64.</p>
+<p>Network Array Structs are pretty useful since they can used as members of another struct, or even nested inside other arrays.</p>
+<pre><code class="lang-csharp">// Network Struct Array Examples
+
+[Networked]
+public NetworkArrayStruct8&lt;int&gt;                      IntFixedArray { get; set; } = new int[] {1 , 4 ,5}.ToNetworkStructArray8();
+
+[Networked]
+public NetworkArrayStruct8&lt;NetworkArrayStruct8&lt;int&gt;&gt; ArrayOfArrays { get; set; };
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Network Array Structs are treated as if they were simple struct types like <code>int</code> or <code>float</code>, so they must be defined as a property not as a field (like normal NetworkArray that is non-fixed size).</p>
+</div>
+<h4 id="changing-elements-of-network-array-struct">Changing elements of Network Array Struct</h4>
+<p>Because Network Array Structs are structs, the whole array will be replaced even when you change a single element. To avoid bugs, this should be how you change array elements:</p>
+<pre><code class="lang-csharp">IntFixedArray = IntFixedArray.Set(index, value);
+// as you can see, we are reassigning the property with the new changed array which has the change.
+</code></pre>
 <h2 id="network-structs">Network Structs</h2>
 <p>Now all structs are networked by default, so you don't need to add [<a class="xref" href="../api/Netick.Networked.html">Networked</a>] to them or even implement custom equality. You no longer have a limit size for a single struct too. You can also now have nested structs. So this works as expected:</p>
 <pre><code class="lang-csharp">public struct MyNestedStruct
@@ -332,11 +354,12 @@ public NetworkArray&lt;int&gt; IntArrayExample = new NetworkArray&lt;int&gt;(32)
 
 public struct MyStruct
 {
-    public MyNestedStruct MyNestedStruct;
-    public int            Int1;
-    public bool           Bool1;
-    public float          Float1;
-    public double         Double1;
+    public MyNestedStruct           MyNestedStruct;
+    public NetworkArrayStruct8&lt;int&gt; StructArray;
+    public int                      Int1;
+    public bool                     Bool1;
+    public float                    Float1;
+    public double                   Double1;
 }
 [Networked]
 public MyStruct MyStructProperty {get; set;}
@@ -354,8 +377,7 @@ public MyStruct MyStructProperty {get; set;}
 </ul>
 <section id="tabpanel_6_1" role="tabpanel" data-tab="1">
 
-<pre><code class="lang-csharp">
-// assigning an input source to network object:
+<pre><code class="lang-csharp">// assigning an input source to network object:
 
 Object.PermitInput(myNewInputSource);
 
@@ -366,15 +388,13 @@ Object.RevokeInput();
 </section>
 <section id="tabpanel_6_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
 
-<pre><code class="lang-csharp">
-// assigning an input source to network object:
+<pre><code class="lang-csharp">// assigning an input source to network object:
 
 Object.InputSource = myNewInputSource;
 
 // removing the input source from the object:
 
 Object.InputSource = null;
-
 </code></pre>
 </section>
 </div>
@@ -391,8 +411,7 @@ Object.InputSource = null;
 </ul>
 <section id="tabpanel_7_1" role="tabpanel" data-tab="1">
 
-<pre><code class="lang-csharp">
-public override void OnInputPermitted()
+<pre><code class="lang-csharp">public override void OnInputPermitted()
 {
   // called on the InputSource machine when InputSource is now equal to this machine.
 }
@@ -401,13 +420,11 @@ public override void OnInputRevoked()
 {
   // called on the InputSource machine when this machine is no longer the InputSource.
 }
-
 </code></pre>
 </section>
 <section id="tabpanel_7_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
 
-<pre><code class="lang-csharp">
-public override void OnInputSourceChanged(NetworkPlayer previous)
+<pre><code class="lang-csharp">public override void OnInputSourceChanged(NetworkPlayer previous)
 {
   // this method is called on the server not only on the client InputSource, so the behaviour is different from OnInputPermitted and OnInputRevoked.
   // to imitate the behaviour of OnInputPermitted and OnInputRevoked:
@@ -423,7 +440,6 @@ public override void OnInputSourceChanged(NetworkPlayer previous)
   }
 
 }
-
 </code></pre>
 </section>
 </div>
@@ -440,13 +456,11 @@ public override void OnInputSourceChanged(NetworkPlayer previous)
 </ul>
 <section id="tabpanel_8_1" role="tabpanel" data-tab="1">
 
-<pre><code class="lang-csharp">
-[Rpc]
+<pre><code class="lang-csharp">[Rpc]
 public void MyRpc(string myString)
 {
 
 }
-
 </code></pre>
 </section>
 <section id="tabpanel_8_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
@@ -463,7 +477,6 @@ public void MyRpc(NetworkString32 myString)
 var myString = &quot;Hello World!&quot;;
 
 myRpc(new NetworkString32(myString));
-
 </code></pre>
 </section>
 </div>
@@ -479,7 +492,6 @@ public static void MyStaticRpc(NetickEngine engine, int someRpcPara)
 // this is how you would call the rpc:
 
 MyStaticRpc(Sandbox.Engine, 56);
-
 </code></pre>
 <p>Note that they must have a NetickEngine as the first parameter.</p>
 <h2 id="lag-compensation">Lag Compensation</h2>
@@ -524,7 +536,6 @@ public override void NetworkStart()
 {
     var interpolator = FindInterpolator&lt;MyType&gt;(6);
 }
-
 </code></pre>
 </section>
 <section id="tabpanel_10_2" role="tabpanel" data-tab="2" aria-hidden="true" hidden="hidden">
@@ -564,7 +575,6 @@ public class LiteNetLibTransportProvider : NetworkTransportProvider
 {
   public override NetworkTransport MakeTransportInstance() =&gt; new LiteNetLibTransport();
 }
-
 </code></pre>
 <p><code>MakeTransportInstance</code> is called by Netick to create an instance of the transport.</p>
 <p>Netick now only receives data in the form of <a class="xref" href="../api/Netick.BitBuffer.html">BitBuffer</a>. BitBuffer.SetFrom is used to set a pointer to the data which BitBuffer will use. Take a look at the new LiteNetLib transport to understand how it all works.</p>
