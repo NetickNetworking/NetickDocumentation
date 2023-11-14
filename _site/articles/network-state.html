@@ -85,7 +85,7 @@
         <article data-uid="">
 <h1 id="network-state">Network State</h1>
 
-<h3 id="network-property-"><strong>Network Property</strong> <a href="#network-property" id="network-property"></a></h3>
+<h3 id="network-property">Network Property</h3>
 <p>A Network Property is a C# property which is replicated across the network. For a property to be networked, the Attribute <a class="xref" href="../api/Netick.Networked.html">Networked</a> must be added to it. An example of a networked property:</p>
 <pre><code class="lang-csharp">[Networked]
 public int Health {get; set;}
@@ -96,10 +96,9 @@ public int Health {get; set;}
 <pre><code class="lang-csharp">[Networked(size: 32)]
 public NetworkArray&lt;int&gt; IntArrayExample = new NetworkArray&lt;int&gt;(32) { 55, 66, 77 };
 </code></pre>
-<div class="WARNING">
-<h5>Warning</h5>
-<p><code>size</code> of [<a class="xref" href="../api/Netick.Networked.html">Networked</a>(size: 32)] must be the same as the value that is passed to the array constructor <code>new NetworkArray&lt;int&gt;(32)</code></p>
-</div>
+<blockquote>
+<p>[!WARNING] &gt; <code>size</code> of [<a class="xref" href="../api/Netick.Networked.html">Networked</a>(size: 32)] must be the same as the value that is passed to the array constructor <code>new NetworkArray&lt;int&gt;(32)</code></p>
+</blockquote>
 <h3 id="network-struct-arrays">Network Struct Arrays</h3>
 <p>Netick 2 introduces a new type of network array, network arrays that are completely value types - Network Array Structs. These are fixed-size struct arrays available only in 4 fixed sizes: 8, 16, 32, and 64.</p>
 <p>Network Array Structs are pretty useful since they can used as members of another struct, or even nested inside other arrays.</p>
