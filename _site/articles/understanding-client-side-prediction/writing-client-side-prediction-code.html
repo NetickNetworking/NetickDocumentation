@@ -88,15 +88,15 @@
 <h2 id="network-input-"><strong>Network Input</strong> <a href="#network-input" id="network-input"></a></h2>
 <p>Network Input describes what the player wants to do, which will be used to simulate the state of objects they want to control. This ensures that the client can’t directly change the state – the change happens by executing the input, which, even if tampered with, won’t be game-breaking.</p>
 <h2 id="defining-inputs-"><strong>Defining Inputs</strong> <a href="#defining-inputs" id="defining-inputs"></a></h2>
-<p>To define a new input, create a class that inherits from NetworkInput:</p>
-<pre><code class="lang-csharp">public class MyInput : NetworkInput
+<p>To define a new input, make a struct that inherits from NetworkInput:</p>
+<pre><code class="lang-csharp">public struct MyInput : INetworkInput
 {
     public bool       ShootInput;
     public float      MoveDirX, MoveDirY;
 }
 </code></pre>
 <h2 id="setting-inputs-"><strong>Setting Inputs</strong> <a href="#setting-inputs" id="setting-inputs"></a></h2>
-<p>To set the variables of an input, you first need to acquire the input object of the next tick, using <code>Sandbox.GetInput</code>.<br>
+<p>To set the fields of an input, you first need to acquire the input struct of the current tick, using <code>Sandbox.GetInput</code>.<br>
 Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 <pre><code class="lang-csharp">public override void NetworkUpdate()
 {
@@ -104,11 +104,13 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 
     input.MoveDirX = Input.GetAxis(&quot;Horizontal&quot;);
     input.MoveDirY = Input.GetAxis(&quot;Vertical&quot;);
+
+    Sandbox.SetInput(input);
 }
 </code></pre>
 <p>You could also set them on <code>OnInput</code> of NetworkEventsListner, which is preferred.</p>
 <h2 id="simulatingexecuting-inputs"><strong>Simulating/Executing Inputs</strong></h2>
-<p>To drive the gameplay based on the input object, you must do that in <code>NetworkFixedUpdate</code>:</p>
+<p>To drive the gameplay based on the input struct, you must do that in <code>NetworkFixedUpdate</code>:</p>
 <pre><code class="lang-csharp">public override void NetworkFixedUpdate()
 {
     if (FetchInput(out MyInput input))
@@ -126,7 +128,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 </code></pre>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>Sandbox.GetInput is used to read/set the user inputs into the input object.</p>
+<p>Sandbox.GetInput and Sandbox.SetInput are used to read and set the user inputs into the input struct.</p>
 </div>
 <div class="WARNING">
 <h5>Warning</h5>
@@ -144,15 +146,17 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 <p>You can set the Input Source of an object when instantiating it:</p>
 <pre><code class="lang-csharp">sandbox.NetworkInstantiate(PlayerPrefab, spawnPos, Quaternion.identity, client);
 </code></pre>
+<h3 id="changing-the-input-source">Changing the Input Source</h3>
 <p>To set/remove the Input Source (must only be called on the server):</p>
+<p>To set the Input Source of the object (must only be called on the server):</p>
+<pre><code class="lang-csharp">Object.InputSource = newInputSource;
+</code></pre>
+<p>To remove the Input Source of the object (must only be called on the server):</p>
+<pre><code class="lang-csharp">Object.InputSource = null;
+</code></pre>
+<p>There are two methods you can override to run code when Input Source has changed or has left:</p>
 <ol>
-<li>Call <code>PermitInput</code> to set the Input Source of the object: <code>Object.PermitInput(client);</code></li>
-<li>Call <code>RevokeInput</code> to remove the Input Source of the object: <code>Object.RevokeInput();</code></li>
-</ol>
-<p>There are several methods you can override to run code when Input Source is assigned/removed or has left:</p>
-<ol>
-<li><code>OnInputPermitted</code>: called on the player who was given permission to provide inputs to this object.</li>
-<li><code>OnInputRevoked</code>: called on the player whose permission to provide inputs to this object has been revoked by the owner (server).</li>
+<li><code>OnInputSourceChanged</code>: called on the Input Source and server when the Input Source changes.</li>
 <li><code>OnInputSourceLeft</code>: called on the owner (server) when the Input Source client has left the game.</li>
 </ol>
 

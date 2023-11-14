@@ -104,14 +104,14 @@ Watch this video for a visual explanation:</p>
 <p>You have to add a HitShape component (commonly known as a hitbox) on every part of your character which can move. And in the root of your character, you have to add a HitShape Container component which will register all child HitShapes.</p>
 <figure><img src="https://netick.net/wp-content/uploads/2022/11/image-1-1024x600.png" alt=""><figcaption><p>HitShape on each bone</p></figcaption></figure>
 <figure><img src="https://netick.net/wp-content/uploads/2022/11/image-3.png" alt="" height="391" width="407"><figcaption><p>HitShape Container on the root of the character.</p></figcaption></figure>
-<h3 id="performing-a-lag-compensated-raycast"><strong>Performing a Lag-Compensated Raycast</strong></h3>
+<h3 id="performing-a-lag-compensated-raycast-in-unity"><strong>Performing a Lag-Compensated Raycast in Unity</strong></h3>
 <pre><code class="lang-csharp">          // lag-compensated raycast
-            if (Sandbox.GetComponent&lt;LagCompensation&gt;().Raycast(
-                shootPos, 
-                shootDirection, 
-                out var hit, 
-                Object.InputSource, 
-                Mathf.Infinity, 
+            if (Sandbox.Raycast(
+                shootPos,
+                shootDirection,
+                out var hit,
+                Object.InputSource,
+                Mathf.Infinity,
                 includeUnityColliders: true,
                 queryTriggerInteraction: QueryTriggerInteraction.Ignore))
             {
@@ -119,7 +119,7 @@ Watch this video for a visual explanation:</p>
                 {
                     // code to be executed when a HitShape was hit
                 }
-            }  
+            }
 </code></pre>
 <p>For a practical example, you might want to get our comprehensive Arena Shooter sample which covers everything we talked about and more: <a href="https://netick.net/arena-shooter-sample/">https://netick.net/arena-shooter-sample/</a></p>
 

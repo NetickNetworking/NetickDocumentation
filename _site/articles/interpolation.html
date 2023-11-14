@@ -104,7 +104,7 @@ Since there are 5 frames between two ticks, the values at each frame would be:</
 <pre><code class="lang-csharp">[Networked][Smooth]
 public Vector3 Movement {get; set;}
 </code></pre>
-<h2 id="accessing-interpolated-values"><strong>Accessing Interpolated Values</strong></h2>
+<h2 id="automatic-interpolation"><strong>Automatic Interpolation</strong></h2>
 <p>To access the interpolated value, by referencing the property in <a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkRender</a>, you automatically get interpolated values:</p>
 <pre><code class="lang-csharp">public override NetworkRender()
 {
@@ -118,21 +118,29 @@ public Vector3 Movement {get; set;}
 <li>Vector2/Vector3</li>
 <li>Quaternion</li>
 </ul>
-<p>Other types just return the From snapshot between the two snapshots being interpolated.</p>
-<h2 id="interpolation-of-other-types"><strong>Interpolation of Other Types</strong></h2>
-<p>To interpolate other types, you can do that using the <a class="xref" href="../api/Netick.Interpolator-1.html">Interpolator&lt;T&gt;</a> object.</p>
-<p>First, you must include an id in [<a class="xref" href="../api/Netick.Smooth.html">Smooth</a>]:</p>
-<pre><code class="lang-csharp">[Networked][Smooth(6)]
-public MyType SomeProperty {get; set;}
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Currently this is only supported in Unity. Use Manual Interpolation in other engines.</p>
+</div>
+<h2 id="manual-interpolation"><strong>Manual Interpolation</strong></h2>
+<p>To manually interpolate a network property or network array, you can do that using the <a class="xref" href="../api/Netick.Interpolator-1.html">Interpolator&lt;T&gt;</a> struct. And also we are passing false to [Smooth] to inform Netick we want to manually interpolate the property.</p>
+<h3 id="interpolating-properties"><strong>Interpolating Properties</strong></h3>
+<pre><code class="lang-csharp">[Networked][Smooth(false)]
+public MyType MyType {get; set;}
 </code></pre>
 <p>And to access the interpolated value, you first need to acquire a reference to the <a class="xref" href="../api/Netick.Interpolator-1.html">Interpolator&lt;T&gt;</a> object, through which you can get the From and To values, and the Alpha, which you use to interpolate the property.</p>
 <pre><code class="lang-csharp">public override NetworkRender()
 {
-    var interpolator      = FindInterpolator&lt;MyType&gt;(6);
-    var from              = interpolator.From;
-    var to                = interpolator.To;
-    var alpha             = interpolator.Alpha;
-    var interpolatedValue = LerpMyType(from,to,alpha);
+    var    interpolator      = FindInterpolator(nameof(MyType));
+    bool   didGetData        = interpolator.GetInterpolationData&lt;int&gt;(InterpolationMode.Auto, out var from, out var to, out float alpha);
+
+    MyType interpolatedValue = default;
+
+    // if we were able to get interpolation data
+    if (didGetData)
+        interpolatedValue    = LerpMyType(from,to,alpha);
+    else // if not we just use the non-interpolated value
+        interpolatedValue    = MyType;
 }
 
 private MyType LerpMyType(MyType from, MyType to, float alpha)
@@ -140,10 +148,29 @@ private MyType LerpMyType(MyType from, MyType to, float alpha)
     // write the interpolation code here
 }
 </code></pre>
-<p><a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkStart</a></p>
+<h3 id="interpolating-arrays"><strong>Interpolating Arrays</strong></h3>
+<pre><code class="lang-csharp">[Networked (size: 3)]
+public NetworkArray&lt;Vector3&gt; Vector3Array { get; set; }
+</code></pre>
+<p>And to access the interpolated value, you first need to acquire a reference to the <a class="xref" href="../api/Netick.Interpolator-1.html">Interpolator&lt;T&gt;</a> object, through which you can get the From and To values, and the Alpha, which you use to interpolate the property.</p>
+<pre><code class="lang-csharp">public override NetworkRender()
+{
+    var          interpolator      = FindInterpolator(nameof(Vector3Array));
+    int          index             = 5;
+    bool         didGetData        = interpolator.GetInterpolationData&lt;int&gt;(InterpolationMode.Auto, index, out var from, out var to, out float alpha);
+
+    SomeProperty interpolatedValue = default;
+
+    // if we were able to get interpolation data
+    if (didGetData)
+        interpolatedValue = Vector3.Lerp(from, to, alpha);
+    else // if not we just use the non-interpolated value
+        interpolatedValue = Vector3Array[index];
+}
+</code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>You should cache the result to <code>FindInterpolator&lt;MyType&gt;(5)</code> on <a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkStart</a>, instead of calling it repeatedly every frame (NetworkRender is called every frame), since it might be a bit slow.</p>
+<p>You should cache the result to <code>FindInterpolator</code> on <a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkStart</a>, instead of calling it repeatedly every frame (NetworkRender is called every frame), since it might be a bit slow.</p>
 </div>
 
 </article>

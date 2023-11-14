@@ -85,31 +85,43 @@
         <article data-uid="">
 <h1 id="change-callback">Change Callback</h1>
 
+<p>You can have a method get called whenever a networked property changes, which is very useful. To do that, add the attribute [<a class="xref" href="../api/Netick.OnChanged.html">OnChanged</a>] to the method and give it the name of the property. The method must must have a parameter of <a class="xref" href="../api/Netick.OnChangedData.html">OnChangedData</a> type which can be used to retrieve the previous property value.</p>
 <h2 id="for-properties">For Properties</h2>
-<p>You can have a method get called whenever a networked property changes, which is very useful. To do that, add the attribute [<a class="xref" href="../api/Netick.OnChanged.html">OnChanged</a>] to the method and give it the name of the property. The method must have one parameter of the same type of the property which would contain its previous value.</p>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked]
 public int Health { get; set; }
 
 [OnChanged(nameof(Health ))]
-private void OnHealthChanged(int previous)
+private void OnHealthChanged(OnChangedData onChangedData)
 {
-      // Something that happens when the Health property changes
+    var previous = onChangedData.GetPreviousValue&lt;int&gt;();
 }
 </code></pre>
-<h2 id="for-arrays"><strong>For Arrays</strong></h2>
-<p>If you have an array and want a callback for when an element changes, you can do so as follows:</p>
+<h2 id="for-arrays">For Arrays</h2>
 <p>Example:</p>
-<pre><code class="lang-csharp">[Networked(size: 10)]
-public NetworkArray&lt;int&gt; Items { get; set; }
+<pre><code class="lang-csharp">[Networked(size: 32)]
+public NetworkArray&lt;int&gt; ArrayExample = new NetworkArray&lt;int&gt;(32);
 
-[OnChanged(nameof(Items))]
-private void ArrayChanged(int index)
+[OnChanged(nameof(IntArray))]
+private void OnArrayExampleChanged(OnChangedData onChangedData)
 {
-      // Something that happens when an element of the array changes
+  // getting the changed element value directly
+
+  var changedPreviousElementValue = onChangedData.GetArrayPreviousElementValue&lt;int&gt;();
+
+  // or just getting the index
+
+  var changedPreviousElementIndex = onChangedData.GetArrayChangedElementIndex();
+
+  // or maybe getting the previous value of another index we want
+
+  var someRandomPreviousElementValue = onChangedData.GetArrayPreviousElementValue&lt;int&gt;(13);
 }
 </code></pre>
-<p>The difference here to a variable property is that the callback method must have an index parameter that points to the changed element.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Be careful when using these methods on OnChangedData, since they are unsafe and can cause a crash if you go outside array range or use an incorrect type.</p>
+</div>
 
 </article>
 
