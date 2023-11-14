@@ -123,13 +123,12 @@ public Vector3 Movement {get; set;}
 <p>Currently this is only supported in Unity. Use Manual Interpolation in other engines.</p>
 </div>
 <h2 id="manual-interpolation"><strong>Manual Interpolation</strong></h2>
-<p>To manually interpolate a network property or network array, you can do that using the <a class="xref" href="../api/Netick.Interpolator-1.html">Interpolator&lt;T&gt;</a> struct. And also we are passing false to [Smooth] to inform Netick we want to manually interpolate the property.</p>
+<p>To manually interpolate a network property or network array, you can do that using the <a class="xref" href="../api/Netick.Interpolator-1.html">Interpolator&lt;T&gt;</a> struct. You also have to pass false to [Smooth] to inform Netick we want to manually interpolate the property.</p>
 <h3 id="interpolating-properties"><strong>Interpolating Properties</strong></h3>
 <pre><code class="lang-csharp">[Networked][Smooth(false)]
 public MyType MyType {get; set;}
-</code></pre>
-<p>And to access the interpolated value, you first need to acquire a reference to the <a class="xref" href="../api/Netick.Interpolator-1.html">Interpolator&lt;T&gt;</a> object, through which you can get the From and To values, and the Alpha, which you use to interpolate the property.</p>
-<pre><code class="lang-csharp">public override NetworkRender()
+
+public override NetworkRender()
 {
     var    interpolator      = FindInterpolator(nameof(MyType));
     bool   didGetData        = interpolator.GetInterpolationData&lt;int&gt;(InterpolationMode.Auto, out var from, out var to, out float alpha);
@@ -151,9 +150,8 @@ private MyType LerpMyType(MyType from, MyType to, float alpha)
 <h3 id="interpolating-arrays"><strong>Interpolating Arrays</strong></h3>
 <pre><code class="lang-csharp">[Networked (size: 3)]
 public NetworkArray&lt;Vector3&gt; Vector3Array { get; set; }
-</code></pre>
-<p>And to access the interpolated value, you first need to acquire a reference to the <a class="xref" href="../api/Netick.Interpolator-1.html">Interpolator&lt;T&gt;</a> object, through which you can get the From and To values, and the Alpha, which you use to interpolate the property.</p>
-<pre><code class="lang-csharp">public override NetworkRender()
+
+public override NetworkRender()
 {
     var          interpolator      = FindInterpolator(nameof(Vector3Array));
     int          index             = 5;

@@ -117,7 +117,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
     {
         // movement
         var movement = transform.TransformVector(new   Vector3(input.MoveDirX, 0, input.MoveDirY)) * Speed;
-        movement.y       = 0;
+        movement.y   = 0;
   	    _CC.Move(movement * Time.fixedDeltaTime);
 
 	    // shooting
@@ -147,14 +147,14 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 <pre><code class="lang-csharp">sandbox.NetworkInstantiate(PlayerPrefab, spawnPos, Quaternion.identity, client);
 </code></pre>
 <h3 id="changing-the-input-source">Changing the Input Source</h3>
-<p>To set/remove the Input Source (must only be called on the server):</p>
 <p>To set the Input Source of the object (must only be called on the server):</p>
 <pre><code class="lang-csharp">Object.InputSource = newInputSource;
 </code></pre>
 <p>To remove the Input Source of the object (must only be called on the server):</p>
 <pre><code class="lang-csharp">Object.InputSource = null;
 </code></pre>
-<p>There are two methods you can override to run code when Input Source has changed or has left:</p>
+<h2 id="callbacks">Callbacks</h2>
+<p>There are two methods you can override to run code when Input Source has changed has left:</p>
 <ol>
 <li><code>OnInputSourceChanged</code>: called on the Input Source and server when the Input Source changes.</li>
 <li><code>OnInputSourceLeft</code>: called on the owner (server) when the Input Source client has left the game.</li>
