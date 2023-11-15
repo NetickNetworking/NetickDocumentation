@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Understanding Eventual Consistency | Netick Networking Engine </title>
+      <title>State Replication | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Understanding Eventual Consistency | Netick Networking Engine ">
+      <meta name="title" content="State Replication | Netick Networking Engine ">
       
       <link rel="icon" href="../images/logo.png">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -83,26 +83,28 @@
         </div>
 
         <article data-uid="">
-<h1 id="understanding-eventual-consistency">Understanding Eventual Consistency</h1>
+<h1 id="state-replication">State Replication</h1>
 
-<p>Eventual Consistency is a replication method employed by Netick for syncing network state. In Netick, Eventual Consistency means that the network state (network properties) of every object will eventually be consistent between the client and the server, but not necessarily immediately. Meaning that the final value of each property on the client will eventually be consistent (the same) with the value on the server. But, due to packet loss, when one or more packets are lost that contain updates to some network state, this will lead the client to miss some updates to those properties in the lost packets, which will be resent in future packets. So, the client is not guaranteed to receive all updates to the network state in every packet.</p>
-<p>To understand this more clearly, let’s explore an example. Assume there are two properties:</p>
-<p>Ammo
-Health
-Now, let’s look at what happens within each tick:</p>
-<p>Server:</p>
-<p>Tick 0: no changes
-Tick 1: Ammo value changed to 5
-Tick 2: Health value changed to 50, Ammo value changed to 4
-Tick 3: Ammo value changed to 3
-Tick 4: no changes
-Client:</p>
-<p>Tick 0:
-Tick 1: Ammo value 5 received
-Tick 2: The packet got lost
-Tick 3: Ammo value 3 received
-Tick 4: Health value 50 received
-As you can see, there is no guarantee that both Health and Ammo values will be received at the same tick. But, they are guaranteed to be eventually consistent with the server values.</p>
+<p>In Netick, network state is synced (replicated) using one of these two methods:</p>
+<h2 id="optimistic-replication-or">Optimistic Replication (OR):</h2>
+<p>Optimistic Replication is the replication method used in Netick 1, and its only one.</p>
+<h3 id="how-it-works">How it Works:</h3>
+<p>All network properties changes are only sent once, and only ever resent when they are lost. It's being optimistic that data will always be received on the client, so it only sends a change once, hoping the client will get it.</p>
+<h3 id="pros">Pros:</h3>
+<p>This works very well if the network properties that are changing each tick are not the same, like assume you have 1000 properties and each tick a random one of them changes. You are mostly sending one single network property data each time you send a packet, because only one network property is changing. And it is not effected by ping.</p>
+<h3 id="cons">Cons:</h3>
+<p>This can make coding your game challenging, because you are not assured to always have all changed network properties sent together. If two properties change in two subsequent ticks, and you only receive the last one, you will only have data for that one and not for the previous one. You can easily see how this can cause issues. The way to handle these issues is by coding your game to be eventually synced. Though that might be a bit hard for newbies.</p>
+<h2 id="pessimistic-replication-pr">Pessimistic Replication (PR):</h2>
+<p>Pessimistic Replication is the replication method used in Netick 2, and for now the only one.</p>
+<h3 id="how-it-works-1">How it Works:</h3>
+<p>All network property changes that occur are always sent together and until the client acknowledges the server that it has received all of them. It's being pessimistic that data will always be lost on the client, so it always sends the full set of changed data in case the client has lost some of it.</p>
+<h3 id="pros-1">Pros:</h3>
+<p>Because of the guarantee that the client will always have the latest full state, that makes applying techniques like Delta-Encoding pretty easy, since we can have a single reference to what state exists on the client and encode for it. Delta Encoding can cut off the bandwidth by more than half. And we no longer have to account for potential bugs caused by not always having the full state on the client, so this method is overall easier to work with and safer.</p>
+<h3 id="cons-1">Cons:</h3>
+<p>Pessimistic Replication is effected by ping. So higher ping might cause more data being sent. Because all network properties that are changing are accumulating on the server waiting for the client to acknowledge them. But this is not as bad as it sounds at all.</p>
+<h3 id="conclusion">Conclusion:</h3>
+<p>Because the most bandwidth heavy thing in games is usually spatial data like position and rotation, it does not matter if we only send when the data changes, because it will change each tick anyway. Position and rotation are mostly changing each tick.</p>
+<p>Which means Pessimistic Replication will gives us better results for real-time games with many moving entities, which is what most people want to make anyway.</p>
 
 </article>
 
