@@ -102,7 +102,7 @@
 <p>Because of the guarantee that the client will always have the latest full state, that makes applying techniques like Delta-Encoding pretty easy, since we can have a single reference to what state exists on the client and encode for it. Delta Encoding can cut off the bandwidth by more than half. And we no longer have to account for potential bugs caused by not always having the full state on the client, so this method is overall easier to work with and safer.</p>
 <h3 id="cons-1">Cons:</h3>
 <p>Pessimistic Replication is effected by ping. So higher ping might cause more data being sent. Because all network properties that are changing are accumulating on the server waiting for the client to acknowledge them. But this is not as bad as it sounds at all.</p>
-<h3 id="conclusion">Conclusion:</h3>
+<h2 id="conclusion">Conclusion:</h2>
 <p>Because the most bandwidth heavy thing in games is usually spatial data like position and rotation, it does not matter if we only send when the data changes, because it will change each tick anyway. Position and rotation are mostly changing each tick.</p>
 <p>Which means Pessimistic Replication will gives us better results for real-time games with many moving entities, which is what most people want to make anyway.</p>
 
