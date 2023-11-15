@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>State Replication | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="State Replication | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="state-replication">State Replication</h1>
+
+<p>In Netick, network state is synced (replicated) using one of these two methods:</p>
+<h2 id="optimistic-replication-or">Optimistic Replication (OR):</h2>
+<p>Optimistic Replication is the replication method used in Netick 1, and its only one.</p>
+<h3 id="how-it-works">How it Works:</h3>
+<p>All network properties changes are only sent once, and only ever resent when they are lost. It's being optimistic that data will always be received on the client, so it only sends a change once, hoping the client will get it.</p>
+<h3 id="pros">Pros:</h3>
+<p>This works very well if the network properties that are changing each tick are not the same, like assume you have 1000 properties and each tick a random one of them changes. You are mostly sending one single network property data each time you send a packet, because only one network property is changing. And it is not effected by ping.</p>
+<h3 id="cons">Cons:</h3>
+<p>This can make coding your game challenging, because you are not assured to always have all changed network properties sent together. If two properties change in two subsequent ticks, and you only receive the last one, you will only have data for that one and not for the previous one. You can easily see how this can cause issues. The way to handle these issues is by coding your game to be eventually synced. Though that might be a bit hard for newbies.</p>
+<h2 id="pessimistic-replication-pr">Pessimistic Replication (PR):</h2>
+<p>Pessimistic Replication is the replication method used in Netick 2, and for now the only one.</p>
+<h3 id="how-it-works-1">How it Works:</h3>
+<p>All network property changes that occur are always sent together and until the client acknowledges the server that it has received all of them. It's being pessimistic that data will always be lost on the client, so it always sends the full set of changed data in case the client has lost some of it.</p>
+<h3 id="pros-1">Pros:</h3>
+<p>Because of the guarantee that the client will always have the latest full state, that makes applying techniques like Delta-Encoding pretty easy, since we can have a single reference to what state exists on the client and encode for it. Delta Encoding can cut off the bandwidth by more than half. And we no longer have to account for potential bugs caused by not always having the full state on the client, so this method is overall easier to work with and safer.</p>
+<h3 id="cons-1">Cons:</h3>
+<p>Pessimistic Replication is effected by ping. So higher ping might cause more data being sent. Because all network properties that are changing are accumulating on the server waiting for the client to acknowledge them. But this is not as bad as it sounds at all.</p>
+<h3 id="conclusion">Conclusion:</h3>
+<p>Because the most bandwidth heavy thing in games is usually spatial data like position and rotation, it does not matter if we only send when the data changes, because it will change each tick anyway. Position and rotation are mostly changing each tick.</p>
+<p>Which means Pessimistic Replication will gives us better results for real-time games with many moving entities, which is what most people want to make anyway.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2023 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
