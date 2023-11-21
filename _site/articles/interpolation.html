@@ -85,7 +85,7 @@
         <article data-uid="">
 <h1 id="interpolation">Interpolation</h1>
 
-<p>Netick runs at a fixed-time step, the same as the <code>Time.fixedDeltaTime</code> of Unity, which you can specify in the Project Settings. Because of that, the motion of network objects will appear unsmooth and jittery. The reason for this is that, usually, your update rate (render rate) is way higher than your fixed network tick rate. The solution to this problem is called interpolation, which means filling in the gaps between these fixed-time steps/ticks:</p>
+<p>Netick runs at a fixed-time step, equal to the inverse of the tick rate used for the simulation, which you can specify in Netick Settings. Because of that, the motion of network objects will appear unsmooth and jittery. The reason for this is that, usually, your update rate (render rate) is way higher than your fixed network tick rate. The solution to this problem is called interpolation, which means filling in the gaps between these fixed-time steps/ticks:</p>
 <figure><img src="../images/interpolation.png" alt=""><figcaption></figcaption></figure>
 <p>So, for example, at tick 6, the value of a network property is 2.0. And at tick 7, it becomes 3.0.<br>
 Since there are 5 frames between two ticks, the values at each frame would be:</p>
@@ -148,8 +148,8 @@ private MyType LerpMyType(MyType from, MyType to, float alpha)
 }
 </code></pre>
 <h3 id="interpolating-arrays"><strong>Interpolating Arrays</strong></h3>
-<pre><code class="lang-csharp">[Networked (size: 3)]
-public NetworkArray&lt;Vector3&gt; Vector3Array { get; set; }
+<pre><code class="lang-csharp">[Networked (size: 3)][Smooth(false)]
+public NetworkArray&lt;Vector3&gt; Vector3Array = new NetworkArray&lt;Vector3&gt;();
 
 public override NetworkRender()
 {
