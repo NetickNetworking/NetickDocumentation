@@ -89,7 +89,7 @@
 <p>When you have a game with a big world and a high player count, it becomes more and more expensive to replicate every object in the game to every connected client. It's an O(N<sup>2</sup>) problem, meaning the bandwidth sent from the server scales quadratically with the number of players connected. Interest Management mitigates this problem by filtering objects that are of no interest to the client. Usually, this is done using Area of Interest, which is the area around the player. The client will only receive objects existing in this area. Interest management is often used in battle-royale scale games</p>
 <p><strong>Netick handles Interest Management (filters objects replicated to a client) in two phases:</strong></p>
 <h3 id="broad-phase-filtering">Broad Phase Filtering</h3>
-<figure><img src="../../images/im.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../images/im.png" class="center" alt="Area of Interest"><figcaption></figcaption></figure>
 <p>The Broad Phase Filtering is done using a group. An interest management group is a list of network objects that are processed together. Every network object has an option to choose the broad phase filter source, it can be one of three options:</p>
 <ul>
 <li>None: no filtering, the object is replicated to everyone.</li>
