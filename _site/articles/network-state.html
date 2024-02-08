@@ -86,7 +86,7 @@
 <h1 id="network-state">Network State</h1>
 
 <h3 id="network-properties">Network Properties</h3>
-<p>A Network Property is a C# property which is replicated across the network. For a property to be networked, the Attribute <a class="xref" href="../api/Netick.Networked.html">Networked</a> must be added to it. An example of a networked property:</p>
+<p>A network property is a C# property which is replicated across the network. For a property to be networked, the Attribute <a class="xref" href="../api/Netick.Networked.html">Networked</a> must be added to it. An example of a networked property:</p>
 <pre><code class="lang-csharp">[Networked]
 public int Health {get; set;}
 </code></pre>
@@ -100,9 +100,9 @@ public NetworkArray&lt;int&gt; IntArrayExample = new NetworkArray&lt;int&gt;(32)
 <h5>Warning</h5>
 <p><code>size</code> of [<a class="xref" href="../api/Netick.Networked.html">Networked</a>(size: 32)] must be the same as the value that is passed to the array constructor <code>new NetworkArray&lt;int&gt;(32)</code></p>
 </div>
-<h3 id="network-struct-arrays">Network Struct Arrays</h3>
+<h3 id="network-array-structs">Network Array Structs</h3>
 <p>Netick 2 introduces a new type of network array, network arrays that are completely value types - Network Array Structs. These are fixed-size struct arrays available only in 4 fixed sizes: 8, 16, 32, and 64.</p>
-<p>Network Array Structs are pretty useful since they can used as members of another struct, or even nested inside other arrays.</p>
+<p>Network Array Structs are pretty useful since they can used as members of another struct, or even nested inside other arrays. In addition, they can be sent as RPC parameters.</p>
 <pre><code class="lang-csharp">// Network Struct Array Examples
 
 [Networked]
@@ -120,13 +120,35 @@ public NetworkArrayStruct8&lt;NetworkArrayStruct8&lt;int&gt;&gt; ArrayOfArrays {
 <pre><code class="lang-csharp">IntFixedArray = IntFixedArray.Set(index, value);
 // as you can see, we are reassigning the property with the new changed array which has the change.
 </code></pre>
+<h2 id="network-collections">Network Collections</h2>
+<p>In addition to NetworkArray, Netick also has alternatives to C# collections that are fully synced, predicted, and interpolated.</p>
+<ul>
+<li>NetworkLinkedList<t></t></li>
+<li>NetworkStack<t></t></li>
+<li>NetworkQueue<t></t></li>
+</ul>
+<h3 id="usage-examples">Usage examples:</h3>
+<pre><code class="lang-csharp">[Networked(size: 5)]
+public NetworkLinkedList&lt;int&gt;  MyNetworkedList = new NetworkLinkedList&lt;int&gt;(5);
+
+[Networked(size: 5)]
+public NetworkQueue&lt;int&gt;       MyNetworkedQueue = new NetworkQueue&lt;int&gt;(5);
+
+[Networked(size: 5)]
+public NetworkStack&lt;int&gt;       MyNetworkedStack = new NetworkStack&lt;int&gt;(5);
+</code></pre>
+<p>Removing and adding elements is the same as with C# collections.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>size</code> that you pass to [Networked] and the constructor represents the fixed capacity of the collection. The collections don't support resizing as all network state sizes are set in compile time.</p>
+</div>
 <h2 id="network-structs">Network Structs</h2>
 <p>Netick can synchronize any struct that does not contain arrays or references. Which includes all C# primitive types and Unity/Godot/Flax primitive types.</p>
 <p>Example:</p>
 <pre><code class="lang-csharp">public struct MyNestedStruct
 {
     public int                      Int1;
-    public bool                     Bool1;
+    public NetworkBool              Bool1;
     public float                    Float1;
     public double                   Double1;
     public Vector3                  Position;
@@ -140,7 +162,7 @@ public struct MyStruct
     public MyNestedStruct           MyNestedStruct;
     public NetworkArrayStruct8&lt;int&gt; StructArray;
     public int                      Int1;
-    public bool                     Bool1;
+    public NetworkBool              Bool1;
     public float                    Float1;
     public double                   Double1;
 }
@@ -148,10 +170,9 @@ public struct MyStruct
 [Networked]
 public MyStruct MyStructProperty {get; set;}
 </code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p><code>string</code> is not supported as a type that can used inside a struct. Use <code>NetworkString</code> instead.</p>
-</div>
+<blockquote>
+<p>[!Note] &gt; <code>string</code> is not supported as a type that can used inside a struct. Use <code>NetworkString</code> instead.</p>
+</blockquote>
 
 </article>
 

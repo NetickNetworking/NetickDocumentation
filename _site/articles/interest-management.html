@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Change Callback | Netick Networking Engine </title>
+      <title>Interest Management [Pro] | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Change Callback | Netick Networking Engine ">
+      <meta name="title" content="Interest Management [Pro] | Netick Networking Engine ">
       
       <link rel="icon" href="../images/logo.png">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -83,85 +83,50 @@
         </div>
 
         <article data-uid="">
-<h1 id="change-callback">Change Callback</h1>
+<h1 id="interest-management-pro">Interest Management [Pro]</h1>
 
-<p>You can have a method get called whenever a networked property changes, which is very useful. To do that, add the attribute [<a class="xref" href="../api/Netick.OnChanged.html">OnChanged</a>] to the method and give it the name of the property. The method must must have a parameter of <a class="xref" href="../api/Netick.OnChangedData.html">OnChangedData</a> type which can be used to retrieve the previous property value.</p>
-<h2 id="for-properties">For Properties</h2>
-<p>Example:</p>
-<pre><code class="lang-csharp">[Networked]
-public int Health { get; set; }
-
-[OnChanged(nameof(Health))]
-private void OnHealthChanged(OnChangedData onChangedData)
-{
-  var previous = onChangedData.GetPreviousValue&lt;int&gt;();
-}
-</code></pre>
-<h2 id="for-arrays">For Arrays</h2>
-<p>Example:</p>
-<pre><code class="lang-csharp">[Networked(size: 32)]
-public NetworkArray&lt;int&gt; ArrayExample = new NetworkArray&lt;int&gt;(32);
-
-[OnChanged(nameof(ArrayExample))]
-private void OnArrayExampleChanged(OnChangedData onChangedData)
-{
-  // getting the changed element value directly
-
-  var changedPreviousElementValue = onChangedData.GetArrayPreviousElementValue&lt;int&gt;();
-
-  // or just getting the index
-
-  var changedPreviousElementIndex = onChangedData.GetArrayChangedElementIndex();
-
-  // or maybe getting the previous value of another index we want
-
-  var someRandomPreviousElementValue = onChangedData.GetArrayPreviousElementValue&lt;int&gt;(13);
-}
-</code></pre>
-<h2 id="for-collections">For Collections</h2>
-<h3 id="networklinkedlist">NetworkLinkedList<t></t></h3>
-<p>Example:</p>
-<pre><code class="lang-csharp">[Networked(size: 32)]
-public NetworkLinkedList&lt;int&gt; ListExample = new NetworkArray&lt;int&gt;(32);
-
-[OnChanged(nameof(ListExample))]
-private void OnListExampleChanged(OnChangedData onChangedData)
-{
-  // getting a snapshot of the previous state of the list
-  var previous = onChangedData.GetPreviousNetworkStack(ListExample);
-}
-</code></pre>
-<h3 id="networkqueue">NetworkQueue<t></t></h3>
-<p>Example:</p>
-<pre><code class="lang-csharp">[Networked(size: 32)]
-public NetworkQueue&lt;int&gt; QueueExample = new NetworkQueue&lt;int&gt;(32);
-
-[OnChanged(nameof(QueueExample))]
-private void OnQueueExampleChanged(OnChangedData onChangedData)
-{
-  // getting a snapshot of the previous state of the list
-  var previous = onChangedData.GetPreviousNetworkQueue(QueueExample);
-}
-</code></pre>
-<h3 id="networkstack">NetworkStack<t></t></h3>
-<p>Example:</p>
-<pre><code class="lang-csharp">[Networked(size: 32)]
-public NetworkStack&lt;int&gt; StackExample = new NetworkStack&lt;int&gt;(32);
-
-[OnChanged(nameof(StackExample))]
-private void OnStackExampleChanged(OnChangedData onChangedData)
-{
-  // getting a snapshot of the previous state of the list
-  var previous = onChangedData.GetPreviousNetworkStack(StackExample);
-}
-</code></pre>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>Don't use the array methods of OnChangedData on network collections. They only work on NetworkArray<t>.</t></p>
+<h2 id="understanding-interest-management">Understanding Interest Management</h2>
+<p>When you have a game with a big world and a high player count, it becomes more and more expensive to replicate every object in the game to every connected client. It's an O(N<sup>2</sup>) problem, meaning the bandwidth sent from the server scales quadratically with the number of players connected. Interest Management mitigates this problem by filtering objects that are of no interest to the client. Usually, this is done using Area of Interest, which is the area around the player. The client will only receive objects existing in this area. Interest management is often used in battle-royale scale games</p>
+<p><strong>Netick handles Interest Management (filters objects replicated to a client) in two phases:</strong></p>
+<h3 id="broad-phase-filtering">Broad Phase Filtering</h3>
+<figure><img src="../../images/im.png" alt=""><figcaption></figcaption></figure>
+<p>The Broad Phase Filtering is done using a group. An interest management group is a list of network objects that are processed together. Every network object has an option to choose the broad phase filter source, it can be one of three options:</p>
+<ul>
+<li>None: no filtering, the object is replicated to everyone.</li>
+<li>Custom: using an explicitly assigned custom group through code, with an index. Only clients who explicitly choose to be interested in this group will receive updates to the object.</li>
+<li>Area of Interest: only when a client's Area of Interest intersects this object's group cell it will be replicated.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Area of Interest implementation is done using a grid, which you can specify its settings in Netick Settings window.</p>
 </div>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>Be careful when using these methods on OnChangedData, since they are unsafe and can cause a crash if you go outside array range or use an incorrect type.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The number of available custom interest groups can be set in Netick Settings.</p>
+</div>
+<h4 id="explicitly-specifying-the-custom-interest-group-of-an-object">Explicitly specifying the custom interest group of an object</h4>
+<pre><code class="lang-csharp">Object.InterestGroup = Sandbox.InterestManagement.CustomGroups[groupIndex];
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The above is only valid when the Broad Phase Filter of the object is set to Custom. When it's set to Area of Interest, it will only be controllable by Netick - meaning the object will be assigned a group that corresponds to its current position in the world.</p>
+</div>
+<h3 id="narrow-phase-filtering">Narrow Phase Filtering</h3>
+<p>Narrow Phase Filtering allows for finer control. Instead of being handled per-group basis, it's done per-object per-client basis. Which is slower. Thus, it should only be used when necessary.</p>
+<h4 id="filtering-an-object-to-a-specific-client">Filtering an object to a specific client</h4>
+<pre><code class="lang-csharp">Object.SetNarrowphaseInterest(client, false);
+</code></pre>
+<h2 id="specifying-the-interest-of-a-client">Specifying the interest of a client</h2>
+<p>The area of interest of the client is specified using bounding boxes that you can add.</p>
+<h4 id="adding-area-of-interest-regions">Adding area of interest regions</h4>
+<pre><code class="lang-csharp">InputSource.AddInterestBoxArea(new Bounds(transform.position, (InterestBox)));
+</code></pre>
+<h4 id="adding-custom-interest-groups-to-a-client">Adding custom interest groups to a client</h4>
+<pre><code class="lang-csharp">InputSource.AddInterestGroup(customInterestGroupIndex);
+</code></pre>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>This must be done every NetworkFixedUpdate callback since it's cleared at the end of the tick. Usually, you should do this in the movement controller of your player character.</p>
 </div>
 
 </article>
