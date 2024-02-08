@@ -96,9 +96,10 @@ public int Health {get; set;}
 <pre><code class="lang-csharp">[Networked(size: 32)]
 public NetworkArray&lt;int&gt; IntArrayExample = new NetworkArray&lt;int&gt;(32) { 55, 66, 77 };
 </code></pre>
-<blockquote>
-<p>[!WARNING] &gt; <code>size</code> of [<a class="xref" href="../api/Netick.Networked.html">Networked</a>(size: 32)] must be the same as the value that is passed to the array constructor <code>new NetworkArray&lt;int&gt;(32)</code></p>
-</blockquote>
+<div class="WARNING">
+<h5>Warning</h5>
+<p><code>size</code> of [<a class="xref" href="../api/Netick.Networked.html">Networked</a>(size: 32)] must be the same as the value that is passed to the array constructor <code>new NetworkArray&lt;int&gt;(32)</code></p>
+</div>
 <h3 id="network-array-structs">Network Array Structs</h3>
 <p>Netick 2 introduces a new type of network array, network arrays that are completely value types - Network Array Structs. These are fixed-size struct arrays available only in 4 fixed sizes: 8, 16, 32, and 64.</p>
 <p>Network Array Structs are pretty useful since they can used as members of another struct, or even nested inside other arrays. In addition, they can be sent as RPC parameters.</p>
