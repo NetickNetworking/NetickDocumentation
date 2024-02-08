@@ -139,32 +139,34 @@
 
 
 
-  <h2 class="section" id="fields">Fields
+  <h2 class="section" id="properties">Properties
 </h2>
 
 
+  <a id="Netick_OnChangedData_IsAuthoritative_" data-uid="Netick.OnChangedData.IsAuthoritative*"></a>
 
-  <h3 id="Netick_OnChangedData_Behaviour" data-uid="Netick.OnChangedData.Behaviour">
-  Behaviour
+  <h3 id="Netick_OnChangedData_IsAuthoritative" data-uid="Netick.OnChangedData.IsAuthoritative">
+  IsAuthoritative
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns true if this OnChanged callback is caused by the server. Always returns true on the server.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public INetickNetworkScript Behaviour</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsAuthoritative { get; }</code></pre>
   </div>
 
 
 
 
-  <h4 class="section">Field Value</h4>
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.INetickNetworkScript.html">INetickNetworkScript</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
-
 
 
 
@@ -360,42 +362,6 @@
 
 
 
-  <a id="Netick_OnChangedData_GetBehaviour_" data-uid="Netick.OnChangedData.GetBehaviour*"></a>
-
-  <h3 id="Netick_OnChangedData_GetBehaviour__1" data-uid="Netick.OnChangedData.GetBehaviour``1">
-  GetBehaviour&lt;T&gt;()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T GetBehaviour&lt;T&gt;() where T : INetickScript</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">T</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="Netick_OnChangedData_GetHashCode_" data-uid="Netick.OnChangedData.GetHashCode*"></a>
 
   <h3 id="Netick_OnChangedData_GetHashCode" data-uid="Netick.OnChangedData.GetHashCode">
@@ -417,6 +383,132 @@
     <dd></dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_OnChangedData_GetPreviousNetworkLinkedList_" data-uid="Netick.OnChangedData.GetPreviousNetworkLinkedList*"></a>
+
+  <h3 id="Netick_OnChangedData_GetPreviousNetworkLinkedList__1_Netick_NetworkLinkedList___0__" data-uid="Netick.OnChangedData.GetPreviousNetworkLinkedList``1(Netick.NetworkLinkedList{``0})">
+  GetPreviousNetworkLinkedList&lt;T&gt;(NetworkLinkedList&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a snapshot of the previous state of a NetworkLinkedList collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkLinkedListSnapshot&lt;T&gt; GetPreviousNetworkLinkedList&lt;T&gt;(NetworkLinkedList&lt;T&gt; networkLinkedList) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkLinkedList</code> <a class="xref" href="Netick.NetworkLinkedList-1.html">NetworkLinkedList</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkLinkedListSnapshot-1.html">NetworkLinkedListSnapshot</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_OnChangedData_GetPreviousNetworkQueue_" data-uid="Netick.OnChangedData.GetPreviousNetworkQueue*"></a>
+
+  <h3 id="Netick_OnChangedData_GetPreviousNetworkQueue__1_Netick_NetworkQueue___0__" data-uid="Netick.OnChangedData.GetPreviousNetworkQueue``1(Netick.NetworkQueue{``0})">
+  GetPreviousNetworkQueue&lt;T&gt;(NetworkQueue&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a snapshot of the previous state of a NetworkQueue collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkQueueSnapshot&lt;T&gt; GetPreviousNetworkQueue&lt;T&gt;(NetworkQueue&lt;T&gt; networkQueue) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkQueue</code> <a class="xref" href="Netick.NetworkQueue-1.html">NetworkQueue</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkQueueSnapshot-1.html">NetworkQueueSnapshot</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_OnChangedData_GetPreviousNetworkStack_" data-uid="Netick.OnChangedData.GetPreviousNetworkStack*"></a>
+
+  <h3 id="Netick_OnChangedData_GetPreviousNetworkStack__1_Netick_NetworkStack___0__" data-uid="Netick.OnChangedData.GetPreviousNetworkStack``1(Netick.NetworkStack{``0})">
+  GetPreviousNetworkStack&lt;T&gt;(NetworkStack&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a snapshot of the previous state of a NetworkStack collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkStackSnapshot&lt;T&gt; GetPreviousNetworkStack&lt;T&gt;(NetworkStack&lt;T&gt; networkStack) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkStack</code> <a class="xref" href="Netick.NetworkStack-1.html">NetworkStack</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkStackSnapshot-1.html">NetworkStackSnapshot</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
 
 
 

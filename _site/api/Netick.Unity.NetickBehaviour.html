@@ -185,6 +185,9 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">MonoBehaviour.print(object)</a>
     </div>
     <div>
+      <span class="xref">MonoBehaviour.destroyCancellationToken</span>
+    </div>
+    <div>
       <span class="xref">MonoBehaviour.useGUILayout</span>
     </div>
     <div>
@@ -386,6 +389,12 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
       <span class="xref">Object.DontDestroyOnLoad(Object)</span>
     </div>
     <div>
@@ -404,7 +413,13 @@
       <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
     </div>
     <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
     </div>
     <div>
       <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
@@ -413,13 +428,37 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
     </div>
     <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
     </div>
     <div>
       <span class="xref">Object.ToString()</span>
@@ -655,7 +694,7 @@
   </h3>
 
   <div class="markdown level1 summary"><p>Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.</p>
-<p>On the client, if you are the Input Source or if this Object.PredictionMode is set to Everyone, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
+<p>On the client, if you are the Input Source or if this Object.PredictionMode is set to None, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -742,6 +781,58 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void NetworkUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetickBehaviour_OnBecameSimulated_" data-uid="Netick.Unity.NetickBehaviour.OnBecameSimulated*"></a>
+
+  <h3 id="Netick_Unity_NetickBehaviour_OnBecameSimulated" data-uid="Netick.Unity.NetickBehaviour.OnBecameSimulated">
+  OnBecameSimulated()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnBecameSimulated()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetickBehaviour_OnBecameUnsimulated_" data-uid="Netick.Unity.NetickBehaviour.OnBecameUnsimulated*"></a>
+
+  <h3 id="Netick_Unity_NetickBehaviour_OnBecameUnsimulated" data-uid="Netick.Unity.NetickBehaviour.OnBecameUnsimulated">
+  OnBecameUnsimulated()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnBecameUnsimulated()</code></pre>
   </div>
 
 

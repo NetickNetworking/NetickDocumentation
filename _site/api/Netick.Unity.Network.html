@@ -173,6 +173,9 @@ public sealed class Network : MonoBehaviour</code></pre>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">MonoBehaviour.print(object)</a>
     </div>
     <div>
+      <span class="xref">MonoBehaviour.destroyCancellationToken</span>
+    </div>
+    <div>
       <span class="xref">MonoBehaviour.useGUILayout</span>
     </div>
     <div>
@@ -374,6 +377,12 @@ public sealed class Network : MonoBehaviour</code></pre>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
       <span class="xref">Object.DontDestroyOnLoad(Object)</span>
     </div>
     <div>
@@ -392,7 +401,13 @@ public sealed class Network : MonoBehaviour</code></pre>
       <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
     </div>
     <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
     </div>
     <div>
       <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
@@ -401,13 +416,37 @@ public sealed class Network : MonoBehaviour</code></pre>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
     </div>
     <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
     </div>
     <div>
       <span class="xref">Object.ToString()</span>
@@ -847,6 +886,53 @@ public sealed class Network : MonoBehaviour</code></pre>
 
 
 
+  <a id="Netick_Unity_Network_StartAsMultiplePeers_" data-uid="Netick.Unity.Network.StartAsMultiplePeers*"></a>
+
+  <h3 id="Netick_Unity_Network_StartAsMultiplePeers_Netick_Unity_NetworkTransportProvider_System_Int32_UnityEngine_GameObject_System_Boolean_System_Int32_" data-uid="Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Int32)">
+  StartAsMultiplePeers(NetworkTransportProvider, int, GameObject, bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts multiple peers together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Network.Sandboxs StartAsMultiplePeers(NetworkTransportProvider transportProvider, int port, GameObject sandboxPrefab = null, bool startAServer = true, int numOfClients = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transportProvider</code> <a class="xref" href="Netick.Unity.NetworkTransportProvider.html">NetworkTransportProvider</a></dt>
+    <dd></dd>
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>sandboxPrefab</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+    <dt><code>startAServer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Should we start a server too.</p>
+</dd>
+    <dt><code>numOfClients</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Number of client sandboxes to create.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.Network.html">Network</a>.<a class="xref" href="Netick.Unity.Network.Sandboxs.html">Sandboxs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_Network_StartAsServer_" data-uid="Netick.Unity.Network.StartAsServer*"></a>
 
   <h3 id="Netick_Unity_Network_StartAsServer_Netick_Unity_NetworkTransportProvider_System_Int32_UnityEngine_GameObject_" data-uid="Netick.Unity.Network.StartAsServer(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)">
@@ -902,7 +988,8 @@ public sealed class Network : MonoBehaviour</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Network.Sandboxs StartAsServerAndClient(NetworkTransportProvider transportProvider, int serverPort, GameObject prefab = null, int numOfClients = 1)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This is obsolete. Use StartAsMultiplePeers instead.&quot;)]
+public static Network.Sandboxs StartAsServerAndClient(NetworkTransportProvider transportProvider, int serverPort, GameObject sandboxPrefab = null, int numOfClients = 1)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -912,7 +999,7 @@ public sealed class Network : MonoBehaviour</code></pre>
     <dt><code>serverPort</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Network port.</p>
 </dd>
-    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dt><code>sandboxPrefab</code> <span class="xref">GameObject</span></dt>
     <dd></dd>
     <dt><code>numOfClients</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Number of client sandboxs to create.</p>

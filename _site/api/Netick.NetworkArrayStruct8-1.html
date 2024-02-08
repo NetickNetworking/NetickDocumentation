@@ -102,8 +102,8 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Networked(8, Relevancy.Everyone, -1)]
-public struct NetworkArrayStruct8&lt;T&gt; where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">[Networked(8, Relevancy.Everyone, 0.001)]
+public struct NetworkArrayStruct8&lt;T&gt; : IEnumerable&lt;T&gt;, IEnumerable where T : unmanaged</code></pre>
   </div>
 
 
@@ -115,6 +115,13 @@ public struct NetworkArrayStruct8&lt;T&gt; where T : unmanaged</code></pre>
   </dl>
 
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist derived">
@@ -182,8 +189,70 @@ public struct NetworkArrayStruct8&lt;T&gt; where T : unmanaged</code></pre>
 
 
 
+  <a id="Netick_NetworkArrayStruct8_1_Length_" data-uid="Netick.NetworkArrayStruct8`1.Length*"></a>
+
+  <h3 id="Netick_NetworkArrayStruct8_1_Length" data-uid="Netick.NetworkArrayStruct8`1.Length">
+  Length
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Length { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="Netick_NetworkArrayStruct8_1_GetEnumerator_" data-uid="Netick.NetworkArrayStruct8`1.GetEnumerator*"></a>
+
+  <h3 id="Netick_NetworkArrayStruct8_1_GetEnumerator" data-uid="Netick.NetworkArrayStruct8`1.GetEnumerator">
+  GetEnumerator()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Netick_NetworkArrayStruct8_1_Set_" data-uid="Netick.NetworkArrayStruct8`1.Set*"></a>

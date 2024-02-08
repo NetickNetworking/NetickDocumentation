@@ -195,10 +195,10 @@
 </h2>
 
 
-  <a id="Netick_NetworkPlayer_CellPosition_" data-uid="Netick.NetworkPlayer.CellPosition*"></a>
+  <a id="Netick_NetworkPlayer_Distance_" data-uid="Netick.NetworkPlayer.Distance*"></a>
 
-  <h3 id="Netick_NetworkPlayer_CellPosition" data-uid="Netick.NetworkPlayer.CellPosition">
-  CellPosition
+  <h3 id="Netick_NetworkPlayer_Distance" data-uid="Netick.NetworkPlayer.Distance">
+  Distance
   
   </h3>
 
@@ -206,7 +206,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetickVector3Int CellPosition { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public float Distance { get; set; }</code></pre>
   </div>
 
 
@@ -215,7 +215,38 @@
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetickVector3Int.html">NetickVector3Int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkPlayer_FieldOfViewAngle_" data-uid="Netick.NetworkPlayer.FieldOfViewAngle*"></a>
+
+  <h3 id="Netick_NetworkPlayer_FieldOfViewAngle" data-uid="Netick.NetworkPlayer.FieldOfViewAngle">
+  FieldOfViewAngle
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float FieldOfViewAngle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
 
@@ -303,7 +334,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetickVector3 Position { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 Position { get; set; }</code></pre>
   </div>
 
 
@@ -312,7 +343,7 @@
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetickVector3.html">NetickVector3</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
     <dd></dd>
   </dl>
 
@@ -323,19 +354,18 @@
 
 
 
-  <a id="Netick_NetworkPlayer_UserObject_" data-uid="Netick.NetworkPlayer.UserObject*"></a>
+  <a id="Netick_NetworkPlayer_ViewDirection_" data-uid="Netick.NetworkPlayer.ViewDirection*"></a>
 
-  <h3 id="Netick_NetworkPlayer_UserObject" data-uid="Netick.NetworkPlayer.UserObject">
-  UserObject
+  <h3 id="Netick_NetworkPlayer_ViewDirection" data-uid="Netick.NetworkPlayer.ViewDirection">
+  ViewDirection
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Use this to associate an object with this sandbox.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object UserObject { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 ViewDirection { get; set; }</code></pre>
   </div>
 
 
@@ -344,9 +374,106 @@
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Netick_NetworkPlayer_AddInterestBoxArea_" data-uid="Netick.NetworkPlayer.AddInterestBoxArea*"></a>
+
+  <h3 id="Netick_NetworkPlayer_AddInterestBoxArea_Netick_NetickBounds_" data-uid="Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds)">
+  AddInterestBoxArea(NetickBounds)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddInterestBoxArea(NetickBounds box)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Netick.NetickBounds.html">NetickBounds</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkPlayer_AddInterestGroup_" data-uid="Netick.NetworkPlayer.AddInterestGroup*"></a>
+
+  <h3 id="Netick_NetworkPlayer_AddInterestGroup_Netick_InterestManagementGroup_" data-uid="Netick.NetworkPlayer.AddInterestGroup(Netick.InterestManagementGroup)">
+  AddInterestGroup(InterestManagementGroup)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddInterestGroup(InterestManagementGroup group)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>group</code> <a class="xref" href="Netick.InterestManagementGroup.html">InterestManagementGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkPlayer_AddInterestGroup_" data-uid="Netick.NetworkPlayer.AddInterestGroup*"></a>
+
+  <h3 id="Netick_NetworkPlayer_AddInterestGroup_System_Int32_" data-uid="Netick.NetworkPlayer.AddInterestGroup(System.Int32)">
+  AddInterestGroup(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddInterestGroup(int groupId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
 
 
 

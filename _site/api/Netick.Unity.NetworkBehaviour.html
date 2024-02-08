@@ -132,7 +132,6 @@
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
-      <div><a class="xref" href="Netick.Unity.GeneratedBehaviourExample.html">GeneratedBehaviourExample</a></div>
       <div><a class="xref" href="Netick.Unity.NetworkAnimator.html">NetworkAnimator</a></div>
       <div><a class="xref" href="Netick.Unity.NetworkTransform.html">NetworkTransform</a></div>
     </dd>
@@ -155,6 +154,12 @@
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender">NetickBehaviour.NetworkRender()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_OnBecameSimulated">NetickBehaviour.OnBecameSimulated()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_OnBecameUnsimulated">NetickBehaviour.OnBecameUnsimulated()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_Sandbox">NetickBehaviour.Sandbox</a>
@@ -212,6 +217,9 @@
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">MonoBehaviour.print(object)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.destroyCancellationToken</span>
     </div>
     <div>
       <span class="xref">MonoBehaviour.useGUILayout</span>
@@ -415,6 +423,12 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
       <span class="xref">Object.DontDestroyOnLoad(Object)</span>
     </div>
     <div>
@@ -433,7 +447,13 @@
       <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
     </div>
     <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
     </div>
     <div>
       <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
@@ -442,13 +462,37 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
     </div>
     <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
     </div>
     <div>
       <span class="xref">Object.ToString()</span>
@@ -650,6 +694,37 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
 
 
 
+  <a id="Netick_Unity_NetworkBehaviour_InputSourcePlayerId_" data-uid="Netick.Unity.NetworkBehaviour.InputSourcePlayerId*"></a>
+
+  <h3 id="Netick_Unity_NetworkBehaviour_InputSourcePlayerId" data-uid="Netick.Unity.NetworkBehaviour.InputSourcePlayerId">
+  InputSourcePlayerId
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int InputSourcePlayerId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkBehaviour_IsClient_" data-uid="Netick.Unity.NetworkBehaviour.IsClient*"></a>
 
   <h3 id="Netick_Unity_NetworkBehaviour_IsClient" data-uid="Netick.Unity.NetworkBehaviour.IsClient">
@@ -753,7 +828,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>On the client, it returns true only if the client is predicting this object. On the server, it always returns true.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -879,8 +955,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
 
   <a id="Netick_Unity_NetworkBehaviour_FetchInput_" data-uid="Netick.Unity.NetworkBehaviour.FetchInput*"></a>
 
-  <h3 id="Netick_Unity_NetworkBehaviour_FetchInput__1___0__" data-uid="Netick.Unity.NetworkBehaviour.FetchInput``1(``0@)">
-  FetchInput&lt;T&gt;(out T)
+  <h3 id="Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_" data-uid="Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)">
+  FetchInput&lt;T&gt;(out T, int)
   
   </h3>
 
@@ -889,12 +965,14 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool FetchInput&lt;T&gt;(out T input) where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public bool FetchInput&lt;T&gt;(out T input, int playerIndex = 0) where T : unmanaged</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>input</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>playerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -971,6 +1049,42 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
 
 
 
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkBehaviour_GetRef_" data-uid="Netick.Unity.NetworkBehaviour.GetRef*"></a>
+
+  <h3 id="Netick_Unity_NetworkBehaviour_GetRef__1" data-uid="Netick.Unity.NetworkBehaviour.GetRef``1">
+  GetRef&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkBehaviourRef&lt;T&gt; GetRef&lt;T&gt;() where T : NetworkBehaviour</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkBehaviourRef-1.html">NetworkBehaviourRef</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -1142,6 +1256,58 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
 
 
 
+  <a id="Netick_Unity_NetworkBehaviour_OnBecameInterested_" data-uid="Netick.Unity.NetworkBehaviour.OnBecameInterested*"></a>
+
+  <h3 id="Netick_Unity_NetworkBehaviour_OnBecameInterested" data-uid="Netick.Unity.NetworkBehaviour.OnBecameInterested">
+  OnBecameInterested()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnBecameInterested()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkBehaviour_OnBecameUninterested_" data-uid="Netick.Unity.NetworkBehaviour.OnBecameUninterested*"></a>
+
+  <h3 id="Netick_Unity_NetworkBehaviour_OnBecameUninterested" data-uid="Netick.Unity.NetworkBehaviour.OnBecameUninterested">
+  OnBecameUninterested()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnBecameUninterested()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkBehaviour_OnInputSourceChanged_" data-uid="Netick.Unity.NetworkBehaviour.OnInputSourceChanged*"></a>
 
   <h3 id="Netick_Unity_NetworkBehaviour_OnInputSourceChanged_Netick_NetworkPlayer_" data-uid="Netick.Unity.NetworkBehaviour.OnInputSourceChanged(Netick.NetworkPlayer)">
@@ -1207,7 +1373,7 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Called on the client when the server confirms that this object has been successfully spawn-predicted and therefore has a valid Id.</p>
+  <div class="markdown level1 summary"><p>Called on the client when the server confirms that this object has been successfully spawn-predicted and therefore has a valid SceneId.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

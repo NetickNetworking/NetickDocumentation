@@ -149,10 +149,16 @@ public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickS
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_S">NetworkBehaviour.S</a>
     </div>
     <div>
-      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__">NetworkBehaviour.FetchInput&lt;T&gt;(out T)</a>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GetRef__1">NetworkBehaviour.GetRef&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_">NetworkBehaviour.FetchInput&lt;T&gt;(out T, int)</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FindInterpolator_System_String_">NetworkBehaviour.FindInterpolator(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameUninterested">NetworkBehaviour.OnBecameUninterested()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnInputSourceChanged_Netick_NetworkPlayer_">NetworkBehaviour.OnInputSourceChanged(NetworkPlayer)</a>
@@ -203,13 +209,19 @@ public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickS
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSource">NetworkBehaviour.InputSource</a>
     </div>
     <div>
-      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart">NetickBehaviour.NetworkStart()</a>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSourcePlayerId">NetworkBehaviour.InputSourcePlayerId</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy">NetickBehaviour.NetworkDestroy()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkUpdate">NetickBehaviour.NetworkUpdate()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_OnBecameSimulated">NetickBehaviour.OnBecameSimulated()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_OnBecameUnsimulated">NetickBehaviour.OnBecameUnsimulated()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_Sandbox">NetickBehaviour.Sandbox</a>
@@ -267,6 +279,9 @@ public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickS
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">MonoBehaviour.print(object)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.destroyCancellationToken</span>
     </div>
     <div>
       <span class="xref">MonoBehaviour.useGUILayout</span>
@@ -470,6 +485,12 @@ public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickS
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
       <span class="xref">Object.DontDestroyOnLoad(Object)</span>
     </div>
     <div>
@@ -488,7 +509,13 @@ public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickS
       <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
     </div>
     <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
     </div>
     <div>
       <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
@@ -497,13 +524,37 @@ public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickS
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
     </div>
     <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
     </div>
     <div>
       <span class="xref">Object.ToString()</span>
@@ -820,6 +871,44 @@ protected TransformSpace TransformSpace</code></pre>
 
 
 
+  <a id="Netick_Unity_NetworkTransform_GetInterpolationData_" data-uid="Netick.Unity.NetworkTransform.GetInterpolationData*"></a>
+
+  <h3 id="Netick_Unity_NetworkTransform_GetInterpolationData_UnityEngine_Vector3__UnityEngine_Quaternion__" data-uid="Netick.Unity.NetworkTransform.GetInterpolationData(UnityEngine.Vector3@,UnityEngine.Quaternion@)">
+  GetInterpolationData(out Vector3, out Quaternion)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetInterpolationData(out Vector3 pos, out Quaternion rot)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pos</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>rot</code> <span class="xref">Quaternion</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkTransform_InternalGetStateSizeWords_" data-uid="Netick.Unity.NetworkTransform.InternalGetStateSizeWords*"></a>
 
   <h3 id="Netick_Unity_NetworkTransform_InternalGetStateSizeWords" data-uid="Netick.Unity.NetworkTransform.InternalGetStateSizeWords">
@@ -851,10 +940,10 @@ protected TransformSpace TransformSpace</code></pre>
 
 
 
-  <a id="Netick_Unity_NetworkTransform_Interpolate_" data-uid="Netick.Unity.NetworkTransform.Interpolate*"></a>
+  <a id="Netick_Unity_NetworkTransform_Interpolate2_" data-uid="Netick.Unity.NetworkTransform.Interpolate2*"></a>
 
-  <h3 id="Netick_Unity_NetworkTransform_Interpolate" data-uid="Netick.Unity.NetworkTransform.Interpolate">
-  Interpolate()
+  <h3 id="Netick_Unity_NetworkTransform_Interpolate2" data-uid="Netick.Unity.NetworkTransform.Interpolate2">
+  Interpolate2()
   
   </h3>
 
@@ -862,7 +951,7 @@ protected TransformSpace TransformSpace</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Interpolate()</code></pre>
+    <pre><code class="lang-csharp hljs">public void Interpolate2()</code></pre>
   </div>
 
 
@@ -937,7 +1026,7 @@ protected TransformSpace TransformSpace</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.</p>
-<p>On the client, if you are the Input Source or if this Object.PredictionMode is set to Everyone, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
+<p>On the client, if you are the Input Source or if this Object.PredictionMode is set to None, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -970,6 +1059,59 @@ protected TransformSpace TransformSpace</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void NetworkRender()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkTransform_NetworkStart_" data-uid="Netick.Unity.NetworkTransform.NetworkStart*"></a>
+
+  <h3 id="Netick_Unity_NetworkTransform_NetworkStart" data-uid="Netick.Unity.NetworkTransform.NetworkStart">
+  NetworkStart()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when this behaviour has been added to the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void NetworkStart()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkTransform_OnBecameInterested_" data-uid="Netick.Unity.NetworkTransform.OnBecameInterested*"></a>
+
+  <h3 id="Netick_Unity_NetworkTransform_OnBecameInterested" data-uid="Netick.Unity.NetworkTransform.OnBecameInterested">
+  OnBecameInterested()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnBecameInterested()</code></pre>
   </div>
 
 

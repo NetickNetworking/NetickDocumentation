@@ -181,6 +181,9 @@ public class NetworkObject : MonoBehaviour, INetickEntity</code></pre>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">MonoBehaviour.print(object)</a>
     </div>
     <div>
+      <span class="xref">MonoBehaviour.destroyCancellationToken</span>
+    </div>
+    <div>
       <span class="xref">MonoBehaviour.useGUILayout</span>
     </div>
     <div>
@@ -382,6 +385,12 @@ public class NetworkObject : MonoBehaviour, INetickEntity</code></pre>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
       <span class="xref">Object.DontDestroyOnLoad(Object)</span>
     </div>
     <div>
@@ -400,7 +409,13 @@ public class NetworkObject : MonoBehaviour, INetickEntity</code></pre>
       <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
     </div>
     <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
     </div>
     <div>
       <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
@@ -409,13 +424,37 @@ public class NetworkObject : MonoBehaviour, INetickEntity</code></pre>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
     </div>
     <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
     </div>
     <div>
       <span class="xref">Object.ToString()</span>
@@ -482,13 +521,14 @@ public class NetworkObject : MonoBehaviour, INetickEntity</code></pre>
 
 
 
-  <h2 class="section" id="fields">Fields
+  <h2 class="section" id="properties">Properties
 </h2>
 
 
+  <a id="Netick_Unity_NetworkObject_BroadPhaseFilter_" data-uid="Netick.Unity.NetworkObject.BroadPhaseFilter*"></a>
 
-  <h3 id="Netick_Unity_NetworkObject_UseAoI" data-uid="Netick.Unity.NetworkObject.UseAoI">
-  UseAoI
+  <h3 id="Netick_Unity_NetworkObject_BroadPhaseFilter" data-uid="Netick.Unity.NetworkObject.BroadPhaseFilter">
+  BroadPhaseFilter
   
   </h3>
 
@@ -496,15 +536,16 @@ public class NetworkObject : MonoBehaviour, INetickEntity</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool UseAoI</code></pre>
+    <pre><code class="lang-csharp hljs">public BroadPhaseFilter BroadPhaseFilter { get; }</code></pre>
   </div>
 
 
 
 
-  <h4 class="section">Field Value</h4>
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><a class="xref" href="Netick.BroadPhaseFilter.html">BroadPhaseFilter</a></dt>
     <dd></dd>
   </dl>
 
@@ -513,11 +554,6 @@ public class NetworkObject : MonoBehaviour, INetickEntity</code></pre>
 
 
 
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
 
 
   <a id="Netick_Unity_NetworkObject_Engine_" data-uid="Netick.Unity.NetworkObject.Engine*"></a>
@@ -669,6 +705,38 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkObject_InterestGroup_" data-uid="Netick.Unity.NetworkObject.InterestGroup*"></a>
+
+  <h3 id="Netick_Unity_NetworkObject_InterestGroup" data-uid="Netick.Unity.NetworkObject.InterestGroup">
+  InterestGroup
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The interest group of this object. This can only be changed if BroadPhaseFilter is set to Custom.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InterestManagementGroup InterestGroup { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.InterestManagementGroup.html">InterestManagementGroup</a></dt>
     <dd></dd>
   </dl>
 
@@ -996,6 +1064,99 @@ public bool IsSceneObject { get; }</code></pre>
 
 
 
+  <a id="Netick_Unity_NetworkObject_NarrowPhaseFilter_" data-uid="Netick.Unity.NetworkObject.NarrowPhaseFilter*"></a>
+
+  <h3 id="Netick_Unity_NetworkObject_NarrowPhaseFilter" data-uid="Netick.Unity.NetworkObject.NarrowPhaseFilter">
+  NarrowPhaseFilter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool NarrowPhaseFilter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkObject_NetickBehaviours_" data-uid="Netick.Unity.NetworkObject.NetickBehaviours*"></a>
+
+  <h3 id="Netick_Unity_NetworkObject_NetickBehaviours" data-uid="Netick.Unity.NetworkObject.NetickBehaviours">
+  NetickBehaviours
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetickBehaviour[] NetickBehaviours { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetickBehaviour.html">NetickBehaviour</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkObject_NetworkedBehaviours_" data-uid="Netick.Unity.NetworkObject.NetworkedBehaviours*"></a>
+
+  <h3 id="Netick_Unity_NetworkObject_NetworkedBehaviours" data-uid="Netick.Unity.NetworkObject.NetworkedBehaviours">
+  NetworkedBehaviours
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkBehaviour[] NetworkedBehaviours { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkBehaviour.html">NetworkBehaviour</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkObject_Parent_" data-uid="Netick.Unity.NetworkObject.Parent*"></a>
 
   <h3 id="Netick_Unity_NetworkObject_Parent" data-uid="Netick.Unity.NetworkObject.Parent">
@@ -1080,6 +1241,37 @@ public bool IsSceneObject { get; }</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkObject_SpatialPrioritization_" data-uid="Netick.Unity.NetworkObject.SpatialPrioritization*"></a>
+
+  <h3 id="Netick_Unity_NetworkObject_SpatialPrioritization" data-uid="Netick.Unity.NetworkObject.SpatialPrioritization">
+  SpatialPrioritization
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SpatialPrioritization { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -1234,6 +1426,37 @@ public bool IsSceneObject { get; }</code></pre>
 
 
 
+  <a id="Netick_Unity_NetworkObject_GetRef_" data-uid="Netick.Unity.NetworkObject.GetRef*"></a>
+
+  <h3 id="Netick_Unity_NetworkObject_GetRef" data-uid="Netick.Unity.NetworkObject.GetRef">
+  GetRef()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkObjectRef GetRef()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkObjectRef.html">NetworkObjectRef</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkObject_GetSceneId_" data-uid="Netick.Unity.NetworkObject.GetSceneId*"></a>
 
   <h3 id="Netick_Unity_NetworkObject_GetSceneId" data-uid="Netick.Unity.NetworkObject.GetSceneId">
@@ -1285,6 +1508,39 @@ public bool IsSceneObject { get; }</code></pre>
     <dt><code>sandbox</code> <a class="xref" href="Netick.NetickEngine.html">NetickEngine</a></dt>
     <dd></dd>
     <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkObject_SetNarrowphaseInterest_" data-uid="Netick.Unity.NetworkObject.SetNarrowphaseInterest*"></a>
+
+  <h3 id="Netick_Unity_NetworkObject_SetNarrowphaseInterest_Netick_NetworkPlayer_System_Boolean_" data-uid="Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)">
+  SetNarrowphaseInterest(NetworkPlayer, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetNarrowphaseInterest(NetworkPlayer player, bool isInterested)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>player</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+    <dt><code>isInterested</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 

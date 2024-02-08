@@ -195,10 +195,10 @@
 </h2>
 
 
-  <a id="Netick_Simulation_FetchInputLocal_" data-uid="Netick.Simulation.FetchInputLocal*"></a>
+  <a id="Netick_Simulation_ClientAddUnlinkedEntity_" data-uid="Netick.Simulation.ClientAddUnlinkedEntity*"></a>
 
-  <h3 id="Netick_Simulation_FetchInputLocal__1___0__" data-uid="Netick.Simulation.FetchInputLocal``1(``0@)">
-  FetchInputLocal&lt;T&gt;(out T)
+  <h3 id="Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_" data-uid="Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32)">
+  ClientAddUnlinkedEntity(Entity, int)
   
   </h3>
 
@@ -206,12 +206,119 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool FetchInputLocal&lt;T&gt;(out T input) where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public void ClientAddUnlinkedEntity(Entity entity, int id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_CreateAndLinkEntityLocal_" data-uid="Netick.Simulation.CreateAndLinkEntityLocal*"></a>
+
+  <h3 id="Netick_Simulation_CreateAndLinkEntityLocal_Netick_INetickEntity_" data-uid="Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)">
+  CreateAndLinkEntityLocal(INetickEntity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Entity CreateAndLinkEntityLocal(INetickEntity userEntity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userEntity</code> <a class="xref" href="Netick.INetickEntity.html">INetickEntity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_CreateEntity_" data-uid="Netick.Simulation.CreateEntity*"></a>
+
+  <h3 id="Netick_Simulation_CreateEntity_System_Int32_" data-uid="Netick.Simulation.CreateEntity(System.Int32)">
+  CreateEntity(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Entity CreateEntity(int stateSizeWords)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stateSizeWords</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_FetchInputLocal_" data-uid="Netick.Simulation.FetchInputLocal*"></a>
+
+  <h3 id="Netick_Simulation_FetchInputLocal__1___0__System_Int32_" data-uid="Netick.Simulation.FetchInputLocal``1(``0@,System.Int32)">
+  FetchInputLocal&lt;T&gt;(out T, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FetchInputLocal&lt;T&gt;(out T input, int localPlayerIndex) where T : unmanaged</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>input</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>localPlayerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -238,8 +345,8 @@
 
   <a id="Netick_Simulation_GetInput_" data-uid="Netick.Simulation.GetInput*"></a>
 
-  <h3 id="Netick_Simulation_GetInput__1" data-uid="Netick.Simulation.GetInput``1">
-  GetInput&lt;T&gt;()
+  <h3 id="Netick_Simulation_GetInput__1_System_Int32_" data-uid="Netick.Simulation.GetInput``1(System.Int32)">
+  GetInput&lt;T&gt;(int)
   
   </h3>
 
@@ -247,9 +354,14 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T GetInput&lt;T&gt;() where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public T GetInput&lt;T&gt;(int index) where T : unmanaged</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
@@ -272,10 +384,10 @@
 
 
 
-  <a id="Netick_Simulation_SetInput_" data-uid="Netick.Simulation.SetInput*"></a>
+  <a id="Netick_Simulation_LinkEntity_" data-uid="Netick.Simulation.LinkEntity*"></a>
 
-  <h3 id="Netick_Simulation_SetInput__1___0_" data-uid="Netick.Simulation.SetInput``1(``0)">
-  SetInput&lt;T&gt;(T)
+  <h3 id="Netick_Simulation_LinkEntity_Netick_INetickEntity_Netick_Entity_" data-uid="Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)">
+  LinkEntity(INetickEntity, Entity)
   
   </h3>
 
@@ -283,12 +395,52 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetInput&lt;T&gt;(T input) where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public Entity LinkEntity(INetickEntity userEntity, Entity entity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userEntity</code> <a class="xref" href="Netick.INetickEntity.html">INetickEntity</a></dt>
+    <dd></dd>
+    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_SetInput_" data-uid="Netick.Simulation.SetInput*"></a>
+
+  <h3 id="Netick_Simulation_SetInput__1___0_System_Int32_" data-uid="Netick.Simulation.SetInput``1(``0,System.Int32)">
+  SetInput&lt;T&gt;(T, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetInput&lt;T&gt;(T input, int index) where T : unmanaged</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>input</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 

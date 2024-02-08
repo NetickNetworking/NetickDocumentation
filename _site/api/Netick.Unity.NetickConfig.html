@@ -194,6 +194,12 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
       <span class="xref">Object.DontDestroyOnLoad(Object)</span>
     </div>
     <div>
@@ -212,7 +218,13 @@
       <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
     </div>
     <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
     </div>
     <div>
       <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
@@ -221,13 +233,37 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
     </div>
     <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
     </div>
     <div>
       <span class="xref">Object.ToString()</span>
@@ -292,8 +328,8 @@
 
 
 
-  <h3 id="Netick_Unity_NetickConfig_AllocatorBlockSize" data-uid="Netick.Unity.NetickConfig.AllocatorBlockSize">
-  AllocatorBlockSize
+  <h3 id="Netick_Unity_NetickConfig_AllocatorMetaBlockSize" data-uid="Netick.Unity.NetickConfig.AllocatorMetaBlockSize">
+  AllocatorMetaBlockSize
   
   </h3>
 
@@ -301,9 +337,9 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Default: 131072&quot;)]
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Default: 1048576&quot;)]
 [SerializeField]
-public int AllocatorBlockSize</code></pre>
+public int AllocatorMetaBlockSize</code></pre>
   </div>
 
 
@@ -324,8 +360,8 @@ public int AllocatorBlockSize</code></pre>
 
 
 
-  <h3 id="Netick_Unity_NetickConfig_AoI" data-uid="Netick.Unity.NetickConfig.AoI">
-  AoI
+  <h3 id="Netick_Unity_NetickConfig_AllocatorStateBlockSize" data-uid="Netick.Unity.NetickConfig.AllocatorStateBlockSize">
+  AllocatorStateBlockSize
   
   </h3>
 
@@ -333,8 +369,9 @@ public int AllocatorBlockSize</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[HideInInspector]
-public bool AoI</code></pre>
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Default: 131072&quot;)]
+[SerializeField]
+public int AllocatorStateBlockSize</code></pre>
   </div>
 
 
@@ -342,7 +379,7 @@ public bool AoI</code></pre>
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -449,6 +486,37 @@ public int ClientDivisor</code></pre>
 
 
 
+  <h3 id="Netick_Unity_NetickConfig_EnableInterestManagement" data-uid="Netick.Unity.NetickConfig.EnableInterestManagement">
+  EnableInterestManagement
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public bool EnableInterestManagement</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="Netick_Unity_NetickConfig_EnableLagCompensation" data-uid="Netick.Unity.NetickConfig.EnableLagCompensation">
   EnableLagCompensation
   
@@ -500,6 +568,38 @@ public bool EnableLogging</code></pre>
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetickConfig_InterestGroupCount" data-uid="Netick.Unity.NetickConfig.InterestGroupCount">
+  InterestGroupCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+[Tooltip(&quot;Count of interest groups.&quot;)]
+public int InterestGroupCount</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -634,8 +734,8 @@ public bool LagCompensationDebug</code></pre>
 
 
 
-  <h3 id="Netick_Unity_NetickConfig_MaxPredicatedTicks" data-uid="Netick.Unity.NetickConfig.MaxPredicatedTicks">
-  MaxPredicatedTicks
+  <h3 id="Netick_Unity_NetickConfig_MaxPredictedTicks" data-uid="Netick.Unity.NetickConfig.MaxPredictedTicks">
+  MaxPredictedTicks
   
   </h3>
 
@@ -644,8 +744,8 @@ public bool LagCompensationDebug</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Tooltip(&quot;Max number of ticks the client is allowed to predict.&quot;)]
-[Range(1, 128)]
-public int MaxPredicatedTicks</code></pre>
+[Range(16, 512)]
+public int MaxPredictedTicks</code></pre>
   </div>
 
 
@@ -823,8 +923,8 @@ public NetworkRenderInvokeOrder RenderInvokeOrder</code></pre>
 
 
 
-  <h3 id="Netick_Unity_NetickConfig_Replication" data-uid="Netick.Unity.NetickConfig.Replication">
-  Replication
+  <h3 id="Netick_Unity_NetickConfig_RenderWorldGrid" data-uid="Netick.Unity.NetickConfig.RenderWorldGrid">
+  RenderWorldGrid
   
   </h3>
 
@@ -832,8 +932,8 @@ public NetworkRenderInvokeOrder RenderInvokeOrder</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Replication mode used in replicating game state to clients.&quot;)]
-public ReplicationMode Replication</code></pre>
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+public bool RenderWorldGrid</code></pre>
   </div>
 
 
@@ -841,7 +941,7 @@ public ReplicationMode Replication</code></pre>
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.ReplicationMode.html">ReplicationMode</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -981,6 +1081,37 @@ public float SimServerLoss</code></pre>
 
 
 
+  <h3 id="Netick_Unity_NetickConfig_SimulationCulling" data-uid="Netick.Unity.NetickConfig.SimulationCulling">
+  SimulationCulling
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Enable this if you want objects that no client is interested in to be culled from being simulated, meaning their Netick callbacks won&#39;t be invoked.&quot;)]
+public bool SimulationCulling</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="Netick_Unity_NetickConfig_TickRate" data-uid="Netick.Unity.NetickConfig.TickRate">
   TickRate
   
@@ -1086,7 +1217,7 @@ public bool UseSceneSwitchThread</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HideInInspector]
-public int WorldSize</code></pre>
+public Vector3 WorldSize</code></pre>
   </div>
 
 
@@ -1094,7 +1225,7 @@ public int WorldSize</code></pre>
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><span class="xref">Vector3</span></dt>
     <dd></dd>
   </dl>
 

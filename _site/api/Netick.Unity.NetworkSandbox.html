@@ -177,6 +177,9 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">MonoBehaviour.print(object)</a>
     </div>
     <div>
+      <span class="xref">MonoBehaviour.destroyCancellationToken</span>
+    </div>
+    <div>
       <span class="xref">MonoBehaviour.useGUILayout</span>
     </div>
     <div>
@@ -378,6 +381,12 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
       <span class="xref">Object.DontDestroyOnLoad(Object)</span>
     </div>
     <div>
@@ -396,7 +405,25 @@
       <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
     </div>
     <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
+    </div>
+    <div>
       <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
@@ -405,7 +432,19 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
     </div>
     <div>
       <span class="xref">Object.ToString()</span>
@@ -476,6 +515,38 @@
 </h2>
 
 
+  <a id="Netick_Unity_NetworkSandbox_AuthoritativeTick_" data-uid="Netick.Unity.NetworkSandbox.AuthoritativeTick*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_AuthoritativeTick" data-uid="Netick.Unity.NetworkSandbox.AuthoritativeTick">
+  AuthoritativeTick
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Last received tick on the client. On the server, it returns the same value as Sandbox.Tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tick AuthoritativeTick { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Tick.html">Tick</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_Config_" data-uid="Netick.Unity.NetworkSandbox.Config*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_Config" data-uid="Netick.Unity.NetworkSandbox.Config">
@@ -521,7 +592,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetickList&lt;ServerConnection&gt; ConnectedClients { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ServerConnection&gt; ConnectedClients { get; }</code></pre>
   </div>
 
 
@@ -530,7 +601,7 @@
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetickList-1.html">NetickList</a>&lt;<a class="xref" href="Netick.ServerConnection.html">ServerConnection</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Netick.ServerConnection.html">ServerConnection</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -554,7 +625,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetickList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   </div>
 
 
@@ -563,7 +634,7 @@
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetickList-1.html">NetickList</a>&lt;<a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -857,6 +928,37 @@
 
 
 
+  <a id="Netick_Unity_NetworkSandbox_InterestManagement_" data-uid="Netick.Unity.NetworkSandbox.InterestManagement*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_InterestManagement" data-uid="Netick.Unity.NetworkSandbox.InterestManagement">
+  InterestManagement
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InterestManagement InterestManagement { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.InterestManagement.html">InterestManagement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_InterpolationDelay_" data-uid="Netick.Unity.NetworkSandbox.InterpolationDelay*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_InterpolationDelay" data-uid="Netick.Unity.NetworkSandbox.InterpolationDelay">
@@ -1049,10 +1151,10 @@
 
 
 
-  <a id="Netick_Unity_NetworkSandbox_IsVisiable_" data-uid="Netick.Unity.NetworkSandbox.IsVisiable*"></a>
+  <a id="Netick_Unity_NetworkSandbox_IsVisible_" data-uid="Netick.Unity.NetworkSandbox.IsVisible*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_IsVisiable" data-uid="Netick.Unity.NetworkSandbox.IsVisiable">
-  IsVisiable
+  <h3 id="Netick_Unity_NetworkSandbox_IsVisible" data-uid="Netick.Unity.NetworkSandbox.IsVisible">
+  IsVisible
   
   </h3>
 
@@ -1060,7 +1162,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsVisiable { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsVisible { get; set; }</code></pre>
   </div>
 
 
@@ -1249,7 +1351,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ObjectList Objects { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;int, NetworkObject&gt; Objects { get; }</code></pre>
   </div>
 
 
@@ -1258,7 +1360,7 @@
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.Unity.ObjectList.html">ObjectList</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -1421,6 +1523,40 @@
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_PredictedTick_" data-uid="Netick.Unity.NetworkSandbox.PredictedTick*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_PredictedTick" data-uid="Netick.Unity.NetworkSandbox.PredictedTick">
+  PredictedTick
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Last predicted tick.</p>
+<p>On the client, <b>it always returns the predicted tick of the client, regardless of whether it's a resimulation or not.</b></p>
+<p>On the server, <b>it returns the same value as Sandbox.Tick</b></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Tick PredictedTick { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Tick.html">Tick</a></dt>
     <dd></dd>
   </dl>
 
@@ -2439,8 +2575,8 @@
 
   <a id="Netick_Unity_NetworkSandbox_GetInput_" data-uid="Netick.Unity.NetworkSandbox.GetInput*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_GetInput__1" data-uid="Netick.Unity.NetworkSandbox.GetInput``1">
-  GetInput&lt;T&gt;()
+  <h3 id="Netick_Unity_NetworkSandbox_GetInput__1_System_Int32_" data-uid="Netick.Unity.NetworkSandbox.GetInput``1(System.Int32)">
+  GetInput&lt;T&gt;(int)
   
   </h3>
 
@@ -2448,9 +2584,14 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T GetInput&lt;T&gt;() where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public T GetInput&lt;T&gt;(int index = 0) where T : unmanaged</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
@@ -2638,7 +2779,7 @@
     <dd><p>The prefab to be instantiated.</p>
 </dd>
     <dt><code>position</code> <span class="xref">Vector3</span></dt>
-    <dd><p>Position of the instantiated object.</p>
+    <dd><p>GridIndex of the instantiated object.</p>
 </dd>
     <dt><code>rotation</code> <span class="xref">Quaternion</span></dt>
     <dd><p>Rotation of the instantiated object.</p>
@@ -2811,7 +2952,7 @@
     <dd><p>The prefab to be instantiated.</p>
 </dd>
     <dt><code>position</code> <span class="xref">Vector3</span></dt>
-    <dd><p>Position of the instantiated object.</p>
+    <dd><p>GridIndex of the instantiated object.</p>
 </dd>
     <dt><code>rotation</code> <span class="xref">Quaternion</span></dt>
     <dd><p>Rotation of the instantiated object.</p>
@@ -2923,6 +3064,44 @@
 
 
 
+  <a id="Netick_Unity_NetworkSandbox_RestartTimer_" data-uid="Netick.Unity.NetworkSandbox.RestartTimer*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_RestartTimer_System_Single_System_Boolean_" data-uid="Netick.Unity.NetworkSandbox.RestartTimer(System.Single,System.Boolean)">
+  RestartTimer(float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkTimer RestartTimer(float time, bool usePredictedTiming = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>usePredictedTiming</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkTimer.html">NetworkTimer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_SetComponentEnabled_" data-uid="Netick.Unity.NetworkSandbox.SetComponentEnabled*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_SetComponentEnabled_UnityEngine_Component_System_Boolean_" data-uid="Netick.Unity.NetworkSandbox.SetComponentEnabled(UnityEngine.Component,System.Boolean)">
@@ -2958,8 +3137,8 @@
 
   <a id="Netick_Unity_NetworkSandbox_SetInput_" data-uid="Netick.Unity.NetworkSandbox.SetInput*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_SetInput__1___0_" data-uid="Netick.Unity.NetworkSandbox.SetInput``1(``0)">
-  SetInput&lt;T&gt;(T)
+  <h3 id="Netick_Unity_NetworkSandbox_SetInput__1___0_System_Int32_" data-uid="Netick.Unity.NetworkSandbox.SetInput``1(``0,System.Int32)">
+  SetInput&lt;T&gt;(T, int)
   
   </h3>
 
@@ -2967,12 +3146,14 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetInput&lt;T&gt;(T input) where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public void SetInput&lt;T&gt;(T input, int index = 0) where T : unmanaged</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>input</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -3007,6 +3188,44 @@
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_StartTimer_" data-uid="Netick.Unity.NetworkSandbox.StartTimer*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_StartTimer_System_Single_System_Boolean_" data-uid="Netick.Unity.NetworkSandbox.StartTimer(System.Single,System.Boolean)">
+  StartTimer(float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkTimer StartTimer(float time, bool usePredictedTiming = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>usePredictedTiming</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkTimer.html">NetworkTimer</a></dt>
+    <dd></dd>
+  </dl>
 
 
 

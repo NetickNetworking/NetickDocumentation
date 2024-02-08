@@ -139,7 +139,10 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_S">NetworkBehaviour.S</a>
     </div>
     <div>
-      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__">NetworkBehaviour.FetchInput&lt;T&gt;(out T)</a>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GetRef__1">NetworkBehaviour.GetRef&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_">NetworkBehaviour.FetchInput&lt;T&gt;(out T, int)</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FindInterpolator_System_String_">NetworkBehaviour.FindInterpolator(string)</a>
@@ -149,6 +152,12 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetcodeIntoGameEngine">NetworkBehaviour.NetcodeIntoGameEngine()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested">NetworkBehaviour.OnBecameInterested()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameUninterested">NetworkBehaviour.OnBecameUninterested()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnInputSourceChanged_Netick_NetworkPlayer_">NetworkBehaviour.OnInputSourceChanged(NetworkPlayer)</a>
@@ -205,6 +214,9 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSource">NetworkBehaviour.InputSource</a>
     </div>
     <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSourcePlayerId">NetworkBehaviour.InputSourcePlayerId</a>
+    </div>
+    <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart">NetickBehaviour.NetworkStart()</a>
     </div>
     <div>
@@ -218,6 +230,12 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender">NetickBehaviour.NetworkRender()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_OnBecameSimulated">NetickBehaviour.OnBecameSimulated()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_OnBecameUnsimulated">NetickBehaviour.OnBecameUnsimulated()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_Sandbox">NetickBehaviour.Sandbox</a>
@@ -275,6 +293,9 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">MonoBehaviour.print(object)</a>
+    </div>
+    <div>
+      <span class="xref">MonoBehaviour.destroyCancellationToken</span>
     </div>
     <div>
       <span class="xref">MonoBehaviour.useGUILayout</span>
@@ -478,6 +499,12 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfType(Type, bool)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsSortMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)</a>
+    </div>
+    <div>
       <span class="xref">Object.DontDestroyOnLoad(Object)</span>
     </div>
     <div>
@@ -496,7 +523,13 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
       <span class="xref">Object.FindObjectsOfType&lt;T&gt;()</span>
     </div>
     <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsSortMode)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectsOfType&lt;T&gt;(bool)</a>
+    </div>
+    <div>
+      <span class="xref">Object.FindObjectsByType&lt;T&gt;(FindObjectsInactive, FindObjectsSortMode)</span>
     </div>
     <div>
       <span class="xref">Object.FindObjectOfType&lt;T&gt;()</span>
@@ -505,13 +538,37 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Object.FindObjectOfType&lt;T&gt;(bool)</a>
     </div>
     <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;()</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindFirstObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
+      <span class="xref">Object.FindAnyObjectByType&lt;T&gt;(FindObjectsInactive)</span>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectsOfTypeAll(Type)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type)</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindObjectOfType(Type, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindFirstObjectByType(Type, FindObjectsInactive)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Object.FindAnyObjectByType(Type, FindObjectsInactive)</a>
     </div>
     <div>
       <span class="xref">Object.ToString()</span>

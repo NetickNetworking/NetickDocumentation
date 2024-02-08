@@ -146,8 +146,8 @@
 
   <a id="Netick_Interpolator__ctor_" data-uid="Netick.Interpolator.#ctor*"></a>
 
-  <h3 id="Netick_Interpolator__ctor_Netick_Entity_System_Int32__System_Int32_" data-uid="Netick.Interpolator.#ctor(Netick.Entity,System.Int32*,System.Int32)">
-  Interpolator(Entity, int*, int)
+  <h3 id="Netick_Interpolator__ctor_Netick_Entity_System_Int32__System_Int32_System_Single_System_Int32_" data-uid="Netick.Interpolator.#ctor(Netick.Entity,System.Int32*,System.Int32,System.Single,System.Int32)">
+  Interpolator(Entity, int*, int, float, int)
   
   </h3>
 
@@ -155,7 +155,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Interpolator(Entity entity, int* s, int offsetInWords)</code></pre>
+    <pre><code class="lang-csharp hljs">public Interpolator(Entity entity, int* s, int offsetInWords, float precision, int vectorFloatFieldsCount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -165,6 +165,10 @@
     <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
     <dd></dd>
     <dt><code>offsetInWords</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>precision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>vectorFloatFieldsCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -179,8 +183,84 @@
 
 
 
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Netick_Interpolator_Precision" data-uid="Netick.Interpolator.Precision">
+  Precision
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float Precision</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="Netick_Interpolator_GetInterpolationDataPtr_" data-uid="Netick.Interpolator.GetInterpolationDataPtr*"></a>
+
+  <h3 id="Netick_Interpolator_GetInterpolationDataPtr_Netick_InterpolationMode_System_Int32___System_Int32___System_Single__" data-uid="Netick.Interpolator.GetInterpolationDataPtr(Netick.InterpolationMode,System.Int32*@,System.Int32*@,System.Single@)">
+  GetInterpolationDataPtr(InterpolationMode, out int*, out int*, out float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetInterpolationDataPtr(InterpolationMode interpolationMode, out int* from, out int* to, out float alpha)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>interpolationMode</code> <a class="xref" href="Netick.InterpolationMode.html">InterpolationMode</a></dt>
+    <dd></dd>
+    <dt><code>from</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+    <dt><code>to</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="Netick_Interpolator_GetInterpolationData_" data-uid="Netick.Interpolator.GetInterpolationData*"></a>
