@@ -121,17 +121,29 @@
 <pre><code class="lang-csharp">Object.SetNarrowphaseInterest(client, false);
 </code></pre>
 <h2 id="specifying-the-interest-of-a-client">Specifying the interest of a client</h2>
-<p>The area of interest of the client is specified using bounding boxes that you can add.</p>
 <h4 id="adding-area-of-interest-regions">Adding area of interest regions</h4>
+<p>The area of interest of the client is specified using bounding boxes that you can add.</p>
 <pre><code class="lang-csharp">InputSource.AddInterestBoxArea(new Bounds(transform.position, (InterestBox)));
 </code></pre>
-<h4 id="adding-custom-interest-groups-to-a-client">Adding custom interest groups to a client</h4>
+<h4 id="adding-custom-interest-groups">Adding custom interest groups</h4>
 <pre><code class="lang-csharp">InputSource.AddInterestGroup(customInterestGroupIndex);
 </code></pre>
 <div class="CAUTION">
 <h5>Caution</h5>
 <p>This must be done every NetworkFixedUpdate callback since it's cleared at the end of the tick. Usually, you should do this in the movement controller of your player character.</p>
 </div>
+<h2 id="callbacks">Callbacks</h2>
+<p>There are two callbacks on NetworkBehaviour for when the interest status of an object changes in the client.</p>
+<pre><code class="lang-csharp">public override void OnBecameInterested()
+{
+    // called when this client becomes interested in this object.
+}
+public override void OnBecameUninterested()
+{
+    // called when this client becomes uninterested in this object.
+}
+</code></pre>
+<p>One of the things you can do using these callbacks is hide/show the object when the client becomes interested/uninterested.</p>
 
 </article>
 
