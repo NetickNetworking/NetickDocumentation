@@ -95,6 +95,18 @@ private void MyRpc(int arg1)
 }
 </code></pre>
 <p>You use the [<a class="xref" href="../api/Netick.Rpc.html">Rpc</a>] attribute to mark a method as an RPC.</p>
+<h2 id="static-rpcs">Static RPCs</h2>
+<p>Static RPCs must have their first parameter as a <code>NetickEngine</code> type. Which can be used to access the <code>NetworkSandbox</code> instance if needed.</p>
+<pre><code class="lang-csharp">[Rpc]
+public static void MyStaticRpc(NetickEngine engine, int someRpcPara)
+{
+  var sandbox = engine.UserObject as NetworkSandbox;
+}
+
+// this is how you would call the rpc:
+
+MyStaticRpc(Sandbox.Engine, 56);
+</code></pre>
 <div class="WARNING">
 <h5>Warning</h5>
 <p>RPCs are not called on restimulated ticks.</p>
@@ -103,12 +115,13 @@ private void MyRpc(int arg1)
 <h5>Warning</h5>
 <p>By default all RPCs are unreliable.</p>
 </div>
-<p><strong>RPC method constraints:</strong></p>
+<h3 id="rpc-method-constraints"><strong>RPC method constraints</strong></h3>
 <ul>
 <li>Must have the return type of void.</li>
-<li>Must only include parameters that can be networked. Same ones as the properties</li>
+<li>Must not have class-based network collections as a parameter type. Only <code>NetworkArrayStruct</code> varaints are allowed as RPC parameters.</li>
+<li>Must not have <code>string</code> as a parameter type. Instead, you can use NetworkString varaints.</li>
 </ul>
-<p><strong>[Rpc] attribute parameters</strong></p>
+<h3 id="rpc-attribute-parameters"><strong>[Rpc] attribute parameters</strong></h3>
 <ul>
 <li>Source: the peer/peers the RPC should be sent from</li>
 <li>Target: the peer/peers the RPC will be executed on</li>
@@ -123,11 +136,11 @@ private void MyRpc(int arg1)
 <li>Everyone: the server and every connected client</li>
 </ul>
 <h3 id="source-connection-of-rpcs-">Source Connection of RPCs <a href="#source-connection-of-rpcs" id="source-connection-of-rpcs"></a></h3>
-<p>If you need to know which connection (a client, or the server) the current RPC is being executed from, you can use <code>Sandbox.RpcSource</code></p>
+<p>If you need to know which connection (a client, or the server) the current RPC is being executed from, you can use <code>Sandbox.CurrentRpcSource</code></p>
 <pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.InputSource, isReliable: true, localInvoke: false)]
 private void MyRpc(int arg1)
 {
-    var rpcSource = Sandbox.RpcSource;
+    var rpcSource = Sandbox.CurrentRpcSource;
 }
 </code></pre>
 

@@ -102,6 +102,10 @@
 <p>Make sure that all your prefabs are registered by Netick in Netick Settings panel. And also make sure the prefab list is identical in both the client and the server (if you are running two Unity editors), otherwise, weird stuff will occur.</p>
 </div>
 <h2 id="spawn-prediction">Spawn-Prediction</h2>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Spawn-Prediction is WIP in Netick 2. It's non-functional at the moment.</p>
+</div>
 <p>Spawn-Prediction allows you to instantiate/spawn network objects on the client, without having to wait for the server to spawn them. The client would create a local copy of the object, and when the server actually creates the object and the confirmation arrives on the client, the client version of that object would then obtain a valid network Id – meaning it now exists on the network and has been successfully spawn-predicted.</p>
 <p><strong>How To Use</strong></p>
 <p>To use Spawn-Prediction, you must pass a key (SpawnPredictionKey) to the NetworkInstantiate method.</p>
