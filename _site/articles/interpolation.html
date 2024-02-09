@@ -148,8 +148,8 @@ private MyType LerpMyType(MyType from, MyType to, float alpha)
 }
 </code></pre>
 <h3 id="interpolating-arrays"><strong>Interpolating Arrays</strong></h3>
-<pre><code class="lang-csharp">[Networked (size: 3)][Smooth(false)]
-public NetworkArray&lt;Vector3&gt; Vector3Array = new NetworkArray&lt;Vector3&gt;();
+<pre><code class="lang-csharp">[Networked (size: 10)][Smooth(false)]
+public NetworkArray&lt;Vector3&gt; Vector3Array = new NetworkArray&lt;Vector3&gt;(10);
 
 public override NetworkRender()
 {

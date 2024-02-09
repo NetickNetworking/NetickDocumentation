@@ -112,6 +112,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Netick;
+using Netick.Unity;
 
 public class MyBehaviour : NetworkBehaviour
 {
@@ -147,10 +148,9 @@ public class MyBehaviour : NetworkBehaviour
         // Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.
         // Check out the chapter named &quot;Writing Client-Side Prediction code&quot; to learn more about this method.
     }
-
 }
 </code></pre>
-<p>Don’t forget to include <code>using Netick</code></p>
+<p>Don’t forget to include <code>using Netick</code> and <code>using Netick.Unity</code>.</p>
 <p>A class derived from <a class="xref" href="../api/Netick.NetworkBehaviour.html">NetworkBehaviour</a> is almost useless without the utilization of Network Properties, which are the building blocks of your networked synced state. Network Properties are delta compressed, letting you create objects with complex states and not worry about it.</p>
 
 </article>
