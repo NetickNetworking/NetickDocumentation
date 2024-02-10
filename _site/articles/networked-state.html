@@ -107,6 +107,10 @@ public NetworkBool      IsAlive  {get; set;}
 [Networked]
 public NetworkString32  Name     {get; set;}
 </code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Reference types are not allowed as network property types.</p>
+</div>
 <h3 id="network-arrays">Network Arrays</h3>
 <p>Network arrays are just like regular C# arrays, but their syntax is a bit different. They are defined using the <a class="xref" href="../api/Netick.NetworkArray-1.html">NetworkArray&lt;T&gt;</a> generic class.</p>
 <p>Example of a network array:</p>
@@ -160,7 +164,7 @@ public NetworkStack&lt;int&gt;       MyNetworkedStack = new NetworkStack&lt;int&
 <p>The <code>size</code> that you pass to [Networked] and the constructor represents the fixed capacity of the collection. The collections don't support resizing as all network state sizes are set in compile time.</p>
 </div>
 <h2 id="network-structs">Network Structs</h2>
-<p>Netick can synchronize any struct that does not contain arrays or references. Which includes all C# primitive types and Unity/Godot/Flax primitive types.</p>
+<p>Netick can synchronize any struct that does not contain class-based arrays or references. Which includes all C# primitive types and Unity/Godot/Flax primitive types.</p>
 <p>Example:</p>
 <pre><code class="lang-csharp">public struct MyNestedStruct
 {

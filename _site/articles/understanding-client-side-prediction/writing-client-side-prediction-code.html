@@ -95,10 +95,11 @@
     public float       MoveDirX, MoveDirY;
 }
 </code></pre>
-<h3 id="network-inputs-fields-constraints">Network inputs fields constraints:</h3>
+<h3 id="network-input-constraints">Network Input Constraints:</h3>
 <ul>
-<li>Must not have class-based network collections as a parameter type. Only <code>NetworkArrayStruct</code> varaints are allowed as network input fields.</li>
-<li>Must not have <code>string</code> as a parameter type. Instead, you can use NetworkString varaints.</li>
+<li>Must not have class-based network collections as a field type. Only <code>NetworkArrayStruct</code> varaints are allowed as network input fields.</li>
+<li>Must not have reference types as fields.</li>
+<li>Must not have <code>string</code> as a field type. Instead, you can use NetworkString varaints.</li>
 </ul>
 <h2 id="setting-inputs-"><strong>Setting Inputs</strong> <a href="#setting-inputs" id="setting-inputs"></a></h2>
 <p>To set the fields of an input, you first need to acquire the input struct of the current tick, using <code>Sandbox.GetInput</code>.<br>
