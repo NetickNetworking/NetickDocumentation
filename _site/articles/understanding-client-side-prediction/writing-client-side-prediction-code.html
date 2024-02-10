@@ -133,15 +133,15 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Everything that is modified around FetchInput, and also affects the networked state, must be networked using <code>[Networked]</code>. For example, if you have a variable that is changing over time which can affect the speed of the player, it must be networked.</p>
+<p>Everything that is modified around <code>FetchInput</code>, and also affects the networked state, must be networked using <code>[Networked]</code>. For example, if you have a variable that is changing over time which can affect the speed of the player, it must be networked.</p>
 </div>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>Sandbox.GetInput and Sandbox.SetInput are used to read and set the user inputs into the input struct.</p>
+<p><code>Sandbox.GetInput</code> and <code>Sandbox.SetInput</code> are used to read and set the user inputs into the input struct.</p>
 </div>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>FetchInput is used to actually use the input struct in the simulation.</p>
+<p><code>FetchInput</code> is used to actually use the input struct in the simulation.</p>
 </div>
 <p>FetchInput tries to fetch an input for the state/tick being simulated/resimulated. It only returns true if either:</p>
 <ol>
