@@ -86,7 +86,7 @@
 <h1 id="rpcs-vs-properties">RPCs vs Properties</h1>
 
 <p>RPCs can be used to replicate non-critical (often visual/cosmetic) events. In contrast, Network Properties are used to replicate critical gameplay state.</p>
-<p>Network Properties are best when you have a variable that is constantly changing and whose exact value matters for the duration of the game, because properties will eventually replicate to everyone.</p>
+<p>Network Properties are best when you have a variable that is constantly changing and whose exact value matters for the duration of the game, because properties will replicate to everyone.</p>
 <p><strong>Example: a health property.</strong></p>
 <p>On the other hand, RPCs are only relevant at the time of their execution, meaning anyone joining after that will never know anything about any RPCs before it.</p>
 <p><strong>Example: a damage effect event.</strong></p>
@@ -95,7 +95,7 @@
 <h2 id="avoiding-using-rpcs">Avoiding using RPCs</h2>
 <p>It's highly recommended to avoid using RPCs, and only use them when necessary. Especially server-&gt;client RPCs, if possible, they should be completely avoided. And client-&gt;server RPCs should only be used for sending a player's name or setting up things or similar actions.</p>
 <ul>
-<li><p>RPCs from the client can be a security concern. Since you can't control how the client calls them. And they are not tick-aligned, which can be a problem if the an RPC is intended to be used for tick-accurate gameplay logic. You can use network inputs to handle most of your client-&gt;server actions.</p>
+<li><p>RPCs from the client can be a security concern. Since you can't control how the client calls them. And they are not tick-aligned, which can be a problem if an RPC is intended to be used for tick-accurate gameplay logic. You can use network inputs to handle most of your client-&gt;server actions.</p>
 </li>
 <li><p>RPCs from the server to every connected client are expensive. You can always find a way to mimic an RPC using a network property and an [OnChanged] event.</p>
 </li>

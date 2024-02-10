@@ -88,13 +88,13 @@
 <h2 id="starting-and-shutting-down-netick"><strong>Starting and Shutting Down Netick</strong></h2>
 <p>When you start Netick, you need to specify the mode you want to start it in. You can start it as a single sandbox, either a server or a client, like this:</p>
 <p>As a client:</p>
-<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsClient();
+<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsClient(Transport, Port);
 </code></pre>
 <p>As a server:</p>
-<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsServer();
+<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsServer(Transport, Port);
 </code></pre>
 <p>Or you can start both a client and a server together:</p>
-<pre><code class="lang-csharp">var sandboxes = Netick.Network.StartAsServerAndClient(Clients);
+<pre><code class="lang-csharp">var sandboxes = Netick.Network.StartAsMultiplePeers(Transport, Port, startAServer:true, 1);
 </code></pre>
 <p>To shut down Netick completely:</p>
 <pre><code class="lang-csharp">Netick.Network.Shutdown();

@@ -88,13 +88,18 @@
 <h2 id="network-input-"><strong>Network Input</strong> <a href="#network-input" id="network-input"></a></h2>
 <p>Network Input describes what the player wants to do, which will be used to simulate the state of objects they want to control. This ensures that the client can’t directly change the state – the change happens by executing the input, which, even if tampered with, won’t be game-breaking.</p>
 <h2 id="defining-inputs-"><strong>Defining Inputs</strong> <a href="#defining-inputs" id="defining-inputs"></a></h2>
-<p>To define a new input, make a struct that inherits from NetworkInput:</p>
+<p>To define a new input, create a struct that implements <code>INetworkInput</code> interface:</p>
 <pre><code class="lang-csharp">public struct MyInput : INetworkInput
 {
-    public bool       ShootInput;
-    public float      MoveDirX, MoveDirY;
+    public NetworkBool ShootInput;
+    public float       MoveDirX, MoveDirY;
 }
 </code></pre>
+<h3 id="network-inputs-fields-constraints">Network inputs fields constraints:</h3>
+<ul>
+<li>Must not have class-based network collections as a parameter type. Only <code>NetworkArrayStruct</code> varaints are allowed as network input fields.</li>
+<li>Must not have <code>string</code> as a parameter type. Instead, you can use NetworkString varaints.</li>
+</ul>
 <h2 id="setting-inputs-"><strong>Setting Inputs</strong> <a href="#setting-inputs" id="setting-inputs"></a></h2>
 <p>To set the fields of an input, you first need to acquire the input struct of the current tick, using <code>Sandbox.GetInput</code>.<br>
 Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
@@ -126,13 +131,17 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
     }
 }
 </code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Everything that is modified around FetchInput, and also affects the networked state, must be networked using <code>[Networked]</code>. For example, if you have a variable that is changing over time which can affect the speed of the player, it must be networked.</p>
+</div>
 <div class="WARNING">
 <h5>Warning</h5>
 <p>Sandbox.GetInput and Sandbox.SetInput are used to read and set the user inputs into the input struct.</p>
 </div>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>FetchInput is used to actually use the input object in the simulation.</p>
+<p>FetchInput is used to actually use the input struct in the simulation.</p>
 </div>
 <p>FetchInput tries to fetch an input for the state/tick being simulated/resimulated. It only returns true if either:</p>
 <ol>
