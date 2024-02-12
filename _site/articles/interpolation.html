@@ -99,6 +99,18 @@ Since there are 5 frames between two ticks, the values at each frame would be:</
 <h2 id="interpolation-of-network-transform"><strong>Interpolation of Network Transform</strong></h2>
 <p>For moving objects, this is important to deal with. Every <a class="xref" href="../api/Netick.NetworkTransform.html">NetworkTransform</a> has a slot for a Render transform, which is basically the smoothed/interpolated mesh of the object, while the parent would be the simulated/non-interpolated object.</p>
 <p>So, you must break your moving objects into a parent (which has the <a class="xref" href="../api/Netick.NetworkTransform.html">NetworkTransform</a>), and a child which is the interpolated object, and has the mesh/s. Then you specify that child in the NetworkTransform RenderTransform property in the inspector. Check the samples if you are confused.</p>
+<h2 id="interpolation-source"><strong>Interpolation Source</strong></h2>
+<p>The source of interpolation data can be of two options:</p>
+<ul>
+<li><p><strong>Local/Predicted Snapshot</strong>: This is called <code>Local Interpolation</code>. It means using the local predicted snapshots for interpolation. This is what you usually use for your local player as you want to use the local predicted snapshots, and it's chosen by default for objects the client is the Input Source of when <code>Interpolation Source</code> is set to <code>Auto</code>.</p>
+</li>
+<li><p><strong>Remote Snapshot</strong>: This is called <code>Remote Interpolation</code>. It means using the received snapshots from the server for interpolation. This data is delayed, and that's why it's called remote. This is what you usually use for other objects (not your own player) as you want to use the smoothed and buffered server snapshots, and it's chosen by default for objects the client is not the Input Source of when <code>Interpolation Source</code> is set to <code>Auto</code>.</p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When you want the server only to move your local player object, you must switch <code>Interpolation Source</code> to <code>Remote Snapshot</code>, to keep smooth rendering of the object as it's being controlled remotely and the prediction buffers will contain jittery data as the object is not being moved locally in the client.</p>
+</div>
 <h2 id="interpolation-of-network-properties"><strong>Interpolation of Network Properties</strong></h2>
 <p>To interpolate a property, add the [<a class="xref" href="../api/Netick.Smooth.html">Smooth</a>] attribute to its declaration:</p>
 <pre><code class="lang-csharp">[Networked][Smooth]
