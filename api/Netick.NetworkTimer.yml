@@ -1,0 +1,803 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.NetworkTimer
+  commentId: T:Netick.NetworkTimer
+  id: NetworkTimer
+  parent: Netick
+  children:
+  - Netick.NetworkTimer.Equals(Netick.NetworkTimer)
+  - Netick.NetworkTimer.Equals(System.Object)
+  - Netick.NetworkTimer.GetElapsedTime(Netick.NetickEngine,System.Boolean)
+  - Netick.NetworkTimer.GetHashCode
+  - Netick.NetworkTimer.GetRemainingTime(Netick.NetickEngine,System.Boolean)
+  - Netick.NetworkTimer.IsRunning(Netick.NetickEngine,System.Boolean)
+  - Netick.NetworkTimer.IsStopped(Netick.NetickEngine,System.Boolean)
+  - Netick.NetworkTimer.RestartTimer(System.Single,Netick.NetickEngine,System.Boolean)
+  - Netick.NetworkTimer.StartTimer(System.Single,Netick.NetickEngine,System.Boolean)
+  - Netick.NetworkTimer.TargetTick
+  - Netick.NetworkTimer.ToString
+  langs:
+  - csharp
+  - vb
+  name: NetworkTimer
+  nameWithType: NetworkTimer
+  fullName: Netick.NetworkTimer
+  type: Struct
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: 'public struct NetworkTimer : IEquatable<NetworkTimer>'
+    content.vb: Public Structure NetworkTimer Implements IEquatable(Of NetworkTimer)
+  implements:
+  - System.IEquatable{Netick.NetworkTimer}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Netick.NetworkTimer.GetRemainingTime(Netick.NetickEngine,System.Boolean)
+  commentId: M:Netick.NetworkTimer.GetRemainingTime(Netick.NetickEngine,System.Boolean)
+  id: GetRemainingTime(Netick.NetickEngine,System.Boolean)
+  parent: Netick.NetworkTimer
+  langs:
+  - csharp
+  - vb
+  name: GetRemainingTime(NetickEngine, bool)
+  nameWithType: NetworkTimer.GetRemainingTime(NetickEngine, bool)
+  fullName: Netick.NetworkTimer.GetRemainingTime(Netick.NetickEngine, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float GetRemainingTime(NetickEngine engine, bool usePredictedTiming = false)
+    parameters:
+    - id: engine
+      type: Netick.NetickEngine
+    - id: usePredictedTiming
+      type: System.Boolean
+    return:
+      type: System.Single
+    content.vb: Public Function GetRemainingTime(engine As NetickEngine, usePredictedTiming As Boolean = False) As Single
+  overload: Netick.NetworkTimer.GetRemainingTime*
+  nameWithType.vb: NetworkTimer.GetRemainingTime(NetickEngine, Boolean)
+  fullName.vb: Netick.NetworkTimer.GetRemainingTime(Netick.NetickEngine, Boolean)
+  name.vb: GetRemainingTime(NetickEngine, Boolean)
+- uid: Netick.NetworkTimer.GetElapsedTime(Netick.NetickEngine,System.Boolean)
+  commentId: M:Netick.NetworkTimer.GetElapsedTime(Netick.NetickEngine,System.Boolean)
+  id: GetElapsedTime(Netick.NetickEngine,System.Boolean)
+  parent: Netick.NetworkTimer
+  langs:
+  - csharp
+  - vb
+  name: GetElapsedTime(NetickEngine, bool)
+  nameWithType: NetworkTimer.GetElapsedTime(NetickEngine, bool)
+  fullName: Netick.NetworkTimer.GetElapsedTime(Netick.NetickEngine, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float GetElapsedTime(NetickEngine engine, bool usePredictedTiming = false)
+    parameters:
+    - id: engine
+      type: Netick.NetickEngine
+    - id: usePredictedTiming
+      type: System.Boolean
+    return:
+      type: System.Single
+    content.vb: Public Function GetElapsedTime(engine As NetickEngine, usePredictedTiming As Boolean = False) As Single
+  overload: Netick.NetworkTimer.GetElapsedTime*
+  nameWithType.vb: NetworkTimer.GetElapsedTime(NetickEngine, Boolean)
+  fullName.vb: Netick.NetworkTimer.GetElapsedTime(Netick.NetickEngine, Boolean)
+  name.vb: GetElapsedTime(NetickEngine, Boolean)
+- uid: Netick.NetworkTimer.IsStopped(Netick.NetickEngine,System.Boolean)
+  commentId: M:Netick.NetworkTimer.IsStopped(Netick.NetickEngine,System.Boolean)
+  id: IsStopped(Netick.NetickEngine,System.Boolean)
+  parent: Netick.NetworkTimer
+  langs:
+  - csharp
+  - vb
+  name: IsStopped(NetickEngine, bool)
+  nameWithType: NetworkTimer.IsStopped(NetickEngine, bool)
+  fullName: Netick.NetworkTimer.IsStopped(Netick.NetickEngine, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsStopped(NetickEngine engine, bool usePredictedTiming = false)
+    parameters:
+    - id: engine
+      type: Netick.NetickEngine
+    - id: usePredictedTiming
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsStopped(engine As NetickEngine, usePredictedTiming As Boolean = False) As Boolean
+  overload: Netick.NetworkTimer.IsStopped*
+  nameWithType.vb: NetworkTimer.IsStopped(NetickEngine, Boolean)
+  fullName.vb: Netick.NetworkTimer.IsStopped(Netick.NetickEngine, Boolean)
+  name.vb: IsStopped(NetickEngine, Boolean)
+- uid: Netick.NetworkTimer.IsRunning(Netick.NetickEngine,System.Boolean)
+  commentId: M:Netick.NetworkTimer.IsRunning(Netick.NetickEngine,System.Boolean)
+  id: IsRunning(Netick.NetickEngine,System.Boolean)
+  parent: Netick.NetworkTimer
+  langs:
+  - csharp
+  - vb
+  name: IsRunning(NetickEngine, bool)
+  nameWithType: NetworkTimer.IsRunning(NetickEngine, bool)
+  fullName: Netick.NetworkTimer.IsRunning(Netick.NetickEngine, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsRunning(NetickEngine engine, bool usePredictedTiming = false)
+    parameters:
+    - id: engine
+      type: Netick.NetickEngine
+    - id: usePredictedTiming
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsRunning(engine As NetickEngine, usePredictedTiming As Boolean = False) As Boolean
+  overload: Netick.NetworkTimer.IsRunning*
+  nameWithType.vb: NetworkTimer.IsRunning(NetickEngine, Boolean)
+  fullName.vb: Netick.NetworkTimer.IsRunning(Netick.NetickEngine, Boolean)
+  name.vb: IsRunning(NetickEngine, Boolean)
+- uid: Netick.NetworkTimer.RestartTimer(System.Single,Netick.NetickEngine,System.Boolean)
+  commentId: M:Netick.NetworkTimer.RestartTimer(System.Single,Netick.NetickEngine,System.Boolean)
+  id: RestartTimer(System.Single,Netick.NetickEngine,System.Boolean)
+  parent: Netick.NetworkTimer
+  langs:
+  - csharp
+  - vb
+  name: RestartTimer(float, NetickEngine, bool)
+  nameWithType: NetworkTimer.RestartTimer(float, NetickEngine, bool)
+  fullName: Netick.NetworkTimer.RestartTimer(float, Netick.NetickEngine, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static NetworkTimer RestartTimer(float time, NetickEngine engine, bool usePredictedTiming = false)
+    parameters:
+    - id: time
+      type: System.Single
+    - id: engine
+      type: Netick.NetickEngine
+    - id: usePredictedTiming
+      type: System.Boolean
+    return:
+      type: Netick.NetworkTimer
+    content.vb: Public Shared Function RestartTimer(time As Single, engine As NetickEngine, usePredictedTiming As Boolean = False) As NetworkTimer
+  overload: Netick.NetworkTimer.RestartTimer*
+  nameWithType.vb: NetworkTimer.RestartTimer(Single, NetickEngine, Boolean)
+  fullName.vb: Netick.NetworkTimer.RestartTimer(Single, Netick.NetickEngine, Boolean)
+  name.vb: RestartTimer(Single, NetickEngine, Boolean)
+- uid: Netick.NetworkTimer.StartTimer(System.Single,Netick.NetickEngine,System.Boolean)
+  commentId: M:Netick.NetworkTimer.StartTimer(System.Single,Netick.NetickEngine,System.Boolean)
+  id: StartTimer(System.Single,Netick.NetickEngine,System.Boolean)
+  parent: Netick.NetworkTimer
+  langs:
+  - csharp
+  - vb
+  name: StartTimer(float, NetickEngine, bool)
+  nameWithType: NetworkTimer.StartTimer(float, NetickEngine, bool)
+  fullName: Netick.NetworkTimer.StartTimer(float, Netick.NetickEngine, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static NetworkTimer StartTimer(float time, NetickEngine engine, bool usePredictedTiming = false)
+    parameters:
+    - id: time
+      type: System.Single
+    - id: engine
+      type: Netick.NetickEngine
+    - id: usePredictedTiming
+      type: System.Boolean
+    return:
+      type: Netick.NetworkTimer
+    content.vb: Public Shared Function StartTimer(time As Single, engine As NetickEngine, usePredictedTiming As Boolean = False) As NetworkTimer
+  overload: Netick.NetworkTimer.StartTimer*
+  nameWithType.vb: NetworkTimer.StartTimer(Single, NetickEngine, Boolean)
+  fullName.vb: Netick.NetworkTimer.StartTimer(Single, Netick.NetickEngine, Boolean)
+  name.vb: StartTimer(Single, NetickEngine, Boolean)
+- uid: Netick.NetworkTimer.GetHashCode
+  commentId: M:Netick.NetworkTimer.GetHashCode
+  id: GetHashCode
+  parent: Netick.NetworkTimer
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: NetworkTimer.GetHashCode()
+  fullName: Netick.NetworkTimer.GetHashCode()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Netick.NetworkTimer.GetHashCode*
+- uid: Netick.NetworkTimer.Equals(System.Object)
+  commentId: M:Netick.NetworkTimer.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Netick.NetworkTimer
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: NetworkTimer.Equals(object)
+  fullName: Netick.NetworkTimer.Equals(object)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Netick.NetworkTimer.Equals*
+  nameWithType.vb: NetworkTimer.Equals(Object)
+  fullName.vb: Netick.NetworkTimer.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Netick.NetworkTimer.Equals(Netick.NetworkTimer)
+  commentId: M:Netick.NetworkTimer.Equals(Netick.NetworkTimer)
+  id: Equals(Netick.NetworkTimer)
+  parent: Netick.NetworkTimer
+  langs:
+  - csharp
+  - vb
+  name: Equals(NetworkTimer)
+  nameWithType: NetworkTimer.Equals(NetworkTimer)
+  fullName: Netick.NetworkTimer.Equals(Netick.NetworkTimer)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public bool Equals(NetworkTimer other)
+    parameters:
+    - id: other
+      type: Netick.NetworkTimer
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As NetworkTimer) As Boolean
+  overload: Netick.NetworkTimer.Equals*
+  implements:
+  - System.IEquatable{Netick.NetworkTimer}.Equals(Netick.NetworkTimer)
+- uid: Netick.NetworkTimer.ToString
+  commentId: M:Netick.NetworkTimer.ToString
+  id: ToString
+  parent: Netick.NetworkTimer
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: NetworkTimer.ToString()
+  fullName: Netick.NetworkTimer.ToString()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Netick.NetworkTimer.ToString*
+- uid: Netick.NetworkTimer.TargetTick
+  commentId: P:Netick.NetworkTimer.TargetTick
+  id: TargetTick
+  parent: Netick.NetworkTimer
+  langs:
+  - csharp
+  - vb
+  name: TargetTick
+  nameWithType: NetworkTimer.TargetTick
+  fullName: Netick.NetworkTimer.TargetTick
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int TargetTick { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TargetTick As Integer
+  overload: Netick.NetworkTimer.TargetTick*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.IEquatable{Netick.NetworkTimer}
+  commentId: T:System.IEquatable{Netick.NetworkTimer}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<NetworkTimer>
+  nameWithType: IEquatable<NetworkTimer>
+  fullName: System.IEquatable<Netick.NetworkTimer>
+  nameWithType.vb: IEquatable(Of NetworkTimer)
+  fullName.vb: System.IEquatable(Of Netick.NetworkTimer)
+  name.vb: IEquatable(Of NetworkTimer)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Netick.NetworkTimer
+    name: NetworkTimer
+    isExternal: true
+    href: Netick.NetworkTimer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.NetworkTimer
+    name: NetworkTimer
+    isExternal: true
+    href: Netick.NetworkTimer.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Netick.NetworkTimer.GetRemainingTime*
+  commentId: Overload:Netick.NetworkTimer.GetRemainingTime
+  isExternal: true
+  href: Netick.NetworkTimer.html#Netick_NetworkTimer_GetRemainingTime_Netick_NetickEngine_System_Boolean_
+  name: GetRemainingTime
+  nameWithType: NetworkTimer.GetRemainingTime
+  fullName: Netick.NetworkTimer.GetRemainingTime
+- uid: Netick.NetickEngine
+  commentId: T:Netick.NetickEngine
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickEngine.html
+  name: NetickEngine
+  nameWithType: NetickEngine
+  fullName: Netick.NetickEngine
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Netick.NetworkTimer.GetElapsedTime*
+  commentId: Overload:Netick.NetworkTimer.GetElapsedTime
+  isExternal: true
+  href: Netick.NetworkTimer.html#Netick_NetworkTimer_GetElapsedTime_Netick_NetickEngine_System_Boolean_
+  name: GetElapsedTime
+  nameWithType: NetworkTimer.GetElapsedTime
+  fullName: Netick.NetworkTimer.GetElapsedTime
+- uid: Netick.NetworkTimer.IsStopped*
+  commentId: Overload:Netick.NetworkTimer.IsStopped
+  isExternal: true
+  href: Netick.NetworkTimer.html#Netick_NetworkTimer_IsStopped_Netick_NetickEngine_System_Boolean_
+  name: IsStopped
+  nameWithType: NetworkTimer.IsStopped
+  fullName: Netick.NetworkTimer.IsStopped
+- uid: Netick.NetworkTimer.IsRunning*
+  commentId: Overload:Netick.NetworkTimer.IsRunning
+  isExternal: true
+  href: Netick.NetworkTimer.html#Netick_NetworkTimer_IsRunning_Netick_NetickEngine_System_Boolean_
+  name: IsRunning
+  nameWithType: NetworkTimer.IsRunning
+  fullName: Netick.NetworkTimer.IsRunning
+- uid: Netick.NetworkTimer.RestartTimer*
+  commentId: Overload:Netick.NetworkTimer.RestartTimer
+  isExternal: true
+  href: Netick.NetworkTimer.html#Netick_NetworkTimer_RestartTimer_System_Single_Netick_NetickEngine_System_Boolean_
+  name: RestartTimer
+  nameWithType: NetworkTimer.RestartTimer
+  fullName: Netick.NetworkTimer.RestartTimer
+- uid: Netick.NetworkTimer
+  commentId: T:Netick.NetworkTimer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkTimer.html
+  name: NetworkTimer
+  nameWithType: NetworkTimer
+  fullName: Netick.NetworkTimer
+- uid: Netick.NetworkTimer.StartTimer*
+  commentId: Overload:Netick.NetworkTimer.StartTimer
+  isExternal: true
+  href: Netick.NetworkTimer.html#Netick_NetworkTimer_StartTimer_System_Single_Netick_NetickEngine_System_Boolean_
+  name: StartTimer
+  nameWithType: NetworkTimer.StartTimer
+  fullName: Netick.NetworkTimer.StartTimer
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Netick.NetworkTimer.GetHashCode*
+  commentId: Overload:Netick.NetworkTimer.GetHashCode
+  isExternal: true
+  href: Netick.NetworkTimer.html#Netick_NetworkTimer_GetHashCode
+  name: GetHashCode
+  nameWithType: NetworkTimer.GetHashCode
+  fullName: Netick.NetworkTimer.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Netick.NetworkTimer.Equals*
+  commentId: Overload:Netick.NetworkTimer.Equals
+  isExternal: true
+  href: Netick.NetworkTimer.html#Netick_NetworkTimer_Equals_System_Object_
+  name: Equals
+  nameWithType: NetworkTimer.Equals
+  fullName: Netick.NetworkTimer.Equals
+- uid: System.IEquatable{Netick.NetworkTimer}.Equals(Netick.NetworkTimer)
+  commentId: M:System.IEquatable{Netick.NetworkTimer}.Equals(Netick.NetworkTimer)
+  parent: System.IEquatable{Netick.NetworkTimer}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(NetworkTimer)
+  nameWithType: IEquatable<NetworkTimer>.Equals(NetworkTimer)
+  fullName: System.IEquatable<Netick.NetworkTimer>.Equals(Netick.NetworkTimer)
+  nameWithType.vb: IEquatable(Of NetworkTimer).Equals(NetworkTimer)
+  fullName.vb: System.IEquatable(Of Netick.NetworkTimer).Equals(Netick.NetworkTimer)
+  spec.csharp:
+  - uid: System.IEquatable{Netick.NetworkTimer}.Equals(Netick.NetworkTimer)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Netick.NetworkTimer
+    name: NetworkTimer
+    isExternal: true
+    href: Netick.NetworkTimer.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Netick.NetworkTimer}.Equals(Netick.NetworkTimer)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Netick.NetworkTimer
+    name: NetworkTimer
+    isExternal: true
+    href: Netick.NetworkTimer.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Netick.NetworkTimer.ToString*
+  commentId: Overload:Netick.NetworkTimer.ToString
+  isExternal: true
+  href: Netick.NetworkTimer.html#Netick_NetworkTimer_ToString
+  name: ToString
+  nameWithType: NetworkTimer.ToString
+  fullName: Netick.NetworkTimer.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Netick.NetworkTimer.TargetTick*
+  commentId: Overload:Netick.NetworkTimer.TargetTick
+  isExternal: true
+  href: Netick.NetworkTimer.html#Netick_NetworkTimer_TargetTick
+  name: TargetTick
+  nameWithType: NetworkTimer.TargetTick
+  fullName: Netick.NetworkTimer.TargetTick

@@ -1,0 +1,820 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.INetickNetworkScript
+  commentId: T:Netick.INetickNetworkScript
+  id: INetickNetworkScript
+  parent: Netick
+  children:
+  - Netick.INetickNetworkScript.Entity
+  - Netick.INetickNetworkScript.GameEngineIntoNetcode
+  - Netick.INetickNetworkScript.Index
+  - Netick.INetickNetworkScript.InternalGetStateSizeWords
+  - Netick.INetickNetworkScript.InternalInit
+  - Netick.INetickNetworkScript.InternalReset
+  - Netick.INetickNetworkScript.NetcodeIntoGameEngine
+  - Netick.INetickNetworkScript.NetworkAwake
+  - Netick.INetickNetworkScript.NetworkReset
+  - Netick.INetickNetworkScript.OnBecameInterested
+  - Netick.INetickNetworkScript.OnBecameUninterested
+  - Netick.INetickNetworkScript.OnInputSourceChanged(Netick.NetworkPlayer)
+  - Netick.INetickNetworkScript.OnInputSourceLeft
+  - Netick.INetickNetworkScript.RelatedRpcs
+  - Netick.INetickNetworkScript.State
+  langs:
+  - csharp
+  - vb
+  name: INetickNetworkScript
+  nameWithType: INetickNetworkScript
+  fullName: Netick.INetickNetworkScript
+  type: Interface
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: A network scripts which can have networked properties and rpcs.
+  example: []
+  syntax:
+    content: 'public interface INetickNetworkScript : INetickScript'
+    content.vb: Public Interface INetickNetworkScript Inherits INetickScript
+  inheritedMembers:
+  - Netick.INetickScript.Initialize(Netick.NetickEngine)
+  - Netick.INetickScript.NetworkStart
+  - Netick.INetickScript.NetworkDestroy
+  - Netick.INetickScript.NetworkUpdate
+  - Netick.INetickScript.NetworkFixedUpdate
+  - Netick.INetickScript.NetworkRender
+  - Netick.INetickScript.OnBecameSimulated
+  - Netick.INetickScript.OnBecameUnsimulated
+  - Netick.INetickScript.Next
+  - Netick.INetickScript.Previous
+  - Netick.INetickScript.Engine
+- uid: Netick.INetickNetworkScript.InternalGetStateSizeWords
+  commentId: M:Netick.INetickNetworkScript.InternalGetStateSizeWords
+  id: InternalGetStateSizeWords
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: InternalGetStateSizeWords()
+  nameWithType: INetickNetworkScript.InternalGetStateSizeWords()
+  fullName: Netick.INetickNetworkScript.InternalGetStateSizeWords()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: int InternalGetStateSizeWords()
+    return:
+      type: System.Int32
+    content.vb: Function InternalGetStateSizeWords() As Integer
+  overload: Netick.INetickNetworkScript.InternalGetStateSizeWords*
+- uid: Netick.INetickNetworkScript.InternalInit
+  commentId: M:Netick.INetickNetworkScript.InternalInit
+  id: InternalInit
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: InternalInit()
+  nameWithType: INetickNetworkScript.InternalInit()
+  fullName: Netick.INetickNetworkScript.InternalInit()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void InternalInit()
+    content.vb: Sub InternalInit()
+  overload: Netick.INetickNetworkScript.InternalInit*
+- uid: Netick.INetickNetworkScript.InternalReset
+  commentId: M:Netick.INetickNetworkScript.InternalReset
+  id: InternalReset
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: InternalReset()
+  nameWithType: INetickNetworkScript.InternalReset()
+  fullName: Netick.INetickNetworkScript.InternalReset()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void InternalReset()
+    content.vb: Sub InternalReset()
+  overload: Netick.INetickNetworkScript.InternalReset*
+- uid: Netick.INetickNetworkScript.NetworkReset
+  commentId: M:Netick.INetickNetworkScript.NetworkReset
+  id: NetworkReset
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: NetworkReset()
+  nameWithType: INetickNetworkScript.NetworkReset()
+  fullName: Netick.INetickNetworkScript.NetworkReset()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void NetworkReset()
+    content.vb: Sub NetworkReset()
+  overload: Netick.INetickNetworkScript.NetworkReset*
+- uid: Netick.INetickNetworkScript.NetworkAwake
+  commentId: M:Netick.INetickNetworkScript.NetworkAwake
+  id: NetworkAwake
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: NetworkAwake()
+  nameWithType: INetickNetworkScript.NetworkAwake()
+  fullName: Netick.INetickNetworkScript.NetworkAwake()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void NetworkAwake()
+    content.vb: Sub NetworkAwake()
+  overload: Netick.INetickNetworkScript.NetworkAwake*
+- uid: Netick.INetickNetworkScript.NetcodeIntoGameEngine
+  commentId: M:Netick.INetickNetworkScript.NetcodeIntoGameEngine
+  id: NetcodeIntoGameEngine
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: NetcodeIntoGameEngine()
+  nameWithType: INetickNetworkScript.NetcodeIntoGameEngine()
+  fullName: Netick.INetickNetworkScript.NetcodeIntoGameEngine()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void NetcodeIntoGameEngine()
+    content.vb: Sub NetcodeIntoGameEngine()
+  overload: Netick.INetickNetworkScript.NetcodeIntoGameEngine*
+- uid: Netick.INetickNetworkScript.GameEngineIntoNetcode
+  commentId: M:Netick.INetickNetworkScript.GameEngineIntoNetcode
+  id: GameEngineIntoNetcode
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: GameEngineIntoNetcode()
+  nameWithType: INetickNetworkScript.GameEngineIntoNetcode()
+  fullName: Netick.INetickNetworkScript.GameEngineIntoNetcode()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void GameEngineIntoNetcode()
+    content.vb: Sub GameEngineIntoNetcode()
+  overload: Netick.INetickNetworkScript.GameEngineIntoNetcode*
+- uid: Netick.INetickNetworkScript.OnInputSourceLeft
+  commentId: M:Netick.INetickNetworkScript.OnInputSourceLeft
+  id: OnInputSourceLeft
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: OnInputSourceLeft()
+  nameWithType: INetickNetworkScript.OnInputSourceLeft()
+  fullName: Netick.INetickNetworkScript.OnInputSourceLeft()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnInputSourceLeft()
+    content.vb: Sub OnInputSourceLeft()
+  overload: Netick.INetickNetworkScript.OnInputSourceLeft*
+- uid: Netick.INetickNetworkScript.OnInputSourceChanged(Netick.NetworkPlayer)
+  commentId: M:Netick.INetickNetworkScript.OnInputSourceChanged(Netick.NetworkPlayer)
+  id: OnInputSourceChanged(Netick.NetworkPlayer)
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: OnInputSourceChanged(NetworkPlayer)
+  nameWithType: INetickNetworkScript.OnInputSourceChanged(NetworkPlayer)
+  fullName: Netick.INetickNetworkScript.OnInputSourceChanged(Netick.NetworkPlayer)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnInputSourceChanged(NetworkPlayer previous)
+    parameters:
+    - id: previous
+      type: Netick.NetworkPlayer
+    content.vb: Sub OnInputSourceChanged(previous As NetworkPlayer)
+  overload: Netick.INetickNetworkScript.OnInputSourceChanged*
+- uid: Netick.INetickNetworkScript.OnBecameInterested
+  commentId: M:Netick.INetickNetworkScript.OnBecameInterested
+  id: OnBecameInterested
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: OnBecameInterested()
+  nameWithType: INetickNetworkScript.OnBecameInterested()
+  fullName: Netick.INetickNetworkScript.OnBecameInterested()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnBecameInterested()
+    content.vb: Sub OnBecameInterested()
+  overload: Netick.INetickNetworkScript.OnBecameInterested*
+- uid: Netick.INetickNetworkScript.OnBecameUninterested
+  commentId: M:Netick.INetickNetworkScript.OnBecameUninterested
+  id: OnBecameUninterested
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: OnBecameUninterested()
+  nameWithType: INetickNetworkScript.OnBecameUninterested()
+  fullName: Netick.INetickNetworkScript.OnBecameUninterested()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnBecameUninterested()
+    content.vb: Sub OnBecameUninterested()
+  overload: Netick.INetickNetworkScript.OnBecameUninterested*
+- uid: Netick.INetickNetworkScript.State
+  commentId: P:Netick.INetickNetworkScript.State
+  id: State
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: INetickNetworkScript.State
+  fullName: Netick.INetickNetworkScript.State
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: int* State { get; }
+    parameters: []
+    return:
+      type: System.Int32*
+    content.vb: ReadOnly Property State As Integer*
+  overload: Netick.INetickNetworkScript.State*
+- uid: Netick.INetickNetworkScript.Entity
+  commentId: P:Netick.INetickNetworkScript.Entity
+  id: Entity
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: Entity
+  nameWithType: INetickNetworkScript.Entity
+  fullName: Netick.INetickNetworkScript.Entity
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: Entity Entity { get; }
+    parameters: []
+    return:
+      type: Netick.Entity
+    content.vb: ReadOnly Property Entity As Entity
+  overload: Netick.INetickNetworkScript.Entity*
+- uid: Netick.INetickNetworkScript.Index
+  commentId: P:Netick.INetickNetworkScript.Index
+  id: Index
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: Index
+  nameWithType: INetickNetworkScript.Index
+  fullName: Netick.INetickNetworkScript.Index
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: int Index { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property Index As Integer
+  overload: Netick.INetickNetworkScript.Index*
+- uid: Netick.INetickNetworkScript.RelatedRpcs
+  commentId: P:Netick.INetickNetworkScript.RelatedRpcs
+  id: RelatedRpcs
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: RelatedRpcs
+  nameWithType: INetickNetworkScript.RelatedRpcs
+  fullName: Netick.INetickNetworkScript.RelatedRpcs
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: List<NetworkRpc> RelatedRpcs { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Netick.NetworkRpc}
+    content.vb: ReadOnly Property RelatedRpcs As List(Of NetworkRpc)
+  overload: Netick.INetickNetworkScript.RelatedRpcs*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: Netick.INetickScript.Initialize(Netick.NetickEngine)
+  commentId: M:Netick.INetickScript.Initialize(Netick.NetickEngine)
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_
+  name: Initialize(NetickEngine)
+  nameWithType: INetickScript.Initialize(NetickEngine)
+  fullName: Netick.INetickScript.Initialize(Netick.NetickEngine)
+  spec.csharp:
+  - uid: Netick.INetickScript.Initialize(Netick.NetickEngine)
+    name: Initialize
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_
+  - name: (
+  - uid: Netick.NetickEngine
+    name: NetickEngine
+    isExternal: true
+    href: Netick.NetickEngine.html
+  - name: )
+  spec.vb:
+  - uid: Netick.INetickScript.Initialize(Netick.NetickEngine)
+    name: Initialize
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_
+  - name: (
+  - uid: Netick.NetickEngine
+    name: NetickEngine
+    isExternal: true
+    href: Netick.NetickEngine.html
+  - name: )
+- uid: Netick.INetickScript.NetworkStart
+  commentId: M:Netick.INetickScript.NetworkStart
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_NetworkStart
+  name: NetworkStart()
+  nameWithType: INetickScript.NetworkStart()
+  fullName: Netick.INetickScript.NetworkStart()
+  spec.csharp:
+  - uid: Netick.INetickScript.NetworkStart
+    name: NetworkStart
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_NetworkStart
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.INetickScript.NetworkStart
+    name: NetworkStart
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_NetworkStart
+  - name: (
+  - name: )
+- uid: Netick.INetickScript.NetworkDestroy
+  commentId: M:Netick.INetickScript.NetworkDestroy
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_NetworkDestroy
+  name: NetworkDestroy()
+  nameWithType: INetickScript.NetworkDestroy()
+  fullName: Netick.INetickScript.NetworkDestroy()
+  spec.csharp:
+  - uid: Netick.INetickScript.NetworkDestroy
+    name: NetworkDestroy
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_NetworkDestroy
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.INetickScript.NetworkDestroy
+    name: NetworkDestroy
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_NetworkDestroy
+  - name: (
+  - name: )
+- uid: Netick.INetickScript.NetworkUpdate
+  commentId: M:Netick.INetickScript.NetworkUpdate
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_NetworkUpdate
+  name: NetworkUpdate()
+  nameWithType: INetickScript.NetworkUpdate()
+  fullName: Netick.INetickScript.NetworkUpdate()
+  spec.csharp:
+  - uid: Netick.INetickScript.NetworkUpdate
+    name: NetworkUpdate
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_NetworkUpdate
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.INetickScript.NetworkUpdate
+    name: NetworkUpdate
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_NetworkUpdate
+  - name: (
+  - name: )
+- uid: Netick.INetickScript.NetworkFixedUpdate
+  commentId: M:Netick.INetickScript.NetworkFixedUpdate
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_NetworkFixedUpdate
+  name: NetworkFixedUpdate()
+  nameWithType: INetickScript.NetworkFixedUpdate()
+  fullName: Netick.INetickScript.NetworkFixedUpdate()
+  spec.csharp:
+  - uid: Netick.INetickScript.NetworkFixedUpdate
+    name: NetworkFixedUpdate
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_NetworkFixedUpdate
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.INetickScript.NetworkFixedUpdate
+    name: NetworkFixedUpdate
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_NetworkFixedUpdate
+  - name: (
+  - name: )
+- uid: Netick.INetickScript.NetworkRender
+  commentId: M:Netick.INetickScript.NetworkRender
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_NetworkRender
+  name: NetworkRender()
+  nameWithType: INetickScript.NetworkRender()
+  fullName: Netick.INetickScript.NetworkRender()
+  spec.csharp:
+  - uid: Netick.INetickScript.NetworkRender
+    name: NetworkRender
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_NetworkRender
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.INetickScript.NetworkRender
+    name: NetworkRender
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_NetworkRender
+  - name: (
+  - name: )
+- uid: Netick.INetickScript.OnBecameSimulated
+  commentId: M:Netick.INetickScript.OnBecameSimulated
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_OnBecameSimulated
+  name: OnBecameSimulated()
+  nameWithType: INetickScript.OnBecameSimulated()
+  fullName: Netick.INetickScript.OnBecameSimulated()
+  spec.csharp:
+  - uid: Netick.INetickScript.OnBecameSimulated
+    name: OnBecameSimulated
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_OnBecameSimulated
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.INetickScript.OnBecameSimulated
+    name: OnBecameSimulated
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_OnBecameSimulated
+  - name: (
+  - name: )
+- uid: Netick.INetickScript.OnBecameUnsimulated
+  commentId: M:Netick.INetickScript.OnBecameUnsimulated
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_OnBecameUnsimulated
+  name: OnBecameUnsimulated()
+  nameWithType: INetickScript.OnBecameUnsimulated()
+  fullName: Netick.INetickScript.OnBecameUnsimulated()
+  spec.csharp:
+  - uid: Netick.INetickScript.OnBecameUnsimulated
+    name: OnBecameUnsimulated
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_OnBecameUnsimulated
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.INetickScript.OnBecameUnsimulated
+    name: OnBecameUnsimulated
+    isExternal: true
+    href: Netick.INetickScript.html#Netick_INetickScript_OnBecameUnsimulated
+  - name: (
+  - name: )
+- uid: Netick.INetickScript.Next
+  commentId: P:Netick.INetickScript.Next
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_Next
+  name: Next
+  nameWithType: INetickScript.Next
+  fullName: Netick.INetickScript.Next
+- uid: Netick.INetickScript.Previous
+  commentId: P:Netick.INetickScript.Previous
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_Previous
+  name: Previous
+  nameWithType: INetickScript.Previous
+  fullName: Netick.INetickScript.Previous
+- uid: Netick.INetickScript.Engine
+  commentId: P:Netick.INetickScript.Engine
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_Engine
+  name: Engine
+  nameWithType: INetickScript.Engine
+  fullName: Netick.INetickScript.Engine
+- uid: Netick.INetickScript
+  commentId: T:Netick.INetickScript
+  parent: Netick
+  isExternal: true
+  href: Netick.INetickScript.html
+  name: INetickScript
+  nameWithType: INetickScript
+  fullName: Netick.INetickScript
+- uid: Netick.INetickNetworkScript.InternalGetStateSizeWords*
+  commentId: Overload:Netick.INetickNetworkScript.InternalGetStateSizeWords
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_InternalGetStateSizeWords
+  name: InternalGetStateSizeWords
+  nameWithType: INetickNetworkScript.InternalGetStateSizeWords
+  fullName: Netick.INetickNetworkScript.InternalGetStateSizeWords
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.INetickNetworkScript.InternalInit*
+  commentId: Overload:Netick.INetickNetworkScript.InternalInit
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_InternalInit
+  name: InternalInit
+  nameWithType: INetickNetworkScript.InternalInit
+  fullName: Netick.INetickNetworkScript.InternalInit
+- uid: Netick.INetickNetworkScript.InternalReset*
+  commentId: Overload:Netick.INetickNetworkScript.InternalReset
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_InternalReset
+  name: InternalReset
+  nameWithType: INetickNetworkScript.InternalReset
+  fullName: Netick.INetickNetworkScript.InternalReset
+- uid: Netick.INetickNetworkScript.NetworkReset*
+  commentId: Overload:Netick.INetickNetworkScript.NetworkReset
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_NetworkReset
+  name: NetworkReset
+  nameWithType: INetickNetworkScript.NetworkReset
+  fullName: Netick.INetickNetworkScript.NetworkReset
+- uid: Netick.INetickNetworkScript.NetworkAwake*
+  commentId: Overload:Netick.INetickNetworkScript.NetworkAwake
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_NetworkAwake
+  name: NetworkAwake
+  nameWithType: INetickNetworkScript.NetworkAwake
+  fullName: Netick.INetickNetworkScript.NetworkAwake
+- uid: Netick.INetickNetworkScript.NetcodeIntoGameEngine*
+  commentId: Overload:Netick.INetickNetworkScript.NetcodeIntoGameEngine
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_NetcodeIntoGameEngine
+  name: NetcodeIntoGameEngine
+  nameWithType: INetickNetworkScript.NetcodeIntoGameEngine
+  fullName: Netick.INetickNetworkScript.NetcodeIntoGameEngine
+- uid: Netick.INetickNetworkScript.GameEngineIntoNetcode*
+  commentId: Overload:Netick.INetickNetworkScript.GameEngineIntoNetcode
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_GameEngineIntoNetcode
+  name: GameEngineIntoNetcode
+  nameWithType: INetickNetworkScript.GameEngineIntoNetcode
+  fullName: Netick.INetickNetworkScript.GameEngineIntoNetcode
+- uid: Netick.INetickNetworkScript.OnInputSourceLeft*
+  commentId: Overload:Netick.INetickNetworkScript.OnInputSourceLeft
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_OnInputSourceLeft
+  name: OnInputSourceLeft
+  nameWithType: INetickNetworkScript.OnInputSourceLeft
+  fullName: Netick.INetickNetworkScript.OnInputSourceLeft
+- uid: Netick.INetickNetworkScript.OnInputSourceChanged*
+  commentId: Overload:Netick.INetickNetworkScript.OnInputSourceChanged
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_OnInputSourceChanged_Netick_NetworkPlayer_
+  name: OnInputSourceChanged
+  nameWithType: INetickNetworkScript.OnInputSourceChanged
+  fullName: Netick.INetickNetworkScript.OnInputSourceChanged
+- uid: Netick.NetworkPlayer
+  commentId: T:Netick.NetworkPlayer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayer.html
+  name: NetworkPlayer
+  nameWithType: NetworkPlayer
+  fullName: Netick.NetworkPlayer
+- uid: Netick.INetickNetworkScript.OnBecameInterested*
+  commentId: Overload:Netick.INetickNetworkScript.OnBecameInterested
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_OnBecameInterested
+  name: OnBecameInterested
+  nameWithType: INetickNetworkScript.OnBecameInterested
+  fullName: Netick.INetickNetworkScript.OnBecameInterested
+- uid: Netick.INetickNetworkScript.OnBecameUninterested*
+  commentId: Overload:Netick.INetickNetworkScript.OnBecameUninterested
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_OnBecameUninterested
+  name: OnBecameUninterested
+  nameWithType: INetickNetworkScript.OnBecameUninterested
+  fullName: Netick.INetickNetworkScript.OnBecameUninterested
+- uid: Netick.INetickNetworkScript.State*
+  commentId: Overload:Netick.INetickNetworkScript.State
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_State
+  name: State
+  nameWithType: INetickNetworkScript.State
+  fullName: Netick.INetickNetworkScript.State
+- uid: System.Int32*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int*
+  nameWithType: int*
+  fullName: int*
+  nameWithType.vb: Integer*
+  fullName.vb: Integer*
+  name.vb: Integer*
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+- uid: Netick.INetickNetworkScript.Entity*
+  commentId: Overload:Netick.INetickNetworkScript.Entity
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_Entity
+  name: Entity
+  nameWithType: INetickNetworkScript.Entity
+  fullName: Netick.INetickNetworkScript.Entity
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
+- uid: Netick.INetickNetworkScript.Index*
+  commentId: Overload:Netick.INetickNetworkScript.Index
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_Index
+  name: Index
+  nameWithType: INetickNetworkScript.Index
+  fullName: Netick.INetickNetworkScript.Index
+- uid: Netick.INetickNetworkScript.RelatedRpcs*
+  commentId: Overload:Netick.INetickNetworkScript.RelatedRpcs
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_RelatedRpcs
+  name: RelatedRpcs
+  nameWithType: INetickNetworkScript.RelatedRpcs
+  fullName: Netick.INetickNetworkScript.RelatedRpcs
+- uid: System.Collections.Generic.List{Netick.NetworkRpc}
+  commentId: T:System.Collections.Generic.List{Netick.NetworkRpc}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<NetworkRpc>
+  nameWithType: List<NetworkRpc>
+  fullName: System.Collections.Generic.List<Netick.NetworkRpc>
+  nameWithType.vb: List(Of NetworkRpc)
+  fullName.vb: System.Collections.Generic.List(Of Netick.NetworkRpc)
+  name.vb: List(Of NetworkRpc)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.NetworkRpc
+    name: NetworkRpc
+    isExternal: true
+    href: Netick.NetworkRpc.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.NetworkRpc
+    name: NetworkRpc
+    isExternal: true
+    href: Netick.NetworkRpc.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

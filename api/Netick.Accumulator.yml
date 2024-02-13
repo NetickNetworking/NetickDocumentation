@@ -1,0 +1,506 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Accumulator
+  commentId: T:Netick.Accumulator
+  id: Accumulator
+  parent: Netick
+  children:
+  - Netick.Accumulator.#ctor(System.Int32)
+  - Netick.Accumulator.Add(System.Int32)
+  - Netick.Accumulator.Add(System.Single)
+  - Netick.Accumulator.Avg
+  - Netick.Accumulator.Latest
+  - Netick.Accumulator.Reset
+  - Netick.Accumulator.Stop
+  - Netick.Accumulator.Update(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: Accumulator
+  nameWithType: Accumulator
+  fullName: Netick.Accumulator
+  type: Class
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public sealed class Accumulator
+    content.vb: Public NotInheritable Class Accumulator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Netick.Accumulator.#ctor(System.Int32)
+  commentId: M:Netick.Accumulator.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Netick.Accumulator
+  langs:
+  - csharp
+  - vb
+  name: Accumulator(int)
+  nameWithType: Accumulator.Accumulator(int)
+  fullName: Netick.Accumulator.Accumulator(int)
+  type: Constructor
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Accumulator(int windowSize)
+    parameters:
+    - id: windowSize
+      type: System.Int32
+    content.vb: Public Sub New(windowSize As Integer)
+  overload: Netick.Accumulator.#ctor*
+  nameWithType.vb: Accumulator.New(Integer)
+  fullName.vb: Netick.Accumulator.New(Integer)
+  name.vb: New(Integer)
+- uid: Netick.Accumulator.Add(System.Int32)
+  commentId: M:Netick.Accumulator.Add(System.Int32)
+  id: Add(System.Int32)
+  parent: Netick.Accumulator
+  langs:
+  - csharp
+  - vb
+  name: Add(int)
+  nameWithType: Accumulator.Add(int)
+  fullName: Netick.Accumulator.Add(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Add(int amount)
+    parameters:
+    - id: amount
+      type: System.Int32
+    content.vb: Public Sub Add(amount As Integer)
+  overload: Netick.Accumulator.Add*
+  nameWithType.vb: Accumulator.Add(Integer)
+  fullName.vb: Netick.Accumulator.Add(Integer)
+  name.vb: Add(Integer)
+- uid: Netick.Accumulator.Add(System.Single)
+  commentId: M:Netick.Accumulator.Add(System.Single)
+  id: Add(System.Single)
+  parent: Netick.Accumulator
+  langs:
+  - csharp
+  - vb
+  name: Add(float)
+  nameWithType: Accumulator.Add(float)
+  fullName: Netick.Accumulator.Add(float)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Add(float amount)
+    parameters:
+    - id: amount
+      type: System.Single
+    content.vb: Public Sub Add(amount As Single)
+  overload: Netick.Accumulator.Add*
+  nameWithType.vb: Accumulator.Add(Single)
+  fullName.vb: Netick.Accumulator.Add(Single)
+  name.vb: Add(Single)
+- uid: Netick.Accumulator.Update(System.Single)
+  commentId: M:Netick.Accumulator.Update(System.Single)
+  id: Update(System.Single)
+  parent: Netick.Accumulator
+  langs:
+  - csharp
+  - vb
+  name: Update(float)
+  nameWithType: Accumulator.Update(float)
+  fullName: Netick.Accumulator.Update(float)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Update(float delta)
+    parameters:
+    - id: delta
+      type: System.Single
+    content.vb: Public Sub Update(delta As Single)
+  overload: Netick.Accumulator.Update*
+  nameWithType.vb: Accumulator.Update(Single)
+  fullName.vb: Netick.Accumulator.Update(Single)
+  name.vb: Update(Single)
+- uid: Netick.Accumulator.Stop
+  commentId: M:Netick.Accumulator.Stop
+  id: Stop
+  parent: Netick.Accumulator
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: Accumulator.Stop()
+  fullName: Netick.Accumulator.Stop()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Stop()
+    content.vb: Public Sub [Stop]()
+  overload: Netick.Accumulator.Stop*
+- uid: Netick.Accumulator.Reset
+  commentId: M:Netick.Accumulator.Reset
+  id: Reset
+  parent: Netick.Accumulator
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: Accumulator.Reset()
+  fullName: Netick.Accumulator.Reset()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Reset()
+    content.vb: Public Sub Reset()
+  overload: Netick.Accumulator.Reset*
+- uid: Netick.Accumulator.Avg
+  commentId: P:Netick.Accumulator.Avg
+  id: Avg
+  parent: Netick.Accumulator
+  langs:
+  - csharp
+  - vb
+  name: Avg
+  nameWithType: Accumulator.Avg
+  fullName: Netick.Accumulator.Avg
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float Avg { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property Avg As Single
+  overload: Netick.Accumulator.Avg*
+- uid: Netick.Accumulator.Latest
+  commentId: P:Netick.Accumulator.Latest
+  id: Latest
+  parent: Netick.Accumulator
+  langs:
+  - csharp
+  - vb
+  name: Latest
+  nameWithType: Accumulator.Latest
+  fullName: Netick.Accumulator.Latest
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float Latest { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property Latest As Single
+  overload: Netick.Accumulator.Latest*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.Accumulator.#ctor*
+  commentId: Overload:Netick.Accumulator.#ctor
+  isExternal: true
+  href: Netick.Accumulator.html#Netick_Accumulator__ctor_System_Int32_
+  name: Accumulator
+  nameWithType: Accumulator.Accumulator
+  fullName: Netick.Accumulator.Accumulator
+  nameWithType.vb: Accumulator.New
+  fullName.vb: Netick.Accumulator.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.Accumulator.Add*
+  commentId: Overload:Netick.Accumulator.Add
+  isExternal: true
+  href: Netick.Accumulator.html#Netick_Accumulator_Add_System_Int32_
+  name: Add
+  nameWithType: Accumulator.Add
+  fullName: Netick.Accumulator.Add
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Netick.Accumulator.Update*
+  commentId: Overload:Netick.Accumulator.Update
+  isExternal: true
+  href: Netick.Accumulator.html#Netick_Accumulator_Update_System_Single_
+  name: Update
+  nameWithType: Accumulator.Update
+  fullName: Netick.Accumulator.Update
+- uid: Netick.Accumulator.Stop*
+  commentId: Overload:Netick.Accumulator.Stop
+  isExternal: true
+  href: Netick.Accumulator.html#Netick_Accumulator_Stop
+  name: Stop
+  nameWithType: Accumulator.Stop
+  fullName: Netick.Accumulator.Stop
+- uid: Netick.Accumulator.Reset*
+  commentId: Overload:Netick.Accumulator.Reset
+  isExternal: true
+  href: Netick.Accumulator.html#Netick_Accumulator_Reset
+  name: Reset
+  nameWithType: Accumulator.Reset
+  fullName: Netick.Accumulator.Reset
+- uid: Netick.Accumulator.Avg*
+  commentId: Overload:Netick.Accumulator.Avg
+  isExternal: true
+  href: Netick.Accumulator.html#Netick_Accumulator_Avg
+  name: Avg
+  nameWithType: Accumulator.Avg
+  fullName: Netick.Accumulator.Avg
+- uid: Netick.Accumulator.Latest*
+  commentId: Overload:Netick.Accumulator.Latest
+  isExternal: true
+  href: Netick.Accumulator.html#Netick_Accumulator_Latest
+  name: Latest
+  nameWithType: Accumulator.Latest
+  fullName: Netick.Accumulator.Latest

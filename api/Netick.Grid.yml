@@ -1,0 +1,763 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Grid
+  commentId: T:Netick.Grid
+  id: Grid
+  parent: Netick
+  children:
+  - Netick.Grid.Add(Netick.Entity,Netick.NetickVector3)
+  - Netick.Grid.AddObj(Netick.Entity)
+  - Netick.Grid.CellSize
+  - Netick.Grid.Cells
+  - Netick.Grid.CellsCount
+  - Netick.Grid.ConvertFromWorldToCell(Netick.NetickVector3)
+  - Netick.Grid.ConvertFromWorldToCell3D(Netick.NetickVector3)
+  - Netick.Grid.GetEntitiesWithinAoI(Netick.NetickVector3)
+  - Netick.Grid.IsPosValid2(Netick.NetickVector2Int)
+  - Netick.Grid.Move(Netick.Entity,Netick.NetickVector3,Netick.NetickVector3)
+  - Netick.Grid.Remove(Netick.Entity)
+  - Netick.Grid.Sandbox
+  langs:
+  - csharp
+  - vb
+  name: Grid
+  nameWithType: Grid
+  fullName: Netick.Grid
+  type: Class
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public sealed class Grid
+    content.vb: Public NotInheritable Class Grid
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Netick.Grid.Sandbox
+  commentId: F:Netick.Grid.Sandbox
+  id: Sandbox
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: Sandbox
+  nameWithType: Grid.Sandbox
+  fullName: Netick.Grid.Sandbox
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly NetickEngine Sandbox
+    return:
+      type: Netick.NetickEngine
+    content.vb: Public ReadOnly Sandbox As NetickEngine
+- uid: Netick.Grid.CellsCount
+  commentId: F:Netick.Grid.CellsCount
+  id: CellsCount
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: CellsCount
+  nameWithType: Grid.CellsCount
+  fullName: Netick.Grid.CellsCount
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly int CellsCount
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly CellsCount As Integer
+- uid: Netick.Grid.CellSize
+  commentId: F:Netick.Grid.CellSize
+  id: CellSize
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: CellSize
+  nameWithType: Grid.CellSize
+  fullName: Netick.Grid.CellSize
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly int CellSize
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly CellSize As Integer
+- uid: Netick.Grid.Cells
+  commentId: F:Netick.Grid.Cells
+  id: Cells
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: Cells
+  nameWithType: Grid.Cells
+  fullName: Netick.Grid.Cells
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly GridCellComp[,] Cells
+    return:
+      type: Netick.GridCellComp[,]
+    content.vb: Public ReadOnly Cells As GridCellComp(,)
+- uid: Netick.Grid.Move(Netick.Entity,Netick.NetickVector3,Netick.NetickVector3)
+  commentId: M:Netick.Grid.Move(Netick.Entity,Netick.NetickVector3,Netick.NetickVector3)
+  id: Move(Netick.Entity,Netick.NetickVector3,Netick.NetickVector3)
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: Move(Entity, NetickVector3, NetickVector3)
+  nameWithType: Grid.Move(Entity, NetickVector3, NetickVector3)
+  fullName: Netick.Grid.Move(Netick.Entity, Netick.NetickVector3, Netick.NetickVector3)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Move(Entity unit, NetickVector3 oldPos, NetickVector3 newPos)
+    parameters:
+    - id: unit
+      type: Netick.Entity
+    - id: oldPos
+      type: Netick.NetickVector3
+    - id: newPos
+      type: Netick.NetickVector3
+    content.vb: Public Sub Move(unit As Entity, oldPos As NetickVector3, newPos As NetickVector3)
+  overload: Netick.Grid.Move*
+- uid: Netick.Grid.ConvertFromWorldToCell(Netick.NetickVector3)
+  commentId: M:Netick.Grid.ConvertFromWorldToCell(Netick.NetickVector3)
+  id: ConvertFromWorldToCell(Netick.NetickVector3)
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: ConvertFromWorldToCell(NetickVector3)
+  nameWithType: Grid.ConvertFromWorldToCell(NetickVector3)
+  fullName: Netick.Grid.ConvertFromWorldToCell(Netick.NetickVector3)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetickVector2Int ConvertFromWorldToCell(NetickVector3 pos)
+    parameters:
+    - id: pos
+      type: Netick.NetickVector3
+    return:
+      type: Netick.NetickVector2Int
+    content.vb: Public Function ConvertFromWorldToCell(pos As NetickVector3) As NetickVector2Int
+  overload: Netick.Grid.ConvertFromWorldToCell*
+- uid: Netick.Grid.ConvertFromWorldToCell3D(Netick.NetickVector3)
+  commentId: M:Netick.Grid.ConvertFromWorldToCell3D(Netick.NetickVector3)
+  id: ConvertFromWorldToCell3D(Netick.NetickVector3)
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: ConvertFromWorldToCell3D(NetickVector3)
+  nameWithType: Grid.ConvertFromWorldToCell3D(NetickVector3)
+  fullName: Netick.Grid.ConvertFromWorldToCell3D(Netick.NetickVector3)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetickVector3Int ConvertFromWorldToCell3D(NetickVector3 pos)
+    parameters:
+    - id: pos
+      type: Netick.NetickVector3
+    return:
+      type: Netick.NetickVector3Int
+    content.vb: Public Function ConvertFromWorldToCell3D(pos As NetickVector3) As NetickVector3Int
+  overload: Netick.Grid.ConvertFromWorldToCell3D*
+- uid: Netick.Grid.IsPosValid2(Netick.NetickVector2Int)
+  commentId: M:Netick.Grid.IsPosValid2(Netick.NetickVector2Int)
+  id: IsPosValid2(Netick.NetickVector2Int)
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: IsPosValid2(NetickVector2Int)
+  nameWithType: Grid.IsPosValid2(NetickVector2Int)
+  fullName: Netick.Grid.IsPosValid2(Netick.NetickVector2Int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsPosValid2(NetickVector2Int cellPos)
+    parameters:
+    - id: cellPos
+      type: Netick.NetickVector2Int
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsPosValid2(cellPos As NetickVector2Int) As Boolean
+  overload: Netick.Grid.IsPosValid2*
+- uid: Netick.Grid.Add(Netick.Entity,Netick.NetickVector3)
+  commentId: M:Netick.Grid.Add(Netick.Entity,Netick.NetickVector3)
+  id: Add(Netick.Entity,Netick.NetickVector3)
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: Add(Entity, NetickVector3)
+  nameWithType: Grid.Add(Entity, NetickVector3)
+  fullName: Netick.Grid.Add(Netick.Entity, Netick.NetickVector3)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Add(Entity newUnit, NetickVector3 pos)
+    parameters:
+    - id: newUnit
+      type: Netick.Entity
+    - id: pos
+      type: Netick.NetickVector3
+    content.vb: Public Sub Add(newUnit As Entity, pos As NetickVector3)
+  overload: Netick.Grid.Add*
+- uid: Netick.Grid.AddObj(Netick.Entity)
+  commentId: M:Netick.Grid.AddObj(Netick.Entity)
+  id: AddObj(Netick.Entity)
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: AddObj(Entity)
+  nameWithType: Grid.AddObj(Entity)
+  fullName: Netick.Grid.AddObj(Netick.Entity)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AddObj(Entity newUnit)
+    parameters:
+    - id: newUnit
+      type: Netick.Entity
+    content.vb: Public Sub AddObj(newUnit As Entity)
+  overload: Netick.Grid.AddObj*
+- uid: Netick.Grid.Remove(Netick.Entity)
+  commentId: M:Netick.Grid.Remove(Netick.Entity)
+  id: Remove(Netick.Entity)
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: Remove(Entity)
+  nameWithType: Grid.Remove(Entity)
+  fullName: Netick.Grid.Remove(Netick.Entity)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Remove(Entity unit)
+    parameters:
+    - id: unit
+      type: Netick.Entity
+    content.vb: Public Sub Remove(unit As Entity)
+  overload: Netick.Grid.Remove*
+- uid: Netick.Grid.GetEntitiesWithinAoI(Netick.NetickVector3)
+  commentId: M:Netick.Grid.GetEntitiesWithinAoI(Netick.NetickVector3)
+  id: GetEntitiesWithinAoI(Netick.NetickVector3)
+  parent: Netick.Grid
+  langs:
+  - csharp
+  - vb
+  name: GetEntitiesWithinAoI(NetickVector3)
+  nameWithType: Grid.GetEntitiesWithinAoI(NetickVector3)
+  fullName: Netick.Grid.GetEntitiesWithinAoI(Netick.NetickVector3)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public List<GridCellComp> GetEntitiesWithinAoI(NetickVector3 clientPos)
+    parameters:
+    - id: clientPos
+      type: Netick.NetickVector3
+    return:
+      type: System.Collections.Generic.List{Netick.GridCellComp}
+    content.vb: Public Function GetEntitiesWithinAoI(clientPos As NetickVector3) As List(Of GridCellComp)
+  overload: Netick.Grid.GetEntitiesWithinAoI*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.NetickEngine
+  commentId: T:Netick.NetickEngine
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickEngine.html
+  name: NetickEngine
+  nameWithType: NetickEngine
+  fullName: Netick.NetickEngine
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.GridCellComp[,]
+  isExternal: true
+  href: Netick.GridCellComp.html
+  name: GridCellComp[,]
+  nameWithType: GridCellComp[,]
+  fullName: Netick.GridCellComp[,]
+  nameWithType.vb: GridCellComp(,)
+  fullName.vb: Netick.GridCellComp(,)
+  name.vb: GridCellComp(,)
+  spec.csharp:
+  - uid: Netick.GridCellComp
+    name: GridCellComp
+    isExternal: true
+    href: Netick.GridCellComp.html
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - uid: Netick.GridCellComp
+    name: GridCellComp
+    isExternal: true
+    href: Netick.GridCellComp.html
+  - name: (
+  - name: ','
+  - name: )
+- uid: Netick.Grid.Move*
+  commentId: Overload:Netick.Grid.Move
+  isExternal: true
+  href: Netick.Grid.html#Netick_Grid_Move_Netick_Entity_Netick_NetickVector3_Netick_NetickVector3_
+  name: Move
+  nameWithType: Grid.Move
+  fullName: Netick.Grid.Move
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
+- uid: Netick.NetickVector3
+  commentId: T:Netick.NetickVector3
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickVector3.html
+  name: NetickVector3
+  nameWithType: NetickVector3
+  fullName: Netick.NetickVector3
+- uid: Netick.Grid.ConvertFromWorldToCell*
+  commentId: Overload:Netick.Grid.ConvertFromWorldToCell
+  isExternal: true
+  href: Netick.Grid.html#Netick_Grid_ConvertFromWorldToCell_Netick_NetickVector3_
+  name: ConvertFromWorldToCell
+  nameWithType: Grid.ConvertFromWorldToCell
+  fullName: Netick.Grid.ConvertFromWorldToCell
+- uid: Netick.NetickVector2Int
+  commentId: T:Netick.NetickVector2Int
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickVector2Int.html
+  name: NetickVector2Int
+  nameWithType: NetickVector2Int
+  fullName: Netick.NetickVector2Int
+- uid: Netick.Grid.ConvertFromWorldToCell3D*
+  commentId: Overload:Netick.Grid.ConvertFromWorldToCell3D
+  isExternal: true
+  href: Netick.Grid.html#Netick_Grid_ConvertFromWorldToCell3D_Netick_NetickVector3_
+  name: ConvertFromWorldToCell3D
+  nameWithType: Grid.ConvertFromWorldToCell3D
+  fullName: Netick.Grid.ConvertFromWorldToCell3D
+- uid: Netick.NetickVector3Int
+  commentId: T:Netick.NetickVector3Int
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickVector3Int.html
+  name: NetickVector3Int
+  nameWithType: NetickVector3Int
+  fullName: Netick.NetickVector3Int
+- uid: Netick.Grid.IsPosValid2*
+  commentId: Overload:Netick.Grid.IsPosValid2
+  isExternal: true
+  href: Netick.Grid.html#Netick_Grid_IsPosValid2_Netick_NetickVector2Int_
+  name: IsPosValid2
+  nameWithType: Grid.IsPosValid2
+  fullName: Netick.Grid.IsPosValid2
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Netick.Grid.Add*
+  commentId: Overload:Netick.Grid.Add
+  isExternal: true
+  href: Netick.Grid.html#Netick_Grid_Add_Netick_Entity_Netick_NetickVector3_
+  name: Add
+  nameWithType: Grid.Add
+  fullName: Netick.Grid.Add
+- uid: Netick.Grid.AddObj*
+  commentId: Overload:Netick.Grid.AddObj
+  isExternal: true
+  href: Netick.Grid.html#Netick_Grid_AddObj_Netick_Entity_
+  name: AddObj
+  nameWithType: Grid.AddObj
+  fullName: Netick.Grid.AddObj
+- uid: Netick.Grid.Remove*
+  commentId: Overload:Netick.Grid.Remove
+  isExternal: true
+  href: Netick.Grid.html#Netick_Grid_Remove_Netick_Entity_
+  name: Remove
+  nameWithType: Grid.Remove
+  fullName: Netick.Grid.Remove
+- uid: Netick.Grid.GetEntitiesWithinAoI*
+  commentId: Overload:Netick.Grid.GetEntitiesWithinAoI
+  isExternal: true
+  href: Netick.Grid.html#Netick_Grid_GetEntitiesWithinAoI_Netick_NetickVector3_
+  name: GetEntitiesWithinAoI
+  nameWithType: Grid.GetEntitiesWithinAoI
+  fullName: Netick.Grid.GetEntitiesWithinAoI
+- uid: System.Collections.Generic.List{Netick.GridCellComp}
+  commentId: T:System.Collections.Generic.List{Netick.GridCellComp}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<GridCellComp>
+  nameWithType: List<GridCellComp>
+  fullName: System.Collections.Generic.List<Netick.GridCellComp>
+  nameWithType.vb: List(Of GridCellComp)
+  fullName.vb: System.Collections.Generic.List(Of Netick.GridCellComp)
+  name.vb: List(Of GridCellComp)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.GridCellComp
+    name: GridCellComp
+    isExternal: true
+    href: Netick.GridCellComp.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.GridCellComp
+    name: GridCellComp
+    isExternal: true
+    href: Netick.GridCellComp.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

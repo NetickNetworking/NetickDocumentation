@@ -1,0 +1,748 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Unity.NetworkBehaviourRef`1
+  commentId: T:Netick.Unity.NetworkBehaviourRef`1
+  id: NetworkBehaviourRef`1
+  parent: Netick.Unity
+  children:
+  - Netick.Unity.NetworkBehaviourRef`1.#ctor(Netick.Unity.NetworkBehaviour)
+  - Netick.Unity.NetworkBehaviourRef`1.BehaviourId
+  - Netick.Unity.NetworkBehaviourRef`1.Equals(Netick.Unity.NetworkBehaviourRef{`0})
+  - Netick.Unity.NetworkBehaviourRef`1.Equals(System.Object)
+  - Netick.Unity.NetworkBehaviourRef`1.GetBehaviour``1(Netick.Unity.NetworkSandbox)
+  - Netick.Unity.NetworkBehaviourRef`1.GetHashCode
+  - Netick.Unity.NetworkBehaviourRef`1.ObjectId
+  - Netick.Unity.NetworkBehaviourRef`1.TryGetBehaviour(Netick.Unity.NetworkSandbox,`0@)
+  langs:
+  - csharp
+  - vb
+  name: NetworkBehaviourRef<T>
+  nameWithType: NetworkBehaviourRef<T>
+  fullName: Netick.Unity.NetworkBehaviourRef<T>
+  type: Struct
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: 'public struct NetworkBehaviourRef<T> : IEquatable<NetworkBehaviourRef<T>> where T : NetworkBehaviour'
+    typeParameters:
+    - id: T
+    content.vb: Public Structure NetworkBehaviourRef(Of T As NetworkBehaviour) Implements IEquatable(Of NetworkBehaviourRef(Of T))
+  implements:
+  - System.IEquatable{Netick.Unity.NetworkBehaviourRef`1}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  nameWithType.vb: NetworkBehaviourRef(Of T)
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T)
+  name.vb: NetworkBehaviourRef(Of T)
+- uid: Netick.Unity.NetworkBehaviourRef`1.ObjectId
+  commentId: F:Netick.Unity.NetworkBehaviourRef`1.ObjectId
+  id: ObjectId
+  parent: Netick.Unity.NetworkBehaviourRef`1
+  langs:
+  - csharp
+  - vb
+  name: ObjectId
+  nameWithType: NetworkBehaviourRef<T>.ObjectId
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.ObjectId
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public readonly int ObjectId
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly ObjectId As Integer
+  nameWithType.vb: NetworkBehaviourRef(Of T).ObjectId
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).ObjectId
+- uid: Netick.Unity.NetworkBehaviourRef`1.BehaviourId
+  commentId: F:Netick.Unity.NetworkBehaviourRef`1.BehaviourId
+  id: BehaviourId
+  parent: Netick.Unity.NetworkBehaviourRef`1
+  langs:
+  - csharp
+  - vb
+  name: BehaviourId
+  nameWithType: NetworkBehaviourRef<T>.BehaviourId
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.BehaviourId
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public readonly int BehaviourId
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly BehaviourId As Integer
+  nameWithType.vb: NetworkBehaviourRef(Of T).BehaviourId
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).BehaviourId
+- uid: Netick.Unity.NetworkBehaviourRef`1.#ctor(Netick.Unity.NetworkBehaviour)
+  commentId: M:Netick.Unity.NetworkBehaviourRef`1.#ctor(Netick.Unity.NetworkBehaviour)
+  id: '#ctor(Netick.Unity.NetworkBehaviour)'
+  parent: Netick.Unity.NetworkBehaviourRef`1
+  langs:
+  - csharp
+  - vb
+  name: NetworkBehaviourRef(NetworkBehaviour)
+  nameWithType: NetworkBehaviourRef<T>.NetworkBehaviourRef(NetworkBehaviour)
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.NetworkBehaviourRef(Netick.Unity.NetworkBehaviour)
+  type: Constructor
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public NetworkBehaviourRef(NetworkBehaviour beh)
+    parameters:
+    - id: beh
+      type: Netick.Unity.NetworkBehaviour
+    content.vb: Public Sub New(beh As NetworkBehaviour)
+  overload: Netick.Unity.NetworkBehaviourRef`1.#ctor*
+  nameWithType.vb: NetworkBehaviourRef(Of T).New(NetworkBehaviour)
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).New(Netick.Unity.NetworkBehaviour)
+  name.vb: New(NetworkBehaviour)
+- uid: Netick.Unity.NetworkBehaviourRef`1.TryGetBehaviour(Netick.Unity.NetworkSandbox,`0@)
+  commentId: M:Netick.Unity.NetworkBehaviourRef`1.TryGetBehaviour(Netick.Unity.NetworkSandbox,`0@)
+  id: TryGetBehaviour(Netick.Unity.NetworkSandbox,`0@)
+  parent: Netick.Unity.NetworkBehaviourRef`1
+  langs:
+  - csharp
+  - vb
+  name: TryGetBehaviour(NetworkSandbox, out T)
+  nameWithType: NetworkBehaviourRef<T>.TryGetBehaviour(NetworkSandbox, out T)
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.TryGetBehaviour(Netick.Unity.NetworkSandbox, out T)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool TryGetBehaviour(NetworkSandbox sandbox, out T behaviour)
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: behaviour
+      type: '{T}'
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetBehaviour(sandbox As NetworkSandbox, behaviour As T) As Boolean
+  overload: Netick.Unity.NetworkBehaviourRef`1.TryGetBehaviour*
+  nameWithType.vb: NetworkBehaviourRef(Of T).TryGetBehaviour(NetworkSandbox, T)
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).TryGetBehaviour(Netick.Unity.NetworkSandbox, T)
+  name.vb: TryGetBehaviour(NetworkSandbox, T)
+- uid: Netick.Unity.NetworkBehaviourRef`1.GetBehaviour``1(Netick.Unity.NetworkSandbox)
+  commentId: M:Netick.Unity.NetworkBehaviourRef`1.GetBehaviour``1(Netick.Unity.NetworkSandbox)
+  id: GetBehaviour``1(Netick.Unity.NetworkSandbox)
+  parent: Netick.Unity.NetworkBehaviourRef`1
+  langs:
+  - csharp
+  - vb
+  name: GetBehaviour<T>(NetworkSandbox)
+  nameWithType: NetworkBehaviourRef<T>.GetBehaviour<T>(NetworkSandbox)
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.GetBehaviour<T>(Netick.Unity.NetworkSandbox)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: 'public T GetBehaviour<T>(NetworkSandbox sandbox) where T : NetworkBehaviour'
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function GetBehaviour(Of T As NetworkBehaviour)(sandbox As NetworkSandbox) As T
+  overload: Netick.Unity.NetworkBehaviourRef`1.GetBehaviour*
+  nameWithType.vb: NetworkBehaviourRef(Of T).GetBehaviour(Of T)(NetworkSandbox)
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).GetBehaviour(Of T)(Netick.Unity.NetworkSandbox)
+  name.vb: GetBehaviour(Of T)(NetworkSandbox)
+- uid: Netick.Unity.NetworkBehaviourRef`1.GetHashCode
+  commentId: M:Netick.Unity.NetworkBehaviourRef`1.GetHashCode
+  id: GetHashCode
+  parent: Netick.Unity.NetworkBehaviourRef`1
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: NetworkBehaviourRef<T>.GetHashCode()
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.GetHashCode()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Netick.Unity.NetworkBehaviourRef`1.GetHashCode*
+  nameWithType.vb: NetworkBehaviourRef(Of T).GetHashCode()
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).GetHashCode()
+- uid: Netick.Unity.NetworkBehaviourRef`1.Equals(System.Object)
+  commentId: M:Netick.Unity.NetworkBehaviourRef`1.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Netick.Unity.NetworkBehaviourRef`1
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: NetworkBehaviourRef<T>.Equals(object)
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.Equals(object)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override bool Equals(object other)
+    parameters:
+    - id: other
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(other As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Netick.Unity.NetworkBehaviourRef`1.Equals*
+  nameWithType.vb: NetworkBehaviourRef(Of T).Equals(Object)
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).Equals(Object)
+  name.vb: Equals(Object)
+- uid: Netick.Unity.NetworkBehaviourRef`1.Equals(Netick.Unity.NetworkBehaviourRef{`0})
+  commentId: M:Netick.Unity.NetworkBehaviourRef`1.Equals(Netick.Unity.NetworkBehaviourRef{`0})
+  id: Equals(Netick.Unity.NetworkBehaviourRef{`0})
+  parent: Netick.Unity.NetworkBehaviourRef`1
+  langs:
+  - csharp
+  - vb
+  name: Equals(NetworkBehaviourRef<T>)
+  nameWithType: NetworkBehaviourRef<T>.Equals(NetworkBehaviourRef<T>)
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.Equals(Netick.Unity.NetworkBehaviourRef<T>)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public bool Equals(NetworkBehaviourRef<T> other)
+    parameters:
+    - id: other
+      type: Netick.Unity.NetworkBehaviourRef`1
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As NetworkBehaviourRef(Of T)) As Boolean
+  overload: Netick.Unity.NetworkBehaviourRef`1.Equals*
+  implements:
+  - System.IEquatable{Netick.Unity.NetworkBehaviourRef`1}.Equals(Netick.Unity.NetworkBehaviourRef{{T}})
+  nameWithType.vb: NetworkBehaviourRef(Of T).Equals(NetworkBehaviourRef(Of T))
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).Equals(Netick.Unity.NetworkBehaviourRef(Of T))
+  name.vb: Equals(NetworkBehaviourRef(Of T))
+references:
+- uid: Netick.Unity
+  commentId: N:Netick.Unity
+  isExternal: true
+  href: Netick.html
+  name: Netick.Unity
+  nameWithType: Netick.Unity
+  fullName: Netick.Unity
+  spec.csharp:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+  spec.vb:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+- uid: System.IEquatable{Netick.Unity.NetworkBehaviourRef`1}
+  commentId: T:System.IEquatable{Netick.Unity.NetworkBehaviourRef`1}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<NetworkBehaviourRef<T>>
+  nameWithType: IEquatable<NetworkBehaviourRef<T>>
+  fullName: System.IEquatable<Netick.Unity.NetworkBehaviourRef<T>>
+  nameWithType.vb: IEquatable(Of NetworkBehaviourRef(Of T))
+  fullName.vb: System.IEquatable(Of Netick.Unity.NetworkBehaviourRef(Of T))
+  name.vb: IEquatable(Of NetworkBehaviourRef(Of T))
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Netick.Unity.NetworkBehaviourRef`1
+    name: NetworkBehaviourRef
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviourRef-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Unity.NetworkBehaviourRef`1
+    name: NetworkBehaviourRef
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviourRef-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.Unity.NetworkBehaviourRef`1.#ctor*
+  commentId: Overload:Netick.Unity.NetworkBehaviourRef`1.#ctor
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviourRef-1.html#Netick_Unity_NetworkBehaviourRef_1__ctor_Netick_Unity_NetworkBehaviour_
+  name: NetworkBehaviourRef
+  nameWithType: NetworkBehaviourRef<T>.NetworkBehaviourRef
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.NetworkBehaviourRef
+  nameWithType.vb: NetworkBehaviourRef(Of T).New
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).New
+  name.vb: New
+- uid: Netick.Unity.NetworkBehaviour
+  commentId: T:Netick.Unity.NetworkBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html
+  name: NetworkBehaviour
+  nameWithType: NetworkBehaviour
+  fullName: Netick.Unity.NetworkBehaviour
+- uid: Netick.Unity.NetworkBehaviourRef`1.TryGetBehaviour*
+  commentId: Overload:Netick.Unity.NetworkBehaviourRef`1.TryGetBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviourRef-1.html#Netick_Unity_NetworkBehaviourRef_1_TryGetBehaviour_Netick_Unity_NetworkSandbox__0__
+  name: TryGetBehaviour
+  nameWithType: NetworkBehaviourRef<T>.TryGetBehaviour
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.TryGetBehaviour
+  nameWithType.vb: NetworkBehaviourRef(Of T).TryGetBehaviour
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).TryGetBehaviour
+- uid: Netick.Unity.NetworkSandbox
+  commentId: T:Netick.Unity.NetworkSandbox
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html
+  name: NetworkSandbox
+  nameWithType: NetworkSandbox
+  fullName: Netick.Unity.NetworkSandbox
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Netick.Unity.NetworkBehaviourRef`1.GetBehaviour*
+  commentId: Overload:Netick.Unity.NetworkBehaviourRef`1.GetBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviourRef-1.html#Netick_Unity_NetworkBehaviourRef_1_GetBehaviour__1_Netick_Unity_NetworkSandbox_
+  name: GetBehaviour
+  nameWithType: NetworkBehaviourRef<T>.GetBehaviour
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.GetBehaviour
+  nameWithType.vb: NetworkBehaviourRef(Of T).GetBehaviour
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).GetBehaviour
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviourRef`1.GetHashCode*
+  commentId: Overload:Netick.Unity.NetworkBehaviourRef`1.GetHashCode
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviourRef-1.html#Netick_Unity_NetworkBehaviourRef_1_GetHashCode
+  name: GetHashCode
+  nameWithType: NetworkBehaviourRef<T>.GetHashCode
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.GetHashCode
+  nameWithType.vb: NetworkBehaviourRef(Of T).GetHashCode
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).GetHashCode
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Netick.Unity.NetworkBehaviourRef`1.Equals*
+  commentId: Overload:Netick.Unity.NetworkBehaviourRef`1.Equals
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviourRef-1.html#Netick_Unity_NetworkBehaviourRef_1_Equals_System_Object_
+  name: Equals
+  nameWithType: NetworkBehaviourRef<T>.Equals
+  fullName: Netick.Unity.NetworkBehaviourRef<T>.Equals
+  nameWithType.vb: NetworkBehaviourRef(Of T).Equals
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).Equals
+- uid: System.IEquatable{Netick.Unity.NetworkBehaviourRef`1}.Equals(Netick.Unity.NetworkBehaviourRef{{T}})
+  commentId: M:System.IEquatable{Netick.Unity.NetworkBehaviourRef`1}.Equals(Netick.Unity.NetworkBehaviourRef{`0})
+  parent: System.IEquatable{Netick.Unity.NetworkBehaviourRef`1}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(NetworkBehaviourRef<T>)
+  nameWithType: IEquatable<NetworkBehaviourRef<T>>.Equals(NetworkBehaviourRef<T>)
+  fullName: System.IEquatable<Netick.Unity.NetworkBehaviourRef<T>>.Equals(Netick.Unity.NetworkBehaviourRef<T>)
+  nameWithType.vb: IEquatable(Of NetworkBehaviourRef(Of T)).Equals(NetworkBehaviourRef(Of T))
+  fullName.vb: System.IEquatable(Of Netick.Unity.NetworkBehaviourRef(Of T)).Equals(Netick.Unity.NetworkBehaviourRef(Of T))
+  name.vb: Equals(NetworkBehaviourRef(Of T))
+  spec.csharp:
+  - uid: System.IEquatable{Netick.Unity.NetworkBehaviourRef`1}.Equals(Netick.Unity.NetworkBehaviourRef{`0})
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Netick.Unity.NetworkBehaviourRef`1
+    name: NetworkBehaviourRef
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviourRef-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Netick.Unity.NetworkBehaviourRef`1}.Equals(Netick.Unity.NetworkBehaviourRef{`0})
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Netick.Unity.NetworkBehaviourRef`1
+    name: NetworkBehaviourRef
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviourRef-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: Netick.Unity.NetworkBehaviourRef`1
+  commentId: T:Netick.Unity.NetworkBehaviourRef`1
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviourRef-1.html
+  name: NetworkBehaviourRef<T>
+  nameWithType: NetworkBehaviourRef<T>
+  fullName: Netick.Unity.NetworkBehaviourRef<T>
+  nameWithType.vb: NetworkBehaviourRef(Of T)
+  fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T)
+  name.vb: NetworkBehaviourRef(Of T)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviourRef`1
+    name: NetworkBehaviourRef
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviourRef-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviourRef`1
+    name: NetworkBehaviourRef
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviourRef-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )

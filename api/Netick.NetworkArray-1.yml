@@ -1,0 +1,972 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.NetworkArray`1
+  commentId: T:Netick.NetworkArray`1
+  id: NetworkArray`1
+  parent: Netick
+  children:
+  - Netick.NetworkArray`1.#ctor(System.Int32)
+  - Netick.NetworkArray`1.Add(`0)
+  - Netick.NetworkArray`1.GetEnumerator
+  - Netick.NetworkArray`1.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+  - Netick.NetworkArray`1.InternalReset
+  - Netick.NetworkArray`1.Item(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: NetworkArray<T>
+  nameWithType: NetworkArray<T>
+  fullName: Netick.NetworkArray<T>
+  type: Class
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  syntax:
+    content: >-
+      [HideInInspector]
+
+      public class NetworkArray<T> : NetworkArray, INetworkArray, IEnumerable<T>, IEnumerable where T : unmanaged
+    typeParameters:
+    - id: T
+    content.vb: >-
+      <HideInInspector>
+
+      Public Class NetworkArray(Of T As Structure) Inherits NetworkArray Implements INetworkArray, IEnumerable(Of T), IEnumerable
+  inheritance:
+  - System.Object
+  - Netick.NetworkArray
+  implements:
+  - Netick.INetworkArray
+  - System.Collections.Generic.IEnumerable{{T}}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - Netick.NetworkArray.Length
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: UnityEngine.HideInInspector
+    ctor: UnityEngine.HideInInspector.#ctor
+    arguments: []
+  nameWithType.vb: NetworkArray(Of T)
+  fullName.vb: Netick.NetworkArray(Of T)
+  name.vb: NetworkArray(Of T)
+- uid: Netick.NetworkArray`1.#ctor(System.Int32)
+  commentId: M:Netick.NetworkArray`1.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Netick.NetworkArray`1
+  langs:
+  - csharp
+  - vb
+  name: NetworkArray(int)
+  nameWithType: NetworkArray<T>.NetworkArray(int)
+  fullName: Netick.NetworkArray<T>.NetworkArray(int)
+  type: Constructor
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  syntax:
+    content: public NetworkArray(int capacity)
+    parameters:
+    - id: capacity
+      type: System.Int32
+    content.vb: Public Sub New(capacity As Integer)
+  overload: Netick.NetworkArray`1.#ctor*
+  nameWithType.vb: NetworkArray(Of T).New(Integer)
+  fullName.vb: Netick.NetworkArray(Of T).New(Integer)
+  name.vb: New(Integer)
+- uid: Netick.NetworkArray`1.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+  commentId: M:Netick.NetworkArray`1.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+  id: InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+  parent: Netick.NetworkArray`1
+  langs:
+  - csharp
+  - vb
+  name: InternalInit(INetickNetworkScript, int*, int)
+  nameWithType: NetworkArray<T>.InternalInit(INetickNetworkScript, int*, int)
+  fullName: Netick.NetworkArray<T>.InternalInit(Netick.INetickNetworkScript, int*, int)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override void InternalInit(INetickNetworkScript beh, int* state, int elementSizeWords)
+    parameters:
+    - id: beh
+      type: Netick.INetickNetworkScript
+    - id: state
+      type: System.Int32*
+    - id: elementSizeWords
+      type: System.Int32
+    content.vb: Public Overrides Sub InternalInit(beh As INetickNetworkScript, state As Integer*, elementSizeWords As Integer)
+  overridden: Netick.NetworkArray.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+  overload: Netick.NetworkArray`1.InternalInit*
+  implements:
+  - Netick.INetworkArray.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+  nameWithType.vb: NetworkArray(Of T).InternalInit(INetickNetworkScript, Integer*, Integer)
+  fullName.vb: Netick.NetworkArray(Of T).InternalInit(Netick.INetickNetworkScript, Integer*, Integer)
+  name.vb: InternalInit(INetickNetworkScript, Integer*, Integer)
+- uid: Netick.NetworkArray`1.GetEnumerator
+  commentId: M:Netick.NetworkArray`1.GetEnumerator
+  id: GetEnumerator
+  parent: Netick.NetworkArray`1
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: NetworkArray<T>.GetEnumerator()
+  fullName: Netick.NetworkArray<T>.GetEnumerator()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  example: []
+  syntax:
+    content: public IEnumerator<T> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{{T}}
+    content.vb: Public Function GetEnumerator() As IEnumerator(Of T)
+  overload: Netick.NetworkArray`1.GetEnumerator*
+  implements:
+  - System.Collections.Generic.IEnumerable{{T}}.GetEnumerator
+  nameWithType.vb: NetworkArray(Of T).GetEnumerator()
+  fullName.vb: Netick.NetworkArray(Of T).GetEnumerator()
+- uid: Netick.NetworkArray`1.Add(`0)
+  commentId: M:Netick.NetworkArray`1.Add(`0)
+  id: Add(`0)
+  parent: Netick.NetworkArray`1
+  langs:
+  - csharp
+  - vb
+  name: Add(T)
+  nameWithType: NetworkArray<T>.Add(T)
+  fullName: Netick.NetworkArray<T>.Add(T)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  syntax:
+    content: public void Add(T element)
+    parameters:
+    - id: element
+      type: '{T}'
+    content.vb: Public Sub Add(element As T)
+  overload: Netick.NetworkArray`1.Add*
+  nameWithType.vb: NetworkArray(Of T).Add(T)
+  fullName.vb: Netick.NetworkArray(Of T).Add(T)
+- uid: Netick.NetworkArray`1.InternalReset
+  commentId: M:Netick.NetworkArray`1.InternalReset
+  id: InternalReset
+  parent: Netick.NetworkArray`1
+  langs:
+  - csharp
+  - vb
+  name: InternalReset()
+  nameWithType: NetworkArray<T>.InternalReset()
+  fullName: Netick.NetworkArray<T>.InternalReset()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override void InternalReset()
+    content.vb: Public Overrides Sub InternalReset()
+  overridden: Netick.NetworkArray.InternalReset
+  overload: Netick.NetworkArray`1.InternalReset*
+  implements:
+  - Netick.INetworkArray.InternalReset
+  nameWithType.vb: NetworkArray(Of T).InternalReset()
+  fullName.vb: Netick.NetworkArray(Of T).InternalReset()
+- uid: Netick.NetworkArray`1.Item(System.Int32)
+  commentId: P:Netick.NetworkArray`1.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: Netick.NetworkArray`1
+  langs:
+  - csharp
+  - vb
+  name: this[int]
+  nameWithType: NetworkArray<T>.this[int]
+  fullName: Netick.NetworkArray<T>.this[int]
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  syntax:
+    content: public T this[int i] { get; set; }
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: '{T}'
+    content.vb: Public Default Property this[](i As Integer) As T
+  overload: Netick.NetworkArray`1.Item*
+  nameWithType.vb: NetworkArray(Of T).this[](Integer)
+  fullName.vb: Netick.NetworkArray(Of T).this[](Integer)
+  name.vb: this[](Integer)
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Netick.NetworkArray
+  commentId: T:Netick.NetworkArray
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkArray.html
+  name: NetworkArray
+  nameWithType: NetworkArray
+  fullName: Netick.NetworkArray
+- uid: Netick.INetworkArray
+  commentId: T:Netick.INetworkArray
+  parent: Netick
+  isExternal: true
+  href: Netick.INetworkArray.html
+  name: INetworkArray
+  nameWithType: INetworkArray
+  fullName: Netick.INetworkArray
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: Netick.NetworkArray.Length
+  commentId: P:Netick.NetworkArray.Length
+  parent: Netick.NetworkArray
+  isExternal: true
+  href: Netick.NetworkArray.html#Netick_NetworkArray_Length
+  name: Length
+  nameWithType: NetworkArray.Length
+  fullName: Netick.NetworkArray.Length
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: Netick.NetworkArray`1.#ctor*
+  commentId: Overload:Netick.NetworkArray`1.#ctor
+  isExternal: true
+  href: Netick.NetworkArray-1.html#Netick_NetworkArray_1__ctor_System_Int32_
+  name: NetworkArray
+  nameWithType: NetworkArray<T>.NetworkArray
+  fullName: Netick.NetworkArray<T>.NetworkArray
+  nameWithType.vb: NetworkArray(Of T).New
+  fullName.vb: Netick.NetworkArray(Of T).New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.NetworkArray.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+  commentId: M:Netick.NetworkArray.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+  parent: Netick.NetworkArray
+  isExternal: true
+  href: Netick.NetworkArray.html#Netick_NetworkArray_InternalInit_Netick_INetickNetworkScript_System_Int32__System_Int32_
+  name: InternalInit(INetickNetworkScript, int*, int)
+  nameWithType: NetworkArray.InternalInit(INetickNetworkScript, int*, int)
+  fullName: Netick.NetworkArray.InternalInit(Netick.INetickNetworkScript, int*, int)
+  nameWithType.vb: NetworkArray.InternalInit(INetickNetworkScript, Integer*, Integer)
+  fullName.vb: Netick.NetworkArray.InternalInit(Netick.INetickNetworkScript, Integer*, Integer)
+  name.vb: InternalInit(INetickNetworkScript, Integer*, Integer)
+  spec.csharp:
+  - uid: Netick.NetworkArray.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+    name: InternalInit
+    isExternal: true
+    href: Netick.NetworkArray.html#Netick_NetworkArray_InternalInit_Netick_INetickNetworkScript_System_Int32__System_Int32_
+  - name: (
+  - uid: Netick.INetickNetworkScript
+    name: INetickNetworkScript
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkArray.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+    name: InternalInit
+    isExternal: true
+    href: Netick.NetworkArray.html#Netick_NetworkArray_InternalInit_Netick_INetickNetworkScript_System_Int32__System_Int32_
+  - name: (
+  - uid: Netick.INetickNetworkScript
+    name: INetickNetworkScript
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Netick.NetworkArray`1.InternalInit*
+  commentId: Overload:Netick.NetworkArray`1.InternalInit
+  isExternal: true
+  href: Netick.NetworkArray-1.html#Netick_NetworkArray_1_InternalInit_Netick_INetickNetworkScript_System_Int32__System_Int32_
+  name: InternalInit
+  nameWithType: NetworkArray<T>.InternalInit
+  fullName: Netick.NetworkArray<T>.InternalInit
+  nameWithType.vb: NetworkArray(Of T).InternalInit
+  fullName.vb: Netick.NetworkArray(Of T).InternalInit
+- uid: Netick.INetworkArray.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+  commentId: M:Netick.INetworkArray.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+  parent: Netick.INetworkArray
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: InternalInit(INetickNetworkScript, int*, int)
+  nameWithType: INetworkArray.InternalInit(INetickNetworkScript, int*, int)
+  fullName: Netick.INetworkArray.InternalInit(Netick.INetickNetworkScript, int*, int)
+  nameWithType.vb: INetworkArray.InternalInit(INetickNetworkScript, Integer*, Integer)
+  fullName.vb: Netick.INetworkArray.InternalInit(Netick.INetickNetworkScript, Integer*, Integer)
+  name.vb: InternalInit(INetickNetworkScript, Integer*, Integer)
+  spec.csharp:
+  - uid: Netick.INetworkArray.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+    name: InternalInit
+    isExternal: true
+  - name: (
+  - uid: Netick.INetickNetworkScript
+    name: INetickNetworkScript
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Netick.INetworkArray.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32)
+    name: InternalInit
+    isExternal: true
+  - name: (
+  - uid: Netick.INetickNetworkScript
+    name: INetickNetworkScript
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Netick.INetickNetworkScript
+  commentId: T:Netick.INetickNetworkScript
+  parent: Netick
+  isExternal: true
+  href: Netick.INetickNetworkScript.html
+  name: INetickNetworkScript
+  nameWithType: INetickNetworkScript
+  fullName: Netick.INetickNetworkScript
+- uid: System.Int32*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int*
+  nameWithType: int*
+  fullName: int*
+  nameWithType.vb: Integer*
+  fullName.vb: Integer*
+  name.vb: Integer*
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+- uid: Netick.NetworkArray`1.GetEnumerator*
+  commentId: Overload:Netick.NetworkArray`1.GetEnumerator
+  isExternal: true
+  href: Netick.NetworkArray-1.html#Netick_NetworkArray_1_GetEnumerator
+  name: GetEnumerator
+  nameWithType: NetworkArray<T>.GetEnumerator
+  fullName: Netick.NetworkArray<T>.GetEnumerator
+  nameWithType.vb: NetworkArray(Of T).GetEnumerator
+  fullName.vb: Netick.NetworkArray(Of T).GetEnumerator
+- uid: System.Collections.Generic.IEnumerable{{T}}.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable{`0}.GetEnumerator
+  parent: System.Collections.Generic.IEnumerable{{T}}
+  definition: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<T>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable{`0}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable{`0}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator{{T}}
+  commentId: T:System.Collections.Generic.IEnumerator{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable`1.GetEnumerator
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<T>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetworkArray`1.Add*
+  commentId: Overload:Netick.NetworkArray`1.Add
+  isExternal: true
+  href: Netick.NetworkArray-1.html#Netick_NetworkArray_1_Add__0_
+  name: Add
+  nameWithType: NetworkArray<T>.Add
+  fullName: Netick.NetworkArray<T>.Add
+  nameWithType.vb: NetworkArray(Of T).Add
+  fullName.vb: Netick.NetworkArray(Of T).Add
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Netick.NetworkArray.InternalReset
+  commentId: M:Netick.NetworkArray.InternalReset
+  parent: Netick.NetworkArray
+  isExternal: true
+  href: Netick.NetworkArray.html#Netick_NetworkArray_InternalReset
+  name: InternalReset()
+  nameWithType: NetworkArray.InternalReset()
+  fullName: Netick.NetworkArray.InternalReset()
+  spec.csharp:
+  - uid: Netick.NetworkArray.InternalReset
+    name: InternalReset
+    isExternal: true
+    href: Netick.NetworkArray.html#Netick_NetworkArray_InternalReset
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkArray.InternalReset
+    name: InternalReset
+    isExternal: true
+    href: Netick.NetworkArray.html#Netick_NetworkArray_InternalReset
+  - name: (
+  - name: )
+- uid: Netick.NetworkArray`1.InternalReset*
+  commentId: Overload:Netick.NetworkArray`1.InternalReset
+  isExternal: true
+  href: Netick.NetworkArray-1.html#Netick_NetworkArray_1_InternalReset
+  name: InternalReset
+  nameWithType: NetworkArray<T>.InternalReset
+  fullName: Netick.NetworkArray<T>.InternalReset
+  nameWithType.vb: NetworkArray(Of T).InternalReset
+  fullName.vb: Netick.NetworkArray(Of T).InternalReset
+- uid: Netick.INetworkArray.InternalReset
+  commentId: M:Netick.INetworkArray.InternalReset
+  parent: Netick.INetworkArray
+  isExternal: true
+  name: InternalReset()
+  nameWithType: INetworkArray.InternalReset()
+  fullName: Netick.INetworkArray.InternalReset()
+  spec.csharp:
+  - uid: Netick.INetworkArray.InternalReset
+    name: InternalReset
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.INetworkArray.InternalReset
+    name: InternalReset
+    isExternal: true
+  - name: (
+  - name: )
+- uid: Netick.NetworkArray`1.Item*
+  commentId: Overload:Netick.NetworkArray`1.Item
+  isExternal: true
+  href: Netick.NetworkArray-1.html#Netick_NetworkArray_1_Item_System_Int32_
+  name: this
+  nameWithType: NetworkArray<T>.this
+  fullName: Netick.NetworkArray<T>.this
+  nameWithType.vb: NetworkArray(Of T).this[]
+  fullName.vb: Netick.NetworkArray(Of T).this[]
+  name.vb: this[]

@@ -1,0 +1,242 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.OnClientDisconnectedDelegate
+  commentId: T:Netick.OnClientDisconnectedDelegate
+  id: OnClientDisconnectedDelegate
+  parent: Netick
+  children:
+  - Netick.OnClientDisconnectedDelegate.#ctor(System.Object,System.IntPtr)
+  - Netick.OnClientDisconnectedDelegate.BeginInvoke(Netick.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason,System.AsyncCallback,System.Object)
+  - Netick.OnClientDisconnectedDelegate.EndInvoke(System.IAsyncResult)
+  - Netick.OnClientDisconnectedDelegate.Invoke(Netick.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  langs:
+  - csharp
+  - vb
+  name: OnClientDisconnectedDelegate
+  nameWithType: OnClientDisconnectedDelegate
+  fullName: Netick.OnClientDisconnectedDelegate
+  type: Delegate
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  syntax:
+    content: public delegate void OnClientDisconnectedDelegate(NetworkSandbox sandbox, NetworkConnection server, TransportDisconnectReason transportDisconnectReason)
+    parameters:
+    - id: sandbox
+      type: Netick.NetworkSandbox
+    - id: server
+      type: Netick.NetworkConnection
+    - id: transportDisconnectReason
+      type: Netick.TransportDisconnectReason
+    content.vb: Public Delegate Sub OnClientDisconnectedDelegate(sandbox As NetworkSandbox, server As NetworkConnection, transportDisconnectReason As TransportDisconnectReason)
+- uid: Netick.OnClientDisconnectedDelegate.#ctor(System.Object,System.IntPtr)
+  commentId: M:Netick.OnClientDisconnectedDelegate.#ctor(System.Object,System.IntPtr)
+  id: '#ctor(System.Object,System.IntPtr)'
+  parent: Netick.OnClientDisconnectedDelegate
+  langs:
+  - csharp
+  - vb
+  name: OnClientDisconnectedDelegate(object, IntPtr)
+  nameWithType: OnClientDisconnectedDelegate.OnClientDisconnectedDelegate(object, IntPtr)
+  fullName: Netick.OnClientDisconnectedDelegate.OnClientDisconnectedDelegate(object, System.IntPtr)
+  type: Constructor
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  syntax:
+    content: public OnClientDisconnectedDelegate(object @object, IntPtr method)
+    parameters:
+    - id: object
+      type: System.Object
+    - id: method
+      type: System.IntPtr
+    content.vb: Public Sub New([object] As Object, method As IntPtr)
+  overload: Netick.OnClientDisconnectedDelegate.#ctor*
+  nameWithType.vb: OnClientDisconnectedDelegate.New(Object, IntPtr)
+  fullName.vb: Netick.OnClientDisconnectedDelegate.New(Object, System.IntPtr)
+  name.vb: New(Object, IntPtr)
+- uid: Netick.OnClientDisconnectedDelegate.Invoke(Netick.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  commentId: M:Netick.OnClientDisconnectedDelegate.Invoke(Netick.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  id: Invoke(Netick.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  parent: Netick.OnClientDisconnectedDelegate
+  langs:
+  - csharp
+  - vb
+  name: Invoke(NetworkSandbox, NetworkConnection, TransportDisconnectReason)
+  nameWithType: OnClientDisconnectedDelegate.Invoke(NetworkSandbox, NetworkConnection, TransportDisconnectReason)
+  fullName: Netick.OnClientDisconnectedDelegate.Invoke(Netick.NetworkSandbox, Netick.NetworkConnection, Netick.TransportDisconnectReason)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  syntax:
+    content: public virtual void Invoke(NetworkSandbox sandbox, NetworkConnection server, TransportDisconnectReason transportDisconnectReason)
+    parameters:
+    - id: sandbox
+      type: Netick.NetworkSandbox
+    - id: server
+      type: Netick.NetworkConnection
+    - id: transportDisconnectReason
+      type: Netick.TransportDisconnectReason
+    content.vb: Public Overridable Sub Invoke(sandbox As NetworkSandbox, server As NetworkConnection, transportDisconnectReason As TransportDisconnectReason)
+  overload: Netick.OnClientDisconnectedDelegate.Invoke*
+- uid: Netick.OnClientDisconnectedDelegate.BeginInvoke(Netick.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason,System.AsyncCallback,System.Object)
+  commentId: M:Netick.OnClientDisconnectedDelegate.BeginInvoke(Netick.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason,System.AsyncCallback,System.Object)
+  id: BeginInvoke(Netick.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason,System.AsyncCallback,System.Object)
+  parent: Netick.OnClientDisconnectedDelegate
+  langs:
+  - csharp
+  - vb
+  name: BeginInvoke(NetworkSandbox, NetworkConnection, TransportDisconnectReason, AsyncCallback, object)
+  nameWithType: OnClientDisconnectedDelegate.BeginInvoke(NetworkSandbox, NetworkConnection, TransportDisconnectReason, AsyncCallback, object)
+  fullName: Netick.OnClientDisconnectedDelegate.BeginInvoke(Netick.NetworkSandbox, Netick.NetworkConnection, Netick.TransportDisconnectReason, System.AsyncCallback, object)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  syntax:
+    content: public virtual IAsyncResult BeginInvoke(NetworkSandbox sandbox, NetworkConnection server, TransportDisconnectReason transportDisconnectReason, AsyncCallback callback, object @object)
+    parameters:
+    - id: sandbox
+      type: Netick.NetworkSandbox
+    - id: server
+      type: Netick.NetworkConnection
+    - id: transportDisconnectReason
+      type: Netick.TransportDisconnectReason
+    - id: callback
+      type: System.AsyncCallback
+    - id: object
+      type: System.Object
+    return:
+      type: System.IAsyncResult
+    content.vb: Public Overridable Function BeginInvoke(sandbox As NetworkSandbox, server As NetworkConnection, transportDisconnectReason As TransportDisconnectReason, callback As AsyncCallback, [object] As Object) As IAsyncResult
+  overload: Netick.OnClientDisconnectedDelegate.BeginInvoke*
+  nameWithType.vb: OnClientDisconnectedDelegate.BeginInvoke(NetworkSandbox, NetworkConnection, TransportDisconnectReason, AsyncCallback, Object)
+  fullName.vb: Netick.OnClientDisconnectedDelegate.BeginInvoke(Netick.NetworkSandbox, Netick.NetworkConnection, Netick.TransportDisconnectReason, System.AsyncCallback, Object)
+  name.vb: BeginInvoke(NetworkSandbox, NetworkConnection, TransportDisconnectReason, AsyncCallback, Object)
+- uid: Netick.OnClientDisconnectedDelegate.EndInvoke(System.IAsyncResult)
+  commentId: M:Netick.OnClientDisconnectedDelegate.EndInvoke(System.IAsyncResult)
+  id: EndInvoke(System.IAsyncResult)
+  parent: Netick.OnClientDisconnectedDelegate
+  langs:
+  - csharp
+  - vb
+  name: EndInvoke(IAsyncResult)
+  nameWithType: OnClientDisconnectedDelegate.EndInvoke(IAsyncResult)
+  fullName: Netick.OnClientDisconnectedDelegate.EndInvoke(System.IAsyncResult)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick
+  syntax:
+    content: public virtual void EndInvoke(IAsyncResult result)
+    parameters:
+    - id: result
+      type: System.IAsyncResult
+    content.vb: Public Overridable Sub EndInvoke(result As IAsyncResult)
+  overload: Netick.OnClientDisconnectedDelegate.EndInvoke*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: Netick.NetworkSandbox
+  commentId: T:Netick.NetworkSandbox
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkSandbox.html
+  name: NetworkSandbox
+  nameWithType: NetworkSandbox
+  fullName: Netick.NetworkSandbox
+- uid: Netick.NetworkConnection
+  commentId: T:Netick.NetworkConnection
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkConnection.html
+  name: NetworkConnection
+  nameWithType: NetworkConnection
+  fullName: Netick.NetworkConnection
+- uid: Netick.TransportDisconnectReason
+  commentId: T:Netick.TransportDisconnectReason
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportDisconnectReason.html
+  name: TransportDisconnectReason
+  nameWithType: TransportDisconnectReason
+  fullName: Netick.TransportDisconnectReason
+- uid: Netick.OnClientDisconnectedDelegate.#ctor*
+  commentId: Overload:Netick.OnClientDisconnectedDelegate.#ctor
+  isExternal: true
+  href: Netick.OnClientDisconnectedDelegate.html#Netick_OnClientDisconnectedDelegate__ctor_System_Object_System_IntPtr_
+  name: OnClientDisconnectedDelegate
+  nameWithType: OnClientDisconnectedDelegate.OnClientDisconnectedDelegate
+  fullName: Netick.OnClientDisconnectedDelegate.OnClientDisconnectedDelegate
+  nameWithType.vb: OnClientDisconnectedDelegate.New
+  fullName.vb: Netick.OnClientDisconnectedDelegate.New
+  name.vb: New
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: IntPtr
+  nameWithType: IntPtr
+  fullName: System.IntPtr
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.OnClientDisconnectedDelegate.Invoke*
+  commentId: Overload:Netick.OnClientDisconnectedDelegate.Invoke
+  isExternal: true
+  href: Netick.OnClientDisconnectedDelegate.html#Netick_OnClientDisconnectedDelegate_Invoke_Netick_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_
+  name: Invoke
+  nameWithType: OnClientDisconnectedDelegate.Invoke
+  fullName: Netick.OnClientDisconnectedDelegate.Invoke
+- uid: Netick.OnClientDisconnectedDelegate.BeginInvoke*
+  commentId: Overload:Netick.OnClientDisconnectedDelegate.BeginInvoke
+  isExternal: true
+  href: Netick.OnClientDisconnectedDelegate.html#Netick_OnClientDisconnectedDelegate_BeginInvoke_Netick_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_System_AsyncCallback_System_Object_
+  name: BeginInvoke
+  nameWithType: OnClientDisconnectedDelegate.BeginInvoke
+  fullName: Netick.OnClientDisconnectedDelegate.BeginInvoke
+- uid: System.AsyncCallback
+  commentId: T:System.AsyncCallback
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.asynccallback
+  name: AsyncCallback
+  nameWithType: AsyncCallback
+  fullName: System.AsyncCallback
+- uid: System.IAsyncResult
+  commentId: T:System.IAsyncResult
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncresult
+  name: IAsyncResult
+  nameWithType: IAsyncResult
+  fullName: System.IAsyncResult
+- uid: Netick.OnClientDisconnectedDelegate.EndInvoke*
+  commentId: Overload:Netick.OnClientDisconnectedDelegate.EndInvoke
+  isExternal: true
+  href: Netick.OnClientDisconnectedDelegate.html#Netick_OnClientDisconnectedDelegate_EndInvoke_System_IAsyncResult_
+  name: EndInvoke
+  nameWithType: OnClientDisconnectedDelegate.EndInvoke
+  fullName: Netick.OnClientDisconnectedDelegate.EndInvoke

@@ -1,0 +1,85 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+            "files":
+             [ 
+             
+              "**/Temp/bin/Debug/Netick.dll",
+              "**/Temp/bin/Debug/Netick.Pro.dll",
+              "**/Temp/bin/Debug/Netick.Unity.dll",
+              "**/Temp/bin/Debug/Netick.Unity.Pro.dll"
+
+             ],
+            "src": ".."
+        }
+    ],
+      "dest": "API",
+      "outputFormat": "mref",
+      "includePrivateMembers": false,
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false,
+      "noRestore": false,
+      "namespaceLayout": "flattened",
+      "memberLayout": "samePage",
+      "enumSortOrder": "alphabetic",
+      "allowCompilationErrors": false,
+
+      "filter": "filterConfig.yml"
+
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "globalMetadataFiles": [],
+
+    "globalMetadata": {
+      "_appLogoPath": "images/logo.png",
+      "_appFaviconPath" : "images/logo.png",
+      "_enableSearch" : true,
+      "_appName" : "Netick Docs | v2",
+      "_appTitle" : "Netick Networking Engine",
+      "_appFooter" : "Copyright © 2022-2024 Karrar Rahim. All Rights Reserved."
+
+    },
+
+    "fileMetadataFiles": [],
+    "template": [
+      "default",
+      "modern",
+      "templates/netick"
+    ],
+    "postProcessors": [],
+    "keepFileLink": false,
+    "disableGitFeatures": true,
+
+    "sitemap": {
+      "baseUrl": "https://netick.net/docs/2/"
+    }
+
+  }
+}

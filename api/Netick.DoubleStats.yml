@@ -1,0 +1,727 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.DoubleStats
+  commentId: T:Netick.DoubleStats
+  id: DoubleStats
+  parent: Netick
+  children:
+  - Netick.DoubleStats.#ctor(System.Int32,System.Double,System.Boolean)
+  - Netick.DoubleStats.Average
+  - Netick.DoubleStats.Data
+  - Netick.DoubleStats.GetData
+  - Netick.DoubleStats.IsHealthy
+  - Netick.DoubleStats.Latest
+  - Netick.DoubleStats.Max
+  - Netick.DoubleStats.Min
+  - Netick.DoubleStats.Reset
+  - Netick.DoubleStats.StdDeviation
+  - Netick.DoubleStats.Update(System.Double)
+  - Netick.DoubleStats.WarningThreshold
+  langs:
+  - csharp
+  - vb
+  name: DoubleStats
+  nameWithType: DoubleStats
+  fullName: Netick.DoubleStats
+  type: Class
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public class DoubleStats
+    content.vb: Public Class DoubleStats
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Netick.DoubleStats.GetData
+  commentId: M:Netick.DoubleStats.GetData
+  id: GetData
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: GetData()
+  nameWithType: DoubleStats.GetData()
+  fullName: Netick.DoubleStats.GetData()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public CircularList<double> GetData()
+    return:
+      type: Netick.CircularList{System.Double}
+    content.vb: Public Function GetData() As CircularList(Of Double)
+  overload: Netick.DoubleStats.GetData*
+- uid: Netick.DoubleStats.IsHealthy
+  commentId: M:Netick.DoubleStats.IsHealthy
+  id: IsHealthy
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: IsHealthy()
+  nameWithType: DoubleStats.IsHealthy()
+  fullName: Netick.DoubleStats.IsHealthy()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsHealthy()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsHealthy() As Boolean
+  overload: Netick.DoubleStats.IsHealthy*
+- uid: Netick.DoubleStats.#ctor(System.Int32,System.Double,System.Boolean)
+  commentId: M:Netick.DoubleStats.#ctor(System.Int32,System.Double,System.Boolean)
+  id: '#ctor(System.Int32,System.Double,System.Boolean)'
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: DoubleStats(int, double, bool)
+  nameWithType: DoubleStats.DoubleStats(int, double, bool)
+  fullName: Netick.DoubleStats.DoubleStats(int, double, bool)
+  type: Constructor
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public DoubleStats(int windowSize = 128, double warningThreshold = 1.7976931348623157E+308, bool lowIsBetter = true)
+    parameters:
+    - id: windowSize
+      type: System.Int32
+    - id: warningThreshold
+      type: System.Double
+    - id: lowIsBetter
+      type: System.Boolean
+    content.vb: Public Sub New(windowSize As Integer = 128, warningThreshold As Double = 1.7976931348623157E+308, lowIsBetter As Boolean = True)
+  overload: Netick.DoubleStats.#ctor*
+  nameWithType.vb: DoubleStats.New(Integer, Double, Boolean)
+  fullName.vb: Netick.DoubleStats.New(Integer, Double, Boolean)
+  name.vb: New(Integer, Double, Boolean)
+- uid: Netick.DoubleStats.Update(System.Double)
+  commentId: M:Netick.DoubleStats.Update(System.Double)
+  id: Update(System.Double)
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: Update(double)
+  nameWithType: DoubleStats.Update(double)
+  fullName: Netick.DoubleStats.Update(double)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Update(double value)
+    parameters:
+    - id: value
+      type: System.Double
+    content.vb: Public Sub Update(value As Double)
+  overload: Netick.DoubleStats.Update*
+  nameWithType.vb: DoubleStats.Update(Double)
+  fullName.vb: Netick.DoubleStats.Update(Double)
+  name.vb: Update(Double)
+- uid: Netick.DoubleStats.Reset
+  commentId: M:Netick.DoubleStats.Reset
+  id: Reset
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: DoubleStats.Reset()
+  fullName: Netick.DoubleStats.Reset()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Reset()
+    content.vb: Public Sub Reset()
+  overload: Netick.DoubleStats.Reset*
+- uid: Netick.DoubleStats.Latest
+  commentId: P:Netick.DoubleStats.Latest
+  id: Latest
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: Latest
+  nameWithType: DoubleStats.Latest
+  fullName: Netick.DoubleStats.Latest
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public double Latest { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Latest As Double
+  overload: Netick.DoubleStats.Latest*
+- uid: Netick.DoubleStats.Max
+  commentId: P:Netick.DoubleStats.Max
+  id: Max
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: Max
+  nameWithType: DoubleStats.Max
+  fullName: Netick.DoubleStats.Max
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public double Max { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Max As Double
+  overload: Netick.DoubleStats.Max*
+- uid: Netick.DoubleStats.Min
+  commentId: P:Netick.DoubleStats.Min
+  id: Min
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: Min
+  nameWithType: DoubleStats.Min
+  fullName: Netick.DoubleStats.Min
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public double Min { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Min As Double
+  overload: Netick.DoubleStats.Min*
+- uid: Netick.DoubleStats.Average
+  commentId: P:Netick.DoubleStats.Average
+  id: Average
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: Average
+  nameWithType: DoubleStats.Average
+  fullName: Netick.DoubleStats.Average
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public double Average { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Average As Double
+  overload: Netick.DoubleStats.Average*
+- uid: Netick.DoubleStats.StdDeviation
+  commentId: P:Netick.DoubleStats.StdDeviation
+  id: StdDeviation
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: StdDeviation
+  nameWithType: DoubleStats.StdDeviation
+  fullName: Netick.DoubleStats.StdDeviation
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public double StdDeviation { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property StdDeviation As Double
+  overload: Netick.DoubleStats.StdDeviation*
+- uid: Netick.DoubleStats.WarningThreshold
+  commentId: P:Netick.DoubleStats.WarningThreshold
+  id: WarningThreshold
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: WarningThreshold
+  nameWithType: DoubleStats.WarningThreshold
+  fullName: Netick.DoubleStats.WarningThreshold
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public double WarningThreshold { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property WarningThreshold As Double
+  overload: Netick.DoubleStats.WarningThreshold*
+- uid: Netick.DoubleStats.Data
+  commentId: P:Netick.DoubleStats.Data
+  id: Data
+  parent: Netick.DoubleStats
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: DoubleStats.Data
+  fullName: Netick.DoubleStats.Data
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public CircularList<double> Data { get; }
+    parameters: []
+    return:
+      type: Netick.CircularList{System.Double}
+    content.vb: Public ReadOnly Property Data As CircularList(Of Double)
+  overload: Netick.DoubleStats.Data*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.DoubleStats.GetData*
+  commentId: Overload:Netick.DoubleStats.GetData
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats_GetData
+  name: GetData
+  nameWithType: DoubleStats.GetData
+  fullName: Netick.DoubleStats.GetData
+- uid: Netick.CircularList{System.Double}
+  commentId: T:Netick.CircularList{System.Double}
+  parent: Netick
+  definition: Netick.CircularList`1
+  href: Netick.CircularList-1.html
+  name: CircularList<double>
+  nameWithType: CircularList<double>
+  fullName: Netick.CircularList<double>
+  nameWithType.vb: CircularList(Of Double)
+  fullName.vb: Netick.CircularList(Of Double)
+  name.vb: CircularList(Of Double)
+  spec.csharp:
+  - uid: Netick.CircularList`1
+    name: CircularList
+    isExternal: true
+    href: Netick.CircularList-1.html
+  - name: <
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '>'
+  spec.vb:
+  - uid: Netick.CircularList`1
+    name: CircularList
+    isExternal: true
+    href: Netick.CircularList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+- uid: Netick.CircularList`1
+  commentId: T:Netick.CircularList`1
+  isExternal: true
+  href: Netick.CircularList-1.html
+  name: CircularList<T>
+  nameWithType: CircularList<T>
+  fullName: Netick.CircularList<T>
+  nameWithType.vb: CircularList(Of T)
+  fullName.vb: Netick.CircularList(Of T)
+  name.vb: CircularList(Of T)
+  spec.csharp:
+  - uid: Netick.CircularList`1
+    name: CircularList
+    isExternal: true
+    href: Netick.CircularList-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.CircularList`1
+    name: CircularList
+    isExternal: true
+    href: Netick.CircularList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.DoubleStats.IsHealthy*
+  commentId: Overload:Netick.DoubleStats.IsHealthy
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats_IsHealthy
+  name: IsHealthy
+  nameWithType: DoubleStats.IsHealthy
+  fullName: Netick.DoubleStats.IsHealthy
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Netick.DoubleStats.#ctor*
+  commentId: Overload:Netick.DoubleStats.#ctor
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats__ctor_System_Int32_System_Double_System_Boolean_
+  name: DoubleStats
+  nameWithType: DoubleStats.DoubleStats
+  fullName: Netick.DoubleStats.DoubleStats
+  nameWithType.vb: DoubleStats.New
+  fullName.vb: Netick.DoubleStats.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Netick.DoubleStats.Update*
+  commentId: Overload:Netick.DoubleStats.Update
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats_Update_System_Double_
+  name: Update
+  nameWithType: DoubleStats.Update
+  fullName: Netick.DoubleStats.Update
+- uid: Netick.DoubleStats.Reset*
+  commentId: Overload:Netick.DoubleStats.Reset
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats_Reset
+  name: Reset
+  nameWithType: DoubleStats.Reset
+  fullName: Netick.DoubleStats.Reset
+- uid: Netick.DoubleStats.Latest*
+  commentId: Overload:Netick.DoubleStats.Latest
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats_Latest
+  name: Latest
+  nameWithType: DoubleStats.Latest
+  fullName: Netick.DoubleStats.Latest
+- uid: Netick.DoubleStats.Max*
+  commentId: Overload:Netick.DoubleStats.Max
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats_Max
+  name: Max
+  nameWithType: DoubleStats.Max
+  fullName: Netick.DoubleStats.Max
+- uid: Netick.DoubleStats.Min*
+  commentId: Overload:Netick.DoubleStats.Min
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats_Min
+  name: Min
+  nameWithType: DoubleStats.Min
+  fullName: Netick.DoubleStats.Min
+- uid: Netick.DoubleStats.Average*
+  commentId: Overload:Netick.DoubleStats.Average
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats_Average
+  name: Average
+  nameWithType: DoubleStats.Average
+  fullName: Netick.DoubleStats.Average
+- uid: Netick.DoubleStats.StdDeviation*
+  commentId: Overload:Netick.DoubleStats.StdDeviation
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats_StdDeviation
+  name: StdDeviation
+  nameWithType: DoubleStats.StdDeviation
+  fullName: Netick.DoubleStats.StdDeviation
+- uid: Netick.DoubleStats.WarningThreshold*
+  commentId: Overload:Netick.DoubleStats.WarningThreshold
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats_WarningThreshold
+  name: WarningThreshold
+  nameWithType: DoubleStats.WarningThreshold
+  fullName: Netick.DoubleStats.WarningThreshold
+- uid: Netick.DoubleStats.Data*
+  commentId: Overload:Netick.DoubleStats.Data
+  isExternal: true
+  href: Netick.DoubleStats.html#Netick_DoubleStats_Data
+  name: Data
+  nameWithType: DoubleStats.Data
+  fullName: Netick.DoubleStats.Data

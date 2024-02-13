@@ -1,0 +1,510 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.NetworkChannel
+  commentId: T:Netick.NetworkChannel
+  id: NetworkChannel
+  parent: Netick
+  children:
+  - Netick.NetworkChannel.#ctor(Netick.NetickEngine,Netick.NetworkConnection)
+  - Netick.NetworkChannel.Clear
+  - Netick.NetworkChannel.PostRead
+  - Netick.NetworkChannel.PostSend
+  - Netick.NetworkChannel.Read(Netick.BitBuffer,Netick.Tick,Netick.Tick)
+  - Netick.NetworkChannel.Reset
+  - Netick.NetworkChannel.Write(Netick.BitBuffer)
+  langs:
+  - csharp
+  - vb
+  name: NetworkChannel
+  nameWithType: NetworkChannel
+  fullName: Netick.NetworkChannel
+  type: Class
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public abstract class NetworkChannel
+    content.vb: Public MustInherit Class NetworkChannel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Netick.NetworkChannel.Write(Netick.BitBuffer)
+  commentId: M:Netick.NetworkChannel.Write(Netick.BitBuffer)
+  id: Write(Netick.BitBuffer)
+  parent: Netick.NetworkChannel
+  langs:
+  - csharp
+  - vb
+  name: Write(BitBuffer)
+  nameWithType: NetworkChannel.Write(BitBuffer)
+  fullName: Netick.NetworkChannel.Write(Netick.BitBuffer)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public abstract void Write(BitBuffer buffer)
+    parameters:
+    - id: buffer
+      type: Netick.BitBuffer
+    content.vb: Public MustOverride Sub Write(buffer As BitBuffer)
+  overload: Netick.NetworkChannel.Write*
+- uid: Netick.NetworkChannel.Read(Netick.BitBuffer,Netick.Tick,Netick.Tick)
+  commentId: M:Netick.NetworkChannel.Read(Netick.BitBuffer,Netick.Tick,Netick.Tick)
+  id: Read(Netick.BitBuffer,Netick.Tick,Netick.Tick)
+  parent: Netick.NetworkChannel
+  langs:
+  - csharp
+  - vb
+  name: Read(BitBuffer, Tick, Tick)
+  nameWithType: NetworkChannel.Read(BitBuffer, Tick, Tick)
+  fullName: Netick.NetworkChannel.Read(Netick.BitBuffer, Netick.Tick, Netick.Tick)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public abstract void Read(BitBuffer buffer, Tick senderTick, Tick lastTick)
+    parameters:
+    - id: buffer
+      type: Netick.BitBuffer
+    - id: senderTick
+      type: Netick.Tick
+    - id: lastTick
+      type: Netick.Tick
+    content.vb: Public MustOverride Sub Read(buffer As BitBuffer, senderTick As Tick, lastTick As Tick)
+  overload: Netick.NetworkChannel.Read*
+- uid: Netick.NetworkChannel.PostSend
+  commentId: M:Netick.NetworkChannel.PostSend
+  id: PostSend
+  parent: Netick.NetworkChannel
+  langs:
+  - csharp
+  - vb
+  name: PostSend()
+  nameWithType: NetworkChannel.PostSend()
+  fullName: Netick.NetworkChannel.PostSend()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public abstract void PostSend()
+    content.vb: Public MustOverride Sub PostSend()
+  overload: Netick.NetworkChannel.PostSend*
+- uid: Netick.NetworkChannel.PostRead
+  commentId: M:Netick.NetworkChannel.PostRead
+  id: PostRead
+  parent: Netick.NetworkChannel
+  langs:
+  - csharp
+  - vb
+  name: PostRead()
+  nameWithType: NetworkChannel.PostRead()
+  fullName: Netick.NetworkChannel.PostRead()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public abstract void PostRead()
+    content.vb: Public MustOverride Sub PostRead()
+  overload: Netick.NetworkChannel.PostRead*
+- uid: Netick.NetworkChannel.Reset
+  commentId: M:Netick.NetworkChannel.Reset
+  id: Reset
+  parent: Netick.NetworkChannel
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: NetworkChannel.Reset()
+  fullName: Netick.NetworkChannel.Reset()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public abstract void Reset()
+    content.vb: Public MustOverride Sub Reset()
+  overload: Netick.NetworkChannel.Reset*
+- uid: Netick.NetworkChannel.Clear
+  commentId: M:Netick.NetworkChannel.Clear
+  id: Clear
+  parent: Netick.NetworkChannel
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: NetworkChannel.Clear()
+  fullName: Netick.NetworkChannel.Clear()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public abstract void Clear()
+    content.vb: Public MustOverride Sub Clear()
+  overload: Netick.NetworkChannel.Clear*
+- uid: Netick.NetworkChannel.#ctor(Netick.NetickEngine,Netick.NetworkConnection)
+  commentId: M:Netick.NetworkChannel.#ctor(Netick.NetickEngine,Netick.NetworkConnection)
+  id: '#ctor(Netick.NetickEngine,Netick.NetworkConnection)'
+  parent: Netick.NetworkChannel
+  langs:
+  - csharp
+  - vb
+  name: NetworkChannel(NetickEngine, NetworkConnection)
+  nameWithType: NetworkChannel.NetworkChannel(NetickEngine, NetworkConnection)
+  fullName: Netick.NetworkChannel.NetworkChannel(Netick.NetickEngine, Netick.NetworkConnection)
+  type: Constructor
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetworkChannel(NetickEngine sandbox, NetworkConnection connection)
+    parameters:
+    - id: sandbox
+      type: Netick.NetickEngine
+    - id: connection
+      type: Netick.NetworkConnection
+    content.vb: Public Sub New(sandbox As NetickEngine, connection As NetworkConnection)
+  overload: Netick.NetworkChannel.#ctor*
+  nameWithType.vb: NetworkChannel.New(NetickEngine, NetworkConnection)
+  fullName.vb: Netick.NetworkChannel.New(Netick.NetickEngine, Netick.NetworkConnection)
+  name.vb: New(NetickEngine, NetworkConnection)
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.NetworkChannel.Write*
+  commentId: Overload:Netick.NetworkChannel.Write
+  isExternal: true
+  href: Netick.NetworkChannel.html#Netick_NetworkChannel_Write_Netick_BitBuffer_
+  name: Write
+  nameWithType: NetworkChannel.Write
+  fullName: Netick.NetworkChannel.Write
+- uid: Netick.BitBuffer
+  commentId: T:Netick.BitBuffer
+  parent: Netick
+  isExternal: true
+  href: Netick.BitBuffer.html
+  name: BitBuffer
+  nameWithType: BitBuffer
+  fullName: Netick.BitBuffer
+- uid: Netick.NetworkChannel.Read*
+  commentId: Overload:Netick.NetworkChannel.Read
+  isExternal: true
+  href: Netick.NetworkChannel.html#Netick_NetworkChannel_Read_Netick_BitBuffer_Netick_Tick_Netick_Tick_
+  name: Read
+  nameWithType: NetworkChannel.Read
+  fullName: Netick.NetworkChannel.Read
+- uid: Netick.Tick
+  commentId: T:Netick.Tick
+  parent: Netick
+  isExternal: true
+  href: Netick.Tick.html
+  name: Tick
+  nameWithType: Tick
+  fullName: Netick.Tick
+- uid: Netick.NetworkChannel.PostSend*
+  commentId: Overload:Netick.NetworkChannel.PostSend
+  isExternal: true
+  href: Netick.NetworkChannel.html#Netick_NetworkChannel_PostSend
+  name: PostSend
+  nameWithType: NetworkChannel.PostSend
+  fullName: Netick.NetworkChannel.PostSend
+- uid: Netick.NetworkChannel.PostRead*
+  commentId: Overload:Netick.NetworkChannel.PostRead
+  isExternal: true
+  href: Netick.NetworkChannel.html#Netick_NetworkChannel_PostRead
+  name: PostRead
+  nameWithType: NetworkChannel.PostRead
+  fullName: Netick.NetworkChannel.PostRead
+- uid: Netick.NetworkChannel.Reset*
+  commentId: Overload:Netick.NetworkChannel.Reset
+  isExternal: true
+  href: Netick.NetworkChannel.html#Netick_NetworkChannel_Reset
+  name: Reset
+  nameWithType: NetworkChannel.Reset
+  fullName: Netick.NetworkChannel.Reset
+- uid: Netick.NetworkChannel.Clear*
+  commentId: Overload:Netick.NetworkChannel.Clear
+  isExternal: true
+  href: Netick.NetworkChannel.html#Netick_NetworkChannel_Clear
+  name: Clear
+  nameWithType: NetworkChannel.Clear
+  fullName: Netick.NetworkChannel.Clear
+- uid: Netick.NetworkChannel.#ctor*
+  commentId: Overload:Netick.NetworkChannel.#ctor
+  isExternal: true
+  href: Netick.NetworkChannel.html#Netick_NetworkChannel__ctor_Netick_NetickEngine_Netick_NetworkConnection_
+  name: NetworkChannel
+  nameWithType: NetworkChannel.NetworkChannel
+  fullName: Netick.NetworkChannel.NetworkChannel
+  nameWithType.vb: NetworkChannel.New
+  fullName.vb: Netick.NetworkChannel.New
+  name.vb: New
+- uid: Netick.NetickEngine
+  commentId: T:Netick.NetickEngine
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickEngine.html
+  name: NetickEngine
+  nameWithType: NetickEngine
+  fullName: Netick.NetickEngine
+- uid: Netick.NetworkConnection
+  commentId: T:Netick.NetworkConnection
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkConnection.html
+  name: NetworkConnection
+  nameWithType: NetworkConnection
+  fullName: Netick.NetworkConnection

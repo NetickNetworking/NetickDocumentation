@@ -1,0 +1,850 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.IGameEngine
+  commentId: T:Netick.IGameEngine
+  id: IGameEngine
+  parent: Netick
+  children:
+  - Netick.IGameEngine.GetConnectionMetaSizeWords
+  - Netick.IGameEngine.GetEntityMetaSizeWords
+  - Netick.IGameEngine.GetEntityUserDataSizeWords
+  - Netick.IGameEngine.GetPredictionInterestList
+  - Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
+  - Netick.IGameEngine.OnClientConnected
+  - Netick.IGameEngine.OnClientDisconnected(Netick.TransportDisconnectReason)
+  - Netick.IGameEngine.OnConnectFailed(Netick.ConnectionFailedReason)
+  - Netick.IGameEngine.OnConnectRequest(Netick.NetworkConnectionRequest)
+  - Netick.IGameEngine.OnEntityDespawned(Netick.Entity)
+  - Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity,System.Boolean)
+  - Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*)
+  - Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*)
+  - Netick.IGameEngine.OnEntitySpawned(Netick.Entity)
+  - Netick.IGameEngine.OnInputRead
+  - Netick.IGameEngine.OnNetworkFixedUpdate
+  - Netick.IGameEngine.OnNetworkRender
+  - Netick.IGameEngine.OnNetworkUpdate
+  - Netick.IGameEngine.OnPacketReceived(Netick.NetworkConnection)
+  - Netick.IGameEngine.OnPeerConnected(Netick.NetworkConnection)
+  - Netick.IGameEngine.OnPeerDisconnected(Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  - Netick.IGameEngine.PopulateEntityMeta(Netick.Entity)
+  - Netick.IGameEngine.SimulatePhysics
+  - Netick.IGameEngine.SyncTransformsToPhysics
+  langs:
+  - csharp
+  - vb
+  name: IGameEngine
+  nameWithType: IGameEngine
+  fullName: Netick.IGameEngine
+  type: Interface
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public interface IGameEngine
+    content.vb: Public Interface IGameEngine
+- uid: Netick.IGameEngine.GetPredictionInterestList
+  commentId: M:Netick.IGameEngine.GetPredictionInterestList
+  id: GetPredictionInterestList
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: GetPredictionInterestList()
+  nameWithType: IGameEngine.GetPredictionInterestList()
+  fullName: Netick.IGameEngine.GetPredictionInterestList()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: ExecutionList GetPredictionInterestList()
+    return:
+      type: Netick.ExecutionList
+    content.vb: Function GetPredictionInterestList() As ExecutionList
+  overload: Netick.IGameEngine.GetPredictionInterestList*
+- uid: Netick.IGameEngine.SyncTransformsToPhysics
+  commentId: M:Netick.IGameEngine.SyncTransformsToPhysics
+  id: SyncTransformsToPhysics
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: SyncTransformsToPhysics()
+  nameWithType: IGameEngine.SyncTransformsToPhysics()
+  fullName: Netick.IGameEngine.SyncTransformsToPhysics()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void SyncTransformsToPhysics()
+    content.vb: Sub SyncTransformsToPhysics()
+  overload: Netick.IGameEngine.SyncTransformsToPhysics*
+- uid: Netick.IGameEngine.SimulatePhysics
+  commentId: M:Netick.IGameEngine.SimulatePhysics
+  id: SimulatePhysics
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: SimulatePhysics()
+  nameWithType: IGameEngine.SimulatePhysics()
+  fullName: Netick.IGameEngine.SimulatePhysics()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void SimulatePhysics()
+    content.vb: Sub SimulatePhysics()
+  overload: Netick.IGameEngine.SimulatePhysics*
+- uid: Netick.IGameEngine.GetConnectionMetaSizeWords
+  commentId: M:Netick.IGameEngine.GetConnectionMetaSizeWords
+  id: GetConnectionMetaSizeWords
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: GetConnectionMetaSizeWords()
+  nameWithType: IGameEngine.GetConnectionMetaSizeWords()
+  fullName: Netick.IGameEngine.GetConnectionMetaSizeWords()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Implements this to inform Netick about the size (in 32 bit words) of your connection meta data.
+  example: []
+  syntax:
+    content: int GetConnectionMetaSizeWords()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Function GetConnectionMetaSizeWords() As Integer
+  overload: Netick.IGameEngine.GetConnectionMetaSizeWords*
+- uid: Netick.IGameEngine.GetEntityMetaSizeWords
+  commentId: M:Netick.IGameEngine.GetEntityMetaSizeWords
+  id: GetEntityMetaSizeWords
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: GetEntityMetaSizeWords()
+  nameWithType: IGameEngine.GetEntityMetaSizeWords()
+  fullName: Netick.IGameEngine.GetEntityMetaSizeWords()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Implements this to inform Netick about the size (in 32 bit words) of your entity meta data.
+  example: []
+  syntax:
+    content: int GetEntityMetaSizeWords()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Function GetEntityMetaSizeWords() As Integer
+  overload: Netick.IGameEngine.GetEntityMetaSizeWords*
+- uid: Netick.IGameEngine.GetEntityUserDataSizeWords
+  commentId: M:Netick.IGameEngine.GetEntityUserDataSizeWords
+  id: GetEntityUserDataSizeWords
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: GetEntityUserDataSizeWords()
+  nameWithType: IGameEngine.GetEntityUserDataSizeWords()
+  fullName: Netick.IGameEngine.GetEntityUserDataSizeWords()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: int GetEntityUserDataSizeWords()
+    return:
+      type: System.Int32
+    content.vb: Function GetEntityUserDataSizeWords() As Integer
+  overload: Netick.IGameEngine.GetEntityUserDataSizeWords*
+- uid: Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity,System.Boolean)
+  commentId: M:Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity,System.Boolean)
+  id: OnEntityInterestChanged(Netick.Entity,System.Boolean)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnEntityInterestChanged(Entity, bool)
+  nameWithType: IGameEngine.OnEntityInterestChanged(Entity, bool)
+  fullName: Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnEntityInterestChanged(Entity entity, bool isInterested)
+    parameters:
+    - id: entity
+      type: Netick.Entity
+    - id: isInterested
+      type: System.Boolean
+    content.vb: Sub OnEntityInterestChanged(entity As Entity, isInterested As Boolean)
+  overload: Netick.IGameEngine.OnEntityInterestChanged*
+  nameWithType.vb: IGameEngine.OnEntityInterestChanged(Entity, Boolean)
+  fullName.vb: Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity, Boolean)
+  name.vb: OnEntityInterestChanged(Entity, Boolean)
+- uid: Netick.IGameEngine.OnEntitySpawned(Netick.Entity)
+  commentId: M:Netick.IGameEngine.OnEntitySpawned(Netick.Entity)
+  id: OnEntitySpawned(Netick.Entity)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnEntitySpawned(Entity)
+  nameWithType: IGameEngine.OnEntitySpawned(Entity)
+  fullName: Netick.IGameEngine.OnEntitySpawned(Netick.Entity)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: This is called when a new entity has been added to the simulation.
+  example: []
+  syntax:
+    content: void OnEntitySpawned(Entity entity)
+    parameters:
+    - id: entity
+      type: Netick.Entity
+      description: ''
+    content.vb: Sub OnEntitySpawned(entity As Entity)
+  overload: Netick.IGameEngine.OnEntitySpawned*
+- uid: Netick.IGameEngine.OnEntityDespawned(Netick.Entity)
+  commentId: M:Netick.IGameEngine.OnEntityDespawned(Netick.Entity)
+  id: OnEntityDespawned(Netick.Entity)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnEntityDespawned(Entity)
+  nameWithType: IGameEngine.OnEntityDespawned(Entity)
+  fullName: Netick.IGameEngine.OnEntityDespawned(Netick.Entity)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: This is called when an entity has been removed from the simulation.
+  example: []
+  syntax:
+    content: void OnEntityDespawned(Entity entity)
+    parameters:
+    - id: entity
+      type: Netick.Entity
+      description: ''
+    content.vb: Sub OnEntityDespawned(entity As Entity)
+  overload: Netick.IGameEngine.OnEntityDespawned*
+- uid: Netick.IGameEngine.PopulateEntityMeta(Netick.Entity)
+  commentId: M:Netick.IGameEngine.PopulateEntityMeta(Netick.Entity)
+  id: PopulateEntityMeta(Netick.Entity)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: PopulateEntityMeta(Entity)
+  nameWithType: IGameEngine.PopulateEntityMeta(Entity)
+  fullName: Netick.IGameEngine.PopulateEntityMeta(Netick.Entity)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: This is used to populate the user meta data for an entity.
+  example: []
+  syntax:
+    content: void PopulateEntityMeta(Entity entity)
+    parameters:
+    - id: entity
+      type: Netick.Entity
+      description: ''
+    content.vb: Sub PopulateEntityMeta(entity As Entity)
+  overload: Netick.IGameEngine.PopulateEntityMeta*
+- uid: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*)
+  commentId: M:Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*)
+  id: OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnEntityMetaChanged(NetickEntityMeta, byte*)
+  nameWithType: IGameEngine.OnEntityMetaChanged(NetickEntityMeta, byte*)
+  fullName: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta, byte*)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: >-
+    This method is called on the client when it receives new entity meta data. This must be used to create/setup network entities on the client. It can be called many times not only when the data has changed.
+
+    <p>Note: user entity meta data can be used for custom user data that might be used in creating entities.</p>
+  example: []
+  syntax:
+    content: void OnEntityMetaChanged(NetickEntityMeta netickMeta, byte* userMetaData)
+    parameters:
+    - id: netickMeta
+      type: Netick.NetickEntityMeta
+      description: ''
+    - id: userMetaData
+      type: System.Byte*
+      description: ''
+    content.vb: Sub OnEntityMetaChanged(netickMeta As NetickEntityMeta, userMetaData As Byte*)
+  overload: Netick.IGameEngine.OnEntityMetaChanged*
+  nameWithType.vb: IGameEngine.OnEntityMetaChanged(NetickEntityMeta, Byte*)
+  fullName.vb: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta, Byte*)
+  name.vb: OnEntityMetaChanged(NetickEntityMeta, Byte*)
+- uid: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*)
+  commentId: M:Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*)
+  id: OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnEntityMetaChangedPhaseTwo(NetickEntityMeta, byte*)
+  nameWithType: IGameEngine.OnEntityMetaChangedPhaseTwo(NetickEntityMeta, byte*)
+  fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta, byte*)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnEntityMetaChangedPhaseTwo(NetickEntityMeta netickMeta, byte* userMetaData)
+    parameters:
+    - id: netickMeta
+      type: Netick.NetickEntityMeta
+    - id: userMetaData
+      type: System.Byte*
+    content.vb: Sub OnEntityMetaChangedPhaseTwo(netickMeta As NetickEntityMeta, userMetaData As Byte*)
+  overload: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo*
+  nameWithType.vb: IGameEngine.OnEntityMetaChangedPhaseTwo(NetickEntityMeta, Byte*)
+  fullName.vb: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta, Byte*)
+  name.vb: OnEntityMetaChangedPhaseTwo(NetickEntityMeta, Byte*)
+- uid: Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
+  commentId: M:Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
+  id: OnBeforeSend(Netick.NetworkConnection)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnBeforeSend(NetworkConnection)
+  nameWithType: IGameEngine.OnBeforeSend(NetworkConnection)
+  fullName: Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: This is called before sending packets to the target connection.
+  example: []
+  syntax:
+    content: void OnBeforeSend(NetworkConnection target)
+    parameters:
+    - id: target
+      type: Netick.NetworkConnection
+      description: ''
+    content.vb: Sub OnBeforeSend(target As NetworkConnection)
+  overload: Netick.IGameEngine.OnBeforeSend*
+- uid: Netick.IGameEngine.OnPacketReceived(Netick.NetworkConnection)
+  commentId: M:Netick.IGameEngine.OnPacketReceived(Netick.NetworkConnection)
+  id: OnPacketReceived(Netick.NetworkConnection)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnPacketReceived(NetworkConnection)
+  nameWithType: IGameEngine.OnPacketReceived(NetworkConnection)
+  fullName: Netick.IGameEngine.OnPacketReceived(Netick.NetworkConnection)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: This is called when a full packet has been received.
+  example: []
+  syntax:
+    content: void OnPacketReceived(NetworkConnection source)
+    parameters:
+    - id: source
+      type: Netick.NetworkConnection
+      description: ''
+    content.vb: Sub OnPacketReceived(source As NetworkConnection)
+  overload: Netick.IGameEngine.OnPacketReceived*
+- uid: Netick.IGameEngine.OnInputRead
+  commentId: M:Netick.IGameEngine.OnInputRead
+  id: OnInputRead
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnInputRead()
+  nameWithType: IGameEngine.OnInputRead()
+  fullName: Netick.IGameEngine.OnInputRead()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnInputRead()
+    content.vb: Sub OnInputRead()
+  overload: Netick.IGameEngine.OnInputRead*
+- uid: Netick.IGameEngine.OnNetworkUpdate
+  commentId: M:Netick.IGameEngine.OnNetworkUpdate
+  id: OnNetworkUpdate
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnNetworkUpdate()
+  nameWithType: IGameEngine.OnNetworkUpdate()
+  fullName: Netick.IGameEngine.OnNetworkUpdate()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnNetworkUpdate()
+    content.vb: Sub OnNetworkUpdate()
+  overload: Netick.IGameEngine.OnNetworkUpdate*
+- uid: Netick.IGameEngine.OnNetworkRender
+  commentId: M:Netick.IGameEngine.OnNetworkRender
+  id: OnNetworkRender
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnNetworkRender()
+  nameWithType: IGameEngine.OnNetworkRender()
+  fullName: Netick.IGameEngine.OnNetworkRender()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnNetworkRender()
+    content.vb: Sub OnNetworkRender()
+  overload: Netick.IGameEngine.OnNetworkRender*
+- uid: Netick.IGameEngine.OnNetworkFixedUpdate
+  commentId: M:Netick.IGameEngine.OnNetworkFixedUpdate
+  id: OnNetworkFixedUpdate
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnNetworkFixedUpdate()
+  nameWithType: IGameEngine.OnNetworkFixedUpdate()
+  fullName: Netick.IGameEngine.OnNetworkFixedUpdate()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnNetworkFixedUpdate()
+    content.vb: Sub OnNetworkFixedUpdate()
+  overload: Netick.IGameEngine.OnNetworkFixedUpdate*
+- uid: Netick.IGameEngine.OnConnectRequest(Netick.NetworkConnectionRequest)
+  commentId: M:Netick.IGameEngine.OnConnectRequest(Netick.NetworkConnectionRequest)
+  id: OnConnectRequest(Netick.NetworkConnectionRequest)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnConnectRequest(NetworkConnectionRequest)
+  nameWithType: IGameEngine.OnConnectRequest(NetworkConnectionRequest)
+  fullName: Netick.IGameEngine.OnConnectRequest(Netick.NetworkConnectionRequest)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnConnectRequest(NetworkConnectionRequest request)
+    parameters:
+    - id: request
+      type: Netick.NetworkConnectionRequest
+    content.vb: Sub OnConnectRequest(request As NetworkConnectionRequest)
+  overload: Netick.IGameEngine.OnConnectRequest*
+- uid: Netick.IGameEngine.OnConnectFailed(Netick.ConnectionFailedReason)
+  commentId: M:Netick.IGameEngine.OnConnectFailed(Netick.ConnectionFailedReason)
+  id: OnConnectFailed(Netick.ConnectionFailedReason)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnConnectFailed(ConnectionFailedReason)
+  nameWithType: IGameEngine.OnConnectFailed(ConnectionFailedReason)
+  fullName: Netick.IGameEngine.OnConnectFailed(Netick.ConnectionFailedReason)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnConnectFailed(ConnectionFailedReason reason)
+    parameters:
+    - id: reason
+      type: Netick.ConnectionFailedReason
+    content.vb: Sub OnConnectFailed(reason As ConnectionFailedReason)
+  overload: Netick.IGameEngine.OnConnectFailed*
+- uid: Netick.IGameEngine.OnPeerConnected(Netick.NetworkConnection)
+  commentId: M:Netick.IGameEngine.OnPeerConnected(Netick.NetworkConnection)
+  id: OnPeerConnected(Netick.NetworkConnection)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnPeerConnected(NetworkConnection)
+  nameWithType: IGameEngine.OnPeerConnected(NetworkConnection)
+  fullName: Netick.IGameEngine.OnPeerConnected(Netick.NetworkConnection)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnPeerConnected(NetworkConnection connection)
+    parameters:
+    - id: connection
+      type: Netick.NetworkConnection
+    content.vb: Sub OnPeerConnected(connection As NetworkConnection)
+  overload: Netick.IGameEngine.OnPeerConnected*
+- uid: Netick.IGameEngine.OnPeerDisconnected(Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  commentId: M:Netick.IGameEngine.OnPeerDisconnected(Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  id: OnPeerDisconnected(Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnPeerDisconnected(NetworkConnection, TransportDisconnectReason)
+  nameWithType: IGameEngine.OnPeerDisconnected(NetworkConnection, TransportDisconnectReason)
+  fullName: Netick.IGameEngine.OnPeerDisconnected(Netick.NetworkConnection, Netick.TransportDisconnectReason)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnPeerDisconnected(NetworkConnection connection, TransportDisconnectReason transportDisconnectReason)
+    parameters:
+    - id: connection
+      type: Netick.NetworkConnection
+    - id: transportDisconnectReason
+      type: Netick.TransportDisconnectReason
+    content.vb: Sub OnPeerDisconnected(connection As NetworkConnection, transportDisconnectReason As TransportDisconnectReason)
+  overload: Netick.IGameEngine.OnPeerDisconnected*
+- uid: Netick.IGameEngine.OnClientConnected
+  commentId: M:Netick.IGameEngine.OnClientConnected
+  id: OnClientConnected
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnClientConnected()
+  nameWithType: IGameEngine.OnClientConnected()
+  fullName: Netick.IGameEngine.OnClientConnected()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnClientConnected()
+    content.vb: Sub OnClientConnected()
+  overload: Netick.IGameEngine.OnClientConnected*
+- uid: Netick.IGameEngine.OnClientDisconnected(Netick.TransportDisconnectReason)
+  commentId: M:Netick.IGameEngine.OnClientDisconnected(Netick.TransportDisconnectReason)
+  id: OnClientDisconnected(Netick.TransportDisconnectReason)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnClientDisconnected(TransportDisconnectReason)
+  nameWithType: IGameEngine.OnClientDisconnected(TransportDisconnectReason)
+  fullName: Netick.IGameEngine.OnClientDisconnected(Netick.TransportDisconnectReason)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnClientDisconnected(TransportDisconnectReason transportDisconnectReason)
+    parameters:
+    - id: transportDisconnectReason
+      type: Netick.TransportDisconnectReason
+    content.vb: Sub OnClientDisconnected(transportDisconnectReason As TransportDisconnectReason)
+  overload: Netick.IGameEngine.OnClientDisconnected*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: Netick.IGameEngine.GetPredictionInterestList*
+  commentId: Overload:Netick.IGameEngine.GetPredictionInterestList
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_GetPredictionInterestList
+  name: GetPredictionInterestList
+  nameWithType: IGameEngine.GetPredictionInterestList
+  fullName: Netick.IGameEngine.GetPredictionInterestList
+- uid: Netick.ExecutionList
+  commentId: T:Netick.ExecutionList
+  parent: Netick
+  isExternal: true
+  href: Netick.ExecutionList.html
+  name: ExecutionList
+  nameWithType: ExecutionList
+  fullName: Netick.ExecutionList
+- uid: Netick.IGameEngine.SyncTransformsToPhysics*
+  commentId: Overload:Netick.IGameEngine.SyncTransformsToPhysics
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_SyncTransformsToPhysics
+  name: SyncTransformsToPhysics
+  nameWithType: IGameEngine.SyncTransformsToPhysics
+  fullName: Netick.IGameEngine.SyncTransformsToPhysics
+- uid: Netick.IGameEngine.SimulatePhysics*
+  commentId: Overload:Netick.IGameEngine.SimulatePhysics
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_SimulatePhysics
+  name: SimulatePhysics
+  nameWithType: IGameEngine.SimulatePhysics
+  fullName: Netick.IGameEngine.SimulatePhysics
+- uid: Netick.IGameEngine.GetConnectionMetaSizeWords*
+  commentId: Overload:Netick.IGameEngine.GetConnectionMetaSizeWords
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_GetConnectionMetaSizeWords
+  name: GetConnectionMetaSizeWords
+  nameWithType: IGameEngine.GetConnectionMetaSizeWords
+  fullName: Netick.IGameEngine.GetConnectionMetaSizeWords
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.IGameEngine.GetEntityMetaSizeWords*
+  commentId: Overload:Netick.IGameEngine.GetEntityMetaSizeWords
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_GetEntityMetaSizeWords
+  name: GetEntityMetaSizeWords
+  nameWithType: IGameEngine.GetEntityMetaSizeWords
+  fullName: Netick.IGameEngine.GetEntityMetaSizeWords
+- uid: Netick.IGameEngine.GetEntityUserDataSizeWords*
+  commentId: Overload:Netick.IGameEngine.GetEntityUserDataSizeWords
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_GetEntityUserDataSizeWords
+  name: GetEntityUserDataSizeWords
+  nameWithType: IGameEngine.GetEntityUserDataSizeWords
+  fullName: Netick.IGameEngine.GetEntityUserDataSizeWords
+- uid: Netick.IGameEngine.OnEntityInterestChanged*
+  commentId: Overload:Netick.IGameEngine.OnEntityInterestChanged
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityInterestChanged_Netick_Entity_System_Boolean_
+  name: OnEntityInterestChanged
+  nameWithType: IGameEngine.OnEntityInterestChanged
+  fullName: Netick.IGameEngine.OnEntityInterestChanged
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Netick.IGameEngine.OnEntitySpawned*
+  commentId: Overload:Netick.IGameEngine.OnEntitySpawned
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntitySpawned_Netick_Entity_
+  name: OnEntitySpawned
+  nameWithType: IGameEngine.OnEntitySpawned
+  fullName: Netick.IGameEngine.OnEntitySpawned
+- uid: Netick.IGameEngine.OnEntityDespawned*
+  commentId: Overload:Netick.IGameEngine.OnEntityDespawned
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityDespawned_Netick_Entity_
+  name: OnEntityDespawned
+  nameWithType: IGameEngine.OnEntityDespawned
+  fullName: Netick.IGameEngine.OnEntityDespawned
+- uid: Netick.IGameEngine.PopulateEntityMeta*
+  commentId: Overload:Netick.IGameEngine.PopulateEntityMeta
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_PopulateEntityMeta_Netick_Entity_
+  name: PopulateEntityMeta
+  nameWithType: IGameEngine.PopulateEntityMeta
+  fullName: Netick.IGameEngine.PopulateEntityMeta
+- uid: Netick.IGameEngine.OnEntityMetaChanged*
+  commentId: Overload:Netick.IGameEngine.OnEntityMetaChanged
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChanged_Netick_NetickEntityMeta_System_Byte__
+  name: OnEntityMetaChanged
+  nameWithType: IGameEngine.OnEntityMetaChanged
+  fullName: Netick.IGameEngine.OnEntityMetaChanged
+- uid: Netick.NetickEntityMeta
+  commentId: T:Netick.NetickEntityMeta
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickEntityMeta.html
+  name: NetickEntityMeta
+  nameWithType: NetickEntityMeta
+  fullName: Netick.NetickEntityMeta
+- uid: System.Byte*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte*
+  nameWithType: byte*
+  fullName: byte*
+  nameWithType.vb: Byte*
+  fullName.vb: Byte*
+  name.vb: Byte*
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+- uid: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo*
+  commentId: Overload:Netick.IGameEngine.OnEntityMetaChangedPhaseTwo
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChangedPhaseTwo_Netick_NetickEntityMeta_System_Byte__
+  name: OnEntityMetaChangedPhaseTwo
+  nameWithType: IGameEngine.OnEntityMetaChangedPhaseTwo
+  fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo
+- uid: Netick.IGameEngine.OnBeforeSend*
+  commentId: Overload:Netick.IGameEngine.OnBeforeSend
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnBeforeSend_Netick_NetworkConnection_
+  name: OnBeforeSend
+  nameWithType: IGameEngine.OnBeforeSend
+  fullName: Netick.IGameEngine.OnBeforeSend
+- uid: Netick.NetworkConnection
+  commentId: T:Netick.NetworkConnection
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkConnection.html
+  name: NetworkConnection
+  nameWithType: NetworkConnection
+  fullName: Netick.NetworkConnection
+- uid: Netick.IGameEngine.OnPacketReceived*
+  commentId: Overload:Netick.IGameEngine.OnPacketReceived
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnPacketReceived_Netick_NetworkConnection_
+  name: OnPacketReceived
+  nameWithType: IGameEngine.OnPacketReceived
+  fullName: Netick.IGameEngine.OnPacketReceived
+- uid: Netick.IGameEngine.OnInputRead*
+  commentId: Overload:Netick.IGameEngine.OnInputRead
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnInputRead
+  name: OnInputRead
+  nameWithType: IGameEngine.OnInputRead
+  fullName: Netick.IGameEngine.OnInputRead
+- uid: Netick.IGameEngine.OnNetworkUpdate*
+  commentId: Overload:Netick.IGameEngine.OnNetworkUpdate
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnNetworkUpdate
+  name: OnNetworkUpdate
+  nameWithType: IGameEngine.OnNetworkUpdate
+  fullName: Netick.IGameEngine.OnNetworkUpdate
+- uid: Netick.IGameEngine.OnNetworkRender*
+  commentId: Overload:Netick.IGameEngine.OnNetworkRender
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnNetworkRender
+  name: OnNetworkRender
+  nameWithType: IGameEngine.OnNetworkRender
+  fullName: Netick.IGameEngine.OnNetworkRender
+- uid: Netick.IGameEngine.OnNetworkFixedUpdate*
+  commentId: Overload:Netick.IGameEngine.OnNetworkFixedUpdate
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnNetworkFixedUpdate
+  name: OnNetworkFixedUpdate
+  nameWithType: IGameEngine.OnNetworkFixedUpdate
+  fullName: Netick.IGameEngine.OnNetworkFixedUpdate
+- uid: Netick.IGameEngine.OnConnectRequest*
+  commentId: Overload:Netick.IGameEngine.OnConnectRequest
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnConnectRequest_Netick_NetworkConnectionRequest_
+  name: OnConnectRequest
+  nameWithType: IGameEngine.OnConnectRequest
+  fullName: Netick.IGameEngine.OnConnectRequest
+- uid: Netick.NetworkConnectionRequest
+  commentId: T:Netick.NetworkConnectionRequest
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkConnectionRequest.html
+  name: NetworkConnectionRequest
+  nameWithType: NetworkConnectionRequest
+  fullName: Netick.NetworkConnectionRequest
+- uid: Netick.IGameEngine.OnConnectFailed*
+  commentId: Overload:Netick.IGameEngine.OnConnectFailed
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnConnectFailed_Netick_ConnectionFailedReason_
+  name: OnConnectFailed
+  nameWithType: IGameEngine.OnConnectFailed
+  fullName: Netick.IGameEngine.OnConnectFailed
+- uid: Netick.ConnectionFailedReason
+  commentId: T:Netick.ConnectionFailedReason
+  parent: Netick
+  isExternal: true
+  href: Netick.ConnectionFailedReason.html
+  name: ConnectionFailedReason
+  nameWithType: ConnectionFailedReason
+  fullName: Netick.ConnectionFailedReason
+- uid: Netick.IGameEngine.OnPeerConnected*
+  commentId: Overload:Netick.IGameEngine.OnPeerConnected
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnPeerConnected_Netick_NetworkConnection_
+  name: OnPeerConnected
+  nameWithType: IGameEngine.OnPeerConnected
+  fullName: Netick.IGameEngine.OnPeerConnected
+- uid: Netick.IGameEngine.OnPeerDisconnected*
+  commentId: Overload:Netick.IGameEngine.OnPeerDisconnected
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnPeerDisconnected_Netick_NetworkConnection_Netick_TransportDisconnectReason_
+  name: OnPeerDisconnected
+  nameWithType: IGameEngine.OnPeerDisconnected
+  fullName: Netick.IGameEngine.OnPeerDisconnected
+- uid: Netick.TransportDisconnectReason
+  commentId: T:Netick.TransportDisconnectReason
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportDisconnectReason.html
+  name: TransportDisconnectReason
+  nameWithType: TransportDisconnectReason
+  fullName: Netick.TransportDisconnectReason
+- uid: Netick.IGameEngine.OnClientConnected*
+  commentId: Overload:Netick.IGameEngine.OnClientConnected
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnClientConnected
+  name: OnClientConnected
+  nameWithType: IGameEngine.OnClientConnected
+  fullName: Netick.IGameEngine.OnClientConnected
+- uid: Netick.IGameEngine.OnClientDisconnected*
+  commentId: Overload:Netick.IGameEngine.OnClientDisconnected
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnClientDisconnected_Netick_TransportDisconnectReason_
+  name: OnClientDisconnected
+  nameWithType: IGameEngine.OnClientDisconnected
+  fullName: Netick.IGameEngine.OnClientDisconnected

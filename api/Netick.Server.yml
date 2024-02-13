@@ -1,0 +1,1020 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Server
+  commentId: T:Netick.Server
+  id: Server
+  parent: Netick
+  children:
+  - Netick.Server.InKBps
+  - Netick.Server.Kick(Netick.ServerConnection)
+  - Netick.Server.OnConnectFailed(Netick.ConnectionFailedReason)
+  - Netick.Server.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
+  - Netick.Server.OnConnected(Netick.TransportConnection)
+  - Netick.Server.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  - Netick.Server.OutKBps
+  - Netick.Server.Receive(Netick.TransportConnection,Netick.BitBuffer)
+  langs:
+  - csharp
+  - vb
+  name: Server
+  nameWithType: Server
+  fullName: Netick.Server
+  type: Class
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: 'public sealed class Server : NetworkPeer'
+    content.vb: Public NotInheritable Class Server Inherits NetworkPeer
+  inheritance:
+  - System.Object
+  - Netick.NetworkPlayer
+  - Netick.NetworkPeer
+  inheritedMembers:
+  - Netick.NetworkPeer.Transport
+  - Netick.NetworkPlayer.Engine
+  - Netick.NetworkPlayer.AddInterestGroup(System.Int32)
+  - Netick.NetworkPlayer.AddInterestGroup(Netick.InterestManagementGroup)
+  - Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds)
+  - Netick.NetworkPlayer.Position
+  - Netick.NetworkPlayer.ViewDirection
+  - Netick.NetworkPlayer.Distance
+  - Netick.NetworkPlayer.FieldOfViewAngle
+  - Netick.NetworkPlayer.PlayerId
+  - Netick.NetworkPlayer.PlayerObject
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Netick.Server.Kick(Netick.ServerConnection)
+  commentId: M:Netick.Server.Kick(Netick.ServerConnection)
+  id: Kick(Netick.ServerConnection)
+  parent: Netick.Server
+  langs:
+  - csharp
+  - vb
+  name: Kick(ServerConnection)
+  nameWithType: Server.Kick(ServerConnection)
+  fullName: Netick.Server.Kick(Netick.ServerConnection)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Kick(ServerConnection client)
+    parameters:
+    - id: client
+      type: Netick.ServerConnection
+    content.vb: Public Sub Kick(client As ServerConnection)
+  overload: Netick.Server.Kick*
+- uid: Netick.Server.OnConnectFailed(Netick.ConnectionFailedReason)
+  commentId: M:Netick.Server.OnConnectFailed(Netick.ConnectionFailedReason)
+  id: OnConnectFailed(Netick.ConnectionFailedReason)
+  parent: Netick.Server
+  langs:
+  - csharp
+  - vb
+  name: OnConnectFailed(ConnectionFailedReason)
+  nameWithType: Server.OnConnectFailed(ConnectionFailedReason)
+  fullName: Netick.Server.OnConnectFailed(Netick.ConnectionFailedReason)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override void OnConnectFailed(ConnectionFailedReason reason)
+    parameters:
+    - id: reason
+      type: Netick.ConnectionFailedReason
+    content.vb: Public Overrides Sub OnConnectFailed(reason As ConnectionFailedReason)
+  overridden: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+  overload: Netick.Server.OnConnectFailed*
+- uid: Netick.Server.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
+  commentId: M:Netick.Server.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
+  id: OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
+  parent: Netick.Server
+  langs:
+  - csharp
+  - vb
+  name: OnConnectRequest(byte[], int, IEndPoint)
+  nameWithType: Server.OnConnectRequest(byte[], int, IEndPoint)
+  fullName: Netick.Server.OnConnectRequest(byte[], int, Netick.IEndPoint)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override bool OnConnectRequest(byte[] data, int length, IEndPoint source)
+    parameters:
+    - id: data
+      type: System.Byte[]
+    - id: length
+      type: System.Int32
+    - id: source
+      type: Netick.IEndPoint
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function OnConnectRequest(data As Byte(), length As Integer, source As IEndPoint) As Boolean
+  overridden: Netick.NetworkPeer.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
+  overload: Netick.Server.OnConnectRequest*
+  nameWithType.vb: Server.OnConnectRequest(Byte(), Integer, IEndPoint)
+  fullName.vb: Netick.Server.OnConnectRequest(Byte(), Integer, Netick.IEndPoint)
+  name.vb: OnConnectRequest(Byte(), Integer, IEndPoint)
+- uid: Netick.Server.Receive(Netick.TransportConnection,Netick.BitBuffer)
+  commentId: M:Netick.Server.Receive(Netick.TransportConnection,Netick.BitBuffer)
+  id: Receive(Netick.TransportConnection,Netick.BitBuffer)
+  parent: Netick.Server
+  langs:
+  - csharp
+  - vb
+  name: Receive(TransportConnection, BitBuffer)
+  nameWithType: Server.Receive(TransportConnection, BitBuffer)
+  fullName: Netick.Server.Receive(Netick.TransportConnection, Netick.BitBuffer)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override void Receive(TransportConnection connection, BitBuffer buffer)
+    parameters:
+    - id: connection
+      type: Netick.TransportConnection
+    - id: buffer
+      type: Netick.BitBuffer
+    content.vb: Public Overrides Sub Receive(connection As TransportConnection, buffer As BitBuffer)
+  overridden: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
+  overload: Netick.Server.Receive*
+- uid: Netick.Server.OnConnected(Netick.TransportConnection)
+  commentId: M:Netick.Server.OnConnected(Netick.TransportConnection)
+  id: OnConnected(Netick.TransportConnection)
+  parent: Netick.Server
+  langs:
+  - csharp
+  - vb
+  name: OnConnected(TransportConnection)
+  nameWithType: Server.OnConnected(TransportConnection)
+  fullName: Netick.Server.OnConnected(Netick.TransportConnection)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override void OnConnected(TransportConnection peer)
+    parameters:
+    - id: peer
+      type: Netick.TransportConnection
+    content.vb: Public Overrides Sub OnConnected(peer As TransportConnection)
+  overridden: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
+  overload: Netick.Server.OnConnected*
+- uid: Netick.Server.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  commentId: M:Netick.Server.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  id: OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  parent: Netick.Server
+  langs:
+  - csharp
+  - vb
+  name: OnDisconnected(TransportConnection, TransportDisconnectReason)
+  nameWithType: Server.OnDisconnected(TransportConnection, TransportDisconnectReason)
+  fullName: Netick.Server.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override void OnDisconnected(TransportConnection peer, TransportDisconnectReason transportDisconnectReason)
+    parameters:
+    - id: peer
+      type: Netick.TransportConnection
+    - id: transportDisconnectReason
+      type: Netick.TransportDisconnectReason
+    content.vb: Public Overrides Sub OnDisconnected(peer As TransportConnection, transportDisconnectReason As TransportDisconnectReason)
+  overridden: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  overload: Netick.Server.OnDisconnected*
+- uid: Netick.Server.InKBps
+  commentId: P:Netick.Server.InKBps
+  id: InKBps
+  parent: Netick.Server
+  langs:
+  - csharp
+  - vb
+  name: InKBps
+  nameWithType: Server.InKBps
+  fullName: Netick.Server.InKBps
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override float InKBps { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Overrides ReadOnly Property InKBps As Single
+  overridden: Netick.NetworkPeer.InKBps
+  overload: Netick.Server.InKBps*
+- uid: Netick.Server.OutKBps
+  commentId: P:Netick.Server.OutKBps
+  id: OutKBps
+  parent: Netick.Server
+  langs:
+  - csharp
+  - vb
+  name: OutKBps
+  nameWithType: Server.OutKBps
+  fullName: Netick.Server.OutKBps
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override float OutKBps { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Overrides ReadOnly Property OutKBps As Single
+  overridden: Netick.NetworkPeer.OutKBps
+  overload: Netick.Server.OutKBps*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Netick.NetworkPlayer
+  commentId: T:Netick.NetworkPlayer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayer.html
+  name: NetworkPlayer
+  nameWithType: NetworkPlayer
+  fullName: Netick.NetworkPlayer
+- uid: Netick.NetworkPeer
+  commentId: T:Netick.NetworkPeer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPeer.html
+  name: NetworkPeer
+  nameWithType: NetworkPeer
+  fullName: Netick.NetworkPeer
+- uid: Netick.NetworkPeer.Transport
+  commentId: F:Netick.NetworkPeer.Transport
+  parent: Netick.NetworkPeer
+  isExternal: true
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_Transport
+  name: Transport
+  nameWithType: NetworkPeer.Transport
+  fullName: Netick.NetworkPeer.Transport
+- uid: Netick.NetworkPlayer.Engine
+  commentId: F:Netick.NetworkPlayer.Engine
+  parent: Netick.NetworkPlayer
+  isExternal: true
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_Engine
+  name: Engine
+  nameWithType: NetworkPlayer.Engine
+  fullName: Netick.NetworkPlayer.Engine
+- uid: Netick.NetworkPlayer.AddInterestGroup(System.Int32)
+  commentId: M:Netick.NetworkPlayer.AddInterestGroup(System.Int32)
+  parent: Netick.NetworkPlayer
+  isExternal: true
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_AddInterestGroup_System_Int32_
+  name: AddInterestGroup(int)
+  nameWithType: NetworkPlayer.AddInterestGroup(int)
+  fullName: Netick.NetworkPlayer.AddInterestGroup(int)
+  nameWithType.vb: NetworkPlayer.AddInterestGroup(Integer)
+  fullName.vb: Netick.NetworkPlayer.AddInterestGroup(Integer)
+  name.vb: AddInterestGroup(Integer)
+  spec.csharp:
+  - uid: Netick.NetworkPlayer.AddInterestGroup(System.Int32)
+    name: AddInterestGroup
+    isExternal: true
+    href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_AddInterestGroup_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkPlayer.AddInterestGroup(System.Int32)
+    name: AddInterestGroup
+    isExternal: true
+    href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_AddInterestGroup_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Netick.NetworkPlayer.AddInterestGroup(Netick.InterestManagementGroup)
+  commentId: M:Netick.NetworkPlayer.AddInterestGroup(Netick.InterestManagementGroup)
+  parent: Netick.NetworkPlayer
+  isExternal: true
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_AddInterestGroup_Netick_InterestManagementGroup_
+  name: AddInterestGroup(InterestManagementGroup)
+  nameWithType: NetworkPlayer.AddInterestGroup(InterestManagementGroup)
+  fullName: Netick.NetworkPlayer.AddInterestGroup(Netick.InterestManagementGroup)
+  spec.csharp:
+  - uid: Netick.NetworkPlayer.AddInterestGroup(Netick.InterestManagementGroup)
+    name: AddInterestGroup
+    isExternal: true
+    href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_AddInterestGroup_Netick_InterestManagementGroup_
+  - name: (
+  - uid: Netick.InterestManagementGroup
+    name: InterestManagementGroup
+    isExternal: true
+    href: Netick.InterestManagementGroup.html
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkPlayer.AddInterestGroup(Netick.InterestManagementGroup)
+    name: AddInterestGroup
+    isExternal: true
+    href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_AddInterestGroup_Netick_InterestManagementGroup_
+  - name: (
+  - uid: Netick.InterestManagementGroup
+    name: InterestManagementGroup
+    isExternal: true
+    href: Netick.InterestManagementGroup.html
+  - name: )
+- uid: Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds)
+  commentId: M:Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds)
+  parent: Netick.NetworkPlayer
+  isExternal: true
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_AddInterestBoxArea_Netick_NetickBounds_
+  name: AddInterestBoxArea(NetickBounds)
+  nameWithType: NetworkPlayer.AddInterestBoxArea(NetickBounds)
+  fullName: Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds)
+  spec.csharp:
+  - uid: Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds)
+    name: AddInterestBoxArea
+    isExternal: true
+    href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_AddInterestBoxArea_Netick_NetickBounds_
+  - name: (
+  - uid: Netick.NetickBounds
+    name: NetickBounds
+    isExternal: true
+    href: Netick.NetickBounds.html
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds)
+    name: AddInterestBoxArea
+    isExternal: true
+    href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_AddInterestBoxArea_Netick_NetickBounds_
+  - name: (
+  - uid: Netick.NetickBounds
+    name: NetickBounds
+    isExternal: true
+    href: Netick.NetickBounds.html
+  - name: )
+- uid: Netick.NetworkPlayer.Position
+  commentId: P:Netick.NetworkPlayer.Position
+  parent: Netick.NetworkPlayer
+  isExternal: true
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_Position
+  name: Position
+  nameWithType: NetworkPlayer.Position
+  fullName: Netick.NetworkPlayer.Position
+- uid: Netick.NetworkPlayer.ViewDirection
+  commentId: P:Netick.NetworkPlayer.ViewDirection
+  parent: Netick.NetworkPlayer
+  isExternal: true
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_ViewDirection
+  name: ViewDirection
+  nameWithType: NetworkPlayer.ViewDirection
+  fullName: Netick.NetworkPlayer.ViewDirection
+- uid: Netick.NetworkPlayer.Distance
+  commentId: P:Netick.NetworkPlayer.Distance
+  parent: Netick.NetworkPlayer
+  isExternal: true
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_Distance
+  name: Distance
+  nameWithType: NetworkPlayer.Distance
+  fullName: Netick.NetworkPlayer.Distance
+- uid: Netick.NetworkPlayer.FieldOfViewAngle
+  commentId: P:Netick.NetworkPlayer.FieldOfViewAngle
+  parent: Netick.NetworkPlayer
+  isExternal: true
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_FieldOfViewAngle
+  name: FieldOfViewAngle
+  nameWithType: NetworkPlayer.FieldOfViewAngle
+  fullName: Netick.NetworkPlayer.FieldOfViewAngle
+- uid: Netick.NetworkPlayer.PlayerId
+  commentId: P:Netick.NetworkPlayer.PlayerId
+  parent: Netick.NetworkPlayer
+  isExternal: true
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_PlayerId
+  name: PlayerId
+  nameWithType: NetworkPlayer.PlayerId
+  fullName: Netick.NetworkPlayer.PlayerId
+- uid: Netick.NetworkPlayer.PlayerObject
+  commentId: P:Netick.NetworkPlayer.PlayerObject
+  parent: Netick.NetworkPlayer
+  isExternal: true
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_PlayerObject
+  name: PlayerObject
+  nameWithType: NetworkPlayer.PlayerObject
+  fullName: Netick.NetworkPlayer.PlayerObject
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.Server.Kick*
+  commentId: Overload:Netick.Server.Kick
+  isExternal: true
+  href: Netick.Server.html#Netick_Server_Kick_Netick_ServerConnection_
+  name: Kick
+  nameWithType: Server.Kick
+  fullName: Netick.Server.Kick
+- uid: Netick.ServerConnection
+  commentId: T:Netick.ServerConnection
+  parent: Netick
+  isExternal: true
+  href: Netick.ServerConnection.html
+  name: ServerConnection
+  nameWithType: ServerConnection
+  fullName: Netick.ServerConnection
+- uid: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+  commentId: M:Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+  parent: Netick.NetworkPeer
+  isExternal: true
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_
+  name: OnConnectFailed(ConnectionFailedReason)
+  nameWithType: NetworkPeer.OnConnectFailed(ConnectionFailedReason)
+  fullName: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+  spec.csharp:
+  - uid: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+    name: OnConnectFailed
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_
+  - name: (
+  - uid: Netick.ConnectionFailedReason
+    name: ConnectionFailedReason
+    isExternal: true
+    href: Netick.ConnectionFailedReason.html
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+    name: OnConnectFailed
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_
+  - name: (
+  - uid: Netick.ConnectionFailedReason
+    name: ConnectionFailedReason
+    isExternal: true
+    href: Netick.ConnectionFailedReason.html
+  - name: )
+- uid: Netick.Server.OnConnectFailed*
+  commentId: Overload:Netick.Server.OnConnectFailed
+  isExternal: true
+  href: Netick.Server.html#Netick_Server_OnConnectFailed_Netick_ConnectionFailedReason_
+  name: OnConnectFailed
+  nameWithType: Server.OnConnectFailed
+  fullName: Netick.Server.OnConnectFailed
+- uid: Netick.ConnectionFailedReason
+  commentId: T:Netick.ConnectionFailedReason
+  parent: Netick
+  isExternal: true
+  href: Netick.ConnectionFailedReason.html
+  name: ConnectionFailedReason
+  nameWithType: ConnectionFailedReason
+  fullName: Netick.ConnectionFailedReason
+- uid: Netick.NetworkPeer.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
+  commentId: M:Netick.NetworkPeer.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
+  parent: Netick.NetworkPeer
+  isExternal: true
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectRequest_System_Byte___System_Int32_Netick_IEndPoint_
+  name: OnConnectRequest(byte[], int, IEndPoint)
+  nameWithType: NetworkPeer.OnConnectRequest(byte[], int, IEndPoint)
+  fullName: Netick.NetworkPeer.OnConnectRequest(byte[], int, Netick.IEndPoint)
+  nameWithType.vb: NetworkPeer.OnConnectRequest(Byte(), Integer, IEndPoint)
+  fullName.vb: Netick.NetworkPeer.OnConnectRequest(Byte(), Integer, Netick.IEndPoint)
+  name.vb: OnConnectRequest(Byte(), Integer, IEndPoint)
+  spec.csharp:
+  - uid: Netick.NetworkPeer.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
+    name: OnConnectRequest
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectRequest_System_Byte___System_Int32_Netick_IEndPoint_
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.IEndPoint
+    name: IEndPoint
+    isExternal: true
+    href: Netick.IEndPoint.html
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkPeer.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
+    name: OnConnectRequest
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectRequest_System_Byte___System_Int32_Netick_IEndPoint_
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.IEndPoint
+    name: IEndPoint
+    isExternal: true
+    href: Netick.IEndPoint.html
+  - name: )
+- uid: Netick.Server.OnConnectRequest*
+  commentId: Overload:Netick.Server.OnConnectRequest
+  isExternal: true
+  href: Netick.Server.html#Netick_Server_OnConnectRequest_System_Byte___System_Int32_Netick_IEndPoint_
+  name: OnConnectRequest
+  nameWithType: Server.OnConnectRequest
+  fullName: Netick.Server.OnConnectRequest
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.IEndPoint
+  commentId: T:Netick.IEndPoint
+  parent: Netick
+  isExternal: true
+  href: Netick.IEndPoint.html
+  name: IEndPoint
+  nameWithType: IEndPoint
+  fullName: Netick.IEndPoint
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
+  commentId: M:Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
+  parent: Netick.NetworkPeer
+  isExternal: true
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_
+  name: Receive(TransportConnection, BitBuffer)
+  nameWithType: NetworkPeer.Receive(TransportConnection, BitBuffer)
+  fullName: Netick.NetworkPeer.Receive(Netick.TransportConnection, Netick.BitBuffer)
+  spec.csharp:
+  - uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
+    name: Receive
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_
+  - name: (
+  - uid: Netick.TransportConnection
+    name: TransportConnection
+    isExternal: true
+    href: Netick.TransportConnection.html
+  - name: ','
+  - name: " "
+  - uid: Netick.BitBuffer
+    name: BitBuffer
+    isExternal: true
+    href: Netick.BitBuffer.html
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
+    name: Receive
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_
+  - name: (
+  - uid: Netick.TransportConnection
+    name: TransportConnection
+    isExternal: true
+    href: Netick.TransportConnection.html
+  - name: ','
+  - name: " "
+  - uid: Netick.BitBuffer
+    name: BitBuffer
+    isExternal: true
+    href: Netick.BitBuffer.html
+  - name: )
+- uid: Netick.Server.Receive*
+  commentId: Overload:Netick.Server.Receive
+  isExternal: true
+  href: Netick.Server.html#Netick_Server_Receive_Netick_TransportConnection_Netick_BitBuffer_
+  name: Receive
+  nameWithType: Server.Receive
+  fullName: Netick.Server.Receive
+- uid: Netick.TransportConnection
+  commentId: T:Netick.TransportConnection
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportConnection.html
+  name: TransportConnection
+  nameWithType: TransportConnection
+  fullName: Netick.TransportConnection
+- uid: Netick.BitBuffer
+  commentId: T:Netick.BitBuffer
+  parent: Netick
+  isExternal: true
+  href: Netick.BitBuffer.html
+  name: BitBuffer
+  nameWithType: BitBuffer
+  fullName: Netick.BitBuffer
+- uid: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
+  commentId: M:Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
+  parent: Netick.NetworkPeer
+  isExternal: true
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnected_Netick_TransportConnection_
+  name: OnConnected(TransportConnection)
+  nameWithType: NetworkPeer.OnConnected(TransportConnection)
+  fullName: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
+  spec.csharp:
+  - uid: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
+    name: OnConnected
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnected_Netick_TransportConnection_
+  - name: (
+  - uid: Netick.TransportConnection
+    name: TransportConnection
+    isExternal: true
+    href: Netick.TransportConnection.html
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
+    name: OnConnected
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnected_Netick_TransportConnection_
+  - name: (
+  - uid: Netick.TransportConnection
+    name: TransportConnection
+    isExternal: true
+    href: Netick.TransportConnection.html
+  - name: )
+- uid: Netick.Server.OnConnected*
+  commentId: Overload:Netick.Server.OnConnected
+  isExternal: true
+  href: Netick.Server.html#Netick_Server_OnConnected_Netick_TransportConnection_
+  name: OnConnected
+  nameWithType: Server.OnConnected
+  fullName: Netick.Server.OnConnected
+- uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  commentId: M:Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  parent: Netick.NetworkPeer
+  isExternal: true
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+  name: OnDisconnected(TransportConnection, TransportDisconnectReason)
+  nameWithType: NetworkPeer.OnDisconnected(TransportConnection, TransportDisconnectReason)
+  fullName: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason)
+  spec.csharp:
+  - uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+    name: OnDisconnected
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+  - name: (
+  - uid: Netick.TransportConnection
+    name: TransportConnection
+    isExternal: true
+    href: Netick.TransportConnection.html
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDisconnectReason
+    name: TransportDisconnectReason
+    isExternal: true
+    href: Netick.TransportDisconnectReason.html
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+    name: OnDisconnected
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+  - name: (
+  - uid: Netick.TransportConnection
+    name: TransportConnection
+    isExternal: true
+    href: Netick.TransportConnection.html
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDisconnectReason
+    name: TransportDisconnectReason
+    isExternal: true
+    href: Netick.TransportDisconnectReason.html
+  - name: )
+- uid: Netick.Server.OnDisconnected*
+  commentId: Overload:Netick.Server.OnDisconnected
+  isExternal: true
+  href: Netick.Server.html#Netick_Server_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+  name: OnDisconnected
+  nameWithType: Server.OnDisconnected
+  fullName: Netick.Server.OnDisconnected
+- uid: Netick.TransportDisconnectReason
+  commentId: T:Netick.TransportDisconnectReason
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportDisconnectReason.html
+  name: TransportDisconnectReason
+  nameWithType: TransportDisconnectReason
+  fullName: Netick.TransportDisconnectReason
+- uid: Netick.NetworkPeer.InKBps
+  commentId: P:Netick.NetworkPeer.InKBps
+  parent: Netick.NetworkPeer
+  isExternal: true
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_InKBps
+  name: InKBps
+  nameWithType: NetworkPeer.InKBps
+  fullName: Netick.NetworkPeer.InKBps
+- uid: Netick.Server.InKBps*
+  commentId: Overload:Netick.Server.InKBps
+  isExternal: true
+  href: Netick.Server.html#Netick_Server_InKBps
+  name: InKBps
+  nameWithType: Server.InKBps
+  fullName: Netick.Server.InKBps
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Netick.NetworkPeer.OutKBps
+  commentId: P:Netick.NetworkPeer.OutKBps
+  parent: Netick.NetworkPeer
+  isExternal: true
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OutKBps
+  name: OutKBps
+  nameWithType: NetworkPeer.OutKBps
+  fullName: Netick.NetworkPeer.OutKBps
+- uid: Netick.Server.OutKBps*
+  commentId: Overload:Netick.Server.OutKBps
+  isExternal: true
+  href: Netick.Server.html#Netick_Server_OutKBps
+  name: OutKBps
+  nameWithType: Server.OutKBps
+  fullName: Netick.Server.OutKBps

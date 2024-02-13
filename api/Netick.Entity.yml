@@ -1,0 +1,1582 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  id: Entity
+  parent: Netick
+  children:
+  - Netick.Entity.AdaptiveRemoteInterpolation
+  - Netick.Entity.BehsHash
+  - Netick.Entity.Dirtify(System.Int32*,System.Int32)
+  - Netick.Entity.Dirtify(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  - Netick.Entity.Engine
+  - Netick.Entity.Finalize
+  - Netick.Entity.GameEngineIntoNetcode
+  - Netick.Entity.GetStateSizeWords(Netick.INetickNetworkScript[])
+  - Netick.Entity.GridDirtify(System.Int32*,Netick.Entity,System.Int32)
+  - Netick.Entity.InputSource
+  - Netick.Entity.InputSourceIndex
+  - Netick.Entity.InterestGroup
+  - Netick.Entity.InternalDirtify(Netick.INetickNetworkScript,System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  - Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
+  - Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
+  - Netick.Entity.IsExplicitlyPredicted
+  - Netick.Entity.IsInputSource
+  - Netick.Entity.IsOwner
+  - Netick.Entity.IsPredicted
+  - Netick.Entity.IsProxy
+  - Netick.Entity.IsResimulating
+  - Netick.Entity.Move(System.Numerics.Vector3)
+  - Netick.Entity.NetcodeIntoGameEngine
+  - Netick.Entity.NetworkAwake
+  - Netick.Entity.NetworkId
+  - Netick.Entity.ObjectMeta
+  - Netick.Entity.OnBecameInterested
+  - Netick.Entity.OnBecameSimulated
+  - Netick.Entity.OnBecameUninterested
+  - Netick.Entity.OnBecameUnsimulated
+  - Netick.Entity.OnInputSourceChanged(Netick.NetworkPlayer)
+  - Netick.Entity.PoolIndex
+  - Netick.Entity.Position
+  - Netick.Entity.S
+  - Netick.Entity.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
+  - Netick.Entity.StateOffsetBytes
+  - Netick.Entity.StatePtr
+  - Netick.Entity.StateSizeWord
+  - Netick.Entity.UserData
+  - Netick.Entity.UserEntity
+  langs:
+  - csharp
+  - vb
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
+  type: Class
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: >-
+      [IgnoreCodeGen]
+
+      public sealed class Entity
+    content.vb: >-
+      <IgnoreCodeGen>
+
+      Public NotInheritable Class Entity
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: Netick.IgnoreCodeGen
+    ctor: Netick.IgnoreCodeGen.#ctor
+    arguments: []
+- uid: Netick.Entity.UserData
+  commentId: F:Netick.Entity.UserData
+  id: UserData
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: UserData
+  nameWithType: Entity.UserData
+  fullName: Netick.Entity.UserData
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int* UserData
+    return:
+      type: System.Int32*
+    content.vb: Public UserData As Integer*
+- uid: Netick.Entity.Engine
+  commentId: F:Netick.Entity.Engine
+  id: Engine
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: Engine
+  nameWithType: Entity.Engine
+  fullName: Netick.Entity.Engine
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetickEngine Engine
+    return:
+      type: Netick.NetickEngine
+    content.vb: Public Engine As NetickEngine
+- uid: Netick.Entity.UserEntity
+  commentId: F:Netick.Entity.UserEntity
+  id: UserEntity
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: UserEntity
+  nameWithType: Entity.UserEntity
+  fullName: Netick.Entity.UserEntity
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public INetickEntity UserEntity
+    return:
+      type: Netick.INetickEntity
+    content.vb: Public UserEntity As INetickEntity
+- uid: Netick.Entity.Position
+  commentId: F:Netick.Entity.Position
+  id: Position
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: Entity.Position
+  fullName: Netick.Entity.Position
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Vector3 Position
+    return:
+      type: System.Numerics.Vector3
+    content.vb: Public Position As Vector3
+- uid: Netick.Entity.ObjectMeta
+  commentId: F:Netick.Entity.ObjectMeta
+  id: ObjectMeta
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: ObjectMeta
+  nameWithType: Entity.ObjectMeta
+  fullName: Netick.Entity.ObjectMeta
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetickUniqueObjectMeta ObjectMeta
+    return:
+      type: Netick.NetickUniqueObjectMeta
+    content.vb: Public ObjectMeta As NetickUniqueObjectMeta
+- uid: Netick.Entity.BehsHash
+  commentId: F:Netick.Entity.BehsHash
+  id: BehsHash
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: BehsHash
+  nameWithType: Entity.BehsHash
+  fullName: Netick.Entity.BehsHash
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int BehsHash
+    return:
+      type: System.Int32
+    content.vb: Public BehsHash As Integer
+- uid: Netick.Entity.AdaptiveRemoteInterpolation
+  commentId: F:Netick.Entity.AdaptiveRemoteInterpolation
+  id: AdaptiveRemoteInterpolation
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: AdaptiveRemoteInterpolation
+  nameWithType: Entity.AdaptiveRemoteInterpolation
+  fullName: Netick.Entity.AdaptiveRemoteInterpolation
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public AdaptiveRemoteInterpolation AdaptiveRemoteInterpolation
+    return:
+      type: Netick.AdaptiveRemoteInterpolation
+    content.vb: Public AdaptiveRemoteInterpolation As AdaptiveRemoteInterpolation
+- uid: Netick.Entity.NetworkId
+  commentId: F:Netick.Entity.NetworkId
+  id: NetworkId
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: NetworkId
+  nameWithType: Entity.NetworkId
+  fullName: Netick.Entity.NetworkId
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int NetworkId
+    return:
+      type: System.Int32
+    content.vb: Public NetworkId As Integer
+- uid: Netick.Entity.StatePtr
+  commentId: F:Netick.Entity.StatePtr
+  id: StatePtr
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: StatePtr
+  nameWithType: Entity.StatePtr
+  fullName: Netick.Entity.StatePtr
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void* StatePtr
+    return:
+      type: System.Void*
+    content.vb: Public StatePtr As Void*
+- uid: Netick.Entity.StateSizeWord
+  commentId: F:Netick.Entity.StateSizeWord
+  id: StateSizeWord
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: StateSizeWord
+  nameWithType: Entity.StateSizeWord
+  fullName: Netick.Entity.StateSizeWord
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public long StateSizeWord
+    return:
+      type: System.Int64
+    content.vb: Public StateSizeWord As Long
+- uid: Netick.Entity.StateOffsetBytes
+  commentId: F:Netick.Entity.StateOffsetBytes
+  id: StateOffsetBytes
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: StateOffsetBytes
+  nameWithType: Entity.StateOffsetBytes
+  fullName: Netick.Entity.StateOffsetBytes
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public long StateOffsetBytes
+    return:
+      type: System.Int64
+    content.vb: Public StateOffsetBytes As Long
+- uid: Netick.Entity.PoolIndex
+  commentId: F:Netick.Entity.PoolIndex
+  id: PoolIndex
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: PoolIndex
+  nameWithType: Entity.PoolIndex
+  fullName: Netick.Entity.PoolIndex
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int PoolIndex
+    return:
+      type: System.Int32
+    content.vb: Public PoolIndex As Integer
+- uid: Netick.Entity.S
+  commentId: F:Netick.Entity.S
+  id: S
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: S
+  nameWithType: Entity.S
+  fullName: Netick.Entity.S
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int* S
+    return:
+      type: System.Int32*
+    content.vb: Public S As Integer*
+- uid: Netick.Entity.InternalDirtify(Netick.INetickNetworkScript,System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  commentId: M:Netick.Entity.InternalDirtify(Netick.INetickNetworkScript,System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  id: InternalDirtify(Netick.INetickNetworkScript,System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: InternalDirtify(INetickNetworkScript, int*, int*, int, int, int)
+  nameWithType: Entity.InternalDirtify(INetickNetworkScript, int*, int*, int, int, int)
+  fullName: Netick.Entity.InternalDirtify(Netick.INetickNetworkScript, int*, int*, int, int, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static void InternalDirtify(INetickNetworkScript script, int* data, int* p, int sizeInWords, int hasOnChanged, int isInputSourceOnly = 0)
+    parameters:
+    - id: script
+      type: Netick.INetickNetworkScript
+    - id: data
+      type: System.Int32*
+    - id: p
+      type: System.Int32*
+    - id: sizeInWords
+      type: System.Int32
+    - id: hasOnChanged
+      type: System.Int32
+    - id: isInputSourceOnly
+      type: System.Int32
+    content.vb: Public Shared Sub InternalDirtify(script As INetickNetworkScript, data As Integer*, p As Integer*, sizeInWords As Integer, hasOnChanged As Integer, isInputSourceOnly As Integer = 0)
+  overload: Netick.Entity.InternalDirtify*
+  nameWithType.vb: Entity.InternalDirtify(INetickNetworkScript, Integer*, Integer*, Integer, Integer, Integer)
+  fullName.vb: Netick.Entity.InternalDirtify(Netick.INetickNetworkScript, Integer*, Integer*, Integer, Integer, Integer)
+  name.vb: InternalDirtify(INetickNetworkScript, Integer*, Integer*, Integer, Integer, Integer)
+- uid: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
+  commentId: M:Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
+  id: InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: InternalRegOnChanged(INetickNetworkScript, int, int*, int*, int, OnChangedEvent)
+  nameWithType: Entity.InternalRegOnChanged(INetickNetworkScript, int, int*, int*, int, OnChangedEvent)
+  fullName: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript, int, int*, int*, int, Netick.OnChangedEvent)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static void InternalRegOnChanged(INetickNetworkScript script, int isArray, int* propertyStart, int* propertyPartIndex, int propertySizeWords, OnChangedEvent onChanged)
+    parameters:
+    - id: script
+      type: Netick.INetickNetworkScript
+    - id: isArray
+      type: System.Int32
+    - id: propertyStart
+      type: System.Int32*
+    - id: propertyPartIndex
+      type: System.Int32*
+    - id: propertySizeWords
+      type: System.Int32
+    - id: onChanged
+      type: Netick.OnChangedEvent
+    content.vb: Public Shared Sub InternalRegOnChanged(script As INetickNetworkScript, isArray As Integer, propertyStart As Integer*, propertyPartIndex As Integer*, propertySizeWords As Integer, onChanged As OnChangedEvent)
+  overload: Netick.Entity.InternalRegOnChanged*
+  nameWithType.vb: Entity.InternalRegOnChanged(INetickNetworkScript, Integer, Integer*, Integer*, Integer, OnChangedEvent)
+  fullName.vb: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript, Integer, Integer*, Integer*, Integer, Netick.OnChangedEvent)
+  name.vb: InternalRegOnChanged(INetickNetworkScript, Integer, Integer*, Integer*, Integer, OnChangedEvent)
+- uid: Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
+  commentId: M:Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
+  id: InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: InternalRegSmooth(INetickNetworkScript, string, int, float, int)
+  nameWithType: Entity.InternalRegSmooth(INetickNetworkScript, string, int, float, int)
+  fullName: Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript, string, int, float, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static void InternalRegSmooth(INetickNetworkScript script, string propertyName, int offsetInWords, float precision, int vectorFloatFieldsCount)
+    parameters:
+    - id: script
+      type: Netick.INetickNetworkScript
+    - id: propertyName
+      type: System.String
+    - id: offsetInWords
+      type: System.Int32
+    - id: precision
+      type: System.Single
+    - id: vectorFloatFieldsCount
+      type: System.Int32
+    content.vb: Public Shared Sub InternalRegSmooth(script As INetickNetworkScript, propertyName As String, offsetInWords As Integer, precision As Single, vectorFloatFieldsCount As Integer)
+  overload: Netick.Entity.InternalRegSmooth*
+  nameWithType.vb: Entity.InternalRegSmooth(INetickNetworkScript, String, Integer, Single, Integer)
+  fullName.vb: Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript, String, Integer, Single, Integer)
+  name.vb: InternalRegSmooth(INetickNetworkScript, String, Integer, Single, Integer)
+- uid: Netick.Entity.GetStateSizeWords(Netick.INetickNetworkScript[])
+  commentId: M:Netick.Entity.GetStateSizeWords(Netick.INetickNetworkScript[])
+  id: GetStateSizeWords(Netick.INetickNetworkScript[])
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: GetStateSizeWords(INetickNetworkScript[])
+  nameWithType: Entity.GetStateSizeWords(INetickNetworkScript[])
+  fullName: Netick.Entity.GetStateSizeWords(Netick.INetickNetworkScript[])
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static int GetStateSizeWords(INetickNetworkScript[] scripts)
+    parameters:
+    - id: scripts
+      type: Netick.INetickNetworkScript[]
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function GetStateSizeWords(scripts As INetickNetworkScript()) As Integer
+  overload: Netick.Entity.GetStateSizeWords*
+  nameWithType.vb: Entity.GetStateSizeWords(INetickNetworkScript())
+  fullName.vb: Netick.Entity.GetStateSizeWords(Netick.INetickNetworkScript())
+  name.vb: GetStateSizeWords(INetickNetworkScript())
+- uid: Netick.Entity.NetworkAwake
+  commentId: M:Netick.Entity.NetworkAwake
+  id: NetworkAwake
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: NetworkAwake()
+  nameWithType: Entity.NetworkAwake()
+  fullName: Netick.Entity.NetworkAwake()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void NetworkAwake()
+    content.vb: Public Sub NetworkAwake()
+  overload: Netick.Entity.NetworkAwake*
+- uid: Netick.Entity.GameEngineIntoNetcode
+  commentId: M:Netick.Entity.GameEngineIntoNetcode
+  id: GameEngineIntoNetcode
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: GameEngineIntoNetcode()
+  nameWithType: Entity.GameEngineIntoNetcode()
+  fullName: Netick.Entity.GameEngineIntoNetcode()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void GameEngineIntoNetcode()
+    content.vb: Public Sub GameEngineIntoNetcode()
+  overload: Netick.Entity.GameEngineIntoNetcode*
+- uid: Netick.Entity.NetcodeIntoGameEngine
+  commentId: M:Netick.Entity.NetcodeIntoGameEngine
+  id: NetcodeIntoGameEngine
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: NetcodeIntoGameEngine()
+  nameWithType: Entity.NetcodeIntoGameEngine()
+  fullName: Netick.Entity.NetcodeIntoGameEngine()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void NetcodeIntoGameEngine()
+    content.vb: Public Sub NetcodeIntoGameEngine()
+  overload: Netick.Entity.NetcodeIntoGameEngine*
+- uid: Netick.Entity.OnInputSourceChanged(Netick.NetworkPlayer)
+  commentId: M:Netick.Entity.OnInputSourceChanged(Netick.NetworkPlayer)
+  id: OnInputSourceChanged(Netick.NetworkPlayer)
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: OnInputSourceChanged(NetworkPlayer)
+  nameWithType: Entity.OnInputSourceChanged(NetworkPlayer)
+  fullName: Netick.Entity.OnInputSourceChanged(Netick.NetworkPlayer)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void OnInputSourceChanged(NetworkPlayer previous)
+    parameters:
+    - id: previous
+      type: Netick.NetworkPlayer
+    content.vb: Public Sub OnInputSourceChanged(previous As NetworkPlayer)
+  overload: Netick.Entity.OnInputSourceChanged*
+- uid: Netick.Entity.OnBecameInterested
+  commentId: M:Netick.Entity.OnBecameInterested
+  id: OnBecameInterested
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: OnBecameInterested()
+  nameWithType: Entity.OnBecameInterested()
+  fullName: Netick.Entity.OnBecameInterested()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void OnBecameInterested()
+    content.vb: Public Sub OnBecameInterested()
+  overload: Netick.Entity.OnBecameInterested*
+- uid: Netick.Entity.OnBecameUninterested
+  commentId: M:Netick.Entity.OnBecameUninterested
+  id: OnBecameUninterested
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: OnBecameUninterested()
+  nameWithType: Entity.OnBecameUninterested()
+  fullName: Netick.Entity.OnBecameUninterested()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void OnBecameUninterested()
+    content.vb: Public Sub OnBecameUninterested()
+  overload: Netick.Entity.OnBecameUninterested*
+- uid: Netick.Entity.OnBecameSimulated
+  commentId: M:Netick.Entity.OnBecameSimulated
+  id: OnBecameSimulated
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: OnBecameSimulated()
+  nameWithType: Entity.OnBecameSimulated()
+  fullName: Netick.Entity.OnBecameSimulated()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void OnBecameSimulated()
+    content.vb: Public Sub OnBecameSimulated()
+  overload: Netick.Entity.OnBecameSimulated*
+- uid: Netick.Entity.OnBecameUnsimulated
+  commentId: M:Netick.Entity.OnBecameUnsimulated
+  id: OnBecameUnsimulated
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: OnBecameUnsimulated()
+  nameWithType: Entity.OnBecameUnsimulated()
+  fullName: Netick.Entity.OnBecameUnsimulated()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void OnBecameUnsimulated()
+    content.vb: Public Sub OnBecameUnsimulated()
+  overload: Netick.Entity.OnBecameUnsimulated*
+- uid: Netick.Entity.Move(System.Numerics.Vector3)
+  commentId: M:Netick.Entity.Move(System.Numerics.Vector3)
+  id: Move(System.Numerics.Vector3)
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: Move(Vector3)
+  nameWithType: Entity.Move(Vector3)
+  fullName: Netick.Entity.Move(System.Numerics.Vector3)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Move(Vector3 newPos)
+    parameters:
+    - id: newPos
+      type: System.Numerics.Vector3
+    content.vb: Public Sub Move(newPos As Vector3)
+  overload: Netick.Entity.Move*
+- uid: Netick.Entity.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
+  commentId: M:Netick.Entity.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
+  id: SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: SetNarrowphaseInterest(NetworkPlayer, bool)
+  nameWithType: Entity.SetNarrowphaseInterest(NetworkPlayer, bool)
+  fullName: Netick.Entity.SetNarrowphaseInterest(Netick.NetworkPlayer, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void SetNarrowphaseInterest(NetworkPlayer player, bool isInterested)
+    parameters:
+    - id: player
+      type: Netick.NetworkPlayer
+    - id: isInterested
+      type: System.Boolean
+    content.vb: Public Sub SetNarrowphaseInterest(player As NetworkPlayer, isInterested As Boolean)
+  overload: Netick.Entity.SetNarrowphaseInterest*
+  nameWithType.vb: Entity.SetNarrowphaseInterest(NetworkPlayer, Boolean)
+  fullName.vb: Netick.Entity.SetNarrowphaseInterest(Netick.NetworkPlayer, Boolean)
+  name.vb: SetNarrowphaseInterest(NetworkPlayer, Boolean)
+- uid: Netick.Entity.Finalize
+  commentId: M:Netick.Entity.Finalize
+  id: Finalize
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: ~Entity()
+  nameWithType: Entity.~Entity()
+  fullName: Netick.Entity.~Entity()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: protected ~Entity()
+    content.vb: 'Protected '
+  overload: Netick.Entity.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: Netick.Entity.Dirtify(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  commentId: M:Netick.Entity.Dirtify(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  id: Dirtify(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: Dirtify(int*, int*, int, int, int)
+  nameWithType: Entity.Dirtify(int*, int*, int, int, int)
+  fullName: Netick.Entity.Dirtify(int*, int*, int, int, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Dirtify(int* newValue, int* p, int size, int hasOnChanged, int isInputSourceOnly)
+    parameters:
+    - id: newValue
+      type: System.Int32*
+    - id: p
+      type: System.Int32*
+    - id: size
+      type: System.Int32
+    - id: hasOnChanged
+      type: System.Int32
+    - id: isInputSourceOnly
+      type: System.Int32
+    content.vb: Public Sub Dirtify(newValue As Integer*, p As Integer*, size As Integer, hasOnChanged As Integer, isInputSourceOnly As Integer)
+  overload: Netick.Entity.Dirtify*
+  nameWithType.vb: Entity.Dirtify(Integer*, Integer*, Integer, Integer, Integer)
+  fullName.vb: Netick.Entity.Dirtify(Integer*, Integer*, Integer, Integer, Integer)
+  name.vb: Dirtify(Integer*, Integer*, Integer, Integer, Integer)
+- uid: Netick.Entity.Dirtify(System.Int32*,System.Int32)
+  commentId: M:Netick.Entity.Dirtify(System.Int32*,System.Int32)
+  id: Dirtify(System.Int32*,System.Int32)
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: Dirtify(int*, int)
+  nameWithType: Entity.Dirtify(int*, int)
+  fullName: Netick.Entity.Dirtify(int*, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool Dirtify(int* p, int isInputSourceOnly = 0)
+    parameters:
+    - id: p
+      type: System.Int32*
+    - id: isInputSourceOnly
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function Dirtify(p As Integer*, isInputSourceOnly As Integer = 0) As Boolean
+  overload: Netick.Entity.Dirtify*
+  nameWithType.vb: Entity.Dirtify(Integer*, Integer)
+  fullName.vb: Netick.Entity.Dirtify(Integer*, Integer)
+  name.vb: Dirtify(Integer*, Integer)
+- uid: Netick.Entity.GridDirtify(System.Int32*,Netick.Entity,System.Int32)
+  commentId: M:Netick.Entity.GridDirtify(System.Int32*,Netick.Entity,System.Int32)
+  id: GridDirtify(System.Int32*,Netick.Entity,System.Int32)
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: GridDirtify(int*, Entity, int)
+  nameWithType: Entity.GridDirtify(int*, Entity, int)
+  fullName: Netick.Entity.GridDirtify(int*, Netick.Entity, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool GridDirtify(int* p, Entity entity, int isInputSourceOnly = 0)
+    parameters:
+    - id: p
+      type: System.Int32*
+    - id: entity
+      type: Netick.Entity
+    - id: isInputSourceOnly
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function GridDirtify(p As Integer*, entity As Entity, isInputSourceOnly As Integer = 0) As Boolean
+  overload: Netick.Entity.GridDirtify*
+  nameWithType.vb: Entity.GridDirtify(Integer*, Entity, Integer)
+  fullName.vb: Netick.Entity.GridDirtify(Integer*, Netick.Entity, Integer)
+  name.vb: GridDirtify(Integer*, Entity, Integer)
+- uid: Netick.Entity.IsInputSource
+  commentId: P:Netick.Entity.IsInputSource
+  id: IsInputSource
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: IsInputSource
+  nameWithType: Entity.IsInputSource
+  fullName: Netick.Entity.IsInputSource
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsInputSource { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInputSource As Boolean
+  overload: Netick.Entity.IsInputSource*
+- uid: Netick.Entity.IsProxy
+  commentId: P:Netick.Entity.IsProxy
+  id: IsProxy
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: IsProxy
+  nameWithType: Entity.IsProxy
+  fullName: Netick.Entity.IsProxy
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsProxy { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsProxy As Boolean
+  overload: Netick.Entity.IsProxy*
+- uid: Netick.Entity.IsOwner
+  commentId: P:Netick.Entity.IsOwner
+  id: IsOwner
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: IsOwner
+  nameWithType: Entity.IsOwner
+  fullName: Netick.Entity.IsOwner
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsOwner { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsOwner As Boolean
+  overload: Netick.Entity.IsOwner*
+- uid: Netick.Entity.IsResimulating
+  commentId: P:Netick.Entity.IsResimulating
+  id: IsResimulating
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: IsResimulating
+  nameWithType: Entity.IsResimulating
+  fullName: Netick.Entity.IsResimulating
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsResimulating { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsResimulating As Boolean
+  overload: Netick.Entity.IsResimulating*
+- uid: Netick.Entity.IsPredicted
+  commentId: P:Netick.Entity.IsPredicted
+  id: IsPredicted
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: IsPredicted
+  nameWithType: Entity.IsPredicted
+  fullName: Netick.Entity.IsPredicted
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsPredicted { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsPredicted As Boolean
+  overload: Netick.Entity.IsPredicted*
+- uid: Netick.Entity.IsExplicitlyPredicted
+  commentId: P:Netick.Entity.IsExplicitlyPredicted
+  id: IsExplicitlyPredicted
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: IsExplicitlyPredicted
+  nameWithType: Entity.IsExplicitlyPredicted
+  fullName: Netick.Entity.IsExplicitlyPredicted
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsExplicitlyPredicted { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsExplicitlyPredicted As Boolean
+  overload: Netick.Entity.IsExplicitlyPredicted*
+- uid: Netick.Entity.InputSourceIndex
+  commentId: P:Netick.Entity.InputSourceIndex
+  id: InputSourceIndex
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: InputSourceIndex
+  nameWithType: Entity.InputSourceIndex
+  fullName: Netick.Entity.InputSourceIndex
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int InputSourceIndex { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property InputSourceIndex As Integer
+  overload: Netick.Entity.InputSourceIndex*
+- uid: Netick.Entity.InputSource
+  commentId: P:Netick.Entity.InputSource
+  id: InputSource
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: InputSource
+  nameWithType: Entity.InputSource
+  fullName: Netick.Entity.InputSource
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetworkPlayer InputSource { get; set; }
+    parameters: []
+    return:
+      type: Netick.NetworkPlayer
+    content.vb: Public Property InputSource As NetworkPlayer
+  overload: Netick.Entity.InputSource*
+- uid: Netick.Entity.InterestGroup
+  commentId: P:Netick.Entity.InterestGroup
+  id: InterestGroup
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: InterestGroup
+  nameWithType: Entity.InterestGroup
+  fullName: Netick.Entity.InterestGroup
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public InterestManagementGroup InterestGroup { get; set; }
+    parameters: []
+    return:
+      type: Netick.InterestManagementGroup
+    content.vb: Public Property InterestGroup As InterestManagementGroup
+  overload: Netick.Entity.InterestGroup*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int*
+  nameWithType: int*
+  fullName: int*
+  nameWithType.vb: Integer*
+  fullName.vb: Integer*
+  name.vb: Integer*
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+- uid: Netick.NetickEngine
+  commentId: T:Netick.NetickEngine
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickEngine.html
+  name: NetickEngine
+  nameWithType: NetickEngine
+  fullName: Netick.NetickEngine
+- uid: Netick.INetickEntity
+  commentId: T:Netick.INetickEntity
+  parent: Netick
+  isExternal: true
+  href: Netick.INetickEntity.html
+  name: INetickEntity
+  nameWithType: INetickEntity
+  fullName: Netick.INetickEntity
+- uid: System.Numerics.Vector3
+  commentId: T:System.Numerics.Vector3
+  parent: System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.vector3
+  name: Vector3
+  nameWithType: Vector3
+  fullName: System.Numerics.Vector3
+- uid: System.Numerics
+  commentId: N:System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Numerics
+  nameWithType: System.Numerics
+  fullName: System.Numerics
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
+- uid: Netick.NetickUniqueObjectMeta
+  commentId: T:Netick.NetickUniqueObjectMeta
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickUniqueObjectMeta.html
+  name: NetickUniqueObjectMeta
+  nameWithType: NetickUniqueObjectMeta
+  fullName: Netick.NetickUniqueObjectMeta
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.AdaptiveRemoteInterpolation
+  commentId: T:Netick.AdaptiveRemoteInterpolation
+  parent: Netick
+  isExternal: true
+  href: Netick.AdaptiveRemoteInterpolation.html
+  name: AdaptiveRemoteInterpolation
+  nameWithType: AdaptiveRemoteInterpolation
+  fullName: Netick.AdaptiveRemoteInterpolation
+- uid: System.Void*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.void
+  name: void*
+  nameWithType: void*
+  fullName: void*
+  nameWithType.vb: Void*
+  fullName.vb: Void*
+  name.vb: Void*
+  spec.csharp:
+  - uid: System.Void
+    name: void
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.void
+  - name: '*'
+  spec.vb:
+  - uid: System.Void
+    name: Void
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.void
+  - name: '*'
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Netick.Entity.InternalDirtify*
+  commentId: Overload:Netick.Entity.InternalDirtify
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_InternalDirtify_Netick_INetickNetworkScript_System_Int32__System_Int32__System_Int32_System_Int32_System_Int32_
+  name: InternalDirtify
+  nameWithType: Entity.InternalDirtify
+  fullName: Netick.Entity.InternalDirtify
+- uid: Netick.INetickNetworkScript
+  commentId: T:Netick.INetickNetworkScript
+  parent: Netick
+  isExternal: true
+  href: Netick.INetickNetworkScript.html
+  name: INetickNetworkScript
+  nameWithType: INetickNetworkScript
+  fullName: Netick.INetickNetworkScript
+- uid: Netick.Entity.InternalRegOnChanged*
+  commentId: Overload:Netick.Entity.InternalRegOnChanged
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_InternalRegOnChanged_Netick_INetickNetworkScript_System_Int32_System_Int32__System_Int32__System_Int32_Netick_OnChangedEvent_
+  name: InternalRegOnChanged
+  nameWithType: Entity.InternalRegOnChanged
+  fullName: Netick.Entity.InternalRegOnChanged
+- uid: Netick.OnChangedEvent
+  commentId: T:Netick.OnChangedEvent
+  parent: Netick
+  isExternal: true
+  href: Netick.OnChangedEvent.html
+  name: OnChangedEvent
+  nameWithType: OnChangedEvent
+  fullName: Netick.OnChangedEvent
+- uid: Netick.Entity.InternalRegSmooth*
+  commentId: Overload:Netick.Entity.InternalRegSmooth
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_InternalRegSmooth_Netick_INetickNetworkScript_System_String_System_Int32_System_Single_System_Int32_
+  name: InternalRegSmooth
+  nameWithType: Entity.InternalRegSmooth
+  fullName: Netick.Entity.InternalRegSmooth
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Netick.Entity.GetStateSizeWords*
+  commentId: Overload:Netick.Entity.GetStateSizeWords
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_GetStateSizeWords_Netick_INetickNetworkScript___
+  name: GetStateSizeWords
+  nameWithType: Entity.GetStateSizeWords
+  fullName: Netick.Entity.GetStateSizeWords
+- uid: Netick.INetickNetworkScript[]
+  isExternal: true
+  href: Netick.INetickNetworkScript.html
+  name: INetickNetworkScript[]
+  nameWithType: INetickNetworkScript[]
+  fullName: Netick.INetickNetworkScript[]
+  nameWithType.vb: INetickNetworkScript()
+  fullName.vb: Netick.INetickNetworkScript()
+  name.vb: INetickNetworkScript()
+  spec.csharp:
+  - uid: Netick.INetickNetworkScript
+    name: INetickNetworkScript
+    isExternal: true
+    href: Netick.INetickNetworkScript.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Netick.INetickNetworkScript
+    name: INetickNetworkScript
+    isExternal: true
+    href: Netick.INetickNetworkScript.html
+  - name: (
+  - name: )
+- uid: Netick.Entity.NetworkAwake*
+  commentId: Overload:Netick.Entity.NetworkAwake
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_NetworkAwake
+  name: NetworkAwake
+  nameWithType: Entity.NetworkAwake
+  fullName: Netick.Entity.NetworkAwake
+- uid: Netick.Entity.GameEngineIntoNetcode*
+  commentId: Overload:Netick.Entity.GameEngineIntoNetcode
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_GameEngineIntoNetcode
+  name: GameEngineIntoNetcode
+  nameWithType: Entity.GameEngineIntoNetcode
+  fullName: Netick.Entity.GameEngineIntoNetcode
+- uid: Netick.Entity.NetcodeIntoGameEngine*
+  commentId: Overload:Netick.Entity.NetcodeIntoGameEngine
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_NetcodeIntoGameEngine
+  name: NetcodeIntoGameEngine
+  nameWithType: Entity.NetcodeIntoGameEngine
+  fullName: Netick.Entity.NetcodeIntoGameEngine
+- uid: Netick.Entity.OnInputSourceChanged*
+  commentId: Overload:Netick.Entity.OnInputSourceChanged
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_OnInputSourceChanged_Netick_NetworkPlayer_
+  name: OnInputSourceChanged
+  nameWithType: Entity.OnInputSourceChanged
+  fullName: Netick.Entity.OnInputSourceChanged
+- uid: Netick.NetworkPlayer
+  commentId: T:Netick.NetworkPlayer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayer.html
+  name: NetworkPlayer
+  nameWithType: NetworkPlayer
+  fullName: Netick.NetworkPlayer
+- uid: Netick.Entity.OnBecameInterested*
+  commentId: Overload:Netick.Entity.OnBecameInterested
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_OnBecameInterested
+  name: OnBecameInterested
+  nameWithType: Entity.OnBecameInterested
+  fullName: Netick.Entity.OnBecameInterested
+- uid: Netick.Entity.OnBecameUninterested*
+  commentId: Overload:Netick.Entity.OnBecameUninterested
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_OnBecameUninterested
+  name: OnBecameUninterested
+  nameWithType: Entity.OnBecameUninterested
+  fullName: Netick.Entity.OnBecameUninterested
+- uid: Netick.Entity.OnBecameSimulated*
+  commentId: Overload:Netick.Entity.OnBecameSimulated
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_OnBecameSimulated
+  name: OnBecameSimulated
+  nameWithType: Entity.OnBecameSimulated
+  fullName: Netick.Entity.OnBecameSimulated
+- uid: Netick.Entity.OnBecameUnsimulated*
+  commentId: Overload:Netick.Entity.OnBecameUnsimulated
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_OnBecameUnsimulated
+  name: OnBecameUnsimulated
+  nameWithType: Entity.OnBecameUnsimulated
+  fullName: Netick.Entity.OnBecameUnsimulated
+- uid: Netick.Entity.Move*
+  commentId: Overload:Netick.Entity.Move
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_Move_System_Numerics_Vector3_
+  name: Move
+  nameWithType: Entity.Move
+  fullName: Netick.Entity.Move
+- uid: Netick.Entity.SetNarrowphaseInterest*
+  commentId: Overload:Netick.Entity.SetNarrowphaseInterest
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_SetNarrowphaseInterest_Netick_NetworkPlayer_System_Boolean_
+  name: SetNarrowphaseInterest
+  nameWithType: Entity.SetNarrowphaseInterest
+  fullName: Netick.Entity.SetNarrowphaseInterest
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Netick.Entity.Finalize*
+  commentId: Overload:Netick.Entity.Finalize
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_Finalize
+  name: ~Entity
+  nameWithType: Entity.~Entity
+  fullName: Netick.Entity.~Entity
+  spec.csharp:
+  - name: "~"
+  - uid: Netick.Entity.Finalize*
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html#Netick_Entity_Finalize
+- uid: Netick.Entity.Dirtify*
+  commentId: Overload:Netick.Entity.Dirtify
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_Dirtify_System_Int32__System_Int32__System_Int32_System_Int32_System_Int32_
+  name: Dirtify
+  nameWithType: Entity.Dirtify
+  fullName: Netick.Entity.Dirtify
+- uid: Netick.Entity.GridDirtify*
+  commentId: Overload:Netick.Entity.GridDirtify
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_GridDirtify_System_Int32__Netick_Entity_System_Int32_
+  name: GridDirtify
+  nameWithType: Entity.GridDirtify
+  fullName: Netick.Entity.GridDirtify
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
+- uid: Netick.Entity.IsInputSource*
+  commentId: Overload:Netick.Entity.IsInputSource
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_IsInputSource
+  name: IsInputSource
+  nameWithType: Entity.IsInputSource
+  fullName: Netick.Entity.IsInputSource
+- uid: Netick.Entity.IsProxy*
+  commentId: Overload:Netick.Entity.IsProxy
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_IsProxy
+  name: IsProxy
+  nameWithType: Entity.IsProxy
+  fullName: Netick.Entity.IsProxy
+- uid: Netick.Entity.IsOwner*
+  commentId: Overload:Netick.Entity.IsOwner
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_IsOwner
+  name: IsOwner
+  nameWithType: Entity.IsOwner
+  fullName: Netick.Entity.IsOwner
+- uid: Netick.Entity.IsResimulating*
+  commentId: Overload:Netick.Entity.IsResimulating
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_IsResimulating
+  name: IsResimulating
+  nameWithType: Entity.IsResimulating
+  fullName: Netick.Entity.IsResimulating
+- uid: Netick.Entity.IsPredicted*
+  commentId: Overload:Netick.Entity.IsPredicted
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_IsPredicted
+  name: IsPredicted
+  nameWithType: Entity.IsPredicted
+  fullName: Netick.Entity.IsPredicted
+- uid: Netick.Entity.IsExplicitlyPredicted*
+  commentId: Overload:Netick.Entity.IsExplicitlyPredicted
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_IsExplicitlyPredicted
+  name: IsExplicitlyPredicted
+  nameWithType: Entity.IsExplicitlyPredicted
+  fullName: Netick.Entity.IsExplicitlyPredicted
+- uid: Netick.Entity.InputSourceIndex*
+  commentId: Overload:Netick.Entity.InputSourceIndex
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_InputSourceIndex
+  name: InputSourceIndex
+  nameWithType: Entity.InputSourceIndex
+  fullName: Netick.Entity.InputSourceIndex
+- uid: Netick.Entity.InputSource*
+  commentId: Overload:Netick.Entity.InputSource
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_InputSource
+  name: InputSource
+  nameWithType: Entity.InputSource
+  fullName: Netick.Entity.InputSource
+- uid: Netick.Entity.InterestGroup*
+  commentId: Overload:Netick.Entity.InterestGroup
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_InterestGroup
+  name: InterestGroup
+  nameWithType: Entity.InterestGroup
+  fullName: Netick.Entity.InterestGroup
+- uid: Netick.InterestManagementGroup
+  commentId: T:Netick.InterestManagementGroup
+  parent: Netick
+  isExternal: true
+  href: Netick.InterestManagementGroup.html
+  name: InterestManagementGroup
+  nameWithType: InterestManagementGroup
+  fullName: Netick.InterestManagementGroup

@@ -1,0 +1,228 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.OnNetworkReceive
+  commentId: T:Netick.OnNetworkReceive
+  id: OnNetworkReceive
+  parent: Netick
+  children:
+  - Netick.OnNetworkReceive.#ctor(System.Object,System.IntPtr)
+  - Netick.OnNetworkReceive.BeginInvoke(Netick.Connection,Netick.BitBuffer,System.AsyncCallback,System.Object)
+  - Netick.OnNetworkReceive.EndInvoke(System.IAsyncResult)
+  - Netick.OnNetworkReceive.Invoke(Netick.Connection,Netick.BitBuffer)
+  langs:
+  - csharp
+  - vb
+  name: OnNetworkReceive
+  nameWithType: OnNetworkReceive
+  fullName: Netick.OnNetworkReceive
+  type: Delegate
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public delegate void OnNetworkReceive(Connection peer, BitBuffer reader)
+    parameters:
+    - id: peer
+      type: Netick.Connection
+    - id: reader
+      type: Netick.BitBuffer
+    content.vb: Public Delegate Sub OnNetworkReceive(peer As Connection, reader As BitBuffer)
+- uid: Netick.OnNetworkReceive.#ctor(System.Object,System.IntPtr)
+  commentId: M:Netick.OnNetworkReceive.#ctor(System.Object,System.IntPtr)
+  id: '#ctor(System.Object,System.IntPtr)'
+  parent: Netick.OnNetworkReceive
+  langs:
+  - csharp
+  - vb
+  name: OnNetworkReceive(object, IntPtr)
+  nameWithType: OnNetworkReceive.OnNetworkReceive(object, IntPtr)
+  fullName: Netick.OnNetworkReceive.OnNetworkReceive(object, System.IntPtr)
+  type: Constructor
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public OnNetworkReceive(object @object, IntPtr method)
+    parameters:
+    - id: object
+      type: System.Object
+    - id: method
+      type: System.IntPtr
+    content.vb: Public Sub New([object] As Object, method As IntPtr)
+  overload: Netick.OnNetworkReceive.#ctor*
+  nameWithType.vb: OnNetworkReceive.New(Object, IntPtr)
+  fullName.vb: Netick.OnNetworkReceive.New(Object, System.IntPtr)
+  name.vb: New(Object, IntPtr)
+- uid: Netick.OnNetworkReceive.Invoke(Netick.Connection,Netick.BitBuffer)
+  commentId: M:Netick.OnNetworkReceive.Invoke(Netick.Connection,Netick.BitBuffer)
+  id: Invoke(Netick.Connection,Netick.BitBuffer)
+  parent: Netick.OnNetworkReceive
+  langs:
+  - csharp
+  - vb
+  name: Invoke(Connection, BitBuffer)
+  nameWithType: OnNetworkReceive.Invoke(Connection, BitBuffer)
+  fullName: Netick.OnNetworkReceive.Invoke(Netick.Connection, Netick.BitBuffer)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public virtual void Invoke(Connection peer, BitBuffer reader)
+    parameters:
+    - id: peer
+      type: Netick.Connection
+    - id: reader
+      type: Netick.BitBuffer
+    content.vb: Public Overridable Sub Invoke(peer As Connection, reader As BitBuffer)
+  overload: Netick.OnNetworkReceive.Invoke*
+- uid: Netick.OnNetworkReceive.BeginInvoke(Netick.Connection,Netick.BitBuffer,System.AsyncCallback,System.Object)
+  commentId: M:Netick.OnNetworkReceive.BeginInvoke(Netick.Connection,Netick.BitBuffer,System.AsyncCallback,System.Object)
+  id: BeginInvoke(Netick.Connection,Netick.BitBuffer,System.AsyncCallback,System.Object)
+  parent: Netick.OnNetworkReceive
+  langs:
+  - csharp
+  - vb
+  name: BeginInvoke(Connection, BitBuffer, AsyncCallback, object)
+  nameWithType: OnNetworkReceive.BeginInvoke(Connection, BitBuffer, AsyncCallback, object)
+  fullName: Netick.OnNetworkReceive.BeginInvoke(Netick.Connection, Netick.BitBuffer, System.AsyncCallback, object)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public virtual IAsyncResult BeginInvoke(Connection peer, BitBuffer reader, AsyncCallback callback, object @object)
+    parameters:
+    - id: peer
+      type: Netick.Connection
+    - id: reader
+      type: Netick.BitBuffer
+    - id: callback
+      type: System.AsyncCallback
+    - id: object
+      type: System.Object
+    return:
+      type: System.IAsyncResult
+    content.vb: Public Overridable Function BeginInvoke(peer As Connection, reader As BitBuffer, callback As AsyncCallback, [object] As Object) As IAsyncResult
+  overload: Netick.OnNetworkReceive.BeginInvoke*
+  nameWithType.vb: OnNetworkReceive.BeginInvoke(Connection, BitBuffer, AsyncCallback, Object)
+  fullName.vb: Netick.OnNetworkReceive.BeginInvoke(Netick.Connection, Netick.BitBuffer, System.AsyncCallback, Object)
+  name.vb: BeginInvoke(Connection, BitBuffer, AsyncCallback, Object)
+- uid: Netick.OnNetworkReceive.EndInvoke(System.IAsyncResult)
+  commentId: M:Netick.OnNetworkReceive.EndInvoke(System.IAsyncResult)
+  id: EndInvoke(System.IAsyncResult)
+  parent: Netick.OnNetworkReceive
+  langs:
+  - csharp
+  - vb
+  name: EndInvoke(IAsyncResult)
+  nameWithType: OnNetworkReceive.EndInvoke(IAsyncResult)
+  fullName: Netick.OnNetworkReceive.EndInvoke(System.IAsyncResult)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public virtual void EndInvoke(IAsyncResult result)
+    parameters:
+    - id: result
+      type: System.IAsyncResult
+    content.vb: Public Overridable Sub EndInvoke(result As IAsyncResult)
+  overload: Netick.OnNetworkReceive.EndInvoke*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: Netick.Connection
+  commentId: T:Netick.Connection
+  parent: Netick
+  isExternal: true
+  href: Netick.Connection.html
+  name: Connection
+  nameWithType: Connection
+  fullName: Netick.Connection
+- uid: Netick.BitBuffer
+  commentId: T:Netick.BitBuffer
+  parent: Netick
+  isExternal: true
+  href: Netick.BitBuffer.html
+  name: BitBuffer
+  nameWithType: BitBuffer
+  fullName: Netick.BitBuffer
+- uid: Netick.OnNetworkReceive.#ctor*
+  commentId: Overload:Netick.OnNetworkReceive.#ctor
+  isExternal: true
+  href: Netick.OnNetworkReceive.html#Netick_OnNetworkReceive__ctor_System_Object_System_IntPtr_
+  name: OnNetworkReceive
+  nameWithType: OnNetworkReceive.OnNetworkReceive
+  fullName: Netick.OnNetworkReceive.OnNetworkReceive
+  nameWithType.vb: OnNetworkReceive.New
+  fullName.vb: Netick.OnNetworkReceive.New
+  name.vb: New
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: IntPtr
+  nameWithType: IntPtr
+  fullName: System.IntPtr
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.OnNetworkReceive.Invoke*
+  commentId: Overload:Netick.OnNetworkReceive.Invoke
+  isExternal: true
+  href: Netick.OnNetworkReceive.html#Netick_OnNetworkReceive_Invoke_Netick_Connection_Netick_BitBuffer_
+  name: Invoke
+  nameWithType: OnNetworkReceive.Invoke
+  fullName: Netick.OnNetworkReceive.Invoke
+- uid: Netick.OnNetworkReceive.BeginInvoke*
+  commentId: Overload:Netick.OnNetworkReceive.BeginInvoke
+  isExternal: true
+  href: Netick.OnNetworkReceive.html#Netick_OnNetworkReceive_BeginInvoke_Netick_Connection_Netick_BitBuffer_System_AsyncCallback_System_Object_
+  name: BeginInvoke
+  nameWithType: OnNetworkReceive.BeginInvoke
+  fullName: Netick.OnNetworkReceive.BeginInvoke
+- uid: System.AsyncCallback
+  commentId: T:System.AsyncCallback
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.asynccallback
+  name: AsyncCallback
+  nameWithType: AsyncCallback
+  fullName: System.AsyncCallback
+- uid: System.IAsyncResult
+  commentId: T:System.IAsyncResult
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncresult
+  name: IAsyncResult
+  nameWithType: IAsyncResult
+  fullName: System.IAsyncResult
+- uid: Netick.OnNetworkReceive.EndInvoke*
+  commentId: Overload:Netick.OnNetworkReceive.EndInvoke
+  isExternal: true
+  href: Netick.OnNetworkReceive.html#Netick_OnNetworkReceive_EndInvoke_System_IAsyncResult_
+  name: EndInvoke
+  nameWithType: OnNetworkReceive.EndInvoke
+  fullName: Netick.OnNetworkReceive.EndInvoke
