@@ -102,7 +102,7 @@ Object.InputSource = null;
 
 ## Callbacks
 
-There are two methods you can override to run code when Input Source has changed has left:
+There are two methods you can override to run code when Input Source has changed or left the game:
 
 1. `OnInputSourceChanged`: called on the Input Source and server when the Input Source changes.
 2. `OnInputSourceLeft`: called on the owner (server) when the Input Source client has left the game.

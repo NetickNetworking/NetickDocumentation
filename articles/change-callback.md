@@ -1,6 +1,6 @@
 # Change Callback
 
-You can have a method get called whenever a networked property changes, which is very useful. To do that, add the attribute [<xref:Netick.OnChanged>] to the method and give it the name of the property. The method must must have a parameter of <xref:Netick.OnChangedData> type which can be used to retrieve the previous property value.
+You can have a method get called whenever a networked variable changes, which is very useful. To do that, add the attribute [<xref:Netick.OnChanged>] to the method and give it the name of the variable. The method must must have a parameter of <xref:Netick.OnChangedData> type which can be used to retrieve the previous variable value.
 
 ## For Properties
 
