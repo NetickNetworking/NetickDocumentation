@@ -30,7 +30,7 @@ You have to add a HitShape component (commonly known as a hitbox) on every part 
 ### **Performing a Lag-Compensated Raycast in Unity**
 
 ```csharp
-          // lag-compensated raycast
+          // lag-compensated Raycast
             if (Sandbox.Raycast(
                 shootPos,
                 shootDirection,
@@ -45,6 +45,18 @@ You have to add a HitShape component (commonly known as a hitbox) on every part 
                     // code to be executed when a HitShape was hit
                 }
             }
+```
+
+### **Performing a Lag-Compensated OverlapSphere in Unity**
+
+```csharp
+          // lag-compensated OverlapSphere
+            List<LagCompHit>  overlapSphereHits = new List<LagCompHit>(32);
+            Sandbox.OverlapSphere(point,
+                _projectileBlastRadius,
+                overlapSphereHits,
+                InputSource,
+                queryTriggerInteraction: QueryTriggerInteraction.Ignore);
 ```
 
 For a practical example, you might want to get our comprehensive Arena Shooter sample which covers everything we talked about and more: [https://netick.net/arena-shooter-sample/](https://netick.net/arena-shooter-sample/)
