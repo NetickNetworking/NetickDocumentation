@@ -1,12 +1,13 @@
-# Introduction
-
-Netick is a high-level engine-agnostic server-authoritative networking solution for .NET/C#. It’s by far the most advanced free networking solution on the market. It’s built with an architecture that’s different from other solutions. Netick makes building quality and cheat-free multiplayer games easier than ever, by implementing most of the features you need to build an FPS/TPS/Real-Time/Action game.
-
 ## Download
+
+[Download](https://github.com/karrarrahim/NetickForUnity) for Unity
 
 [Download](https://kakr.itch.io/netick-for-godot) for Godot
 
-[Download](https://assetstore.unity.com/packages/tools/network/netick-aaa-networking-205414) for Unity
+## Documentation
+
+- [Manual](articles/understanding-client-server-model.html)
+- [API reference](api/index.html)
 
 ## Getting Started
 
@@ -17,11 +18,6 @@ Netick is a high-level engine-agnostic server-authoritative networking solution 
 ### Getting Started for Godot
 
 > [!Video https://www.youtube.com/embed/eqDv8rPnYwk]
-
-## Where to Go Next
-
-- [Manual](articles/understanding-client-server-model.html)
-- [API reference](api/index.html)
 
 If you have any questions, requests, or anything, join our [discord](https://discord.com/invite/uV6bfG66Fx).
 
