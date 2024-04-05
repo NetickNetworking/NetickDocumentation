@@ -150,13 +150,13 @@ public NetworkArrayStruct8&lt;NetworkArrayStruct8&lt;int&gt;&gt; ArrayOfArrays {
 </ul>
 <h3 id="usage-examples">Usage examples:</h3>
 <pre><code class="lang-csharp">[Networked(size: 5)]
-public NetworkLinkedList&lt;int&gt;  MyNetworkedList = new NetworkLinkedList&lt;int&gt;(5);
+public readonly NetworkLinkedList&lt;int&gt;  MyNetworkedList  = new NetworkLinkedList&lt;int&gt;(5);
 
 [Networked(size: 5)]
-public NetworkQueue&lt;int&gt;       MyNetworkedQueue = new NetworkQueue&lt;int&gt;(5);
+public readonly NetworkQueue&lt;int&gt;       MyNetworkedQueue = new NetworkQueue&lt;int&gt;(5);
 
 [Networked(size: 5)]
-public NetworkStack&lt;int&gt;       MyNetworkedStack = new NetworkStack&lt;int&gt;(5);
+public readonly NetworkStack&lt;int&gt;       MyNetworkedStack = new NetworkStack&lt;int&gt;(5);
 </code></pre>
 <p>Removing and adding elements is the same as with C# collections.</p>
 <div class="NOTE">

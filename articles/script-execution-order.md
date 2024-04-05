@@ -5,6 +5,8 @@ The network methods on your Network Behavior classes are called from inside Neti
 ```csharp
 [ExecuteAfter(typeof(SomeOtherScript))]  /* to specify that this script executes after SomeOtherScript) */
 [ExecuteBefore(typeof(SomeOtherScript))] /* to specify that this script executes before SomeOtherScript */
+[ExecutionOrder(65)] /* to specify explicitly the order number
+
 ```
 
 Example:

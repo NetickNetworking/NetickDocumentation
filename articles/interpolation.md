@@ -75,7 +75,7 @@ public MyType MyType {get; set;}
 public override NetworkRender()
 {
     var    interpolator      = FindInterpolator(nameof(MyType));
-    bool   didGetData        = interpolator.GetInterpolationData<int>(InterpolationMode.Auto, out var from, out var to, out float alpha);
+    bool   didGetData        = interpolator.GetInterpolationData<int>(InterpolationSource.Auto, out var from, out var to, out float alpha);
 
     MyType interpolatedValue = default;
 
@@ -96,21 +96,26 @@ private MyType LerpMyType(MyType from, MyType to, float alpha)
 
 ```csharp
 [Networked (size: 10)][Smooth(false)]
-public NetworkArray<Vector3> Vector3Array = new NetworkArray<Vector3>(10);
+public readonly NetworkArray<MyType> MyTypeArray = new NetworkArray<MyType>(10);
 
 public override NetworkRender()
 {
-    var          interpolator      = FindInterpolator(nameof(Vector3Array));
+    var          interpolator      = FindInterpolator(nameof(MyTypeArray));
     int          index             = 5;
-    bool         didGetData        = interpolator.GetInterpolationData<int>(InterpolationMode.Auto, index, out var from, out var to, out float alpha);
+    bool         didGetData        = interpolator.GetInterpolationData<int>(InterpolationSource.Auto, index, out var from, out var to, out float alpha);
 
-    SomeProperty interpolatedValue = default;
+    MyType       interpolatedValue = default;
 
     // if we were able to get interpolation data
     if (didGetData)
-        interpolatedValue = Vector3.Lerp(from, to, alpha);
+        interpolatedValue = LerpMyType(from, to, alpha);
     else // if not we just use the non-interpolated value
-        interpolatedValue = Vector3Array[index];
+        interpolatedValue = MyTypeArray[index];
+}
+
+private MyType LerpMyType(MyType from, MyType to, float alpha)
+{
+    // write the interpolation code here
 }
 ```
 

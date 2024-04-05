@@ -85,13 +85,13 @@ In addition to NetworkArray, Netick also has alternatives to C# collections that
 
 ```csharp
 [Networked(size: 5)]
-public NetworkLinkedList<int>  MyNetworkedList = new NetworkLinkedList<int>(5);
+public readonly NetworkLinkedList<int>  MyNetworkedList  = new NetworkLinkedList<int>(5);
 
 [Networked(size: 5)]
-public NetworkQueue<int>       MyNetworkedQueue = new NetworkQueue<int>(5);
+public readonly NetworkQueue<int>       MyNetworkedQueue = new NetworkQueue<int>(5);
 
 [Networked(size: 5)]
-public NetworkStack<int>       MyNetworkedStack = new NetworkStack<int>(5);
+public readonly NetworkStack<int>       MyNetworkedStack = new NetworkStack<int>(5);
 ```
 
 Removing and adding elements is the same as with C# collections.

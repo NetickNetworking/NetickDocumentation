@@ -143,7 +143,7 @@ public MyType MyType {get; set;}
 public override NetworkRender()
 {
     var    interpolator      = FindInterpolator(nameof(MyType));
-    bool   didGetData        = interpolator.GetInterpolationData&lt;int&gt;(InterpolationMode.Auto, out var from, out var to, out float alpha);
+    bool   didGetData        = interpolator.GetInterpolationData&lt;int&gt;(InterpolationSource.Auto, out var from, out var to, out float alpha);
 
     MyType interpolatedValue = default;
 
@@ -161,21 +161,26 @@ private MyType LerpMyType(MyType from, MyType to, float alpha)
 </code></pre>
 <h3 id="interpolating-arrays"><strong>Interpolating Arrays</strong></h3>
 <pre><code class="lang-csharp">[Networked (size: 10)][Smooth(false)]
-public NetworkArray&lt;Vector3&gt; Vector3Array = new NetworkArray&lt;Vector3&gt;(10);
+public readonly NetworkArray&lt;MyType&gt; MyTypeArray = new NetworkArray&lt;MyType&gt;(10);
 
 public override NetworkRender()
 {
-    var          interpolator      = FindInterpolator(nameof(Vector3Array));
+    var          interpolator      = FindInterpolator(nameof(MyTypeArray));
     int          index             = 5;
-    bool         didGetData        = interpolator.GetInterpolationData&lt;int&gt;(InterpolationMode.Auto, index, out var from, out var to, out float alpha);
+    bool         didGetData        = interpolator.GetInterpolationData&lt;int&gt;(InterpolationSource.Auto, index, out var from, out var to, out float alpha);
 
-    SomeProperty interpolatedValue = default;
+    MyType       interpolatedValue = default;
 
     // if we were able to get interpolation data
     if (didGetData)
-        interpolatedValue = Vector3.Lerp(from, to, alpha);
+        interpolatedValue = LerpMyType(from, to, alpha);
     else // if not we just use the non-interpolated value
-        interpolatedValue = Vector3Array[index];
+        interpolatedValue = MyTypeArray[index];
+}
+
+private MyType LerpMyType(MyType from, MyType to, float alpha)
+{
+    // write the interpolation code here
 }
 </code></pre>
 <div class="NOTE">
