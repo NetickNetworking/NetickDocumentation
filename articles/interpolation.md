@@ -58,6 +58,9 @@ Interpolation is implemented by Netick on these types:
 - Double
 - Vector2/Vector3
 - Quaternion
+- Int
+- Bool
+- NetworkBool
 
 > [!WARNING]
 > Currently this is only supported in Unity. Use Manual Interpolation in other engines.
