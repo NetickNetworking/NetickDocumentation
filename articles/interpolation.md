@@ -56,8 +56,10 @@ Interpolation is implemented by Netick on these types:
 
 - Float
 - Double
-- Vector2/Vector3
+- Vector2
+- Vector3
 - Quaternion
+- Color
 - Int
 - Bool
 - NetworkBool
