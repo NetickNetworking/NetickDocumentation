@@ -6,8 +6,10 @@
 
 ## Documentation
 
-- [Manual](articles/understanding-client-server-model.html)
-- [API reference](api/index.html)
+[Manual](articles/understanding-client-server-model.html) for Unity
+
+[API reference](api/index.html) for Godot
+
 
 ## Getting Started
 
