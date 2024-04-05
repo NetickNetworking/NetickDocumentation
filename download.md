@@ -1,5 +1,5 @@
 # Download
 
-[Download](https://kakr.itch.io/netick-for-godot) for Godot
+[Download](https://github.com/karrarrahim/NetickForUnity) for Unity
 
-[Download](https://assetstore.unity.com/packages/tools/network/netick-aaa-networking-205414) for Unity
+[Download](https://kakr.itch.io/netick-for-godot) for Godot
