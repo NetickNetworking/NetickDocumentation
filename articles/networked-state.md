@@ -39,7 +39,7 @@ Example of a network array:
 
 ```csharp
 [Networked(size: 32)]
-public NetworkArray<int> IntArrayExample = new NetworkArray<int>(32) { 55, 66, 77 };
+public readonly NetworkArray<int> IntArrayExample = new NetworkArray<int>(32) { 55, 66, 77 };
 ```
 
 > [!WARNING]
