@@ -7,17 +7,17 @@
 
 ## Getting Started
 
-### Getting Started for Unity
+### Unity
 
 > [!Video https://www.youtube.com/embed/QdFDaKai96E]
 
-### Getting Started for Godot
+### Godot
 
 > [!Video https://www.youtube.com/embed/eqDv8rPnYwk]
 
 If you have any questions, requests, or anything, join our [discord](https://discord.com/invite/uV6bfG66Fx).
 
-## Do you want to integerate your engine?
+## Do you want to integrate your engine?
 
 If you want a custom integration for your engine, contact at <support@netick.net>, <karsoftgames@gmail.com> or have a casual conversation in our discord.
 
