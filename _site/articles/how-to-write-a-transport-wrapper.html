@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>How To Write a Transport Wrapper | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="How To Write a Transport Wrapper | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="how-to-write-a-transport-wrapper">How To Write a Transport Wrapper</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>A transport is the lower level component that does the actual data sending, receiving and handling connections.</p>
+<p>This guide will show how to implement a wrapper for the <a href="https://docs.unity3d.com/Packages/com.unity.transport@2.0/manual/index.html">Unity Transport</a></p>
+<h2 id="defining-the-connection-wrapper">Defining the Connection Wrapper</h2>
+<p>First you need to define a connection class which you will pass to Netick. This represents a transport connection. It must implement several properties and a send method:</p>
+<pre><code class="lang-csharp">public unsafe class NetickUnityTransportConnection : TransportConnection
+{
+  public NetickUnityTransport                         Transport;
+  public Unity.Networking.Transport.NetworkConnection Connection;
+
+  public override IEndPoint                           EndPoint =&gt; Transport._driver.GetRemoteEndpoint(Connection).ToNetickEndPoint();
+  public override int                                 Mtu      =&gt; MaxPayloadSize;
+
+  public int                                          MaxPayloadSize;
+
+  public NetickUnityTransportConnection(NetickUnityTransport transport)
+  {
+    Transport = transport;
+  }
+
+  public unsafe override void Send(IntPtr ptr, int length)
+  {
+    if (!Connection.IsCreated)
+      return;
+    Transport._driver.BeginSend(NetworkPipeline.Null, Connection, out var networkWriter);
+    networkWriter.    WriteBytesUnsafe((byte*)ptr.ToPointer(), length);
+    Transport._driver.EndSend(networkWriter);
+  }
+}
+</code></pre>
+<p>The <code>Send</code> method is called by Netick when it wants to send a packet to this connection. <code>Transport</code> represents the UnityTransport transport class which we will talk about in a bit. <code>Connection</code> represents the UnityTransport connection that corresponds to this <code>NetickUnityTransportConnection</code> type that we will pass into Netick.</p>
+<h3 id="defining-the-end-point-wrapper">Defining the End Point Wrapper</h3>
+<p>Let's also add a define an end point wrapper over UnityTransport <code>NetworkEndPoint</code>, and a extension class to do the conversion:</p>
+<pre><code class="lang-csharp">public static class NetickUnityTransportExt                          
+{ 
+    public static NetickUnityTransportEndPoint ToNetickEndPoint(this NetworkEndpoint networkEndpoint) =&gt; new NetickUnityTransportEndPoint(networkEndpoint); 
+}
+
+public unsafe class NetickUnityTransport : NetworkTransport
+{
+  public struct NetickUnityTransportEndPoint : IEndPoint
+  {
+    public NetworkEndpoint EndPoint;
+    string       IEndPoint.IPAddress =&gt; EndPoint.Address.ToString();
+    int          IEndPoint.Port      =&gt; EndPoint.Port;
+    public NetickUnityTransportEndPoint(NetworkEndpoint networkEndpoint)
+    {
+      EndPoint = networkEndpoint;
+    }
+    public override string ToString()
+    {
+      return $&quot;{EndPoint.Address}&quot;;
+    }
+  }
+</code></pre>
+<h2 id="defining-the-transport-wrapper">Defining the Transport Wrapper</h2>
+<pre><code class="lang-csharp">public unsafe class NetickUnityTransportConnection : TransportConnection
+{
+
+}
+</code></pre>
+<p>Let's add a few fields which we will be important in the functionality of the transport.</p>
+<pre><code class="lang-csharp">  private NetworkDriver                                                                            _driver;
+
+  private Dictionary&lt;Unity.Networking.Transport.NetworkConnection, NetickUnityTransportConnection&gt; _connectedPeers        = new();
+  private Queue&lt;NetickUnityTransportConnection&gt;                                                    _freeConnections       = new();
+  private Unity.Networking.Transport.NetworkConnection                                             _serverConnection;
+
+  private NativeList&lt;Unity.Networking.Transport.NetworkConnection&gt;                                 _connections;
+
+</code></pre>
+<p><code>_driver</code> represents an instance of a UnityTransport manager. <code>_connectedPeers</code> contains the a dictionary that maps between the UnityTransport connection type, and the transport wrapper connection type. <code>_freeConnections</code> is a pool for free connections that we can use. <code>_serverConnection</code> is only relevant when the transport is started as a client, it represents the UnityTransport connection to the server. And <code>_connections</code> is the buffer that is used by UnityTransport for the connections.</p>
+<pre><code class="lang-csharp">  private BitBuffer                                                                                _bitBuffer; 
+  private byte*                                                                                    _bytesBuffer;
+  private int                                                                                      _bytesBufferSize         = 2048;
+  private byte[]                                                                                   _connectionRequestBytes  = new byte[200];
+  private NativeArray&lt;byte&gt;                                                                        _connectionRequestNative = new NativeArray&lt;byte&gt;(200, Allocator.Persistent);
+</code></pre>
+<p><code>_bitBuffer</code> is the buffer that is passed to Netick when receiving a packet. Netick only receives the packets in the form of a BitBuffer.</p>
+<p><code>_bytesBuffer</code> is an unsafe buffer that is used with <code>_bitBuffer</code>. <code>_connectionRequestBytes</code> is a managed buffer for the connection request.</p>
+<p>In the constructor, we allocate <code>_bytesBuffer</code>. And we make sure to deallocate, in addition to disposing of <code>_connectionRequestNative</code>.</p>
+<pre><code class="lang-csharp">  public NetickUnityTransport()
+  {
+    _bytesBuffer = (byte*)UnsafeUtility.Malloc(_bytesBufferSize, 4, Unity.Collections.Allocator.Persistent);
+  }
+
+  ~NetickUnityTransport()
+  {
+    UnsafeUtility.Free(_bytesBuffer, Unity.Collections.Allocator.Persistent);
+    _connectionRequestNative.Dispose();
+  }
+</code></pre>
+<p>Let's override the <code>Init</code> method. This method is called by Netick once to initialize the transport. We initialize the <code>_bitBuffer</code> and the UnityTransport network driver <code>_driver</code>, and also let's initialize <code>_connections</code> buffer.</p>
+<pre><code class="lang-csharp">  public override void Init()
+  {
+    _bitBuffer      = new BitBuffer(createChunks: false);
+    _driver      = NetworkDriver.Create(new WebSocketNetworkInterface());
+    _connections = new NativeList&lt;Unity.Networking.Transport.NetworkConnection&gt;(Engine.IsServer ? Engine.Config.MaxPlayers : 0, Unity.Collections.Allocator.Persistent);
+  }
+</code></pre>
+<p>The <code>Run</code> method is called by Netick when starting Netick. <code>Shutdown</code> is called when shuting down Netick.</p>
+<pre><code class="lang-csharp">  public override void Run(RunMode mode, int port)
+  {
+    if (Engine.IsServer)
+    {
+      var endpoint = NetworkEndpoint.AnyIpv4.WithPort((ushort)port);
+
+      if (_driver.Bind(endpoint) != 0)
+      {
+        Debug.LogError($&quot;Failed to bind to port {port}&quot;);
+        return;
+      } 
+      _driver.Listen();
+    }
+
+    for (int i = 0; i &lt; Engine.Config.MaxPlayers; i++)
+      _freeConnections.Enqueue(new NetickUnityTransportConnection(this));
+  }
+
+  public override void Shutdown()
+  {
+    if (_driver.IsCreated)
+      _driver.   Dispose();    
+    _connections.Dispose();
+  }
+</code></pre>
+<p><code>Connect</code> method is called by Netick in the client when wanting to connect to the server.</p>
+<p><code>Disconnect</code> method is called when you are kicking or disconnecting a connection.</p>
+<pre><code class="lang-csharp">  public override void Connect(string address, int port, byte[] connectionData, int connectionDataLength)
+  {
+    var endpoint        = NetworkEndpoint.LoopbackIpv4.WithPort((ushort)port);
+    if (connectionData != null)
+    {
+      _connectionRequestNative.CopyFrom(connectionData);
+      _serverConnection = _driver.Connect(endpoint, _connectionRequestNative);
+    }
+    else
+      _serverConnection = _driver.Connect(endpoint);
+  }
+
+  public override void Disconnect(TransportConnection connection)
+  {
+    var conn = (NetickUnityTransport.NetickUnityTransportConnection)connection;
+    if (conn.Connection.IsCreated)
+      _driver.Disconnect(conn.Connection);
+  }
+</code></pre>
+<p>Now let's override the last method which is <code>PollEvents</code>. This is called by Netick each frame, to poll network events on the transport.</p>
+<p>Here we are handling everything from making new connections, handling disconnections, and receiving packets, etc.</p>
+<pre><code class="lang-csharp"> public override void PollEvents()
+ {
+   _driver.ScheduleUpdate().Complete();
+
+   if (Engine.IsClient &amp;&amp; !_serverConnection.IsCreated)
+     return;
+
+   // reading events
+   if (Engine.IsServer)
+   {
+     // clean up connections.
+     for (int i = 0; i &lt; _connections.Length; i++)
+     {
+       if (!_connections[i].IsCreated)
+       {
+         _connections.RemoveAtSwapBack(i);
+         i--;
+       }
+     }
+
+     // accept new connections in the server.
+     Unity.Networking.Transport.NetworkConnection c;
+     while ((c = _driver.Accept(out var payload )) != default)
+     {
+       if (_connectedPeers.Count &gt;= Engine.Config.MaxPlayers)
+       {
+         _driver.Disconnect(c);
+         continue;
+       }
+
+       if (payload.IsCreated)
+         payload.CopyTo(_connectionRequestBytes);
+       bool accepted = NetworkPeer.OnConnectRequest(_connectionRequestBytes, payload.Length, _driver.GetRemoteEndpoint(c).ToNetickEndPoint());
+
+       if (!accepted)
+       {
+         _driver.Disconnect(c);
+         continue;
+       }
+
+       var connection        = _freeConnections.Dequeue();
+       connection.Connection = c;
+       _connectedPeers.Add(c, connection);
+       _connections.   Add(c);
+
+       connection.MaxPayloadSize = NetworkParameterConstants.MTU - _driver.MaxHeaderSize(NetworkPipeline.Null);
+       NetworkPeer.    OnConnected(connection);
+     }
+
+     for (int i = 0; i &lt; _connections.Length; i++)
+       HandleConnectionEvents(_connections[i], i);
+   }
+   else
+     HandleConnectionEvents(_serverConnection, 0);
+ }
+
+
+ private void HandleConnectionEvents(Unity.Networking.Transport.NetworkConnection conn, int index)
+ {
+   DataStreamReader  stream;
+   NetworkEvent.Type cmd;
+
+   while ((cmd = _driver.PopEventForConnection(conn, out stream)) != NetworkEvent.Type.Empty)
+   {
+     // game data
+     if (cmd == NetworkEvent.Type.Data)
+     {
+       if (_connectedPeers.TryGetValue(conn, out var netickConn))
+       {
+         stream.     ReadBytesUnsafe(_bytesBuffer, stream.Length);
+         _bitBuffer.    SetFrom(_bytesBuffer, stream.Length, _bytesBufferSize);
+         NetworkPeer.Receive(netickConn, _bitBuffer);
+       }
+     }
+
+     // connected to server
+     if (cmd == NetworkEvent.Type.Connect &amp;&amp; Engine.IsClient)
+     {
+       var connection = _freeConnections.Dequeue();
+       connection.Connection = conn;
+
+       _connectedPeers.Add(conn, connection);
+       _connections.   Add(conn);
+
+       connection.MaxPayloadSize = NetworkParameterConstants.MTU - _driver.MaxHeaderSize(NetworkPipeline.Null);
+       NetworkPeer.    OnConnected(connection);
+     }
+
+     // disconnect
+     if (cmd == NetworkEvent.Type.Disconnect)
+     {
+       if (_connectedPeers.TryGetValue(conn, out var netickConn))
+       {
+         TransportDisconnectReason reason = TransportDisconnectReason.Shutdown;
+
+         NetworkPeer.     OnDisconnected(netickConn, reason);
+         _freeConnections.Enqueue(netickConn);
+         _connectedPeers. Remove(conn);
+       }
+
+       if (Engine.IsClient)
+         _serverConnection   = default;
+       if (Engine.IsServer)
+         _connections[index] = default;
+     }
+   }
+ }
+</code></pre>
+<h2 id="defining-the-transport-provider">Defining the transport provider</h2>
+<p>Finally, we have to define a transport provider (a ScriptableObject), which will be used by Netick to create a new instance of the transport wrapper.</p>
+<pre><code class="lang-csharp">[CreateAssetMenu(fileName = &quot;UnityTransportProvider&quot;, menuName = &quot;Netick/Transport/UnityTransportProvider&quot;, order = 1)]
+public class        UnityTransportProvider : NetworkTransportProvider 
+{ 
+    public override NetworkTransport  MakeTransportInstance() =&gt; new NetickUnityTransport(); 
+}
+</code></pre>
+<p>We can then go to the Assets folder in Unity, and double click and go to Create-&gt;Netick-&gt;Transport-&gt;UnityTransportProvider. Assign the created instance to your GameStarter transport field, and you are done!</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

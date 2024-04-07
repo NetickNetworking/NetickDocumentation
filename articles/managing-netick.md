@@ -2,12 +2,20 @@
 
 ## **Starting and Shutting Down Netick**
 
-When you start Netick, you need to specify the mode you want to start it in. You can start it as a single sandbox, either a server or a client, like this:
+When you start Netick, you need to specify the mode you want to start it in. Like this:
+
+### Single Peer
 
 As a client:
 
 ```csharp
 var sandbox = Netick.Network.StartAsClient(Transport, Port);
+```
+
+As a host (a server with a local player):
+
+```csharp
+var sandbox = Netick.Network.StartAsHost(Transport, Port);
 ```
 
 As a server:
@@ -16,11 +24,44 @@ As a server:
 var sandbox = Netick.Network.StartAsServer(Transport, Port);
 ```
 
-Or you can start both a client and a server together:
+Start Netick in Single-Player mode (disables low level networking)
+```csharp
+var sandboxes = Netick.Network.StartAsSinglePlayer();
+```
+
+### Multiple Peers (Sandboxing)
+
+Or you can start both a client and a host together:
 
 ```csharp
-var sandboxes = Netick.Network.StartAsMultiplePeers(Transport, Port, startAServer:true, 1);
+   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   {
+     Port              = Port,
+     TransportProvider = Transport,
+     NumberOfServers   = 1,
+     NumberOfClients   = 1
+   });
+
 ```
+
+Starting multiple servers, and a client:
+
+```csharp
+    // starts multiple servers (20 servers), and one client
+   int[] ports = new int[20];
+   for (int i = 0; i < 20; i++)
+     ports[i]  = Port + i;
+
+   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   {
+     Port              = Port,
+     Ports             = ports,
+     TransportProvider = Transport,
+     NumberOfServers   = 20,
+     NumberOfClients   = 1
+   });
+```
+
 
 To shut down Netick completely:
 
@@ -46,12 +87,25 @@ sandbox.Disconnect();
 
 You are advised to have a game starting scene used for server finding/matchmaking.
 
-## **Scene Switching**
+## **Scene Loading**
 
 To switch from the current scene to another:
 
 ```csharp
-sandbox.SwitchScene(2);
+sandbox.SwitchScene("sceneName");
+```
+
+### Additive Scenes (Experimental)
+
+Loading an additive scene:
+
+```csharp
+sandbox.LoadSceneAsync("sceneName", LoadSceneMode.Additive);
+```
+
+Unload additive scene (this must only be called for unloading an additively loaded scene)
+```csharp
+sandbox.SwitchScene("sceneName");
 ```
 
 To find the index of a scene, open the Build Settings window where you will see a list of all added scenes. If the desired scene is not present, open that scene and add it to the list.

@@ -86,15 +86,45 @@
 <h1 id="managing-netick">Managing Netick</h1>
 
 <h2 id="starting-and-shutting-down-netick"><strong>Starting and Shutting Down Netick</strong></h2>
-<p>When you start Netick, you need to specify the mode you want to start it in. You can start it as a single sandbox, either a server or a client, like this:</p>
+<p>When you start Netick, you need to specify the mode you want to start it in. Like this:</p>
+<h3 id="single-peer">Single Peer</h3>
 <p>As a client:</p>
 <pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsClient(Transport, Port);
+</code></pre>
+<p>As a host (a server with a local player):</p>
+<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsHost(Transport, Port);
 </code></pre>
 <p>As a server:</p>
 <pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsServer(Transport, Port);
 </code></pre>
-<p>Or you can start both a client and a server together:</p>
-<pre><code class="lang-csharp">var sandboxes = Netick.Network.StartAsMultiplePeers(Transport, Port, startAServer:true, 1);
+<p>Start Netick in Single-Player mode (disables low level networking)</p>
+<pre><code class="lang-csharp">var sandboxes = Netick.Network.StartAsSinglePlayer();
+</code></pre>
+<h3 id="multiple-peers-sandboxing">Multiple Peers (Sandboxing)</h3>
+<p>Or you can start both a client and a host together:</p>
+<pre><code class="lang-csharp">   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   {
+     Port              = Port,
+     TransportProvider = Transport,
+     NumberOfServers   = 1,
+     NumberOfClients   = 1
+   });
+
+</code></pre>
+<p>Starting multiple servers, and a client:</p>
+<pre><code class="lang-csharp">    // starts multiple servers (20 servers), and one client
+   int[] ports = new int[20];
+   for (int i = 0; i &lt; 20; i++)
+     ports[i]  = Port + i;
+
+   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   {
+     Port              = Port,
+     Ports             = ports,
+     TransportProvider = Transport,
+     NumberOfServers   = 20,
+     NumberOfClients   = 1
+   });
 </code></pre>
 <p>To shut down Netick completely:</p>
 <pre><code class="lang-csharp">Netick.Network.Shutdown();
@@ -108,9 +138,16 @@
 <pre><code class="lang-csharp">sandbox.Disconnect();
 </code></pre>
 <p>You are advised to have a game starting scene used for server finding/matchmaking.</p>
-<h2 id="scene-switching"><strong>Scene Switching</strong></h2>
+<h2 id="scene-loading"><strong>Scene Loading</strong></h2>
 <p>To switch from the current scene to another:</p>
-<pre><code class="lang-csharp">sandbox.SwitchScene(2);
+<pre><code class="lang-csharp">sandbox.SwitchScene(&quot;sceneName&quot;);
+</code></pre>
+<h3 id="additive-scenes-experimental">Additive Scenes (Experimental)</h3>
+<p>Loading an additive scene:</p>
+<pre><code class="lang-csharp">sandbox.LoadSceneAsync(&quot;sceneName&quot;, LoadSceneMode.Additive);
+</code></pre>
+<p>Unload additive scene (this must only be called for unloading an additively loaded scene)</p>
+<pre><code class="lang-csharp">sandbox.SwitchScene(&quot;sceneName&quot;);
 </code></pre>
 <p>To find the index of a scene, open the Build Settings window where you will see a list of all added scenes. If the desired scene is not present, open that scene and add it to the list.</p>
 

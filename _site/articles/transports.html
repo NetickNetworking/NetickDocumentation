@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Listening to Network Events | Netick Networking Engine </title>
+      <title>Transports | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Listening to Network Events | Netick Networking Engine ">
+      <meta name="title" content="Transports | Netick Networking Engine ">
       
       <link rel="icon" href="../images/logo.png">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -83,113 +83,26 @@
         </div>
 
         <article data-uid="">
-<h1 id="listening-to-network-events">Listening to Network Events</h1>
+<h1 id="transports">Transports</h1>
 
-<p>Netick has several useful callbacks you can use:</p>
-<table>
-<thead>
-<tr>
-<th>Callbacks</th>
-<th>Description</th>
-<th>Invoke target</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>OnStartup(NetworkSandbox sandbox)</td>
-<td>Called when Netick has been started.</td>
-<td>Client/Server</td>
-</tr>
-<tr>
-<td>OnShutdown(NetworkSandbox sandbox)</td>
-<td>Called when Netick has been shut down.</td>
-<td>Client/Server</td>
-</tr>
-<tr>
-<td>OnInput(NetworkSandbox sandbox)</td>
-<td>Called to read inputs.</td>
-<td>Client/Server</td>
-</tr>
-<tr>
-<td>OnConnectRequest(NetworkSandbox sandbox, NetworkConnectionRequest request)</td>
-<td>Called on the server when a client tries to connect. Use request to decide whether or not to allow this client to connect.</td>
-<td>Server</td>
-</tr>
-<tr>
-<td>OnConnectFailed(NetworkSandbox sandbox, ConnectionFailedReason reason)</td>
-<td>Called on the client when the connection to the server was refused, or simply failed.</td>
-<td>Client</td>
-</tr>
-<tr>
-<td>OnConnectedToServer(NetworkSandbox sandbox, NetworkConnection server)</td>
-<td>Called on the client when the connection to the server has succeeded.</td>
-<td>Client</td>
-</tr>
-<tr>
-<td>OnPlayerConnected(NetworkSandbox sandbox, Netick.NetworkPlayer client)</td>
-<td>Called on the server when a specific player has connected. Called for the server, when started as a Host.</td>
-<td>Server</td>
-</tr>
-<tr>
-<td>OnPlayerDisconnected(NetworkSandbox sandbox, Netick.NetworkConnection client)</td>
-<td>Called on the server when a specific player has disconnected.</td>
-<td>Server</td>
-</tr>
-<tr>
-<td>OnClientConnected(NetworkSandbox sandbox, NetworkConnection client)</td>
-<td>Called on the server when a specific client has connected.</td>
-<td>Server</td>
-</tr>
-<tr>
-<td>OnClientDisconnected(NetworkSandbox sandbox, NetworkConnection client)</td>
-<td>Called on the server when a specific client has disconnected.</td>
-<td>Server</td>
-</tr>
-<tr>
-<td>OnSceneLoaded(NetworkSandbox sandbox)</td>
-<td>Called on both the client and the server when the scene has been loaded.</td>
-<td>Client/Server</td>
-</tr>
-<tr>
-<td>OnSceneLoadStarted(NetworkSandbox sandbox)</td>
-<td>Called on both the client and the server before beginning to load the new scene.</td>
-<td>Client/Server</td>
-</tr>
-<tr>
-<td>OnClientSceneLoaded(NetworkSandbox sandbox, NetworkConnection client)</td>
-<td>Called on the server when a specific client finished loading the scene.</td>
-<td>Server</td>
-</tr>
-<tr>
-<td>OnObjectCreated(NetworkObject obj)</td>
-<td>Called when a network object has been created/initialized.</td>
-<td>Client/Server</td>
-</tr>
-<tr>
-<td>OnObjectDestroyed(NetworkObject obj)</td>
-<td>Called when a network object has been destroyed/recycled.</td>
-<td>Client/Server</td>
-</tr>
-</tbody>
-</table>
-<p>You can override these methods on a class inheriting from NetworkEventsListener, and add it to an object in the scene, and Netick will find it automatically. Or, you can add it to a network prefab that you instantiate, and Netick will also find it can call methods on it.</p>
-<p>You could also add the component NetworkEvents to an object, which does the same, but the difference is that you can plug your events right into it.</p>
-<p>And finally, you can use <code>Sandbox.Events</code> to directly subscribe/unsubscribe network events from any script, including network behaviours:</p>
-<pre><code class="lang-csharp">public override void NetworkStart()
-{
-  Sandbox.Events.OnPlayerConnected += OnPlayerConnected ;
-}
-
-public override void NetworkDestroy()
-{
-  Sandbox.Events.OnPlayerConnected -= OnPlayerConnected ;
-}
-
-private void OnPlayerConnected (....)
-{
-}
-</code></pre>
-<p>This is the cleanest way of using network events.</p>
+<h2 id="litenetlib">LiteNetLib:</h2>
+<ul>
+<li>Protocol: UDP</li>
+<li>Platforms: All, except WebGL</li>
+<li>Download: included with Netick</li>
+</ul>
+<h2 id="facepunch-steam">Facepunch (Steam):</h2>
+<ul>
+<li>Protocol: UDP</li>
+<li>Platforms: Windows, Mac OS, and Linux</li>
+<li>Download: <a href="https://github.com/Milk-Drinker01/Netick2-Facepunch-Transport">https://github.com/Milk-Drinker01/Netick2-Facepunch-Transport</a></li>
+</ul>
+<h2 id="unitytransport">UnityTransport</h2>
+<ul>
+<li>Protocol: WebSocket</li>
+<li>Platforms: All</li>
+<li>Download: <a href="https://github.com/karrarrahim/UnityTransport-Netick">https://github.com/karrarrahim/UnityTransport-Netick</a></li>
+</ul>
 
 </article>
 
