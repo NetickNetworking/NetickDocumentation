@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A transport is the lower level component that does the actual data sending, receiving and handling connections.
+A transport is the low-level component that does the actual data sending, receiving and handling connections.
 
 This guide will show how to implement a wrapper for the [Unity Transport](https://docs.unity3d.com/Packages/com.unity.transport@2.0/manual/index.html) 
 
