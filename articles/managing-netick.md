@@ -26,7 +26,7 @@ var sandbox = Netick.Network.StartAsServer(Transport, Port);
 
 Start Netick in Single-Player mode (disables low level networking)
 ```csharp
-var sandboxes = Netick.Network.StartAsSinglePlayer();
+var sandbox = Netick.Network.StartAsSinglePlayer();
 ```
 
 ### Multiple Peers (Sandboxing)
