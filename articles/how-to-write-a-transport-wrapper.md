@@ -306,7 +306,7 @@ Here we are handling everything from making new connections, handling disconnect
  }
 ```
 
-## Defining the transport provider
+## Defining the Transport Provider
 
 Finally, we have to define a transport provider (a ScriptableObject), which will be used by Netick to create a new instance of the transport wrapper. 
 
