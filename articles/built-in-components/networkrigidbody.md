@@ -8,5 +8,5 @@ Network Rigidbody is a built-in component to network the `Rigidbody` component. 
 - Settings: the replications settings of the NetworkTransform. Choose what you want to sync, and whether you want to enable compression for it or not.
 - Interpolation Source: read [here](../interpolation.md) for a detailed explanation.
 - Transform Space: the space used when replicating the data.
-- Teleport Distance: the distance at which a auto interpolation occurs.
+- Teleport Distance: the distance at which auto interpolation occurs.
 - Precision: the precision of the data compression. 
