@@ -28,6 +28,14 @@
 
 ## [Script Execution Order](script-execution-order.md)
 
+# Advanced
+
+## [Interpolation](interpolation.md)
+
+## [Lag Compensation](lag-compensation.md)
+
+## [Interest Management](interest-management.md)
+
 # Built-in Components
 
 ## [Network Transform](built-in-components/networktransform.md)
@@ -37,14 +45,6 @@
 ## [Network Rigidbody2D](built-in-components/networkrigidbody2d.md)
 
 ## [Network Animator](built-in-components/networkanimator.md)
-
-# Advanced
-
-## [Interpolation](interpolation.md)
-
-## [Lag Compensation](lag-compensation.md)
-
-## [Interest Management](interest-management.md)
 
 # Misc
 
