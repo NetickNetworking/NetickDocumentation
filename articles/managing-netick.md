@@ -6,30 +6,31 @@ When you start Netick, you need to specify the mode you want to start it in. Lik
 
 ### Single Peer
 
-As a client:
+#### Start as Client:
 
 ```csharp
 var sandbox = Netick.Network.StartAsClient(Transport, Port);
 ```
 
-As a host (a server with a local player):
+#### Start as Host (a server with a local player):
 
 ```csharp
 var sandbox = Netick.Network.StartAsHost(Transport, Port);
 ```
 
-As a server:
+#### Start as Server
 
 ```csharp
 var sandbox = Netick.Network.StartAsServer(Transport, Port);
 ```
 
-Start Netick in Single-Player mode (disables low level networking)
+#### Start As Single-Player (disables low level networking)
+
 ```csharp
 var sandbox = Netick.Network.StartAsSinglePlayer();
 ```
 
-### Multiple Peers (Sandboxing)
+#### Multiple Peers (Sandboxing)
 
 Or you can start both a client and a host together:
 

@@ -88,19 +88,19 @@
 <h2 id="starting-and-shutting-down-netick"><strong>Starting and Shutting Down Netick</strong></h2>
 <p>When you start Netick, you need to specify the mode you want to start it in. Like this:</p>
 <h3 id="single-peer">Single Peer</h3>
-<p>As a client:</p>
+<h4 id="start-as-client">Start as Client:</h4>
 <pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsClient(Transport, Port);
 </code></pre>
-<p>As a host (a server with a local player):</p>
+<h4 id="start-as-host-a-server-with-a-local-player">Start as Host (a server with a local player):</h4>
 <pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsHost(Transport, Port);
 </code></pre>
-<p>As a server:</p>
+<h4 id="start-as-server">Start as Server</h4>
 <pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsServer(Transport, Port);
 </code></pre>
-<p>Start Netick in Single-Player mode (disables low level networking)</p>
+<h4 id="start-as-single-player-disables-low-level-networking">Start As Single-Player (disables low level networking)</h4>
 <pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsSinglePlayer();
 </code></pre>
-<h3 id="multiple-peers-sandboxing">Multiple Peers (Sandboxing)</h3>
+<h4 id="multiple-peers-sandboxing">Multiple Peers (Sandboxing)</h4>
 <p>Or you can start both a client and a host together:</p>
 <pre><code class="lang-csharp">   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
