@@ -87,7 +87,7 @@
 
 <p>Networked state is the data of the game that you want to replicate to players. In Netick, networked state is delta compressed, therefore only changes are replicated. If a field of a struct changes, only that field is replicated. If a counter increases, only the delta to the previous value is replicated. If your counter was at 32534536, and now it is at 32534537, it will be replicated as a delta of one. It applies to vectors and quaternions too. Thus, using as little bandwidth as possible.</p>
 <p>Every network property/array can be predicted and interpolated too. Allowing you to create complex networked systems easily.</p>
-<h3 id="network-properties">Network Properties</h3>
+<h2 id="network-properties">Network Properties</h2>
 <p>A network property is a C# property which is replicated across the network. For a property to be networked, the Attribute [<a class="xref" href="../api/Netick.Networked.html">Networked</a>] must be added to it. Examples of networked properties:</p>
 <pre><code class="lang-csharp">[Networked]
 public int              Health   {get; set;}
@@ -111,7 +111,7 @@ public NetworkString32  Name     {get; set;}
 <h5>Warning</h5>
 <p>Reference types are not networkable.</p>
 </div>
-<h3 id="network-arrays">Network Arrays</h3>
+<h2 id="network-arrays">Network Arrays</h2>
 <p>Network arrays are just like regular C# arrays, but their syntax is a bit different. They are defined using the <a class="xref" href="../api/Netick.NetworkArray-1.html">NetworkArray&lt;T&gt;</a> generic class.</p>
 <p>Example of a network array:</p>
 <pre><code class="lang-csharp">[Networked(size: 32)]
@@ -121,7 +121,7 @@ public readonly NetworkArray&lt;int&gt; IntArrayExample = new NetworkArray&lt;in
 <h5>Warning</h5>
 <p><code>size</code> of [<a class="xref" href="../api/Netick.Networked.html">Networked</a>(size: 32)] must be the same as the value that is passed to the array constructor <code>new NetworkArray&lt;int&gt;(32)</code></p>
 </div>
-<h3 id="network-array-structs">Network Array Structs</h3>
+<h2 id="network-array-structs">Network Array Structs</h2>
 <p>Netick 2 introduces a new type of network array, network arrays that are completely value types - Network Array Structs. These are fixed-size struct arrays available only in 4 fixed sizes: 8, 16, 32, and 64.</p>
 <p>Network Array Structs are pretty useful since they can used as members of another struct, or even nested inside other arrays. In addition, they can be sent as RPC parameters.</p>
 <pre><code class="lang-csharp">// Network Struct Array Examples
@@ -136,7 +136,7 @@ public NetworkArrayStruct8&lt;NetworkArrayStruct8&lt;int&gt;&gt; ArrayOfArrays {
 <h5>Note</h5>
 <p>Network Array Structs are treated as if they were simple struct types like <code>int</code> or <code>float</code>, so they must be defined as a property not as a field (like normal NetworkArray that is non-fixed size).</p>
 </div>
-<h4 id="changing-elements-of-network-array-struct">Changing elements of Network Array Struct</h4>
+<h3 id="changing-elements-of-network-array-struct">Changing elements of Network Array Struct</h3>
 <p>Because Network Array Structs are structs, the whole array will be replaced even when you change a single element. To avoid bugs, this should be how you change array elements:</p>
 <pre><code class="lang-csharp">IntFixedArray = IntFixedArray.Set(index, value);
 // as you can see, we are reassigning the property with the new changed array which has the change.
@@ -201,6 +201,9 @@ public MyStruct MyStructProperty {get; set;}
 <pre><code class="lang-csharp">[Networked(relevancy: Relevancy.InputSource)] 
 public int              Ammo     {get; set;}
 </code></pre>
+<h2 id="state-synchronization">State Synchronization</h2>
+<p>Updates to the network state are atomic, it's not possible for a property to update in the client without other changed properties to update alongside it. If you change two properties in the server at the same time, you are ensured to have both replicate together in the client. This makes it so that you don't have to worry about packet loss and possible race conditions that might occur due to some properties updates arriving while others not arriving. This simplifies how you program your game as you never have to worry about such things happening.</p>
+<p>This also means that when you create an object in the server, assign some initial values to some network properties, when this object is created in the client, inside <code>NetworkStart</code> of that object you will have full initial state that you assigned in the server.</p>
 
 </article>
 

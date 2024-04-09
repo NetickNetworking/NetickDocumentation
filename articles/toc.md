@@ -22,6 +22,22 @@
 
 ## [Network Prefab Pool](network-object-instantiation-and-destruction/network-prefab-pool.md)
 
+## [Listening to Network Events](listening-to-network-events.md)
+
+## [Parenting](parenting.md)
+
+## [Script Execution Order](script-execution-order.md)
+
+# Built-in Components
+
+## [Network Transform](built-in-components/networktransform.md)
+
+## [Network Rigidbody](built-in-components/networkrigidbody.md)
+
+## [Network Rigidbody2D](built-in-components/networkrigidbody2d.md)
+
+## [Network Animator](built-in-components/networkanimator.md)
+
 # Advanced
 
 ## [Interpolation](interpolation.md)
@@ -31,12 +47,6 @@
 ## [Interest Management](interest-management.md)
 
 # Misc
-
-## [Listening to Network Events](listening-to-network-events.md)
-
-## [Parenting](parenting.md)
-
-## [Script Execution Order](script-execution-order.md)
 
 ## [Coming from Netick 1](coming-from-netick-1.md)
 

@@ -4,7 +4,7 @@ Networked state is the data of the game that you want to replicate to players. I
 
 Every network property/array can be predicted and interpolated too. Allowing you to create complex networked systems easily.
 
-### Network Properties
+## Network Properties
 
 A network property is a C# property which is replicated across the network. For a property to be networked, the Attribute [<xref:Netick.Networked>] must be added to it. Examples of networked properties:
 
@@ -31,7 +31,7 @@ public NetworkString32  Name     {get; set;}
 > [!WARNING]
 > Reference types are not networkable.
 
-### Network Arrays
+## Network Arrays
 
 Network arrays are just like regular C# arrays, but their syntax is a bit different. They are defined using the <xref:Netick.NetworkArray`1> generic class.
 
@@ -45,7 +45,7 @@ public readonly NetworkArray<int> IntArrayExample = new NetworkArray<int>(32) { 
 > [!WARNING]
 > `size` of [<xref:Netick.Networked>(size: 32)] must be the same as the value that is passed to the array constructor `new NetworkArray<int>(32)`
 
-### Network Array Structs
+## Network Array Structs
 
 Netick 2 introduces a new type of network array, network arrays that are completely value types - Network Array Structs. These are fixed-size struct arrays available only in 4 fixed sizes: 8, 16, 32, and 64.
 
@@ -64,7 +64,7 @@ public NetworkArrayStruct8<NetworkArrayStruct8<int>> ArrayOfArrays { get; set; }
 > [!Note]
 > Network Array Structs are treated as if they were simple struct types like `int` or `float`, so they must be defined as a property not as a field (like normal NetworkArray that is non-fixed size).
 
-#### Changing elements of Network Array Struct
+### Changing elements of Network Array Struct
 
 Because Network Array Structs are structs, the whole array will be replaced even when you change a single element. To avoid bugs, this should be how you change array elements:
 
@@ -145,3 +145,11 @@ Example:
 [Networked(relevancy: Relevancy.InputSource)] 
 public int              Ammo     {get; set;}
 ```
+
+
+## State Synchronization
+
+Updates to the network state are atomic, it's not possible for a property to update in the client without other changed properties to update alongside it. If you change two properties in the server at the same time, you are ensured to have both replicate together in the client. This makes it so that you don't have to worry about packet loss and possible race conditions that might occur due to some properties updates arriving while others not arriving. This simplifies how you program your game as you never have to worry about such things happening.
+
+This also means that when you create an object in the server, assign some initial values to some network properties, when this object is created in the client, inside `NetworkStart` of that object you will have full initial state that you assigned in the server. 
+

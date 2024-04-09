@@ -122,7 +122,7 @@ private void OnArrayExampleChanged(OnChangedData onChangedData)
 <h3 id="networklinkedlist">NetworkLinkedList<t></t></h3>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked(size: 32)]
-public NetworkLinkedList&lt;int&gt; ListExample = new NetworkArray&lt;int&gt;(32);
+public readonly NetworkLinkedList&lt;int&gt; ListExample = new NetworkArray&lt;int&gt;(32);
 
 [OnChanged(nameof(ListExample))]
 private void OnListExampleChanged(OnChangedData onChangedData)
@@ -134,7 +134,7 @@ private void OnListExampleChanged(OnChangedData onChangedData)
 <h3 id="networkqueue">NetworkQueue<t></t></h3>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked(size: 32)]
-public NetworkQueue&lt;int&gt; QueueExample = new NetworkQueue&lt;int&gt;(32);
+public readonly NetworkQueue&lt;int&gt; QueueExample = new NetworkQueue&lt;int&gt;(32);
 
 [OnChanged(nameof(QueueExample))]
 private void OnQueueExampleChanged(OnChangedData onChangedData)
@@ -146,7 +146,7 @@ private void OnQueueExampleChanged(OnChangedData onChangedData)
 <h3 id="networkstack">NetworkStack<t></t></h3>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked(size: 32)]
-public NetworkStack&lt;int&gt; StackExample = new NetworkStack&lt;int&gt;(32);
+public readonly NetworkStack&lt;int&gt; StackExample = new NetworkStack&lt;int&gt;(32);
 
 [OnChanged(nameof(StackExample))]
 private void OnStackExampleChanged(OnChangedData onChangedData)

@@ -2,17 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>State Replication | Netick Networking Engine </title>
+      <title>Network Rigidbody2D | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="State Replication | Netick Networking Engine ">
+      <meta name="title" content="Network Rigidbody2D | Netick Networking Engine ">
       
-      <link rel="icon" href="../images/logo.png">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
+      <link rel="icon" href="../../images/logo.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
       
-      <meta name="docfx:rel" content="../">
+      <meta name="docfx:rel" content="../../">
       
       
       
@@ -29,7 +29,7 @@
       <meta name="loc:copy" content="Copy">
   </head>
 
-  <script type="module" src="./../public/docfx.min.js"></script>
+  <script type="module" src="./../../public/docfx.min.js"></script>
 
   <script>
     const theme = localStorage.getItem('theme') || 'auto'
@@ -41,8 +41,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="Netick Docs | v2">
             Netick Docs | v2
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,10 +83,18 @@
         </div>
 
         <article data-uid="">
-<h1 id="state-replication">State Replication</h1>
+<h1 id="network-rigidbody2d">Network Rigidbody2D</h1>
 
-<p>In Netick, the network state of the game is delta compressed. Updates to the game are atomic, it's not possible for a property to update in the client without other changed properties to update alongside it. If you change two properties in the server at the same time, you are ensured to have both replicate together in the client. This makes it so that you don't have to worry about packet loss and possible race conditions that might occur due to some data arriving while other not arriving. This simplifies how you program your game as you never have to worry about such things happening.</p>
-<p>This also means that when you create an object in the server, assign some initial values to some network properties, when this object is created in the client, inside <code>NetworkStart</code> of that object you will the full initial state that you assigned in the server.</p>
+<p>Network Rigidbody is a built-in component to network the <code>Rigidbody2D</code> component. It syncs the position and rotation of the <code>Rigidbody2D</code>, in addition the physical state.</p>
+<h2 id="settings">Settings:</h2>
+<ul>
+<li>Render Transform: assign here the transform that you want to use to display smoothed movement. Should be a child of this GameObject.</li>
+<li>Settings: the replications settings of the NetworkTransform. Choose what you want to sync, and whether you want to enable compression for it or not.</li>
+<li>Interpolation Source: read <a href="../interpolation.html">here</a> for a detailed explanation.</li>
+<li>Transform Space: the space used when replicating the data.</li>
+<li>Teleport Distance: the distance at which a auto interpolation occurs.</li>
+<li>Precision: the precision of the data compression.</li>
+</ul>
 
 </article>
 

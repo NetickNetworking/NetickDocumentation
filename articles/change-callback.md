@@ -50,7 +50,7 @@ Example:
 
 ```csharp
 [Networked(size: 32)]
-public NetworkLinkedList<int> ListExample = new NetworkArray<int>(32);
+public readonly NetworkLinkedList<int> ListExample = new NetworkArray<int>(32);
 
 [OnChanged(nameof(ListExample))]
 private void OnListExampleChanged(OnChangedData onChangedData)
@@ -66,7 +66,7 @@ Example:
 
 ```csharp
 [Networked(size: 32)]
-public NetworkQueue<int> QueueExample = new NetworkQueue<int>(32);
+public readonly NetworkQueue<int> QueueExample = new NetworkQueue<int>(32);
 
 [OnChanged(nameof(QueueExample))]
 private void OnQueueExampleChanged(OnChangedData onChangedData)
@@ -82,7 +82,7 @@ Example:
 
 ```csharp
 [Networked(size: 32)]
-public NetworkStack<int> StackExample = new NetworkStack<int>(32);
+public readonly NetworkStack<int> StackExample = new NetworkStack<int>(32);
 
 [OnChanged(nameof(StackExample))]
 private void OnStackExampleChanged(OnChangedData onChangedData)
