@@ -127,7 +127,7 @@ public readonly NetworkLinkedList&lt;int&gt; ListExample = new NetworkArray&lt;i
 [OnChanged(nameof(ListExample))]
 private void OnListExampleChanged(OnChangedData onChangedData)
 {
-  // getting a snapshot of the previous state of the list
+  // getting a snapshot of the previous state of the collection
   var previous = onChangedData.GetPreviousNetworkStack(ListExample);
 }
 </code></pre>
@@ -139,7 +139,7 @@ public readonly NetworkQueue&lt;int&gt; QueueExample = new NetworkQueue&lt;int&g
 [OnChanged(nameof(QueueExample))]
 private void OnQueueExampleChanged(OnChangedData onChangedData)
 {
-  // getting a snapshot of the previous state of the list
+  // getting a snapshot of the previous state of the collection
   var previous = onChangedData.GetPreviousNetworkQueue(QueueExample);
 }
 </code></pre>
@@ -151,7 +151,7 @@ public readonly NetworkStack&lt;int&gt; StackExample = new NetworkStack&lt;int&g
 [OnChanged(nameof(StackExample))]
 private void OnStackExampleChanged(OnChangedData onChangedData)
 {
-  // getting a snapshot of the previous state of the list
+  // getting a snapshot of the previous state of the collection
   var previous = onChangedData.GetPreviousNetworkStack(StackExample);
 }
 </code></pre>

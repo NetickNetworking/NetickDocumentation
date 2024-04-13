@@ -6,7 +6,9 @@ Every network property/array can be predicted and interpolated too. Allowing you
 
 ## Network Properties
 
-A network property is a C# property which is replicated across the network. For a property to be networked, the Attribute [<xref:Netick.Networked>] must be added to it. Examples of networked properties:
+A network property is a C# property which is replicated across the network. For a property to be networked, the attribute [<xref:Netick.Networked>] must be added to it. 
+
+Examples of networked properties:
 
 ```csharp
 [Networked]
@@ -108,10 +110,10 @@ Example:
 ```csharp
 public struct MyNestedStruct
 {
-    public int                      Int1;
-    public NetworkBool              Bool1;
-    public float                    Float1;
-    public double                   Double1;
+    public int                      Int;
+    public NetworkBool              Bool;
+    public float                    Float;
+    public double                   Double;
     public Vector3                  Position;
     public Quaternion               Rotation;
     public Color                    Color;
@@ -122,10 +124,10 @@ public struct MyStruct
 {
     public MyNestedStruct           MyNestedStruct;
     public NetworkArrayStruct8<int> StructArray;
-    public int                      Int1;
-    public NetworkBool              Bool1;
-    public float                    Float1;
-    public double                   Double1;
+    public int                      Int;
+    public NetworkBool              Bool;
+    public float                    Float;
+    public double                   Double;
 }
 
 [Networked]
@@ -133,7 +135,7 @@ public MyStruct MyStructProperty {get; set;}
 ```
 
 > [!Note] 
-> `string` is not supported as a type that can used inside a struct. Use `NetworkString` instead.
+> `string` is not supported as a type that can be used inside a struct. Use `NetworkString` instead.
 
 ## Replication Relevancy
 

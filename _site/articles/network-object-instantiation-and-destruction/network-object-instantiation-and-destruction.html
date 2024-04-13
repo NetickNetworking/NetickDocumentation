@@ -86,7 +86,7 @@
 <h1 id="network-object-instantiation-and-destruction">Network Object Instantiation and Destruction</h1>
 
 <p>To Instantiate a network prefab:</p>
-<pre><code class="lang-csharp">sandbox.NetworkInstantiate(prefab);
+<pre><code class="lang-csharp">sandbox.NetworkInstantiate(prefab, position, Quaternion.identity);
 </code></pre>
 <p>Normally, it’s only possible to instantiate network prefabs on the server. However, it’s possible to spawn-predict them on the client, check out the next section for that.</p>
 <p>To destroy any networked object:</p>
