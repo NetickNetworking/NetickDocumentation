@@ -1,3 +1,19 @@
+# Getting Started
+
+## [0 - Overview](0-overview.md)
+
+## [1 - Project Setup](1-project-setup.md)
+
+## [2 - Starting Session](2-starting-session.md)
+
+## [3 - Player Character Logic](3-player-character-logic.md)
+
+## [4 - Network Property](4-network-property.md)
+
+## [5 - Remote Procedure Calls](5-remote-procedure-call.md)
+
+## [6 - Next](6-next.md)
+
 # Basics
 
 ## [Understanding Client-Server Model](understanding-client-server-model.md)
