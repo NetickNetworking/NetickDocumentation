@@ -1,0 +1,658 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.NetickAllocator
+  commentId: T:Netick.NetickAllocator
+  id: NetickAllocator
+  parent: Netick
+  children:
+  - Netick.NetickAllocator.AddNewPool(System.Boolean)
+  - Netick.NetickAllocator.CopyTo(Netick.NetickAllocator)
+  - Netick.NetickAllocator.Finalize
+  - Netick.NetickAllocator.Free(System.Void*)
+  - Netick.NetickAllocator.Malloc(System.UInt64,System.Int32@,System.Int64@)
+  - Netick.NetickAllocator.Pools
+  - Netick.NetickAllocator.SafeMalloc(System.UInt64,System.Int32@,System.Int64@)
+  langs:
+  - csharp
+  - vb
+  name: NetickAllocator
+  nameWithType: NetickAllocator
+  fullName: Netick.NetickAllocator
+  type: Class
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public sealed class NetickAllocator
+    content.vb: Public NotInheritable Class NetickAllocator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Netick.NetickAllocator.Pools
+  commentId: F:Netick.NetickAllocator.Pools
+  id: Pools
+  parent: Netick.NetickAllocator
+  langs:
+  - csharp
+  - vb
+  name: Pools
+  nameWithType: NetickAllocator.Pools
+  fullName: Netick.NetickAllocator.Pools
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public List<NetickAllocator.MemoryPool> Pools
+    return:
+      type: System.Collections.Generic.List{Netick.NetickAllocator.MemoryPool}
+    content.vb: Public Pools As List(Of NetickAllocator.MemoryPool)
+- uid: Netick.NetickAllocator.Finalize
+  commentId: M:Netick.NetickAllocator.Finalize
+  id: Finalize
+  parent: Netick.NetickAllocator
+  langs:
+  - csharp
+  - vb
+  name: ~NetickAllocator()
+  nameWithType: NetickAllocator.~NetickAllocator()
+  fullName: Netick.NetickAllocator.~NetickAllocator()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: protected ~NetickAllocator()
+    content.vb: 'Protected '
+  overload: Netick.NetickAllocator.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: Netick.NetickAllocator.AddNewPool(System.Boolean)
+  commentId: M:Netick.NetickAllocator.AddNewPool(System.Boolean)
+  id: AddNewPool(System.Boolean)
+  parent: Netick.NetickAllocator
+  langs:
+  - csharp
+  - vb
+  name: AddNewPool(bool)
+  nameWithType: NetickAllocator.AddNewPool(bool)
+  fullName: Netick.NetickAllocator.AddNewPool(bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AddNewPool(bool isMain)
+    parameters:
+    - id: isMain
+      type: System.Boolean
+    content.vb: Public Sub AddNewPool(isMain As Boolean)
+  overload: Netick.NetickAllocator.AddNewPool*
+  nameWithType.vb: NetickAllocator.AddNewPool(Boolean)
+  fullName.vb: Netick.NetickAllocator.AddNewPool(Boolean)
+  name.vb: AddNewPool(Boolean)
+- uid: Netick.NetickAllocator.CopyTo(Netick.NetickAllocator)
+  commentId: M:Netick.NetickAllocator.CopyTo(Netick.NetickAllocator)
+  id: CopyTo(Netick.NetickAllocator)
+  parent: Netick.NetickAllocator
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(NetickAllocator)
+  nameWithType: NetickAllocator.CopyTo(NetickAllocator)
+  fullName: Netick.NetickAllocator.CopyTo(Netick.NetickAllocator)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void CopyTo(NetickAllocator dest)
+    parameters:
+    - id: dest
+      type: Netick.NetickAllocator
+    content.vb: Public Sub CopyTo(dest As NetickAllocator)
+  overload: Netick.NetickAllocator.CopyTo*
+- uid: Netick.NetickAllocator.Malloc(System.UInt64,System.Int32@,System.Int64@)
+  commentId: M:Netick.NetickAllocator.Malloc(System.UInt64,System.Int32@,System.Int64@)
+  id: Malloc(System.UInt64,System.Int32@,System.Int64@)
+  parent: Netick.NetickAllocator
+  langs:
+  - csharp
+  - vb
+  name: Malloc(ulong, out int, out long)
+  nameWithType: NetickAllocator.Malloc(ulong, out int, out long)
+  fullName: Netick.NetickAllocator.Malloc(ulong, out int, out long)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void* Malloc(ulong size, out int poolIndex, out long offset)
+    parameters:
+    - id: size
+      type: System.UInt64
+    - id: poolIndex
+      type: System.Int32
+    - id: offset
+      type: System.Int64
+    return:
+      type: System.Void*
+    content.vb: Public Function Malloc(size As ULong, poolIndex As Integer, offset As Long) As Void*
+  overload: Netick.NetickAllocator.Malloc*
+  nameWithType.vb: NetickAllocator.Malloc(ULong, Integer, Long)
+  fullName.vb: Netick.NetickAllocator.Malloc(ULong, Integer, Long)
+  name.vb: Malloc(ULong, Integer, Long)
+- uid: Netick.NetickAllocator.SafeMalloc(System.UInt64,System.Int32@,System.Int64@)
+  commentId: M:Netick.NetickAllocator.SafeMalloc(System.UInt64,System.Int32@,System.Int64@)
+  id: SafeMalloc(System.UInt64,System.Int32@,System.Int64@)
+  parent: Netick.NetickAllocator
+  langs:
+  - csharp
+  - vb
+  name: SafeMalloc(ulong, out int, out long)
+  nameWithType: NetickAllocator.SafeMalloc(ulong, out int, out long)
+  fullName: Netick.NetickAllocator.SafeMalloc(ulong, out int, out long)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public void* SafeMalloc(ulong size, out int poolIndex, out long offset)
+    parameters:
+    - id: size
+      type: System.UInt64
+    - id: poolIndex
+      type: System.Int32
+    - id: offset
+      type: System.Int64
+    return:
+      type: System.Void*
+    content.vb: Public Function SafeMalloc(size As ULong, poolIndex As Integer, offset As Long) As Void*
+  overload: Netick.NetickAllocator.SafeMalloc*
+  nameWithType.vb: NetickAllocator.SafeMalloc(ULong, Integer, Long)
+  fullName.vb: Netick.NetickAllocator.SafeMalloc(ULong, Integer, Long)
+  name.vb: SafeMalloc(ULong, Integer, Long)
+- uid: Netick.NetickAllocator.Free(System.Void*)
+  commentId: M:Netick.NetickAllocator.Free(System.Void*)
+  id: Free(System.Void*)
+  parent: Netick.NetickAllocator
+  langs:
+  - csharp
+  - vb
+  name: Free(void*)
+  nameWithType: NetickAllocator.Free(void*)
+  fullName: Netick.NetickAllocator.Free(void*)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Free(void* ptr)
+    parameters:
+    - id: ptr
+      type: System.Void*
+    content.vb: Public Sub Free(ptr As Void*)
+  overload: Netick.NetickAllocator.Free*
+  nameWithType.vb: NetickAllocator.Free(Void*)
+  fullName.vb: Netick.NetickAllocator.Free(Void*)
+  name.vb: Free(Void*)
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{Netick.NetickAllocator.MemoryPool}
+  commentId: T:System.Collections.Generic.List{Netick.NetickAllocator.MemoryPool}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<NetickAllocator.MemoryPool>
+  nameWithType: List<NetickAllocator.MemoryPool>
+  fullName: System.Collections.Generic.List<Netick.NetickAllocator.MemoryPool>
+  nameWithType.vb: List(Of NetickAllocator.MemoryPool)
+  fullName.vb: System.Collections.Generic.List(Of Netick.NetickAllocator.MemoryPool)
+  name.vb: List(Of NetickAllocator.MemoryPool)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.NetickAllocator
+    name: NetickAllocator
+    isExternal: true
+    href: Netick.NetickAllocator.html
+  - name: .
+  - uid: Netick.NetickAllocator.MemoryPool
+    name: MemoryPool
+    isExternal: true
+    href: Netick.NetickAllocator.MemoryPool.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.NetickAllocator
+    name: NetickAllocator
+    isExternal: true
+    href: Netick.NetickAllocator.html
+  - name: .
+  - uid: Netick.NetickAllocator.MemoryPool
+    name: MemoryPool
+    isExternal: true
+    href: Netick.NetickAllocator.MemoryPool.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Netick.NetickAllocator.Finalize*
+  commentId: Overload:Netick.NetickAllocator.Finalize
+  isExternal: true
+  href: Netick.NetickAllocator.html#Netick_NetickAllocator_Finalize
+  name: ~NetickAllocator
+  nameWithType: NetickAllocator.~NetickAllocator
+  fullName: Netick.NetickAllocator.~NetickAllocator
+  spec.csharp:
+  - name: "~"
+  - uid: Netick.NetickAllocator.Finalize*
+    name: NetickAllocator
+    isExternal: true
+    href: Netick.NetickAllocator.html#Netick_NetickAllocator_Finalize
+- uid: Netick.NetickAllocator.AddNewPool*
+  commentId: Overload:Netick.NetickAllocator.AddNewPool
+  isExternal: true
+  href: Netick.NetickAllocator.html#Netick_NetickAllocator_AddNewPool_System_Boolean_
+  name: AddNewPool
+  nameWithType: NetickAllocator.AddNewPool
+  fullName: Netick.NetickAllocator.AddNewPool
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Netick.NetickAllocator.CopyTo*
+  commentId: Overload:Netick.NetickAllocator.CopyTo
+  isExternal: true
+  href: Netick.NetickAllocator.html#Netick_NetickAllocator_CopyTo_Netick_NetickAllocator_
+  name: CopyTo
+  nameWithType: NetickAllocator.CopyTo
+  fullName: Netick.NetickAllocator.CopyTo
+- uid: Netick.NetickAllocator
+  commentId: T:Netick.NetickAllocator
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickAllocator.html
+  name: NetickAllocator
+  nameWithType: NetickAllocator
+  fullName: Netick.NetickAllocator
+- uid: Netick.NetickAllocator.Malloc*
+  commentId: Overload:Netick.NetickAllocator.Malloc
+  isExternal: true
+  href: Netick.NetickAllocator.html#Netick_NetickAllocator_Malloc_System_UInt64_System_Int32__System_Int64__
+  name: Malloc
+  nameWithType: NetickAllocator.Malloc
+  fullName: Netick.NetickAllocator.Malloc
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.Void*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.void
+  name: void*
+  nameWithType: void*
+  fullName: void*
+  nameWithType.vb: Void*
+  fullName.vb: Void*
+  name.vb: Void*
+  spec.csharp:
+  - uid: System.Void
+    name: void
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.void
+  - name: '*'
+  spec.vb:
+  - uid: System.Void
+    name: Void
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.void
+  - name: '*'
+- uid: Netick.NetickAllocator.SafeMalloc*
+  commentId: Overload:Netick.NetickAllocator.SafeMalloc
+  isExternal: true
+  href: Netick.NetickAllocator.html#Netick_NetickAllocator_SafeMalloc_System_UInt64_System_Int32__System_Int64__
+  name: SafeMalloc
+  nameWithType: NetickAllocator.SafeMalloc
+  fullName: Netick.NetickAllocator.SafeMalloc
+- uid: Netick.NetickAllocator.Free*
+  commentId: Overload:Netick.NetickAllocator.Free
+  isExternal: true
+  href: Netick.NetickAllocator.html#Netick_NetickAllocator_Free_System_Void__
+  name: Free
+  nameWithType: NetickAllocator.Free
+  fullName: Netick.NetickAllocator.Free

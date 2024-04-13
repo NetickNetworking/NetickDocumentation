@@ -1,0 +1,269 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Unity.OnPlayerDisconnectedDelegate
+  commentId: T:Netick.Unity.OnPlayerDisconnectedDelegate
+  id: OnPlayerDisconnectedDelegate
+  parent: Netick.Unity
+  children:
+  - Netick.Unity.OnPlayerDisconnectedDelegate.#ctor(System.Object,System.IntPtr)
+  - Netick.Unity.OnPlayerDisconnectedDelegate.BeginInvoke(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason,System.AsyncCallback,System.Object)
+  - Netick.Unity.OnPlayerDisconnectedDelegate.EndInvoke(System.IAsyncResult)
+  - Netick.Unity.OnPlayerDisconnectedDelegate.Invoke(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  langs:
+  - csharp
+  - vb
+  name: OnPlayerDisconnectedDelegate
+  nameWithType: OnPlayerDisconnectedDelegate
+  fullName: Netick.Unity.OnPlayerDisconnectedDelegate
+  type: Delegate
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public delegate void OnPlayerDisconnectedDelegate(NetworkSandbox sandbox, NetworkPlayer player, TransportDisconnectReason transportDisconnectReason)
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: player
+      type: Netick.NetworkPlayer
+    - id: transportDisconnectReason
+      type: Netick.TransportDisconnectReason
+    content.vb: Public Delegate Sub OnPlayerDisconnectedDelegate(sandbox As NetworkSandbox, player As NetworkPlayer, transportDisconnectReason As TransportDisconnectReason)
+- uid: Netick.Unity.OnPlayerDisconnectedDelegate.#ctor(System.Object,System.IntPtr)
+  commentId: M:Netick.Unity.OnPlayerDisconnectedDelegate.#ctor(System.Object,System.IntPtr)
+  id: '#ctor(System.Object,System.IntPtr)'
+  parent: Netick.Unity.OnPlayerDisconnectedDelegate
+  langs:
+  - csharp
+  - vb
+  name: OnPlayerDisconnectedDelegate(object, IntPtr)
+  nameWithType: OnPlayerDisconnectedDelegate.OnPlayerDisconnectedDelegate(object, IntPtr)
+  fullName: Netick.Unity.OnPlayerDisconnectedDelegate.OnPlayerDisconnectedDelegate(object, System.IntPtr)
+  type: Constructor
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public OnPlayerDisconnectedDelegate(object @object, IntPtr method)
+    parameters:
+    - id: object
+      type: System.Object
+    - id: method
+      type: System.IntPtr
+    content.vb: Public Sub New([object] As Object, method As IntPtr)
+  overload: Netick.Unity.OnPlayerDisconnectedDelegate.#ctor*
+  nameWithType.vb: OnPlayerDisconnectedDelegate.New(Object, IntPtr)
+  fullName.vb: Netick.Unity.OnPlayerDisconnectedDelegate.New(Object, System.IntPtr)
+  name.vb: New(Object, IntPtr)
+- uid: Netick.Unity.OnPlayerDisconnectedDelegate.Invoke(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  commentId: M:Netick.Unity.OnPlayerDisconnectedDelegate.Invoke(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  id: Invoke(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  parent: Netick.Unity.OnPlayerDisconnectedDelegate
+  langs:
+  - csharp
+  - vb
+  name: Invoke(NetworkSandbox, NetworkPlayer, TransportDisconnectReason)
+  nameWithType: OnPlayerDisconnectedDelegate.Invoke(NetworkSandbox, NetworkPlayer, TransportDisconnectReason)
+  fullName: Netick.Unity.OnPlayerDisconnectedDelegate.Invoke(Netick.Unity.NetworkSandbox, Netick.NetworkPlayer, Netick.TransportDisconnectReason)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public virtual void Invoke(NetworkSandbox sandbox, NetworkPlayer player, TransportDisconnectReason transportDisconnectReason)
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: player
+      type: Netick.NetworkPlayer
+    - id: transportDisconnectReason
+      type: Netick.TransportDisconnectReason
+    content.vb: Public Overridable Sub Invoke(sandbox As NetworkSandbox, player As NetworkPlayer, transportDisconnectReason As TransportDisconnectReason)
+  overload: Netick.Unity.OnPlayerDisconnectedDelegate.Invoke*
+- uid: Netick.Unity.OnPlayerDisconnectedDelegate.BeginInvoke(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason,System.AsyncCallback,System.Object)
+  commentId: M:Netick.Unity.OnPlayerDisconnectedDelegate.BeginInvoke(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason,System.AsyncCallback,System.Object)
+  id: BeginInvoke(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason,System.AsyncCallback,System.Object)
+  parent: Netick.Unity.OnPlayerDisconnectedDelegate
+  langs:
+  - csharp
+  - vb
+  name: BeginInvoke(NetworkSandbox, NetworkPlayer, TransportDisconnectReason, AsyncCallback, object)
+  nameWithType: OnPlayerDisconnectedDelegate.BeginInvoke(NetworkSandbox, NetworkPlayer, TransportDisconnectReason, AsyncCallback, object)
+  fullName: Netick.Unity.OnPlayerDisconnectedDelegate.BeginInvoke(Netick.Unity.NetworkSandbox, Netick.NetworkPlayer, Netick.TransportDisconnectReason, System.AsyncCallback, object)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public virtual IAsyncResult BeginInvoke(NetworkSandbox sandbox, NetworkPlayer player, TransportDisconnectReason transportDisconnectReason, AsyncCallback callback, object @object)
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: player
+      type: Netick.NetworkPlayer
+    - id: transportDisconnectReason
+      type: Netick.TransportDisconnectReason
+    - id: callback
+      type: System.AsyncCallback
+    - id: object
+      type: System.Object
+    return:
+      type: System.IAsyncResult
+    content.vb: Public Overridable Function BeginInvoke(sandbox As NetworkSandbox, player As NetworkPlayer, transportDisconnectReason As TransportDisconnectReason, callback As AsyncCallback, [object] As Object) As IAsyncResult
+  overload: Netick.Unity.OnPlayerDisconnectedDelegate.BeginInvoke*
+  nameWithType.vb: OnPlayerDisconnectedDelegate.BeginInvoke(NetworkSandbox, NetworkPlayer, TransportDisconnectReason, AsyncCallback, Object)
+  fullName.vb: Netick.Unity.OnPlayerDisconnectedDelegate.BeginInvoke(Netick.Unity.NetworkSandbox, Netick.NetworkPlayer, Netick.TransportDisconnectReason, System.AsyncCallback, Object)
+  name.vb: BeginInvoke(NetworkSandbox, NetworkPlayer, TransportDisconnectReason, AsyncCallback, Object)
+- uid: Netick.Unity.OnPlayerDisconnectedDelegate.EndInvoke(System.IAsyncResult)
+  commentId: M:Netick.Unity.OnPlayerDisconnectedDelegate.EndInvoke(System.IAsyncResult)
+  id: EndInvoke(System.IAsyncResult)
+  parent: Netick.Unity.OnPlayerDisconnectedDelegate
+  langs:
+  - csharp
+  - vb
+  name: EndInvoke(IAsyncResult)
+  nameWithType: OnPlayerDisconnectedDelegate.EndInvoke(IAsyncResult)
+  fullName: Netick.Unity.OnPlayerDisconnectedDelegate.EndInvoke(System.IAsyncResult)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public virtual void EndInvoke(IAsyncResult result)
+    parameters:
+    - id: result
+      type: System.IAsyncResult
+    content.vb: Public Overridable Sub EndInvoke(result As IAsyncResult)
+  overload: Netick.Unity.OnPlayerDisconnectedDelegate.EndInvoke*
+references:
+- uid: Netick.Unity
+  commentId: N:Netick.Unity
+  isExternal: true
+  href: Netick.html
+  name: Netick.Unity
+  nameWithType: Netick.Unity
+  fullName: Netick.Unity
+  spec.csharp:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+  spec.vb:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+- uid: Netick.Unity.NetworkSandbox
+  commentId: T:Netick.Unity.NetworkSandbox
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html
+  name: NetworkSandbox
+  nameWithType: NetworkSandbox
+  fullName: Netick.Unity.NetworkSandbox
+- uid: Netick.NetworkPlayer
+  commentId: T:Netick.NetworkPlayer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayer.html
+  name: NetworkPlayer
+  nameWithType: NetworkPlayer
+  fullName: Netick.NetworkPlayer
+- uid: Netick.TransportDisconnectReason
+  commentId: T:Netick.TransportDisconnectReason
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportDisconnectReason.html
+  name: TransportDisconnectReason
+  nameWithType: TransportDisconnectReason
+  fullName: Netick.TransportDisconnectReason
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: Netick.Unity.OnPlayerDisconnectedDelegate.#ctor*
+  commentId: Overload:Netick.Unity.OnPlayerDisconnectedDelegate.#ctor
+  isExternal: true
+  href: Netick.Unity.OnPlayerDisconnectedDelegate.html#Netick_Unity_OnPlayerDisconnectedDelegate__ctor_System_Object_System_IntPtr_
+  name: OnPlayerDisconnectedDelegate
+  nameWithType: OnPlayerDisconnectedDelegate.OnPlayerDisconnectedDelegate
+  fullName: Netick.Unity.OnPlayerDisconnectedDelegate.OnPlayerDisconnectedDelegate
+  nameWithType.vb: OnPlayerDisconnectedDelegate.New
+  fullName.vb: Netick.Unity.OnPlayerDisconnectedDelegate.New
+  name.vb: New
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: IntPtr
+  nameWithType: IntPtr
+  fullName: System.IntPtr
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.Unity.OnPlayerDisconnectedDelegate.Invoke*
+  commentId: Overload:Netick.Unity.OnPlayerDisconnectedDelegate.Invoke
+  isExternal: true
+  href: Netick.Unity.OnPlayerDisconnectedDelegate.html#Netick_Unity_OnPlayerDisconnectedDelegate_Invoke_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_Netick_TransportDisconnectReason_
+  name: Invoke
+  nameWithType: OnPlayerDisconnectedDelegate.Invoke
+  fullName: Netick.Unity.OnPlayerDisconnectedDelegate.Invoke
+- uid: Netick.Unity.OnPlayerDisconnectedDelegate.BeginInvoke*
+  commentId: Overload:Netick.Unity.OnPlayerDisconnectedDelegate.BeginInvoke
+  isExternal: true
+  href: Netick.Unity.OnPlayerDisconnectedDelegate.html#Netick_Unity_OnPlayerDisconnectedDelegate_BeginInvoke_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_Netick_TransportDisconnectReason_System_AsyncCallback_System_Object_
+  name: BeginInvoke
+  nameWithType: OnPlayerDisconnectedDelegate.BeginInvoke
+  fullName: Netick.Unity.OnPlayerDisconnectedDelegate.BeginInvoke
+- uid: System.AsyncCallback
+  commentId: T:System.AsyncCallback
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.asynccallback
+  name: AsyncCallback
+  nameWithType: AsyncCallback
+  fullName: System.AsyncCallback
+- uid: System.IAsyncResult
+  commentId: T:System.IAsyncResult
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncresult
+  name: IAsyncResult
+  nameWithType: IAsyncResult
+  fullName: System.IAsyncResult
+- uid: Netick.Unity.OnPlayerDisconnectedDelegate.EndInvoke*
+  commentId: Overload:Netick.Unity.OnPlayerDisconnectedDelegate.EndInvoke
+  isExternal: true
+  href: Netick.Unity.OnPlayerDisconnectedDelegate.html#Netick_Unity_OnPlayerDisconnectedDelegate_EndInvoke_System_IAsyncResult_
+  name: EndInvoke
+  nameWithType: OnPlayerDisconnectedDelegate.EndInvoke
+  fullName: Netick.Unity.OnPlayerDisconnectedDelegate.EndInvoke

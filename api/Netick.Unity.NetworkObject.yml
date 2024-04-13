@@ -15,7 +15,6 @@ items:
   - Netick.Unity.NetworkObject.GetSceneId
   - Netick.Unity.NetworkObject.HasValidId
   - Netick.Unity.NetworkObject.Id
-  - Netick.Unity.NetworkObject.Initialize(Netick.NetickEngine,Netick.Entity)
   - Netick.Unity.NetworkObject.InputSource
   - Netick.Unity.NetworkObject.InterestGroup
   - Netick.Unity.NetworkObject.IsClient
@@ -39,6 +38,7 @@ items:
   - Netick.Unity.NetworkObject.SpatialPrioritization
   - Netick.Unity.NetworkObject.SpawnPredictionKey
   - Netick.Unity.NetworkObject.SpawnTick
+  - Netick.Unity.NetworkObject.UpdateAoI
   langs:
   - csharp
   - vb
@@ -205,26 +205,26 @@ items:
   - type: UnityEngine.SerializeField
     ctor: UnityEngine.SerializeField.#ctor
     arguments: []
-- uid: Netick.Unity.NetworkObject.GetRef
-  commentId: M:Netick.Unity.NetworkObject.GetRef
-  id: GetRef
+- uid: Netick.Unity.NetworkObject.GetSceneId
+  commentId: M:Netick.Unity.NetworkObject.GetSceneId
+  id: GetSceneId
   parent: Netick.Unity.NetworkObject
   langs:
   - csharp
   - vb
-  name: GetRef()
-  nameWithType: NetworkObject.GetRef()
-  fullName: Netick.Unity.NetworkObject.GetRef()
+  name: GetSceneId()
+  nameWithType: NetworkObject.GetSceneId()
+  fullName: Netick.Unity.NetworkObject.GetSceneId()
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public NetworkObjectRef GetRef()
+    content: public int GetSceneId()
     return:
-      type: Netick.Unity.NetworkObjectRef
-    content.vb: Public Function GetRef() As NetworkObjectRef
-  overload: Netick.Unity.NetworkObject.GetRef*
+      type: System.Int32
+    content.vb: Public Function GetSceneId() As Integer
+  overload: Netick.Unity.NetworkObject.GetSceneId*
 - uid: Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
   commentId: M:Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
   id: SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
@@ -251,50 +251,26 @@ items:
   nameWithType.vb: NetworkObject.SetNarrowphaseInterest(NetworkPlayer, Boolean)
   fullName.vb: Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayer, Boolean)
   name.vb: SetNarrowphaseInterest(NetworkPlayer, Boolean)
-- uid: Netick.Unity.NetworkObject.GetSceneId
-  commentId: M:Netick.Unity.NetworkObject.GetSceneId
-  id: GetSceneId
+- uid: Netick.Unity.NetworkObject.GetRef
+  commentId: M:Netick.Unity.NetworkObject.GetRef
+  id: GetRef
   parent: Netick.Unity.NetworkObject
   langs:
   - csharp
   - vb
-  name: GetSceneId()
-  nameWithType: NetworkObject.GetSceneId()
-  fullName: Netick.Unity.NetworkObject.GetSceneId()
+  name: GetRef()
+  nameWithType: NetworkObject.GetRef()
+  fullName: Netick.Unity.NetworkObject.GetRef()
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public int GetSceneId()
+    content: public NetworkObjectRef GetRef()
     return:
-      type: System.Int32
-    content.vb: Public Function GetSceneId() As Integer
-  overload: Netick.Unity.NetworkObject.GetSceneId*
-- uid: Netick.Unity.NetworkObject.SetParent(Netick.Unity.NetworkObject)
-  commentId: M:Netick.Unity.NetworkObject.SetParent(Netick.Unity.NetworkObject)
-  id: SetParent(Netick.Unity.NetworkObject)
-  parent: Netick.Unity.NetworkObject
-  langs:
-  - csharp
-  - vb
-  name: SetParent(NetworkObject)
-  nameWithType: NetworkObject.SetParent(NetworkObject)
-  fullName: Netick.Unity.NetworkObject.SetParent(Netick.Unity.NetworkObject)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: <i><b>[Owner/InputSource Only]</b></i> Changes the parent of this object.
-  example: []
-  syntax:
-    content: public void SetParent(NetworkObject obj)
-    parameters:
-    - id: obj
-      type: Netick.Unity.NetworkObject
-      description: The object which will become the parent of this object.
-    content.vb: Public Sub SetParent(obj As NetworkObject)
-  overload: Netick.Unity.NetworkObject.SetParent*
+      type: Netick.Unity.NetworkObjectRef
+    content.vb: Public Function GetRef() As NetworkObjectRef
+  overload: Netick.Unity.NetworkObject.GetRef*
 - uid: Netick.Unity.NetworkObject.GetBehaviour``1
   commentId: M:Netick.Unity.NetworkObject.GetBehaviour``1
   id: GetBehaviour``1
@@ -348,34 +324,48 @@ items:
   nameWithType.vb: NetworkObject.GetBehaviourById(Of T)(Integer)
   fullName.vb: Netick.Unity.NetworkObject.GetBehaviourById(Of T)(Integer)
   name.vb: GetBehaviourById(Of T)(Integer)
-- uid: Netick.Unity.NetworkObject.Initialize(Netick.NetickEngine,Netick.Entity)
-  commentId: M:Netick.Unity.NetworkObject.Initialize(Netick.NetickEngine,Netick.Entity)
-  id: Initialize(Netick.NetickEngine,Netick.Entity)
+- uid: Netick.Unity.NetworkObject.UpdateAoI
+  commentId: M:Netick.Unity.NetworkObject.UpdateAoI
+  id: UpdateAoI
   parent: Netick.Unity.NetworkObject
   langs:
   - csharp
   - vb
-  name: Initialize(NetickEngine, Entity)
-  nameWithType: NetworkObject.Initialize(NetickEngine, Entity)
-  fullName: Netick.Unity.NetworkObject.Initialize(Netick.NetickEngine, Netick.Entity)
+  name: UpdateAoI()
+  nameWithType: NetworkObject.UpdateAoI()
+  fullName: Netick.Unity.NetworkObject.UpdateAoI()
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Used to initialize the user entity and assign Engine and Entity
+  syntax:
+    content: public void UpdateAoI()
+    content.vb: Public Sub UpdateAoI()
+  overload: Netick.Unity.NetworkObject.UpdateAoI*
+- uid: Netick.Unity.NetworkObject.SetParent(Netick.Unity.NetworkObject)
+  commentId: M:Netick.Unity.NetworkObject.SetParent(Netick.Unity.NetworkObject)
+  id: SetParent(Netick.Unity.NetworkObject)
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: SetParent(NetworkObject)
+  nameWithType: NetworkObject.SetParent(NetworkObject)
+  fullName: Netick.Unity.NetworkObject.SetParent(Netick.Unity.NetworkObject)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: <i><b>[Owner/InputSource Only]</b></i> Changes the parent of this object.
   example: []
   syntax:
-    content: public void Initialize(NetickEngine sandbox, Entity entity)
+    content: public void SetParent(NetworkObject obj)
     parameters:
-    - id: sandbox
-      type: Netick.NetickEngine
-    - id: entity
-      type: Netick.Entity
-      description: ''
-    content.vb: Public Sub Initialize(sandbox As NetickEngine, entity As Entity)
-  overload: Netick.Unity.NetworkObject.Initialize*
-  implements:
-  - Netick.INetickEntity.Initialize(Netick.NetickEngine,Netick.Entity)
+    - id: obj
+      type: Netick.Unity.NetworkObject
+      description: The object which will become the parent of this object.
+    content.vb: Public Sub SetParent(obj As NetworkObject)
+  overload: Netick.Unity.NetworkObject.SetParent*
 - uid: Netick.Unity.NetworkObject.#ctor
   commentId: M:Netick.Unity.NetworkObject.#ctor
   id: '#ctor'
@@ -543,8 +533,6 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: The tick which this object was spawned at.
-  example: []
   syntax:
     content: public Tick SpawnTick { get; }
     parameters: []
@@ -662,6 +650,100 @@ items:
       type: Netick.Unity.NetworkObject
     content.vb: Public ReadOnly Property Parent As NetworkObject
   overload: Netick.Unity.NetworkObject.Parent*
+- uid: Netick.Unity.NetworkObject.IsSceneObject
+  commentId: P:Netick.Unity.NetworkObject.IsSceneObject
+  id: IsSceneObject
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: IsSceneObject
+  nameWithType: NetworkObject.IsSceneObject
+  fullName: Netick.Unity.NetworkObject.IsSceneObject
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [SerializeField]
+
+      public bool IsSceneObject { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <SerializeField>
+
+      Public ReadOnly Property IsSceneObject As Boolean
+  overload: Netick.Unity.NetworkObject.IsSceneObject*
+  attributes:
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+- uid: Netick.Unity.NetworkObject.IsPrefabObject
+  commentId: P:Netick.Unity.NetworkObject.IsPrefabObject
+  id: IsPrefabObject
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: IsPrefabObject
+  nameWithType: NetworkObject.IsPrefabObject
+  fullName: Netick.Unity.NetworkObject.IsPrefabObject
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool IsPrefabObject { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsPrefabObject As Boolean
+  overload: Netick.Unity.NetworkObject.IsPrefabObject*
+- uid: Netick.Unity.NetworkObject.IsSpawnPredicted
+  commentId: P:Netick.Unity.NetworkObject.IsSpawnPredicted
+  id: IsSpawnPredicted
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: IsSpawnPredicted
+  nameWithType: NetworkObject.IsSpawnPredicted
+  fullName: Netick.Unity.NetworkObject.IsSpawnPredicted
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool IsSpawnPredicted { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSpawnPredicted As Boolean
+  overload: Netick.Unity.NetworkObject.IsSpawnPredicted*
+- uid: Netick.Unity.NetworkObject.IsPrefab
+  commentId: P:Netick.Unity.NetworkObject.IsPrefab
+  id: IsPrefab
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: IsPrefab
+  nameWithType: NetworkObject.IsPrefab
+  fullName: Netick.Unity.NetworkObject.IsPrefab
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool IsPrefab { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsPrefab As Boolean
+  overload: Netick.Unity.NetworkObject.IsPrefab*
 - uid: Netick.Unity.NetworkObject.IsClient
   commentId: P:Netick.Unity.NetworkObject.IsClient
   id: IsClient
@@ -849,79 +931,6 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsResimulating As Boolean
   overload: Netick.Unity.NetworkObject.IsResimulating*
-- uid: Netick.Unity.NetworkObject.IsSceneObject
-  commentId: P:Netick.Unity.NetworkObject.IsSceneObject
-  id: IsSceneObject
-  parent: Netick.Unity.NetworkObject
-  langs:
-  - csharp
-  - vb
-  name: IsSceneObject
-  nameWithType: NetworkObject.IsSceneObject
-  fullName: Netick.Unity.NetworkObject.IsSceneObject
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: >-
-      [SerializeField]
-
-      public bool IsSceneObject { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: >-
-      <SerializeField>
-
-      Public ReadOnly Property IsSceneObject As Boolean
-  overload: Netick.Unity.NetworkObject.IsSceneObject*
-  attributes:
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
-- uid: Netick.Unity.NetworkObject.IsPrefabObject
-  commentId: P:Netick.Unity.NetworkObject.IsPrefabObject
-  id: IsPrefabObject
-  parent: Netick.Unity.NetworkObject
-  langs:
-  - csharp
-  - vb
-  name: IsPrefabObject
-  nameWithType: NetworkObject.IsPrefabObject
-  fullName: Netick.Unity.NetworkObject.IsPrefabObject
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public bool IsPrefabObject { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public ReadOnly Property IsPrefabObject As Boolean
-  overload: Netick.Unity.NetworkObject.IsPrefabObject*
-- uid: Netick.Unity.NetworkObject.IsSpawnPredicted
-  commentId: P:Netick.Unity.NetworkObject.IsSpawnPredicted
-  id: IsSpawnPredicted
-  parent: Netick.Unity.NetworkObject
-  langs:
-  - csharp
-  - vb
-  name: IsSpawnPredicted
-  nameWithType: NetworkObject.IsSpawnPredicted
-  fullName: Netick.Unity.NetworkObject.IsSpawnPredicted
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public bool IsSpawnPredicted { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public ReadOnly Property IsSpawnPredicted As Boolean
-  overload: Netick.Unity.NetworkObject.IsSpawnPredicted*
 - uid: Netick.Unity.NetworkObject.HasValidId
   commentId: P:Netick.Unity.NetworkObject.HasValidId
   id: HasValidId
@@ -976,27 +985,6 @@ items:
       type: System.Int32
     content.vb: Public ReadOnly Property Id As Integer
   overload: Netick.Unity.NetworkObject.Id*
-- uid: Netick.Unity.NetworkObject.IsPrefab
-  commentId: P:Netick.Unity.NetworkObject.IsPrefab
-  id: IsPrefab
-  parent: Netick.Unity.NetworkObject
-  langs:
-  - csharp
-  - vb
-  name: IsPrefab
-  nameWithType: NetworkObject.IsPrefab
-  fullName: Netick.Unity.NetworkObject.IsPrefab
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public bool IsPrefab { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public ReadOnly Property IsPrefab As Boolean
-  overload: Netick.Unity.NetworkObject.IsPrefab*
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -5505,21 +5493,24 @@ references:
   name: ComponentExtensions
   nameWithType: ComponentExtensions
   fullName: Netick.Unity.ComponentExtensions
-- uid: Netick.Unity.NetworkObject.GetRef*
-  commentId: Overload:Netick.Unity.NetworkObject.GetRef
+- uid: Netick.Unity.NetworkObject.GetSceneId*
+  commentId: Overload:Netick.Unity.NetworkObject.GetSceneId
   isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_GetRef
-  name: GetRef
-  nameWithType: NetworkObject.GetRef
-  fullName: Netick.Unity.NetworkObject.GetRef
-- uid: Netick.Unity.NetworkObjectRef
-  commentId: T:Netick.Unity.NetworkObjectRef
-  parent: Netick.Unity
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_GetSceneId
+  name: GetSceneId
+  nameWithType: NetworkObject.GetSceneId
+  fullName: Netick.Unity.NetworkObject.GetSceneId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
-  href: Netick.Unity.NetworkObjectRef.html
-  name: NetworkObjectRef
-  nameWithType: NetworkObjectRef
-  fullName: Netick.Unity.NetworkObjectRef
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: Netick.Unity.NetworkObject.SetNarrowphaseInterest*
   commentId: Overload:Netick.Unity.NetworkObject.SetNarrowphaseInterest
   isExternal: true
@@ -5546,39 +5537,21 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Netick.Unity.NetworkObject.GetSceneId*
-  commentId: Overload:Netick.Unity.NetworkObject.GetSceneId
+- uid: Netick.Unity.NetworkObject.GetRef*
+  commentId: Overload:Netick.Unity.NetworkObject.GetRef
   isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_GetSceneId
-  name: GetSceneId
-  nameWithType: NetworkObject.GetSceneId
-  fullName: Netick.Unity.NetworkObject.GetSceneId
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: Netick.Unity.NetworkObject.SetParent*
-  commentId: Overload:Netick.Unity.NetworkObject.SetParent
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_SetParent_Netick_Unity_NetworkObject_
-  name: SetParent
-  nameWithType: NetworkObject.SetParent
-  fullName: Netick.Unity.NetworkObject.SetParent
-- uid: Netick.Unity.NetworkObject
-  commentId: T:Netick.Unity.NetworkObject
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_GetRef
+  name: GetRef
+  nameWithType: NetworkObject.GetRef
+  fullName: Netick.Unity.NetworkObject.GetRef
+- uid: Netick.Unity.NetworkObjectRef
+  commentId: T:Netick.Unity.NetworkObjectRef
   parent: Netick.Unity
   isExternal: true
-  href: Netick.Unity.NetworkObject.html
-  name: NetworkObject
-  nameWithType: NetworkObject
-  fullName: Netick.Unity.NetworkObject
+  href: Netick.Unity.NetworkObjectRef.html
+  name: NetworkObjectRef
+  nameWithType: NetworkObjectRef
+  fullName: Netick.Unity.NetworkObjectRef
 - uid: Netick.Unity.NetworkObject.GetBehaviour*
   commentId: Overload:Netick.Unity.NetworkObject.GetBehaviour
   isExternal: true
@@ -5603,64 +5576,28 @@ references:
   name: GetBehaviourById
   nameWithType: NetworkObject.GetBehaviourById
   fullName: Netick.Unity.NetworkObject.GetBehaviourById
-- uid: Netick.Unity.NetworkObject.Initialize*
-  commentId: Overload:Netick.Unity.NetworkObject.Initialize
+- uid: Netick.Unity.NetworkObject.UpdateAoI*
+  commentId: Overload:Netick.Unity.NetworkObject.UpdateAoI
   isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_Initialize_Netick_NetickEngine_Netick_Entity_
-  name: Initialize
-  nameWithType: NetworkObject.Initialize
-  fullName: Netick.Unity.NetworkObject.Initialize
-- uid: Netick.INetickEntity.Initialize(Netick.NetickEngine,Netick.Entity)
-  commentId: M:Netick.INetickEntity.Initialize(Netick.NetickEngine,Netick.Entity)
-  parent: Netick.INetickEntity
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_UpdateAoI
+  name: UpdateAoI
+  nameWithType: NetworkObject.UpdateAoI
+  fullName: Netick.Unity.NetworkObject.UpdateAoI
+- uid: Netick.Unity.NetworkObject.SetParent*
+  commentId: Overload:Netick.Unity.NetworkObject.SetParent
   isExternal: true
-  name: Initialize(NetickEngine, Entity)
-  nameWithType: INetickEntity.Initialize(NetickEngine, Entity)
-  fullName: Netick.INetickEntity.Initialize(Netick.NetickEngine, Netick.Entity)
-  spec.csharp:
-  - uid: Netick.INetickEntity.Initialize(Netick.NetickEngine,Netick.Entity)
-    name: Initialize
-    isExternal: true
-  - name: (
-  - uid: Netick.NetickEngine
-    name: NetickEngine
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: Netick.Entity
-    name: Entity
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: Netick.INetickEntity.Initialize(Netick.NetickEngine,Netick.Entity)
-    name: Initialize
-    isExternal: true
-  - name: (
-  - uid: Netick.NetickEngine
-    name: NetickEngine
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: Netick.Entity
-    name: Entity
-    isExternal: true
-  - name: )
-- uid: Netick.NetickEngine
-  commentId: T:Netick.NetickEngine
-  parent: Netick
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_SetParent_Netick_Unity_NetworkObject_
+  name: SetParent
+  nameWithType: NetworkObject.SetParent
+  fullName: Netick.Unity.NetworkObject.SetParent
+- uid: Netick.Unity.NetworkObject
+  commentId: T:Netick.Unity.NetworkObject
+  parent: Netick.Unity
   isExternal: true
-  href: Netick.NetickEngine.html
-  name: NetickEngine
-  nameWithType: NetickEngine
-  fullName: Netick.NetickEngine
-- uid: Netick.Entity
-  commentId: T:Netick.Entity
-  parent: Netick
-  isExternal: true
-  href: Netick.Entity.html
-  name: Entity
-  nameWithType: Entity
-  fullName: Netick.Entity
+  href: Netick.Unity.NetworkObject.html
+  name: NetworkObject
+  nameWithType: NetworkObject
+  fullName: Netick.Unity.NetworkObject
 - uid: Netick.Unity.NetworkObject.#ctor*
   commentId: Overload:Netick.Unity.NetworkObject.#ctor
   isExternal: true
@@ -5700,6 +5637,14 @@ references:
   name: Engine
   nameWithType: INetickEntity.Engine
   fullName: Netick.INetickEntity.Engine
+- uid: Netick.NetickEngine
+  commentId: T:Netick.NetickEngine
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickEngine.html
+  name: NetickEngine
+  nameWithType: NetickEngine
+  fullName: Netick.NetickEngine
 - uid: Netick.Unity.NetworkObject.Entity*
   commentId: Overload:Netick.Unity.NetworkObject.Entity
   isExternal: true
@@ -5714,6 +5659,14 @@ references:
   name: Entity
   nameWithType: INetickEntity.Entity
   fullName: Netick.INetickEntity.Entity
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
 - uid: Netick.Unity.NetworkObject.BroadPhaseFilter*
   commentId: Overload:Netick.Unity.NetworkObject.BroadPhaseFilter
   isExternal: true
@@ -5862,6 +5815,34 @@ references:
   name: Parent
   nameWithType: NetworkObject.Parent
   fullName: Netick.Unity.NetworkObject.Parent
+- uid: Netick.Unity.NetworkObject.IsSceneObject*
+  commentId: Overload:Netick.Unity.NetworkObject.IsSceneObject
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_IsSceneObject
+  name: IsSceneObject
+  nameWithType: NetworkObject.IsSceneObject
+  fullName: Netick.Unity.NetworkObject.IsSceneObject
+- uid: Netick.Unity.NetworkObject.IsPrefabObject*
+  commentId: Overload:Netick.Unity.NetworkObject.IsPrefabObject
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_IsPrefabObject
+  name: IsPrefabObject
+  nameWithType: NetworkObject.IsPrefabObject
+  fullName: Netick.Unity.NetworkObject.IsPrefabObject
+- uid: Netick.Unity.NetworkObject.IsSpawnPredicted*
+  commentId: Overload:Netick.Unity.NetworkObject.IsSpawnPredicted
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_IsSpawnPredicted
+  name: IsSpawnPredicted
+  nameWithType: NetworkObject.IsSpawnPredicted
+  fullName: Netick.Unity.NetworkObject.IsSpawnPredicted
+- uid: Netick.Unity.NetworkObject.IsPrefab*
+  commentId: Overload:Netick.Unity.NetworkObject.IsPrefab
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_IsPrefab
+  name: IsPrefab
+  nameWithType: NetworkObject.IsPrefab
+  fullName: Netick.Unity.NetworkObject.IsPrefab
 - uid: Netick.Unity.NetworkObject.Engine
   commentId: P:Netick.Unity.NetworkObject.Engine
   isExternal: true
@@ -5956,27 +5937,6 @@ references:
   name: IsResimulating
   nameWithType: NetworkObject.IsResimulating
   fullName: Netick.Unity.NetworkObject.IsResimulating
-- uid: Netick.Unity.NetworkObject.IsSceneObject*
-  commentId: Overload:Netick.Unity.NetworkObject.IsSceneObject
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_IsSceneObject
-  name: IsSceneObject
-  nameWithType: NetworkObject.IsSceneObject
-  fullName: Netick.Unity.NetworkObject.IsSceneObject
-- uid: Netick.Unity.NetworkObject.IsPrefabObject*
-  commentId: Overload:Netick.Unity.NetworkObject.IsPrefabObject
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_IsPrefabObject
-  name: IsPrefabObject
-  nameWithType: NetworkObject.IsPrefabObject
-  fullName: Netick.Unity.NetworkObject.IsPrefabObject
-- uid: Netick.Unity.NetworkObject.IsSpawnPredicted*
-  commentId: Overload:Netick.Unity.NetworkObject.IsSpawnPredicted
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_IsSpawnPredicted
-  name: IsSpawnPredicted
-  nameWithType: NetworkObject.IsSpawnPredicted
-  fullName: Netick.Unity.NetworkObject.IsSpawnPredicted
 - uid: Netick.Unity.NetworkObject.HasValidId*
   commentId: Overload:Netick.Unity.NetworkObject.HasValidId
   isExternal: true
@@ -5991,10 +5951,3 @@ references:
   name: Id
   nameWithType: NetworkObject.Id
   fullName: Netick.Unity.NetworkObject.Id
-- uid: Netick.Unity.NetworkObject.IsPrefab*
-  commentId: Overload:Netick.Unity.NetworkObject.IsPrefab
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_IsPrefab
-  name: IsPrefab
-  nameWithType: NetworkObject.IsPrefab
-  fullName: Netick.Unity.NetworkObject.IsPrefab

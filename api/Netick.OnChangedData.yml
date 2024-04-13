@@ -16,7 +16,7 @@ items:
   - Netick.OnChangedData.GetPreviousNetworkStack``1(Netick.NetworkStack{``0})
   - Netick.OnChangedData.GetPreviousValueAsPointer
   - Netick.OnChangedData.GetPreviousValue``1
-  - Netick.OnChangedData.IsAuthoritative
+  - Netick.OnChangedData.InvokedForMisprediction
   langs:
   - csharp
   - vb
@@ -344,29 +344,29 @@ items:
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.ValueType.GetHashCode
   overload: Netick.OnChangedData.GetHashCode*
-- uid: Netick.OnChangedData.IsAuthoritative
-  commentId: P:Netick.OnChangedData.IsAuthoritative
-  id: IsAuthoritative
+- uid: Netick.OnChangedData.InvokedForMisprediction
+  commentId: P:Netick.OnChangedData.InvokedForMisprediction
+  id: InvokedForMisprediction
   parent: Netick.OnChangedData
   langs:
   - csharp
   - vb
-  name: IsAuthoritative
-  nameWithType: OnChangedData.IsAuthoritative
-  fullName: Netick.OnChangedData.IsAuthoritative
+  name: InvokedForMisprediction
+  nameWithType: OnChangedData.InvokedForMisprediction
+  fullName: Netick.OnChangedData.InvokedForMisprediction
   type: Property
   assemblies:
   - Netick
   namespace: Netick
-  summary: Returns true if this OnChanged callback is caused by the server. Always returns true on the server.
+  summary: Returns true if this OnChanged callback is due to a mismatch between the state of this variable before rollback, and the state after rollback and resimulation.
   example: []
   syntax:
-    content: public bool IsAuthoritative { get; }
+    content: public bool InvokedForMisprediction { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public ReadOnly Property IsAuthoritative As Boolean
-  overload: Netick.OnChangedData.IsAuthoritative*
+    content.vb: Public ReadOnly Property InvokedForMisprediction As Boolean
+  overload: Netick.OnChangedData.InvokedForMisprediction*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -1218,10 +1218,10 @@ references:
   name: GetHashCode
   nameWithType: OnChangedData.GetHashCode
   fullName: Netick.OnChangedData.GetHashCode
-- uid: Netick.OnChangedData.IsAuthoritative*
-  commentId: Overload:Netick.OnChangedData.IsAuthoritative
+- uid: Netick.OnChangedData.InvokedForMisprediction*
+  commentId: Overload:Netick.OnChangedData.InvokedForMisprediction
   isExternal: true
-  href: Netick.OnChangedData.html#Netick_OnChangedData_IsAuthoritative
-  name: IsAuthoritative
-  nameWithType: OnChangedData.IsAuthoritative
-  fullName: Netick.OnChangedData.IsAuthoritative
+  href: Netick.OnChangedData.html#Netick_OnChangedData_InvokedForMisprediction
+  name: InvokedForMisprediction
+  nameWithType: OnChangedData.InvokedForMisprediction
+  fullName: Netick.OnChangedData.InvokedForMisprediction

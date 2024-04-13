@@ -5,7 +5,7 @@ items:
   id: OnChangedMethod
   parent: Netick
   children:
-  - Netick.OnChangedMethod.#ctor(System.Boolean,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)
+  - Netick.OnChangedMethod.#ctor(System.Boolean,System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)
   langs:
   - csharp
   - vb
@@ -26,24 +26,28 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Netick.OnChangedMethod.#ctor(System.Boolean,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)
-  commentId: M:Netick.OnChangedMethod.#ctor(System.Boolean,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)
-  id: '#ctor(System.Boolean,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)'
+- uid: Netick.OnChangedMethod.#ctor(System.Boolean,System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)
+  commentId: M:Netick.OnChangedMethod.#ctor(System.Boolean,System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)
+  id: '#ctor(System.Boolean,System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)'
   parent: Netick.OnChangedMethod
   langs:
   - csharp
   - vb
-  name: OnChangedMethod(bool, int, int, int, OnChangedEvent)
-  nameWithType: OnChangedMethod.OnChangedMethod(bool, int, int, int, OnChangedEvent)
-  fullName: Netick.OnChangedMethod.OnChangedMethod(bool, int, int, int, Netick.OnChangedEvent)
+  name: OnChangedMethod(bool, int, bool, int, int, int, OnChangedEvent)
+  nameWithType: OnChangedMethod.OnChangedMethod(bool, int, bool, int, int, int, OnChangedEvent)
+  fullName: Netick.OnChangedMethod.OnChangedMethod(bool, int, bool, int, int, int, Netick.OnChangedEvent)
   type: Constructor
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public OnChangedMethod(bool isArray, int propertyIndex, int propertySize, int behaviourIndex, OnChangedEvent evnt)
+    content: public OnChangedMethod(bool isArray, int inversePrecision, bool invokeDuringResims, int propertyIndex, int propertySize, int behaviourIndex, OnChangedEvent evnt)
     parameters:
     - id: isArray
+      type: System.Boolean
+    - id: inversePrecision
+      type: System.Int32
+    - id: invokeDuringResims
       type: System.Boolean
     - id: propertyIndex
       type: System.Int32
@@ -53,11 +57,11 @@ items:
       type: System.Int32
     - id: evnt
       type: Netick.OnChangedEvent
-    content.vb: Public Sub New(isArray As Boolean, propertyIndex As Integer, propertySize As Integer, behaviourIndex As Integer, evnt As OnChangedEvent)
+    content.vb: Public Sub New(isArray As Boolean, inversePrecision As Integer, invokeDuringResims As Boolean, propertyIndex As Integer, propertySize As Integer, behaviourIndex As Integer, evnt As OnChangedEvent)
   overload: Netick.OnChangedMethod.#ctor*
-  nameWithType.vb: OnChangedMethod.New(Boolean, Integer, Integer, Integer, OnChangedEvent)
-  fullName.vb: Netick.OnChangedMethod.New(Boolean, Integer, Integer, Integer, Netick.OnChangedEvent)
-  name.vb: New(Boolean, Integer, Integer, Integer, OnChangedEvent)
+  nameWithType.vb: OnChangedMethod.New(Boolean, Integer, Boolean, Integer, Integer, Integer, OnChangedEvent)
+  fullName.vb: Netick.OnChangedMethod.New(Boolean, Integer, Boolean, Integer, Integer, Integer, Netick.OnChangedEvent)
+  name.vb: New(Boolean, Integer, Boolean, Integer, Integer, Integer, OnChangedEvent)
 references:
 - uid: Netick
   commentId: N:Netick
@@ -286,7 +290,7 @@ references:
 - uid: Netick.OnChangedMethod.#ctor*
   commentId: Overload:Netick.OnChangedMethod.#ctor
   isExternal: true
-  href: Netick.OnChangedMethod.html#Netick_OnChangedMethod__ctor_System_Boolean_System_Int32_System_Int32_System_Int32_Netick_OnChangedEvent_
+  href: Netick.OnChangedMethod.html#Netick_OnChangedMethod__ctor_System_Boolean_System_Int32_System_Boolean_System_Int32_System_Int32_System_Int32_Netick_OnChangedEvent_
   name: OnChangedMethod
   nameWithType: OnChangedMethod.OnChangedMethod
   fullName: Netick.OnChangedMethod.OnChangedMethod

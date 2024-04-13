@@ -20,13 +20,13 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public delegate void OnClientConnectedDelegate(NetworkSandbox sandbox, NetworkConnection server)
+    content: public delegate void OnClientConnectedDelegate(NetworkSandbox sandbox, NetworkConnection client)
     parameters:
     - id: sandbox
       type: Netick.Unity.NetworkSandbox
-    - id: server
+    - id: client
       type: Netick.NetworkConnection
-    content.vb: Public Delegate Sub OnClientConnectedDelegate(sandbox As NetworkSandbox, server As NetworkConnection)
+    content.vb: Public Delegate Sub OnClientConnectedDelegate(sandbox As NetworkSandbox, client As NetworkConnection)
 - uid: Netick.Unity.OnClientConnectedDelegate.#ctor(System.Object,System.IntPtr)
   commentId: M:Netick.Unity.OnClientConnectedDelegate.#ctor(System.Object,System.IntPtr)
   id: '#ctor(System.Object,System.IntPtr)'
@@ -68,13 +68,13 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public virtual void Invoke(NetworkSandbox sandbox, NetworkConnection server)
+    content: public virtual void Invoke(NetworkSandbox sandbox, NetworkConnection client)
     parameters:
     - id: sandbox
       type: Netick.Unity.NetworkSandbox
-    - id: server
+    - id: client
       type: Netick.NetworkConnection
-    content.vb: Public Overridable Sub Invoke(sandbox As NetworkSandbox, server As NetworkConnection)
+    content.vb: Public Overridable Sub Invoke(sandbox As NetworkSandbox, client As NetworkConnection)
   overload: Netick.Unity.OnClientConnectedDelegate.Invoke*
 - uid: Netick.Unity.OnClientConnectedDelegate.BeginInvoke(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.AsyncCallback,System.Object)
   commentId: M:Netick.Unity.OnClientConnectedDelegate.BeginInvoke(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.AsyncCallback,System.Object)
@@ -91,11 +91,11 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public virtual IAsyncResult BeginInvoke(NetworkSandbox sandbox, NetworkConnection server, AsyncCallback callback, object @object)
+    content: public virtual IAsyncResult BeginInvoke(NetworkSandbox sandbox, NetworkConnection client, AsyncCallback callback, object @object)
     parameters:
     - id: sandbox
       type: Netick.Unity.NetworkSandbox
-    - id: server
+    - id: client
       type: Netick.NetworkConnection
     - id: callback
       type: System.AsyncCallback
@@ -103,7 +103,7 @@ items:
       type: System.Object
     return:
       type: System.IAsyncResult
-    content.vb: Public Overridable Function BeginInvoke(sandbox As NetworkSandbox, server As NetworkConnection, callback As AsyncCallback, [object] As Object) As IAsyncResult
+    content.vb: Public Overridable Function BeginInvoke(sandbox As NetworkSandbox, client As NetworkConnection, callback As AsyncCallback, [object] As Object) As IAsyncResult
   overload: Netick.Unity.OnClientConnectedDelegate.BeginInvoke*
   nameWithType.vb: OnClientConnectedDelegate.BeginInvoke(NetworkSandbox, NetworkConnection, AsyncCallback, Object)
   fullName.vb: Netick.Unity.OnClientConnectedDelegate.BeginInvoke(Netick.Unity.NetworkSandbox, Netick.NetworkConnection, System.AsyncCallback, Object)

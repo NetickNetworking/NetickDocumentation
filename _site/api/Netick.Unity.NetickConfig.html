@@ -621,8 +621,39 @@ public int InterestGroupCount</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Disable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.&quot;)]
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Don&#39;t enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.&quot;)]
 public bool InvokeRenderInHeadless</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetickConfig_InvokeUpdate" data-uid="Netick.Unity.NetickConfig.InvokeUpdate">
+  InvokeUpdate
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Don&#39;t enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects.&quot;)]
+public bool InvokeUpdate</code></pre>
   </div>
 
 
@@ -798,6 +829,39 @@ public int MaxSendableDataSize</code></pre>
 
 
 
+  <h3 id="Netick_Unity_NetickConfig_PhysicsPrediction" data-uid="Netick.Unity.NetickConfig.PhysicsPrediction">
+  PhysicsPrediction
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Enable this if you want to be able to have client-side prediction over Rigidbody objects. \n\nIt&#39;s recommended to keep this disabled if you don&#39;t have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick.&quot;)]
+[SerializeField]
+[FormerlySerializedAs(&quot;PredictedClientPhysics&quot;)]
+public bool PhysicsPrediction</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="Netick_Unity_NetickConfig_PhysicsType" data-uid="Netick.Unity.NetickConfig.PhysicsType">
   PhysicsType
   
@@ -817,38 +881,6 @@ public PhysicsType PhysicsType</code></pre>
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.Unity.PhysicsType.html">PhysicsType</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Netick_Unity_NetickConfig_PredictedClientPhysics" data-uid="Netick.Unity.NetickConfig.PredictedClientPhysics">
-  PredictedClientPhysics
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Enable this if you want to be able to have client-side prediction over Rigidbody objects. \n\nIt&#39;s recommended to keep this disabled if you don&#39;t have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick.&quot;)]
-[SerializeField]
-public bool PredictedClientPhysics</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -1296,41 +1328,6 @@ public float TickPeriod { get; }</code></pre>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
-
-
-  <a id="Netick_Unity_NetickConfig_GetTransport_" data-uid="Netick.Unity.NetickConfig.GetTransport*"></a>
-
-  <h3 id="Netick_Unity_NetickConfig_GetTransport" data-uid="Netick.Unity.NetickConfig.GetTransport">
-  GetTransport()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetworkTransport GetTransport()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetworkTransport.html">NetworkTransport</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
 
 
 

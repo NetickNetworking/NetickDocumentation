@@ -52,9 +52,11 @@ items:
   - UnityEngine.Component
   - UnityEngine.Behaviour
   - UnityEngine.MonoBehaviour
+  - Netick.Unity.NetickBaseBehaviour
   - Netick.Unity.NetickBehaviour
   derivedClasses:
   - Netick.Unity.NetworkAnimator
+  - Netick.Unity.NetworkSceneManager
   - Netick.Unity.NetworkTransform
   implements:
   - Netick.INetickNetworkScript
@@ -248,17 +250,17 @@ items:
   summary: Fetchs a network input for this tick. Returns false if no input source is currently providing inputs to this Object, or when input loss occurs (in case of a remote input source).
   example: []
   syntax:
-    content: 'public bool FetchInput<T>(out T input, int playerIndex = 0) where T : unmanaged'
+    content: 'public bool FetchInput<T>(out T input, int index = 0) where T : unmanaged'
     parameters:
     - id: input
       type: '{T}'
-    - id: playerIndex
+    - id: index
       type: System.Int32
     typeParameters:
     - id: T
     return:
       type: System.Boolean
-    content.vb: Public Function FetchInput(Of T As Structure)(input As T, playerIndex As Integer = 0) As Boolean
+    content.vb: Public Function FetchInput(Of T As Structure)(input As T, index As Integer = 0) As Boolean
   overload: Netick.Unity.NetworkBehaviour.FetchInput*
   nameWithType.vb: NetworkBehaviour.FetchInput(Of T)(T, Integer)
   fullName.vb: Netick.Unity.NetworkBehaviour.FetchInput(Of T)(T, Integer)
@@ -433,7 +435,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Called on the client when the server confirms that this object has been successfully spawn-predicted and therefore has a valid SceneId.
+  summary: Called on the client when the server confirms that this object has been successfully spawn-predicted and therefore has a valid SceneLoadId.
   example: []
   syntax:
     content: public virtual void OnSpawnPredictionSucceeded()
@@ -888,6 +890,14 @@ references:
   name: MonoBehaviour
   nameWithType: MonoBehaviour
   fullName: UnityEngine.MonoBehaviour
+- uid: Netick.Unity.NetickBaseBehaviour
+  commentId: T:Netick.Unity.NetickBaseBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetickBaseBehaviour.html
+  name: NetickBaseBehaviour
+  nameWithType: NetickBaseBehaviour
+  fullName: Netick.Unity.NetickBaseBehaviour
 - uid: Netick.Unity.NetickBehaviour
   commentId: T:Netick.Unity.NetickBehaviour
   parent: Netick.Unity

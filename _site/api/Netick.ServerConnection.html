@@ -133,6 +133,9 @@
       <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_MaxOutgoingDataPerTickInBytes">NetworkConnection.MaxOutgoingDataPerTickInBytes</a>
     </div>
     <div>
+      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_RTT">NetworkConnection.RTT</a>
+    </div>
+    <div>
       <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_Id">NetworkConnection.Id</a>
     </div>
     <div>
@@ -328,12 +331,45 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void OnAck(Tick tick)</code></pre>
+    <pre><code class="lang-csharp hljs">public void OnAck(Tick snapTick)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>tick</code> <a class="xref" href="Netick.Tick.html">Tick</a></dt>
+    <dt><code>snapTick</code> <a class="xref" href="Netick.Tick.html">Tick</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_ServerConnection_ProcessAck_" data-uid="Netick.ServerConnection.ProcessAck*"></a>
+
+  <h3 id="Netick_ServerConnection_ProcessAck_Netick_Tick_System_Boolean_" data-uid="Netick.ServerConnection.ProcessAck(Netick.Tick,System.Boolean)">
+  ProcessAck(Tick, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ProcessAck(Tick snapshotTick, bool wasLost)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>snapshotTick</code> <a class="xref" href="Netick.Tick.html">Tick</a></dt>
+    <dd></dd>
+    <dt><code>wasLost</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 

@@ -10,11 +10,14 @@ items:
   - Netick.NetworkTransport.Disconnect(Netick.TransportConnection)
   - Netick.NetworkTransport.Engine
   - Netick.NetworkTransport.ForceUpdate
+  - Netick.NetworkTransport.HostMatch(System.String)
   - Netick.NetworkTransport.Init
   - Netick.NetworkTransport.NetworkPeer
+  - Netick.NetworkTransport.OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
   - Netick.NetworkTransport.PollEvents
   - Netick.NetworkTransport.Run(Netick.RunMode,System.Int32)
   - Netick.NetworkTransport.Shutdown
+  - Netick.NetworkTransport.UpdateMatchList
   langs:
   - csharp
   - vb
@@ -189,6 +192,72 @@ items:
     content: public virtual void ForceUpdate()
     content.vb: Public Overridable Sub ForceUpdate()
   overload: Netick.NetworkTransport.ForceUpdate*
+- uid: Netick.NetworkTransport.UpdateMatchList
+  commentId: M:Netick.NetworkTransport.UpdateMatchList
+  id: UpdateMatchList
+  parent: Netick.NetworkTransport
+  langs:
+  - csharp
+  - vb
+  name: UpdateMatchList()
+  nameWithType: NetworkTransport.UpdateMatchList()
+  fullName: Netick.NetworkTransport.UpdateMatchList()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public virtual void UpdateMatchList()
+    content.vb: Public Overridable Sub UpdateMatchList()
+  overload: Netick.NetworkTransport.UpdateMatchList*
+- uid: Netick.NetworkTransport.OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
+  commentId: M:Netick.NetworkTransport.OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
+  id: OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
+  parent: Netick.NetworkTransport
+  langs:
+  - csharp
+  - vb
+  name: OnMatchListUpdate(List<Session>)
+  nameWithType: NetworkTransport.OnMatchListUpdate(List<Session>)
+  fullName: Netick.NetworkTransport.OnMatchListUpdate(System.Collections.Generic.List<Netick.Session>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void OnMatchListUpdate(List<Session> sessions)
+    parameters:
+    - id: sessions
+      type: System.Collections.Generic.List{Netick.Session}
+    content.vb: Public Sub OnMatchListUpdate(sessions As List(Of Session))
+  overload: Netick.NetworkTransport.OnMatchListUpdate*
+  nameWithType.vb: NetworkTransport.OnMatchListUpdate(List(Of Session))
+  fullName.vb: Netick.NetworkTransport.OnMatchListUpdate(System.Collections.Generic.List(Of Netick.Session))
+  name.vb: OnMatchListUpdate(List(Of Session))
+- uid: Netick.NetworkTransport.HostMatch(System.String)
+  commentId: M:Netick.NetworkTransport.HostMatch(System.String)
+  id: HostMatch(System.String)
+  parent: Netick.NetworkTransport
+  langs:
+  - csharp
+  - vb
+  name: HostMatch(string)
+  nameWithType: NetworkTransport.HostMatch(string)
+  fullName: Netick.NetworkTransport.HostMatch(string)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public virtual void HostMatch(string name)
+    parameters:
+    - id: name
+      type: System.String
+    content.vb: Public Overridable Sub HostMatch(name As String)
+  overload: Netick.NetworkTransport.HostMatch*
+  nameWithType.vb: NetworkTransport.HostMatch(String)
+  fullName.vb: Netick.NetworkTransport.HostMatch(String)
+  name.vb: HostMatch(String)
 - uid: Netick.NetworkTransport.#ctor
   commentId: M:Netick.NetworkTransport.#ctor
   id: '#ctor'
@@ -607,6 +676,127 @@ references:
   name: ForceUpdate
   nameWithType: NetworkTransport.ForceUpdate
   fullName: Netick.NetworkTransport.ForceUpdate
+- uid: Netick.NetworkTransport.UpdateMatchList*
+  commentId: Overload:Netick.NetworkTransport.UpdateMatchList
+  isExternal: true
+  href: Netick.NetworkTransport.html#Netick_NetworkTransport_UpdateMatchList
+  name: UpdateMatchList
+  nameWithType: NetworkTransport.UpdateMatchList
+  fullName: Netick.NetworkTransport.UpdateMatchList
+- uid: Netick.NetworkTransport.OnMatchListUpdate*
+  commentId: Overload:Netick.NetworkTransport.OnMatchListUpdate
+  isExternal: true
+  href: Netick.NetworkTransport.html#Netick_NetworkTransport_OnMatchListUpdate_System_Collections_Generic_List_Netick_Session__
+  name: OnMatchListUpdate
+  nameWithType: NetworkTransport.OnMatchListUpdate
+  fullName: Netick.NetworkTransport.OnMatchListUpdate
+- uid: System.Collections.Generic.List{Netick.Session}
+  commentId: T:System.Collections.Generic.List{Netick.Session}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Session>
+  nameWithType: List<Session>
+  fullName: System.Collections.Generic.List<Netick.Session>
+  nameWithType.vb: List(Of Session)
+  fullName.vb: System.Collections.Generic.List(Of Netick.Session)
+  name.vb: List(Of Session)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.Session
+    name: Session
+    isExternal: true
+    href: Netick.Session.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Session
+    name: Session
+    isExternal: true
+    href: Netick.Session.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Netick.NetworkTransport.HostMatch*
+  commentId: Overload:Netick.NetworkTransport.HostMatch
+  isExternal: true
+  href: Netick.NetworkTransport.html#Netick_NetworkTransport_HostMatch_System_String_
+  name: HostMatch
+  nameWithType: NetworkTransport.HostMatch
+  fullName: Netick.NetworkTransport.HostMatch
 - uid: Netick.NetworkTransport.#ctor*
   commentId: Overload:Netick.NetworkTransport.#ctor
   isExternal: true

@@ -7,14 +7,18 @@ items:
   - Netick.Unity.ComponentExtensions
   - Netick.Unity.GridRenderer
   - Netick.Unity.IPhysicsComponent
+  - Netick.Unity.LaunchData
+  - Netick.Unity.NetickBaseBehaviour
   - Netick.Unity.NetickBehaviour
+  - Netick.Unity.NetickCallbacks
   - Netick.Unity.NetickConfig
   - Netick.Unity.NetickCoreComponent
   - Netick.Unity.NetickUnityExt
   - Netick.Unity.NetickUnityUtils
   - Netick.Unity.Network
-  - Netick.Unity.Network.Sandboxs
+  - Netick.Unity.Network.LaunchResults
   - Netick.Unity.NetworkAnimator
+  - Netick.Unity.NetworkAnimator.NetworkAnimatorRepConditions
   - Netick.Unity.NetworkArray
   - Netick.Unity.NetworkArray`1
   - Netick.Unity.NetworkBehaviour
@@ -42,7 +46,10 @@ items:
   - Netick.Unity.NetworkPlayerExtensions
   - Netick.Unity.NetworkRenderInvokeOrder
   - Netick.Unity.NetworkRigidbody
+  - Netick.Unity.NetworkRigidbody2D
   - Netick.Unity.NetworkSandbox
+  - Netick.Unity.NetworkScene
+  - Netick.Unity.NetworkSceneManager
   - Netick.Unity.NetworkTimerExt
   - Netick.Unity.NetworkTransform
   - Netick.Unity.NetworkTransformRepConditions
@@ -59,12 +66,15 @@ items:
   - Netick.Unity.OnMatchCreatedDelegate
   - Netick.Unity.OnMatchListUpdateDelegate
   - Netick.Unity.OnObjectCreatedDelegate
+  - Netick.Unity.OnPlayerConnectedDelegate
+  - Netick.Unity.OnPlayerDisconnectedDelegate
   - Netick.Unity.OnSceneLoadStartedDelegate
   - Netick.Unity.OnSceneLoadedDelegate
   - Netick.Unity.OnShutdownDelegate
   - Netick.Unity.OnStartupDelegate
   - Netick.Unity.PhysicsSimulationStep
   - Netick.Unity.PhysicsType
+  - Netick.Unity.ProfilerIMGUI
   - Netick.Unity.ResetOnSceneSwitch
   - Netick.Unity.SingleInstanceEnforcer
   - Netick.Unity.StartMode
@@ -82,13 +92,13 @@ items:
   assemblies:
   - Netick.Unity
 references:
-- uid: Netick.Unity.SingleInstanceEnforcer
-  commentId: T:Netick.Unity.SingleInstanceEnforcer
+- uid: Netick.Unity.ProfilerIMGUI
+  commentId: T:Netick.Unity.ProfilerIMGUI
   isExternal: true
-  href: Netick.Unity.SingleInstanceEnforcer.html
-  name: SingleInstanceEnforcer
-  nameWithType: SingleInstanceEnforcer
-  fullName: Netick.Unity.SingleInstanceEnforcer
+  href: Netick.Unity.ProfilerIMGUI.html
+  name: ProfilerIMGUI
+  nameWithType: ProfilerIMGUI
+  fullName: Netick.Unity.ProfilerIMGUI
 - uid: Netick.Unity.NetworkBehaviourRef`1
   commentId: T:Netick.Unity.NetworkBehaviourRef`1
   parent: Netick.Unity
@@ -126,6 +136,20 @@ references:
   name: NetworkObjectRef
   nameWithType: NetworkObjectRef
   fullName: Netick.Unity.NetworkObjectRef
+- uid: Netick.Unity.NetworkScene
+  commentId: T:Netick.Unity.NetworkScene
+  isExternal: true
+  href: Netick.Unity.NetworkScene.html
+  name: NetworkScene
+  nameWithType: NetworkScene
+  fullName: Netick.Unity.NetworkScene
+- uid: Netick.Unity.NetworkSceneManager
+  commentId: T:Netick.Unity.NetworkSceneManager
+  isExternal: true
+  href: Netick.Unity.NetworkSceneManager.html
+  name: NetworkSceneManager
+  nameWithType: NetworkSceneManager
+  fullName: Netick.Unity.NetworkSceneManager
 - uid: Netick.Unity.IPhysicsComponent
   commentId: T:Netick.Unity.IPhysicsComponent
   parent: Netick.Unity
@@ -252,6 +276,13 @@ references:
   name: ComponentExtensions
   nameWithType: ComponentExtensions
   fullName: Netick.Unity.ComponentExtensions
+- uid: Netick.Unity.NetworkRigidbody2D
+  commentId: T:Netick.Unity.NetworkRigidbody2D
+  isExternal: true
+  href: Netick.Unity.NetworkRigidbody2D.html
+  name: NetworkRigidbody2D
+  nameWithType: NetworkRigidbody2D
+  fullName: Netick.Unity.NetworkRigidbody2D
 - uid: Netick.Unity.NetworkObject
   commentId: T:Netick.Unity.NetworkObject
   parent: Netick.Unity
@@ -291,6 +322,13 @@ references:
   name: GridRenderer
   nameWithType: GridRenderer
   fullName: Netick.Unity.GridRenderer
+- uid: Netick.Unity.SingleInstanceEnforcer
+  commentId: T:Netick.Unity.SingleInstanceEnforcer
+  isExternal: true
+  href: Netick.Unity.SingleInstanceEnforcer.html
+  name: SingleInstanceEnforcer
+  nameWithType: SingleInstanceEnforcer
+  fullName: Netick.Unity.SingleInstanceEnforcer
 - uid: Netick.Unity.NetworkEvents
   commentId: T:Netick.Unity.NetworkEvents
   isExternal: true
@@ -785,126 +823,6 @@ references:
   name: NetworkBehaviour
   nameWithType: NetworkBehaviour
   fullName: Netick.Unity.NetworkBehaviour
-- uid: Netick.Unity.NetworkEventsListener
-  commentId: T:Netick.Unity.NetworkEventsListener
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.NetworkEventsListener.html
-  name: NetworkEventsListener
-  nameWithType: NetworkEventsListener
-  fullName: Netick.Unity.NetworkEventsListener
-- uid: Netick.Unity.OnConnectRequestDelegate
-  commentId: T:Netick.Unity.OnConnectRequestDelegate
-  isExternal: true
-  href: Netick.Unity.OnConnectRequestDelegate.html
-  name: OnConnectRequestDelegate
-  nameWithType: OnConnectRequestDelegate
-  fullName: Netick.Unity.OnConnectRequestDelegate
-- uid: Netick.Unity.OnConnectFailedDelegate
-  commentId: T:Netick.Unity.OnConnectFailedDelegate
-  isExternal: true
-  href: Netick.Unity.OnConnectFailedDelegate.html
-  name: OnConnectFailedDelegate
-  nameWithType: OnConnectFailedDelegate
-  fullName: Netick.Unity.OnConnectFailedDelegate
-- uid: Netick.Unity.OnStartupDelegate
-  commentId: T:Netick.Unity.OnStartupDelegate
-  isExternal: true
-  href: Netick.Unity.OnStartupDelegate.html
-  name: OnStartupDelegate
-  nameWithType: OnStartupDelegate
-  fullName: Netick.Unity.OnStartupDelegate
-- uid: Netick.Unity.OnShutdownDelegate
-  commentId: T:Netick.Unity.OnShutdownDelegate
-  isExternal: true
-  href: Netick.Unity.OnShutdownDelegate.html
-  name: OnShutdownDelegate
-  nameWithType: OnShutdownDelegate
-  fullName: Netick.Unity.OnShutdownDelegate
-- uid: Netick.Unity.OnInputReadDelegate
-  commentId: T:Netick.Unity.OnInputReadDelegate
-  isExternal: true
-  href: Netick.Unity.OnInputReadDelegate.html
-  name: OnInputReadDelegate
-  nameWithType: OnInputReadDelegate
-  fullName: Netick.Unity.OnInputReadDelegate
-- uid: Netick.Unity.OnSceneLoadedDelegate
-  commentId: T:Netick.Unity.OnSceneLoadedDelegate
-  isExternal: true
-  href: Netick.Unity.OnSceneLoadedDelegate.html
-  name: OnSceneLoadedDelegate
-  nameWithType: OnSceneLoadedDelegate
-  fullName: Netick.Unity.OnSceneLoadedDelegate
-- uid: Netick.Unity.OnSceneLoadStartedDelegate
-  commentId: T:Netick.Unity.OnSceneLoadStartedDelegate
-  isExternal: true
-  href: Netick.Unity.OnSceneLoadStartedDelegate.html
-  name: OnSceneLoadStartedDelegate
-  nameWithType: OnSceneLoadStartedDelegate
-  fullName: Netick.Unity.OnSceneLoadStartedDelegate
-- uid: Netick.Unity.OnClientSceneLoadedDelegate
-  commentId: T:Netick.Unity.OnClientSceneLoadedDelegate
-  isExternal: true
-  href: Netick.Unity.OnClientSceneLoadedDelegate.html
-  name: OnClientSceneLoadedDelegate
-  nameWithType: OnClientSceneLoadedDelegate
-  fullName: Netick.Unity.OnClientSceneLoadedDelegate
-- uid: Netick.Unity.OnObjectCreatedDelegate
-  commentId: T:Netick.Unity.OnObjectCreatedDelegate
-  isExternal: true
-  href: Netick.Unity.OnObjectCreatedDelegate.html
-  name: OnObjectCreatedDelegate
-  nameWithType: OnObjectCreatedDelegate
-  fullName: Netick.Unity.OnObjectCreatedDelegate
-- uid: Netick.Unity.OnEntityDestroyedDelegate
-  commentId: T:Netick.Unity.OnEntityDestroyedDelegate
-  isExternal: true
-  href: Netick.Unity.OnEntityDestroyedDelegate.html
-  name: OnEntityDestroyedDelegate
-  nameWithType: OnEntityDestroyedDelegate
-  fullName: Netick.Unity.OnEntityDestroyedDelegate
-- uid: Netick.Unity.OnConnectedToServerDelegate
-  commentId: T:Netick.Unity.OnConnectedToServerDelegate
-  isExternal: true
-  href: Netick.Unity.OnConnectedToServerDelegate.html
-  name: OnConnectedToServerDelegate
-  nameWithType: OnConnectedToServerDelegate
-  fullName: Netick.Unity.OnConnectedToServerDelegate
-- uid: Netick.Unity.OnDisconnectedFromServerDelegate
-  commentId: T:Netick.Unity.OnDisconnectedFromServerDelegate
-  isExternal: true
-  href: Netick.Unity.OnDisconnectedFromServerDelegate.html
-  name: OnDisconnectedFromServerDelegate
-  nameWithType: OnDisconnectedFromServerDelegate
-  fullName: Netick.Unity.OnDisconnectedFromServerDelegate
-- uid: Netick.Unity.OnClientConnectedDelegate
-  commentId: T:Netick.Unity.OnClientConnectedDelegate
-  isExternal: true
-  href: Netick.Unity.OnClientConnectedDelegate.html
-  name: OnClientConnectedDelegate
-  nameWithType: OnClientConnectedDelegate
-  fullName: Netick.Unity.OnClientConnectedDelegate
-- uid: Netick.Unity.OnClientDisconnectedDelegate
-  commentId: T:Netick.Unity.OnClientDisconnectedDelegate
-  isExternal: true
-  href: Netick.Unity.OnClientDisconnectedDelegate.html
-  name: OnClientDisconnectedDelegate
-  nameWithType: OnClientDisconnectedDelegate
-  fullName: Netick.Unity.OnClientDisconnectedDelegate
-- uid: Netick.Unity.OnMatchListUpdateDelegate
-  commentId: T:Netick.Unity.OnMatchListUpdateDelegate
-  isExternal: true
-  href: Netick.Unity.OnMatchListUpdateDelegate.html
-  name: OnMatchListUpdateDelegate
-  nameWithType: OnMatchListUpdateDelegate
-  fullName: Netick.Unity.OnMatchListUpdateDelegate
-- uid: Netick.Unity.OnMatchCreatedDelegate
-  commentId: T:Netick.Unity.OnMatchCreatedDelegate
-  isExternal: true
-  href: Netick.Unity.OnMatchCreatedDelegate.html
-  name: OnMatchCreatedDelegate
-  nameWithType: OnMatchCreatedDelegate
-  fullName: Netick.Unity.OnMatchCreatedDelegate
 - uid: Netick.Unity.NetickUnityUtils
   commentId: T:Netick.Unity.NetickUnityUtils
   isExternal: true
@@ -919,6 +837,34 @@ references:
   name: NetworkAnimator
   nameWithType: NetworkAnimator
   fullName: Netick.Unity.NetworkAnimator
+- uid: Netick.Unity.NetworkAnimator.NetworkAnimatorRepConditions
+  commentId: T:Netick.Unity.NetworkAnimator.NetworkAnimatorRepConditions
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkAnimator.html
+  name: NetworkAnimator.NetworkAnimatorRepConditions
+  nameWithType: NetworkAnimator.NetworkAnimatorRepConditions
+  fullName: Netick.Unity.NetworkAnimator.NetworkAnimatorRepConditions
+  spec.csharp:
+  - uid: Netick.Unity.NetworkAnimator
+    name: NetworkAnimator
+    isExternal: true
+    href: Netick.Unity.NetworkAnimator.html
+  - name: .
+  - uid: Netick.Unity.NetworkAnimator.NetworkAnimatorRepConditions
+    name: NetworkAnimatorRepConditions
+    isExternal: true
+    href: Netick.Unity.NetworkAnimator.NetworkAnimatorRepConditions.html
+  spec.vb:
+  - uid: Netick.Unity.NetworkAnimator
+    name: NetworkAnimator
+    isExternal: true
+    href: Netick.Unity.NetworkAnimator.html
+  - name: .
+  - uid: Netick.Unity.NetworkAnimator.NetworkAnimatorRepConditions
+    name: NetworkAnimatorRepConditions
+    isExternal: true
+    href: Netick.Unity.NetworkAnimator.NetworkAnimatorRepConditions.html
 - uid: Netick.Unity.StartMode
   commentId: T:Netick.Unity.StartMode
   parent: Netick.Unity
@@ -927,6 +873,14 @@ references:
   name: StartMode
   nameWithType: StartMode
   fullName: Netick.Unity.StartMode
+- uid: Netick.Unity.LaunchData
+  commentId: T:Netick.Unity.LaunchData
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.LaunchData.html
+  name: LaunchData
+  nameWithType: LaunchData
+  fullName: Netick.Unity.LaunchData
 - uid: Netick.Unity.Network
   commentId: T:Netick.Unity.Network
   parent: Netick.Unity
@@ -935,34 +889,201 @@ references:
   name: Network
   nameWithType: Network
   fullName: Netick.Unity.Network
-- uid: Netick.Unity.Network.Sandboxs
-  commentId: T:Netick.Unity.Network.Sandboxs
+- uid: Netick.Unity.Network.LaunchResults
+  commentId: T:Netick.Unity.Network.LaunchResults
   parent: Netick.Unity
   isExternal: true
   href: Netick.Unity.Network.html
-  name: Network.Sandboxs
-  nameWithType: Network.Sandboxs
-  fullName: Netick.Unity.Network.Sandboxs
+  name: Network.LaunchResults
+  nameWithType: Network.LaunchResults
+  fullName: Netick.Unity.Network.LaunchResults
   spec.csharp:
   - uid: Netick.Unity.Network
     name: Network
     isExternal: true
     href: Netick.Unity.Network.html
   - name: .
-  - uid: Netick.Unity.Network.Sandboxs
-    name: Sandboxs
+  - uid: Netick.Unity.Network.LaunchResults
+    name: LaunchResults
     isExternal: true
-    href: Netick.Unity.Network.Sandboxs.html
+    href: Netick.Unity.Network.LaunchResults.html
   spec.vb:
   - uid: Netick.Unity.Network
     name: Network
     isExternal: true
     href: Netick.Unity.Network.html
   - name: .
-  - uid: Netick.Unity.Network.Sandboxs
-    name: Sandboxs
+  - uid: Netick.Unity.Network.LaunchResults
+    name: LaunchResults
     isExternal: true
-    href: Netick.Unity.Network.Sandboxs.html
+    href: Netick.Unity.Network.LaunchResults.html
+- uid: Netick.Unity.NetickBaseBehaviour
+  commentId: T:Netick.Unity.NetickBaseBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetickBaseBehaviour.html
+  name: NetickBaseBehaviour
+  nameWithType: NetickBaseBehaviour
+  fullName: Netick.Unity.NetickBaseBehaviour
+- uid: Netick.Unity.NetworkEventsListener
+  commentId: T:Netick.Unity.NetworkEventsListener
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html
+  name: NetworkEventsListener
+  nameWithType: NetworkEventsListener
+  fullName: Netick.Unity.NetworkEventsListener
+- uid: Netick.Unity.OnConnectRequestDelegate
+  commentId: T:Netick.Unity.OnConnectRequestDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnConnectRequestDelegate.html
+  name: OnConnectRequestDelegate
+  nameWithType: OnConnectRequestDelegate
+  fullName: Netick.Unity.OnConnectRequestDelegate
+- uid: Netick.Unity.OnConnectFailedDelegate
+  commentId: T:Netick.Unity.OnConnectFailedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnConnectFailedDelegate.html
+  name: OnConnectFailedDelegate
+  nameWithType: OnConnectFailedDelegate
+  fullName: Netick.Unity.OnConnectFailedDelegate
+- uid: Netick.Unity.OnStartupDelegate
+  commentId: T:Netick.Unity.OnStartupDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnStartupDelegate.html
+  name: OnStartupDelegate
+  nameWithType: OnStartupDelegate
+  fullName: Netick.Unity.OnStartupDelegate
+- uid: Netick.Unity.OnShutdownDelegate
+  commentId: T:Netick.Unity.OnShutdownDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnShutdownDelegate.html
+  name: OnShutdownDelegate
+  nameWithType: OnShutdownDelegate
+  fullName: Netick.Unity.OnShutdownDelegate
+- uid: Netick.Unity.OnInputReadDelegate
+  commentId: T:Netick.Unity.OnInputReadDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnInputReadDelegate.html
+  name: OnInputReadDelegate
+  nameWithType: OnInputReadDelegate
+  fullName: Netick.Unity.OnInputReadDelegate
+- uid: Netick.Unity.OnSceneLoadedDelegate
+  commentId: T:Netick.Unity.OnSceneLoadedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnSceneLoadedDelegate.html
+  name: OnSceneLoadedDelegate
+  nameWithType: OnSceneLoadedDelegate
+  fullName: Netick.Unity.OnSceneLoadedDelegate
+- uid: Netick.Unity.OnSceneLoadStartedDelegate
+  commentId: T:Netick.Unity.OnSceneLoadStartedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnSceneLoadStartedDelegate.html
+  name: OnSceneLoadStartedDelegate
+  nameWithType: OnSceneLoadStartedDelegate
+  fullName: Netick.Unity.OnSceneLoadStartedDelegate
+- uid: Netick.Unity.OnClientSceneLoadedDelegate
+  commentId: T:Netick.Unity.OnClientSceneLoadedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnClientSceneLoadedDelegate.html
+  name: OnClientSceneLoadedDelegate
+  nameWithType: OnClientSceneLoadedDelegate
+  fullName: Netick.Unity.OnClientSceneLoadedDelegate
+- uid: Netick.Unity.OnObjectCreatedDelegate
+  commentId: T:Netick.Unity.OnObjectCreatedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnObjectCreatedDelegate.html
+  name: OnObjectCreatedDelegate
+  nameWithType: OnObjectCreatedDelegate
+  fullName: Netick.Unity.OnObjectCreatedDelegate
+- uid: Netick.Unity.OnEntityDestroyedDelegate
+  commentId: T:Netick.Unity.OnEntityDestroyedDelegate
+  isExternal: true
+  href: Netick.Unity.OnEntityDestroyedDelegate.html
+  name: OnEntityDestroyedDelegate
+  nameWithType: OnEntityDestroyedDelegate
+  fullName: Netick.Unity.OnEntityDestroyedDelegate
+- uid: Netick.Unity.OnConnectedToServerDelegate
+  commentId: T:Netick.Unity.OnConnectedToServerDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnConnectedToServerDelegate.html
+  name: OnConnectedToServerDelegate
+  nameWithType: OnConnectedToServerDelegate
+  fullName: Netick.Unity.OnConnectedToServerDelegate
+- uid: Netick.Unity.OnDisconnectedFromServerDelegate
+  commentId: T:Netick.Unity.OnDisconnectedFromServerDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnDisconnectedFromServerDelegate.html
+  name: OnDisconnectedFromServerDelegate
+  nameWithType: OnDisconnectedFromServerDelegate
+  fullName: Netick.Unity.OnDisconnectedFromServerDelegate
+- uid: Netick.Unity.OnClientConnectedDelegate
+  commentId: T:Netick.Unity.OnClientConnectedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnClientConnectedDelegate.html
+  name: OnClientConnectedDelegate
+  nameWithType: OnClientConnectedDelegate
+  fullName: Netick.Unity.OnClientConnectedDelegate
+- uid: Netick.Unity.OnClientDisconnectedDelegate
+  commentId: T:Netick.Unity.OnClientDisconnectedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnClientDisconnectedDelegate.html
+  name: OnClientDisconnectedDelegate
+  nameWithType: OnClientDisconnectedDelegate
+  fullName: Netick.Unity.OnClientDisconnectedDelegate
+- uid: Netick.Unity.OnPlayerConnectedDelegate
+  commentId: T:Netick.Unity.OnPlayerConnectedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnPlayerConnectedDelegate.html
+  name: OnPlayerConnectedDelegate
+  nameWithType: OnPlayerConnectedDelegate
+  fullName: Netick.Unity.OnPlayerConnectedDelegate
+- uid: Netick.Unity.OnPlayerDisconnectedDelegate
+  commentId: T:Netick.Unity.OnPlayerDisconnectedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnPlayerDisconnectedDelegate.html
+  name: OnPlayerDisconnectedDelegate
+  nameWithType: OnPlayerDisconnectedDelegate
+  fullName: Netick.Unity.OnPlayerDisconnectedDelegate
+- uid: Netick.Unity.OnMatchListUpdateDelegate
+  commentId: T:Netick.Unity.OnMatchListUpdateDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnMatchListUpdateDelegate.html
+  name: OnMatchListUpdateDelegate
+  nameWithType: OnMatchListUpdateDelegate
+  fullName: Netick.Unity.OnMatchListUpdateDelegate
+- uid: Netick.Unity.OnMatchCreatedDelegate
+  commentId: T:Netick.Unity.OnMatchCreatedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnMatchCreatedDelegate.html
+  name: OnMatchCreatedDelegate
+  nameWithType: OnMatchCreatedDelegate
+  fullName: Netick.Unity.OnMatchCreatedDelegate
+- uid: Netick.Unity.NetickCallbacks
+  commentId: T:Netick.Unity.NetickCallbacks
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetickCallbacks.html
+  name: NetickCallbacks
+  nameWithType: NetickCallbacks
+  fullName: Netick.Unity.NetickCallbacks
 - uid: Netick.Unity.NetickCoreComponent
   commentId: T:Netick.Unity.NetickCoreComponent
   parent: Netick.Unity

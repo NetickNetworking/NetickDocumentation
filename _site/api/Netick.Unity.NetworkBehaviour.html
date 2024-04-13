@@ -116,6 +116,7 @@
       <div><span class="xref">Component</span></div>
       <div><span class="xref">Behaviour</span></div>
       <div><span class="xref">MonoBehaviour</span></div>
+      <div><a class="xref" href="Netick.Unity.NetickBaseBehaviour.html">NetickBaseBehaviour</a></div>
       <div><a class="xref" href="Netick.Unity.NetickBehaviour.html">NetickBehaviour</a></div>
       <div><span class="xref">NetworkBehaviour</span></div>
     </dd>
@@ -133,6 +134,7 @@
     <dt>Derived</dt>
     <dd>
       <div><a class="xref" href="Netick.Unity.NetworkAnimator.html">NetworkAnimator</a></div>
+      <div><a class="xref" href="Netick.Unity.NetworkSceneManager.html">NetworkSceneManager</a></div>
       <div><a class="xref" href="Netick.Unity.NetworkTransform.html">NetworkTransform</a></div>
     </dd>
   </dl>
@@ -965,14 +967,14 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool FetchInput&lt;T&gt;(out T input, int playerIndex = 0) where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public bool FetchInput&lt;T&gt;(out T input, int index = 0) where T : unmanaged</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>input</code> <span class="xref">T</span></dt>
     <dd></dd>
-    <dt><code>playerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -1373,7 +1375,7 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Called on the client when the server confirms that this object has been successfully spawn-predicted and therefore has a valid SceneId.</p>
+  <div class="markdown level1 summary"><p>Called on the client when the server confirms that this object has been successfully spawn-predicted and therefore has a valid SceneLoadId.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

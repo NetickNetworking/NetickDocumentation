@@ -15,16 +15,16 @@ items:
   - Netick.Unity.NetickConfig.EnableLagCompensation
   - Netick.Unity.NetickConfig.EnableLogging
   - Netick.Unity.NetickConfig.GetMaxPlayers
-  - Netick.Unity.NetickConfig.GetTransport
   - Netick.Unity.NetickConfig.InterestGroupCount
   - Netick.Unity.NetickConfig.InvokeRenderInHeadless
+  - Netick.Unity.NetickConfig.InvokeUpdate
   - Netick.Unity.NetickConfig.LAN_DISCOVERY
   - Netick.Unity.NetickConfig.LAN_DISCOVERY_RESPONSE
   - Netick.Unity.NetickConfig.LagCompensationDebug
   - Netick.Unity.NetickConfig.MaxPredictedTicks
   - Netick.Unity.NetickConfig.MaxSendableDataSize
+  - Netick.Unity.NetickConfig.PhysicsPrediction
   - Netick.Unity.NetickConfig.PhysicsType
-  - Netick.Unity.NetickConfig.PredictedClientPhysics
   - Netick.Unity.NetickConfig.ReceiveBufferSize
   - Netick.Unity.NetickConfig.RenderInvokeOrder
   - Netick.Unity.NetickConfig.RenderWorldGrid
@@ -513,16 +513,16 @@ items:
   - type: UnityEngine.SerializeField
     ctor: UnityEngine.SerializeField.#ctor
     arguments: []
-- uid: Netick.Unity.NetickConfig.PredictedClientPhysics
-  commentId: F:Netick.Unity.NetickConfig.PredictedClientPhysics
-  id: PredictedClientPhysics
+- uid: Netick.Unity.NetickConfig.PhysicsPrediction
+  commentId: F:Netick.Unity.NetickConfig.PhysicsPrediction
+  id: PhysicsPrediction
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: PredictedClientPhysics
-  nameWithType: NetickConfig.PredictedClientPhysics
-  fullName: Netick.Unity.NetickConfig.PredictedClientPhysics
+  name: PhysicsPrediction
+  nameWithType: NetickConfig.PhysicsPrediction
+  fullName: Netick.Unity.NetickConfig.PhysicsPrediction
   type: Field
   assemblies:
   - Netick.Unity
@@ -533,7 +533,9 @@ items:
 
       [SerializeField]
 
-      public bool PredictedClientPhysics
+      [FormerlySerializedAs("PredictedClientPhysics")]
+
+      public bool PhysicsPrediction
     return:
       type: System.Boolean
     content.vb: >-
@@ -541,7 +543,9 @@ items:
 
       <SerializeField>
 
-      Public PredictedClientPhysics As Boolean
+      <FormerlySerializedAs("PredictedClientPhysics")>
+
+      Public PhysicsPrediction As Boolean
   attributes:
   - type: UnityEngine.TooltipAttribute
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
@@ -555,6 +559,11 @@ items:
   - type: UnityEngine.SerializeField
     ctor: UnityEngine.SerializeField.#ctor
     arguments: []
+  - type: UnityEngine.Serialization.FormerlySerializedAsAttribute
+    ctor: UnityEngine.Serialization.FormerlySerializedAsAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: PredictedClientPhysics
 - uid: Netick.Unity.NetickConfig.PhysicsType
   commentId: F:Netick.Unity.NetickConfig.PhysicsType
   id: PhysicsType
@@ -602,13 +611,13 @@ items:
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Disable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.")]
+      [Tooltip("Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.")]
 
       public bool InvokeRenderInHeadless
     return:
       type: System.Boolean
     content.vb: >-
-      <Tooltip("Disable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.")>
+      <Tooltip("Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.")>
 
       Public InvokeRenderInHeadless As Boolean
   attributes:
@@ -616,7 +625,38 @@ items:
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: Disable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.
+      value: Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.
+- uid: Netick.Unity.NetickConfig.InvokeUpdate
+  commentId: F:Netick.Unity.NetickConfig.InvokeUpdate
+  id: InvokeUpdate
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: InvokeUpdate
+  nameWithType: NetickConfig.InvokeUpdate
+  fullName: Netick.Unity.NetickConfig.InvokeUpdate
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [Tooltip("Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects.")]
+
+      public bool InvokeUpdate
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Tooltip("Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects.")>
+
+      Public InvokeUpdate As Boolean
+  attributes:
+  - type: UnityEngine.TooltipAttribute
+    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects.
 - uid: Netick.Unity.NetickConfig.RenderInvokeOrder
   commentId: F:Netick.Unity.NetickConfig.RenderInvokeOrder
   id: RenderInvokeOrder
@@ -1074,26 +1114,6 @@ items:
     return:
       type: System.UInt64
     content.vb: Public Const LAN_DISCOVERY_RESPONSE As ULong = 1251984615806071114
-- uid: Netick.Unity.NetickConfig.GetTransport
-  commentId: M:Netick.Unity.NetickConfig.GetTransport
-  id: GetTransport
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: GetTransport()
-  nameWithType: NetickConfig.GetTransport()
-  fullName: Netick.Unity.NetickConfig.GetTransport()
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public NetworkTransport GetTransport()
-    return:
-      type: Netick.NetworkTransport
-    content.vb: Public Function GetTransport() As NetworkTransport
-  overload: Netick.Unity.NetickConfig.GetTransport*
 - uid: Netick.Unity.NetickConfig.#ctor
   commentId: M:Netick.Unity.NetickConfig.#ctor
   id: '#ctor'
@@ -3461,28 +3481,6 @@ references:
   nameWithType.vb: ULong
   fullName.vb: ULong
   name.vb: ULong
-- uid: Netick.Unity.NetickConfig.GetTransport*
-  commentId: Overload:Netick.Unity.NetickConfig.GetTransport
-  isExternal: true
-  href: Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_GetTransport
-  name: GetTransport
-  nameWithType: NetickConfig.GetTransport
-  fullName: Netick.Unity.NetickConfig.GetTransport
-- uid: Netick.NetworkTransport
-  commentId: T:Netick.NetworkTransport
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkTransport.html
-  name: NetworkTransport
-  nameWithType: NetworkTransport
-  fullName: Netick.NetworkTransport
-- uid: Netick
-  commentId: N:Netick
-  isExternal: true
-  href: Netick.html
-  name: Netick
-  nameWithType: Netick
-  fullName: Netick
 - uid: Netick.Unity.NetickConfig.#ctor*
   commentId: Overload:Netick.Unity.NetickConfig.#ctor
   isExternal: true

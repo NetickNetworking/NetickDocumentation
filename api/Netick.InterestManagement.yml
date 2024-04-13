@@ -6,7 +6,7 @@ items:
   parent: Netick
   children:
   - Netick.InterestManagement.AllGroups
-  - Netick.InterestManagement.CalcBoxInterest(Netick.ServerConnection,Netick.NetickBounds)
+  - Netick.InterestManagement.CalcTotalGroupCount(Netick.NetickEngine)
   - Netick.InterestManagement.CellSize
   - Netick.InterestManagement.Cells
   - Netick.InterestManagement.CellsCountPerRowX
@@ -15,7 +15,6 @@ items:
   - Netick.InterestManagement.ConvertFromWorldToCell3D(System.Numerics.Vector3)
   - Netick.InterestManagement.CustomGroups
   - Netick.InterestManagement.Engine
-  - Netick.InterestManagement.Remove(Netick.Entity)
   - Netick.InterestManagement.TotalGroupCount
   langs:
   - csharp
@@ -210,27 +209,29 @@ items:
     return:
       type: Netick.InterestManagementGroup[,,]
     content.vb: Public ReadOnly Cells As InterestManagementGroup(,,)
-- uid: Netick.InterestManagement.Remove(Netick.Entity)
-  commentId: M:Netick.InterestManagement.Remove(Netick.Entity)
-  id: Remove(Netick.Entity)
+- uid: Netick.InterestManagement.CalcTotalGroupCount(Netick.NetickEngine)
+  commentId: M:Netick.InterestManagement.CalcTotalGroupCount(Netick.NetickEngine)
+  id: CalcTotalGroupCount(Netick.NetickEngine)
   parent: Netick.InterestManagement
   langs:
   - csharp
   - vb
-  name: Remove(Entity)
-  nameWithType: InterestManagement.Remove(Entity)
-  fullName: Netick.InterestManagement.Remove(Netick.Entity)
+  name: CalcTotalGroupCount(NetickEngine)
+  nameWithType: InterestManagement.CalcTotalGroupCount(NetickEngine)
+  fullName: Netick.InterestManagement.CalcTotalGroupCount(Netick.NetickEngine)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void Remove(Entity unit)
+    content: public static int CalcTotalGroupCount(NetickEngine engine)
     parameters:
-    - id: unit
-      type: Netick.Entity
-    content.vb: Public Sub Remove(unit As Entity)
-  overload: Netick.InterestManagement.Remove*
+    - id: engine
+      type: Netick.NetickEngine
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function CalcTotalGroupCount(engine As NetickEngine) As Integer
+  overload: Netick.InterestManagement.CalcTotalGroupCount*
 - uid: Netick.InterestManagement.ConvertFromWorldToCell3D(System.Numerics.Vector3)
   commentId: M:Netick.InterestManagement.ConvertFromWorldToCell3D(System.Numerics.Vector3)
   id: ConvertFromWorldToCell3D(System.Numerics.Vector3)
@@ -254,29 +255,6 @@ items:
       type: Netick.NetickVector3Int
     content.vb: Public Function ConvertFromWorldToCell3D(pos As Vector3) As NetickVector3Int
   overload: Netick.InterestManagement.ConvertFromWorldToCell3D*
-- uid: Netick.InterestManagement.CalcBoxInterest(Netick.ServerConnection,Netick.NetickBounds)
-  commentId: M:Netick.InterestManagement.CalcBoxInterest(Netick.ServerConnection,Netick.NetickBounds)
-  id: CalcBoxInterest(Netick.ServerConnection,Netick.NetickBounds)
-  parent: Netick.InterestManagement
-  langs:
-  - csharp
-  - vb
-  name: CalcBoxInterest(ServerConnection, NetickBounds)
-  nameWithType: InterestManagement.CalcBoxInterest(ServerConnection, NetickBounds)
-  fullName: Netick.InterestManagement.CalcBoxInterest(Netick.ServerConnection, Netick.NetickBounds)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void CalcBoxInterest(ServerConnection conn, NetickBounds box)
-    parameters:
-    - id: conn
-      type: Netick.ServerConnection
-    - id: box
-      type: Netick.NetickBounds
-    content.vb: Public Sub CalcBoxInterest(conn As ServerConnection, box As NetickBounds)
-  overload: Netick.InterestManagement.CalcBoxInterest*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -567,21 +545,13 @@ references:
   - name: ','
   - name: ','
   - name: )
-- uid: Netick.InterestManagement.Remove*
-  commentId: Overload:Netick.InterestManagement.Remove
+- uid: Netick.InterestManagement.CalcTotalGroupCount*
+  commentId: Overload:Netick.InterestManagement.CalcTotalGroupCount
   isExternal: true
-  href: Netick.InterestManagement.html#Netick_InterestManagement_Remove_Netick_Entity_
-  name: Remove
-  nameWithType: InterestManagement.Remove
-  fullName: Netick.InterestManagement.Remove
-- uid: Netick.Entity
-  commentId: T:Netick.Entity
-  parent: Netick
-  isExternal: true
-  href: Netick.Entity.html
-  name: Entity
-  nameWithType: Entity
-  fullName: Netick.Entity
+  href: Netick.InterestManagement.html#Netick_InterestManagement_CalcTotalGroupCount_Netick_NetickEngine_
+  name: CalcTotalGroupCount
+  nameWithType: InterestManagement.CalcTotalGroupCount
+  fullName: Netick.InterestManagement.CalcTotalGroupCount
 - uid: Netick.InterestManagement.ConvertFromWorldToCell3D*
   commentId: Overload:Netick.InterestManagement.ConvertFromWorldToCell3D
   isExternal: true
@@ -632,26 +602,3 @@ references:
     name: Numerics
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.numerics
-- uid: Netick.InterestManagement.CalcBoxInterest*
-  commentId: Overload:Netick.InterestManagement.CalcBoxInterest
-  isExternal: true
-  href: Netick.InterestManagement.html#Netick_InterestManagement_CalcBoxInterest_Netick_ServerConnection_Netick_NetickBounds_
-  name: CalcBoxInterest
-  nameWithType: InterestManagement.CalcBoxInterest
-  fullName: Netick.InterestManagement.CalcBoxInterest
-- uid: Netick.ServerConnection
-  commentId: T:Netick.ServerConnection
-  parent: Netick
-  isExternal: true
-  href: Netick.ServerConnection.html
-  name: ServerConnection
-  nameWithType: ServerConnection
-  fullName: Netick.ServerConnection
-- uid: Netick.NetickBounds
-  commentId: T:Netick.NetickBounds
-  parent: Netick
-  isExternal: true
-  href: Netick.NetickBounds.html
-  name: NetickBounds
-  nameWithType: NetickBounds
-  fullName: Netick.NetickBounds

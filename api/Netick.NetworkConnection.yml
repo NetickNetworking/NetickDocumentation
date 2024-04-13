@@ -12,6 +12,7 @@ items:
   - Netick.NetworkConnection.Id
   - Netick.NetworkConnection.LocalUserData
   - Netick.NetworkConnection.MaxOutgoingDataPerTickInBytes
+  - Netick.NetworkConnection.RTT
   - Netick.NetworkConnection.RemoteUserData
   - Netick.NetworkConnection.SendEntities
   - Netick.NetworkConnection.TransportConnection
@@ -109,6 +110,25 @@ items:
     return:
       type: System.Int32
     content.vb: Public MaxOutgoingDataPerTickInBytes As Integer
+- uid: Netick.NetworkConnection.RTT
+  commentId: F:Netick.NetworkConnection.RTT
+  id: RTT
+  parent: Netick.NetworkConnection
+  langs:
+  - csharp
+  - vb
+  name: RTT
+  nameWithType: NetworkConnection.RTT
+  fullName: Netick.NetworkConnection.RTT
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly DoubleStats RTT
+    return:
+      type: Netick.DoubleStats
+    content.vb: Public ReadOnly RTT As DoubleStats
 - uid: Netick.NetworkConnection.Finalize
   commentId: M:Netick.NetworkConnection.Finalize
   id: Finalize
@@ -690,6 +710,14 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: Netick.DoubleStats
+  commentId: T:Netick.DoubleStats
+  parent: Netick
+  isExternal: true
+  href: Netick.DoubleStats.html
+  name: DoubleStats
+  nameWithType: DoubleStats
+  fullName: Netick.DoubleStats
 - uid: Netick.NetworkConnection.Finalize*
   commentId: Overload:Netick.NetworkConnection.Finalize
   isExternal: true

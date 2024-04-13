@@ -31,6 +31,7 @@ items:
   - UnityEngine.Component
   - UnityEngine.Behaviour
   - UnityEngine.MonoBehaviour
+  - Netick.Unity.NetickBaseBehaviour
   - Netick.Unity.NetickBehaviour
   - Netick.Unity.NetickCoreComponent
   implements:
@@ -182,9 +183,9 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   summary: >-
-    Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.
+    Called every fixed-time network step. Any changes to the networked state should happen here.
 
-    <p>On the client, if you are the Input Source or if this Object.PredictionMode is set to None, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
+    <p>On the client, if you are the Input Source or if this Object.PredictionMode is set to Everyone, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
   example: []
   syntax:
     content: public override void NetworkFixedUpdate()
@@ -258,6 +259,14 @@ references:
   name: MonoBehaviour
   nameWithType: MonoBehaviour
   fullName: UnityEngine.MonoBehaviour
+- uid: Netick.Unity.NetickBaseBehaviour
+  commentId: T:Netick.Unity.NetickBaseBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetickBaseBehaviour.html
+  name: NetickBaseBehaviour
+  nameWithType: NetickBaseBehaviour
+  fullName: Netick.Unity.NetickBaseBehaviour
 - uid: Netick.Unity.NetickBehaviour
   commentId: T:Netick.Unity.NetickBehaviour
   parent: Netick.Unity

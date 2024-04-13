@@ -242,6 +242,36 @@ public sealed class Entity</code></pre>
 
 
 
+  <h3 id="Netick_Entity_InstanceCounter" data-uid="Netick.Entity.InstanceCounter">
+  InstanceCounter
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int InstanceCounter</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="Netick_Entity_NetworkId" data-uid="Netick.Entity.NetworkId">
   NetworkId
   
@@ -482,36 +512,6 @@ public sealed class Entity</code></pre>
 
 
 
-  <h3 id="Netick_Entity_UserData" data-uid="Netick.Entity.UserData">
-  UserData
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int* UserData</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <h3 id="Netick_Entity_UserEntity" data-uid="Netick.Entity.UserEntity">
   UserEntity
   
@@ -530,6 +530,66 @@ public sealed class Entity</code></pre>
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.INetickEntity.html">INetickEntity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Entity_UserId" data-uid="Netick.Entity.UserId">
+  UserId
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int UserId</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Entity_WorldIndex" data-uid="Netick.Entity.WorldIndex">
+  WorldIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WorldIndex</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -576,10 +636,10 @@ public sealed class Entity</code></pre>
 
 
 
-  <a id="Netick_Entity_InputSourceIndex_" data-uid="Netick.Entity.InputSourceIndex*"></a>
+  <a id="Netick_Entity_InputSourcePlayerId_" data-uid="Netick.Entity.InputSourcePlayerId*"></a>
 
-  <h3 id="Netick_Entity_InputSourceIndex" data-uid="Netick.Entity.InputSourceIndex">
-  InputSourceIndex
+  <h3 id="Netick_Entity_InputSourcePlayerId" data-uid="Netick.Entity.InputSourcePlayerId">
+  InputSourcePlayerId
   
   </h3>
 
@@ -587,7 +647,7 @@ public sealed class Entity</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int InputSourceIndex { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int InputSourcePlayerId { get; }</code></pre>
   </div>
 
 
@@ -995,8 +1055,8 @@ public sealed class Entity</code></pre>
 
   <a id="Netick_Entity_GridDirtify_" data-uid="Netick.Entity.GridDirtify*"></a>
 
-  <h3 id="Netick_Entity_GridDirtify_System_Int32__Netick_Entity_System_Int32_" data-uid="Netick.Entity.GridDirtify(System.Int32*,Netick.Entity,System.Int32)">
-  GridDirtify(int*, Entity, int)
+  <h3 id="Netick_Entity_GridDirtify_System_Int32_Netick_Entity_System_Int32_" data-uid="Netick.Entity.GridDirtify(System.Int32,Netick.Entity,System.Int32)">
+  GridDirtify(int, Entity, int)
   
   </h3>
 
@@ -1004,12 +1064,12 @@ public sealed class Entity</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool GridDirtify(int* p, Entity entity, int isInputSourceOnly = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool GridDirtify(int index, Entity entity, int isInputSourceOnly = 0)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>p</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
     <dd></dd>
@@ -1076,8 +1136,8 @@ public sealed class Entity</code></pre>
 
   <a id="Netick_Entity_InternalRegOnChanged_" data-uid="Netick.Entity.InternalRegOnChanged*"></a>
 
-  <h3 id="Netick_Entity_InternalRegOnChanged_Netick_INetickNetworkScript_System_Int32_System_Int32__System_Int32__System_Int32_Netick_OnChangedEvent_" data-uid="Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)">
-  InternalRegOnChanged(INetickNetworkScript, int, int*, int*, int, OnChangedEvent)
+  <h3 id="Netick_Entity_InternalRegOnChanged_Netick_INetickNetworkScript_System_Int32_System_Int32_System_Int32_System_Int32__System_Int32__System_Int32_Netick_OnChangedEvent_" data-uid="Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)">
+  InternalRegOnChanged(INetickNetworkScript, int, int, int, int*, int*, int, OnChangedEvent)
   
   </h3>
 
@@ -1085,7 +1145,7 @@ public sealed class Entity</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void InternalRegOnChanged(INetickNetworkScript script, int isArray, int* propertyStart, int* propertyPartIndex, int propertySizeWords, OnChangedEvent onChanged)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void InternalRegOnChanged(INetickNetworkScript script, int isArray, int invokeDuringResims, int inversePrecision, int* propertyStart, int* propertyPartIndex, int propertySizeWords, OnChangedEvent onChanged)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1093,6 +1153,10 @@ public sealed class Entity</code></pre>
     <dt><code>script</code> <a class="xref" href="Netick.INetickNetworkScript.html">INetickNetworkScript</a></dt>
     <dd></dd>
     <dt><code>isArray</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>invokeDuringResims</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>inversePrecision</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>propertyStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
     <dd></dd>

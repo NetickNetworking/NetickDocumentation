@@ -98,11 +98,15 @@
   <dl><dt>Assembly</dt><dd>Netick.Unity.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>This component is used to replicate Unity's Animator parameters and states.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[IgnoreCodeGen]
+    <pre><code class="lang-csharp hljs">[AddComponentMenu(&quot;Netick/Network Animator&quot;)]
+[RequireComponent(typeof(Animator))]
+[DisallowMultipleComponent]
+[IgnoreCodeGen]
 public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickScript</code></pre>
   </div>
 
@@ -117,6 +121,7 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
       <div><span class="xref">Component</span></div>
       <div><span class="xref">Behaviour</span></div>
       <div><span class="xref">MonoBehaviour</span></div>
+      <div><a class="xref" href="Netick.Unity.NetickBaseBehaviour.html">NetickBaseBehaviour</a></div>
       <div><a class="xref" href="Netick.Unity.NetickBehaviour.html">NetickBehaviour</a></div>
       <div><a class="xref" href="Netick.Unity.NetworkBehaviour.html">NetworkBehaviour</a></div>
       <div><span class="xref">NetworkAnimator</span></div>
@@ -148,12 +153,6 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FindInterpolator_System_String_">NetworkBehaviour.FindInterpolator(string)</a>
     </div>
     <div>
-      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GameEngineIntoNetcode">NetworkBehaviour.GameEngineIntoNetcode()</a>
-    </div>
-    <div>
-      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetcodeIntoGameEngine">NetworkBehaviour.NetcodeIntoGameEngine()</a>
-    </div>
-    <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested">NetworkBehaviour.OnBecameInterested()</a>
     </div>
     <div>
@@ -169,19 +168,10 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnSpawnPredictionSucceeded">NetworkBehaviour.OnSpawnPredictionSucceeded()</a>
     </div>
     <div>
-      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake">NetworkBehaviour.NetworkAwake()</a>
-    </div>
-    <div>
-      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset">NetworkBehaviour.NetworkReset()</a>
-    </div>
-    <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit">NetworkBehaviour.InternalInit()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalReset">NetworkBehaviour.InternalReset()</a>
-    </div>
-    <div>
-      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalGetStateSizeWords">NetworkBehaviour.InternalGetStateSizeWords()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_BehaviourId">NetworkBehaviour.BehaviourId</a>
@@ -227,9 +217,6 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkFixedUpdate">NetickBehaviour.NetworkFixedUpdate()</a>
-    </div>
-    <div>
-      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender">NetickBehaviour.NetworkRender()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_OnBecameSimulated">NetickBehaviour.OnBecameSimulated()</a>
@@ -621,6 +608,238 @@ public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickSc
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public NetworkAnimator()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Netick_Unity_NetworkAnimator_Animator_" data-uid="Netick.Unity.NetworkAnimator.Animator*"></a>
+
+  <h3 id="Netick_Unity_NetworkAnimator_Animator" data-uid="Netick.Unity.NetworkAnimator.Animator">
+  Animator
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Animator Animator { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Animator</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkAnimator_InterpolationSource_" data-uid="Netick.Unity.NetworkAnimator.InterpolationSource*"></a>
+
+  <h3 id="Netick_Unity_NetworkAnimator_InterpolationSource" data-uid="Netick.Unity.NetworkAnimator.InterpolationSource">
+  InterpolationSource
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InterpolationSource InterpolationSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.InterpolationSource.html">InterpolationSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Netick_Unity_NetworkAnimator_GameEngineIntoNetcode_" data-uid="Netick.Unity.NetworkAnimator.GameEngineIntoNetcode*"></a>
+
+  <h3 id="Netick_Unity_NetworkAnimator_GameEngineIntoNetcode" data-uid="Netick.Unity.NetworkAnimator.GameEngineIntoNetcode">
+  GameEngineIntoNetcode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void GameEngineIntoNetcode()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkAnimator_InternalGetStateSizeWords_" data-uid="Netick.Unity.NetworkAnimator.InternalGetStateSizeWords*"></a>
+
+  <h3 id="Netick_Unity_NetworkAnimator_InternalGetStateSizeWords" data-uid="Netick.Unity.NetworkAnimator.InternalGetStateSizeWords">
+  InternalGetStateSizeWords()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int InternalGetStateSizeWords()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkAnimator_NetcodeIntoGameEngine_" data-uid="Netick.Unity.NetworkAnimator.NetcodeIntoGameEngine*"></a>
+
+  <h3 id="Netick_Unity_NetworkAnimator_NetcodeIntoGameEngine" data-uid="Netick.Unity.NetworkAnimator.NetcodeIntoGameEngine">
+  NetcodeIntoGameEngine()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void NetcodeIntoGameEngine()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkAnimator_NetworkAwake_" data-uid="Netick.Unity.NetworkAnimator.NetworkAwake*"></a>
+
+  <h3 id="Netick_Unity_NetworkAnimator_NetworkAwake" data-uid="Netick.Unity.NetworkAnimator.NetworkAwake">
+  NetworkAwake()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void NetworkAwake()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkAnimator_NetworkRender_" data-uid="Netick.Unity.NetworkAnimator.NetworkRender*"></a>
+
+  <h3 id="Netick_Unity_NetworkAnimator_NetworkRender" data-uid="Netick.Unity.NetworkAnimator.NetworkRender">
+  NetworkRender()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called every frame. Executed after NetworkUpdate and NetworkFixedUpdate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void NetworkRender()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkAnimator_NetworkReset_" data-uid="Netick.Unity.NetworkAnimator.NetworkReset*"></a>
+
+  <h3 id="Netick_Unity_NetworkAnimator_NetworkReset" data-uid="Netick.Unity.NetworkAnimator.NetworkReset">
+  NetworkReset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void NetworkReset()</code></pre>
   </div>
 
 

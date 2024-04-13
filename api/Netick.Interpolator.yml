@@ -6,9 +6,9 @@ items:
   parent: Netick
   children:
   - Netick.Interpolator.#ctor(Netick.Entity,System.Int32*,System.Int32,System.Single,System.Int32)
-  - Netick.Interpolator.GetInterpolationDataPtr(Netick.InterpolationMode,System.Int32*@,System.Int32*@,System.Single@)
-  - Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationMode,System.Int32,``0@,``0@,System.Single@)
-  - Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationMode,``0@,``0@,System.Single@)
+  - Netick.Interpolator.GetInterpolationDataPtr(Netick.InterpolationSource,System.Int32*@,System.Int32*@,System.Single@)
+  - Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationSource,System.Int32,``0@,``0@,System.Single@)
+  - Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationSource,``0@,``0@,System.Single@)
   - Netick.Interpolator.Precision
   langs:
   - csharp
@@ -83,16 +83,16 @@ items:
   nameWithType.vb: Interpolator.New(Entity, Integer*, Integer, Single, Integer)
   fullName.vb: Netick.Interpolator.New(Netick.Entity, Integer*, Integer, Single, Integer)
   name.vb: New(Entity, Integer*, Integer, Single, Integer)
-- uid: Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationMode,``0@,``0@,System.Single@)
-  commentId: M:Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationMode,``0@,``0@,System.Single@)
-  id: GetInterpolationData``1(Netick.InterpolationMode,``0@,``0@,System.Single@)
+- uid: Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationSource,``0@,``0@,System.Single@)
+  commentId: M:Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationSource,``0@,``0@,System.Single@)
+  id: GetInterpolationData``1(Netick.InterpolationSource,``0@,``0@,System.Single@)
   parent: Netick.Interpolator
   langs:
   - csharp
   - vb
-  name: GetInterpolationData<T>(InterpolationMode, out T, out T, out float)
-  nameWithType: Interpolator.GetInterpolationData<T>(InterpolationMode, out T, out T, out float)
-  fullName: Netick.Interpolator.GetInterpolationData<T>(Netick.InterpolationMode, out T, out T, out float)
+  name: GetInterpolationData<T>(InterpolationSource, out T, out T, out float)
+  nameWithType: Interpolator.GetInterpolationData<T>(InterpolationSource, out T, out T, out float)
+  fullName: Netick.Interpolator.GetInterpolationData<T>(Netick.InterpolationSource, out T, out T, out float)
   type: Method
   assemblies:
   - Netick
@@ -100,10 +100,10 @@ items:
   summary: Tries to obtain interpolation data for this frame.
   example: []
   syntax:
-    content: 'public bool GetInterpolationData<T>(InterpolationMode interpolationMode, out T from, out T to, out float alpha) where T : unmanaged'
+    content: 'public bool GetInterpolationData<T>(InterpolationSource interpolationSource, out T from, out T to, out float alpha) where T : unmanaged'
     parameters:
-    - id: interpolationMode
-      type: Netick.InterpolationMode
+    - id: interpolationSource
+      type: Netick.InterpolationSource
       description: ''
     - id: from
       type: '{T}'
@@ -119,30 +119,30 @@ items:
     return:
       type: System.Boolean
       description: Returns true if there was interpolation data for this frame.
-    content.vb: Public Function GetInterpolationData(Of T As Structure)(interpolationMode As InterpolationMode, from As T, [to] As T, alpha As Single) As Boolean
+    content.vb: Public Function GetInterpolationData(Of T As Structure)(interpolationSource As InterpolationSource, from As T, [to] As T, alpha As Single) As Boolean
   overload: Netick.Interpolator.GetInterpolationData*
-  nameWithType.vb: Interpolator.GetInterpolationData(Of T)(InterpolationMode, T, T, Single)
-  fullName.vb: Netick.Interpolator.GetInterpolationData(Of T)(Netick.InterpolationMode, T, T, Single)
-  name.vb: GetInterpolationData(Of T)(InterpolationMode, T, T, Single)
-- uid: Netick.Interpolator.GetInterpolationDataPtr(Netick.InterpolationMode,System.Int32*@,System.Int32*@,System.Single@)
-  commentId: M:Netick.Interpolator.GetInterpolationDataPtr(Netick.InterpolationMode,System.Int32*@,System.Int32*@,System.Single@)
-  id: GetInterpolationDataPtr(Netick.InterpolationMode,System.Int32*@,System.Int32*@,System.Single@)
+  nameWithType.vb: Interpolator.GetInterpolationData(Of T)(InterpolationSource, T, T, Single)
+  fullName.vb: Netick.Interpolator.GetInterpolationData(Of T)(Netick.InterpolationSource, T, T, Single)
+  name.vb: GetInterpolationData(Of T)(InterpolationSource, T, T, Single)
+- uid: Netick.Interpolator.GetInterpolationDataPtr(Netick.InterpolationSource,System.Int32*@,System.Int32*@,System.Single@)
+  commentId: M:Netick.Interpolator.GetInterpolationDataPtr(Netick.InterpolationSource,System.Int32*@,System.Int32*@,System.Single@)
+  id: GetInterpolationDataPtr(Netick.InterpolationSource,System.Int32*@,System.Int32*@,System.Single@)
   parent: Netick.Interpolator
   langs:
   - csharp
   - vb
-  name: GetInterpolationDataPtr(InterpolationMode, out int*, out int*, out float)
-  nameWithType: Interpolator.GetInterpolationDataPtr(InterpolationMode, out int*, out int*, out float)
-  fullName: Netick.Interpolator.GetInterpolationDataPtr(Netick.InterpolationMode, out int*, out int*, out float)
+  name: GetInterpolationDataPtr(InterpolationSource, out int*, out int*, out float)
+  nameWithType: Interpolator.GetInterpolationDataPtr(InterpolationSource, out int*, out int*, out float)
+  fullName: Netick.Interpolator.GetInterpolationDataPtr(Netick.InterpolationSource, out int*, out int*, out float)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool GetInterpolationDataPtr(InterpolationMode interpolationMode, out int* from, out int* to, out float alpha)
+    content: public bool GetInterpolationDataPtr(InterpolationSource interpolationSource, out int* from, out int* to, out float alpha)
     parameters:
-    - id: interpolationMode
-      type: Netick.InterpolationMode
+    - id: interpolationSource
+      type: Netick.InterpolationSource
     - id: from
       type: System.Int32*
     - id: to
@@ -151,21 +151,21 @@ items:
       type: System.Single
     return:
       type: System.Boolean
-    content.vb: Public Function GetInterpolationDataPtr(interpolationMode As InterpolationMode, from As Integer*, [to] As Integer*, alpha As Single) As Boolean
+    content.vb: Public Function GetInterpolationDataPtr(interpolationSource As InterpolationSource, from As Integer*, [to] As Integer*, alpha As Single) As Boolean
   overload: Netick.Interpolator.GetInterpolationDataPtr*
-  nameWithType.vb: Interpolator.GetInterpolationDataPtr(InterpolationMode, Integer*, Integer*, Single)
-  fullName.vb: Netick.Interpolator.GetInterpolationDataPtr(Netick.InterpolationMode, Integer*, Integer*, Single)
-  name.vb: GetInterpolationDataPtr(InterpolationMode, Integer*, Integer*, Single)
-- uid: Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationMode,System.Int32,``0@,``0@,System.Single@)
-  commentId: M:Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationMode,System.Int32,``0@,``0@,System.Single@)
-  id: GetInterpolationData``1(Netick.InterpolationMode,System.Int32,``0@,``0@,System.Single@)
+  nameWithType.vb: Interpolator.GetInterpolationDataPtr(InterpolationSource, Integer*, Integer*, Single)
+  fullName.vb: Netick.Interpolator.GetInterpolationDataPtr(Netick.InterpolationSource, Integer*, Integer*, Single)
+  name.vb: GetInterpolationDataPtr(InterpolationSource, Integer*, Integer*, Single)
+- uid: Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationSource,System.Int32,``0@,``0@,System.Single@)
+  commentId: M:Netick.Interpolator.GetInterpolationData``1(Netick.InterpolationSource,System.Int32,``0@,``0@,System.Single@)
+  id: GetInterpolationData``1(Netick.InterpolationSource,System.Int32,``0@,``0@,System.Single@)
   parent: Netick.Interpolator
   langs:
   - csharp
   - vb
-  name: GetInterpolationData<T>(InterpolationMode, int, out T, out T, out float)
-  nameWithType: Interpolator.GetInterpolationData<T>(InterpolationMode, int, out T, out T, out float)
-  fullName: Netick.Interpolator.GetInterpolationData<T>(Netick.InterpolationMode, int, out T, out T, out float)
+  name: GetInterpolationData<T>(InterpolationSource, int, out T, out T, out float)
+  nameWithType: Interpolator.GetInterpolationData<T>(InterpolationSource, int, out T, out T, out float)
+  fullName: Netick.Interpolator.GetInterpolationData<T>(Netick.InterpolationSource, int, out T, out T, out float)
   type: Method
   assemblies:
   - Netick
@@ -173,10 +173,10 @@ items:
   summary: Tries to obtain interpolation data for this frame. This is the array version.
   example: []
   syntax:
-    content: 'public bool GetInterpolationData<T>(InterpolationMode interpolationMode, int index, out T from, out T to, out float alpha) where T : unmanaged'
+    content: 'public bool GetInterpolationData<T>(InterpolationSource interpolationSource, int index, out T from, out T to, out float alpha) where T : unmanaged'
     parameters:
-    - id: interpolationMode
-      type: Netick.InterpolationMode
+    - id: interpolationSource
+      type: Netick.InterpolationSource
       description: ''
     - id: index
       type: System.Int32
@@ -194,11 +194,11 @@ items:
     return:
       type: System.Boolean
       description: Returns true if there was interpolation data for this frame.
-    content.vb: Public Function GetInterpolationData(Of T As Structure)(interpolationMode As InterpolationMode, index As Integer, from As T, [to] As T, alpha As Single) As Boolean
+    content.vb: Public Function GetInterpolationData(Of T As Structure)(interpolationSource As InterpolationSource, index As Integer, from As T, [to] As T, alpha As Single) As Boolean
   overload: Netick.Interpolator.GetInterpolationData*
-  nameWithType.vb: Interpolator.GetInterpolationData(Of T)(InterpolationMode, Integer, T, T, Single)
-  fullName.vb: Netick.Interpolator.GetInterpolationData(Of T)(Netick.InterpolationMode, Integer, T, T, Single)
-  name.vb: GetInterpolationData(Of T)(InterpolationMode, Integer, T, T, Single)
+  nameWithType.vb: Interpolator.GetInterpolationData(Of T)(InterpolationSource, Integer, T, T, Single)
+  fullName.vb: Netick.Interpolator.GetInterpolationData(Of T)(Netick.InterpolationSource, Integer, T, T, Single)
+  name.vb: GetInterpolationData(Of T)(InterpolationSource, Integer, T, T, Single)
 references:
 - uid: Netick
   commentId: N:Netick
@@ -488,18 +488,18 @@ references:
 - uid: Netick.Interpolator.GetInterpolationData*
   commentId: Overload:Netick.Interpolator.GetInterpolationData
   isExternal: true
-  href: Netick.Interpolator.html#Netick_Interpolator_GetInterpolationData__1_Netick_InterpolationMode___0____0__System_Single__
+  href: Netick.Interpolator.html#Netick_Interpolator_GetInterpolationData__1_Netick_InterpolationSource___0____0__System_Single__
   name: GetInterpolationData
   nameWithType: Interpolator.GetInterpolationData
   fullName: Netick.Interpolator.GetInterpolationData
-- uid: Netick.InterpolationMode
-  commentId: T:Netick.InterpolationMode
+- uid: Netick.InterpolationSource
+  commentId: T:Netick.InterpolationSource
   parent: Netick
   isExternal: true
-  href: Netick.InterpolationMode.html
-  name: InterpolationMode
-  nameWithType: InterpolationMode
-  fullName: Netick.InterpolationMode
+  href: Netick.InterpolationSource.html
+  name: InterpolationSource
+  nameWithType: InterpolationSource
+  fullName: Netick.InterpolationSource
 - uid: '{T}'
   commentId: '!:T'
   definition: T
@@ -524,7 +524,7 @@ references:
 - uid: Netick.Interpolator.GetInterpolationDataPtr*
   commentId: Overload:Netick.Interpolator.GetInterpolationDataPtr
   isExternal: true
-  href: Netick.Interpolator.html#Netick_Interpolator_GetInterpolationDataPtr_Netick_InterpolationMode_System_Int32___System_Int32___System_Single__
+  href: Netick.Interpolator.html#Netick_Interpolator_GetInterpolationDataPtr_Netick_InterpolationSource_System_Int32___System_Int32___System_Single__
   name: GetInterpolationDataPtr
   nameWithType: Interpolator.GetInterpolationDataPtr
   fullName: Netick.Interpolator.GetInterpolationDataPtr

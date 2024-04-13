@@ -11,6 +11,7 @@ items:
   - Netick.NetickUtils.GetMethodName(System.Reflection.MethodInfo)
   - Netick.NetickUtils.GetStableHashCode(System.String)
   - Netick.NetickUtils.GetWordSize(System.Int32)
+  - Netick.NetickUtils.GetWordSize(System.Int32,System.Int32)
   - Netick.NetickUtils.Lerp(System.Single,System.Single,System.Single)
   - Netick.NetickUtils.LoadStringFromPtr(System.Text.StringBuilder,System.Int32*,System.Int32)
   - Netick.NetickUtils.PowerOfTwo(System.Int32)
@@ -64,6 +65,34 @@ items:
   nameWithType.vb: NetickUtils.GetWordSize(Integer)
   fullName.vb: Netick.NetickUtils.GetWordSize(Integer)
   name.vb: GetWordSize(Integer)
+- uid: Netick.NetickUtils.GetWordSize(System.Int32,System.Int32)
+  commentId: M:Netick.NetickUtils.GetWordSize(System.Int32,System.Int32)
+  id: GetWordSize(System.Int32,System.Int32)
+  parent: Netick.NetickUtils
+  langs:
+  - csharp
+  - vb
+  name: GetWordSize(int, int)
+  nameWithType: NetickUtils.GetWordSize(int, int)
+  fullName: Netick.NetickUtils.GetWordSize(int, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static int GetWordSize(int byteSize, int alignment)
+    parameters:
+    - id: byteSize
+      type: System.Int32
+    - id: alignment
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function GetWordSize(byteSize As Integer, alignment As Integer) As Integer
+  overload: Netick.NetickUtils.GetWordSize*
+  nameWithType.vb: NetickUtils.GetWordSize(Integer, Integer)
+  fullName.vb: Netick.NetickUtils.GetWordSize(Integer, Integer)
+  name.vb: GetWordSize(Integer, Integer)
 - uid: Netick.NetickUtils.Ceiling(System.Int32)
   commentId: M:Netick.NetickUtils.Ceiling(System.Int32)
   id: Ceiling(System.Int32)

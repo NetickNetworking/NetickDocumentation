@@ -5,10 +5,9 @@ items:
   id: NetickEntityMeta
   parent: Netick
   children:
-  - Netick.NetickEntityMeta.GridIndex
-  - Netick.NetickEntityMeta.Id
   - Netick.NetickEntityMeta.InputSourceId
   - Netick.NetickEntityMeta.InstanceCounter
+  - Netick.NetickEntityMeta.InterestIndex
   - Netick.NetickEntityMeta.IsDestroyed
   - Netick.NetickEntityMeta.StateSizeWords
   langs:
@@ -31,25 +30,6 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Netick.NetickEntityMeta.Id
-  commentId: F:Netick.NetickEntityMeta.Id
-  id: Id
-  parent: Netick.NetickEntityMeta
-  langs:
-  - csharp
-  - vb
-  name: Id
-  nameWithType: NetickEntityMeta.Id
-  fullName: Netick.NetickEntityMeta.Id
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int Id
-    return:
-      type: System.Int32
-    content.vb: Public Id As Integer
 - uid: Netick.NetickEntityMeta.StateSizeWords
   commentId: F:Netick.NetickEntityMeta.StateSizeWords
   id: StateSizeWords
@@ -107,8 +87,27 @@ items:
     return:
       type: System.Int32
     content.vb: Public InstanceCounter As Integer
+- uid: Netick.NetickEntityMeta.InterestIndex
+  commentId: F:Netick.NetickEntityMeta.InterestIndex
+  id: InterestIndex
+  parent: Netick.NetickEntityMeta
+  langs:
+  - csharp
+  - vb
+  name: InterestIndex
+  nameWithType: NetickEntityMeta.InterestIndex
+  fullName: Netick.NetickEntityMeta.InterestIndex
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int InterestIndex
+    return:
+      type: System.Int32
+    content.vb: Public InterestIndex As Integer
 - uid: Netick.NetickEntityMeta.IsDestroyed
-  commentId: F:Netick.NetickEntityMeta.IsDestroyed
+  commentId: P:Netick.NetickEntityMeta.IsDestroyed
   id: IsDestroyed
   parent: Netick.NetickEntityMeta
   langs:
@@ -117,34 +116,17 @@ items:
   name: IsDestroyed
   nameWithType: NetickEntityMeta.IsDestroyed
   fullName: Netick.NetickEntityMeta.IsDestroyed
-  type: Field
+  type: Property
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public int IsDestroyed
+    content: public bool IsDestroyed { get; }
+    parameters: []
     return:
-      type: System.Int32
-    content.vb: Public IsDestroyed As Integer
-- uid: Netick.NetickEntityMeta.GridIndex
-  commentId: F:Netick.NetickEntityMeta.GridIndex
-  id: GridIndex
-  parent: Netick.NetickEntityMeta
-  langs:
-  - csharp
-  - vb
-  name: GridIndex
-  nameWithType: NetickEntityMeta.GridIndex
-  fullName: Netick.NetickEntityMeta.GridIndex
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int GridIndex
-    return:
-      type: System.Int32
-    content.vb: Public GridIndex As Integer
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsDestroyed As Boolean
+  overload: Netick.NetickEntityMeta.IsDestroyed*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -381,3 +363,21 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: Netick.NetickEntityMeta.IsDestroyed*
+  commentId: Overload:Netick.NetickEntityMeta.IsDestroyed
+  isExternal: true
+  href: Netick.NetickEntityMeta.html#Netick_NetickEntityMeta_IsDestroyed
+  name: IsDestroyed
+  nameWithType: NetickEntityMeta.IsDestroyed
+  fullName: Netick.NetickEntityMeta.IsDestroyed
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

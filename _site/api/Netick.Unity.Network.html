@@ -98,7 +98,8 @@
   <dl><dt>Assembly</dt><dd>Netick.Unity.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Manages Netick and its clients, and is used to start and shut down Netick.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -480,6 +481,40 @@ public sealed class Network : MonoBehaviour</code></pre>
 
 
 
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Netick_Unity_Network_Version" data-uid="Netick.Unity.Network.Version">
+  Version
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Version = &quot;0.11.30&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
   <h2 class="section" id="properties">Properties
 </h2>
 
@@ -608,6 +643,37 @@ public sealed class Network : MonoBehaviour</code></pre>
 
 
 
+  <a id="Netick_Unity_Network_Sandboxes_" data-uid="Netick.Unity.Network.Sandboxes*"></a>
+
+  <h3 id="Netick_Unity_Network_Sandboxes" data-uid="Netick.Unity.Network.Sandboxes">
+  Sandboxes
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;NetworkSandbox&gt; Sandboxes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_Network_StartMode_" data-uid="Netick.Unity.Network.StartMode*"></a>
 
   <h3 id="Netick_Unity_Network_StartMode" data-uid="Netick.Unity.Network.StartMode">
@@ -619,7 +685,7 @@ public sealed class Network : MonoBehaviour</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StartMode StartMode { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static StartMode StartMode { get; }</code></pre>
   </div>
 
 
@@ -629,37 +695,6 @@ public sealed class Network : MonoBehaviour</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.Unity.StartMode.html">StartMode</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_Network_Version_" data-uid="Netick.Unity.Network.Version*"></a>
-
-  <h3 id="Netick_Unity_Network_Version" data-uid="Netick.Unity.Network.Version">
-  Version
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string Version { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -709,31 +744,66 @@ public sealed class Network : MonoBehaviour</code></pre>
 
   <a id="Netick_Unity_Network_Init_" data-uid="Netick.Unity.Network.Init*"></a>
 
-  <h3 id="Netick_Unity_Network_Init_Netick_NetworkTransport_Netick_Unity_NetickConfig_System_Int32_" data-uid="Netick.Unity.Network.Init(Netick.NetworkTransport,Netick.Unity.NetickConfig,System.Int32)">
-  Init(NetworkTransport, NetickConfig, int)
+  <h3 id="Netick_Unity_Network_Init_Netick_Unity_NetickConfig_System_Int32_" data-uid="Netick.Unity.Network.Init(Netick.Unity.NetickConfig,System.Int32)">
+  Init(NetickConfig, int)
   
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes Netick. This is automatically called when you start Netick.</p>
 <p>If you don't provide a <a class="xref" href="Netick.Unity.NetickConfig.html">NetickConfig</a>, Netick will use the default config, which can be modified/found in (Netick -&gt; Settings).</p>
-<p>If you don't provide a <a class="xref" href="Netick.NetworkTransport.html">NetworkTransport</a>, Netick will use the transport assigned in (Netick -&gt; Settings -&gt; Transport).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Init(NetworkTransport transport = null, NetickConfig config = null, int sceneBuildIndex = -1)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Init(NetickConfig config = null, int sceneBuildIndex = -1)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>transport</code> <a class="xref" href="Netick.NetworkTransport.html">NetworkTransport</a></dt>
-    <dd></dd>
     <dt><code>config</code> <a class="xref" href="Netick.Unity.NetickConfig.html">NetickConfig</a></dt>
     <dd></dd>
     <dt><code>sceneBuildIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Network_Launch_" data-uid="Netick.Unity.Network.Launch*"></a>
+
+  <h3 id="Netick_Unity_Network_Launch_Netick_Unity_StartMode_Netick_Unity_LaunchData_" data-uid="Netick.Unity.Network.Launch(Netick.Unity.StartMode,Netick.Unity.LaunchData)">
+  Launch(StartMode, LaunchData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Network.LaunchResults Launch(StartMode mode, LaunchData launchData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="Netick.Unity.StartMode.html">StartMode</a></dt>
+    <dd></dd>
+    <dt><code>launchData</code> <a class="xref" href="Netick.Unity.LaunchData.html">LaunchData</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.Network.html">Network</a>.<a class="xref" href="Netick.Unity.Network.LaunchResults.html">LaunchResults</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -752,7 +822,7 @@ public sealed class Network : MonoBehaviour</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Shuts down Netick and destroys all sandboxes. The shutdown will occur in the next frame. For immediate shutdown, use: <a class="xref" href="Netick.Unity.Network.html#Netick_Unity_Network_ShutdownImmediately_System_Boolean_">ShutdownImmediately(bool)</a></p>
+  <div class="markdown level1 summary"><p>Shuts down Netick and destroys all clients. The shutdown will occur in the next frame. For immediate shutdown, use: <a class="xref" href="Netick.Unity.Network.html#Netick_Unity_Network_ShutdownImmediately_System_Boolean_">ShutdownImmediately(bool)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -784,7 +854,7 @@ public sealed class Network : MonoBehaviour</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Shuts down Netick and destroys all sandboxes immediately.</p>
+  <div class="markdown level1 summary"><p>Shuts down Netick and destroys all clients immediately.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -856,7 +926,7 @@ public sealed class Network : MonoBehaviour</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static NetworkSandbox StartAsClient(NetworkTransportProvider transportProvider, int port, GameObject prefab = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static NetworkSandbox StartAsClient(NetworkTransportProvider transportProvider, int port, GameObject sandboxPrefab = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -865,7 +935,7 @@ public sealed class Network : MonoBehaviour</code></pre>
     <dd></dd>
     <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dt><code>sandboxPrefab</code> <span class="xref">GameObject</span></dt>
     <dd></dd>
   </dl>
 
@@ -886,10 +956,53 @@ public sealed class Network : MonoBehaviour</code></pre>
 
 
 
+  <a id="Netick_Unity_Network_StartAsHost_" data-uid="Netick.Unity.Network.StartAsHost*"></a>
+
+  <h3 id="Netick_Unity_Network_StartAsHost_Netick_Unity_NetworkTransportProvider_System_Int32_UnityEngine_GameObject_" data-uid="Netick.Unity.Network.StartAsHost(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)">
+  StartAsHost(NetworkTransportProvider, int, GameObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts Netick as a host.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NetworkSandbox StartAsHost(NetworkTransportProvider transportProvider, int port, GameObject sandboxPrefab = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transportProvider</code> <a class="xref" href="Netick.Unity.NetworkTransportProvider.html">NetworkTransportProvider</a></dt>
+    <dd></dd>
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Network port.</p>
+</dd>
+    <dt><code>sandboxPrefab</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd><p>The sandbox representing the server</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_Network_StartAsMultiplePeers_" data-uid="Netick.Unity.Network.StartAsMultiplePeers*"></a>
 
-  <h3 id="Netick_Unity_Network_StartAsMultiplePeers_Netick_Unity_NetworkTransportProvider_System_Int32_UnityEngine_GameObject_System_Boolean_System_Int32_" data-uid="Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Int32)">
-  StartAsMultiplePeers(NetworkTransportProvider, int, GameObject, bool, int)
+  <h3 id="Netick_Unity_Network_StartAsMultiplePeers_Netick_Unity_NetworkTransportProvider_System_Int32_UnityEngine_GameObject_System_Boolean_System_Boolean_System_Int32_" data-uid="Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Boolean,System.Int32)">
+  StartAsMultiplePeers(NetworkTransportProvider, int, GameObject, bool, bool, int)
   
   </h3>
 
@@ -898,7 +1011,7 @@ public sealed class Network : MonoBehaviour</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Network.Sandboxs StartAsMultiplePeers(NetworkTransportProvider transportProvider, int port, GameObject sandboxPrefab = null, bool startAServer = true, int numOfClients = 1)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Network.LaunchResults StartAsMultiplePeers(NetworkTransportProvider transportProvider, int port, GameObject sandboxPrefab = null, bool startAServer = true, bool startServerAsHost = true, int numOfClients = 1)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -912,14 +1025,16 @@ public sealed class Network : MonoBehaviour</code></pre>
     <dt><code>startAServer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Should we start a server too.</p>
 </dd>
+    <dt><code>startServerAsHost</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
     <dt><code>numOfClients</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>Number of client sandboxes to create.</p>
+    <dd><p>Number of clients to create.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.Unity.Network.html">Network</a>.<a class="xref" href="Netick.Unity.Network.Sandboxs.html">Sandboxs</a></dt>
+    <dt><a class="xref" href="Netick.Unity.Network.html">Network</a>.<a class="xref" href="Netick.Unity.Network.LaunchResults.html">LaunchResults</a></dt>
     <dd></dd>
   </dl>
 
@@ -945,7 +1060,7 @@ public sealed class Network : MonoBehaviour</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static NetworkSandbox StartAsServer(NetworkTransportProvider transportProvider, int port, GameObject prefab = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static NetworkSandbox StartAsServer(NetworkTransportProvider transportProvider, int port, GameObject sandboxPrefab = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -955,7 +1070,7 @@ public sealed class Network : MonoBehaviour</code></pre>
     <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Network port.</p>
 </dd>
-    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dt><code>sandboxPrefab</code> <span class="xref">GameObject</span></dt>
     <dd></dd>
   </dl>
 
@@ -989,7 +1104,7 @@ public sealed class Network : MonoBehaviour</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Obsolete(&quot;This is obsolete. Use StartAsMultiplePeers instead.&quot;)]
-public static Network.Sandboxs StartAsServerAndClient(NetworkTransportProvider transportProvider, int serverPort, GameObject sandboxPrefab = null, int numOfClients = 1)</code></pre>
+public static Network.LaunchResults StartAsServerAndClient(NetworkTransportProvider transportProvider, int serverPort, GameObject sandboxPrefab = null, int numOfClients = 1)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1002,14 +1117,52 @@ public static Network.Sandboxs StartAsServerAndClient(NetworkTransportProvider t
     <dt><code>sandboxPrefab</code> <span class="xref">GameObject</span></dt>
     <dd></dd>
     <dt><code>numOfClients</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>Number of client sandboxs to create.</p>
+    <dd><p>Number of client sandboxes to create.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.Unity.Network.html">Network</a>.<a class="xref" href="Netick.Unity.Network.Sandboxs.html">Sandboxs</a></dt>
+    <dt><a class="xref" href="Netick.Unity.Network.html">Network</a>.<a class="xref" href="Netick.Unity.Network.LaunchResults.html">LaunchResults</a></dt>
     <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Network_StartAsSinglePlayer_" data-uid="Netick.Unity.Network.StartAsSinglePlayer*"></a>
+
+  <h3 id="Netick_Unity_Network_StartAsSinglePlayer_UnityEngine_GameObject_" data-uid="Netick.Unity.Network.StartAsSinglePlayer(UnityEngine.GameObject)">
+  StartAsSinglePlayer(GameObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts Netick in single player mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NetworkSandbox StartAsSinglePlayer(GameObject sandboxPrefab = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandboxPrefab</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd><p>The sandbox representing the server</p>
+</dd>
   </dl>
 
 

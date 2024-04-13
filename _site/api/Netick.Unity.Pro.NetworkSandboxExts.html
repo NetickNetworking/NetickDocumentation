@@ -102,7 +102,8 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class NetworkSandboxExts</code></pre>
+    <pre><code class="lang-csharp hljs">[Preserve]
+public static class NetworkSandboxExts</code></pre>
   </div>
 
 
@@ -192,6 +193,60 @@
 
 
 
+  <a id="Netick_Unity_Pro_NetworkSandboxExts_OverlapCircle_" data-uid="Netick.Unity.Pro.NetworkSandboxExts.OverlapCircle*"></a>
+
+  <h3 id="Netick_Unity_Pro_NetworkSandboxExts_OverlapCircle_Netick_Unity_NetworkSandbox_UnityEngine_Vector2_System_Single_System_Collections_Generic_List_Netick_Unity_Pro_LagCompHit2D__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_System_Boolean_" data-uid="Netick.Unity.Pro.NetworkSandboxExts.OverlapCircle(Netick.Unity.NetworkSandbox,UnityEngine.Vector2,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit2D},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+  OverlapCircle(NetworkSandbox, Vector2, float, List&lt;LagCompHit2D&gt;, NetworkPlayer, int, bool, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a lag compensated OverlapCircle which computes and stores HitShapes and Colliders (if includeUnityColliders is equal to true) touching or inside the circle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void OverlapCircle(this NetworkSandbox sandbox, Vector2 center, float radius, List&lt;LagCompHit2D&gt; hits, NetworkPlayer inputSource, int layerMask = -5, bool includeUnityColliders = true, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>center</code> <span class="xref">Vector2</span></dt>
+    <dd><p>Center of the sphere.</p>
+</dd>
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Radius of the sphere.</p>
+</dd>
+    <dt><code>hits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.Unity.Pro.LagCompHit2D.html">LagCompHit2D</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd><p>The input source to compensate for.</p>
+</dd>
+    <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A defines which layers of colliders to include in the query.</p>
+</dd>
+    <dt><code>includeUnityColliders</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Choose whether you want to include normal unity colliders, or only Netick HitShapes.</p>
+</dd>
+    <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>oneHitPerHitShapeContainer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Choose whether you want to include only one HitShape per HitShapeContainer</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_Pro_NetworkSandboxExts_OverlapSphere_" data-uid="Netick.Unity.Pro.NetworkSandboxExts.OverlapSphere*"></a>
 
   <h3 id="Netick_Unity_Pro_NetworkSandboxExts_OverlapSphere_Netick_Unity_NetworkSandbox_UnityEngine_Vector3_System_Single_System_Collections_Generic_List_Netick_Unity_Pro_LagCompHit__Netick_NetworkPlayer_System_Int32_UnityEngine_QueryTriggerInteraction_System_Boolean_System_Boolean_System_Boolean_" data-uid="Netick.Unity.Pro.NetworkSandboxExts.OverlapSphere(Netick.Unity.NetworkSandbox,UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit},Netick.NetworkPlayer,System.Int32,UnityEngine.QueryTriggerInteraction,System.Boolean,System.Boolean,System.Boolean)">
@@ -199,7 +254,8 @@
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Performs a lag compensated OverlapSphere which computes and stores HitShapes and Colliders (if includeUnityColliders is equal to true) touching or inside the sphere.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -211,23 +267,29 @@
     <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
     <dd></dd>
     <dt><code>center</code> <span class="xref">Vector3</span></dt>
-    <dd></dd>
+    <dd><p>Center of the sphere.</p>
+</dd>
     <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>Radius of the sphere.</p>
+</dd>
     <dt><code>hits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.Unity.Pro.LagCompHit.html">LagCompHit</a>&gt;</dt>
     <dd></dd>
     <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
-    <dd></dd>
+    <dd><p>The input source to compensate for.</p>
+</dd>
     <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>A defines which layers of colliders to include in the query.</p>
+</dd>
     <dt><code>queryTriggerInteraction</code> <span class="xref">QueryTriggerInteraction</span></dt>
     <dd></dd>
     <dt><code>includeUnityColliders</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>Choose whether you want to include normal unity colliders, or only Netick HitShapes.</p>
+</dd>
     <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
     <dt><code>oneHitPerHitShapeContainer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>Choose whether you want to include only one HitShape per HitShapeContainer</p>
+</dd>
   </dl>
 
 
@@ -248,7 +310,9 @@
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Casts a lag compensated ray, from point origin, in direction direction, of length maxDistance,
+against all HitShapes and Colliders (if includeUnityColliders is equal to true) in the Scene.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -260,21 +324,27 @@
     <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
     <dd></dd>
     <dt><code>origin</code> <span class="xref">Vector3</span></dt>
-    <dd></dd>
+    <dd><p>The starting point of the ray in world coordinates.</p>
+</dd>
     <dt><code>direction</code> <span class="xref">Vector3</span></dt>
-    <dd></dd>
+    <dd><p>The direction of the ray.</p>
+</dd>
     <dt><code>hitData</code> <a class="xref" href="Netick.Unity.Pro.LagCompHit.html">LagCompHit</a></dt>
     <dd></dd>
     <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
-    <dd></dd>
+    <dd><p>The input source to compensate for.</p>
+</dd>
     <dt><code>maxDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>The max distance the ray should check for collisions.</p>
+</dd>
     <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>A that is used to selectively ignore Colliders when casting a ray.</p>
+</dd>
     <dt><code>queryTriggerInteraction</code> <span class="xref">QueryTriggerInteraction</span></dt>
     <dd></dd>
     <dt><code>includeUnityColliders</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>Choose whether you want to include normal unity colliders, or only Netick HitShapes.</p>
+</dd>
     <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
@@ -282,7 +352,69 @@
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Returns true if the ray intersects with a Collider/HitShape, otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_NetworkSandboxExts_Raycast2D_" data-uid="Netick.Unity.Pro.NetworkSandboxExts.Raycast2D*"></a>
+
+  <h3 id="Netick_Unity_Pro_NetworkSandboxExts_Raycast2D_Netick_Unity_NetworkSandbox_UnityEngine_Vector2_UnityEngine_Vector2_Netick_Unity_Pro_LagCompHit2D__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Boolean_" data-uid="Netick.Unity.Pro.NetworkSandboxExts.Raycast2D(Netick.Unity.NetworkSandbox,UnityEngine.Vector2,UnityEngine.Vector2,Netick.Unity.Pro.LagCompHit2D@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)">
+  Raycast2D(NetworkSandbox, Vector2, Vector2, out LagCompHit2D, NetworkPlayer, float, int, bool, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts a lag compensated ray, from point origin, in direction direction, of length maxDistance,
+against all HitShapes and Colliders (if includeUnityColliders is equal to true) in the Scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Raycast2D(this NetworkSandbox sandbox, Vector2 origin, Vector2 direction, out LagCompHit2D hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -5, bool includeUnityColliders = true, bool includeInputSource = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
     <dd></dd>
+    <dt><code>origin</code> <span class="xref">Vector2</span></dt>
+    <dd><p>The starting point of the ray in world coordinates.</p>
+</dd>
+    <dt><code>direction</code> <span class="xref">Vector2</span></dt>
+    <dd><p>The direction of the ray.</p>
+</dd>
+    <dt><code>hitData</code> <a class="xref" href="Netick.Unity.Pro.LagCompHit2D.html">LagCompHit2D</a></dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd><p>The input source to compensate for.</p>
+</dd>
+    <dt><code>maxDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The max distance the ray should check for collisions.</p>
+</dd>
+    <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A that is used to selectively ignore Colliders when casting a ray.</p>
+</dd>
+    <dt><code>includeUnityColliders</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Choose whether you want to include normal unity colliders, or only Netick HitShapes.</p>
+</dd>
+    <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Returns true if the ray intersects with a Collider/HitShape, otherwise false.</p>
+</dd>
   </dl>
 
 
