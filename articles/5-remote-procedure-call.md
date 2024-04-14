@@ -55,7 +55,7 @@ public class PlayerCharacterNametag : NetworkBehaviour
 
     public override void NetworkUpdate()
     {
-        if (IsInputSource && Input.GetKey(KeyCode.Return) && Sandbox.InputEnabled)
+        if (IsInputSource && Input.GetKeyDown(KeyCode.Return) && Sandbox.InputEnabled)
         {
             RPC_SetNicknameRandom();
         }
@@ -89,5 +89,7 @@ public class PlayerCharacterNametag : NetworkBehaviour
 Assign the TextNametag with the TextMeshPro UI we have created before
 
 ## Final Testing
+
+Lets press the Enter key repeatedly to check if the RPC is working
 
 <figure><img src="../images/getting-started/105-nametag.gif" alt=""><figcaption></figcaption></figure>
