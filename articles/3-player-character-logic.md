@@ -122,4 +122,6 @@ Let's try the multiplayer of our characters. In Netick, there is a Sandboxing fe
 
 You can change peers/manage sandboxing in `Netick > Settings > Sandboxes`
 
+[Read more about Sandboxing](sandboxing.md)
+
 <figure><img src="../images/getting-started/103-multipeer.gif" alt=""><figcaption></figcaption></figure>
