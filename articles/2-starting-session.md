@@ -4,6 +4,8 @@
 To Launch a session on Netick, we can call these methods.
 
 ```cs
+using Netick;
+
 //Start a session with a player
 Network.StartAsHost();
 
@@ -57,7 +59,11 @@ Create a C# Script named `GameplayManager` then add it to the GameStarter GameOb
 
 This script will inherit from `NetworkEventsListener`. By this, `GameplayManager` now has the ability to listen important events such as player join, player left.
 
+[Read More on Listening to Network Events](listening-to-network-events.md)
+
 ```cs
+using Netick;
+
 // Change parent class from MonoBehaviour to NetworkEventsListener
 public class GameplayManager : NetworkEventsListener
 {
@@ -74,15 +80,18 @@ Let's create our player character
 NetworkObject will give a identity across the network, so all players have the reference of It. 
 
 ## Spawning our Player
-1. Add a field to hold the player character prefab in our gameplay manager
-2. Then, let's also spawn the character when a player is connected to the session
-On the `NetworkInstantiate` it ask about inputSource. 
+1. Add a field to hold the player character prefab in our gameplay manager type of `NetworkObject`
+2. Then, let's also spawn the character when a player is connected to the session.
 
+#### Input Source
+On the `NetworkInstantiate` it ask about inputSource. 
 Input source is a indicator who has the authority to send input over this object, in this case we should only give the authority to the joined appropriate player.
 
 3. Don't forget to assign the player prefab to the GameplayManger component!
 
 ```cs
+using Netick;
+
 public class GameplayManager : NetworkEventsListener
 {
     public NetworkObject PlayerPrefab;
@@ -95,7 +104,7 @@ public class GameplayManager : NetworkEventsListener
 ```
 
 > [!Note]
-> Unity has old API back then when UNet was still around and sometimes giving a wrong signature info on `OnPlayerConnected` in your IDE. This is harmless and can be ignored.
+> Unity has old APIs from the time when UNet was still around, sometimes providing incorrect signature information for OnPlayerConnected in your IDE. This issue is harmless and can be ignored.
 
 ## Testing
 
