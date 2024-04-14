@@ -6,12 +6,12 @@ In this tutorial, we are going to use RPC (Remote Procedure Call) to set our nic
 ## UI Setup
 
 1. In PlayerCharacter prefab, on the `Visual` transform, Create `UI > Text - TextMeshPro`
-2. If It Prompts you to Import TMP Essentials, go ahead continue and you may close the window afterwards.
+2. It might Prompts you to `Import TMP Essentials`, go ahead import and close the window afterwards.
 3. Change the `Canvas` `Render Mode` from `Screen Space - Overlay` to `World Space`
 4. Position your canvas to be 
     Pos X: 0
     Pos Y: 2 
-5. Change the Canvas Scale to 0.005 for all axis
+5. Change the canvas scale to 0.005 for all axis
 
 <figure><img src="../images/getting-started/105-canvas.png" alt=""><figcaption></figcaption></figure>
 
@@ -27,7 +27,7 @@ In this tutorial, we are going to use RPC (Remote Procedure Call) to set our nic
 
 ## RPC Implementation
 
-We're going to set the source to InputSource and the targets would be `Owner` (or known as Server/Host)
+We're going to set the RPC source to `InputSource` and the targets would be `Owner` (or known as Server/Host). This indicate only the input source is able to call this RPC, but only the server will execute the RPC. We also want to set isReliable to true, what this will do is, it will re-send the packet if there's a packet loss.
 
 ```cs
 public class PlayerCharacterNametag : NetworkBehaviour
