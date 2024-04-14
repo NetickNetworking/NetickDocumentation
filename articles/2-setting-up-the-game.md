@@ -1,7 +1,7 @@
-# 2 - Starting the Game
+# 2 - Setting Up the Game
 
-## Game Starter
-There are a few methods we can use to launch the game:
+## Starting the Game
+There are a few methods we can use to start the game:
 
 ```cs
 //Start the game as a server with a player
@@ -40,7 +40,7 @@ The first field asks for a `Sandbox Prefab`
 NetworkSandbox is like the manager of the game. Any scripts you add to the Sandbox Prefab will stay around until you shut down Netick. Methods on `NetworkSandbox` lets you do various things like connecting, spawning objects and destroying them.
 
 ## Transport 
-Now we need to assign a transport, Netick uses the LiteNetLib by default. To utilize this transport, we can right click on empty Assets folder `Create > Netick > Transport > LiteNetLibTransportProvider`.
+Now we need to assign a transport, Netick uses the LiteNetLib by default. To use this transport, we can right click on an empty place in the Assets folder and go to `Create > Netick > Transport > LiteNetLibTransportProvider`.
 Then assign the `Transport` field of Game Starter.
 
 <figure><img src="../images/getting-started/102-create-transport.png" alt=""><figcaption></figcaption></figure>
@@ -57,7 +57,7 @@ Modify the camera's position to `(0, 10, 12)` and adjust its rotation to `(45, 1
 <figure><img src="../images/getting-started/102-camera.png" alt=""><figcaption></figcaption></figure>
 
 ## Gameplay Manager
-Let's create our manager script to handle the gameplay aspects such as spawning the player character when a certain player joins.
+Let's create our manager script to handle gameplay aspects such as spawning the player character when a certain player joins.
 
 Create a C# script named `GameplayManager`, then add it to the GameStarter GameObject.
 
@@ -67,6 +67,7 @@ This script will inherit from `NetworkEventsListener`. By doing this, `GameplayM
 
 ```cs
 using Netick;
+using Netick.Unity;
 
 // Change parent class from MonoBehaviour to NetworkEventsListener
 public class GameplayManager : NetworkEventsListener
@@ -84,14 +85,14 @@ Let's create our player character:
 Adding NetworkObject to a GameObject will give it an identity across the network, so that it's synced. 
 
 ## Spawning our Player
-1. Add a field to hold the player character prefab in our gameplay manager script and, and give it type of `NetworkObject`.
-2. Then, let's also spawn the character when a player is connected to the server.
+1. Add a field to hold the player character prefab in our gameplay manager script and give it type of `NetworkObject`.
+2. Then, let's also spawn the character when a player connects to the server.
 
 #### Input Source
 On the `NetworkInstantiate`, you can pass an Input Source. 
-Input Source represents which peer has the authority to send inputs to this object, in this case that player is joined player.
+Input Source represents which peer has the authority to send inputs to this object, in this case that player is the joining player.
 
-3. Don't forget to assign the player prefab to the GameplayManger component!
+3. Don't forget to assign the player prefab on the GameplayManger component!
 
 ```cs
 using Netick;
@@ -108,7 +109,7 @@ public class GameplayManager : NetworkEventsListener
 ```
 
 > [!Note]
-> Unity has old APIs from the time when UNet was still around, sometimes providing incorrect signature information for `OnPlayerConnected` in your IDE. This issue is harmless and can be ignored.
+> Unity has old methods from the time when UNet was still around, sometimes providing incorrect signature information for `OnPlayerConnected` in your IDE. This issue is harmless and can be ignored.
 
 ## Testing
 

@@ -66,7 +66,7 @@ public class PlayerCharacterNametag : NetworkBehaviour
 
 
 ## Nickname OnChanged
-Then, we're going to use OnChanged callback for our Nickname:
+Then, we're going to use an OnChanged callback for our Nickname:
 
 ```cs
 public class PlayerCharacterNametag : NetworkBehaviour

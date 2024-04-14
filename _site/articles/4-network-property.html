@@ -96,7 +96,7 @@ In this tutorial, we are going to replicate our mesh color between players using
     public bool RandomizeColor;    
 }
 </code></pre>
-<p>Let's also modify our <code>GameplayManager</code> to also set the <code>randomizeColor</code> using the Space key.</p>
+<p>Let's modify our <code>GameplayManager</code> to also set the <code>randomizeColor</code> using the Space key.</p>
 <pre><code class="lang-cs">public class GameplayManager : NetworkEventsListener
 {
     //...
@@ -124,7 +124,7 @@ In this tutorial, we are going to replicate our mesh color between players using
 </code></pre>
 <p>Note that you must make your variable a property by adding <code>{get; set;}</code> to its end, this is used by Netick to make it synced automatically.</p>
 <ol start="4">
-<li>Let's use the Fetch method to handle the color changing logic. When <code>RandomizeColor</code> field of the input is true, we generate a random color and assign it to the <code>MeshColor</code> network property.</li>
+<li>Let's use the <code>FetchInput</code> method to handle the color changing logic. When <code>RandomizeColor</code> field of the input is true, we generate a random color and assign it to the <code>MeshColor</code> network property.</li>
 </ol>
 <pre><code class="lang-cs">public class PlayerCharacterVisual : NetworkBehaviour
 {

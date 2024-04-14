@@ -4,7 +4,7 @@
 
 ## [1 - Project Setup](1-project-setup.md)
 
-## [2 - Starting the Game](2-starting-the-game.md)
+## [2 - Setting Up the Game](2-setting-up-the-game.md)
 
 ## [3 - Player Character Movement](3-player-character-movement.md)
 

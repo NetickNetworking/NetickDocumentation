@@ -16,7 +16,7 @@ public struct PlayerCharacterInput : INetworkInput
 }
 ```
 
-Let's also modify our `GameplayManager` to also set the `randomizeColor` using the Space key.
+Let's modify our `GameplayManager` to also set the `randomizeColor` using the Space key.
 ```cs
 public class GameplayManager : NetworkEventsListener
 {
@@ -46,7 +46,7 @@ public class PlayerCharacterVisual : NetworkBehaviour
 ```
 Note that you must make your variable a property by adding `{get; set;}` to its end, this is used by Netick to make it synced automatically.
 
-4. Let's use the Fetch method to handle the color changing logic. When `RandomizeColor` field of the input is true, we generate a random color and assign it to the `MeshColor` network property.
+4. Let's use the `FetchInput` method to handle the color changing logic. When `RandomizeColor` field of the input is true, we generate a random color and assign it to the `MeshColor` network property.
 
 ```cs
 public class PlayerCharacterVisual : NetworkBehaviour

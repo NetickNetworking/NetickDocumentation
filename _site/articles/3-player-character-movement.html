@@ -85,10 +85,10 @@
         <article data-uid="">
 <h1 id="3---player-character-movement">3 - Player Character Movement</h1>
 
-<p>Since Netick is a server-authoritative networking solution, we can't directly move the player character object (in a client-auth fashion) on the client for security reasons. Instead, we use inputs, which will be used to move our player. To move the player based on our input, here's how it works: we send input to the server, the server fetches our input, and then uses it to move our character. Netick uses something called Client-Side Prediction to make this process responsive.</p>
+<p>Since Netick is a server-authoritative networking solution, we can't directly move the player character object (in a client-auth fashion) on the client for security reasons. Instead, we use inputs, which will be used to move our player. To move the player based on our input, here's how it works: we send an input to the server, the server fetches our input, and then uses it to move our character. Netick uses something called Client-Side Prediction to make this process responsive.</p>
 <p><a href="understanding-client-side-prediction/understanding-client-side-prediction.html">Read More About Client-Side Prediction</a></p>
 <h2 id="input-struct">Input Struct</h2>
-<p>Consider the type of player inputs required for our gameplay. In this tutorial, we only use a vector for movement direction and a bool for jumping.</p>
+<p>Consider the type of player inputs required for our gameplay. In this tutorial, we only use a vector for movement direction.</p>
 <ol>
 <li>Create a C# script and call it <code>PlayerCharacterInput</code>.</li>
 <li>Change the type into <code>struct</code> from <code>class</code>.</li>
@@ -100,7 +100,6 @@
 public struct PlayerCharacterInput : INetworkInput
 {
     public Vector2 Movement;    
-    public bool    Jump;    
 }
 </code></pre>
 <h2 id="setting-and-sending-input">Setting and Sending Input</h2>
@@ -116,22 +115,12 @@ using UnityEngine;
 
 public class GameplayManager : NetworkEventsListener
 {
-    // ...
-    
+    // ...   
     public override void OnInput(NetworkSandbox sandbox)
     {
         PlayerCharacterInput input = new();
-        input.Movement = GetMovement();
-        input.Jump = Input.GetKey(KeyCode.Space);
-
+        input.Movement             = new Vector2(Input.GetAxis(&quot;Horizontal&quot;), Input.GetAxis(&quot;Vertical&quot;));
         sandbox.SetInput(input);
-    }
-    private Vector2 GetMovement()
-    {
-        float horizontal = Input.GetAxis(&quot;Horizontal&quot;);
-        float vertical = Input.GetAxis(&quot;Vertical&quot;);
-
-        return new Vector2(horizontal, vertical);
     }
 }
 
@@ -155,7 +144,7 @@ public class GameplayManager : NetworkEventsListener
     }
 }
 </code></pre>
-<p>In a single-player game, we usually uses <code>Time.deltaTime</code> to move our player to make it frame independent. With Netick, instead of using <code>Time.deltaTime</code>, we use <code>Sandbox.FixedDeltaTime</code>, which represents the time between two network ticks.</p>
+<p>In a single-player game, we use <code>Time.deltaTime</code> to move our player to make it frame independent. With Netick, instead of using <code>Time.deltaTime</code>, we use <code>Sandbox.FixedDeltaTime</code>, which represents the time between two network ticks.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Do not confuse <code>Sandbox.FixedDeltaTime</code> with <code>Sandbox.DeltaTime</code> (equal to Unity's Time.deltaTime)</p>
@@ -170,17 +159,17 @@ public class GameplayManager : NetworkEventsListener
 <p><a href="built-in-components/networkrigidbody.html">Read More About NetworkRigidbody</a></p>
 <h3 id="gameplay--visual-seperation">Gameplay &amp; Visual Seperation</h3>
 <p>In the <code>NetworkRigidbody</code> component, there is a <code>Render Transform</code> field which asks for a <code>Transform</code>.
-Because Netick is a tick-based netcode. It means movement will happen at fixed-rate which is lower than your FPS. Which will cause unsmooth movement. To fix this, we use interpolation which lets us give smoothed position and rotation to our player character visual.</p>
+Because Netick is a tick-based netcode, it means movement will happen at a fixed rate which is lower than your FPS. Which will cause unsmooth movement. To fix this, we use interpolation which lets us give smoothed position and rotation to our player character visual.</p>
 <ol>
-<li>Create a child on the player and name It &quot;Visual&quot;.</li>
-<li>Delete &amp; Move the <code>Capsule (Mesh Filter)</code> and <code>Mesh Renderer</code> component to the Visual.</li>
-<li>Assign Visual object to the <code>NetworkRigidbody</code> transform.</li>
+<li>Create a child on the player and name it &quot;Visual&quot;.</li>
+<li>Delete &amp; Move the <code>Capsule (Mesh Filter)</code> and <code>Mesh Renderer</code> component to Visual.</li>
+<li>Assign Visual to <code>Render Transform</code> of <code>NetworkRigidbody</code> .</li>
 </ol>
 <p><a href="interpolation.html">Read More About Interpolation</a></p>
 <p>Here's what our player character object looks like now:</p>
 <figure><img src="../images/getting-started/103-player-character.png" alt=""><figcaption></figcaption></figure>
 <h2 id="multiplayer-testing">Multiplayer Testing</h2>
-<p>Let's try to run the game now. In Netick, there is something called Sandboxing (or multi-peer), that allows us to simulate multiple peers on a single Unity instance, meaning we don't have to build the game (or use two editors) to test multiplayer. Instead, we run a server and a client (or multiple) together in the same project at the same time.</p>
+<p>Let's try to run the game now. In Netick, there is something called Sandboxing (or multi-peer), that allows us to simulate multiple peers on a single Unity process, meaning we don't have to build the game (or use two editors) to test multiplayer. Instead, we run a server and a client (or multiple) together in the same project at the same time.</p>
 <ol>
 <li>Enter play mode.</li>
 <li>Click on <code>Run Host + Client</code>.</li>
