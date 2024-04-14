@@ -120,4 +120,6 @@ Let's try the multiplayer of our characters. In Netick, there is a Sandboxing fe
 2. Click on `Run Host + Client`
 3. Click `Connect`
 
+You can change peers/manage sandboxing in `Netick > Settings > Sandboxes`
+
 <figure><img src="../images/getting-started/103-multipeer.gif" alt=""><figcaption></figcaption></figure>
