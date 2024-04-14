@@ -5,14 +5,16 @@ items:
   id: Simulation
   parent: Netick
   children:
-  - Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32)
+  - Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
   - Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
   - Netick.Simulation.CreateEntity(System.Int32)
   - Netick.Simulation.CurrentInput
   - Netick.Simulation.FetchInputLocal``1(``0@,System.Int32)
   - Netick.Simulation.GetInput``1(System.Int32)
   - Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
+  - Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
   - Netick.Simulation.SetInput``1(``0,System.Int32)
+  - Netick.Simulation.UnlinkedEntities
   langs:
   - csharp
   - vb
@@ -39,6 +41,25 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: Netick.Simulation.UnlinkedEntities
+  commentId: F:Netick.Simulation.UnlinkedEntities
+  id: UnlinkedEntities
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: UnlinkedEntities
+  nameWithType: Simulation.UnlinkedEntities
+  fullName: Netick.Simulation.UnlinkedEntities
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Dictionary<int, Entity> UnlinkedEntities
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,Netick.Entity}
+    content.vb: Public UnlinkedEntities As Dictionary(Of Integer, Entity)
 - uid: Netick.Simulation.FetchInputLocal``1(``0@,System.Int32)
   commentId: M:Netick.Simulation.FetchInputLocal``1(``0@,System.Int32)
   id: FetchInputLocal``1(``0@,System.Int32)
@@ -125,32 +146,55 @@ items:
   nameWithType.vb: Simulation.SetInput(Of T)(T, Integer)
   fullName.vb: Netick.Simulation.SetInput(Of T)(T, Integer)
   name.vb: SetInput(Of T)(T, Integer)
-- uid: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32)
-  commentId: M:Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32)
-  id: ClientAddUnlinkedEntity(Netick.Entity,System.Int32)
+- uid: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+  commentId: M:Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+  id: RemoveFromNetworkLoop(Netick.Entity)
   parent: Netick.Simulation
   langs:
   - csharp
   - vb
-  name: ClientAddUnlinkedEntity(Entity, int)
-  nameWithType: Simulation.ClientAddUnlinkedEntity(Entity, int)
-  fullName: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity, int)
+  name: RemoveFromNetworkLoop(Entity)
+  nameWithType: Simulation.RemoveFromNetworkLoop(Entity)
+  fullName: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void ClientAddUnlinkedEntity(Entity entity, int id)
+    content: public void RemoveFromNetworkLoop(Entity entity)
+    parameters:
+    - id: entity
+      type: Netick.Entity
+    content.vb: Public Sub RemoveFromNetworkLoop(entity As Entity)
+  overload: Netick.Simulation.RemoveFromNetworkLoop*
+- uid: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
+  commentId: M:Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
+  id: ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: ClientAddUnlinkedEntity(Entity, int, int)
+  nameWithType: Simulation.ClientAddUnlinkedEntity(Entity, int, int)
+  fullName: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity, int, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void ClientAddUnlinkedEntity(Entity entity, int id, int worldIndex)
     parameters:
     - id: entity
       type: Netick.Entity
     - id: id
       type: System.Int32
-    content.vb: Public Sub ClientAddUnlinkedEntity(entity As Entity, id As Integer)
+    - id: worldIndex
+      type: System.Int32
+    content.vb: Public Sub ClientAddUnlinkedEntity(entity As Entity, id As Integer, worldIndex As Integer)
   overload: Netick.Simulation.ClientAddUnlinkedEntity*
-  nameWithType.vb: Simulation.ClientAddUnlinkedEntity(Entity, Integer)
-  fullName.vb: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity, Integer)
-  name.vb: ClientAddUnlinkedEntity(Entity, Integer)
+  nameWithType.vb: Simulation.ClientAddUnlinkedEntity(Entity, Integer, Integer)
+  fullName.vb: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity, Integer, Integer)
+  name.vb: ClientAddUnlinkedEntity(Entity, Integer, Integer)
 - uid: Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
   commentId: M:Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
   id: CreateAndLinkEntityLocal(Netick.INetickEntity)
@@ -491,6 +535,124 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Collections.Generic.Dictionary{System.Int32,Netick.Entity}
+  commentId: T:System.Collections.Generic.Dictionary{System.Int32,Netick.Entity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<int, Entity>
+  nameWithType: Dictionary<int, Entity>
+  fullName: System.Collections.Generic.Dictionary<int, Netick.Entity>
+  nameWithType.vb: Dictionary(Of Integer, Entity)
+  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, Netick.Entity)
+  name.vb: Dictionary(Of Integer, Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: Netick.Simulation.FetchInputLocal*
   commentId: Overload:Netick.Simulation.FetchInputLocal
   isExternal: true
@@ -544,13 +706,13 @@ references:
   name: SetInput
   nameWithType: Simulation.SetInput
   fullName: Netick.Simulation.SetInput
-- uid: Netick.Simulation.ClientAddUnlinkedEntity*
-  commentId: Overload:Netick.Simulation.ClientAddUnlinkedEntity
+- uid: Netick.Simulation.RemoveFromNetworkLoop*
+  commentId: Overload:Netick.Simulation.RemoveFromNetworkLoop
   isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_
-  name: ClientAddUnlinkedEntity
-  nameWithType: Simulation.ClientAddUnlinkedEntity
-  fullName: Netick.Simulation.ClientAddUnlinkedEntity
+  href: Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_
+  name: RemoveFromNetworkLoop
+  nameWithType: Simulation.RemoveFromNetworkLoop
+  fullName: Netick.Simulation.RemoveFromNetworkLoop
 - uid: Netick.Entity
   commentId: T:Netick.Entity
   parent: Netick
@@ -559,6 +721,13 @@ references:
   name: Entity
   nameWithType: Entity
   fullName: Netick.Entity
+- uid: Netick.Simulation.ClientAddUnlinkedEntity*
+  commentId: Overload:Netick.Simulation.ClientAddUnlinkedEntity
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_System_Int32_
+  name: ClientAddUnlinkedEntity
+  nameWithType: Simulation.ClientAddUnlinkedEntity
+  fullName: Netick.Simulation.ClientAddUnlinkedEntity
 - uid: Netick.Simulation.CreateAndLinkEntityLocal*
   commentId: Overload:Netick.Simulation.CreateAndLinkEntityLocal
   isExternal: true

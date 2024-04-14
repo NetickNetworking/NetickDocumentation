@@ -6,8 +6,10 @@ items:
   parent: Netick.Unity.Pro
   children:
   - Netick.Unity.Pro.NetworkSandboxExts.FetchHitShapePosAndRot(Netick.Unity.NetworkSandbox,Netick.Unity.Pro.HitShape,Netick.NetworkPlayer,UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  - Netick.Unity.Pro.NetworkSandboxExts.OverlapCircle(Netick.Unity.NetworkSandbox,UnityEngine.Vector2,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit2D},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Boolean)
   - Netick.Unity.Pro.NetworkSandboxExts.OverlapSphere(Netick.Unity.NetworkSandbox,UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit},Netick.NetworkPlayer,System.Int32,UnityEngine.QueryTriggerInteraction,System.Boolean,System.Boolean,System.Boolean)
   - Netick.Unity.Pro.NetworkSandboxExts.Raycast(Netick.Unity.NetworkSandbox,UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.LagCompHit@,Netick.NetworkPlayer,System.Single,System.Int32,UnityEngine.QueryTriggerInteraction,System.Boolean,System.Boolean)
+  - Netick.Unity.Pro.NetworkSandboxExts.Raycast2D(Netick.Unity.NetworkSandbox,UnityEngine.Vector2,UnityEngine.Vector2,Netick.Unity.Pro.LagCompHit2D@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
   langs:
   - csharp
   - vb
@@ -19,8 +21,14 @@ items:
   - Netick.Unity.Pro
   namespace: Netick.Unity.Pro
   syntax:
-    content: public static class NetworkSandboxExts
-    content.vb: Public Module NetworkSandboxExts
+    content: >-
+      [Preserve]
+
+      public static class NetworkSandboxExts
+    content.vb: >-
+      <Preserve>
+
+      Public Module NetworkSandboxExts
   inheritance:
   - System.Object
   inheritedMembers:
@@ -31,6 +39,10 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+  attributes:
+  - type: UnityEngine.Scripting.PreserveAttribute
+    ctor: UnityEngine.Scripting.PreserveAttribute.#ctor
+    arguments: []
 - uid: Netick.Unity.Pro.NetworkSandboxExts.FetchHitShapePosAndRot(Netick.Unity.NetworkSandbox,Netick.Unity.Pro.HitShape,Netick.NetworkPlayer,UnityEngine.Vector3@,UnityEngine.Quaternion@)
   commentId: M:Netick.Unity.Pro.NetworkSandboxExts.FetchHitShapePosAndRot(Netick.Unity.NetworkSandbox,Netick.Unity.Pro.HitShape,Netick.NetworkPlayer,UnityEngine.Vector3@,UnityEngine.Quaternion@)
   id: FetchHitShapePosAndRot(Netick.Unity.NetworkSandbox,Netick.Unity.Pro.HitShape,Netick.NetworkPlayer,UnityEngine.Vector3@,UnityEngine.Quaternion@)
@@ -79,6 +91,11 @@ items:
   assemblies:
   - Netick.Unity.Pro
   namespace: Netick.Unity.Pro
+  summary: >-
+    Casts a lag compensated ray, from point origin, in direction direction, of length maxDistance,
+
+    against all HitShapes and Colliders (if includeUnityColliders is equal to true) in the Scene.
+  example: []
   syntax:
     content: public static bool Raycast(this NetworkSandbox sandbox, Vector3 origin, Vector3 direction, out LagCompHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -5, QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.UseGlobal, bool includeUnityColliders = true, bool includeInputSource = false)
     parameters:
@@ -86,29 +103,93 @@ items:
       type: Netick.Unity.NetworkSandbox
     - id: origin
       type: UnityEngine.Vector3
+      description: The starting point of the ray in world coordinates.
     - id: direction
       type: UnityEngine.Vector3
+      description: The direction of the ray.
     - id: hitData
       type: Netick.Unity.Pro.LagCompHit
+      description: ''
     - id: inputSource
       type: Netick.NetworkPlayer
+      description: The input source to compensate for.
     - id: maxDistance
       type: System.Single
+      description: The max distance the ray should check for collisions.
     - id: layerMask
       type: System.Int32
+      description: A that is used to selectively ignore Colliders when casting a ray.
     - id: queryTriggerInteraction
       type: UnityEngine.QueryTriggerInteraction
     - id: includeUnityColliders
       type: System.Boolean
+      description: Choose whether you want to include normal unity colliders, or only Netick HitShapes.
     - id: includeInputSource
       type: System.Boolean
     return:
       type: System.Boolean
+      description: Returns true if the ray intersects with a Collider/HitShape, otherwise false.
     content.vb: Public Shared Function Raycast(sandbox As NetworkSandbox, origin As Vector3, direction As Vector3, hitData As LagCompHit, inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -5, queryTriggerInteraction As QueryTriggerInteraction = QueryTriggerInteraction.UseGlobal, includeUnityColliders As Boolean = True, includeInputSource As Boolean = False) As Boolean
   overload: Netick.Unity.Pro.NetworkSandboxExts.Raycast*
   nameWithType.vb: NetworkSandboxExts.Raycast(NetworkSandbox, Vector3, Vector3, LagCompHit, NetworkPlayer, Single, Integer, QueryTriggerInteraction, Boolean, Boolean)
   fullName.vb: Netick.Unity.Pro.NetworkSandboxExts.Raycast(Netick.Unity.NetworkSandbox, UnityEngine.Vector3, UnityEngine.Vector3, Netick.Unity.Pro.LagCompHit, Netick.NetworkPlayer, Single, Integer, UnityEngine.QueryTriggerInteraction, Boolean, Boolean)
   name.vb: Raycast(NetworkSandbox, Vector3, Vector3, LagCompHit, NetworkPlayer, Single, Integer, QueryTriggerInteraction, Boolean, Boolean)
+- uid: Netick.Unity.Pro.NetworkSandboxExts.Raycast2D(Netick.Unity.NetworkSandbox,UnityEngine.Vector2,UnityEngine.Vector2,Netick.Unity.Pro.LagCompHit2D@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
+  commentId: M:Netick.Unity.Pro.NetworkSandboxExts.Raycast2D(Netick.Unity.NetworkSandbox,UnityEngine.Vector2,UnityEngine.Vector2,Netick.Unity.Pro.LagCompHit2D@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
+  id: Raycast2D(Netick.Unity.NetworkSandbox,UnityEngine.Vector2,UnityEngine.Vector2,Netick.Unity.Pro.LagCompHit2D@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
+  isExtensionMethod: true
+  parent: Netick.Unity.Pro.NetworkSandboxExts
+  langs:
+  - csharp
+  - vb
+  name: Raycast2D(NetworkSandbox, Vector2, Vector2, out LagCompHit2D, NetworkPlayer, float, int, bool, bool)
+  nameWithType: NetworkSandboxExts.Raycast2D(NetworkSandbox, Vector2, Vector2, out LagCompHit2D, NetworkPlayer, float, int, bool, bool)
+  fullName: Netick.Unity.Pro.NetworkSandboxExts.Raycast2D(Netick.Unity.NetworkSandbox, UnityEngine.Vector2, UnityEngine.Vector2, out Netick.Unity.Pro.LagCompHit2D, Netick.NetworkPlayer, float, int, bool, bool)
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: >-
+    Casts a lag compensated ray, from point origin, in direction direction, of length maxDistance,
+
+    against all HitShapes and Colliders (if includeUnityColliders is equal to true) in the Scene.
+  example: []
+  syntax:
+    content: public static bool Raycast2D(this NetworkSandbox sandbox, Vector2 origin, Vector2 direction, out LagCompHit2D hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -5, bool includeUnityColliders = true, bool includeInputSource = false)
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: origin
+      type: UnityEngine.Vector2
+      description: The starting point of the ray in world coordinates.
+    - id: direction
+      type: UnityEngine.Vector2
+      description: The direction of the ray.
+    - id: hitData
+      type: Netick.Unity.Pro.LagCompHit2D
+      description: ''
+    - id: inputSource
+      type: Netick.NetworkPlayer
+      description: The input source to compensate for.
+    - id: maxDistance
+      type: System.Single
+      description: The max distance the ray should check for collisions.
+    - id: layerMask
+      type: System.Int32
+      description: A that is used to selectively ignore Colliders when casting a ray.
+    - id: includeUnityColliders
+      type: System.Boolean
+      description: Choose whether you want to include normal unity colliders, or only Netick HitShapes.
+    - id: includeInputSource
+      type: System.Boolean
+    return:
+      type: System.Boolean
+      description: Returns true if the ray intersects with a Collider/HitShape, otherwise false.
+    content.vb: Public Shared Function Raycast2D(sandbox As NetworkSandbox, origin As Vector2, direction As Vector2, hitData As LagCompHit2D, inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -5, includeUnityColliders As Boolean = True, includeInputSource As Boolean = False) As Boolean
+  overload: Netick.Unity.Pro.NetworkSandboxExts.Raycast2D*
+  nameWithType.vb: NetworkSandboxExts.Raycast2D(NetworkSandbox, Vector2, Vector2, LagCompHit2D, NetworkPlayer, Single, Integer, Boolean, Boolean)
+  fullName.vb: Netick.Unity.Pro.NetworkSandboxExts.Raycast2D(Netick.Unity.NetworkSandbox, UnityEngine.Vector2, UnityEngine.Vector2, Netick.Unity.Pro.LagCompHit2D, Netick.NetworkPlayer, Single, Integer, Boolean, Boolean)
+  name.vb: Raycast2D(NetworkSandbox, Vector2, Vector2, LagCompHit2D, NetworkPlayer, Single, Integer, Boolean, Boolean)
 - uid: Netick.Unity.Pro.NetworkSandboxExts.OverlapSphere(Netick.Unity.NetworkSandbox,UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit},Netick.NetworkPlayer,System.Int32,UnityEngine.QueryTriggerInteraction,System.Boolean,System.Boolean,System.Boolean)
   commentId: M:Netick.Unity.Pro.NetworkSandboxExts.OverlapSphere(Netick.Unity.NetworkSandbox,UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit},Netick.NetworkPlayer,System.Int32,UnityEngine.QueryTriggerInteraction,System.Boolean,System.Boolean,System.Boolean)
   id: OverlapSphere(Netick.Unity.NetworkSandbox,UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit},Netick.NetworkPlayer,System.Int32,UnityEngine.QueryTriggerInteraction,System.Boolean,System.Boolean,System.Boolean)
@@ -124,6 +205,8 @@ items:
   assemblies:
   - Netick.Unity.Pro
   namespace: Netick.Unity.Pro
+  summary: Performs a lag compensated OverlapSphere which computes and stores HitShapes and Colliders (if includeUnityColliders is equal to true) touching or inside the sphere.
+  example: []
   syntax:
     content: public static void OverlapSphere(this NetworkSandbox sandbox, Vector3 center, float radius, List<LagCompHit> hits, NetworkPlayer inputSource, int layerMask = -5, QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.UseGlobal, bool includeUnityColliders = true, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false)
     parameters:
@@ -131,27 +214,84 @@ items:
       type: Netick.Unity.NetworkSandbox
     - id: center
       type: UnityEngine.Vector3
+      description: Center of the sphere.
     - id: radius
       type: System.Single
+      description: Radius of the sphere.
     - id: hits
       type: System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit}
+      description: ''
     - id: inputSource
       type: Netick.NetworkPlayer
+      description: The input source to compensate for.
     - id: layerMask
       type: System.Int32
+      description: A defines which layers of colliders to include in the query.
     - id: queryTriggerInteraction
       type: UnityEngine.QueryTriggerInteraction
     - id: includeUnityColliders
       type: System.Boolean
+      description: Choose whether you want to include normal unity colliders, or only Netick HitShapes.
     - id: includeInputSource
       type: System.Boolean
     - id: oneHitPerHitShapeContainer
       type: System.Boolean
+      description: Choose whether you want to include only one HitShape per HitShapeContainer
     content.vb: Public Shared Sub OverlapSphere(sandbox As NetworkSandbox, center As Vector3, radius As Single, hits As List(Of LagCompHit), inputSource As NetworkPlayer, layerMask As Integer = -5, queryTriggerInteraction As QueryTriggerInteraction = QueryTriggerInteraction.UseGlobal, includeUnityColliders As Boolean = True, includeInputSource As Boolean = False, oneHitPerHitShapeContainer As Boolean = False)
   overload: Netick.Unity.Pro.NetworkSandboxExts.OverlapSphere*
   nameWithType.vb: NetworkSandboxExts.OverlapSphere(NetworkSandbox, Vector3, Single, List(Of LagCompHit), NetworkPlayer, Integer, QueryTriggerInteraction, Boolean, Boolean, Boolean)
   fullName.vb: Netick.Unity.Pro.NetworkSandboxExts.OverlapSphere(Netick.Unity.NetworkSandbox, UnityEngine.Vector3, Single, System.Collections.Generic.List(Of Netick.Unity.Pro.LagCompHit), Netick.NetworkPlayer, Integer, UnityEngine.QueryTriggerInteraction, Boolean, Boolean, Boolean)
   name.vb: OverlapSphere(NetworkSandbox, Vector3, Single, List(Of LagCompHit), NetworkPlayer, Integer, QueryTriggerInteraction, Boolean, Boolean, Boolean)
+- uid: Netick.Unity.Pro.NetworkSandboxExts.OverlapCircle(Netick.Unity.NetworkSandbox,UnityEngine.Vector2,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit2D},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:Netick.Unity.Pro.NetworkSandboxExts.OverlapCircle(Netick.Unity.NetworkSandbox,UnityEngine.Vector2,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit2D},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Boolean)
+  id: OverlapCircle(Netick.Unity.NetworkSandbox,UnityEngine.Vector2,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit2D},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Boolean)
+  isExtensionMethod: true
+  parent: Netick.Unity.Pro.NetworkSandboxExts
+  langs:
+  - csharp
+  - vb
+  name: OverlapCircle(NetworkSandbox, Vector2, float, List<LagCompHit2D>, NetworkPlayer, int, bool, bool, bool)
+  nameWithType: NetworkSandboxExts.OverlapCircle(NetworkSandbox, Vector2, float, List<LagCompHit2D>, NetworkPlayer, int, bool, bool, bool)
+  fullName: Netick.Unity.Pro.NetworkSandboxExts.OverlapCircle(Netick.Unity.NetworkSandbox, UnityEngine.Vector2, float, System.Collections.Generic.List<Netick.Unity.Pro.LagCompHit2D>, Netick.NetworkPlayer, int, bool, bool, bool)
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: Performs a lag compensated OverlapCircle which computes and stores HitShapes and Colliders (if includeUnityColliders is equal to true) touching or inside the circle.
+  example: []
+  syntax:
+    content: public static void OverlapCircle(this NetworkSandbox sandbox, Vector2 center, float radius, List<LagCompHit2D> hits, NetworkPlayer inputSource, int layerMask = -5, bool includeUnityColliders = true, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false)
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: center
+      type: UnityEngine.Vector2
+      description: Center of the sphere.
+    - id: radius
+      type: System.Single
+      description: Radius of the sphere.
+    - id: hits
+      type: System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit2D}
+      description: ''
+    - id: inputSource
+      type: Netick.NetworkPlayer
+      description: The input source to compensate for.
+    - id: layerMask
+      type: System.Int32
+      description: A defines which layers of colliders to include in the query.
+    - id: includeUnityColliders
+      type: System.Boolean
+      description: Choose whether you want to include normal unity colliders, or only Netick HitShapes.
+    - id: includeInputSource
+      type: System.Boolean
+    - id: oneHitPerHitShapeContainer
+      type: System.Boolean
+      description: Choose whether you want to include only one HitShape per HitShapeContainer
+    content.vb: Public Shared Sub OverlapCircle(sandbox As NetworkSandbox, center As Vector2, radius As Single, hits As List(Of LagCompHit2D), inputSource As NetworkPlayer, layerMask As Integer = -5, includeUnityColliders As Boolean = True, includeInputSource As Boolean = False, oneHitPerHitShapeContainer As Boolean = False)
+  overload: Netick.Unity.Pro.NetworkSandboxExts.OverlapCircle*
+  nameWithType.vb: NetworkSandboxExts.OverlapCircle(NetworkSandbox, Vector2, Single, List(Of LagCompHit2D), NetworkPlayer, Integer, Boolean, Boolean, Boolean)
+  fullName.vb: Netick.Unity.Pro.NetworkSandboxExts.OverlapCircle(Netick.Unity.NetworkSandbox, UnityEngine.Vector2, Single, System.Collections.Generic.List(Of Netick.Unity.Pro.LagCompHit2D), Netick.NetworkPlayer, Integer, Boolean, Boolean, Boolean)
+  name.vb: OverlapCircle(NetworkSandbox, Vector2, Single, List(Of LagCompHit2D), NetworkPlayer, Integer, Boolean, Boolean, Boolean)
 references:
 - uid: Netick.Unity.Pro
   commentId: N:Netick.Unity.Pro
@@ -567,6 +707,28 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Netick.Unity.Pro.NetworkSandboxExts.Raycast2D*
+  commentId: Overload:Netick.Unity.Pro.NetworkSandboxExts.Raycast2D
+  isExternal: true
+  href: Netick.Unity.Pro.NetworkSandboxExts.html#Netick_Unity_Pro_NetworkSandboxExts_Raycast2D_Netick_Unity_NetworkSandbox_UnityEngine_Vector2_UnityEngine_Vector2_Netick_Unity_Pro_LagCompHit2D__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Boolean_
+  name: Raycast2D
+  nameWithType: NetworkSandboxExts.Raycast2D
+  fullName: Netick.Unity.Pro.NetworkSandboxExts.Raycast2D
+- uid: UnityEngine.Vector2
+  commentId: T:UnityEngine.Vector2
+  parent: UnityEngine
+  isExternal: true
+  name: Vector2
+  nameWithType: Vector2
+  fullName: UnityEngine.Vector2
+- uid: Netick.Unity.Pro.LagCompHit2D
+  commentId: T:Netick.Unity.Pro.LagCompHit2D
+  parent: Netick.Unity.Pro
+  isExternal: true
+  href: Netick.Unity.Pro.LagCompHit2D.html
+  name: LagCompHit2D
+  nameWithType: LagCompHit2D
+  fullName: Netick.Unity.Pro.LagCompHit2D
 - uid: Netick.Unity.Pro.NetworkSandboxExts.OverlapSphere*
   commentId: Overload:Netick.Unity.Pro.NetworkSandboxExts.OverlapSphere
   isExternal: true
@@ -674,3 +836,45 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Netick.Unity.Pro.NetworkSandboxExts.OverlapCircle*
+  commentId: Overload:Netick.Unity.Pro.NetworkSandboxExts.OverlapCircle
+  isExternal: true
+  href: Netick.Unity.Pro.NetworkSandboxExts.html#Netick_Unity_Pro_NetworkSandboxExts_OverlapCircle_Netick_Unity_NetworkSandbox_UnityEngine_Vector2_System_Single_System_Collections_Generic_List_Netick_Unity_Pro_LagCompHit2D__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_System_Boolean_
+  name: OverlapCircle
+  nameWithType: NetworkSandboxExts.OverlapCircle
+  fullName: Netick.Unity.Pro.NetworkSandboxExts.OverlapCircle
+- uid: System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit2D}
+  commentId: T:System.Collections.Generic.List{Netick.Unity.Pro.LagCompHit2D}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<LagCompHit2D>
+  nameWithType: List<LagCompHit2D>
+  fullName: System.Collections.Generic.List<Netick.Unity.Pro.LagCompHit2D>
+  nameWithType.vb: List(Of LagCompHit2D)
+  fullName.vb: System.Collections.Generic.List(Of Netick.Unity.Pro.LagCompHit2D)
+  name.vb: List(Of LagCompHit2D)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.Unity.Pro.LagCompHit2D
+    name: LagCompHit2D
+    isExternal: true
+    href: Netick.Unity.Pro.LagCompHit2D.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Unity.Pro.LagCompHit2D
+    name: LagCompHit2D
+    isExternal: true
+    href: Netick.Unity.Pro.LagCompHit2D.html
+  - name: )

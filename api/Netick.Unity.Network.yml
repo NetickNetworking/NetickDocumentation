@@ -7,17 +7,21 @@ items:
   children:
   - Netick.Unity.Network.Config
   - Netick.Unity.Network.Focus(Netick.Unity.NetworkSandbox)
-  - Netick.Unity.Network.Init(Netick.NetworkTransport,Netick.Unity.NetickConfig,System.Int32)
+  - Netick.Unity.Network.Init(Netick.Unity.NetickConfig,System.Int32)
   - Netick.Unity.Network.Instance
   - Netick.Unity.Network.IsHeadless
   - Netick.Unity.Network.IsRunning
+  - Netick.Unity.Network.Launch(Netick.Unity.StartMode,Netick.Unity.LaunchData)
+  - Netick.Unity.Network.Sandboxes
   - Netick.Unity.Network.Shutdown(System.Boolean)
   - Netick.Unity.Network.ShutdownImmediately(System.Boolean)
   - Netick.Unity.Network.ShutdownSandbox(Netick.Unity.NetworkSandbox,System.Boolean)
   - Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
-  - Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Int32)
+  - Netick.Unity.Network.StartAsHost(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
+  - Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Boolean,System.Int32)
   - Netick.Unity.Network.StartAsServer(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
   - Netick.Unity.Network.StartAsServerAndClient(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Int32)
+  - Netick.Unity.Network.StartAsSinglePlayer(UnityEngine.GameObject)
   - Netick.Unity.Network.StartMode
   - Netick.Unity.Network.Version
   langs:
@@ -30,6 +34,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Manages Netick and its clients, and is used to start and shut down Netick.
+  example: []
   syntax:
     content: >-
       [HideInInspector]
@@ -172,16 +178,35 @@ items:
   - type: UnityEngine.DisallowMultipleComponent
     ctor: UnityEngine.DisallowMultipleComponent.#ctor
     arguments: []
-- uid: Netick.Unity.Network.Init(Netick.NetworkTransport,Netick.Unity.NetickConfig,System.Int32)
-  commentId: M:Netick.Unity.Network.Init(Netick.NetworkTransport,Netick.Unity.NetickConfig,System.Int32)
-  id: Init(Netick.NetworkTransport,Netick.Unity.NetickConfig,System.Int32)
+- uid: Netick.Unity.Network.Version
+  commentId: F:Netick.Unity.Network.Version
+  id: Version
   parent: Netick.Unity.Network
   langs:
   - csharp
   - vb
-  name: Init(NetworkTransport, NetickConfig, int)
-  nameWithType: Network.Init(NetworkTransport, NetickConfig, int)
-  fullName: Netick.Unity.Network.Init(Netick.NetworkTransport, Netick.Unity.NetickConfig, int)
+  name: Version
+  nameWithType: Network.Version
+  fullName: Netick.Unity.Network.Version
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public const string Version = "0.11.30"
+    return:
+      type: System.String
+    content.vb: Public Const Version As String = "0.11.30"
+- uid: Netick.Unity.Network.Init(Netick.Unity.NetickConfig,System.Int32)
+  commentId: M:Netick.Unity.Network.Init(Netick.Unity.NetickConfig,System.Int32)
+  id: Init(Netick.Unity.NetickConfig,System.Int32)
+  parent: Netick.Unity.Network
+  langs:
+  - csharp
+  - vb
+  name: Init(NetickConfig, int)
+  nameWithType: Network.Init(NetickConfig, int)
+  fullName: Netick.Unity.Network.Init(Netick.Unity.NetickConfig, int)
   type: Method
   assemblies:
   - Netick.Unity
@@ -190,24 +215,19 @@ items:
     Initializes Netick. This is automatically called when you start Netick. 
 
     <p>If you don't provide a <xref href="Netick.Unity.NetickConfig" data-throw-if-not-resolved="false"></xref>, Netick will use the default config, which can be modified/found in (Netick -&gt; Settings).</p>
-
-    <p>If you don't provide a <xref href="Netick.NetworkTransport" data-throw-if-not-resolved="false"></xref>, Netick will use the transport assigned in (Netick -&gt; Settings -&gt; Transport).</p>
   example: []
   syntax:
-    content: public static void Init(NetworkTransport transport = null, NetickConfig config = null, int sceneBuildIndex = -1)
+    content: public static void Init(NetickConfig config = null, int sceneBuildIndex = -1)
     parameters:
-    - id: transport
-      type: Netick.NetworkTransport
-      description: ''
     - id: config
       type: Netick.Unity.NetickConfig
     - id: sceneBuildIndex
       type: System.Int32
-    content.vb: Public Shared Sub Init(transport As NetworkTransport = Nothing, config As NetickConfig = Nothing, sceneBuildIndex As Integer = -1)
+    content.vb: Public Shared Sub Init(config As NetickConfig = Nothing, sceneBuildIndex As Integer = -1)
   overload: Netick.Unity.Network.Init*
-  nameWithType.vb: Network.Init(NetworkTransport, NetickConfig, Integer)
-  fullName.vb: Netick.Unity.Network.Init(Netick.NetworkTransport, Netick.Unity.NetickConfig, Integer)
-  name.vb: Init(NetworkTransport, NetickConfig, Integer)
+  nameWithType.vb: Network.Init(NetickConfig, Integer)
+  fullName.vb: Netick.Unity.Network.Init(Netick.Unity.NetickConfig, Integer)
+  name.vb: Init(NetickConfig, Integer)
 - uid: Netick.Unity.Network.Shutdown(System.Boolean)
   commentId: M:Netick.Unity.Network.Shutdown(System.Boolean)
   id: Shutdown(System.Boolean)
@@ -222,7 +242,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: 'Shuts down Netick and destroys all sandboxes. The shutdown will occur in the next frame. For immediate shutdown, use: <xref href="Netick.Unity.Network.ShutdownImmediately(System.Boolean)" data-throw-if-not-resolved="false"></xref>'
+  summary: 'Shuts down Netick and destroys all clients. The shutdown will occur in the next frame. For immediate shutdown, use: <xref href="Netick.Unity.Network.ShutdownImmediately(System.Boolean)" data-throw-if-not-resolved="false"></xref>'
   example: []
   syntax:
     content: public static void Shutdown(bool destroyAllNetworkObjects = false)
@@ -248,7 +268,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Shuts down Netick and destroys all sandboxes immediately.
+  summary: Shuts down Netick and destroys all clients immediately.
   example: []
   syntax:
     content: public static void ShutdownImmediately(bool destroyAllNetworkObjects = false)
@@ -333,7 +353,7 @@ items:
     content: >-
       [Obsolete("This is obsolete. Use StartAsMultiplePeers instead.")]
 
-      public static Network.Sandboxs StartAsServerAndClient(NetworkTransportProvider transportProvider, int serverPort, GameObject sandboxPrefab = null, int numOfClients = 1)
+      public static Network.LaunchResults StartAsServerAndClient(NetworkTransportProvider transportProvider, int serverPort, GameObject sandboxPrefab = null, int numOfClients = 1)
     parameters:
     - id: transportProvider
       type: Netick.Unity.NetworkTransportProvider
@@ -344,14 +364,14 @@ items:
       type: UnityEngine.GameObject
     - id: numOfClients
       type: System.Int32
-      description: Number of client sandboxs to create.
+      description: Number of client sandboxes to create.
     return:
-      type: Netick.Unity.Network.Sandboxs
+      type: Netick.Unity.Network.LaunchResults
       description: ''
     content.vb: >-
       <Obsolete("This is obsolete. Use StartAsMultiplePeers instead.")>
 
-      Public Shared Function StartAsServerAndClient(transportProvider As NetworkTransportProvider, serverPort As Integer, sandboxPrefab As GameObject = Nothing, numOfClients As Integer = 1) As Network.Sandboxs
+      Public Shared Function StartAsServerAndClient(transportProvider As NetworkTransportProvider, serverPort As Integer, sandboxPrefab As GameObject = Nothing, numOfClients As Integer = 1) As Network.LaunchResults
   overload: Netick.Unity.Network.StartAsServerAndClient*
   attributes:
   - type: System.ObsoleteAttribute
@@ -362,16 +382,16 @@ items:
   nameWithType.vb: Network.StartAsServerAndClient(NetworkTransportProvider, Integer, GameObject, Integer)
   fullName.vb: Netick.Unity.Network.StartAsServerAndClient(Netick.Unity.NetworkTransportProvider, Integer, UnityEngine.GameObject, Integer)
   name.vb: StartAsServerAndClient(NetworkTransportProvider, Integer, GameObject, Integer)
-- uid: Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Int32)
-  commentId: M:Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Int32)
-  id: StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Int32)
+- uid: Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Boolean,System.Int32)
+  commentId: M:Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Boolean,System.Int32)
+  id: StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Boolean,System.Int32)
   parent: Netick.Unity.Network
   langs:
   - csharp
   - vb
-  name: StartAsMultiplePeers(NetworkTransportProvider, int, GameObject, bool, int)
-  nameWithType: Network.StartAsMultiplePeers(NetworkTransportProvider, int, GameObject, bool, int)
-  fullName: Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider, int, UnityEngine.GameObject, bool, int)
+  name: StartAsMultiplePeers(NetworkTransportProvider, int, GameObject, bool, bool, int)
+  nameWithType: Network.StartAsMultiplePeers(NetworkTransportProvider, int, GameObject, bool, bool, int)
+  fullName: Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider, int, UnityEngine.GameObject, bool, bool, int)
   type: Method
   assemblies:
   - Netick.Unity
@@ -379,7 +399,7 @@ items:
   summary: Starts multiple peers together.
   example: []
   syntax:
-    content: public static Network.Sandboxs StartAsMultiplePeers(NetworkTransportProvider transportProvider, int port, GameObject sandboxPrefab = null, bool startAServer = true, int numOfClients = 1)
+    content: public static Network.LaunchResults StartAsMultiplePeers(NetworkTransportProvider transportProvider, int port, GameObject sandboxPrefab = null, bool startAServer = true, bool startServerAsHost = true, int numOfClients = 1)
     parameters:
     - id: transportProvider
       type: Netick.Unity.NetworkTransportProvider
@@ -390,17 +410,19 @@ items:
     - id: startAServer
       type: System.Boolean
       description: Should we start a server too.
+    - id: startServerAsHost
+      type: System.Boolean
     - id: numOfClients
       type: System.Int32
-      description: Number of client sandboxes to create.
+      description: Number of clients to create.
     return:
-      type: Netick.Unity.Network.Sandboxs
+      type: Netick.Unity.Network.LaunchResults
       description: ''
-    content.vb: Public Shared Function StartAsMultiplePeers(transportProvider As NetworkTransportProvider, port As Integer, sandboxPrefab As GameObject = Nothing, startAServer As Boolean = True, numOfClients As Integer = 1) As Network.Sandboxs
+    content.vb: Public Shared Function StartAsMultiplePeers(transportProvider As NetworkTransportProvider, port As Integer, sandboxPrefab As GameObject = Nothing, startAServer As Boolean = True, startServerAsHost As Boolean = True, numOfClients As Integer = 1) As Network.LaunchResults
   overload: Netick.Unity.Network.StartAsMultiplePeers*
-  nameWithType.vb: Network.StartAsMultiplePeers(NetworkTransportProvider, Integer, GameObject, Boolean, Integer)
-  fullName.vb: Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider, Integer, UnityEngine.GameObject, Boolean, Integer)
-  name.vb: StartAsMultiplePeers(NetworkTransportProvider, Integer, GameObject, Boolean, Integer)
+  nameWithType.vb: Network.StartAsMultiplePeers(NetworkTransportProvider, Integer, GameObject, Boolean, Boolean, Integer)
+  fullName.vb: Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider, Integer, UnityEngine.GameObject, Boolean, Boolean, Integer)
+  name.vb: StartAsMultiplePeers(NetworkTransportProvider, Integer, GameObject, Boolean, Boolean, Integer)
 - uid: Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
   commentId: M:Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
   id: StartAsClient(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
@@ -418,22 +440,82 @@ items:
   summary: Starts Netick as a client.
   example: []
   syntax:
-    content: public static NetworkSandbox StartAsClient(NetworkTransportProvider transportProvider, int port, GameObject prefab = null)
+    content: public static NetworkSandbox StartAsClient(NetworkTransportProvider transportProvider, int port, GameObject sandboxPrefab = null)
     parameters:
     - id: transportProvider
       type: Netick.Unity.NetworkTransportProvider
     - id: port
       type: System.Int32
-    - id: prefab
+    - id: sandboxPrefab
       type: UnityEngine.GameObject
     return:
       type: Netick.Unity.NetworkSandbox
       description: The sandbox representing the client
-    content.vb: Public Shared Function StartAsClient(transportProvider As NetworkTransportProvider, port As Integer, prefab As GameObject = Nothing) As NetworkSandbox
+    content.vb: Public Shared Function StartAsClient(transportProvider As NetworkTransportProvider, port As Integer, sandboxPrefab As GameObject = Nothing) As NetworkSandbox
   overload: Netick.Unity.Network.StartAsClient*
   nameWithType.vb: Network.StartAsClient(NetworkTransportProvider, Integer, GameObject)
   fullName.vb: Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider, Integer, UnityEngine.GameObject)
   name.vb: StartAsClient(NetworkTransportProvider, Integer, GameObject)
+- uid: Netick.Unity.Network.StartAsSinglePlayer(UnityEngine.GameObject)
+  commentId: M:Netick.Unity.Network.StartAsSinglePlayer(UnityEngine.GameObject)
+  id: StartAsSinglePlayer(UnityEngine.GameObject)
+  parent: Netick.Unity.Network
+  langs:
+  - csharp
+  - vb
+  name: StartAsSinglePlayer(GameObject)
+  nameWithType: Network.StartAsSinglePlayer(GameObject)
+  fullName: Netick.Unity.Network.StartAsSinglePlayer(UnityEngine.GameObject)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Starts Netick in single player mode.
+  example: []
+  syntax:
+    content: public static NetworkSandbox StartAsSinglePlayer(GameObject sandboxPrefab = null)
+    parameters:
+    - id: sandboxPrefab
+      type: UnityEngine.GameObject
+    return:
+      type: Netick.Unity.NetworkSandbox
+      description: The sandbox representing the server
+    content.vb: Public Shared Function StartAsSinglePlayer(sandboxPrefab As GameObject = Nothing) As NetworkSandbox
+  overload: Netick.Unity.Network.StartAsSinglePlayer*
+- uid: Netick.Unity.Network.StartAsHost(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
+  commentId: M:Netick.Unity.Network.StartAsHost(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
+  id: StartAsHost(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
+  parent: Netick.Unity.Network
+  langs:
+  - csharp
+  - vb
+  name: StartAsHost(NetworkTransportProvider, int, GameObject)
+  nameWithType: Network.StartAsHost(NetworkTransportProvider, int, GameObject)
+  fullName: Netick.Unity.Network.StartAsHost(Netick.Unity.NetworkTransportProvider, int, UnityEngine.GameObject)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Starts Netick as a host.
+  example: []
+  syntax:
+    content: public static NetworkSandbox StartAsHost(NetworkTransportProvider transportProvider, int port, GameObject sandboxPrefab = null)
+    parameters:
+    - id: transportProvider
+      type: Netick.Unity.NetworkTransportProvider
+    - id: port
+      type: System.Int32
+      description: Network port.
+    - id: sandboxPrefab
+      type: UnityEngine.GameObject
+    return:
+      type: Netick.Unity.NetworkSandbox
+      description: The sandbox representing the server
+    content.vb: Public Shared Function StartAsHost(transportProvider As NetworkTransportProvider, port As Integer, sandboxPrefab As GameObject = Nothing) As NetworkSandbox
+  overload: Netick.Unity.Network.StartAsHost*
+  nameWithType.vb: Network.StartAsHost(NetworkTransportProvider, Integer, GameObject)
+  fullName.vb: Netick.Unity.Network.StartAsHost(Netick.Unity.NetworkTransportProvider, Integer, UnityEngine.GameObject)
+  name.vb: StartAsHost(NetworkTransportProvider, Integer, GameObject)
 - uid: Netick.Unity.Network.StartAsServer(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
   commentId: M:Netick.Unity.Network.StartAsServer(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
   id: StartAsServer(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject)
@@ -451,23 +533,48 @@ items:
   summary: Starts Netick as a server.
   example: []
   syntax:
-    content: public static NetworkSandbox StartAsServer(NetworkTransportProvider transportProvider, int port, GameObject prefab = null)
+    content: public static NetworkSandbox StartAsServer(NetworkTransportProvider transportProvider, int port, GameObject sandboxPrefab = null)
     parameters:
     - id: transportProvider
       type: Netick.Unity.NetworkTransportProvider
     - id: port
       type: System.Int32
       description: Network port.
-    - id: prefab
+    - id: sandboxPrefab
       type: UnityEngine.GameObject
     return:
       type: Netick.Unity.NetworkSandbox
       description: The sandbox representing the server
-    content.vb: Public Shared Function StartAsServer(transportProvider As NetworkTransportProvider, port As Integer, prefab As GameObject = Nothing) As NetworkSandbox
+    content.vb: Public Shared Function StartAsServer(transportProvider As NetworkTransportProvider, port As Integer, sandboxPrefab As GameObject = Nothing) As NetworkSandbox
   overload: Netick.Unity.Network.StartAsServer*
   nameWithType.vb: Network.StartAsServer(NetworkTransportProvider, Integer, GameObject)
   fullName.vb: Netick.Unity.Network.StartAsServer(Netick.Unity.NetworkTransportProvider, Integer, UnityEngine.GameObject)
   name.vb: StartAsServer(NetworkTransportProvider, Integer, GameObject)
+- uid: Netick.Unity.Network.Launch(Netick.Unity.StartMode,Netick.Unity.LaunchData)
+  commentId: M:Netick.Unity.Network.Launch(Netick.Unity.StartMode,Netick.Unity.LaunchData)
+  id: Launch(Netick.Unity.StartMode,Netick.Unity.LaunchData)
+  parent: Netick.Unity.Network
+  langs:
+  - csharp
+  - vb
+  name: Launch(StartMode, LaunchData)
+  nameWithType: Network.Launch(StartMode, LaunchData)
+  fullName: Netick.Unity.Network.Launch(Netick.Unity.StartMode, Netick.Unity.LaunchData)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Network.LaunchResults Launch(StartMode mode, LaunchData launchData)
+    parameters:
+    - id: mode
+      type: Netick.Unity.StartMode
+    - id: launchData
+      type: Netick.Unity.LaunchData
+    return:
+      type: Netick.Unity.Network.LaunchResults
+    content.vb: Public Shared Function Launch(mode As StartMode, launchData As LaunchData) As Network.LaunchResults
+  overload: Netick.Unity.Network.Launch*
 - uid: Netick.Unity.Network.StartMode
   commentId: P:Netick.Unity.Network.StartMode
   id: StartMode
@@ -482,13 +589,35 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  example: []
   syntax:
-    content: public StartMode StartMode { get; }
+    content: public static StartMode StartMode { get; }
     parameters: []
     return:
       type: Netick.Unity.StartMode
-    content.vb: Public ReadOnly Property StartMode As StartMode
+    content.vb: Public Shared ReadOnly Property StartMode As StartMode
   overload: Netick.Unity.Network.StartMode*
+- uid: Netick.Unity.Network.Sandboxes
+  commentId: P:Netick.Unity.Network.Sandboxes
+  id: Sandboxes
+  parent: Netick.Unity.Network
+  langs:
+  - csharp
+  - vb
+  name: Sandboxes
+  nameWithType: Network.Sandboxes
+  fullName: Netick.Unity.Network.Sandboxes
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static IReadOnlyList<NetworkSandbox> Sandboxes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{Netick.Unity.NetworkSandbox}
+    content.vb: Public Shared ReadOnly Property Sandboxes As IReadOnlyList(Of NetworkSandbox)
+  overload: Netick.Unity.Network.Sandboxes*
 - uid: Netick.Unity.Network.IsRunning
   commentId: P:Netick.Unity.Network.IsRunning
   id: IsRunning
@@ -573,27 +702,6 @@ items:
       type: Netick.Unity.NetickConfig
     content.vb: Public Shared ReadOnly Property Config As NetickConfig
   overload: Netick.Unity.Network.Config*
-- uid: Netick.Unity.Network.Version
-  commentId: P:Netick.Unity.Network.Version
-  id: Version
-  parent: Netick.Unity.Network
-  langs:
-  - csharp
-  - vb
-  name: Version
-  nameWithType: Network.Version
-  fullName: Netick.Unity.Network.Version
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public static string Version { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Shared ReadOnly Property Version As String
-  overload: Netick.Unity.Network.Version*
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -5063,6 +5171,17 @@ references:
   name: ComponentExtensions
   nameWithType: ComponentExtensions
   fullName: Netick.Unity.ComponentExtensions
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: Netick.Unity.NetickConfig
   commentId: T:Netick.Unity.NetickConfig
   parent: Netick.Unity
@@ -5071,18 +5190,10 @@ references:
   name: NetickConfig
   nameWithType: NetickConfig
   fullName: Netick.Unity.NetickConfig
-- uid: Netick.NetworkTransport
-  commentId: T:Netick.NetworkTransport
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkTransport.html
-  name: NetworkTransport
-  nameWithType: NetworkTransport
-  fullName: Netick.NetworkTransport
 - uid: Netick.Unity.Network.Init*
   commentId: Overload:Netick.Unity.Network.Init
   isExternal: true
-  href: Netick.Unity.Network.html#Netick_Unity_Network_Init_Netick_NetworkTransport_Netick_Unity_NetickConfig_System_Int32_
+  href: Netick.Unity.Network.html#Netick_Unity_Network_Init_Netick_Unity_NetickConfig_System_Int32_
   name: Init
   nameWithType: Network.Init
   fullName: Netick.Unity.Network.Init
@@ -5097,13 +5208,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: Netick
-  commentId: N:Netick
-  isExternal: true
-  href: Netick.html
-  name: Netick
-  nameWithType: Netick
-  fullName: Netick
 - uid: Netick.Unity.Network.ShutdownImmediately(System.Boolean)
   commentId: M:Netick.Unity.Network.ShutdownImmediately(System.Boolean)
   isExternal: true
@@ -5205,38 +5309,38 @@ references:
   name: GameObject
   nameWithType: GameObject
   fullName: UnityEngine.GameObject
-- uid: Netick.Unity.Network.Sandboxs
-  commentId: T:Netick.Unity.Network.Sandboxs
+- uid: Netick.Unity.Network.LaunchResults
+  commentId: T:Netick.Unity.Network.LaunchResults
   parent: Netick.Unity
   isExternal: true
   href: Netick.Unity.Network.html
-  name: Network.Sandboxs
-  nameWithType: Network.Sandboxs
-  fullName: Netick.Unity.Network.Sandboxs
+  name: Network.LaunchResults
+  nameWithType: Network.LaunchResults
+  fullName: Netick.Unity.Network.LaunchResults
   spec.csharp:
   - uid: Netick.Unity.Network
     name: Network
     isExternal: true
     href: Netick.Unity.Network.html
   - name: .
-  - uid: Netick.Unity.Network.Sandboxs
-    name: Sandboxs
+  - uid: Netick.Unity.Network.LaunchResults
+    name: LaunchResults
     isExternal: true
-    href: Netick.Unity.Network.Sandboxs.html
+    href: Netick.Unity.Network.LaunchResults.html
   spec.vb:
   - uid: Netick.Unity.Network
     name: Network
     isExternal: true
     href: Netick.Unity.Network.html
   - name: .
-  - uid: Netick.Unity.Network.Sandboxs
-    name: Sandboxs
+  - uid: Netick.Unity.Network.LaunchResults
+    name: LaunchResults
     isExternal: true
-    href: Netick.Unity.Network.Sandboxs.html
+    href: Netick.Unity.Network.LaunchResults.html
 - uid: Netick.Unity.Network.StartAsMultiplePeers*
   commentId: Overload:Netick.Unity.Network.StartAsMultiplePeers
   isExternal: true
-  href: Netick.Unity.Network.html#Netick_Unity_Network_StartAsMultiplePeers_Netick_Unity_NetworkTransportProvider_System_Int32_UnityEngine_GameObject_System_Boolean_System_Int32_
+  href: Netick.Unity.Network.html#Netick_Unity_Network_StartAsMultiplePeers_Netick_Unity_NetworkTransportProvider_System_Int32_UnityEngine_GameObject_System_Boolean_System_Boolean_System_Int32_
   name: StartAsMultiplePeers
   nameWithType: Network.StartAsMultiplePeers
   fullName: Netick.Unity.Network.StartAsMultiplePeers
@@ -5247,6 +5351,20 @@ references:
   name: StartAsClient
   nameWithType: Network.StartAsClient
   fullName: Netick.Unity.Network.StartAsClient
+- uid: Netick.Unity.Network.StartAsSinglePlayer*
+  commentId: Overload:Netick.Unity.Network.StartAsSinglePlayer
+  isExternal: true
+  href: Netick.Unity.Network.html#Netick_Unity_Network_StartAsSinglePlayer_UnityEngine_GameObject_
+  name: StartAsSinglePlayer
+  nameWithType: Network.StartAsSinglePlayer
+  fullName: Netick.Unity.Network.StartAsSinglePlayer
+- uid: Netick.Unity.Network.StartAsHost*
+  commentId: Overload:Netick.Unity.Network.StartAsHost
+  isExternal: true
+  href: Netick.Unity.Network.html#Netick_Unity_Network_StartAsHost_Netick_Unity_NetworkTransportProvider_System_Int32_UnityEngine_GameObject_
+  name: StartAsHost
+  nameWithType: Network.StartAsHost
+  fullName: Netick.Unity.Network.StartAsHost
 - uid: Netick.Unity.Network.StartAsServer*
   commentId: Overload:Netick.Unity.Network.StartAsServer
   isExternal: true
@@ -5254,13 +5372,13 @@ references:
   name: StartAsServer
   nameWithType: Network.StartAsServer
   fullName: Netick.Unity.Network.StartAsServer
-- uid: Netick.Unity.Network.StartMode*
-  commentId: Overload:Netick.Unity.Network.StartMode
+- uid: Netick.Unity.Network.Launch*
+  commentId: Overload:Netick.Unity.Network.Launch
   isExternal: true
-  href: Netick.Unity.Network.html#Netick_Unity_Network_StartMode
-  name: StartMode
-  nameWithType: Network.StartMode
-  fullName: Netick.Unity.Network.StartMode
+  href: Netick.Unity.Network.html#Netick_Unity_Network_Launch_Netick_Unity_StartMode_Netick_Unity_LaunchData_
+  name: Launch
+  nameWithType: Network.Launch
+  fullName: Netick.Unity.Network.Launch
 - uid: Netick.Unity.StartMode
   commentId: T:Netick.Unity.StartMode
   parent: Netick.Unity
@@ -5269,6 +5387,128 @@ references:
   name: StartMode
   nameWithType: StartMode
   fullName: Netick.Unity.StartMode
+- uid: Netick.Unity.LaunchData
+  commentId: T:Netick.Unity.LaunchData
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.LaunchData.html
+  name: LaunchData
+  nameWithType: LaunchData
+  fullName: Netick.Unity.LaunchData
+- uid: Netick.Unity.Network.StartMode*
+  commentId: Overload:Netick.Unity.Network.StartMode
+  isExternal: true
+  href: Netick.Unity.Network.html#Netick_Unity_Network_StartMode
+  name: StartMode
+  nameWithType: Network.StartMode
+  fullName: Netick.Unity.Network.StartMode
+- uid: Netick.Unity.Network.Sandboxes*
+  commentId: Overload:Netick.Unity.Network.Sandboxes
+  isExternal: true
+  href: Netick.Unity.Network.html#Netick_Unity_Network_Sandboxes
+  name: Sandboxes
+  nameWithType: Network.Sandboxes
+  fullName: Netick.Unity.Network.Sandboxes
+- uid: System.Collections.Generic.IReadOnlyList{Netick.Unity.NetworkSandbox}
+  commentId: T:System.Collections.Generic.IReadOnlyList{Netick.Unity.NetworkSandbox}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<NetworkSandbox>
+  nameWithType: IReadOnlyList<NetworkSandbox>
+  fullName: System.Collections.Generic.IReadOnlyList<Netick.Unity.NetworkSandbox>
+  nameWithType.vb: IReadOnlyList(Of NetworkSandbox)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Netick.Unity.NetworkSandbox)
+  name.vb: IReadOnlyList(Of NetworkSandbox)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: Netick.Unity.Network.IsRunning*
   commentId: Overload:Netick.Unity.Network.IsRunning
   isExternal: true
@@ -5305,21 +5545,3 @@ references:
   name: Config
   nameWithType: Network.Config
   fullName: Netick.Unity.Network.Config
-- uid: Netick.Unity.Network.Version*
-  commentId: Overload:Netick.Unity.Network.Version
-  isExternal: true
-  href: Netick.Unity.Network.html#Netick_Unity_Network_Version
-  name: Version
-  nameWithType: Network.Version
-  fullName: Netick.Unity.Network.Version
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String

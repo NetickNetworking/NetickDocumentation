@@ -6,8 +6,6 @@ items:
   children:
   - Netick.Accumulator
   - Netick.AdaptiveRemoteInterpolation
-  - Netick.Allocator
-  - Netick.Allocator.MemoryPool
   - Netick.AoIQuery
   - Netick.BadPacketException
   - Netick.BitBuffer
@@ -56,12 +54,14 @@ items:
   - Netick.InterestManagementGroup
   - Netick.InternalNetworkRpcSize
   - Netick.Interpolation
-  - Netick.InterpolationMode
+  - Netick.InterpolationSource
   - Netick.Interpolator
   - Netick.LocalInterpolation
   - Netick.Monitor
   - Netick.NativeUDPSocket
   - Netick.NetcodeProfiler
+  - Netick.NetickAllocator
+  - Netick.NetickAllocator.MemoryPool
   - Netick.NetickArrayExt
   - Netick.NetickBounds
   - Netick.NetickConfigData
@@ -69,6 +69,7 @@ items:
   - Netick.NetickEngine
   - Netick.NetickEntityMeta
   - Netick.NetickLogger
+  - Netick.NetickStartMode
   - Netick.NetickTransport
   - Netick.NetickTransportConnection
   - Netick.NetickUniqueObjectMeta
@@ -118,6 +119,7 @@ items:
   - Netick.OnNetworkReceive
   - Netick.OnPeerConnected
   - Netick.OnPeerDisconnected
+  - Netick.PredictionErrorSmootherVector3
   - Netick.ReflectionData
   - Netick.Relevancy
   - Netick.RemoteInterpolation
@@ -569,14 +571,14 @@ references:
   name: OnChangedEvent
   nameWithType: OnChangedEvent
   fullName: Netick.OnChangedEvent
-- uid: Netick.InterpolationMode
-  commentId: T:Netick.InterpolationMode
+- uid: Netick.InterpolationSource
+  commentId: T:Netick.InterpolationSource
   parent: Netick
   isExternal: true
-  href: Netick.InterpolationMode.html
-  name: InterpolationMode
-  nameWithType: InterpolationMode
-  fullName: Netick.InterpolationMode
+  href: Netick.InterpolationSource.html
+  name: InterpolationSource
+  nameWithType: InterpolationSource
+  fullName: Netick.InterpolationSource
 - uid: Netick.Interpolator
   commentId: T:Netick.Interpolator
   parent: Netick
@@ -647,41 +649,6 @@ references:
   name: IMemoryAllocator
   nameWithType: IMemoryAllocator
   fullName: Netick.IMemoryAllocator
-- uid: Netick.Allocator
-  commentId: T:Netick.Allocator
-  parent: Netick
-  isExternal: true
-  href: Netick.Allocator.html
-  name: Allocator
-  nameWithType: Allocator
-  fullName: Netick.Allocator
-- uid: Netick.Allocator.MemoryPool
-  commentId: T:Netick.Allocator.MemoryPool
-  isExternal: true
-  href: Netick.Allocator.html
-  name: Allocator.MemoryPool
-  nameWithType: Allocator.MemoryPool
-  fullName: Netick.Allocator.MemoryPool
-  spec.csharp:
-  - uid: Netick.Allocator
-    name: Allocator
-    isExternal: true
-    href: Netick.Allocator.html
-  - name: .
-  - uid: Netick.Allocator.MemoryPool
-    name: MemoryPool
-    isExternal: true
-    href: Netick.Allocator.MemoryPool.html
-  spec.vb:
-  - uid: Netick.Allocator
-    name: Allocator
-    isExternal: true
-    href: Netick.Allocator.html
-  - name: .
-  - uid: Netick.Allocator.MemoryPool
-    name: MemoryPool
-    isExternal: true
-    href: Netick.Allocator.MemoryPool.html
 - uid: Netick.Client
   commentId: T:Netick.Client
   parent: Netick
@@ -697,6 +664,13 @@ references:
   name: NetickUtils
   nameWithType: NetickUtils
   fullName: Netick.NetickUtils
+- uid: Netick.PredictionErrorSmootherVector3
+  commentId: T:Netick.PredictionErrorSmootherVector3
+  isExternal: true
+  href: Netick.PredictionErrorSmootherVector3.html
+  name: PredictionErrorSmootherVector3
+  nameWithType: PredictionErrorSmootherVector3
+  fullName: Netick.PredictionErrorSmootherVector3
 - uid: Netick.FixedSize4`1
   commentId: T:Netick.FixedSize4`1
   isExternal: true
@@ -952,6 +926,41 @@ references:
   name: Server
   nameWithType: Server
   fullName: Netick.Server
+- uid: Netick.NetickAllocator
+  commentId: T:Netick.NetickAllocator
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickAllocator.html
+  name: NetickAllocator
+  nameWithType: NetickAllocator
+  fullName: Netick.NetickAllocator
+- uid: Netick.NetickAllocator.MemoryPool
+  commentId: T:Netick.NetickAllocator.MemoryPool
+  isExternal: true
+  href: Netick.NetickAllocator.html
+  name: NetickAllocator.MemoryPool
+  nameWithType: NetickAllocator.MemoryPool
+  fullName: Netick.NetickAllocator.MemoryPool
+  spec.csharp:
+  - uid: Netick.NetickAllocator
+    name: NetickAllocator
+    isExternal: true
+    href: Netick.NetickAllocator.html
+  - name: .
+  - uid: Netick.NetickAllocator.MemoryPool
+    name: MemoryPool
+    isExternal: true
+    href: Netick.NetickAllocator.MemoryPool.html
+  spec.vb:
+  - uid: Netick.NetickAllocator
+    name: NetickAllocator
+    isExternal: true
+    href: Netick.NetickAllocator.html
+  - name: .
+  - uid: Netick.NetickAllocator.MemoryPool
+    name: MemoryPool
+    isExternal: true
+    href: Netick.NetickAllocator.MemoryPool.html
 - uid: Netick.NetworkTimer
   commentId: T:Netick.NetworkTimer
   parent: Netick
@@ -996,6 +1005,14 @@ references:
   name: NetickVector3Int
   nameWithType: NetickVector3Int
   fullName: Netick.NetickVector3Int
+- uid: Netick.Accumulator
+  commentId: T:Netick.Accumulator
+  parent: Netick
+  isExternal: true
+  href: Netick.Accumulator.html
+  name: Accumulator
+  nameWithType: Accumulator
+  fullName: Netick.Accumulator
 - uid: Netick.NetickEntityMeta
   commentId: T:Netick.NetickEntityMeta
   parent: Netick
@@ -1011,22 +1028,6 @@ references:
   name: NetworkChannel
   nameWithType: NetworkChannel
   fullName: Netick.NetworkChannel
-- uid: Netick.Relevancy
-  commentId: T:Netick.Relevancy
-  parent: Netick
-  isExternal: true
-  href: Netick.Relevancy.html
-  name: Relevancy
-  nameWithType: Relevancy
-  fullName: Netick.Relevancy
-- uid: Netick.Entity
-  commentId: T:Netick.Entity
-  parent: Netick
-  isExternal: true
-  href: Netick.Entity.html
-  name: Entity
-  nameWithType: Entity
-  fullName: Netick.Entity
 - uid: Netick.RunMode
   commentId: T:Netick.RunMode
   parent: Netick
@@ -1051,6 +1052,22 @@ references:
   name: NetworkTransport
   nameWithType: NetworkTransport
   fullName: Netick.NetworkTransport
+- uid: Netick.Relevancy
+  commentId: T:Netick.Relevancy
+  parent: Netick
+  isExternal: true
+  href: Netick.Relevancy.html
+  name: Relevancy
+  nameWithType: Relevancy
+  fullName: Netick.Relevancy
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
 - uid: Netick.ClientReplicatorData
   commentId: T:Netick.ClientReplicatorData
   isExternal: true
@@ -1210,6 +1227,14 @@ references:
   name: NetcodeProfiler
   nameWithType: NetcodeProfiler
   fullName: Netick.NetcodeProfiler
+- uid: Netick.NetickStartMode
+  commentId: T:Netick.NetickStartMode
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickStartMode.html
+  name: NetickStartMode
+  nameWithType: NetickStartMode
+  fullName: Netick.NetickStartMode
 - uid: Netick.Session
   commentId: T:Netick.Session
   parent: Netick
@@ -1226,14 +1251,6 @@ references:
   name: NetickEngine
   nameWithType: NetickEngine
   fullName: Netick.NetickEngine
-- uid: Netick.Accumulator
-  commentId: T:Netick.Accumulator
-  parent: Netick
-  isExternal: true
-  href: Netick.Accumulator.html
-  name: Accumulator
-  nameWithType: Accumulator
-  fullName: Netick.Accumulator
 - uid: Netick.NetworkConnection
   commentId: T:Netick.NetworkConnection
   parent: Netick
@@ -1291,6 +1308,7 @@ references:
   fullName: Netick.DefaultAllocator
 - uid: Netick.DoubleStats
   commentId: T:Netick.DoubleStats
+  parent: Netick
   isExternal: true
   href: Netick.DoubleStats.html
   name: DoubleStats

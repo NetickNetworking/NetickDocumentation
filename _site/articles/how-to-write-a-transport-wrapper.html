@@ -163,7 +163,7 @@ public unsafe class NetickUnityTransport : NetworkTransport
   private byte[]                                                                                   _connectionRequestBytes  = new byte[200];
   private NativeArray&lt;byte&gt;                                                                        _connectionRequestNative = new NativeArray&lt;byte&gt;(200, Allocator.Persistent);
 </code></pre>
-<p><code>_bitBuffer</code> is the buffer that is passed to Netick when receiving a packet. Netick only receives the packets in the form of a BitBuffer.</p>
+<p><code>_bitBuffer</code> is the buffer that is passed to Netick when receiving a packet. Netick only receives the packets in the form of a <code>BitBuffer</code>.</p>
 <p><code>_bytesBuffer</code> is an unsafe buffer that is used with <code>_bitBuffer</code>. <code>_connectionRequestBytes</code> is a managed buffer for the connection request.</p>
 <p>In the constructor, we allocate <code>_bytesBuffer</code>. And we make sure to deallocate, in addition to disposing of <code>_connectionRequestNative</code>.</p>
 <pre><code class="lang-csharp">  public NetickUnityTransport()

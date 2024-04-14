@@ -117,6 +117,7 @@ public sealed class PhysicsSimulationStep : NetickCoreComponent, INetickScript</
       <div><span class="xref">Component</span></div>
       <div><span class="xref">Behaviour</span></div>
       <div><span class="xref">MonoBehaviour</span></div>
+      <div><a class="xref" href="Netick.Unity.NetickBaseBehaviour.html">NetickBaseBehaviour</a></div>
       <div><a class="xref" href="Netick.Unity.NetickBehaviour.html">NetickBehaviour</a></div>
       <div><a class="xref" href="Netick.Unity.NetickCoreComponent.html">NetickCoreComponent</a></div>
       <div><span class="xref">PhysicsSimulationStep</span></div>
@@ -528,8 +529,8 @@ public sealed class PhysicsSimulationStep : NetickCoreComponent, INetickScript</
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.</p>
-<p>On the client, if you are the Input Source or if this Object.PredictionMode is set to None, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
+  <div class="markdown level1 summary"><p>Called every fixed-time network step. Any changes to the networked state should happen here.</p>
+<p>On the client, if you are the Input Source or if this Object.PredictionMode is set to Everyone, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

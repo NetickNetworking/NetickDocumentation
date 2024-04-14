@@ -20,15 +20,15 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public delegate void OnClientDisconnectedDelegate(NetworkSandbox sandbox, NetworkConnection server, TransportDisconnectReason transportDisconnectReason)
+    content: public delegate void OnClientDisconnectedDelegate(NetworkSandbox sandbox, NetworkConnection client, TransportDisconnectReason transportDisconnectReason)
     parameters:
     - id: sandbox
       type: Netick.Unity.NetworkSandbox
-    - id: server
+    - id: client
       type: Netick.NetworkConnection
     - id: transportDisconnectReason
       type: Netick.TransportDisconnectReason
-    content.vb: Public Delegate Sub OnClientDisconnectedDelegate(sandbox As NetworkSandbox, server As NetworkConnection, transportDisconnectReason As TransportDisconnectReason)
+    content.vb: Public Delegate Sub OnClientDisconnectedDelegate(sandbox As NetworkSandbox, client As NetworkConnection, transportDisconnectReason As TransportDisconnectReason)
 - uid: Netick.Unity.OnClientDisconnectedDelegate.#ctor(System.Object,System.IntPtr)
   commentId: M:Netick.Unity.OnClientDisconnectedDelegate.#ctor(System.Object,System.IntPtr)
   id: '#ctor(System.Object,System.IntPtr)'
@@ -70,15 +70,15 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public virtual void Invoke(NetworkSandbox sandbox, NetworkConnection server, TransportDisconnectReason transportDisconnectReason)
+    content: public virtual void Invoke(NetworkSandbox sandbox, NetworkConnection client, TransportDisconnectReason transportDisconnectReason)
     parameters:
     - id: sandbox
       type: Netick.Unity.NetworkSandbox
-    - id: server
+    - id: client
       type: Netick.NetworkConnection
     - id: transportDisconnectReason
       type: Netick.TransportDisconnectReason
-    content.vb: Public Overridable Sub Invoke(sandbox As NetworkSandbox, server As NetworkConnection, transportDisconnectReason As TransportDisconnectReason)
+    content.vb: Public Overridable Sub Invoke(sandbox As NetworkSandbox, client As NetworkConnection, transportDisconnectReason As TransportDisconnectReason)
   overload: Netick.Unity.OnClientDisconnectedDelegate.Invoke*
 - uid: Netick.Unity.OnClientDisconnectedDelegate.BeginInvoke(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason,System.AsyncCallback,System.Object)
   commentId: M:Netick.Unity.OnClientDisconnectedDelegate.BeginInvoke(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason,System.AsyncCallback,System.Object)
@@ -95,11 +95,11 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public virtual IAsyncResult BeginInvoke(NetworkSandbox sandbox, NetworkConnection server, TransportDisconnectReason transportDisconnectReason, AsyncCallback callback, object @object)
+    content: public virtual IAsyncResult BeginInvoke(NetworkSandbox sandbox, NetworkConnection client, TransportDisconnectReason transportDisconnectReason, AsyncCallback callback, object @object)
     parameters:
     - id: sandbox
       type: Netick.Unity.NetworkSandbox
-    - id: server
+    - id: client
       type: Netick.NetworkConnection
     - id: transportDisconnectReason
       type: Netick.TransportDisconnectReason
@@ -109,7 +109,7 @@ items:
       type: System.Object
     return:
       type: System.IAsyncResult
-    content.vb: Public Overridable Function BeginInvoke(sandbox As NetworkSandbox, server As NetworkConnection, transportDisconnectReason As TransportDisconnectReason, callback As AsyncCallback, [object] As Object) As IAsyncResult
+    content.vb: Public Overridable Function BeginInvoke(sandbox As NetworkSandbox, client As NetworkConnection, transportDisconnectReason As TransportDisconnectReason, callback As AsyncCallback, [object] As Object) As IAsyncResult
   overload: Netick.Unity.OnClientDisconnectedDelegate.BeginInvoke*
   nameWithType.vb: OnClientDisconnectedDelegate.BeginInvoke(NetworkSandbox, NetworkConnection, TransportDisconnectReason, AsyncCallback, Object)
   fullName.vb: Netick.Unity.OnClientDisconnectedDelegate.BeginInvoke(Netick.Unity.NetworkSandbox, Netick.NetworkConnection, Netick.TransportDisconnectReason, System.AsyncCallback, Object)

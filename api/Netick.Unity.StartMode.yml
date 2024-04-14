@@ -6,8 +6,10 @@ items:
   parent: Netick.Unity
   children:
   - Netick.Unity.StartMode.Client
+  - Netick.Unity.StartMode.Host
   - Netick.Unity.StartMode.MultiplePeers
   - Netick.Unity.StartMode.Server
+  - Netick.Unity.StartMode.SinglePlayer
   langs:
   - csharp
   - vb
@@ -18,8 +20,6 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Manages Netick and its sandboxes, and is used to start and shut down Netick.
-  example: []
   syntax:
     content: public enum StartMode
     content.vb: Public Enum StartMode
@@ -59,6 +59,42 @@ items:
     content: Client = 1
     return:
       type: Netick.Unity.StartMode
+- uid: Netick.Unity.StartMode.Host
+  commentId: F:Netick.Unity.StartMode.Host
+  id: Host
+  parent: Netick.Unity.StartMode
+  langs:
+  - csharp
+  - vb
+  name: Host
+  nameWithType: StartMode.Host
+  fullName: Netick.Unity.StartMode.Host
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: Host = 2
+    return:
+      type: Netick.Unity.StartMode
+- uid: Netick.Unity.StartMode.SinglePlayer
+  commentId: F:Netick.Unity.StartMode.SinglePlayer
+  id: SinglePlayer
+  parent: Netick.Unity.StartMode
+  langs:
+  - csharp
+  - vb
+  name: SinglePlayer
+  nameWithType: StartMode.SinglePlayer
+  fullName: Netick.Unity.StartMode.SinglePlayer
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: SinglePlayer = 3
+    return:
+      type: Netick.Unity.StartMode
 - uid: Netick.Unity.StartMode.MultiplePeers
   commentId: F:Netick.Unity.StartMode.MultiplePeers
   id: MultiplePeers
@@ -74,7 +110,7 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: MultiplePeers = 2
+    content: MultiplePeers = 4
     return:
       type: Netick.Unity.StartMode
 references:

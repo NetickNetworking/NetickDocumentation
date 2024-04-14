@@ -26,6 +26,7 @@ items:
   - Netick.Unity.NetworkSandbox.DisconnectFromServer
   - Netick.Unity.NetworkSandbox.EnableComponent(UnityEngine.Component)
   - Netick.Unity.NetworkSandbox.Engine
+  - Netick.Unity.NetworkSandbox.Events
   - Netick.Unity.NetworkSandbox.FindGameObjectWithTag(System.String,System.Boolean)
   - Netick.Unity.NetworkSandbox.FindGameObjectsWithTag(System.String,System.Boolean)
   - Netick.Unity.NetworkSandbox.FindGameObjectsWithTag(System.String,System.Collections.Generic.List{UnityEngine.GameObject},System.Boolean)
@@ -36,7 +37,6 @@ items:
   - Netick.Unity.NetworkSandbox.GetInput``1(System.Int32)
   - Netick.Unity.NetworkSandbox.GetObject(System.Int32)
   - Netick.Unity.NetworkSandbox.GetPrefab(System.String)
-  - Netick.Unity.NetworkSandbox.HasLoadScene
   - Netick.Unity.NetworkSandbox.Hide
   - Netick.Unity.NetworkSandbox.InKBps
   - Netick.Unity.NetworkSandbox.InitializePool(UnityEngine.GameObject,System.Int32,System.Boolean)
@@ -46,23 +46,27 @@ items:
   - Netick.Unity.NetworkSandbox.InterpolationDelay
   - Netick.Unity.NetworkSandbox.IsClient
   - Netick.Unity.NetworkSandbox.IsConnected
+  - Netick.Unity.NetworkSandbox.IsHost
   - Netick.Unity.NetworkSandbox.IsResimulating
   - Netick.Unity.NetworkSandbox.IsRunning
   - Netick.Unity.NetworkSandbox.IsServer
   - Netick.Unity.NetworkSandbox.IsVisible
   - Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)
+  - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneMode)
+  - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
+  - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneMode)
+  - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneParameters)
   - Netick.Unity.NetworkSandbox.LocalInterpolation
   - Netick.Unity.NetworkSandbox.LocalPlayer
   - Netick.Unity.NetworkSandbox.Log(System.Object)
   - Netick.Unity.NetworkSandbox.LogError(System.Object)
   - Netick.Unity.NetworkSandbox.LogWarning(System.Object)
+  - Netick.Unity.NetworkSandbox.MainSceneBuildIndex
   - Netick.Unity.NetworkSandbox.Monitor
   - Netick.Unity.NetworkSandbox.Name
   - Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
   - Netick.Unity.NetworkSandbox.NetworkTime
-  - Netick.Unity.NetworkSandbox.NetworkUpdate
   - Netick.Unity.NetworkSandbox.Objects
-  - Netick.Unity.NetworkSandbox.OnSceneSwitchStart(System.Int32)
   - Netick.Unity.NetworkSandbox.OutKBps
   - Netick.Unity.NetworkSandbox.Physics
   - Netick.Unity.NetworkSandbox.Physics2D
@@ -72,12 +76,12 @@ items:
   - Netick.Unity.NetworkSandbox.RTT
   - Netick.Unity.NetworkSandbox.RefreshMatchList
   - Netick.Unity.NetworkSandbox.RemoteInterpolation
+  - Netick.Unity.NetworkSandbox.RemoveFromLoop(Netick.Unity.NetworkObject)
   - Netick.Unity.NetworkSandbox.ResimulationStep
   - Netick.Unity.NetworkSandbox.Resimulations
   - Netick.Unity.NetworkSandbox.RestartTimer(System.Single,System.Boolean)
   - Netick.Unity.NetworkSandbox.ScaledFixedDeltaTime
   - Netick.Unity.NetworkSandbox.Scene
-  - Netick.Unity.NetworkSandbox.SceneBuildIndex
   - Netick.Unity.NetworkSandbox.ServerEndPoint
   - Netick.Unity.NetworkSandbox.SetComponentEnabled(UnityEngine.Component,System.Boolean)
   - Netick.Unity.NetworkSandbox.SetInput``1(``0,System.Int32)
@@ -85,6 +89,7 @@ items:
   - Netick.Unity.NetworkSandbox.StartMode
   - Netick.Unity.NetworkSandbox.StartTimer(System.Single,System.Boolean)
   - Netick.Unity.NetworkSandbox.SwitchScene(System.Int32)
+  - Netick.Unity.NetworkSandbox.SwitchScene(System.String)
   - Netick.Unity.NetworkSandbox.Tick
   - Netick.Unity.NetworkSandbox.TickToTime(Netick.Tick)
   - Netick.Unity.NetworkSandbox.TickToTime(System.Single)
@@ -92,6 +97,9 @@ items:
   - Netick.Unity.NetworkSandbox.Transport
   - Netick.Unity.NetworkSandbox.TryGetBehaviour``1(System.Int32,``0@)
   - Netick.Unity.NetworkSandbox.TryGetObject(System.Int32,Netick.Unity.NetworkObject@)
+  - Netick.Unity.NetworkSandbox.UnloadSceneAsync(System.Int32)
+  - Netick.Unity.NetworkSandbox.UnloadSceneAsync(System.String)
+  - Netick.Unity.NetworkSandbox.UnloadSceneAsync(UnityEngine.SceneManagement.Scene)
   - Netick.Unity.NetworkSandbox.UserObject
   langs:
   - csharp
@@ -286,6 +294,42 @@ items:
       type: UnityEngine.GameObject
     content.vb: Public Sub DestroyPool(networkedPrefab As GameObject)
   overload: Netick.Unity.NetworkSandbox.DestroyPool*
+- uid: Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+  commentId: M:Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+  id: Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: Instantiate(GameObject, Vector3, Quaternion)
+  nameWithType: NetworkSandbox.Instantiate(GameObject, Vector3, Quaternion)
+  fullName: Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Quaternion)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: >-
+    Instantiates a prefab. This must be called instead of <xref href="UnityEngine.Object.Instantiate(UnityEngine.Object)" data-throw-if-not-resolved="false"></xref> or its variations. 
+
+    <p>Note: this must be called only for non-networked prefabs. If you want to instantiate a network prefab, use NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer) instead.</p>
+  example: []
+  syntax:
+    content: public GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)
+    parameters:
+    - id: prefab
+      type: UnityEngine.GameObject
+      description: The prefab to be instantiated.
+    - id: position
+      type: UnityEngine.Vector3
+      description: Position of the instantiated object.
+    - id: rotation
+      type: UnityEngine.Quaternion
+      description: Rotation of the instantiated object.
+    return:
+      type: UnityEngine.GameObject
+      description: ''
+    content.vb: Public Function Instantiate(prefab As GameObject, position As Vector3, rotation As Quaternion) As GameObject
+  overload: Netick.Unity.NetworkSandbox.Instantiate*
 - uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
   commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
   id: NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
@@ -317,7 +361,7 @@ items:
       description: The prefab to be instantiated.
     - id: position
       type: UnityEngine.Vector3
-      description: GridIndex of the instantiated object.
+      description: Position of the instantiated object.
     - id: rotation
       type: UnityEngine.Quaternion
       description: Rotation of the instantiated object.
@@ -713,69 +757,27 @@ items:
       type: UnityEngine.GameObject
     content.vb: Public Sub DeattachNonNetworkedRigidbody(rigidbodyGameObject As GameObject)
   overload: Netick.Unity.NetworkSandbox.DeattachNonNetworkedRigidbody*
-- uid: Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
-  commentId: M:Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
-  id: Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+- uid: Netick.Unity.NetworkSandbox.RemoveFromLoop(Netick.Unity.NetworkObject)
+  commentId: M:Netick.Unity.NetworkSandbox.RemoveFromLoop(Netick.Unity.NetworkObject)
+  id: RemoveFromLoop(Netick.Unity.NetworkObject)
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: Instantiate(GameObject, Vector3, Quaternion)
-  nameWithType: NetworkSandbox.Instantiate(GameObject, Vector3, Quaternion)
-  fullName: Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Quaternion)
+  name: RemoveFromLoop(NetworkObject)
+  nameWithType: NetworkSandbox.RemoveFromLoop(NetworkObject)
+  fullName: Netick.Unity.NetworkSandbox.RemoveFromLoop(Netick.Unity.NetworkObject)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: >-
-    Instantiates a prefab. This must be called instead of <xref href="UnityEngine.Object.Instantiate(UnityEngine.Object)" data-throw-if-not-resolved="false"></xref> or its variations. 
-
-    <p>Note: this must be called only for non-networked prefabs. If you want to instantiate a network prefab, use NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer) instead.</p>
-  example: []
   syntax:
-    content: public GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)
+    content: public void RemoveFromLoop(NetworkObject obj)
     parameters:
-    - id: prefab
-      type: UnityEngine.GameObject
-      description: The prefab to be instantiated.
-    - id: position
-      type: UnityEngine.Vector3
-      description: GridIndex of the instantiated object.
-    - id: rotation
-      type: UnityEngine.Quaternion
-      description: Rotation of the instantiated object.
-    return:
-      type: UnityEngine.GameObject
-      description: ''
-    content.vb: Public Function Instantiate(prefab As GameObject, position As Vector3, rotation As Quaternion) As GameObject
-  overload: Netick.Unity.NetworkSandbox.Instantiate*
-- uid: Netick.Unity.NetworkSandbox.SwitchScene(System.Int32)
-  commentId: M:Netick.Unity.NetworkSandbox.SwitchScene(System.Int32)
-  id: SwitchScene(System.Int32)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: SwitchScene(int)
-  nameWithType: NetworkSandbox.SwitchScene(int)
-  fullName: Netick.Unity.NetworkSandbox.SwitchScene(int)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: <i><b>[Server Only]</b></i> Switches to a different scene. This must be called instead of <xref href="UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(System.Int32)" data-throw-if-not-resolved="false"></xref> or its variations.
-  example: []
-  syntax:
-    content: public void SwitchScene(int sceneBuildIndex)
-    parameters:
-    - id: sceneBuildIndex
-      type: System.Int32
-      description: Index of the desired scene.
-    content.vb: Public Sub SwitchScene(sceneBuildIndex As Integer)
-  overload: Netick.Unity.NetworkSandbox.SwitchScene*
-  nameWithType.vb: NetworkSandbox.SwitchScene(Integer)
-  fullName.vb: Netick.Unity.NetworkSandbox.SwitchScene(Integer)
-  name.vb: SwitchScene(Integer)
+    - id: obj
+      type: Netick.Unity.NetworkObject
+    content.vb: Public Sub RemoveFromLoop(obj As NetworkObject)
+  overload: Netick.Unity.NetworkSandbox.RemoveFromLoop*
 - uid: Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String,System.Byte[],System.Int32)
   commentId: M:Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String,System.Byte[],System.Int32)
   id: Connect(System.Int32,System.String,System.Byte[],System.Int32)
@@ -907,48 +909,235 @@ items:
     content: public void RefreshMatchList()
     content.vb: Public Sub RefreshMatchList()
   overload: Netick.Unity.NetworkSandbox.RefreshMatchList*
-- uid: Netick.Unity.NetworkSandbox.NetworkUpdate
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkUpdate
-  id: NetworkUpdate
+- uid: Netick.Unity.NetworkSandbox.SwitchScene(System.String)
+  commentId: M:Netick.Unity.NetworkSandbox.SwitchScene(System.String)
+  id: SwitchScene(System.String)
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: NetworkUpdate()
-  nameWithType: NetworkSandbox.NetworkUpdate()
-  fullName: Netick.Unity.NetworkSandbox.NetworkUpdate()
+  name: SwitchScene(string)
+  nameWithType: NetworkSandbox.SwitchScene(string)
+  fullName: Netick.Unity.NetworkSandbox.SwitchScene(string)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: <i><b>[Server Only]</b></i> Switches to a different scene. This must be called instead of <xref href="UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(System.Int32)" data-throw-if-not-resolved="false"></xref> or its variations.
+  example: []
   syntax:
-    content: public void NetworkUpdate()
-    content.vb: Public Sub NetworkUpdate()
-  overload: Netick.Unity.NetworkSandbox.NetworkUpdate*
-- uid: Netick.Unity.NetworkSandbox.OnSceneSwitchStart(System.Int32)
-  commentId: M:Netick.Unity.NetworkSandbox.OnSceneSwitchStart(System.Int32)
-  id: OnSceneSwitchStart(System.Int32)
+    content: public void SwitchScene(string sceneName)
+    parameters:
+    - id: sceneName
+      type: System.String
+    content.vb: Public Sub SwitchScene(sceneName As String)
+  overload: Netick.Unity.NetworkSandbox.SwitchScene*
+  nameWithType.vb: NetworkSandbox.SwitchScene(String)
+  fullName.vb: Netick.Unity.NetworkSandbox.SwitchScene(String)
+  name.vb: SwitchScene(String)
+- uid: Netick.Unity.NetworkSandbox.SwitchScene(System.Int32)
+  commentId: M:Netick.Unity.NetworkSandbox.SwitchScene(System.Int32)
+  id: SwitchScene(System.Int32)
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: OnSceneSwitchStart(int)
-  nameWithType: NetworkSandbox.OnSceneSwitchStart(int)
-  fullName: Netick.Unity.NetworkSandbox.OnSceneSwitchStart(int)
+  name: SwitchScene(int)
+  nameWithType: NetworkSandbox.SwitchScene(int)
+  fullName: Netick.Unity.NetworkSandbox.SwitchScene(int)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: <i><b>[Server Only]</b></i> Switches to a different scene. This must be called instead of <xref href="UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(System.Int32)" data-throw-if-not-resolved="false"></xref> or its variations.
+  example: []
   syntax:
-    content: public void OnSceneSwitchStart(int sceneBuildIndex)
+    content: public void SwitchScene(int sceneBuildIndex)
     parameters:
     - id: sceneBuildIndex
       type: System.Int32
-    content.vb: Public Sub OnSceneSwitchStart(sceneBuildIndex As Integer)
-  overload: Netick.Unity.NetworkSandbox.OnSceneSwitchStart*
-  nameWithType.vb: NetworkSandbox.OnSceneSwitchStart(Integer)
-  fullName.vb: Netick.Unity.NetworkSandbox.OnSceneSwitchStart(Integer)
-  name.vb: OnSceneSwitchStart(Integer)
+      description: SceneBuildIndex of the desired scene.
+    content.vb: Public Sub SwitchScene(sceneBuildIndex As Integer)
+  overload: Netick.Unity.NetworkSandbox.SwitchScene*
+  nameWithType.vb: NetworkSandbox.SwitchScene(Integer)
+  fullName.vb: Netick.Unity.NetworkSandbox.SwitchScene(Integer)
+  name.vb: SwitchScene(Integer)
+- uid: Netick.Unity.NetworkSandbox.LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneMode)
+  commentId: M:Netick.Unity.NetworkSandbox.LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneMode)
+  id: LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneMode)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: LoadSceneAsync(string, LoadSceneMode)
+  nameWithType: NetworkSandbox.LoadSceneAsync(string, LoadSceneMode)
+  fullName: Netick.Unity.NetworkSandbox.LoadSceneAsync(string, UnityEngine.SceneManagement.LoadSceneMode)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void LoadSceneAsync(string sceneName, LoadSceneMode loadSceneMode)
+    parameters:
+    - id: sceneName
+      type: System.String
+    - id: loadSceneMode
+      type: UnityEngine.SceneManagement.LoadSceneMode
+    content.vb: Public Sub LoadSceneAsync(sceneName As String, loadSceneMode As LoadSceneMode)
+  overload: Netick.Unity.NetworkSandbox.LoadSceneAsync*
+  nameWithType.vb: NetworkSandbox.LoadSceneAsync(String, LoadSceneMode)
+  fullName.vb: Netick.Unity.NetworkSandbox.LoadSceneAsync(String, UnityEngine.SceneManagement.LoadSceneMode)
+  name.vb: LoadSceneAsync(String, LoadSceneMode)
+- uid: Netick.Unity.NetworkSandbox.LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneParameters)
+  commentId: M:Netick.Unity.NetworkSandbox.LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneParameters)
+  id: LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneParameters)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: LoadSceneAsync(string, LoadSceneParameters)
+  nameWithType: NetworkSandbox.LoadSceneAsync(string, LoadSceneParameters)
+  fullName: Netick.Unity.NetworkSandbox.LoadSceneAsync(string, UnityEngine.SceneManagement.LoadSceneParameters)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void LoadSceneAsync(string sceneName, LoadSceneParameters loadSceneParameters)
+    parameters:
+    - id: sceneName
+      type: System.String
+    - id: loadSceneParameters
+      type: UnityEngine.SceneManagement.LoadSceneParameters
+    content.vb: Public Sub LoadSceneAsync(sceneName As String, loadSceneParameters As LoadSceneParameters)
+  overload: Netick.Unity.NetworkSandbox.LoadSceneAsync*
+  nameWithType.vb: NetworkSandbox.LoadSceneAsync(String, LoadSceneParameters)
+  fullName.vb: Netick.Unity.NetworkSandbox.LoadSceneAsync(String, UnityEngine.SceneManagement.LoadSceneParameters)
+  name.vb: LoadSceneAsync(String, LoadSceneParameters)
+- uid: Netick.Unity.NetworkSandbox.LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneMode)
+  commentId: M:Netick.Unity.NetworkSandbox.LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneMode)
+  id: LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneMode)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: LoadSceneAsync(int, LoadSceneMode)
+  nameWithType: NetworkSandbox.LoadSceneAsync(int, LoadSceneMode)
+  fullName: Netick.Unity.NetworkSandbox.LoadSceneAsync(int, UnityEngine.SceneManagement.LoadSceneMode)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void LoadSceneAsync(int buildIndex, LoadSceneMode loadSceneMode)
+    parameters:
+    - id: buildIndex
+      type: System.Int32
+    - id: loadSceneMode
+      type: UnityEngine.SceneManagement.LoadSceneMode
+    content.vb: Public Sub LoadSceneAsync(buildIndex As Integer, loadSceneMode As LoadSceneMode)
+  overload: Netick.Unity.NetworkSandbox.LoadSceneAsync*
+  nameWithType.vb: NetworkSandbox.LoadSceneAsync(Integer, LoadSceneMode)
+  fullName.vb: Netick.Unity.NetworkSandbox.LoadSceneAsync(Integer, UnityEngine.SceneManagement.LoadSceneMode)
+  name.vb: LoadSceneAsync(Integer, LoadSceneMode)
+- uid: Netick.Unity.NetworkSandbox.LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
+  commentId: M:Netick.Unity.NetworkSandbox.LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
+  id: LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: LoadSceneAsync(int, LoadSceneParameters)
+  nameWithType: NetworkSandbox.LoadSceneAsync(int, LoadSceneParameters)
+  fullName: Netick.Unity.NetworkSandbox.LoadSceneAsync(int, UnityEngine.SceneManagement.LoadSceneParameters)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void LoadSceneAsync(int buildIndex, LoadSceneParameters loadSceneParameters)
+    parameters:
+    - id: buildIndex
+      type: System.Int32
+    - id: loadSceneParameters
+      type: UnityEngine.SceneManagement.LoadSceneParameters
+    content.vb: Public Sub LoadSceneAsync(buildIndex As Integer, loadSceneParameters As LoadSceneParameters)
+  overload: Netick.Unity.NetworkSandbox.LoadSceneAsync*
+  nameWithType.vb: NetworkSandbox.LoadSceneAsync(Integer, LoadSceneParameters)
+  fullName.vb: Netick.Unity.NetworkSandbox.LoadSceneAsync(Integer, UnityEngine.SceneManagement.LoadSceneParameters)
+  name.vb: LoadSceneAsync(Integer, LoadSceneParameters)
+- uid: Netick.Unity.NetworkSandbox.UnloadSceneAsync(System.Int32)
+  commentId: M:Netick.Unity.NetworkSandbox.UnloadSceneAsync(System.Int32)
+  id: UnloadSceneAsync(System.Int32)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: UnloadSceneAsync(int)
+  nameWithType: NetworkSandbox.UnloadSceneAsync(int)
+  fullName: Netick.Unity.NetworkSandbox.UnloadSceneAsync(int)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Unloads a scene asynchronously.
+  example: []
+  syntax:
+    content: public void UnloadSceneAsync(int buildIndex)
+    parameters:
+    - id: buildIndex
+      type: System.Int32
+      description: ''
+    content.vb: Public Sub UnloadSceneAsync(buildIndex As Integer)
+  overload: Netick.Unity.NetworkSandbox.UnloadSceneAsync*
+  nameWithType.vb: NetworkSandbox.UnloadSceneAsync(Integer)
+  fullName.vb: Netick.Unity.NetworkSandbox.UnloadSceneAsync(Integer)
+  name.vb: UnloadSceneAsync(Integer)
+- uid: Netick.Unity.NetworkSandbox.UnloadSceneAsync(UnityEngine.SceneManagement.Scene)
+  commentId: M:Netick.Unity.NetworkSandbox.UnloadSceneAsync(UnityEngine.SceneManagement.Scene)
+  id: UnloadSceneAsync(UnityEngine.SceneManagement.Scene)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: UnloadSceneAsync(Scene)
+  nameWithType: NetworkSandbox.UnloadSceneAsync(Scene)
+  fullName: Netick.Unity.NetworkSandbox.UnloadSceneAsync(UnityEngine.SceneManagement.Scene)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void UnloadSceneAsync(Scene scene)
+    parameters:
+    - id: scene
+      type: UnityEngine.SceneManagement.Scene
+    content.vb: Public Sub UnloadSceneAsync(scene As Scene)
+  overload: Netick.Unity.NetworkSandbox.UnloadSceneAsync*
+- uid: Netick.Unity.NetworkSandbox.UnloadSceneAsync(System.String)
+  commentId: M:Netick.Unity.NetworkSandbox.UnloadSceneAsync(System.String)
+  id: UnloadSceneAsync(System.String)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: UnloadSceneAsync(string)
+  nameWithType: NetworkSandbox.UnloadSceneAsync(string)
+  fullName: Netick.Unity.NetworkSandbox.UnloadSceneAsync(string)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void UnloadSceneAsync(string sceneName)
+    parameters:
+    - id: sceneName
+      type: System.String
+    content.vb: Public Sub UnloadSceneAsync(sceneName As String)
+  overload: Netick.Unity.NetworkSandbox.UnloadSceneAsync*
+  nameWithType.vb: NetworkSandbox.UnloadSceneAsync(String)
+  fullName.vb: Netick.Unity.NetworkSandbox.UnloadSceneAsync(String)
+  name.vb: UnloadSceneAsync(String)
 - uid: Netick.Unity.NetworkSandbox.GetPrefab(System.String)
   commentId: M:Netick.Unity.NetworkSandbox.GetPrefab(System.String)
   id: GetPrefab(System.String)
@@ -1259,7 +1448,7 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: 'public T FindObjectOfType<T>(bool activeOnly = true) where T : Component'
+    content: 'public T FindObjectOfType<T>(bool activeOnly = true) where T : class'
     parameters:
     - id: activeOnly
       type: System.Boolean
@@ -1267,7 +1456,7 @@ items:
     - id: T
     return:
       type: '{T}'
-    content.vb: Public Function FindObjectOfType(Of T As Component)(activeOnly As Boolean = True) As T
+    content.vb: Public Function FindObjectOfType(Of T As Class)(activeOnly As Boolean = True) As T
   overload: Netick.Unity.NetworkSandbox.FindObjectOfType*
   nameWithType.vb: NetworkSandbox.FindObjectOfType(Of T)(Boolean)
   fullName.vb: Netick.Unity.NetworkSandbox.FindObjectOfType(Of T)(Boolean)
@@ -1287,7 +1476,7 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: 'public List<T> FindObjectsOfType<T>(bool activeOnly = true) where T : Component'
+    content: 'public List<T> FindObjectsOfType<T>(bool activeOnly = true) where T : class'
     parameters:
     - id: activeOnly
       type: System.Boolean
@@ -1295,7 +1484,7 @@ items:
     - id: T
     return:
       type: System.Collections.Generic.List{{T}}
-    content.vb: Public Function FindObjectsOfType(Of T As Component)(activeOnly As Boolean = True) As List(Of T)
+    content.vb: Public Function FindObjectsOfType(Of T As Class)(activeOnly As Boolean = True) As List(Of T)
   overload: Netick.Unity.NetworkSandbox.FindObjectsOfType*
   nameWithType.vb: NetworkSandbox.FindObjectsOfType(Of T)(Boolean)
   fullName.vb: Netick.Unity.NetworkSandbox.FindObjectsOfType(Of T)(Boolean)
@@ -1315,7 +1504,7 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: 'public void FindObjectsOfType<T>(List<T> results, bool activeOnly = true) where T : Component'
+    content: 'public void FindObjectsOfType<T>(List<T> results, bool activeOnly = true) where T : class'
     parameters:
     - id: results
       type: System.Collections.Generic.List{{T}}
@@ -1323,7 +1512,7 @@ items:
       type: System.Boolean
     typeParameters:
     - id: T
-    content.vb: Public Sub FindObjectsOfType(Of T As Component)(results As List(Of T), activeOnly As Boolean = True)
+    content.vb: Public Sub FindObjectsOfType(Of T As Class)(results As List(Of T), activeOnly As Boolean = True)
   overload: Netick.Unity.NetworkSandbox.FindObjectsOfType*
   nameWithType.vb: NetworkSandbox.FindObjectsOfType(Of T)(List(Of T), Boolean)
   fullName.vb: Netick.Unity.NetworkSandbox.FindObjectsOfType(Of T)(System.Collections.Generic.List(Of T), Boolean)
@@ -1416,6 +1605,29 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsClient As Boolean
   overload: Netick.Unity.NetworkSandbox.IsClient*
+- uid: Netick.Unity.NetworkSandbox.IsHost
+  commentId: P:Netick.Unity.NetworkSandbox.IsHost
+  id: IsHost
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: IsHost
+  nameWithType: NetworkSandbox.IsHost
+  fullName: Netick.Unity.NetworkSandbox.IsHost
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns true if this <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref> is a host.
+  example: []
+  syntax:
+    content: public bool IsHost { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsHost As Boolean
+  overload: Netick.Unity.NetworkSandbox.IsHost*
 - uid: Netick.Unity.NetworkSandbox.Config
   commentId: P:Netick.Unity.NetworkSandbox.Config
   id: Config
@@ -1662,7 +1874,7 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   summary: >-
-    <p>A list containing all connected clients currently, in addition to the server.</p>
+    <p>A list containing all connected clients currently, in addition to the server (when started as a host).</p>
 
     <p>Note: if you only want the clients, use <xref href="Netick.Unity.NetworkSandbox.ConnectedClients" data-throw-if-not-resolved="false"></xref>.</p>
   example: []
@@ -2270,27 +2482,6 @@ items:
       type: System.Action
     content.vb: Public Property PreNetworkFixedUpdate As Action
   overload: Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate*
-- uid: Netick.Unity.NetworkSandbox.Engine
-  commentId: P:Netick.Unity.NetworkSandbox.Engine
-  id: Engine
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: Engine
-  nameWithType: NetworkSandbox.Engine
-  fullName: Netick.Unity.NetworkSandbox.Engine
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public NetickEngine Engine { get; }
-    parameters: []
-    return:
-      type: Netick.NetickEngine
-    content.vb: Public ReadOnly Property Engine As NetickEngine
-  overload: Netick.Unity.NetworkSandbox.Engine*
 - uid: Netick.Unity.NetworkSandbox.Name
   commentId: P:Netick.Unity.NetworkSandbox.Name
   id: Name
@@ -2312,48 +2503,69 @@ items:
       type: System.String
     content.vb: Public ReadOnly Property Name As String
   overload: Netick.Unity.NetworkSandbox.Name*
-- uid: Netick.Unity.NetworkSandbox.HasLoadScene
-  commentId: P:Netick.Unity.NetworkSandbox.HasLoadScene
-  id: HasLoadScene
+- uid: Netick.Unity.NetworkSandbox.Engine
+  commentId: P:Netick.Unity.NetworkSandbox.Engine
+  id: Engine
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: HasLoadScene
-  nameWithType: NetworkSandbox.HasLoadScene
-  fullName: Netick.Unity.NetworkSandbox.HasLoadScene
+  name: Engine
+  nameWithType: NetworkSandbox.Engine
+  fullName: Netick.Unity.NetworkSandbox.Engine
   type: Property
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public bool HasLoadScene { get; set; }
+    content: public NetickEngine Engine { get; }
     parameters: []
     return:
-      type: System.Boolean
-    content.vb: Public Property HasLoadScene As Boolean
-  overload: Netick.Unity.NetworkSandbox.HasLoadScene*
-- uid: Netick.Unity.NetworkSandbox.SceneBuildIndex
-  commentId: P:Netick.Unity.NetworkSandbox.SceneBuildIndex
-  id: SceneBuildIndex
+      type: Netick.NetickEngine
+    content.vb: Public ReadOnly Property Engine As NetickEngine
+  overload: Netick.Unity.NetworkSandbox.Engine*
+- uid: Netick.Unity.NetworkSandbox.Events
+  commentId: P:Netick.Unity.NetworkSandbox.Events
+  id: Events
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: SceneBuildIndex
-  nameWithType: NetworkSandbox.SceneBuildIndex
-  fullName: Netick.Unity.NetworkSandbox.SceneBuildIndex
+  name: Events
+  nameWithType: NetworkSandbox.Events
+  fullName: Netick.Unity.NetworkSandbox.Events
   type: Property
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public int SceneBuildIndex { get; }
+    content: public NetickCallbacks Events { get; }
+    parameters: []
+    return:
+      type: Netick.Unity.NetickCallbacks
+    content.vb: Public ReadOnly Property Events As NetickCallbacks
+  overload: Netick.Unity.NetworkSandbox.Events*
+- uid: Netick.Unity.NetworkSandbox.MainSceneBuildIndex
+  commentId: P:Netick.Unity.NetworkSandbox.MainSceneBuildIndex
+  id: MainSceneBuildIndex
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: MainSceneBuildIndex
+  nameWithType: NetworkSandbox.MainSceneBuildIndex
+  fullName: Netick.Unity.NetworkSandbox.MainSceneBuildIndex
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public int MainSceneBuildIndex { get; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public ReadOnly Property SceneBuildIndex As Integer
-  overload: Netick.Unity.NetworkSandbox.SceneBuildIndex*
+    content.vb: Public ReadOnly Property MainSceneBuildIndex As Integer
+  overload: Netick.Unity.NetworkSandbox.MainSceneBuildIndex*
 - uid: Netick.Unity.NetworkSandbox.IsVisible
   commentId: P:Netick.Unity.NetworkSandbox.IsVisible
   id: IsVisible
@@ -6907,6 +7119,27 @@ references:
   name: DestroyPool
   nameWithType: NetworkSandbox.DestroyPool
   fullName: Netick.Unity.NetworkSandbox.DestroyPool
+- uid: Netick.Unity.NetworkSandbox.Instantiate*
+  commentId: Overload:Netick.Unity.NetworkSandbox.Instantiate
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Instantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_
+  name: Instantiate
+  nameWithType: NetworkSandbox.Instantiate
+  fullName: Netick.Unity.NetworkSandbox.Instantiate
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine.Quaternion
+  commentId: T:UnityEngine.Quaternion
+  parent: UnityEngine
+  isExternal: true
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: UnityEngine.Quaternion
 - uid: Netick.Unity.NetworkObject
   commentId: T:Netick.Unity.NetworkObject
   parent: Netick.Unity
@@ -6922,20 +7155,6 @@ references:
   name: NetworkInstantiate
   nameWithType: NetworkSandbox.NetworkInstantiate
   fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate
-- uid: UnityEngine.Vector3
-  commentId: T:UnityEngine.Vector3
-  parent: UnityEngine
-  isExternal: true
-  name: Vector3
-  nameWithType: Vector3
-  fullName: UnityEngine.Vector3
-- uid: UnityEngine.Quaternion
-  commentId: T:UnityEngine.Quaternion
-  parent: UnityEngine
-  isExternal: true
-  name: Quaternion
-  nameWithType: Quaternion
-  fullName: UnityEngine.Quaternion
 - uid: Netick.NetworkPlayer
   commentId: T:Netick.NetworkPlayer
   parent: Netick
@@ -7096,50 +7315,13 @@ references:
   name: DeattachNonNetworkedRigidbody
   nameWithType: NetworkSandbox.DeattachNonNetworkedRigidbody
   fullName: Netick.Unity.NetworkSandbox.DeattachNonNetworkedRigidbody
-- uid: Netick.Unity.NetworkSandbox.Instantiate*
-  commentId: Overload:Netick.Unity.NetworkSandbox.Instantiate
+- uid: Netick.Unity.NetworkSandbox.RemoveFromLoop*
+  commentId: Overload:Netick.Unity.NetworkSandbox.RemoveFromLoop
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Instantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_
-  name: Instantiate
-  nameWithType: NetworkSandbox.Instantiate
-  fullName: Netick.Unity.NetworkSandbox.Instantiate
-- uid: UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(System.Int32)
-  commentId: M:UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(System.Int32)
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: LoadSceneAsync(int)
-  nameWithType: SceneManager.LoadSceneAsync(int)
-  fullName: UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(int)
-  nameWithType.vb: SceneManager.LoadSceneAsync(Integer)
-  fullName.vb: UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(Integer)
-  name.vb: LoadSceneAsync(Integer)
-  spec.csharp:
-  - uid: UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(System.Int32)
-    name: LoadSceneAsync
-    isExternal: true
-  - name: (
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(System.Int32)
-    name: LoadSceneAsync
-    isExternal: true
-  - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-- uid: Netick.Unity.NetworkSandbox.SwitchScene*
-  commentId: Overload:Netick.Unity.NetworkSandbox.SwitchScene
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_SwitchScene_System_Int32_
-  name: SwitchScene
-  nameWithType: NetworkSandbox.SwitchScene
-  fullName: Netick.Unity.NetworkSandbox.SwitchScene
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_RemoveFromLoop_Netick_Unity_NetworkObject_
+  name: RemoveFromLoop
+  nameWithType: NetworkSandbox.RemoveFromLoop
+  fullName: Netick.Unity.NetworkSandbox.RemoveFromLoop
 - uid: Netick.Unity.NetworkSandbox.Connect*
   commentId: Overload:Netick.Unity.NetworkSandbox.Connect
   isExternal: true
@@ -7217,20 +7399,100 @@ references:
   name: RefreshMatchList
   nameWithType: NetworkSandbox.RefreshMatchList
   fullName: Netick.Unity.NetworkSandbox.RefreshMatchList
-- uid: Netick.Unity.NetworkSandbox.NetworkUpdate*
-  commentId: Overload:Netick.Unity.NetworkSandbox.NetworkUpdate
+- uid: UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(System.Int32)
+  commentId: M:UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(System.Int32)
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_NetworkUpdate
-  name: NetworkUpdate
-  nameWithType: NetworkSandbox.NetworkUpdate
-  fullName: Netick.Unity.NetworkSandbox.NetworkUpdate
-- uid: Netick.Unity.NetworkSandbox.OnSceneSwitchStart*
-  commentId: Overload:Netick.Unity.NetworkSandbox.OnSceneSwitchStart
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: LoadSceneAsync(int)
+  nameWithType: SceneManager.LoadSceneAsync(int)
+  fullName: UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(int)
+  nameWithType.vb: SceneManager.LoadSceneAsync(Integer)
+  fullName.vb: UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(Integer)
+  name.vb: LoadSceneAsync(Integer)
+  spec.csharp:
+  - uid: UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(System.Int32)
+    name: LoadSceneAsync
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(System.Int32)
+    name: LoadSceneAsync
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Netick.Unity.NetworkSandbox.SwitchScene*
+  commentId: Overload:Netick.Unity.NetworkSandbox.SwitchScene
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_OnSceneSwitchStart_System_Int32_
-  name: OnSceneSwitchStart
-  nameWithType: NetworkSandbox.OnSceneSwitchStart
-  fullName: Netick.Unity.NetworkSandbox.OnSceneSwitchStart
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_SwitchScene_System_String_
+  name: SwitchScene
+  nameWithType: NetworkSandbox.SwitchScene
+  fullName: Netick.Unity.NetworkSandbox.SwitchScene
+- uid: Netick.Unity.NetworkSandbox.LoadSceneAsync*
+  commentId: Overload:Netick.Unity.NetworkSandbox.LoadSceneAsync
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_LoadSceneAsync_System_String_UnityEngine_SceneManagement_LoadSceneMode_
+  name: LoadSceneAsync
+  nameWithType: NetworkSandbox.LoadSceneAsync
+  fullName: Netick.Unity.NetworkSandbox.LoadSceneAsync
+- uid: UnityEngine.SceneManagement.LoadSceneMode
+  commentId: T:UnityEngine.SceneManagement.LoadSceneMode
+  parent: UnityEngine.SceneManagement
+  isExternal: true
+  name: LoadSceneMode
+  nameWithType: LoadSceneMode
+  fullName: UnityEngine.SceneManagement.LoadSceneMode
+- uid: UnityEngine.SceneManagement
+  commentId: N:UnityEngine.SceneManagement
+  isExternal: true
+  name: UnityEngine.SceneManagement
+  nameWithType: UnityEngine.SceneManagement
+  fullName: UnityEngine.SceneManagement
+  spec.csharp:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.SceneManagement
+    name: SceneManagement
+    isExternal: true
+  spec.vb:
+  - uid: UnityEngine
+    name: UnityEngine
+    isExternal: true
+  - name: .
+  - uid: UnityEngine.SceneManagement
+    name: SceneManagement
+    isExternal: true
+- uid: UnityEngine.SceneManagement.LoadSceneParameters
+  commentId: T:UnityEngine.SceneManagement.LoadSceneParameters
+  parent: UnityEngine.SceneManagement
+  isExternal: true
+  name: LoadSceneParameters
+  nameWithType: LoadSceneParameters
+  fullName: UnityEngine.SceneManagement.LoadSceneParameters
+- uid: Netick.Unity.NetworkSandbox.UnloadSceneAsync*
+  commentId: Overload:Netick.Unity.NetworkSandbox.UnloadSceneAsync
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_UnloadSceneAsync_System_Int32_
+  name: UnloadSceneAsync
+  nameWithType: NetworkSandbox.UnloadSceneAsync
+  fullName: Netick.Unity.NetworkSandbox.UnloadSceneAsync
+- uid: UnityEngine.SceneManagement.Scene
+  commentId: T:UnityEngine.SceneManagement.Scene
+  parent: UnityEngine.SceneManagement
+  isExternal: true
+  name: Scene
+  nameWithType: Scene
+  fullName: UnityEngine.SceneManagement.Scene
 - uid: Netick.Unity.NetworkSandbox.GetPrefab*
   commentId: Overload:Netick.Unity.NetworkSandbox.GetPrefab
   isExternal: true
@@ -7496,6 +7758,13 @@ references:
   name: IsClient
   nameWithType: NetworkSandbox.IsClient
   fullName: Netick.Unity.NetworkSandbox.IsClient
+- uid: Netick.Unity.NetworkSandbox.IsHost*
+  commentId: Overload:Netick.Unity.NetworkSandbox.IsHost
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_IsHost
+  name: IsHost
+  nameWithType: NetworkSandbox.IsHost
+  fullName: Netick.Unity.NetworkSandbox.IsHost
 - uid: Netick.Unity.NetworkSandbox.Config*
   commentId: Overload:Netick.Unity.NetworkSandbox.Config
   isExternal: true
@@ -7558,13 +7827,6 @@ references:
   name: Physics
   nameWithType: NetworkSandbox.Physics
   fullName: Netick.Unity.NetworkSandbox.Physics
-- uid: UnityEngine.SceneManagement.Scene
-  commentId: T:UnityEngine.SceneManagement.Scene
-  parent: UnityEngine.SceneManagement
-  isExternal: true
-  name: Scene
-  nameWithType: Scene
-  fullName: UnityEngine.SceneManagement.Scene
 - uid: Netick.Unity.NetworkSandbox.Scene*
   commentId: Overload:Netick.Unity.NetworkSandbox.Scene
   isExternal: true
@@ -7572,28 +7834,6 @@ references:
   name: Scene
   nameWithType: NetworkSandbox.Scene
   fullName: Netick.Unity.NetworkSandbox.Scene
-- uid: UnityEngine.SceneManagement
-  commentId: N:UnityEngine.SceneManagement
-  isExternal: true
-  name: UnityEngine.SceneManagement
-  nameWithType: UnityEngine.SceneManagement
-  fullName: UnityEngine.SceneManagement
-  spec.csharp:
-  - uid: UnityEngine
-    name: UnityEngine
-    isExternal: true
-  - name: .
-  - uid: UnityEngine.SceneManagement
-    name: SceneManagement
-    isExternal: true
-  spec.vb:
-  - uid: UnityEngine
-    name: UnityEngine
-    isExternal: true
-  - name: .
-  - uid: UnityEngine.SceneManagement
-    name: SceneManagement
-    isExternal: true
 - uid: Netick.Unity.NetworkSandbox.IsRunning*
   commentId: Overload:Netick.Unity.NetworkSandbox.IsRunning
   isExternal: true
@@ -8153,6 +8393,13 @@ references:
   name: PreNetworkFixedUpdate
   nameWithType: NetworkSandbox.PreNetworkFixedUpdate
   fullName: Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate
+- uid: Netick.Unity.NetworkSandbox.Name*
+  commentId: Overload:Netick.Unity.NetworkSandbox.Name
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Name
+  name: Name
+  nameWithType: NetworkSandbox.Name
+  fullName: Netick.Unity.NetworkSandbox.Name
 - uid: Netick.Unity.NetworkSandbox.Engine*
   commentId: Overload:Netick.Unity.NetworkSandbox.Engine
   isExternal: true
@@ -8168,27 +8415,28 @@ references:
   name: NetickEngine
   nameWithType: NetickEngine
   fullName: Netick.NetickEngine
-- uid: Netick.Unity.NetworkSandbox.Name*
-  commentId: Overload:Netick.Unity.NetworkSandbox.Name
+- uid: Netick.Unity.NetworkSandbox.Events*
+  commentId: Overload:Netick.Unity.NetworkSandbox.Events
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Name
-  name: Name
-  nameWithType: NetworkSandbox.Name
-  fullName: Netick.Unity.NetworkSandbox.Name
-- uid: Netick.Unity.NetworkSandbox.HasLoadScene*
-  commentId: Overload:Netick.Unity.NetworkSandbox.HasLoadScene
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Events
+  name: Events
+  nameWithType: NetworkSandbox.Events
+  fullName: Netick.Unity.NetworkSandbox.Events
+- uid: Netick.Unity.NetickCallbacks
+  commentId: T:Netick.Unity.NetickCallbacks
+  parent: Netick.Unity
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_HasLoadScene
-  name: HasLoadScene
-  nameWithType: NetworkSandbox.HasLoadScene
-  fullName: Netick.Unity.NetworkSandbox.HasLoadScene
-- uid: Netick.Unity.NetworkSandbox.SceneBuildIndex*
-  commentId: Overload:Netick.Unity.NetworkSandbox.SceneBuildIndex
+  href: Netick.Unity.NetickCallbacks.html
+  name: NetickCallbacks
+  nameWithType: NetickCallbacks
+  fullName: Netick.Unity.NetickCallbacks
+- uid: Netick.Unity.NetworkSandbox.MainSceneBuildIndex*
+  commentId: Overload:Netick.Unity.NetworkSandbox.MainSceneBuildIndex
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_SceneBuildIndex
-  name: SceneBuildIndex
-  nameWithType: NetworkSandbox.SceneBuildIndex
-  fullName: Netick.Unity.NetworkSandbox.SceneBuildIndex
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_MainSceneBuildIndex
+  name: MainSceneBuildIndex
+  nameWithType: NetworkSandbox.MainSceneBuildIndex
+  fullName: Netick.Unity.NetworkSandbox.MainSceneBuildIndex
 - uid: Netick.Unity.NetworkSandbox.IsVisible*
   commentId: Overload:Netick.Unity.NetworkSandbox.IsVisible
   isExternal: true

@@ -13,12 +13,13 @@ items:
   - Netick.Entity.Finalize
   - Netick.Entity.GameEngineIntoNetcode
   - Netick.Entity.GetStateSizeWords(Netick.INetickNetworkScript[])
-  - Netick.Entity.GridDirtify(System.Int32*,Netick.Entity,System.Int32)
+  - Netick.Entity.GridDirtify(System.Int32,Netick.Entity,System.Int32)
   - Netick.Entity.InputSource
-  - Netick.Entity.InputSourceIndex
+  - Netick.Entity.InputSourcePlayerId
+  - Netick.Entity.InstanceCounter
   - Netick.Entity.InterestGroup
   - Netick.Entity.InternalDirtify(Netick.INetickNetworkScript,System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
-  - Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
+  - Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
   - Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
   - Netick.Entity.IsExplicitlyPredicted
   - Netick.Entity.IsInputSource
@@ -43,8 +44,9 @@ items:
   - Netick.Entity.StateOffsetBytes
   - Netick.Entity.StatePtr
   - Netick.Entity.StateSizeWord
-  - Netick.Entity.UserData
   - Netick.Entity.UserEntity
+  - Netick.Entity.UserId
+  - Netick.Entity.WorldIndex
   langs:
   - csharp
   - vb
@@ -77,25 +79,6 @@ items:
   - type: Netick.IgnoreCodeGen
     ctor: Netick.IgnoreCodeGen.#ctor
     arguments: []
-- uid: Netick.Entity.UserData
-  commentId: F:Netick.Entity.UserData
-  id: UserData
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: UserData
-  nameWithType: Entity.UserData
-  fullName: Netick.Entity.UserData
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int* UserData
-    return:
-      type: System.Int32*
-    content.vb: Public UserData As Integer*
 - uid: Netick.Entity.Engine
   commentId: F:Netick.Entity.Engine
   id: Engine
@@ -134,25 +117,6 @@ items:
     return:
       type: Netick.INetickEntity
     content.vb: Public UserEntity As INetickEntity
-- uid: Netick.Entity.Position
-  commentId: F:Netick.Entity.Position
-  id: Position
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: Position
-  nameWithType: Entity.Position
-  fullName: Netick.Entity.Position
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public Vector3 Position
-    return:
-      type: System.Numerics.Vector3
-    content.vb: Public Position As Vector3
 - uid: Netick.Entity.ObjectMeta
   commentId: F:Netick.Entity.ObjectMeta
   id: ObjectMeta
@@ -210,6 +174,25 @@ items:
     return:
       type: Netick.AdaptiveRemoteInterpolation
     content.vb: Public AdaptiveRemoteInterpolation As AdaptiveRemoteInterpolation
+- uid: Netick.Entity.UserId
+  commentId: F:Netick.Entity.UserId
+  id: UserId
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: UserId
+  nameWithType: Entity.UserId
+  fullName: Netick.Entity.UserId
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int UserId
+    return:
+      type: System.Int32
+    content.vb: Public UserId As Integer
 - uid: Netick.Entity.NetworkId
   commentId: F:Netick.Entity.NetworkId
   id: NetworkId
@@ -229,6 +212,63 @@ items:
     return:
       type: System.Int32
     content.vb: Public NetworkId As Integer
+- uid: Netick.Entity.WorldIndex
+  commentId: F:Netick.Entity.WorldIndex
+  id: WorldIndex
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: WorldIndex
+  nameWithType: Entity.WorldIndex
+  fullName: Netick.Entity.WorldIndex
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int WorldIndex
+    return:
+      type: System.Int32
+    content.vb: Public WorldIndex As Integer
+- uid: Netick.Entity.Position
+  commentId: F:Netick.Entity.Position
+  id: Position
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: Entity.Position
+  fullName: Netick.Entity.Position
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Vector3 Position
+    return:
+      type: System.Numerics.Vector3
+    content.vb: Public Position As Vector3
+- uid: Netick.Entity.InstanceCounter
+  commentId: F:Netick.Entity.InstanceCounter
+  id: InstanceCounter
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: InstanceCounter
+  nameWithType: Entity.InstanceCounter
+  fullName: Netick.Entity.InstanceCounter
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int InstanceCounter
+    return:
+      type: System.Int32
+    content.vb: Public InstanceCounter As Integer
 - uid: Netick.Entity.StatePtr
   commentId: F:Netick.Entity.StatePtr
   id: StatePtr
@@ -358,26 +398,30 @@ items:
   nameWithType.vb: Entity.InternalDirtify(INetickNetworkScript, Integer*, Integer*, Integer, Integer, Integer)
   fullName.vb: Netick.Entity.InternalDirtify(Netick.INetickNetworkScript, Integer*, Integer*, Integer, Integer, Integer)
   name.vb: InternalDirtify(INetickNetworkScript, Integer*, Integer*, Integer, Integer, Integer)
-- uid: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
-  commentId: M:Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
-  id: InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
+- uid: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
+  commentId: M:Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
+  id: InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
   parent: Netick.Entity
   langs:
   - csharp
   - vb
-  name: InternalRegOnChanged(INetickNetworkScript, int, int*, int*, int, OnChangedEvent)
-  nameWithType: Entity.InternalRegOnChanged(INetickNetworkScript, int, int*, int*, int, OnChangedEvent)
-  fullName: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript, int, int*, int*, int, Netick.OnChangedEvent)
+  name: InternalRegOnChanged(INetickNetworkScript, int, int, int, int*, int*, int, OnChangedEvent)
+  nameWithType: Entity.InternalRegOnChanged(INetickNetworkScript, int, int, int, int*, int*, int, OnChangedEvent)
+  fullName: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript, int, int, int, int*, int*, int, Netick.OnChangedEvent)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public static void InternalRegOnChanged(INetickNetworkScript script, int isArray, int* propertyStart, int* propertyPartIndex, int propertySizeWords, OnChangedEvent onChanged)
+    content: public static void InternalRegOnChanged(INetickNetworkScript script, int isArray, int invokeDuringResims, int inversePrecision, int* propertyStart, int* propertyPartIndex, int propertySizeWords, OnChangedEvent onChanged)
     parameters:
     - id: script
       type: Netick.INetickNetworkScript
     - id: isArray
+      type: System.Int32
+    - id: invokeDuringResims
+      type: System.Int32
+    - id: inversePrecision
       type: System.Int32
     - id: propertyStart
       type: System.Int32*
@@ -387,11 +431,11 @@ items:
       type: System.Int32
     - id: onChanged
       type: Netick.OnChangedEvent
-    content.vb: Public Shared Sub InternalRegOnChanged(script As INetickNetworkScript, isArray As Integer, propertyStart As Integer*, propertyPartIndex As Integer*, propertySizeWords As Integer, onChanged As OnChangedEvent)
+    content.vb: Public Shared Sub InternalRegOnChanged(script As INetickNetworkScript, isArray As Integer, invokeDuringResims As Integer, inversePrecision As Integer, propertyStart As Integer*, propertyPartIndex As Integer*, propertySizeWords As Integer, onChanged As OnChangedEvent)
   overload: Netick.Entity.InternalRegOnChanged*
-  nameWithType.vb: Entity.InternalRegOnChanged(INetickNetworkScript, Integer, Integer*, Integer*, Integer, OnChangedEvent)
-  fullName.vb: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript, Integer, Integer*, Integer*, Integer, Netick.OnChangedEvent)
-  name.vb: InternalRegOnChanged(INetickNetworkScript, Integer, Integer*, Integer*, Integer, OnChangedEvent)
+  nameWithType.vb: Entity.InternalRegOnChanged(INetickNetworkScript, Integer, Integer, Integer, Integer*, Integer*, Integer, OnChangedEvent)
+  fullName.vb: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript, Integer, Integer, Integer, Integer*, Integer*, Integer, Netick.OnChangedEvent)
+  name.vb: InternalRegOnChanged(INetickNetworkScript, Integer, Integer, Integer, Integer*, Integer*, Integer, OnChangedEvent)
 - uid: Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
   commentId: M:Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
   id: InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
@@ -725,36 +769,36 @@ items:
   nameWithType.vb: Entity.Dirtify(Integer*, Integer)
   fullName.vb: Netick.Entity.Dirtify(Integer*, Integer)
   name.vb: Dirtify(Integer*, Integer)
-- uid: Netick.Entity.GridDirtify(System.Int32*,Netick.Entity,System.Int32)
-  commentId: M:Netick.Entity.GridDirtify(System.Int32*,Netick.Entity,System.Int32)
-  id: GridDirtify(System.Int32*,Netick.Entity,System.Int32)
+- uid: Netick.Entity.GridDirtify(System.Int32,Netick.Entity,System.Int32)
+  commentId: M:Netick.Entity.GridDirtify(System.Int32,Netick.Entity,System.Int32)
+  id: GridDirtify(System.Int32,Netick.Entity,System.Int32)
   parent: Netick.Entity
   langs:
   - csharp
   - vb
-  name: GridDirtify(int*, Entity, int)
-  nameWithType: Entity.GridDirtify(int*, Entity, int)
-  fullName: Netick.Entity.GridDirtify(int*, Netick.Entity, int)
+  name: GridDirtify(int, Entity, int)
+  nameWithType: Entity.GridDirtify(int, Entity, int)
+  fullName: Netick.Entity.GridDirtify(int, Netick.Entity, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool GridDirtify(int* p, Entity entity, int isInputSourceOnly = 0)
+    content: public bool GridDirtify(int index, Entity entity, int isInputSourceOnly = 0)
     parameters:
-    - id: p
-      type: System.Int32*
+    - id: index
+      type: System.Int32
     - id: entity
       type: Netick.Entity
     - id: isInputSourceOnly
       type: System.Int32
     return:
       type: System.Boolean
-    content.vb: Public Function GridDirtify(p As Integer*, entity As Entity, isInputSourceOnly As Integer = 0) As Boolean
+    content.vb: Public Function GridDirtify(index As Integer, entity As Entity, isInputSourceOnly As Integer = 0) As Boolean
   overload: Netick.Entity.GridDirtify*
-  nameWithType.vb: Entity.GridDirtify(Integer*, Entity, Integer)
-  fullName.vb: Netick.Entity.GridDirtify(Integer*, Netick.Entity, Integer)
-  name.vb: GridDirtify(Integer*, Entity, Integer)
+  nameWithType.vb: Entity.GridDirtify(Integer, Entity, Integer)
+  fullName.vb: Netick.Entity.GridDirtify(Integer, Netick.Entity, Integer)
+  name.vb: GridDirtify(Integer, Entity, Integer)
 - uid: Netick.Entity.IsInputSource
   commentId: P:Netick.Entity.IsInputSource
   id: IsInputSource
@@ -881,27 +925,27 @@ items:
       type: System.Boolean
     content.vb: Public Property IsExplicitlyPredicted As Boolean
   overload: Netick.Entity.IsExplicitlyPredicted*
-- uid: Netick.Entity.InputSourceIndex
-  commentId: P:Netick.Entity.InputSourceIndex
-  id: InputSourceIndex
+- uid: Netick.Entity.InputSourcePlayerId
+  commentId: P:Netick.Entity.InputSourcePlayerId
+  id: InputSourcePlayerId
   parent: Netick.Entity
   langs:
   - csharp
   - vb
-  name: InputSourceIndex
-  nameWithType: Entity.InputSourceIndex
-  fullName: Netick.Entity.InputSourceIndex
+  name: InputSourcePlayerId
+  nameWithType: Entity.InputSourcePlayerId
+  fullName: Netick.Entity.InputSourcePlayerId
   type: Property
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public int InputSourceIndex { get; set; }
+    content: public int InputSourcePlayerId { get; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property InputSourceIndex As Integer
-  overload: Netick.Entity.InputSourceIndex*
+    content.vb: Public ReadOnly Property InputSourcePlayerId As Integer
+  overload: Netick.Entity.InputSourcePlayerId*
 - uid: Netick.Entity.InputSource
   commentId: P:Netick.Entity.InputSource
   id: InputSource
@@ -1165,27 +1209,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.Int32*
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int*
-  nameWithType: int*
-  fullName: int*
-  nameWithType.vb: Integer*
-  fullName.vb: Integer*
-  name.vb: Integer*
-  spec.csharp:
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '*'
-  spec.vb:
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '*'
 - uid: Netick.NetickEngine
   commentId: T:Netick.NetickEngine
   parent: Netick
@@ -1202,6 +1225,33 @@ references:
   name: INetickEntity
   nameWithType: INetickEntity
   fullName: Netick.INetickEntity
+- uid: Netick.NetickUniqueObjectMeta
+  commentId: T:Netick.NetickUniqueObjectMeta
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickUniqueObjectMeta.html
+  name: NetickUniqueObjectMeta
+  nameWithType: NetickUniqueObjectMeta
+  fullName: Netick.NetickUniqueObjectMeta
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.AdaptiveRemoteInterpolation
+  commentId: T:Netick.AdaptiveRemoteInterpolation
+  parent: Netick
+  isExternal: true
+  href: Netick.AdaptiveRemoteInterpolation.html
+  name: AdaptiveRemoteInterpolation
+  nameWithType: AdaptiveRemoteInterpolation
+  fullName: Netick.AdaptiveRemoteInterpolation
 - uid: System.Numerics.Vector3
   commentId: T:System.Numerics.Vector3
   parent: System.Numerics
@@ -1237,33 +1287,6 @@ references:
     name: Numerics
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.numerics
-- uid: Netick.NetickUniqueObjectMeta
-  commentId: T:Netick.NetickUniqueObjectMeta
-  parent: Netick
-  isExternal: true
-  href: Netick.NetickUniqueObjectMeta.html
-  name: NetickUniqueObjectMeta
-  nameWithType: NetickUniqueObjectMeta
-  fullName: Netick.NetickUniqueObjectMeta
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: Netick.AdaptiveRemoteInterpolation
-  commentId: T:Netick.AdaptiveRemoteInterpolation
-  parent: Netick
-  isExternal: true
-  href: Netick.AdaptiveRemoteInterpolation.html
-  name: AdaptiveRemoteInterpolation
-  nameWithType: AdaptiveRemoteInterpolation
-  fullName: Netick.AdaptiveRemoteInterpolation
 - uid: System.Void*
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.void
@@ -1296,6 +1319,27 @@ references:
   nameWithType.vb: Long
   fullName.vb: Long
   name.vb: Long
+- uid: System.Int32*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int*
+  nameWithType: int*
+  fullName: int*
+  nameWithType.vb: Integer*
+  fullName.vb: Integer*
+  name.vb: Integer*
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
 - uid: Netick.Entity.InternalDirtify*
   commentId: Overload:Netick.Entity.InternalDirtify
   isExternal: true
@@ -1314,7 +1358,7 @@ references:
 - uid: Netick.Entity.InternalRegOnChanged*
   commentId: Overload:Netick.Entity.InternalRegOnChanged
   isExternal: true
-  href: Netick.Entity.html#Netick_Entity_InternalRegOnChanged_Netick_INetickNetworkScript_System_Int32_System_Int32__System_Int32__System_Int32_Netick_OnChangedEvent_
+  href: Netick.Entity.html#Netick_Entity_InternalRegOnChanged_Netick_INetickNetworkScript_System_Int32_System_Int32_System_Int32_System_Int32__System_Int32__System_Int32_Netick_OnChangedEvent_
   name: InternalRegOnChanged
   nameWithType: Entity.InternalRegOnChanged
   fullName: Netick.Entity.InternalRegOnChanged
@@ -1497,7 +1541,7 @@ references:
 - uid: Netick.Entity.GridDirtify*
   commentId: Overload:Netick.Entity.GridDirtify
   isExternal: true
-  href: Netick.Entity.html#Netick_Entity_GridDirtify_System_Int32__Netick_Entity_System_Int32_
+  href: Netick.Entity.html#Netick_Entity_GridDirtify_System_Int32_Netick_Entity_System_Int32_
   name: GridDirtify
   nameWithType: Entity.GridDirtify
   fullName: Netick.Entity.GridDirtify
@@ -1551,13 +1595,13 @@ references:
   name: IsExplicitlyPredicted
   nameWithType: Entity.IsExplicitlyPredicted
   fullName: Netick.Entity.IsExplicitlyPredicted
-- uid: Netick.Entity.InputSourceIndex*
-  commentId: Overload:Netick.Entity.InputSourceIndex
+- uid: Netick.Entity.InputSourcePlayerId*
+  commentId: Overload:Netick.Entity.InputSourcePlayerId
   isExternal: true
-  href: Netick.Entity.html#Netick_Entity_InputSourceIndex
-  name: InputSourceIndex
-  nameWithType: Entity.InputSourceIndex
-  fullName: Netick.Entity.InputSourceIndex
+  href: Netick.Entity.html#Netick_Entity_InputSourcePlayerId
+  name: InputSourcePlayerId
+  nameWithType: Entity.InputSourcePlayerId
+  fullName: Netick.Entity.InputSourcePlayerId
 - uid: Netick.Entity.InputSource*
   commentId: Overload:Netick.Entity.InputSource
   isExternal: true

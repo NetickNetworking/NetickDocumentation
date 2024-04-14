@@ -18,6 +18,8 @@ items:
   - Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
   - Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
   - Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
+  - Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)
+  - Netick.Unity.NetworkEventsListener.OnPlayerDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
   - Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
   - Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
   - Netick.Unity.NetworkEventsListener.OnShutdown(Netick.Unity.NetworkSandbox)
@@ -35,14 +37,15 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: 'public abstract class NetworkEventsListener : MonoBehaviour'
-    content.vb: Public MustInherit Class NetworkEventsListener Inherits MonoBehaviour
+    content: 'public abstract class NetworkEventsListener : NetickBaseBehaviour'
+    content.vb: Public MustInherit Class NetworkEventsListener Inherits NetickBaseBehaviour
   inheritance:
   - System.Object
   - UnityEngine.Object
   - UnityEngine.Component
   - UnityEngine.Behaviour
   - UnityEngine.MonoBehaviour
+  - Netick.Unity.NetickBaseBehaviour
   derivedClasses:
   - Netick.Unity.GridRenderer
   - Netick.Unity.NetworkEvents
@@ -476,6 +479,60 @@ items:
       type: Netick.TransportDisconnectReason
     content.vb: Public Overridable Sub OnClientDisconnected(sandbox As NetworkSandbox, client As NetworkConnection, transportDisconnectReason As TransportDisconnectReason)
   overload: Netick.Unity.NetworkEventsListener.OnClientDisconnected*
+- uid: Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)
+  id: OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)
+  parent: Netick.Unity.NetworkEventsListener
+  langs:
+  - csharp
+  - vb
+  name: OnPlayerConnected(NetworkSandbox, NetworkPlayer)
+  nameWithType: NetworkEventsListener.OnPlayerConnected(NetworkSandbox, NetworkPlayer)
+  fullName: Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox, Netick.NetworkPlayer)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Called on the server when a specific player has connected.
+  example: []
+  syntax:
+    content: public virtual void OnPlayerConnected(NetworkSandbox sandbox, NetworkPlayer player)
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+      description: ''
+    - id: player
+      type: Netick.NetworkPlayer
+    content.vb: Public Overridable Sub OnPlayerConnected(sandbox As NetworkSandbox, player As NetworkPlayer)
+  overload: Netick.Unity.NetworkEventsListener.OnPlayerConnected*
+- uid: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnPlayerDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  id: OnPlayerDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  parent: Netick.Unity.NetworkEventsListener
+  langs:
+  - csharp
+  - vb
+  name: OnPlayerDisconnected(NetworkSandbox, NetworkPlayer, TransportDisconnectReason)
+  nameWithType: NetworkEventsListener.OnPlayerDisconnected(NetworkSandbox, NetworkPlayer, TransportDisconnectReason)
+  fullName: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected(Netick.Unity.NetworkSandbox, Netick.NetworkPlayer, Netick.TransportDisconnectReason)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Called on the server when a specific player has disconnected.
+  example: []
+  syntax:
+    content: public virtual void OnPlayerDisconnected(NetworkSandbox sandbox, NetworkPlayer player, TransportDisconnectReason transportDisconnectReason)
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+      description: ''
+    - id: player
+      type: Netick.NetworkPlayer
+    - id: transportDisconnectReason
+      type: Netick.TransportDisconnectReason
+    content.vb: Public Overridable Sub OnPlayerDisconnected(sandbox As NetworkSandbox, player As NetworkPlayer, transportDisconnectReason As TransportDisconnectReason)
+  overload: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected*
 - uid: Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
   commentId: M:Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
   id: OnObjectCreated(Netick.Unity.NetworkObject)
@@ -698,6 +755,14 @@ references:
   name: MonoBehaviour
   nameWithType: MonoBehaviour
   fullName: UnityEngine.MonoBehaviour
+- uid: Netick.Unity.NetickBaseBehaviour
+  commentId: T:Netick.Unity.NetickBaseBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetickBaseBehaviour.html
+  name: NetickBaseBehaviour
+  nameWithType: NetickBaseBehaviour
+  fullName: Netick.Unity.NetickBaseBehaviour
 - uid: UnityEngine.MonoBehaviour.IsInvoking
   commentId: M:UnityEngine.MonoBehaviour.IsInvoking
   parent: UnityEngine.MonoBehaviour
@@ -5255,6 +5320,28 @@ references:
   name: OnClientDisconnected
   nameWithType: NetworkEventsListener.OnClientDisconnected
   fullName: Netick.Unity.NetworkEventsListener.OnClientDisconnected
+- uid: Netick.Unity.NetworkEventsListener.OnPlayerConnected*
+  commentId: Overload:Netick.Unity.NetworkEventsListener.OnPlayerConnected
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerConnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_
+  name: OnPlayerConnected
+  nameWithType: NetworkEventsListener.OnPlayerConnected
+  fullName: Netick.Unity.NetworkEventsListener.OnPlayerConnected
+- uid: Netick.NetworkPlayer
+  commentId: T:Netick.NetworkPlayer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayer.html
+  name: NetworkPlayer
+  nameWithType: NetworkPlayer
+  fullName: Netick.NetworkPlayer
+- uid: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected*
+  commentId: Overload:Netick.Unity.NetworkEventsListener.OnPlayerDisconnected
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_Netick_TransportDisconnectReason_
+  name: OnPlayerDisconnected
+  nameWithType: NetworkEventsListener.OnPlayerDisconnected
+  fullName: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected
 - uid: Netick.Unity.NetworkEventsListener.OnObjectCreated*
   commentId: Overload:Netick.Unity.NetworkEventsListener.OnObjectCreated
   isExternal: true
@@ -5304,6 +5391,7 @@ references:
   - uid: Netick.Session
     name: Session
     isExternal: true
+    href: Netick.Session.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -5316,6 +5404,7 @@ references:
   - uid: Netick.Session
     name: Session
     isExternal: true
+    href: Netick.Session.html
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1

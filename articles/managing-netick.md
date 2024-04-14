@@ -109,4 +109,4 @@ Unload additive scene (this must only be called for unloading an additively load
 sandbox.UnoadSceneAsync("sceneName");
 ```
 
-To find the index of a scene, open the Build Settings window where you will see a list of all added scenes. If the desired scene is not present, open that scene and add it to the list.
+To find the build index of a scene, open the Build Settings window where you will see a list of all added scenes. If the desired scene is not present, open that scene and add it to the list.

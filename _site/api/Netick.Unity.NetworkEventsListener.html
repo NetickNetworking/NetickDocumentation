@@ -102,7 +102,7 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class NetworkEventsListener : MonoBehaviour</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class NetworkEventsListener : NetickBaseBehaviour</code></pre>
   </div>
 
 
@@ -116,6 +116,7 @@
       <div><span class="xref">Component</span></div>
       <div><span class="xref">Behaviour</span></div>
       <div><span class="xref">MonoBehaviour</span></div>
+      <div><a class="xref" href="Netick.Unity.NetickBaseBehaviour.html">NetickBaseBehaviour</a></div>
       <div><span class="xref">NetworkEventsListener</span></div>
     </dd>
   </dl>
@@ -945,6 +946,76 @@
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>entity</code> <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEventsListener_OnPlayerConnected_" data-uid="Netick.Unity.NetworkEventsListener.OnPlayerConnected*"></a>
+
+  <h3 id="Netick_Unity_NetworkEventsListener_OnPlayerConnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_" data-uid="Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)">
+  OnPlayerConnected(NetworkSandbox, NetworkPlayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on the server when a specific player has connected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnPlayerConnected(NetworkSandbox sandbox, NetworkPlayer player)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>player</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEventsListener_OnPlayerDisconnected_" data-uid="Netick.Unity.NetworkEventsListener.OnPlayerDisconnected*"></a>
+
+  <h3 id="Netick_Unity_NetworkEventsListener_OnPlayerDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_Netick_TransportDisconnectReason_" data-uid="Netick.Unity.NetworkEventsListener.OnPlayerDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)">
+  OnPlayerDisconnected(NetworkSandbox, NetworkPlayer, TransportDisconnectReason)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on the server when a specific player has disconnected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnPlayerDisconnected(NetworkSandbox sandbox, NetworkPlayer player, TransportDisconnectReason transportDisconnectReason)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>player</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+    <dt><code>transportDisconnectReason</code> <a class="xref" href="Netick.TransportDisconnectReason.html">TransportDisconnectReason</a></dt>
     <dd></dd>
   </dl>
 

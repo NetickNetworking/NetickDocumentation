@@ -65,7 +65,7 @@ public class MyBehaviour : NetworkBehaviour
 
     public override void NetworkFixedUpdate()
     {
-        // Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.
+        // Called every fixed-time network step. Any changes to the networked state should happen here.
         // Check out the chapter named "Writing Client-Side Prediction code" to learn more about this method.
     }
 }

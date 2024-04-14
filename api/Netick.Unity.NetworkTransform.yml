@@ -64,10 +64,12 @@ items:
   - UnityEngine.Component
   - UnityEngine.Behaviour
   - UnityEngine.MonoBehaviour
+  - Netick.Unity.NetickBaseBehaviour
   - Netick.Unity.NetickBehaviour
   - Netick.Unity.NetworkBehaviour
   derivedClasses:
   - Netick.Unity.NetworkRigidbody
+  - Netick.Unity.NetworkRigidbody2D
   implements:
   - Netick.INetickNetworkScript
   - Netick.INetickScript
@@ -420,9 +422,9 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   summary: >-
-    Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.
+    Called every fixed-time network step. Any changes to the networked state should happen here.
 
-    <p>On the client, if you are the Input Source or if this Object.PredictionMode is set to None, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
+    <p>On the client, if you are the Input Source or if this Object.PredictionMode is set to Everyone, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
   example: []
   syntax:
     content: public override void NetworkFixedUpdate()
@@ -614,11 +616,11 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public InterpolationMode InterpolationSource { get; set; }
+    content: public InterpolationSource InterpolationSource { get; set; }
     parameters: []
     return:
-      type: Netick.InterpolationMode
-    content.vb: Public Property InterpolationSource As InterpolationMode
+      type: Netick.InterpolationSource
+    content.vb: Public Property InterpolationSource As InterpolationSource
   overload: Netick.Unity.NetworkTransform.InterpolationSource*
 references:
 - uid: Netick.Unity
@@ -687,6 +689,14 @@ references:
   name: MonoBehaviour
   nameWithType: MonoBehaviour
   fullName: UnityEngine.MonoBehaviour
+- uid: Netick.Unity.NetickBaseBehaviour
+  commentId: T:Netick.Unity.NetickBaseBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetickBaseBehaviour.html
+  name: NetickBaseBehaviour
+  nameWithType: NetickBaseBehaviour
+  fullName: Netick.Unity.NetickBaseBehaviour
 - uid: Netick.Unity.NetickBehaviour
   commentId: T:Netick.Unity.NetickBehaviour
   parent: Netick.Unity
@@ -6023,11 +6033,11 @@ references:
   name: InterpolationSource
   nameWithType: NetworkTransform.InterpolationSource
   fullName: Netick.Unity.NetworkTransform.InterpolationSource
-- uid: Netick.InterpolationMode
-  commentId: T:Netick.InterpolationMode
+- uid: Netick.InterpolationSource
+  commentId: T:Netick.InterpolationSource
   parent: Netick
   isExternal: true
-  href: Netick.InterpolationMode.html
-  name: InterpolationMode
-  nameWithType: InterpolationMode
-  fullName: Netick.InterpolationMode
+  href: Netick.InterpolationSource.html
+  name: InterpolationSource
+  nameWithType: InterpolationSource
+  fullName: Netick.InterpolationSource

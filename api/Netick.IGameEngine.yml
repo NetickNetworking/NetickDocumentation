@@ -7,7 +7,6 @@ items:
   children:
   - Netick.IGameEngine.GetConnectionMetaSizeWords
   - Netick.IGameEngine.GetEntityMetaSizeWords
-  - Netick.IGameEngine.GetEntityUserDataSizeWords
   - Netick.IGameEngine.GetPredictionInterestList
   - Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
   - Netick.IGameEngine.OnClientConnected
@@ -16,18 +15,21 @@ items:
   - Netick.IGameEngine.OnConnectRequest(Netick.NetworkConnectionRequest)
   - Netick.IGameEngine.OnEntityDespawned(Netick.Entity)
   - Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity,System.Boolean)
-  - Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*)
-  - Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*)
+  - Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  - Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*,System.Int32)
   - Netick.IGameEngine.OnEntitySpawned(Netick.Entity)
   - Netick.IGameEngine.OnInputRead
+  - Netick.IGameEngine.OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
   - Netick.IGameEngine.OnNetworkFixedUpdate
   - Netick.IGameEngine.OnNetworkRender
   - Netick.IGameEngine.OnNetworkUpdate
   - Netick.IGameEngine.OnPacketReceived(Netick.NetworkConnection)
   - Netick.IGameEngine.OnPeerConnected(Netick.NetworkConnection)
   - Netick.IGameEngine.OnPeerDisconnected(Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  - Netick.IGameEngine.OnPlayerConnected(Netick.NetworkPlayer)
+  - Netick.IGameEngine.OnPlayerDisconnected(Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  - Netick.IGameEngine.OnUnlinkedEntityDespawned(Netick.Entity)
   - Netick.IGameEngine.PopulateEntityMeta(Netick.Entity)
-  - Netick.IGameEngine.SimulatePhysics
   - Netick.IGameEngine.SyncTransformsToPhysics
   langs:
   - csharp
@@ -80,24 +82,6 @@ items:
     content: void SyncTransformsToPhysics()
     content.vb: Sub SyncTransformsToPhysics()
   overload: Netick.IGameEngine.SyncTransformsToPhysics*
-- uid: Netick.IGameEngine.SimulatePhysics
-  commentId: M:Netick.IGameEngine.SimulatePhysics
-  id: SimulatePhysics
-  parent: Netick.IGameEngine
-  langs:
-  - csharp
-  - vb
-  name: SimulatePhysics()
-  nameWithType: IGameEngine.SimulatePhysics()
-  fullName: Netick.IGameEngine.SimulatePhysics()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: void SimulatePhysics()
-    content.vb: Sub SimulatePhysics()
-  overload: Netick.IGameEngine.SimulatePhysics*
 - uid: Netick.IGameEngine.GetConnectionMetaSizeWords
   commentId: M:Netick.IGameEngine.GetConnectionMetaSizeWords
   id: GetConnectionMetaSizeWords
@@ -144,26 +128,6 @@ items:
       description: ''
     content.vb: Function GetEntityMetaSizeWords() As Integer
   overload: Netick.IGameEngine.GetEntityMetaSizeWords*
-- uid: Netick.IGameEngine.GetEntityUserDataSizeWords
-  commentId: M:Netick.IGameEngine.GetEntityUserDataSizeWords
-  id: GetEntityUserDataSizeWords
-  parent: Netick.IGameEngine
-  langs:
-  - csharp
-  - vb
-  name: GetEntityUserDataSizeWords()
-  nameWithType: IGameEngine.GetEntityUserDataSizeWords()
-  fullName: Netick.IGameEngine.GetEntityUserDataSizeWords()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: int GetEntityUserDataSizeWords()
-    return:
-      type: System.Int32
-    content.vb: Function GetEntityUserDataSizeWords() As Integer
-  overload: Netick.IGameEngine.GetEntityUserDataSizeWords*
 - uid: Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity,System.Boolean)
   commentId: M:Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity,System.Boolean)
   id: OnEntityInterestChanged(Netick.Entity,System.Boolean)
@@ -238,6 +202,30 @@ items:
       description: ''
     content.vb: Sub OnEntityDespawned(entity As Entity)
   overload: Netick.IGameEngine.OnEntityDespawned*
+- uid: Netick.IGameEngine.OnUnlinkedEntityDespawned(Netick.Entity)
+  commentId: M:Netick.IGameEngine.OnUnlinkedEntityDespawned(Netick.Entity)
+  id: OnUnlinkedEntityDespawned(Netick.Entity)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnUnlinkedEntityDespawned(Entity)
+  nameWithType: IGameEngine.OnUnlinkedEntityDespawned(Entity)
+  fullName: Netick.IGameEngine.OnUnlinkedEntityDespawned(Netick.Entity)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: This is called when an unliked entity has been removed from the simulation.
+  example: []
+  syntax:
+    content: void OnUnlinkedEntityDespawned(Entity entity)
+    parameters:
+    - id: entity
+      type: Netick.Entity
+      description: ''
+    content.vb: Sub OnUnlinkedEntityDespawned(entity As Entity)
+  overload: Netick.IGameEngine.OnUnlinkedEntityDespawned*
 - uid: Netick.IGameEngine.PopulateEntityMeta(Netick.Entity)
   commentId: M:Netick.IGameEngine.PopulateEntityMeta(Netick.Entity)
   id: PopulateEntityMeta(Netick.Entity)
@@ -262,16 +250,16 @@ items:
       description: ''
     content.vb: Sub PopulateEntityMeta(entity As Entity)
   overload: Netick.IGameEngine.PopulateEntityMeta*
-- uid: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*)
-  commentId: M:Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*)
-  id: OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*)
+- uid: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  commentId: M:Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  id: OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)
   parent: Netick.IGameEngine
   langs:
   - csharp
   - vb
-  name: OnEntityMetaChanged(NetickEntityMeta, byte*)
-  nameWithType: IGameEngine.OnEntityMetaChanged(NetickEntityMeta, byte*)
-  fullName: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta, byte*)
+  name: OnEntityMetaChanged(NetickEntityMeta, byte*, int)
+  nameWithType: IGameEngine.OnEntityMetaChanged(NetickEntityMeta, byte*, int)
+  fullName: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta, byte*, int)
   type: Method
   assemblies:
   - Netick
@@ -282,7 +270,7 @@ items:
     <p>Note: user entity meta data can be used for custom user data that might be used in creating entities.</p>
   example: []
   syntax:
-    content: void OnEntityMetaChanged(NetickEntityMeta netickMeta, byte* userMetaData)
+    content: void OnEntityMetaChanged(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)
     parameters:
     - id: netickMeta
       type: Netick.NetickEntityMeta
@@ -290,37 +278,41 @@ items:
     - id: userMetaData
       type: System.Byte*
       description: ''
-    content.vb: Sub OnEntityMetaChanged(netickMeta As NetickEntityMeta, userMetaData As Byte*)
+    - id: worldIndex
+      type: System.Int32
+    content.vb: Sub OnEntityMetaChanged(netickMeta As NetickEntityMeta, userMetaData As Byte*, worldIndex As Integer)
   overload: Netick.IGameEngine.OnEntityMetaChanged*
-  nameWithType.vb: IGameEngine.OnEntityMetaChanged(NetickEntityMeta, Byte*)
-  fullName.vb: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta, Byte*)
-  name.vb: OnEntityMetaChanged(NetickEntityMeta, Byte*)
-- uid: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*)
-  commentId: M:Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*)
-  id: OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*)
+  nameWithType.vb: IGameEngine.OnEntityMetaChanged(NetickEntityMeta, Byte*, Integer)
+  fullName.vb: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta, Byte*, Integer)
+  name.vb: OnEntityMetaChanged(NetickEntityMeta, Byte*, Integer)
+- uid: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  commentId: M:Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  id: OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*,System.Int32)
   parent: Netick.IGameEngine
   langs:
   - csharp
   - vb
-  name: OnEntityMetaChangedPhaseTwo(NetickEntityMeta, byte*)
-  nameWithType: IGameEngine.OnEntityMetaChangedPhaseTwo(NetickEntityMeta, byte*)
-  fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta, byte*)
+  name: OnEntityMetaChangedPhaseTwo(NetickEntityMeta, byte*, int)
+  nameWithType: IGameEngine.OnEntityMetaChangedPhaseTwo(NetickEntityMeta, byte*, int)
+  fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta, byte*, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: void OnEntityMetaChangedPhaseTwo(NetickEntityMeta netickMeta, byte* userMetaData)
+    content: void OnEntityMetaChangedPhaseTwo(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)
     parameters:
     - id: netickMeta
       type: Netick.NetickEntityMeta
     - id: userMetaData
       type: System.Byte*
-    content.vb: Sub OnEntityMetaChangedPhaseTwo(netickMeta As NetickEntityMeta, userMetaData As Byte*)
+    - id: worldIndex
+      type: System.Int32
+    content.vb: Sub OnEntityMetaChangedPhaseTwo(netickMeta As NetickEntityMeta, userMetaData As Byte*, worldIndex As Integer)
   overload: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo*
-  nameWithType.vb: IGameEngine.OnEntityMetaChangedPhaseTwo(NetickEntityMeta, Byte*)
-  fullName.vb: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta, Byte*)
-  name.vb: OnEntityMetaChangedPhaseTwo(NetickEntityMeta, Byte*)
+  nameWithType.vb: IGameEngine.OnEntityMetaChangedPhaseTwo(NetickEntityMeta, Byte*, Integer)
+  fullName.vb: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta, Byte*, Integer)
+  name.vb: OnEntityMetaChangedPhaseTwo(NetickEntityMeta, Byte*, Integer)
 - uid: Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
   commentId: M:Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
   id: OnBeforeSend(Netick.NetworkConnection)
@@ -566,6 +558,74 @@ items:
       type: Netick.TransportDisconnectReason
     content.vb: Sub OnClientDisconnected(transportDisconnectReason As TransportDisconnectReason)
   overload: Netick.IGameEngine.OnClientDisconnected*
+- uid: Netick.IGameEngine.OnPlayerConnected(Netick.NetworkPlayer)
+  commentId: M:Netick.IGameEngine.OnPlayerConnected(Netick.NetworkPlayer)
+  id: OnPlayerConnected(Netick.NetworkPlayer)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnPlayerConnected(NetworkPlayer)
+  nameWithType: IGameEngine.OnPlayerConnected(NetworkPlayer)
+  fullName: Netick.IGameEngine.OnPlayerConnected(Netick.NetworkPlayer)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnPlayerConnected(NetworkPlayer player)
+    parameters:
+    - id: player
+      type: Netick.NetworkPlayer
+    content.vb: Sub OnPlayerConnected(player As NetworkPlayer)
+  overload: Netick.IGameEngine.OnPlayerConnected*
+- uid: Netick.IGameEngine.OnPlayerDisconnected(Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  commentId: M:Netick.IGameEngine.OnPlayerDisconnected(Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  id: OnPlayerDisconnected(Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnPlayerDisconnected(NetworkPlayer, TransportDisconnectReason)
+  nameWithType: IGameEngine.OnPlayerDisconnected(NetworkPlayer, TransportDisconnectReason)
+  fullName: Netick.IGameEngine.OnPlayerDisconnected(Netick.NetworkPlayer, Netick.TransportDisconnectReason)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnPlayerDisconnected(NetworkPlayer player, TransportDisconnectReason transportDisconnectReason)
+    parameters:
+    - id: player
+      type: Netick.NetworkPlayer
+    - id: transportDisconnectReason
+      type: Netick.TransportDisconnectReason
+    content.vb: Sub OnPlayerDisconnected(player As NetworkPlayer, transportDisconnectReason As TransportDisconnectReason)
+  overload: Netick.IGameEngine.OnPlayerDisconnected*
+- uid: Netick.IGameEngine.OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
+  commentId: M:Netick.IGameEngine.OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
+  id: OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnMatchListUpdate(List<Session>)
+  nameWithType: IGameEngine.OnMatchListUpdate(List<Session>)
+  fullName: Netick.IGameEngine.OnMatchListUpdate(System.Collections.Generic.List<Netick.Session>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnMatchListUpdate(List<Session> sessions)
+    parameters:
+    - id: sessions
+      type: System.Collections.Generic.List{Netick.Session}
+    content.vb: Sub OnMatchListUpdate(sessions As List(Of Session))
+  overload: Netick.IGameEngine.OnMatchListUpdate*
+  nameWithType.vb: IGameEngine.OnMatchListUpdate(List(Of Session))
+  fullName.vb: Netick.IGameEngine.OnMatchListUpdate(System.Collections.Generic.List(Of Netick.Session))
+  name.vb: OnMatchListUpdate(List(Of Session))
 references:
 - uid: Netick
   commentId: N:Netick
@@ -596,13 +656,6 @@ references:
   name: SyncTransformsToPhysics
   nameWithType: IGameEngine.SyncTransformsToPhysics
   fullName: Netick.IGameEngine.SyncTransformsToPhysics
-- uid: Netick.IGameEngine.SimulatePhysics*
-  commentId: Overload:Netick.IGameEngine.SimulatePhysics
-  isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_SimulatePhysics
-  name: SimulatePhysics
-  nameWithType: IGameEngine.SimulatePhysics
-  fullName: Netick.IGameEngine.SimulatePhysics
 - uid: Netick.IGameEngine.GetConnectionMetaSizeWords*
   commentId: Overload:Netick.IGameEngine.GetConnectionMetaSizeWords
   isExternal: true
@@ -635,13 +688,6 @@ references:
   name: GetEntityMetaSizeWords
   nameWithType: IGameEngine.GetEntityMetaSizeWords
   fullName: Netick.IGameEngine.GetEntityMetaSizeWords
-- uid: Netick.IGameEngine.GetEntityUserDataSizeWords*
-  commentId: Overload:Netick.IGameEngine.GetEntityUserDataSizeWords
-  isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_GetEntityUserDataSizeWords
-  name: GetEntityUserDataSizeWords
-  nameWithType: IGameEngine.GetEntityUserDataSizeWords
-  fullName: Netick.IGameEngine.GetEntityUserDataSizeWords
 - uid: Netick.IGameEngine.OnEntityInterestChanged*
   commentId: Overload:Netick.IGameEngine.OnEntityInterestChanged
   isExternal: true
@@ -682,6 +728,13 @@ references:
   name: OnEntityDespawned
   nameWithType: IGameEngine.OnEntityDespawned
   fullName: Netick.IGameEngine.OnEntityDespawned
+- uid: Netick.IGameEngine.OnUnlinkedEntityDespawned*
+  commentId: Overload:Netick.IGameEngine.OnUnlinkedEntityDespawned
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnUnlinkedEntityDespawned_Netick_Entity_
+  name: OnUnlinkedEntityDespawned
+  nameWithType: IGameEngine.OnUnlinkedEntityDespawned
+  fullName: Netick.IGameEngine.OnUnlinkedEntityDespawned
 - uid: Netick.IGameEngine.PopulateEntityMeta*
   commentId: Overload:Netick.IGameEngine.PopulateEntityMeta
   isExternal: true
@@ -692,7 +745,7 @@ references:
 - uid: Netick.IGameEngine.OnEntityMetaChanged*
   commentId: Overload:Netick.IGameEngine.OnEntityMetaChanged
   isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChanged_Netick_NetickEntityMeta_System_Byte__
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChanged_Netick_NetickEntityMeta_System_Byte__System_Int32_
   name: OnEntityMetaChanged
   nameWithType: IGameEngine.OnEntityMetaChanged
   fullName: Netick.IGameEngine.OnEntityMetaChanged
@@ -728,7 +781,7 @@ references:
 - uid: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo*
   commentId: Overload:Netick.IGameEngine.OnEntityMetaChangedPhaseTwo
   isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChangedPhaseTwo_Netick_NetickEntityMeta_System_Byte__
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChangedPhaseTwo_Netick_NetickEntityMeta_System_Byte__System_Int32_
   name: OnEntityMetaChangedPhaseTwo
   nameWithType: IGameEngine.OnEntityMetaChangedPhaseTwo
   fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo
@@ -848,3 +901,132 @@ references:
   name: OnClientDisconnected
   nameWithType: IGameEngine.OnClientDisconnected
   fullName: Netick.IGameEngine.OnClientDisconnected
+- uid: Netick.IGameEngine.OnPlayerConnected*
+  commentId: Overload:Netick.IGameEngine.OnPlayerConnected
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnPlayerConnected_Netick_NetworkPlayer_
+  name: OnPlayerConnected
+  nameWithType: IGameEngine.OnPlayerConnected
+  fullName: Netick.IGameEngine.OnPlayerConnected
+- uid: Netick.NetworkPlayer
+  commentId: T:Netick.NetworkPlayer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayer.html
+  name: NetworkPlayer
+  nameWithType: NetworkPlayer
+  fullName: Netick.NetworkPlayer
+- uid: Netick.IGameEngine.OnPlayerDisconnected*
+  commentId: Overload:Netick.IGameEngine.OnPlayerDisconnected
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnPlayerDisconnected_Netick_NetworkPlayer_Netick_TransportDisconnectReason_
+  name: OnPlayerDisconnected
+  nameWithType: IGameEngine.OnPlayerDisconnected
+  fullName: Netick.IGameEngine.OnPlayerDisconnected
+- uid: Netick.IGameEngine.OnMatchListUpdate*
+  commentId: Overload:Netick.IGameEngine.OnMatchListUpdate
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnMatchListUpdate_System_Collections_Generic_List_Netick_Session__
+  name: OnMatchListUpdate
+  nameWithType: IGameEngine.OnMatchListUpdate
+  fullName: Netick.IGameEngine.OnMatchListUpdate
+- uid: System.Collections.Generic.List{Netick.Session}
+  commentId: T:System.Collections.Generic.List{Netick.Session}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Session>
+  nameWithType: List<Session>
+  fullName: System.Collections.Generic.List<Netick.Session>
+  nameWithType.vb: List(Of Session)
+  fullName.vb: System.Collections.Generic.List(Of Netick.Session)
+  name.vb: List(Of Session)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.Session
+    name: Session
+    isExternal: true
+    href: Netick.Session.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Session
+    name: Session
+    isExternal: true
+    href: Netick.Session.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

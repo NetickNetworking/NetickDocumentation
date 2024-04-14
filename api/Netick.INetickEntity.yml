@@ -11,8 +11,9 @@ items:
   - Netick.INetickEntity.Entity
   - Netick.INetickEntity.Initialize(Netick.NetickEngine,Netick.Entity)
   - Netick.INetickEntity.NarrowPhaseFilter
-  - Netick.INetickEntity.NetworkRegister(Netick.Tick,System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
+  - Netick.INetickEntity.NetworkRegister(System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
   - Netick.INetickEntity.NetworkScripts
+  - Netick.INetickEntity.NetworkStart
   - Netick.INetickEntity.NetworkUnregister
   - Netick.INetickEntity.PredictionMode
   - Netick.INetickEntity.UseSAP
@@ -57,36 +58,52 @@ items:
       description: ''
     content.vb: Sub Initialize(netickEngine As NetickEngine, entity As Entity)
   overload: Netick.INetickEntity.Initialize*
-- uid: Netick.INetickEntity.NetworkRegister(Netick.Tick,System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
-  commentId: M:Netick.INetickEntity.NetworkRegister(Netick.Tick,System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
-  id: NetworkRegister(Netick.Tick,System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
+- uid: Netick.INetickEntity.NetworkStart
+  commentId: M:Netick.INetickEntity.NetworkStart
+  id: NetworkStart
   parent: Netick.INetickEntity
   langs:
   - csharp
   - vb
-  name: NetworkRegister(Tick, int, NetworkPlayer, SpawnPredictionKey)
-  nameWithType: INetickEntity.NetworkRegister(Tick, int, NetworkPlayer, SpawnPredictionKey)
-  fullName: Netick.INetickEntity.NetworkRegister(Netick.Tick, int, Netick.NetworkPlayer, Netick.SpawnPredictionKey)
+  name: NetworkStart()
+  nameWithType: INetickEntity.NetworkStart()
+  fullName: Netick.INetickEntity.NetworkStart()
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: void NetworkRegister(Tick spawnTick, int id, NetworkPlayer user, SpawnPredictionKey spawnKey = default)
+    content: void NetworkStart()
+    content.vb: Sub NetworkStart()
+  overload: Netick.INetickEntity.NetworkStart*
+- uid: Netick.INetickEntity.NetworkRegister(System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
+  commentId: M:Netick.INetickEntity.NetworkRegister(System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
+  id: NetworkRegister(System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
+  parent: Netick.INetickEntity
+  langs:
+  - csharp
+  - vb
+  name: NetworkRegister(int, NetworkPlayer, SpawnPredictionKey)
+  nameWithType: INetickEntity.NetworkRegister(int, NetworkPlayer, SpawnPredictionKey)
+  fullName: Netick.INetickEntity.NetworkRegister(int, Netick.NetworkPlayer, Netick.SpawnPredictionKey)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void NetworkRegister(int id, NetworkPlayer user, SpawnPredictionKey spawnKey = default)
     parameters:
-    - id: spawnTick
-      type: Netick.Tick
     - id: id
       type: System.Int32
     - id: user
       type: Netick.NetworkPlayer
     - id: spawnKey
       type: Netick.SpawnPredictionKey
-    content.vb: Sub NetworkRegister(spawnTick As Tick, id As Integer, user As NetworkPlayer, spawnKey As SpawnPredictionKey = Nothing)
+    content.vb: Sub NetworkRegister(id As Integer, user As NetworkPlayer, spawnKey As SpawnPredictionKey = Nothing)
   overload: Netick.INetickEntity.NetworkRegister*
-  nameWithType.vb: INetickEntity.NetworkRegister(Tick, Integer, NetworkPlayer, SpawnPredictionKey)
-  fullName.vb: Netick.INetickEntity.NetworkRegister(Netick.Tick, Integer, Netick.NetworkPlayer, Netick.SpawnPredictionKey)
-  name.vb: NetworkRegister(Tick, Integer, NetworkPlayer, SpawnPredictionKey)
+  nameWithType.vb: INetickEntity.NetworkRegister(Integer, NetworkPlayer, SpawnPredictionKey)
+  fullName.vb: Netick.INetickEntity.NetworkRegister(Integer, Netick.NetworkPlayer, Netick.SpawnPredictionKey)
+  name.vb: NetworkRegister(Integer, NetworkPlayer, SpawnPredictionKey)
 - uid: Netick.INetickEntity.NetworkUnregister
   commentId: M:Netick.INetickEntity.NetworkUnregister
   id: NetworkUnregister
@@ -325,21 +342,20 @@ references:
   name: Entity
   nameWithType: Entity
   fullName: Netick.Entity
+- uid: Netick.INetickEntity.NetworkStart*
+  commentId: Overload:Netick.INetickEntity.NetworkStart
+  isExternal: true
+  href: Netick.INetickEntity.html#Netick_INetickEntity_NetworkStart
+  name: NetworkStart
+  nameWithType: INetickEntity.NetworkStart
+  fullName: Netick.INetickEntity.NetworkStart
 - uid: Netick.INetickEntity.NetworkRegister*
   commentId: Overload:Netick.INetickEntity.NetworkRegister
   isExternal: true
-  href: Netick.INetickEntity.html#Netick_INetickEntity_NetworkRegister_Netick_Tick_System_Int32_Netick_NetworkPlayer_Netick_SpawnPredictionKey_
+  href: Netick.INetickEntity.html#Netick_INetickEntity_NetworkRegister_System_Int32_Netick_NetworkPlayer_Netick_SpawnPredictionKey_
   name: NetworkRegister
   nameWithType: INetickEntity.NetworkRegister
   fullName: Netick.INetickEntity.NetworkRegister
-- uid: Netick.Tick
-  commentId: T:Netick.Tick
-  parent: Netick
-  isExternal: true
-  href: Netick.Tick.html
-  name: Tick
-  nameWithType: Tick
-  fullName: Netick.Tick
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System

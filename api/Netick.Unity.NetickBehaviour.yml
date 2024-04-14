@@ -28,14 +28,15 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: 'public abstract class NetickBehaviour : MonoBehaviour, INetickScript'
-    content.vb: Public MustInherit Class NetickBehaviour Inherits MonoBehaviour Implements INetickScript
+    content: 'public abstract class NetickBehaviour : NetickBaseBehaviour, INetickScript'
+    content.vb: Public MustInherit Class NetickBehaviour Inherits NetickBaseBehaviour Implements INetickScript
   inheritance:
   - System.Object
   - UnityEngine.Object
   - UnityEngine.Component
   - UnityEngine.Behaviour
   - UnityEngine.MonoBehaviour
+  - Netick.Unity.NetickBaseBehaviour
   derivedClasses:
   - Netick.Unity.NetickCoreComponent
   - Netick.Unity.NetworkBehaviour
@@ -240,9 +241,9 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   summary: >-
-    Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.
+    Called every fixed-time network step. Any changes to the networked state should happen here.
 
-    <p>On the client, if you are the Input Source or if this Object.PredictionMode is set to None, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
+    <p>On the client, if you are the Input Source or if this Object.PredictionMode is set to Everyone, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
   example: []
   syntax:
     content: public virtual void NetworkFixedUpdate()
@@ -496,6 +497,14 @@ references:
   name: MonoBehaviour
   nameWithType: MonoBehaviour
   fullName: UnityEngine.MonoBehaviour
+- uid: Netick.Unity.NetickBaseBehaviour
+  commentId: T:Netick.Unity.NetickBaseBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetickBaseBehaviour.html
+  name: NetickBaseBehaviour
+  nameWithType: NetickBaseBehaviour
+  fullName: Netick.Unity.NetickBaseBehaviour
 - uid: Netick.INetickScript
   commentId: T:Netick.INetickScript
   parent: Netick

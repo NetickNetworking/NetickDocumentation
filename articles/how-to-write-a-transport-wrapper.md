@@ -105,7 +105,7 @@ Let's add a few fields which we will be important in the functionality of the tr
 ```
 
 
-`_bitBuffer` is the buffer that is passed to Netick when receiving a packet. Netick only receives the packets in the form of a BitBuffer.
+`_bitBuffer` is the buffer that is passed to Netick when receiving a packet. Netick only receives the packets in the form of a `BitBuffer`.
 
 `_bytesBuffer` is an unsafe buffer that is used with `_bitBuffer`. `_connectionRequestBytes` is a managed buffer for the connection request.
 

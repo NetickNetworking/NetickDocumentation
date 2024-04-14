@@ -24,10 +24,12 @@ items:
   - System.Object
   - Netick.Simulation
   inheritedMembers:
+  - Netick.Simulation.UnlinkedEntities
   - Netick.Simulation.FetchInputLocal``1({T}@,System.Int32)
   - Netick.Simulation.GetInput``1(System.Int32)
   - Netick.Simulation.SetInput``1({T},System.Int32)
-  - Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32)
+  - Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+  - Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
   - Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
   - Netick.Simulation.CreateEntity(System.Int32)
   - Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
@@ -125,6 +127,14 @@ references:
   name: Simulation
   nameWithType: Simulation
   fullName: Netick.Simulation
+- uid: Netick.Simulation.UnlinkedEntities
+  commentId: F:Netick.Simulation.UnlinkedEntities
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_UnlinkedEntities
+  name: UnlinkedEntities
+  nameWithType: Simulation.UnlinkedEntities
+  fullName: Netick.Simulation.UnlinkedEntities
 - uid: Netick.Simulation.FetchInputLocal``1({T}@,System.Int32)
   commentId: M:Netick.Simulation.FetchInputLocal``1(``0@,System.Int32)
   parent: Netick.Simulation
@@ -262,22 +272,52 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
-- uid: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32)
-  commentId: M:Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32)
+- uid: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+  commentId: M:Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
   parent: Netick.Simulation
   isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_
-  name: ClientAddUnlinkedEntity(Entity, int)
-  nameWithType: Simulation.ClientAddUnlinkedEntity(Entity, int)
-  fullName: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity, int)
-  nameWithType.vb: Simulation.ClientAddUnlinkedEntity(Entity, Integer)
-  fullName.vb: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity, Integer)
-  name.vb: ClientAddUnlinkedEntity(Entity, Integer)
+  href: Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_
+  name: RemoveFromNetworkLoop(Entity)
+  nameWithType: Simulation.RemoveFromNetworkLoop(Entity)
+  fullName: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
   spec.csharp:
-  - uid: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32)
+  - uid: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+    name: RemoveFromNetworkLoop
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_
+  - name: (
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+    name: RemoveFromNetworkLoop
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_
+  - name: (
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+- uid: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
+  commentId: M:Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_System_Int32_
+  name: ClientAddUnlinkedEntity(Entity, int, int)
+  nameWithType: Simulation.ClientAddUnlinkedEntity(Entity, int, int)
+  fullName: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity, int, int)
+  nameWithType.vb: Simulation.ClientAddUnlinkedEntity(Entity, Integer, Integer)
+  fullName.vb: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity, Integer, Integer)
+  name.vb: ClientAddUnlinkedEntity(Entity, Integer, Integer)
+  spec.csharp:
+  - uid: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
     name: ClientAddUnlinkedEntity
     isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_
+    href: Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_System_Int32_
   - name: (
   - uid: Netick.Entity
     name: Entity
@@ -289,17 +329,29 @@ references:
     name: int
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
   spec.vb:
-  - uid: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32)
+  - uid: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
     name: ClientAddUnlinkedEntity
     isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_
+    href: Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_System_Int32_
   - name: (
   - uid: Netick.Entity
     name: Entity
     isExternal: true
     href: Netick.Entity.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: ','
   - name: " "
   - uid: System.Int32

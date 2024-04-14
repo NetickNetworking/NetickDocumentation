@@ -143,19 +143,19 @@
 </h2>
 
 
-  <a id="Netick_OnChangedData_IsAuthoritative_" data-uid="Netick.OnChangedData.IsAuthoritative*"></a>
+  <a id="Netick_OnChangedData_InvokedForMisprediction_" data-uid="Netick.OnChangedData.InvokedForMisprediction*"></a>
 
-  <h3 id="Netick_OnChangedData_IsAuthoritative" data-uid="Netick.OnChangedData.IsAuthoritative">
-  IsAuthoritative
+  <h3 id="Netick_OnChangedData_InvokedForMisprediction" data-uid="Netick.OnChangedData.InvokedForMisprediction">
+  InvokedForMisprediction
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns true if this OnChanged callback is caused by the server. Always returns true on the server.</p>
+  <div class="markdown level1 summary"><p>Returns true if this OnChanged callback is due to a mismatch between the state of this variable before rollback, and the state after rollback and resimulation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsAuthoritative { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool InvokedForMisprediction { get; }</code></pre>
   </div>
 
 

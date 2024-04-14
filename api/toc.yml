@@ -7,10 +7,6 @@ items:
     name: Accumulator
   - uid: Netick.AdaptiveRemoteInterpolation
     name: AdaptiveRemoteInterpolation
-  - uid: Netick.Allocator
-    name: Allocator
-  - uid: Netick.Allocator.MemoryPool
-    name: Allocator.MemoryPool
   - uid: Netick.AoIQuery
     name: AoIQuery
   - uid: Netick.BadPacketException
@@ -107,8 +103,8 @@ items:
     name: InternalNetworkRpcSize
   - uid: Netick.Interpolation
     name: Interpolation
-  - uid: Netick.InterpolationMode
-    name: InterpolationMode
+  - uid: Netick.InterpolationSource
+    name: InterpolationSource
   - uid: Netick.Interpolator
     name: Interpolator
   - uid: Netick.LocalInterpolation
@@ -119,6 +115,10 @@ items:
     name: NativeUDPSocket
   - uid: Netick.NetcodeProfiler
     name: NetcodeProfiler
+  - uid: Netick.NetickAllocator
+    name: NetickAllocator
+  - uid: Netick.NetickAllocator.MemoryPool
+    name: NetickAllocator.MemoryPool
   - uid: Netick.NetickArrayExt
     name: NetickArrayExt
   - uid: Netick.NetickBounds
@@ -133,6 +133,8 @@ items:
     name: NetickEntityMeta
   - uid: Netick.NetickLogger
     name: NetickLogger
+  - uid: Netick.NetickStartMode
+    name: NetickStartMode
   - uid: Netick.NetickTransport
     name: NetickTransport
   - uid: Netick.NetickTransportConnection
@@ -231,6 +233,8 @@ items:
     name: OnPeerConnected
   - uid: Netick.OnPeerDisconnected
     name: OnPeerDisconnected
+  - uid: Netick.PredictionErrorSmootherVector3
+    name: PredictionErrorSmootherVector3
   - uid: Netick.ReflectionData
     name: ReflectionData
   - uid: Netick.Relevancy
@@ -301,8 +305,14 @@ items:
     name: GridRenderer
   - uid: Netick.Unity.IPhysicsComponent
     name: IPhysicsComponent
+  - uid: Netick.Unity.LaunchData
+    name: LaunchData
+  - uid: Netick.Unity.NetickBaseBehaviour
+    name: NetickBaseBehaviour
   - uid: Netick.Unity.NetickBehaviour
     name: NetickBehaviour
+  - uid: Netick.Unity.NetickCallbacks
+    name: NetickCallbacks
   - uid: Netick.Unity.NetickConfig
     name: NetickConfig
   - uid: Netick.Unity.NetickCoreComponent
@@ -313,10 +323,12 @@ items:
     name: NetickUnityUtils
   - uid: Netick.Unity.Network
     name: Network
-  - uid: Netick.Unity.Network.Sandboxs
-    name: Network.Sandboxs
+  - uid: Netick.Unity.Network.LaunchResults
+    name: Network.LaunchResults
   - uid: Netick.Unity.NetworkAnimator
     name: NetworkAnimator
+  - uid: Netick.Unity.NetworkAnimator.NetworkAnimatorRepConditions
+    name: NetworkAnimator.NetworkAnimatorRepConditions
   - uid: Netick.Unity.NetworkArray
     name: NetworkArray
   - uid: Netick.Unity.NetworkArray`1
@@ -371,8 +383,14 @@ items:
     name: NetworkRenderInvokeOrder
   - uid: Netick.Unity.NetworkRigidbody
     name: NetworkRigidbody
+  - uid: Netick.Unity.NetworkRigidbody2D
+    name: NetworkRigidbody2D
   - uid: Netick.Unity.NetworkSandbox
     name: NetworkSandbox
+  - uid: Netick.Unity.NetworkScene
+    name: NetworkScene
+  - uid: Netick.Unity.NetworkSceneManager
+    name: NetworkSceneManager
   - uid: Netick.Unity.NetworkTimerExt
     name: NetworkTimerExt
   - uid: Netick.Unity.NetworkTransform
@@ -405,6 +423,10 @@ items:
     name: OnMatchListUpdateDelegate
   - uid: Netick.Unity.OnObjectCreatedDelegate
     name: OnObjectCreatedDelegate
+  - uid: Netick.Unity.OnPlayerConnectedDelegate
+    name: OnPlayerConnectedDelegate
+  - uid: Netick.Unity.OnPlayerDisconnectedDelegate
+    name: OnPlayerDisconnectedDelegate
   - uid: Netick.Unity.OnSceneLoadStartedDelegate
     name: OnSceneLoadStartedDelegate
   - uid: Netick.Unity.OnSceneLoadedDelegate
@@ -417,6 +439,8 @@ items:
     name: PhysicsSimulationStep
   - uid: Netick.Unity.PhysicsType
     name: PhysicsType
+  - uid: Netick.Unity.ProfilerIMGUI
+    name: ProfilerIMGUI
   - uid: Netick.Unity.ResetOnSceneSwitch
     name: ResetOnSceneSwitch
   - uid: Netick.Unity.SingleInstanceEnforcer
@@ -440,6 +464,8 @@ items:
     name: HitShapeContainer
   - uid: Netick.Unity.Pro.LagCompHit
     name: LagCompHit
+  - uid: Netick.Unity.Pro.LagCompHit2D
+    name: LagCompHit2D
   - uid: Netick.Unity.Pro.NetworkSandboxExts
     name: NetworkSandboxExts
 memberLayout: SamePage

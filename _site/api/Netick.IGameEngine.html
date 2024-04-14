@@ -185,37 +185,6 @@
 
 
 
-  <a id="Netick_IGameEngine_GetEntityUserDataSizeWords_" data-uid="Netick.IGameEngine.GetEntityUserDataSizeWords*"></a>
-
-  <h3 id="Netick_IGameEngine_GetEntityUserDataSizeWords" data-uid="Netick.IGameEngine.GetEntityUserDataSizeWords">
-  GetEntityUserDataSizeWords()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int GetEntityUserDataSizeWords()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="Netick_IGameEngine_GetPredictionInterestList_" data-uid="Netick.IGameEngine.GetPredictionInterestList*"></a>
 
   <h3 id="Netick_IGameEngine_GetPredictionInterestList" data-uid="Netick.IGameEngine.GetPredictionInterestList">
@@ -465,8 +434,8 @@
 
   <a id="Netick_IGameEngine_OnEntityMetaChanged_" data-uid="Netick.IGameEngine.OnEntityMetaChanged*"></a>
 
-  <h3 id="Netick_IGameEngine_OnEntityMetaChanged_Netick_NetickEntityMeta_System_Byte__" data-uid="Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*)">
-  OnEntityMetaChanged(NetickEntityMeta, byte*)
+  <h3 id="Netick_IGameEngine_OnEntityMetaChanged_Netick_NetickEntityMeta_System_Byte__System_Int32_" data-uid="Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)">
+  OnEntityMetaChanged(NetickEntityMeta, byte*, int)
   
   </h3>
 
@@ -476,7 +445,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void OnEntityMetaChanged(NetickEntityMeta netickMeta, byte* userMetaData)</code></pre>
+    <pre><code class="lang-csharp hljs">void OnEntityMetaChanged(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -484,6 +453,8 @@
     <dt><code>netickMeta</code> <a class="xref" href="Netick.NetickEntityMeta.html">NetickEntityMeta</a></dt>
     <dd></dd>
     <dt><code>userMetaData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>worldIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -500,8 +471,8 @@
 
   <a id="Netick_IGameEngine_OnEntityMetaChangedPhaseTwo_" data-uid="Netick.IGameEngine.OnEntityMetaChangedPhaseTwo*"></a>
 
-  <h3 id="Netick_IGameEngine_OnEntityMetaChangedPhaseTwo_Netick_NetickEntityMeta_System_Byte__" data-uid="Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*)">
-  OnEntityMetaChangedPhaseTwo(NetickEntityMeta, byte*)
+  <h3 id="Netick_IGameEngine_OnEntityMetaChangedPhaseTwo_Netick_NetickEntityMeta_System_Byte__System_Int32_" data-uid="Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*,System.Int32)">
+  OnEntityMetaChangedPhaseTwo(NetickEntityMeta, byte*, int)
   
   </h3>
 
@@ -509,7 +480,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void OnEntityMetaChangedPhaseTwo(NetickEntityMeta netickMeta, byte* userMetaData)</code></pre>
+    <pre><code class="lang-csharp hljs">void OnEntityMetaChangedPhaseTwo(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -517,6 +488,8 @@
     <dt><code>netickMeta</code> <a class="xref" href="Netick.NetickEntityMeta.html">NetickEntityMeta</a></dt>
     <dd></dd>
     <dt><code>userMetaData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>worldIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -577,6 +550,37 @@
     <pre><code class="lang-csharp hljs">void OnInputRead()</code></pre>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnMatchListUpdate_" data-uid="Netick.IGameEngine.OnMatchListUpdate*"></a>
+
+  <h3 id="Netick_IGameEngine_OnMatchListUpdate_System_Collections_Generic_List_Netick_Session__" data-uid="Netick.IGameEngine.OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})">
+  OnMatchListUpdate(List&lt;Session&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnMatchListUpdate(List&lt;Session&gt; sessions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sessions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.Session.html">Session</a>&gt;</dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -763,6 +767,102 @@
 
 
 
+  <a id="Netick_IGameEngine_OnPlayerConnected_" data-uid="Netick.IGameEngine.OnPlayerConnected*"></a>
+
+  <h3 id="Netick_IGameEngine_OnPlayerConnected_Netick_NetworkPlayer_" data-uid="Netick.IGameEngine.OnPlayerConnected(Netick.NetworkPlayer)">
+  OnPlayerConnected(NetworkPlayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnPlayerConnected(NetworkPlayer player)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>player</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnPlayerDisconnected_" data-uid="Netick.IGameEngine.OnPlayerDisconnected*"></a>
+
+  <h3 id="Netick_IGameEngine_OnPlayerDisconnected_Netick_NetworkPlayer_Netick_TransportDisconnectReason_" data-uid="Netick.IGameEngine.OnPlayerDisconnected(Netick.NetworkPlayer,Netick.TransportDisconnectReason)">
+  OnPlayerDisconnected(NetworkPlayer, TransportDisconnectReason)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnPlayerDisconnected(NetworkPlayer player, TransportDisconnectReason transportDisconnectReason)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>player</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+    <dt><code>transportDisconnectReason</code> <a class="xref" href="Netick.TransportDisconnectReason.html">TransportDisconnectReason</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnUnlinkedEntityDespawned_" data-uid="Netick.IGameEngine.OnUnlinkedEntityDespawned*"></a>
+
+  <h3 id="Netick_IGameEngine_OnUnlinkedEntityDespawned_Netick_Entity_" data-uid="Netick.IGameEngine.OnUnlinkedEntityDespawned(Netick.Entity)">
+  OnUnlinkedEntityDespawned(Entity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is called when an unliked entity has been removed from the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnUnlinkedEntityDespawned(Entity entity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_IGameEngine_PopulateEntityMeta_" data-uid="Netick.IGameEngine.PopulateEntityMeta*"></a>
 
   <h3 id="Netick_IGameEngine_PopulateEntityMeta_Netick_Entity_" data-uid="Netick.IGameEngine.PopulateEntityMeta(Netick.Entity)">
@@ -783,32 +883,6 @@
     <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
     <dd></dd>
   </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_IGameEngine_SimulatePhysics_" data-uid="Netick.IGameEngine.SimulatePhysics*"></a>
-
-  <h3 id="Netick_IGameEngine_SimulatePhysics" data-uid="Netick.IGameEngine.SimulatePhysics">
-  SimulatePhysics()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void SimulatePhysics()</code></pre>
-  </div>
-
 
 
 

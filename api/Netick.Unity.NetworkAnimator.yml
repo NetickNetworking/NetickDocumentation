@@ -6,6 +6,14 @@ items:
   parent: Netick.Unity
   children:
   - Netick.Unity.NetworkAnimator.#ctor
+  - Netick.Unity.NetworkAnimator.Animator
+  - Netick.Unity.NetworkAnimator.GameEngineIntoNetcode
+  - Netick.Unity.NetworkAnimator.InternalGetStateSizeWords
+  - Netick.Unity.NetworkAnimator.InterpolationSource
+  - Netick.Unity.NetworkAnimator.NetcodeIntoGameEngine
+  - Netick.Unity.NetworkAnimator.NetworkAwake
+  - Netick.Unity.NetworkAnimator.NetworkRender
+  - Netick.Unity.NetworkAnimator.NetworkReset
   langs:
   - csharp
   - vb
@@ -16,12 +24,26 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: This component is used to replicate Unity's Animator parameters and states.
+  example: []
   syntax:
     content: >-
+      [AddComponentMenu("Netick/Network Animator")]
+
+      [RequireComponent(typeof(Animator))]
+
+      [DisallowMultipleComponent]
+
       [IgnoreCodeGen]
 
       public class NetworkAnimator : NetworkBehaviour, INetickNetworkScript, INetickScript
     content.vb: >-
+      <AddComponentMenu("Netick/Network Animator")>
+
+      <RequireComponent(GetType(Animator))>
+
+      <DisallowMultipleComponent>
+
       <IgnoreCodeGen>
 
       Public Class NetworkAnimator Inherits NetworkBehaviour Implements INetickNetworkScript, INetickScript
@@ -31,6 +53,7 @@ items:
   - UnityEngine.Component
   - UnityEngine.Behaviour
   - UnityEngine.MonoBehaviour
+  - Netick.Unity.NetickBaseBehaviour
   - Netick.Unity.NetickBehaviour
   - Netick.Unity.NetworkBehaviour
   implements:
@@ -41,18 +64,13 @@ items:
   - Netick.Unity.NetworkBehaviour.GetRef``1
   - Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Int32)
   - Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
-  - Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
-  - Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
   - Netick.Unity.NetworkBehaviour.OnBecameInterested
   - Netick.Unity.NetworkBehaviour.OnBecameUninterested
   - Netick.Unity.NetworkBehaviour.OnInputSourceChanged(Netick.NetworkPlayer)
   - Netick.Unity.NetworkBehaviour.OnInputSourceLeft
   - Netick.Unity.NetworkBehaviour.OnSpawnPredictionSucceeded
-  - Netick.Unity.NetworkBehaviour.NetworkAwake
-  - Netick.Unity.NetworkBehaviour.NetworkReset
   - Netick.Unity.NetworkBehaviour.InternalInit
   - Netick.Unity.NetworkBehaviour.InternalReset
-  - Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
   - Netick.Unity.NetworkBehaviour.BehaviourId
   - Netick.Unity.NetworkBehaviour.Id
   - Netick.Unity.NetworkBehaviour.IsClient
@@ -68,7 +86,6 @@ items:
   - Netick.Unity.NetickBehaviour.NetworkDestroy
   - Netick.Unity.NetickBehaviour.NetworkUpdate
   - Netick.Unity.NetickBehaviour.NetworkFixedUpdate
-  - Netick.Unity.NetickBehaviour.NetworkRender
   - Netick.Unity.NetickBehaviour.OnBecameSimulated
   - Netick.Unity.NetickBehaviour.OnBecameUnsimulated
   - Netick.Unity.NetickBehaviour.Sandbox
@@ -192,9 +209,145 @@ items:
   extensionMethods:
   - UnityEngine.Component.Netick.Unity.ComponentExtensions.SetEnabled(Netick.Unity.NetworkSandbox,System.Boolean)
   attributes:
+  - type: UnityEngine.AddComponentMenu
+    ctor: UnityEngine.AddComponentMenu.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Netick/Network Animator
+  - type: UnityEngine.RequireComponent
+    ctor: UnityEngine.RequireComponent.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: UnityEngine.Animator
+  - type: UnityEngine.DisallowMultipleComponent
+    ctor: UnityEngine.DisallowMultipleComponent.#ctor
+    arguments: []
   - type: Netick.IgnoreCodeGen
     ctor: Netick.IgnoreCodeGen.#ctor
     arguments: []
+- uid: Netick.Unity.NetworkAnimator.NetworkAwake
+  commentId: M:Netick.Unity.NetworkAnimator.NetworkAwake
+  id: NetworkAwake
+  parent: Netick.Unity.NetworkAnimator
+  langs:
+  - csharp
+  - vb
+  name: NetworkAwake()
+  nameWithType: NetworkAnimator.NetworkAwake()
+  fullName: Netick.Unity.NetworkAnimator.NetworkAwake()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override void NetworkAwake()
+    content.vb: Public Overrides Sub NetworkAwake()
+  overridden: Netick.Unity.NetworkBehaviour.NetworkAwake
+  overload: Netick.Unity.NetworkAnimator.NetworkAwake*
+- uid: Netick.Unity.NetworkAnimator.NetworkReset
+  commentId: M:Netick.Unity.NetworkAnimator.NetworkReset
+  id: NetworkReset
+  parent: Netick.Unity.NetworkAnimator
+  langs:
+  - csharp
+  - vb
+  name: NetworkReset()
+  nameWithType: NetworkAnimator.NetworkReset()
+  fullName: Netick.Unity.NetworkAnimator.NetworkReset()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override void NetworkReset()
+    content.vb: Public Overrides Sub NetworkReset()
+  overridden: Netick.Unity.NetworkBehaviour.NetworkReset
+  overload: Netick.Unity.NetworkAnimator.NetworkReset*
+- uid: Netick.Unity.NetworkAnimator.InternalGetStateSizeWords
+  commentId: M:Netick.Unity.NetworkAnimator.InternalGetStateSizeWords
+  id: InternalGetStateSizeWords
+  parent: Netick.Unity.NetworkAnimator
+  langs:
+  - csharp
+  - vb
+  name: InternalGetStateSizeWords()
+  nameWithType: NetworkAnimator.InternalGetStateSizeWords()
+  fullName: Netick.Unity.NetworkAnimator.InternalGetStateSizeWords()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override int InternalGetStateSizeWords()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function InternalGetStateSizeWords() As Integer
+  overridden: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
+  overload: Netick.Unity.NetworkAnimator.InternalGetStateSizeWords*
+- uid: Netick.Unity.NetworkAnimator.NetworkRender
+  commentId: M:Netick.Unity.NetworkAnimator.NetworkRender
+  id: NetworkRender
+  parent: Netick.Unity.NetworkAnimator
+  langs:
+  - csharp
+  - vb
+  name: NetworkRender()
+  nameWithType: NetworkAnimator.NetworkRender()
+  fullName: Netick.Unity.NetworkAnimator.NetworkRender()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Called every frame. Executed after NetworkUpdate and NetworkFixedUpdate.
+  example: []
+  syntax:
+    content: public override void NetworkRender()
+    content.vb: Public Overrides Sub NetworkRender()
+  overridden: Netick.Unity.NetickBehaviour.NetworkRender
+  overload: Netick.Unity.NetworkAnimator.NetworkRender*
+- uid: Netick.Unity.NetworkAnimator.GameEngineIntoNetcode
+  commentId: M:Netick.Unity.NetworkAnimator.GameEngineIntoNetcode
+  id: GameEngineIntoNetcode
+  parent: Netick.Unity.NetworkAnimator
+  langs:
+  - csharp
+  - vb
+  name: GameEngineIntoNetcode()
+  nameWithType: NetworkAnimator.GameEngineIntoNetcode()
+  fullName: Netick.Unity.NetworkAnimator.GameEngineIntoNetcode()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override void GameEngineIntoNetcode()
+    content.vb: Public Overrides Sub GameEngineIntoNetcode()
+  overridden: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
+  overload: Netick.Unity.NetworkAnimator.GameEngineIntoNetcode*
+- uid: Netick.Unity.NetworkAnimator.NetcodeIntoGameEngine
+  commentId: M:Netick.Unity.NetworkAnimator.NetcodeIntoGameEngine
+  id: NetcodeIntoGameEngine
+  parent: Netick.Unity.NetworkAnimator
+  langs:
+  - csharp
+  - vb
+  name: NetcodeIntoGameEngine()
+  nameWithType: NetworkAnimator.NetcodeIntoGameEngine()
+  fullName: Netick.Unity.NetworkAnimator.NetcodeIntoGameEngine()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override void NetcodeIntoGameEngine()
+    content.vb: Public Overrides Sub NetcodeIntoGameEngine()
+  overridden: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
+  overload: Netick.Unity.NetworkAnimator.NetcodeIntoGameEngine*
 - uid: Netick.Unity.NetworkAnimator.#ctor
   commentId: M:Netick.Unity.NetworkAnimator.#ctor
   id: '#ctor'
@@ -216,6 +369,48 @@ items:
   nameWithType.vb: NetworkAnimator.New()
   fullName.vb: Netick.Unity.NetworkAnimator.New()
   name.vb: New()
+- uid: Netick.Unity.NetworkAnimator.Animator
+  commentId: P:Netick.Unity.NetworkAnimator.Animator
+  id: Animator
+  parent: Netick.Unity.NetworkAnimator
+  langs:
+  - csharp
+  - vb
+  name: Animator
+  nameWithType: NetworkAnimator.Animator
+  fullName: Netick.Unity.NetworkAnimator.Animator
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public Animator Animator { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Animator
+    content.vb: Public ReadOnly Property Animator As Animator
+  overload: Netick.Unity.NetworkAnimator.Animator*
+- uid: Netick.Unity.NetworkAnimator.InterpolationSource
+  commentId: P:Netick.Unity.NetworkAnimator.InterpolationSource
+  id: InterpolationSource
+  parent: Netick.Unity.NetworkAnimator
+  langs:
+  - csharp
+  - vb
+  name: InterpolationSource
+  nameWithType: NetworkAnimator.InterpolationSource
+  fullName: Netick.Unity.NetworkAnimator.InterpolationSource
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public InterpolationSource InterpolationSource { get; set; }
+    parameters: []
+    return:
+      type: Netick.InterpolationSource
+    content.vb: Public Property InterpolationSource As InterpolationSource
+  overload: Netick.Unity.NetworkAnimator.InterpolationSource*
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -283,6 +478,14 @@ references:
   name: MonoBehaviour
   nameWithType: MonoBehaviour
   fullName: UnityEngine.MonoBehaviour
+- uid: Netick.Unity.NetickBaseBehaviour
+  commentId: T:Netick.Unity.NetickBaseBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetickBaseBehaviour.html
+  name: NetickBaseBehaviour
+  nameWithType: NetickBaseBehaviour
+  fullName: Netick.Unity.NetickBaseBehaviour
 - uid: Netick.Unity.NetickBehaviour
   commentId: T:Netick.Unity.NetickBehaviour
   parent: Netick.Unity
@@ -438,50 +641,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
-- uid: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
-  commentId: M:Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
-  parent: Netick.Unity.NetworkBehaviour
-  isExternal: true
-  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GameEngineIntoNetcode
-  name: GameEngineIntoNetcode()
-  nameWithType: NetworkBehaviour.GameEngineIntoNetcode()
-  fullName: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode()
-  spec.csharp:
-  - uid: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
-    name: GameEngineIntoNetcode
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GameEngineIntoNetcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
-    name: GameEngineIntoNetcode
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GameEngineIntoNetcode
-  - name: (
-  - name: )
-- uid: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
-  commentId: M:Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
-  parent: Netick.Unity.NetworkBehaviour
-  isExternal: true
-  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetcodeIntoGameEngine
-  name: NetcodeIntoGameEngine()
-  nameWithType: NetworkBehaviour.NetcodeIntoGameEngine()
-  fullName: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine()
-  spec.csharp:
-  - uid: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
-    name: NetcodeIntoGameEngine
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetcodeIntoGameEngine
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
-    name: NetcodeIntoGameEngine
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetcodeIntoGameEngine
-  - name: (
-  - name: )
 - uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
   commentId: M:Netick.Unity.NetworkBehaviour.OnBecameInterested
   parent: Netick.Unity.NetworkBehaviour
@@ -598,50 +757,6 @@ references:
     href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnSpawnPredictionSucceeded
   - name: (
   - name: )
-- uid: Netick.Unity.NetworkBehaviour.NetworkAwake
-  commentId: M:Netick.Unity.NetworkBehaviour.NetworkAwake
-  parent: Netick.Unity.NetworkBehaviour
-  isExternal: true
-  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
-  name: NetworkAwake()
-  nameWithType: NetworkBehaviour.NetworkAwake()
-  fullName: Netick.Unity.NetworkBehaviour.NetworkAwake()
-  spec.csharp:
-  - uid: Netick.Unity.NetworkBehaviour.NetworkAwake
-    name: NetworkAwake
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetworkBehaviour.NetworkAwake
-    name: NetworkAwake
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
-  - name: (
-  - name: )
-- uid: Netick.Unity.NetworkBehaviour.NetworkReset
-  commentId: M:Netick.Unity.NetworkBehaviour.NetworkReset
-  parent: Netick.Unity.NetworkBehaviour
-  isExternal: true
-  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset
-  name: NetworkReset()
-  nameWithType: NetworkBehaviour.NetworkReset()
-  fullName: Netick.Unity.NetworkBehaviour.NetworkReset()
-  spec.csharp:
-  - uid: Netick.Unity.NetworkBehaviour.NetworkReset
-    name: NetworkReset
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetworkBehaviour.NetworkReset
-    name: NetworkReset
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset
-  - name: (
-  - name: )
 - uid: Netick.Unity.NetworkBehaviour.InternalInit
   commentId: M:Netick.Unity.NetworkBehaviour.InternalInit
   parent: Netick.Unity.NetworkBehaviour
@@ -684,28 +799,6 @@ references:
     name: InternalReset
     isExternal: true
     href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalReset
-  - name: (
-  - name: )
-- uid: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
-  commentId: M:Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
-  parent: Netick.Unity.NetworkBehaviour
-  isExternal: true
-  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalGetStateSizeWords
-  name: InternalGetStateSizeWords()
-  nameWithType: NetworkBehaviour.InternalGetStateSizeWords()
-  fullName: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords()
-  spec.csharp:
-  - uid: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
-    name: InternalGetStateSizeWords
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalGetStateSizeWords
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
-    name: InternalGetStateSizeWords
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalGetStateSizeWords
   - name: (
   - name: )
 - uid: Netick.Unity.NetworkBehaviour.BehaviourId
@@ -882,28 +975,6 @@ references:
     name: NetworkFixedUpdate
     isExternal: true
     href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkFixedUpdate
-  - name: (
-  - name: )
-- uid: Netick.Unity.NetickBehaviour.NetworkRender
-  commentId: M:Netick.Unity.NetickBehaviour.NetworkRender
-  parent: Netick.Unity.NetickBehaviour
-  isExternal: true
-  href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender
-  name: NetworkRender()
-  nameWithType: NetickBehaviour.NetworkRender()
-  fullName: Netick.Unity.NetickBehaviour.NetworkRender()
-  spec.csharp:
-  - uid: Netick.Unity.NetickBehaviour.NetworkRender
-    name: NetworkRender
-    isExternal: true
-    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetickBehaviour.NetworkRender
-    name: NetworkRender
-    isExternal: true
-    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender
   - name: (
   - name: )
 - uid: Netick.Unity.NetickBehaviour.OnBecameSimulated
@@ -5463,6 +5534,198 @@ references:
   name: ComponentExtensions
   nameWithType: ComponentExtensions
   fullName: Netick.Unity.ComponentExtensions
+- uid: Netick.Unity.NetworkBehaviour.NetworkAwake
+  commentId: M:Netick.Unity.NetworkBehaviour.NetworkAwake
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
+  name: NetworkAwake()
+  nameWithType: NetworkBehaviour.NetworkAwake()
+  fullName: Netick.Unity.NetworkBehaviour.NetworkAwake()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.NetworkAwake
+    name: NetworkAwake
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.NetworkAwake
+    name: NetworkAwake
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkAnimator.NetworkAwake*
+  commentId: Overload:Netick.Unity.NetworkAnimator.NetworkAwake
+  isExternal: true
+  href: Netick.Unity.NetworkAnimator.html#Netick_Unity_NetworkAnimator_NetworkAwake
+  name: NetworkAwake
+  nameWithType: NetworkAnimator.NetworkAwake
+  fullName: Netick.Unity.NetworkAnimator.NetworkAwake
+- uid: Netick.Unity.NetworkBehaviour.NetworkReset
+  commentId: M:Netick.Unity.NetworkBehaviour.NetworkReset
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset
+  name: NetworkReset()
+  nameWithType: NetworkBehaviour.NetworkReset()
+  fullName: Netick.Unity.NetworkBehaviour.NetworkReset()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.NetworkReset
+    name: NetworkReset
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.NetworkReset
+    name: NetworkReset
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkAnimator.NetworkReset*
+  commentId: Overload:Netick.Unity.NetworkAnimator.NetworkReset
+  isExternal: true
+  href: Netick.Unity.NetworkAnimator.html#Netick_Unity_NetworkAnimator_NetworkReset
+  name: NetworkReset
+  nameWithType: NetworkAnimator.NetworkReset
+  fullName: Netick.Unity.NetworkAnimator.NetworkReset
+- uid: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
+  commentId: M:Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalGetStateSizeWords
+  name: InternalGetStateSizeWords()
+  nameWithType: NetworkBehaviour.InternalGetStateSizeWords()
+  fullName: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
+    name: InternalGetStateSizeWords
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalGetStateSizeWords
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
+    name: InternalGetStateSizeWords
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalGetStateSizeWords
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkAnimator.InternalGetStateSizeWords*
+  commentId: Overload:Netick.Unity.NetworkAnimator.InternalGetStateSizeWords
+  isExternal: true
+  href: Netick.Unity.NetworkAnimator.html#Netick_Unity_NetworkAnimator_InternalGetStateSizeWords
+  name: InternalGetStateSizeWords
+  nameWithType: NetworkAnimator.InternalGetStateSizeWords
+  fullName: Netick.Unity.NetworkAnimator.InternalGetStateSizeWords
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.Smooth
+  commentId: T:Netick.Smooth
+  isExternal: true
+  href: Netick.Smooth.html
+  name: Smooth
+  nameWithType: Smooth
+  fullName: Netick.Smooth
+- uid: Netick.Unity.NetickBehaviour.NetworkRender
+  commentId: M:Netick.Unity.NetickBehaviour.NetworkRender
+  parent: Netick.Unity.NetickBehaviour
+  isExternal: true
+  href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender
+  name: NetworkRender()
+  nameWithType: NetickBehaviour.NetworkRender()
+  fullName: Netick.Unity.NetickBehaviour.NetworkRender()
+  spec.csharp:
+  - uid: Netick.Unity.NetickBehaviour.NetworkRender
+    name: NetworkRender
+    isExternal: true
+    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetickBehaviour.NetworkRender
+    name: NetworkRender
+    isExternal: true
+    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkAnimator.NetworkRender*
+  commentId: Overload:Netick.Unity.NetworkAnimator.NetworkRender
+  isExternal: true
+  href: Netick.Unity.NetworkAnimator.html#Netick_Unity_NetworkAnimator_NetworkRender
+  name: NetworkRender
+  nameWithType: NetworkAnimator.NetworkRender
+  fullName: Netick.Unity.NetworkAnimator.NetworkRender
+- uid: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
+  commentId: M:Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GameEngineIntoNetcode
+  name: GameEngineIntoNetcode()
+  nameWithType: NetworkBehaviour.GameEngineIntoNetcode()
+  fullName: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
+    name: GameEngineIntoNetcode
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GameEngineIntoNetcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
+    name: GameEngineIntoNetcode
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GameEngineIntoNetcode
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkAnimator.GameEngineIntoNetcode*
+  commentId: Overload:Netick.Unity.NetworkAnimator.GameEngineIntoNetcode
+  isExternal: true
+  href: Netick.Unity.NetworkAnimator.html#Netick_Unity_NetworkAnimator_GameEngineIntoNetcode
+  name: GameEngineIntoNetcode
+  nameWithType: NetworkAnimator.GameEngineIntoNetcode
+  fullName: Netick.Unity.NetworkAnimator.GameEngineIntoNetcode
+- uid: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
+  commentId: M:Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetcodeIntoGameEngine
+  name: NetcodeIntoGameEngine()
+  nameWithType: NetworkBehaviour.NetcodeIntoGameEngine()
+  fullName: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
+    name: NetcodeIntoGameEngine
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetcodeIntoGameEngine
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
+    name: NetcodeIntoGameEngine
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetcodeIntoGameEngine
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkAnimator.NetcodeIntoGameEngine*
+  commentId: Overload:Netick.Unity.NetworkAnimator.NetcodeIntoGameEngine
+  isExternal: true
+  href: Netick.Unity.NetworkAnimator.html#Netick_Unity_NetworkAnimator_NetcodeIntoGameEngine
+  name: NetcodeIntoGameEngine
+  nameWithType: NetworkAnimator.NetcodeIntoGameEngine
+  fullName: Netick.Unity.NetworkAnimator.NetcodeIntoGameEngine
 - uid: Netick.Unity.NetworkAnimator.#ctor*
   commentId: Overload:Netick.Unity.NetworkAnimator.#ctor
   isExternal: true
@@ -5473,3 +5736,32 @@ references:
   nameWithType.vb: NetworkAnimator.New
   fullName.vb: Netick.Unity.NetworkAnimator.New
   name.vb: New
+- uid: Netick.Unity.NetworkAnimator.Animator*
+  commentId: Overload:Netick.Unity.NetworkAnimator.Animator
+  isExternal: true
+  href: Netick.Unity.NetworkAnimator.html#Netick_Unity_NetworkAnimator_Animator
+  name: Animator
+  nameWithType: NetworkAnimator.Animator
+  fullName: Netick.Unity.NetworkAnimator.Animator
+- uid: UnityEngine.Animator
+  commentId: T:UnityEngine.Animator
+  parent: UnityEngine
+  isExternal: true
+  name: Animator
+  nameWithType: Animator
+  fullName: UnityEngine.Animator
+- uid: Netick.Unity.NetworkAnimator.InterpolationSource*
+  commentId: Overload:Netick.Unity.NetworkAnimator.InterpolationSource
+  isExternal: true
+  href: Netick.Unity.NetworkAnimator.html#Netick_Unity_NetworkAnimator_InterpolationSource
+  name: InterpolationSource
+  nameWithType: NetworkAnimator.InterpolationSource
+  fullName: Netick.Unity.NetworkAnimator.InterpolationSource
+- uid: Netick.InterpolationSource
+  commentId: T:Netick.InterpolationSource
+  parent: Netick
+  isExternal: true
+  href: Netick.InterpolationSource.html
+  name: InterpolationSource
+  nameWithType: InterpolationSource
+  fullName: Netick.InterpolationSource
