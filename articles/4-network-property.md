@@ -1,10 +1,12 @@
 # 4 - Network Property
 
-Network property allows us to replicate things between peers to make them keep in sync.
+A network property allows us to replicate things in the game and keep them in sync across the network.
 In this tutorial, we are going to replicate our mesh color between players using inputs and network property.
 
-## Randomize Color Input
-Let's add one more type of input which is a `bool` of randomizeColor. If the bool is true, then It will randomize a color, this bool indicate whether a button is being pressed.
+[Read More About Network Properties](networked-state.md)
+
+## Color Input
+Let's add one more type of input which is a `bool` and give it the name of `randomizeColor`. If this bool is true, then we will randomize the color.  
 
 ```cs
 public struct PlayerCharacterInput : INetworkInput
@@ -14,7 +16,7 @@ public struct PlayerCharacterInput : INetworkInput
 }
 ```
 
-Let's also modify our `GameplayManager` to also send the randomize color bool input using Space key code.
+Let's also modify our `GameplayManager` to also set the `randomizeColor` using the Space key.
 ```cs
 public class GameplayManager : NetworkEventsListener
 {
@@ -31,20 +33,20 @@ public class GameplayManager : NetworkEventsListener
 
 ```
 
-## Defining Network Property
+## Defining a Network Property
 
-1. Create a new C# Script and name it `PlayerCharacterVisual`
-2. Replace the parent class from `MonoBehaviour` to `NetworkBehaviour`
-3. Declare a network property of a color. 
+1. Create a new C# script and name it `PlayerCharacterVisual`.
+2. Replace the parent class from `MonoBehaviour` to `NetworkBehaviour`.
+3. Declare a network property of a `Color` type. 
 ```cs
 public class PlayerCharacterVisual : NetworkBehaviour
 {
     [Networked] public Color MeshColor { get; set; }
 }
 ```
-When specifying networked properties, Netick will substitute the provided get and set stubs with custom code.
+Note that you must make your variable a property by adding `{get; set;}` to its end, this is used by Netick to make it synced automatically.
 
-4. Add a Fetch Input logic to set the color to random
+4. Let's use the Fetch method to handle the color changing logic. When `RandomizeColor` field of the input is true, we generate a random color and assign it to the `MeshColor` network property.
 
 ```cs
 public class PlayerCharacterVisual : NetworkBehaviour
@@ -62,15 +64,15 @@ public class PlayerCharacterVisual : NetworkBehaviour
 }
 ```
 
-5. Declare a field of MeshRenderer
+5. Declare a field of `MeshRenderer`.
 
 ### Detecting Changes
-Netick has a feature to automatically detect whenever a certain network property changes, we call it OnChanged.
+Netick lets you automatically detect whenever a certain network property changes, which is by using the `[OnChanged]` attribute on a method that will be invoked when the specified property changes.
 
-1. Create a method and name it `OnChangedColor` with `OnChangedData` parameter
-2. Add `[OnChanged]` attribute on top of the method
-3. Supply the property name we want to detect inside the `[OnChanged]` attribute which is `MeshColor`
-4. Update the material color on `OnChangedColor`
+1. Create a method and name it `OnColorChanged` with `OnChangedData` parameter.
+2. Add `[OnChanged]` attribute on top of the method.
+3. Supply the property name we want to detect inside the `[OnChanged]` attribute which is `MeshColor`.
+4. Update the material color on `OnColorChanged`.
 
 ```cs
 public class PlayerCharacterVisual : NetworkBehaviour
@@ -89,13 +91,15 @@ public class PlayerCharacterVisual : NetworkBehaviour
     }
 
     [OnChanged(nameof(MeshColor))]
-    private void OnChangedColor(OnChangedData onChangedData)
+    private void OnColorChanged(OnChangedData onChangedData)
     {
         meshRenderer.material.color = MeshColor;
     }
 }
 ```
 
-Don't forget to assign the `meshRenderer` field in our player component
+[Read More About OnChanged](change-callback.md)
+
+Don't forget to assign the `meshRenderer` field in our player component!
 
 <figure><img src="../images/getting-started/104-networked-color.gif" alt=""><figcaption></figcaption></figure>

@@ -1,12 +1,12 @@
-# Getting Started for Unity
+# Getting Started (Unity)
 
 ## [0 - Overview](0-overview.md)
 
 ## [1 - Project Setup](1-project-setup.md)
 
-## [2 - Starting Session](2-starting-session.md)
+## [2 - Starting the Game](2-starting-the-game.md)
 
-## [3 - Player Character Logic](3-player-character-logic.md)
+## [3 - Player Character Movement](3-player-character-movement.md)
 
 ## [4 - Network Property](4-network-property.md)
 
@@ -44,6 +44,8 @@
 
 ## [Script Execution Order](script-execution-order.md)
 
+## [Sandboxing](sandboxing.md)
+
 # Advanced
 
 ## [Interpolation](interpolation.md)
@@ -65,8 +67,6 @@
 # Misc
 
 ## [Coming from Netick 1](coming-from-netick-1.md)
-
-## [Sandboxing](sandboxing.md)
 
 # Transports
 

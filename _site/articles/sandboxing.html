@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Sandboxing | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Sandboxing | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="sandboxing">Sandboxing</h1>
+
+<p>Sandboxing (also known as multi-peer), allow you to start multiple Netick instances in a single Unity process for various purposes:</p>
+<ul>
+<li>Starting multiple clients and a server.</li>
+<li>Starting multiple servers in a single Unity process.</li>
+</ul>
+<p>Sandbox Management panel can be accessed by going to <code>Netick &gt; Settings &gt; Sandboxes</code></p>
+<figure><img src="../images/sandboxing.png" alt="Interpolation"><figcaption></figcaption></figure>
+<p>Important notes while working with multiple sandboxes:</p>
+<ul>
+<li><p>Try to completely avoid using <code>static</code> fields. This is because you will run more than one instance of the game and a single <code>static</code> field will conflict between the different Netick instances. If you were using <code>static</code> for singleton types, you can do the same by using a Sandbox Prefab. Attach all your singleton-like components to your sandbox prefab and you can access them from any network behaviour using <code>var mySingleton = Sandbox.GetComponent&lt;TypeOfScript&gt;();</code>. This way each Netick instance will have its own singleton-like scripts.</p>
+</li>
+<li><p>When you want to disable a component on a GameObject, use <code>SetEnabled</code> instead of <code>enabled</code>. This method respects the running sandboxes so when a hidden sandbox enables a mesh renderer, for instance, it will not be visible because when that sandbox is hidden.</p>
+</li>
+</ul>
+<h2 id="starting-netick-as-multiple-peers">Starting Netick as Multiple Peers</h2>
+<ul>
+<li>Starting a client and a server</li>
+</ul>
+<pre><code class="lang-csharp">   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   {
+     Port              = Port,
+     TransportProvider = Transport,
+     NumberOfServers   = 1,
+     NumberOfClients   = 1
+   });
+
+</code></pre>
+<ul>
+<li>Starting multiple servers, and a client:</li>
+</ul>
+<pre><code class="lang-csharp">   int[] ports = new int[20];
+   for (int i = 0; i &lt; 20; i++)
+     ports[i]  = Port + i;
+
+   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   {
+     Port              = Port,
+     Ports             = ports,
+     TransportProvider = Transport,
+     NumberOfServers   = 20,
+     NumberOfClients   = 1
+   });
+</code></pre>
+<p>Here are the useful properties on <code>NetworkSandbox</code> for working multiple sandboxes:</p>
+<pre><code class="lang-cs">// If the sandbox is visible
+Sandbox.IsVisible { get; }
+
+// if input is enabled for the sandbox
+Sandbox.InputEnabled { get; }
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
