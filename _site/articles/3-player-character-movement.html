@@ -118,7 +118,7 @@ public class GameplayManager : NetworkEventsListener
     // ...   
     public override void OnInput(NetworkSandbox sandbox)
     {
-        PlayerCharacterInput input = new();
+        PlayerCharacterInput input = sandbox.GetInput&lt;PlayerCharacterInput&gt;();
         input.Movement             = new Vector2(Input.GetAxis(&quot;Horizontal&quot;), Input.GetAxis(&quot;Vertical&quot;));
         sandbox.SetInput(input);
     }
