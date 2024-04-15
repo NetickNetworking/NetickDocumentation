@@ -1,5 +1,7 @@
 ## Documentation
 
+[Getting Started Guide](articles/getting-started-guide/0-overview.html)
+
 [Manual](articles/understanding-client-server-model.html)
 
 [API reference](api/index.html) 
