@@ -1,18 +1,18 @@
 # Getting Started (Unity)
 
-## [0 - Overview](0-overview.md)
+## [0 - Overview](getting-started-guide/0-overview.md)
 
-## [1 - Project Setup](1-project-setup.md)
+## [1 - Project Setup](getting-started-guide/1-project-setup.md)
 
-## [2 - Setting Up the Game](2-setting-up-the-game.md)
+## [2 - Setting Up the Game](getting-started-guide/2-setting-up-the-game.md)
 
-## [3 - Player Character Movement](3-player-character-movement.md)
+## [3 - Player Character Movement](getting-started-guide/3-player-character-movement.md)
 
-## [4 - Network Property](4-network-property.md)
+## [4 - Network Property](getting-started-guide/4-network-property.md)
 
-## [5 - Remote Procedure Calls](5-remote-procedure-call.md)
+## [5 - Remote Procedure Calls](getting-started-guide/5-remote-procedure-call.md)
 
-## [6 - Next](6-next.md)
+## [6 - Next](getting-started-guide/6-next.md)
 
 # Basics
 

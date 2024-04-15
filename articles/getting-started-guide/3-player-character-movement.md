@@ -103,7 +103,7 @@ Because Netick is a tick-based netcode, it means movement will happen at a fixed
 
 Here's what our player character object looks like now:
 
-<figure><img src="../images/getting-started/103-player-character.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/getting-started/103-player-character.png" alt=""><figcaption></figcaption></figure>
 
 ## Multiplayer Testing
 Let's try to run the game now. In Netick, there is something called Sandboxing (or multi-peer), that allows us to simulate multiple peers on a single Unity process, meaning we don't have to build the game (or use two editors) to test multiplayer. Instead, we run a server and a client (or multiple) together in the same project at the same time.
@@ -116,4 +116,4 @@ You can show/hide sandboxes in `Netick > Settings > Sandboxes`.
 
 [Read More About Sandboxing](sandboxing.md)
 
-<figure><img src="../images/getting-started/103-multipeer.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/getting-started/103-multipeer.gif" alt=""><figcaption></figcaption></figure>

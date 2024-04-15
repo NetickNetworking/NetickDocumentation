@@ -13,11 +13,11 @@ In this tutorial, we are going to use an RPC (Remote Procedure Call) to set our 
     Pos Y: `2 `
 5. Change the canvas scale to `0.005` for all axis.
 
-<figure><img src="../images/getting-started/105-canvas.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/getting-started/105-canvas.png" alt=""><figcaption></figcaption></figure>
 
 6. In your text component, change font size to `128`, give it black color, and middle & center alignment. Make sure your text now is in the center.
 
-<figure><img src="../images/getting-started/105-tmp.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/getting-started/105-tmp.png" alt=""><figcaption></figcaption></figure>
 
 ## PlayerCharacterNametag
 
@@ -91,4 +91,4 @@ Assign the TextNametag with the TextMeshPro UI we have created before.
 
 Let's press the Enter key repeatedly to check if the RPC is working.
 
-<figure><img src="../images/getting-started/105-nametag.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/getting-started/105-nametag.gif" alt=""><figcaption></figcaption></figure>

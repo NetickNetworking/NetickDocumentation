@@ -29,7 +29,7 @@ For quick testing, we can use the built-in `GameStarter` component, which will s
 
 After adding the component, there are several fields we need to take care of.
 
-<figure><img src="../images/getting-started/102-game-starter.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/getting-started/102-game-starter.png" alt=""><figcaption></figcaption></figure>
 
 ## Sandbox Prefab
 The first field asks for a `Sandbox Prefab`
@@ -47,18 +47,18 @@ NetworkSandbox is like the manager of the game. Any scripts you add to the Sandb
 Now we need to assign a transport, Netick uses the LiteNetLib by default. To use this transport, we can right click on an empty place in the Assets folder and go to `Create > Netick > Transport > LiteNetLibTransportProvider`.
 Then assign the `Transport` field of Game Starter.
 
-<figure><img src="../images/getting-started/102-create-transport.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/getting-started/102-create-transport.png" alt=""><figcaption></figcaption></figure>
 
 ## Setting Up the Scene
 ### Floor
 Let's create a 3D Cube with a scale of `(15, -1.5, 15)` and name it "Floor".
 
-<figure><img src="../images/getting-started/102-floor.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/getting-started/102-floor.png" alt=""><figcaption></figcaption></figure>
 
 ### Camera
 Modify the camera's position to `(0, 10, -12)` and adjust its rotation to `(45, 0, 0)`.
 
-<figure><img src="../images/getting-started/102-camera.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/getting-started/102-camera.png" alt=""><figcaption></figcaption></figure>
 
 ## Gameplay Manager
 Let's create our manager script to handle gameplay aspects such as spawning the player character when a certain player joins.
@@ -119,4 +119,4 @@ public class GameplayManager : NetworkEventsListener
 
 Let's go ahead and enter play mode. You can see our player spawning by clicking on "Start Host".
 
-<figure><img src="../images/getting-started/102-player-spawning.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/getting-started/102-player-spawning.gif" alt=""><figcaption></figcaption></figure>

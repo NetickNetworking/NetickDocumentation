@@ -102,4 +102,4 @@ public class PlayerCharacterVisual : NetworkBehaviour
 
 Don't forget to assign the `meshRenderer` field in our player component!
 
-<figure><img src="../images/getting-started/104-networked-color.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/getting-started/104-networked-color.gif" alt=""><figcaption></figcaption></figure>

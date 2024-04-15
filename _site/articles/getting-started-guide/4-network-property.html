@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>4 - Network Property | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="4 - Network Property | Netick Networking Engine ">
+      
+      <link rel="icon" href="../../images/logo.png">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="4---network-property">4 - Network Property</h1>
+
+<p>A network property allows us to replicate things in the game and keep them in sync across the network.
+In this tutorial, we are going to replicate our mesh color between players using inputs and network property.</p>
+<p><a href="networked-state.md">Read More About Network Properties</a></p>
+<h2 id="color-input">Color Input</h2>
+<p>Let's add one more type of input which is a <code>bool</code> and give it the name of <code>randomizeColor</code>. If this bool is true, then we will randomize the color.</p>
+<pre><code class="lang-cs">public struct PlayerCharacterInput : INetworkInput
+{
+    //...    
+    public bool RandomizeColor;    
+}
+</code></pre>
+<p>Let's modify our <code>GameplayManager</code> to also set the <code>randomizeColor</code> using the Space key.</p>
+<pre><code class="lang-cs">public class GameplayManager : NetworkEventsListener
+{
+    //...
+    public override void OnInput(NetworkSandbox sandbox)
+    {
+        //...
+        input.RandomizeColor = Input.GetKey(KeyCode.Space);
+
+        sandbox.SetInput(input);
+    }
+    //...
+}
+
+</code></pre>
+<h2 id="defining-a-network-property">Defining a Network Property</h2>
+<ol>
+<li>Create a new C# script and name it <code>PlayerCharacterVisual</code>.</li>
+<li>Replace the parent class from <code>MonoBehaviour</code> to <code>NetworkBehaviour</code>.</li>
+<li>Declare a network property of a <code>Color</code> type.</li>
+</ol>
+<pre><code class="lang-cs">public class PlayerCharacterVisual : NetworkBehaviour
+{
+    [Networked] public Color MeshColor { get; set; }
+}
+</code></pre>
+<p>Note that you must make your variable a property by adding <code>{get; set;}</code> to its end, this is used by Netick to make it synced automatically.</p>
+<ol start="4">
+<li>Let's use the <code>FetchInput</code> method to handle the color changing logic. When <code>RandomizeColor</code> field of the input is true, we generate a random color and assign it to the <code>MeshColor</code> network property.</li>
+</ol>
+<pre><code class="lang-cs">public class PlayerCharacterVisual : NetworkBehaviour
+{
+    [Networked] public Color MeshColor { get; set; }
+
+    public override void NetworkFixedUpdate()
+    {
+        if (FetchInput(out PlayerCharacterInput input))
+        {
+            if (input.RandomizeColor)
+                MeshColor = Random.ColorHSV(0f, 1f);
+        }
+    }
+}
+</code></pre>
+<ol start="5">
+<li>Declare a field of <code>MeshRenderer</code>.</li>
+</ol>
+<h3 id="detecting-changes">Detecting Changes</h3>
+<p>Netick lets you automatically detect whenever a certain network property changes, which is by using the <code>[OnChanged]</code> attribute on a method that will be invoked when the specified property changes.</p>
+<ol>
+<li>Create a method and name it <code>OnColorChanged</code> with <code>OnChangedData</code> parameter.</li>
+<li>Add <code>[OnChanged]</code> attribute on top of the method.</li>
+<li>Supply the property name we want to detect inside the <code>[OnChanged]</code> attribute which is <code>MeshColor</code>.</li>
+<li>Update the material color on <code>OnColorChanged</code>.</li>
+</ol>
+<pre><code class="lang-cs">public class PlayerCharacterVisual : NetworkBehaviour
+{
+    [Networked] public Color MeshColor { get; set; }
+
+    public MeshRenderer meshRenderer;
+
+    public override void NetworkFixedUpdate()
+    {
+        if (FetchInput(out PlayerCharacterInput input))
+        {
+            if (input.RandomizeColor)
+                MeshColor = Random.ColorHSV(0f, 1f);
+        }
+    }
+
+    [OnChanged(nameof(MeshColor))]
+    private void OnColorChanged(OnChangedData onChangedData)
+    {
+        meshRenderer.material.color = MeshColor;
+    }
+}
+</code></pre>
+<p><a href="change-callback.md">Read More About OnChanged</a></p>
+<p>Don't forget to assign the <code>meshRenderer</code> field in our player component!</p>
+<figure><img src="../../images/getting-started/104-networked-color.gif" alt=""><figcaption></figcaption></figure>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
