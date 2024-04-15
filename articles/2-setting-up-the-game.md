@@ -52,7 +52,7 @@ Let's create a 3D Cube with a scale of `(15, -1.5, 15)` and name it "Floor".
 <figure><img src="../images/getting-started/102-floor.png" alt=""><figcaption></figcaption></figure>
 
 ### Camera
-Modify the camera's position to `(0, 10, 12)` and adjust its rotation to `(45, 180, 0)`.
+Modify the camera's position to `(0, 10, -12)` and adjust its rotation to `(45, 0, 0)`.
 
 <figure><img src="../images/getting-started/102-camera.png" alt=""><figcaption></figcaption></figure>
 
