@@ -1,7 +1,7 @@
 # 5 - Remote Procedure Call
 In this tutorial, we are going to use an RPC (Remote Procedure Call) to set our nickname randomly. RPC is the most primitive way to sync things in the game. It's not recommended to use RPCs most of the time, and should only be used for infrequent actions like sending the player's name to the server.
 
-[Read More About RPCs Here](remote-procedure-calls-rpcs.md)
+[Read More About RPCs Here](../remote-procedure-calls-rpcs.md)
 
 ## UI Setup
 

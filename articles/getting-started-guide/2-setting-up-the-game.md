@@ -20,7 +20,7 @@ Netick.Network.StartAsServer(...);
 Netick.Network.Shutdown();
 ```
 
-[Read More About Managing Netick](managing-netick.md)
+[Read More About Managing Netick](../managing-netick.md)
 
 For quick testing, we can use the built-in `GameStarter` component, which will start the game for us.
 
@@ -67,7 +67,7 @@ Create a C# script named `GameplayManager`, then add it to the GameStarter GameO
 
 This script will inherit from `NetworkEventsListener`. By doing this, `GameplayManager` now has the ability to listen to important network events such as when a player connects, disconnects, etc.
 
-[Read More About Listening to Network Events](listening-to-network-events.md)
+[Read More About Listening to Network Events](../listening-to-network-events.md)
 
 ```cs
 using Netick;
