@@ -1,6 +1,6 @@
 # Managing Netick
 
-## **Starting and Shutting Down Netick**
+## Starting and Shutting Down Netick
 
 When you start Netick, you need to specify the mode you want to start it in. Like this:
 
@@ -71,7 +71,7 @@ To shut down Netick completely:
 Netick.Network.Shutdown();
 ```
 
-## **Connecting to the Server**
+## Connecting to the Server
 
 To connect the client to the server:
 
@@ -79,7 +79,7 @@ To connect the client to the server:
 sandbox.Connect(serverIPAddress);
 ```
 
-## **Disconnecting from the server**
+## Disconnecting from the server
 
 To disconnect the client:
 
@@ -89,7 +89,7 @@ sandbox.Disconnect();
 
 You are advised to have a game starting scene used for server finding/matchmaking.
 
-## **Scene Loading**
+## Scene Loading
 
 To switch from the current scene to another:
 

@@ -1,13 +1,13 @@
 # Core Concepts
 
-### **Network Sandbox** <a href="#network-sandbox" id="network-sandbox"></a>
+### Network Sandbox <a href="#network-sandbox" id="network-sandbox"></a>
 
-<xref:Netick.NetworkSandbox> is what controls the whole network simulation. It can be thought of as the manager of the simulation. You can have more than one network sandbox in a single Unity game, and that happens when you start both a client and a server on the same project. This can be extremely useful for testing/debugging, because it allows you to run a server and a client (or multiple thereof) in the same project and therefore see what happens at both at the same time, without interference.
+<xref:Netick.NetworkSandbox> is what controls the whole network game. It can be thought of as the manager of the game. You can have more than one network sandbox in a single Unity game, and that happens when you start both a client and a server on the same project. This can be extremely useful for testing/debugging, because it allows you to run a server and a client (or multiple thereof) in the same project and therefore see what happens at both at the same time, without interference.
 
 - Therefore you can think of a sandbox as representing a server or a client.
 - You can show/hide the current sandboxes from the Network Sandboxes panel.
 
-### **Network Object** <a href="#network-object" id="network-object"></a>
+### Network Object <a href="#network-object" id="network-object"></a>
 
 Any GameObject which needs to be synced/replicated must be a <xref:Netick.NetworkObject> (has the <xref:Netick.NetworkObject> added to it). If you want to see something on everyone’s screen, it has to have a <xref:Netick.NetworkObject> component added to it. It’s the component that tells Netick that a GameObject is networked. The <xref:Netick.NetworkObject> component by itself just informs Netick that the object is networked. To add networked gameplay-logic to it, you must do so in a component of a class derived from <xref:Netick.NetworkBehaviour>. Netick comes with a few essential built-in components:
 
@@ -15,7 +15,7 @@ Any GameObject which needs to be synced/replicated must be a <xref:Netick.Networ
 - <xref:Netick.NetworkRigidbody>: used to sync controllable physical objects
 - <xref:Netick.NetworkAnimator>: used to sync Unity’s animator’s state
 
-### **Network Behaviour** <a href="#network-behaviour" id="network-behaviour"></a>
+### Network Behaviour <a href="#network-behaviour" id="network-behaviour"></a>
 
 The <xref:Netick.NetworkBehaviour> class is your old friend MonoBehaviour, just the networked version of it. To implement your networked functionality, create a new class and derive it from <xref:Netick.NetworkBehaviour>. You have several methods you can override which correspond to Unity’s non-networked equivalents (they must be used instead of Unity’s equivalents when doing anything related to the network simulation):
 
@@ -38,7 +38,6 @@ public class MyBehaviour : NetworkBehaviour
 {
     [Networked]
     public int   IntPropertyExample   { get; set;}
-
     [Networked]
     public float FloatPropertyExample { get; set;}
 

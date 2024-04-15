@@ -85,20 +85,20 @@
         <article data-uid="">
 <h1 id="core-concepts">Core Concepts</h1>
 
-<h3 id="network-sandbox-"><strong>Network Sandbox</strong> <a href="#network-sandbox" id="network-sandbox"></a></h3>
-<p><a class="xref" href="../api/Netick.NetworkSandbox.html">NetworkSandbox</a> is what controls the whole network simulation. It can be thought of as the manager of the simulation. You can have more than one network sandbox in a single Unity game, and that happens when you start both a client and a server on the same project. This can be extremely useful for testing/debugging, because it allows you to run a server and a client (or multiple thereof) in the same project and therefore see what happens at both at the same time, without interference.</p>
+<h3 id="network-sandbox-">Network Sandbox <a href="#network-sandbox" id="network-sandbox"></a></h3>
+<p><a class="xref" href="../api/Netick.NetworkSandbox.html">NetworkSandbox</a> is what controls the whole network game. It can be thought of as the manager of the game. You can have more than one network sandbox in a single Unity game, and that happens when you start both a client and a server on the same project. This can be extremely useful for testing/debugging, because it allows you to run a server and a client (or multiple thereof) in the same project and therefore see what happens at both at the same time, without interference.</p>
 <ul>
 <li>Therefore you can think of a sandbox as representing a server or a client.</li>
 <li>You can show/hide the current sandboxes from the Network Sandboxes panel.</li>
 </ul>
-<h3 id="network-object-"><strong>Network Object</strong> <a href="#network-object" id="network-object"></a></h3>
+<h3 id="network-object-">Network Object <a href="#network-object" id="network-object"></a></h3>
 <p>Any GameObject which needs to be synced/replicated must be a <a class="xref" href="../api/Netick.NetworkObject.html">NetworkObject</a> (has the <a class="xref" href="../api/Netick.NetworkObject.html">NetworkObject</a> added to it). If you want to see something on everyone’s screen, it has to have a <a class="xref" href="../api/Netick.NetworkObject.html">NetworkObject</a> component added to it. It’s the component that tells Netick that a GameObject is networked. The <a class="xref" href="../api/Netick.NetworkObject.html">NetworkObject</a> component by itself just informs Netick that the object is networked. To add networked gameplay-logic to it, you must do so in a component of a class derived from <a class="xref" href="../api/Netick.NetworkBehaviour.html">NetworkBehaviour</a>. Netick comes with a few essential built-in components:</p>
 <ul>
 <li><a class="xref" href="../api/Netick.NetworkTransform.html">NetworkTransform</a>: used to sync position and rotation</li>
 <li><a class="xref" href="../api/Netick.NetworkRigidbody.html">NetworkRigidbody</a>: used to sync controllable physical objects</li>
 <li><a class="xref" href="../api/Netick.NetworkAnimator.html">NetworkAnimator</a>: used to sync Unity’s animator’s state</li>
 </ul>
-<h3 id="network-behaviour-"><strong>Network Behaviour</strong> <a href="#network-behaviour" id="network-behaviour"></a></h3>
+<h3 id="network-behaviour-">Network Behaviour <a href="#network-behaviour" id="network-behaviour"></a></h3>
 <p>The <a class="xref" href="../api/Netick.NetworkBehaviour.html">NetworkBehaviour</a> class is your old friend MonoBehaviour, just the networked version of it. To implement your networked functionality, create a new class and derive it from <a class="xref" href="../api/Netick.NetworkBehaviour.html">NetworkBehaviour</a>. You have several methods you can override which correspond to Unity’s non-networked equivalents (they must be used instead of Unity’s equivalents when doing anything related to the network simulation):</p>
 <ul>
 <li><a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkStart</a></li>
@@ -118,7 +118,6 @@ public class MyBehaviour : NetworkBehaviour
 {
     [Networked]
     public int   IntPropertyExample   { get; set;}
-
     [Networked]
     public float FloatPropertyExample { get; set;}
 

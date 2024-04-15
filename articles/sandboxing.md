@@ -39,7 +39,7 @@ Sandbox management panel can be accessed by going to `Netick > Settings > Sandbo
    });
 ```
 
-## Making Your Project Sandbox-Safe:
+## Making Your Project Sandbox-Safe
 
 Running any project in multiple-peers mode does not always work, because of how some projects are set up. We call scripts or projects that can work with multiple sandboxes without issues as sandbox-safe.
 
@@ -51,9 +51,9 @@ Notes on how to make your project sandbox-safe:
 
 Some useful properties on `NetworkSandbox` for working with multiple sandboxes:
 ```cs
-// If the sandbox is visible
-Sandbox.IsVisible { get; }
+// is the sandbox is visible
+Sandbox.IsVisible 
 
-// if input is enabled for the sandbox
-Sandbox.InputEnabled { get; }
+// is input enabled for the sandbox
+Sandbox.InputEnabled 
 ```

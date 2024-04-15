@@ -85,9 +85,9 @@
         <article data-uid="">
 <h1 id="writing-client-side-prediction-code">Writing Client-Side Prediction code</h1>
 
-<h2 id="network-input-"><strong>Network Input</strong> <a href="#network-input" id="network-input"></a></h2>
+<h2 id="network-input-">Network Input <a href="#network-input" id="network-input"></a></h2>
 <p>Network Input describes what the player wants to do, which will be used to simulate the state of objects they want to control. This ensures that the client can’t directly change the state – the change happens by executing the input, which, even if tampered with, won’t be game-breaking.</p>
-<h2 id="defining-inputs-"><strong>Defining Inputs</strong> <a href="#defining-inputs" id="defining-inputs"></a></h2>
+<h2 id="defining-inputs-">Defining Inputs <a href="#defining-inputs" id="defining-inputs"></a></h2>
 <p>To define a new input, create a struct that implements <code>INetworkInput</code> interface:</p>
 <pre><code class="lang-csharp">public struct MyInput : INetworkInput
 {
@@ -101,7 +101,7 @@
 <li>Must not have reference types as fields.</li>
 <li>Must not have <code>string</code> as a field. Instead, you can use NetworkString varaints.</li>
 </ul>
-<h2 id="setting-inputs-"><strong>Setting Inputs</strong> <a href="#setting-inputs" id="setting-inputs"></a></h2>
+<h2 id="setting-inputs-">Setting Inputs <a href="#setting-inputs" id="setting-inputs"></a></h2>
 <p>To set the fields of an input, you first need to acquire the input struct of the current tick, using <code>Sandbox.GetInput</code>.<br>
 Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 <pre><code class="lang-csharp">public override void NetworkUpdate()
@@ -115,7 +115,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 }
 </code></pre>
 <p>You could also set them on <code>OnInput</code> of NetworkEventsListner, which is preferred.</p>
-<h2 id="simulatingexecuting-inputs"><strong>Simulating/Executing Inputs</strong></h2>
+<h2 id="simulating-executing-inputs">Simulating (Executing) Inputs</h2>
 <p>To drive the gameplay based on the input struct, you must do that in <code>NetworkFixedUpdate</code>:</p>
 <pre><code class="lang-csharp">public override void NetworkFixedUpdate()
 {
@@ -150,7 +150,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 <li>We are the owner (the server) of this object – receiving inputs from the client who’s the Input Source. And only if we have an input for the current tick being simulated. If not, it would return false. Usually, that happens due to packet loss.</li>
 </ol>
 <p>And to avoid the previous issue we talked about, we make sure that we are only shooting if we are simulating a new input, by checking <code>IsResimulating</code>.</p>
-<h2 id="input-source"><strong>Input Source</strong></h2>
+<h2 id="input-source">Input Source</h2>
 <p>For a client to be able to provide inputs to be used in an Object’s <code>NetworkFixedUpdate</code>, and hence take control of it, that client must be the Input Source of that object. Otherwise, <code>FetchInput</code> will return false. To check if you are the Input Source, use IsInputSource.</p>
 <p>The server can also be the Input Source of objects, although it won’t do any CSP, since it needs not to, after all, it’s the server.</p>
 <p>You can set the Input Source of an object when instantiating it:</p>

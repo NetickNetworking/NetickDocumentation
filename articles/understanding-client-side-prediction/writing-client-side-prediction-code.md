@@ -1,10 +1,10 @@
 # Writing Client-Side Prediction code
 
-## **Network Input** <a href="#network-input" id="network-input"></a>
+## Network Input <a href="#network-input" id="network-input"></a>
 
 Network Input describes what the player wants to do, which will be used to simulate the state of objects they want to control. This ensures that the client can’t directly change the state – the change happens by executing the input, which, even if tampered with, won’t be game-breaking.
 
-## **Defining Inputs** <a href="#defining-inputs" id="defining-inputs"></a>
+## Defining Inputs <a href="#defining-inputs" id="defining-inputs"></a>
 
 To define a new input, create a struct that implements `INetworkInput` interface:
 
@@ -21,7 +21,7 @@ public struct MyInput : INetworkInput
 - Must not have reference types as fields.
 - Must not have `string` as a field. Instead, you can use NetworkString varaints.
 
-## **Setting Inputs** <a href="#setting-inputs" id="setting-inputs"></a>
+## Setting Inputs <a href="#setting-inputs" id="setting-inputs"></a>
 
 To set the fields of an input, you first need to acquire the input struct of the current tick, using `Sandbox.GetInput`.\
 Then, you can set it inside `NetworkUpdate` on NetworkBehaviour:
@@ -40,7 +40,7 @@ public override void NetworkUpdate()
 
 You could also set them on `OnInput` of NetworkEventsListner, which is preferred.
 
-## **Simulating/Executing Inputs**
+## Simulating (Executing) Inputs
 
 To drive the gameplay based on the input struct, you must do that in `NetworkFixedUpdate`:
 
@@ -74,7 +74,7 @@ FetchInput tries to fetch an input for the state/tick being simulated/resimulate
 
 And to avoid the previous issue we talked about, we make sure that we are only shooting if we are simulating a new input, by checking `IsResimulating`.
 
-## **Input Source**
+## Input Source
 
 For a client to be able to provide inputs to be used in an Object’s `NetworkFixedUpdate`, and hence take control of it, that client must be the Input Source of that object. Otherwise, `FetchInput` will return false. To check if you are the Input Source, use IsInputSource.
 

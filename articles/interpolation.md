@@ -13,14 +13,14 @@ Since there are 5 frames between two ticks, the values at each frame would be:
 - Frame 4: 2.75
 - Frame 5: 3 — End of tick 6, beginning of tick 7
 
-## **Interpolation of Network Transform**
+## Interpolation of Network Transform
 
 For moving objects, this is important to deal with. Every <xref:Netick.NetworkTransform> has a slot for a Render transform, which is basically the smoothed/interpolated mesh of the object, while the parent would be the simulated/non-interpolated object.
 
 So, you must break your moving objects into a parent (which has the <xref:Netick.NetworkTransform>), and a child which is the interpolated object, and has the mesh/s. Then you specify that child in the NetworkTransform RenderTransform property in the inspector. Check the samples if you are confused.
 
 
-## **Interpolation Source**
+## Interpolation Source
 
 The source of interpolation data can be of two options:
 
@@ -32,7 +32,7 @@ The source of interpolation data can be of two options:
 > When you want the server only to move your local player object, you must switch `Interpolation Source` to `Remote Snapshot`, to keep smooth rendering of the object as it's being controlled remotely and the prediction buffers will contain jittery data as the object is not being moved locally in the client.
 
 
-## **Interpolation of Network Properties**
+## Interpolation of Network Properties
 
 To interpolate a property, add the [<xref:Netick.Smooth>] attribute to its declaration:
 
@@ -41,7 +41,7 @@ To interpolate a property, add the [<xref:Netick.Smooth>] attribute to its decla
 public Vector3 Movement {get; set;}
 ```
 
-## **Automatic Interpolation**
+## Automatic Interpolation
 
 To access the interpolated value, by referencing the property in [NetworkRender](xref:Netick.NetickBehaviour#Netick_NetickBehaviour_NetworkStart), you automatically get interpolated values:
 
@@ -67,11 +67,11 @@ Interpolation is implemented by Netick on these types:
 > [!WARNING]
 > Currently this is only supported in Unity. Use Manual Interpolation in other engines.
 
-## **Manual Interpolation**
+## Manual Interpolation
 
 To manually interpolate a network property or network array, you can do that using the <xref:Netick.Interpolator> struct. You also have to pass false to [Smooth] to inform Netick we want to manually interpolate the property.
 
-### **Interpolating Properties**
+### Interpolating Properties
 
 ```csharp
 [Networked][Smooth(false)]
@@ -97,7 +97,7 @@ private MyType LerpMyType(MyType from, MyType to, float alpha)
 }
 ```
 
-### **Interpolating Arrays**
+### Interpolating Arrays
 
 ```csharp
 [Networked (size: 10)][Smooth(false)]
