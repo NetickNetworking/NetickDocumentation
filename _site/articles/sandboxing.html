@@ -85,25 +85,16 @@
         <article data-uid="">
 <h1 id="sandboxing">Sandboxing</h1>
 
-<p>Sandboxing (also known as multi-peer), allow you to start multiple Netick instances in a single Unity process for various purposes:</p>
+<p>Sandboxing (also known as multi-peer) allows you to start multiple Netick instances in a single Unity process for various purposes:</p>
 <ul>
 <li>Starting multiple clients and a server.</li>
 <li>Starting multiple servers in a single Unity process.</li>
 </ul>
-<p>Sandbox Management panel can be accessed by going to <code>Netick &gt; Settings &gt; Sandboxes</code></p>
+<p>Sandbox management panel can be accessed by going to <code>Netick &gt; Settings &gt; Sandboxes</code></p>
 <figure><img src="../images/sandboxing.png" alt="Interpolation"><figcaption></figcaption></figure>
-<p>Important notes while working with multiple sandboxes:</p>
-<ul>
-<li><p>Try to completely avoid using <code>static</code> fields. This is because you will run more than one instance of the game and a single <code>static</code> field will conflict between the different Netick instances. If you were using <code>static</code> for singleton types, you can do the same by using a Sandbox Prefab. Attach all your singleton-like components to your sandbox prefab and you can access them from any network behaviour using <code>var mySingleton = Sandbox.GetComponent&lt;TypeOfScript&gt;();</code>. This way each Netick instance will have its own singleton-like scripts.</p>
-</li>
-<li><p>When you want to disable a component on a GameObject, use <code>SetEnabled</code> instead of <code>enabled</code>. This method respects the running sandboxes so when a hidden sandbox enables a mesh renderer, for instance, it will not be visible because when that sandbox is hidden.</p>
-</li>
-</ul>
 <h2 id="starting-netick-as-multiple-peers">Starting Netick as Multiple Peers</h2>
-<ul>
-<li>Starting a client and a server</li>
-</ul>
-<pre><code class="lang-csharp">   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+<h3 id="starting-a-client-and-a-server">Starting a Client and a Server</h3>
+<pre><code class="lang-csharp">   var sandboxes       = Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
      Port              = Port,
      TransportProvider = Transport,
@@ -112,22 +103,28 @@
    });
 
 </code></pre>
-<ul>
-<li>Starting multiple servers, and a client:</li>
-</ul>
-<pre><code class="lang-csharp">   int[] ports = new int[20];
+<h3 id="starting-multiple-servers">Starting Multiple Servers:</h3>
+<pre><code class="lang-csharp">   int   portOffset    = 4561;
+   int[] ports         = new int[20];
    for (int i = 0; i &lt; 20; i++)
-     ports[i]  = Port + i;
+     ports[i]          = portOffset + i;
 
-   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   var sandboxes       = Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
-     Port              = Port,
      Ports             = ports,
      TransportProvider = Transport,
-     NumberOfServers   = 20,
-     NumberOfClients   = 1
+     NumberOfServers   = 20
    });
 </code></pre>
+<h2 id="making-your-project-sandbox-safe">Making Your Project Sandbox-Safe:</h2>
+<p>Running any project in multiple-peers mode does not always work, because of how some projects are set up. We call scripts or projects that can work with multiple sandboxes without issues as sandbox-safe.</p>
+<p>Notes on how to make your project sandbox-safe:</p>
+<ul>
+<li><p>Try to completely avoid using <code>static</code> variables. This is because you will run more than one instance of the game and the <code>static</code> variable will conflict between the different Netick instances, since each Netick instance must have its own copy of that variable. If you were using <code>static</code> for singleton types, you can do the same by using a Sandbox Prefab. Attach all your singleton-like components to your sandbox prefab and you can access them from any network behaviour using <code>var mySingleton = Sandbox.GetComponent&lt;TypeOfScript&gt;();</code>. This way each Netick instance will have its own singleton-like scripts.</p>
+</li>
+<li><p>When you want to disable a component on a GameObject, use <code>SetEnabled</code> instead of <code>enabled</code>. This method respects the running sandboxes so when a hidden sandbox enables a mesh renderer, for instance, it will not be visible because that sandbox is hidden.</p>
+</li>
+</ul>
 <p>Some useful properties on <code>NetworkSandbox</code> for working with multiple sandboxes:</p>
 <pre><code class="lang-cs">// If the sandbox is visible
 Sandbox.IsVisible { get; }

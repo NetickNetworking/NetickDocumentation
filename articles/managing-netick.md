@@ -32,7 +32,9 @@ var sandbox = Netick.Network.StartAsSinglePlayer();
 
 ### Multiple Peers (Sandboxing)
 
-Or you can start both a client and a host together:
+[Read More About Sandboxing](sandboxing.md)
+
+You can start both a client and a host together:
 
 ```csharp
    var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
@@ -45,24 +47,23 @@ Or you can start both a client and a host together:
 
 ```
 
-Starting multiple servers, and a client:
+Starting multiple servers:
 
 ```csharp
-    // starts multiple servers (20 servers), and one client
-   int[] ports = new int[20];
-   for (int i = 0; i < 20; i++)
-     ports[i]  = Port + i;
 
+   int   portOffset = 4567;
+   int[] ports      = new int[20];
+   for (int i = 0; i < 20; i++)
+     ports[i]  = portOffset + i;
+
+   // starts multiple servers (20 servers)
    var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
-     Port              = Port,
      Ports             = ports,
      TransportProvider = Transport,
-     NumberOfServers   = 20,
-     NumberOfClients   = 1
+     NumberOfServers   = 20
    });
 ```
-
 
 To shut down Netick completely:
 
