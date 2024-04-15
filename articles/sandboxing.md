@@ -14,7 +14,6 @@ Important notes while working with multiple sandboxes:
 
 - When you want to disable a component on a GameObject, use `SetEnabled` instead of `enabled`. This method respects the running sandboxes so when a hidden sandbox enables a mesh renderer, for instance, it will not be visible because when that sandbox is hidden.
 
-
 ## Starting Netick as Multiple Peers
 
 - Starting a client and a server
@@ -47,7 +46,7 @@ Important notes while working with multiple sandboxes:
    });
 ```
 
-Here are the useful properties on `NetworkSandbox` for working multiple sandboxes:
+Some useful properties on `NetworkSandbox` for working with multiple sandboxes:
 ```cs
 // If the sandbox is visible
 Sandbox.IsVisible { get; }
