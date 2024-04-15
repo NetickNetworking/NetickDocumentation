@@ -87,17 +87,20 @@
 
 <h2 id="starting-the-game">Starting the Game</h2>
 <p>There are a few methods we can use to start the game:</p>
-<pre><code class="lang-cs">//Start the game as a server with a player
+<pre><code class="lang-cs">// start the game as a server with a player
 Netick.Network.StartAsHost(...);
 
-//Start the game as a client
+// start the game as a client
 var sandbox = Netick.Network.StartAsClient(...);
 
 // connecting the client
 sandbox.Connect(...);
 
-//Or just starting a server without a player (dedicated-server way)
+// or just starting a server without a player (dedicated-server way)
 Netick.Network.StartAsServer(...);
+
+// or if we wanted to shut down Netick
+Netick.Network.Shutdown();
 </code></pre>
 <p><a href="managing-netick.html">Read More About Managing Netick</a></p>
 <p>For quick testing, we can use the built-in <code>GameStarter</code> component, which will start the game for us.</p>
@@ -128,7 +131,7 @@ Then assign the <code>Transport</code> field of Game Starter.</p>
 <p>Let's create a 3D Cube with a scale of <code>(15, -1.5, 15)</code> and name it &quot;Floor&quot;.</p>
 <figure><img src="../images/getting-started/102-floor.png" alt=""><figcaption></figcaption></figure>
 <h3 id="camera">Camera</h3>
-<p>Modify the camera's position to <code>(0, 10, 12)</code> and adjust its rotation to <code>(45, 180, 0)</code>.</p>
+<p>Modify the camera's position to <code>(0, 10, -12)</code> and adjust its rotation to <code>(45, 0, 0)</code>.</p>
 <figure><img src="../images/getting-started/102-camera.png" alt=""><figcaption></figcaption></figure>
 <h2 id="gameplay-manager">Gameplay Manager</h2>
 <p>Let's create our manager script to handle gameplay aspects such as spawning the player character when a certain player joins.</p>
@@ -147,9 +150,9 @@ public class GameplayManager : NetworkEventsListener
 <h2 id="player-character">Player Character</h2>
 <p>Let's create our player character:</p>
 <ol>
-<li>Right click on the hierarchy <code>3D Object &gt; Capsule</code>.</li>
+<li>Right click on the hierarchy and select <code>3D Object &gt; Capsule</code>.</li>
 <li>Add <code>NetworkObject</code> component.</li>
-<li>Rename the file to <code>PlayerCharacter</code>.</li>
+<li>Rename it to <code>PlayerCharacter</code>.</li>
 </ol>
 <p>Adding NetworkObject to a GameObject will give it an identity across the network, so that it's synced.</p>
 <h2 id="spawning-our-player">Spawning our Player</h2>

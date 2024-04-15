@@ -4,18 +4,22 @@
 There are a few methods we can use to start the game:
 
 ```cs
-//Start the game as a server with a player
+// start the game as a server with a player
 Netick.Network.StartAsHost(...);
 
-//Start the game as a client
+// start the game as a client
 var sandbox = Netick.Network.StartAsClient(...);
 
 // connecting the client
 sandbox.Connect(...);
 
-//Or just starting a server without a player (dedicated-server way)
+// or just starting a server without a player (dedicated-server way)
 Netick.Network.StartAsServer(...);
+
+// or if we wanted to shut down Netick
+Netick.Network.Shutdown();
 ```
+
 [Read More About Managing Netick](managing-netick.md)
 
 For quick testing, we can use the built-in `GameStarter` component, which will start the game for us.
@@ -78,9 +82,9 @@ public class GameplayManager : NetworkEventsListener
 
 ## Player Character
 Let's create our player character:
-1. Right click on the hierarchy `3D Object > Capsule`.
+1. Right click on the hierarchy and select `3D Object > Capsule`.
 2. Add `NetworkObject` component.
-3. Rename the file to `PlayerCharacter`.
+3. Rename it to `PlayerCharacter`.
 
 Adding NetworkObject to a GameObject will give it an identity across the network, so that it's synced. 
 

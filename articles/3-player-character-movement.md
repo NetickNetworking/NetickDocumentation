@@ -53,9 +53,11 @@ public class GameplayManager : NetworkEventsListener
 
 We use a method called `FetchInput` to try to fetch an input for the current tick. If we are able to fetch an input, we use it to drive the gameplay logic, such as the movement of our character. 
 
-`FetchInput` must only be called inside `NetworkFixedUpdate`. To be able to use this method, we have to change the parent class from `MonoBehaviour` to `NetworkBehaviour`.
+`FetchInput` must only be called inside `NetworkFixedUpdate`. To be able to use this method, let's create a new C# script named `PlayerCharacterMovement`, to handle our movement logic. Let's also change its parent class from `MonoBehaviour` to `NetworkBehaviour`.
 
 We also need a `moveSpeed` variable, declare it using `float` type and set the default value to `5`.
+
+[Read More About Network Behaviour](core-concepts.md#network-behaviour)
 
 ```cs
 public class PlayerCharacterMovement : NetworkBehaviour
@@ -76,9 +78,10 @@ public class PlayerCharacterMovement : NetworkBehaviour
 In a single-player game, we use `Time.deltaTime` to move our player to make it frame independent. With Netick, instead of using `Time.deltaTime`, we use `Sandbox.FixedDeltaTime`, which represents the time between two network ticks.
 
 > [!Note]
-> Do not confuse `Sandbox.FixedDeltaTime` with `Sandbox.DeltaTime` (equal to Unity's Time.deltaTime) 
+> Do not confuse `Sandbox.FixedDeltaTime` with `Sandbox.DeltaTime` (equal to Unity's Time.deltaTime). 
 
-[Read More About Network Behaviour](core-concepts.md#network-behaviour)
+
+[Read More About Writing Client-Side Prediction Code](understanding-client-side-prediction/writing-client-side-prediction-code.md)
 
 ## Network Rigidbody
 Adding `NetworkRigidbody` allows us to sync the position, rotation and physics of our character.
