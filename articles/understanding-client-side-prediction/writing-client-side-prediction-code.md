@@ -53,7 +53,6 @@ public override void NetworkFixedUpdate()
         var movement = transform.TransformVector(new   Vector3(input.MoveDirX, 0, input.MoveDirY)) * Speed;
         movement.y   = 0;
   	    _CC.Move(movement * Time.fixedDeltaTime);
-
 	    // shooting
         if (input.ShootInput == true && !IsResimulating)
             Shot();

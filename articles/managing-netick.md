@@ -44,13 +44,11 @@ You can start both a client and a host together:
      NumberOfServers   = 1,
      NumberOfClients   = 1
    });
-
 ```
 
 Starting multiple servers:
 
 ```csharp
-
    int   portOffset = 4567;
    int[] ports      = new int[20];
    for (int i = 0; i < 20; i++)
