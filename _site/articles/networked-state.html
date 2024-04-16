@@ -86,7 +86,7 @@
 <h1 id="networked-state">Networked State</h1>
 
 <p>Networked state is the data of the game that you want to replicate to players. In Netick, networked state is delta compressed, therefore only changes are replicated. If a field of a struct changes, only that field is replicated. If a counter increases, only the delta to the previous value is replicated. If your counter was at 32534536, and now it is at 32534537, it will be replicated as a delta of one. It applies to vectors and quaternions too. Thus, using as little bandwidth as possible.</p>
-<p>Every networked property/array can be predicted and interpolated too. Allowing you to create complex networked systems easily.</p>
+<p>Every networked variable can be predicted and interpolated too. Allowing you to create complex networked systems easily.</p>
 <h2 id="network-properties">Network Properties</h2>
 <p>A network property is a C# property which is replicated across the network. For a property to be networked, the attribute [<a class="xref" href="../api/Netick.Networked.html">Networked</a>] must be added to it.</p>
 <p>Examples of networked properties:</p>
