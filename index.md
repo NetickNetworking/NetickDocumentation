@@ -1,3 +1,4 @@
+
 ## Documentation
 
 [Getting Started Guide](articles/getting-started-guide/0-overview.html)
@@ -6,7 +7,7 @@
 
 [API reference](api/index.html) 
 
-
+<!-- 
 ## Getting Started
 
 ### Unity
@@ -15,7 +16,7 @@
 
 ### Godot
 
-> [!Video https://www.youtube.com/embed/eqDv8rPnYwk]
+> [!Video https://www.youtube.com/embed/eqDv8rPnYwk] -->
 
 If you have any questions, requests, or anything, join our [discord](https://discord.com/invite/uV6bfG66Fx).
 
