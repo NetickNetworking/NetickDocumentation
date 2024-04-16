@@ -30,6 +30,10 @@ In this tutorial, we are going to use an RPC (Remote Procedure Call) to set our 
 We're going to set the RPC source to `InputSource` and the target to `Owner` (Server/Host). This means only the input source peer is able to call this RPC, but only the server will execute the RPC. We also want to set `isReliable` to true, this will ensure that this RPC will arrive to the server, even if packet loss occurs.
 
 ```cs
+using UnityEngine;
+using Netick;
+using Netick.Unity;
+
 public class PlayerCharacterNametag : NetworkBehaviour
 {
     [Networked] public NetworkString32 Nickname { get; set; }

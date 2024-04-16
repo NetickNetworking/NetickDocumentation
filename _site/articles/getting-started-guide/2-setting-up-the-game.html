@@ -114,14 +114,14 @@ Netick.Network.Shutdown();
 <p>The first field asks for a <code>Sandbox Prefab</code></p>
 <ol>
 <li>Create a new empty GameObject.</li>
-<li>Rename it to <code>GameNetworkSandbox</code> (or any name you like).</li>
-<li>Save it as prefab in the Assets folder, and assign it in <code>GameStarter</code>.</li>
+<li>Rename it to <code>MySandboxPrefab</code> (or any name you like).</li>
+<li>Save it as prefab in the Assets folder, and assign it in <code>Sandbox Prefab</code> of <code>GameStarter</code>.</li>
 </ol>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Netick will automatically add a few other scripts too on this prefab when it's created which will happen when you start Netick, the most important one of those scripts is <code>NetworkSandox</code>. The Sandbox Prefab is a persistent GameObject, it will only be destroyed when you shut down Netick.</p>
 </div>
-<p>NetworkSandbox is like the manager of the game. Any scripts you add to the Sandbox Prefab will stay around until you shut down Netick. Methods on <code>NetworkSandbox</code> lets you do various things like connecting, spawning objects and destroying them.</p>
+<p>Any scripts you add to the Sandbox Prefab will stay around until you shut down Netick. Methods on <code>NetworkSandbox</code> (the script Netick adds to the Sandbox Prefab) lets you do various things like connecting, spawning objects and destroying them.</p>
 <h2 id="transport">Transport</h2>
 <p>Now we need to assign a transport, Netick uses the LiteNetLib by default. To use this transport, we can right click on an empty place in the Assets folder and go to <code>Create &gt; Netick &gt; Transport &gt; LiteNetLibTransportProvider</code>.
 Then assign the <code>Transport</code> field of Game Starter.</p>
@@ -180,7 +180,7 @@ public class GameplayManager : NetworkEventsListener
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Unity has old methods from the time when UNet was still around, sometimes providing incorrect signature information for <code>OnPlayerConnected</code> in your IDE. This issue is harmless and can be ignored.</p>
+<p>Unity has old methods from the time when UNet was still around, sometimes providing incorrect signature information for <code>OnPlayerConnected</code> in your IDE, for instance. This issue is harmless and can be ignored.</p>
 </div>
 <h2 id="testing">Testing</h2>
 <p>Let's go ahead and enter play mode. You can see our player spawning by clicking on &quot;Start Host&quot;.</p>

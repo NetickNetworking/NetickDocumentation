@@ -35,13 +35,13 @@ After adding the component, there are several fields we need to take care of.
 The first field asks for a `Sandbox Prefab`
 
 1. Create a new empty GameObject.
-2. Rename it to `GameNetworkSandbox` (or any name you like).
-3. Save it as prefab in the Assets folder, and assign it in `GameStarter`.
+2. Rename it to `MySandboxPrefab` (or any name you like).
+3. Save it as prefab in the Assets folder, and assign it in `Sandbox Prefab` of `GameStarter`.
 
 > [!NOTE]
 > Netick will automatically add a few other scripts too on this prefab when it's created which will happen when you start Netick, the most important one of those scripts is `NetworkSandox`. The Sandbox Prefab is a persistent GameObject, it will only be destroyed when you shut down Netick.
 
-NetworkSandbox is like the manager of the game. Any scripts you add to the Sandbox Prefab will stay around until you shut down Netick. Methods on `NetworkSandbox` lets you do various things like connecting, spawning objects and destroying them.
+Any scripts you add to the Sandbox Prefab will stay around until you shut down Netick. Methods on `NetworkSandbox` (the script Netick adds to the Sandbox Prefab) lets you do various things like connecting, spawning objects and destroying them.
 
 ## Transport 
 Now we need to assign a transport, Netick uses the LiteNetLib by default. To use this transport, we can right click on an empty place in the Assets folder and go to `Create > Netick > Transport > LiteNetLibTransportProvider`.
@@ -113,7 +113,7 @@ public class GameplayManager : NetworkEventsListener
 ```
 
 > [!Note]
-> Unity has old methods from the time when UNet was still around, sometimes providing incorrect signature information for `OnPlayerConnected` in your IDE. This issue is harmless and can be ignored.
+> Unity has old methods from the time when UNet was still around, sometimes providing incorrect signature information for `OnPlayerConnected` in your IDE, for instance. This issue is harmless and can be ignored.
 
 ## Testing
 

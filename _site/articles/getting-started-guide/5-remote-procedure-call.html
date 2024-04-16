@@ -110,7 +110,11 @@ Pos Y: <code>2 </code></li>
 </ol>
 <h2 id="rpc-implementation">RPC Implementation</h2>
 <p>We're going to set the RPC source to <code>InputSource</code> and the target to <code>Owner</code> (Server/Host). This means only the input source peer is able to call this RPC, but only the server will execute the RPC. We also want to set <code>isReliable</code> to true, this will ensure that this RPC will arrive to the server, even if packet loss occurs.</p>
-<pre><code class="lang-cs">public class PlayerCharacterNametag : NetworkBehaviour
+<pre><code class="lang-cs">using UnityEngine;
+using Netick;
+using Netick.Unity;
+
+public class PlayerCharacterNametag : NetworkBehaviour
 {
     [Networked] public NetworkString32 Nickname { get; set; }
 

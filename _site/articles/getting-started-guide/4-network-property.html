@@ -117,7 +117,11 @@ In this tutorial, we are going to replicate our mesh color between players using
 <li>Replace the parent class from <code>MonoBehaviour</code> to <code>NetworkBehaviour</code>.</li>
 <li>Declare a network property of a <code>Color</code> type.</li>
 </ol>
-<pre><code class="lang-cs">public class PlayerCharacterVisual : NetworkBehaviour
+<pre><code class="lang-cs">using UnityEngine;
+using Netick;
+using Netick.Unity;
+
+public class PlayerCharacterVisual : NetworkBehaviour
 {
     [Networked] public Color MeshColor { get; set; }
 }
@@ -126,7 +130,11 @@ In this tutorial, we are going to replicate our mesh color between players using
 <ol start="4">
 <li>Let's use the <code>FetchInput</code> method to handle the color changing logic. When <code>RandomizeColor</code> field of the input is true, we generate a random color and assign it to the <code>MeshColor</code> network property.</li>
 </ol>
-<pre><code class="lang-cs">public class PlayerCharacterVisual : NetworkBehaviour
+<pre><code class="lang-cs">using UnityEngine;
+using Netick;
+using Netick.Unity;
+
+public class PlayerCharacterVisual : NetworkBehaviour
 {
     [Networked] public Color MeshColor { get; set; }
 
@@ -151,7 +159,11 @@ In this tutorial, we are going to replicate our mesh color between players using
 <li>Supply the property name we want to detect inside the <code>[OnChanged]</code> attribute which is <code>MeshColor</code>.</li>
 <li>Update the material color on <code>OnColorChanged</code>.</li>
 </ol>
-<pre><code class="lang-cs">public class PlayerCharacterVisual : NetworkBehaviour
+<pre><code class="lang-cs">using UnityEngine;
+using Netick;
+using Netick.Unity;
+
+public class PlayerCharacterVisual : NetworkBehaviour
 {
     [Networked] public Color MeshColor { get; set; }
 

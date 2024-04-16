@@ -24,7 +24,7 @@ var sandbox = Netick.Network.StartAsHost(Transport, Port);
 var sandbox = Netick.Network.StartAsServer(Transport, Port);
 ```
 
-#### Start As Single-Player (disables low level networking)
+#### Start as Single-Player (disables low level networking)
 
 ```csharp
 var sandbox = Netick.Network.StartAsSinglePlayer();
@@ -79,7 +79,7 @@ To connect the client to the server:
 sandbox.Connect(serverIPAddress);
 ```
 
-## Disconnecting from the server
+## Disconnecting From the Server
 
 To disconnect the client:
 

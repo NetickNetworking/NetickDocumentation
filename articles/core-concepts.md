@@ -2,7 +2,7 @@
 
 ### Network Sandbox <a href="#network-sandbox" id="network-sandbox"></a>
 
-<xref:Netick.NetworkSandbox> is what controls the whole network game. It can be thought of as the manager of the game. You can have more than one network sandbox in a single Unity game, and that happens when you start both a client and a server on the same project. This can be extremely useful for testing/debugging, because it allows you to run a server and a client (or multiple thereof) in the same project and therefore see what happens at both at the same time, without interference.
+<xref:Netick.NetworkSandbox> is what controls the whole network game. It can be thought of representing an instance of the game. You can have more than one network sandbox in a single Unity game, and that happens when you start both a client and a server on the same project. This can be extremely useful for testing/debugging, because it allows you to run a server and a client (or multiple thereof) in the same project and therefore see what happens at both at the same time, without interference.
 
 - Therefore you can think of a sandbox as representing a server or a client.
 - You can show/hide the current sandboxes from the Network Sandboxes panel.

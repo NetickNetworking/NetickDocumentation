@@ -38,7 +38,12 @@ public class GameplayManager : NetworkEventsListener
 1. Create a new C# script and name it `PlayerCharacterVisual`.
 2. Replace the parent class from `MonoBehaviour` to `NetworkBehaviour`.
 3. Declare a network property of a `Color` type. 
+
 ```cs
+using UnityEngine;
+using Netick;
+using Netick.Unity;
+
 public class PlayerCharacterVisual : NetworkBehaviour
 {
     [Networked] public Color MeshColor { get; set; }
@@ -49,6 +54,10 @@ Note that you must make your variable a property by adding `{get; set;}` to its 
 4. Let's use the `FetchInput` method to handle the color changing logic. When `RandomizeColor` field of the input is true, we generate a random color and assign it to the `MeshColor` network property.
 
 ```cs
+using UnityEngine;
+using Netick;
+using Netick.Unity;
+
 public class PlayerCharacterVisual : NetworkBehaviour
 {
     [Networked] public Color MeshColor { get; set; }
@@ -75,6 +84,10 @@ Netick lets you automatically detect whenever a certain network property changes
 4. Update the material color on `OnColorChanged`.
 
 ```cs
+using UnityEngine;
+using Netick;
+using Netick.Unity;
+
 public class PlayerCharacterVisual : NetworkBehaviour
 {
     [Networked] public Color MeshColor { get; set; }
