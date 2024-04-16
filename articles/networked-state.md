@@ -33,6 +33,9 @@ public NetworkString32  Name     {get; set;}
 > [!WARNING]
 > Reference types are not networkable.
 
+> [!WARNING]
+> If you are intending on building your game using `IL2CPP`, you must use `NetworkBool` instead of `bool`.
+
 ## Network Arrays
 
 Network arrays are just like regular C# arrays, but their syntax is a bit different. They are defined using the <xref:Netick.NetworkArray`1> generic class.
