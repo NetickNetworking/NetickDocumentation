@@ -20,7 +20,6 @@ Sandboxes panel can be accessed by going to `Netick > Settings > Sandboxes`
      NumberOfServers   = 1,
      NumberOfClients   = 1
    });
-
 ```
 
 ### Starting Multiple Servers:
