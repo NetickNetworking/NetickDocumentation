@@ -59,8 +59,14 @@ public override void NetworkFixedUpdate()
     }
 }
 ```
+
+
 > [!NOTE]
 > Everything that is modified around `FetchInput`, and also affects the networked state, must be networked using `[Networked]`. For example, if you have a variable that is changing over time which can affect the speed of the player, it must be networked.
+
+> [!NOTE]
+> When `IsResimulating` equals to true, every [Networked] variable has an older value, since we are resimulating past ticks. The first resimulated tick will have the server state applied to every networked variable.
+
 > [!WARNING]
 > `Sandbox.GetInput` and `Sandbox.SetInput` are used to read and set the user inputs into the input struct.
 > [!WARNING]
