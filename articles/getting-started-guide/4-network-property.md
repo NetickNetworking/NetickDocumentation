@@ -3,7 +3,7 @@
 A network property allows us to replicate things in the game and keep them in sync across the network.
 In this tutorial, we are going to replicate our mesh color between players using inputs and network property.
 
-[Read More About Network Properties](../networked-state.md)
+[Learn More About Network Properties](../networked-state.md)
 
 ## Color Input
 Let's add one more type of input which is a `bool` and give it the name of `randomizeColor`. If this bool is true, then we will randomize the color.  
@@ -111,7 +111,7 @@ public class PlayerCharacterVisual : NetworkBehaviour
 }
 ```
 
-[Read More About OnChanged](../change-callback.md)
+[Learn More About OnChanged](../change-callback.md)
 
 Don't forget to assign the `meshRenderer` field in our player component!
 

@@ -2,7 +2,7 @@
 
 Since Netick is a server-authoritative networking solution, we can't directly move the player character object (in a client-auth fashion) on the client for security reasons. Instead, we use inputs, which will be used to move our player. To move the player based on our input, here's how it works: we send an input to the server, the server fetches our input, and then uses it to move our character. Netick uses something called Client-Side Prediction to make this process responsive.
 
-[Read More About Client-Side Prediction](../understanding-client-side-prediction/understanding-client-side-prediction.md)
+[Learn More About Client-Side Prediction](../understanding-client-side-prediction/understanding-client-side-prediction.md)
 
 ## Input Struct
 Consider the type of player inputs required for our gameplay. In this tutorial, we only use a vector for movement direction.
@@ -47,7 +47,7 @@ public class GameplayManager : NetworkEventsListener
 
 ```
 
-[Read More About Inputs](../understanding-client-side-prediction/writing-client-side-prediction-code.md)
+[Learn More About Inputs](../understanding-client-side-prediction/writing-client-side-prediction-code.md)
 
 ## Fetch Input
 
@@ -57,7 +57,7 @@ We use a method called `FetchInput` to try to fetch an input for the current tic
 
 We also need a `moveSpeed` variable, declare it using `float` type and set the default value to `5`.
 
-[Read More About Network Behaviour](../core-concepts.md#network-behaviour)
+[Learn More About Network Behaviour](../core-concepts.md#network-behaviour)
 
 ```cs
 public class PlayerCharacterMovement : NetworkBehaviour
@@ -81,7 +81,7 @@ In a single-player game, we use `Time.deltaTime` to move our player to make it f
 > Do not confuse `Sandbox.FixedDeltaTime` with `Sandbox.DeltaTime` (equal to Unity's Time.deltaTime). 
 
 
-[Read More About Writing Client-Side Prediction Code](../understanding-client-side-prediction/writing-client-side-prediction-code.md)
+[Learn More About Writing Client-Side Prediction Code](../understanding-client-side-prediction/writing-client-side-prediction-code.md)
 
 ## Network Rigidbody
 Adding `NetworkRigidbody` allows us to sync the position, rotation and physics of our character.
@@ -89,7 +89,7 @@ Adding `NetworkRigidbody` allows us to sync the position, rotation and physics o
 1. Add `NetworkRigidbody` component to our player character prefab.
 2. Toggle on `Freeze Rotation` on all Axis (X, Y, Z).
 
-[Read More About NetworkRigidbody](../built-in-components/networkrigidbody.md)
+[Learn More About NetworkRigidbody](../built-in-components/networkrigidbody.md)
 
 ### Gameplay & Visual Seperation
 In the `NetworkRigidbody` component, there is a `Render Transform` field which asks for a `Transform`.
@@ -99,7 +99,7 @@ Because Netick is a tick-based netcode, it means movement will happen at a fixed
 2. Delete & Move the `Capsule (Mesh Filter)` and `Mesh Renderer` component to Visual.
 3. Assign Visual to `Render Transform` of `NetworkRigidbody` .
 
-[Read More About Interpolation](../interpolation.md)
+[Learn More About Interpolation](../interpolation.md)
 
 Here's what our player character object looks like now:
 
@@ -114,6 +114,6 @@ Let's try to run the game now. In Netick, there is something called Sandboxing (
 
 You can show/hide sandboxes in `Netick > Settings > Sandboxes`.
 
-[Read More About Sandboxing](../sandboxing.md)
+[Learn More About Sandboxing](../sandboxing.md)
 
 <figure><img src="../../images/getting-started/103-multipeer.gif" alt=""><figcaption></figcaption></figure>

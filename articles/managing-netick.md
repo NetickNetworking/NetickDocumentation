@@ -32,7 +32,7 @@ var sandbox = Netick.Network.StartAsSinglePlayer();
 
 ### Multiple Peers (Sandboxing)
 
-[Read More About Sandboxing](sandboxing.md)
+[Learn More About Sandboxing](sandboxing.md)
 
 You can start both a client and a host together:
 
