@@ -2,7 +2,7 @@
 
 Networked state is the data of the game that you want to replicate to players. In Netick, networked state is delta compressed, therefore only changes are replicated. If a field of a struct changes, only that field is replicated. If a counter increases, only the delta to the previous value is replicated. If your counter was at 32534536, and now it is at 32534537, it will be replicated as a delta of one. It applies to vectors and quaternions too. Thus, using as little bandwidth as possible.
 
-Every network property/array can be predicted and interpolated too. Allowing you to create complex networked systems easily.
+Every networked property/array can be predicted and interpolated too. Allowing you to create complex networked systems easily.
 
 ## Network Properties
 
