@@ -51,7 +51,7 @@ Notes on how to make your project sandbox-safe:
 
 Some useful properties on `NetworkSandbox` for working with multiple sandboxes:
 ```cs
-// is the sandbox is visible
+// is the sandbox visible
 Sandbox.IsVisible 
 
 // is input enabled for the sandbox
