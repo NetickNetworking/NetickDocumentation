@@ -32,11 +32,11 @@
 
 ## [Writing Client-Side Prediction code](understanding-client-side-prediction/writing-client-side-prediction-code.md)
 
-## [Managing Netick](managing-netick.md)
-
 ## [Network Object Instantiation and Destruction](network-object-instantiation-and-destruction/network-object-instantiation-and-destruction.md)
 
 ## [Network Prefab Pool](network-object-instantiation-and-destruction/network-prefab-pool.md)
+
+## [Managing Netick](managing-netick.md)
 
 ## [Listening to Network Events](listening-to-network-events.md)
 
