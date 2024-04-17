@@ -115,28 +115,28 @@ MyStaticRpc(Sandbox.Engine, 56);
 <h5>Warning</h5>
 <p>By default all RPCs are unreliable.</p>
 </div>
-<h3 id="rpc-method-constraints"><strong>RPC method constraints</strong></h3>
+<h3 id="rpc-method-constraints">[Rpc] method constraints</h3>
 <ul>
 <li>Must have the return type of void.</li>
 <li>Must not have reference types as parameters.</li>
 <li>Must not have class-based network collections as parameters. Only <code>NetworkArrayStruct</code> varaints are allowed as array RPC parameters.</li>
 <li>Must not have <code>string</code> as a parameter type. Instead, you can use NetworkString varaints.</li>
 </ul>
-<h3 id="rpc-attribute-parameters"><strong>[Rpc] attribute parameters</strong></h3>
+<h3 id="rpc-attribute-parameters">[Rpc] attribute parameters</h3>
 <ul>
 <li>Source: the peer/peers the RPC should be sent from</li>
 <li>Target: the peer/peers the RPC will be executed on</li>
 <li>isReliable: whether the RPC is sent reliably or unreliably</li>
 <li>localInvoke: whether to invoke the RPC locally or not</li>
 </ul>
-<p><strong>Source and target can be any of the following:</strong></p>
+<p>Source and target can be any of the following:</p>
 <ul>
 <li>Owner (the server)</li>
 <li>Input Source: the client which is providing inputs for this Network Object</li>
 <li>Proxies: everyone except the Owner and the Input Source</li>
 <li>Everyone: the server and every connected client</li>
 </ul>
-<h3 id="source-connection-of-rpcs-">Source Connection of RPCs <a href="#source-connection-of-rpcs" id="source-connection-of-rpcs"></a></h3>
+<h3 id="source-connection-of-rpcs">Source Connection of RPCs</h3>
 <p>If you need to know which connection (a client, or the server) the current RPC is being executed from, you can use <code>Sandbox.CurrentRpcSource</code></p>
 <pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.InputSource, isReliable: true, localInvoke: false)]
 private void MyRpc(int arg1)

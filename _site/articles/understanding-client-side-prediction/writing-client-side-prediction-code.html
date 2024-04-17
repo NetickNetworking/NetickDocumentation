@@ -85,9 +85,9 @@
         <article data-uid="">
 <h1 id="writing-client-side-prediction-code">Writing Client-Side Prediction code</h1>
 
-<h2 id="network-input-">Network Input <a href="#network-input" id="network-input"></a></h2>
+<h2 id="network-input">Network Input</h2>
 <p>Network Input describes what the player wants to do, which will be used to simulate the state of objects they want to control. This ensures that the client can’t directly change the state – the change happens by executing the input, which, even if tampered with, won’t be game-breaking.</p>
-<h2 id="defining-inputs-">Defining Inputs <a href="#defining-inputs" id="defining-inputs"></a></h2>
+<h2 id="defining-inputs">Defining Inputs</h2>
 <p>To define a new input, create a struct that implements <code>INetworkInput</code> interface:</p>
 <pre><code class="lang-csharp">public struct MyInput : INetworkInput
 {
@@ -101,7 +101,7 @@
 <li>Must not have reference types as fields.</li>
 <li>Must not have <code>string</code> as a field. Instead, you can use NetworkString varaints.</li>
 </ul>
-<h2 id="setting-inputs-">Setting Inputs <a href="#setting-inputs" id="setting-inputs"></a></h2>
+<h2 id="setting-inputs">Setting Inputs</h2>
 <p>To set the fields of an input, you first need to acquire the input struct of the current tick, using <code>Sandbox.GetInput</code>.<br>
 Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 <pre><code class="lang-csharp">public override void NetworkUpdate()
@@ -122,7 +122,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
     if (FetchInput(out MyInput input))
     {
         // movement
-        var movement = transform.TransformVector(new   Vector3(input.MoveDirX, 0, input.MoveDirY)) * Speed;
+        var movement = transform.TransformVector(new Vector3(input.MoveDirX, 0, input.MoveDirY)) * Speed;
         movement.y   = 0;
   	    _CC.Move(movement * Time.fixedDeltaTime);
 	    // shooting

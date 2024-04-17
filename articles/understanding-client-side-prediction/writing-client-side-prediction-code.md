@@ -1,10 +1,10 @@
 # Writing Client-Side Prediction code
 
-## Network Input <a href="#network-input" id="network-input"></a>
+## Network Input 
 
 Network Input describes what the player wants to do, which will be used to simulate the state of objects they want to control. This ensures that the client can’t directly change the state – the change happens by executing the input, which, even if tampered with, won’t be game-breaking.
 
-## Defining Inputs <a href="#defining-inputs" id="defining-inputs"></a>
+## Defining Inputs
 
 To define a new input, create a struct that implements `INetworkInput` interface:
 
@@ -21,7 +21,7 @@ public struct MyInput : INetworkInput
 - Must not have reference types as fields.
 - Must not have `string` as a field. Instead, you can use NetworkString varaints.
 
-## Setting Inputs <a href="#setting-inputs" id="setting-inputs"></a>
+## Setting Inputs 
 
 To set the fields of an input, you first need to acquire the input struct of the current tick, using `Sandbox.GetInput`.\
 Then, you can set it inside `NetworkUpdate` on NetworkBehaviour:
@@ -50,7 +50,7 @@ public override void NetworkFixedUpdate()
     if (FetchInput(out MyInput input))
     {
         // movement
-        var movement = transform.TransformVector(new   Vector3(input.MoveDirX, 0, input.MoveDirY)) * Speed;
+        var movement = transform.TransformVector(new Vector3(input.MoveDirX, 0, input.MoveDirY)) * Speed;
         movement.y   = 0;
   	    _CC.Move(movement * Time.fixedDeltaTime);
 	    // shooting

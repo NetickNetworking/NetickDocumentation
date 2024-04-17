@@ -37,28 +37,28 @@ MyStaticRpc(Sandbox.Engine, 56);
 > [!WARNING]
 > By default all RPCs are unreliable.
 
-### **RPC method constraints**
+### [Rpc] method constraints
 
 - Must have the return type of void.
 - Must not have reference types as parameters.
 - Must not have class-based network collections as parameters. Only `NetworkArrayStruct` varaints are allowed as array RPC parameters. 
 - Must not have `string` as a parameter type. Instead, you can use NetworkString varaints.
 
-### **\[Rpc] attribute parameters**
+### [Rpc] attribute parameters
 
 - Source: the peer/peers the RPC should be sent from
 - Target: the peer/peers the RPC will be executed on
 - isReliable: whether the RPC is sent reliably or unreliably
 - localInvoke: whether to invoke the RPC locally or not
 
-**Source and target can be any of the following:**
+Source and target can be any of the following:
 
 - Owner (the server)
 - Input Source: the client which is providing inputs for this Network Object
 - Proxies: everyone except the Owner and the Input Source
 - Everyone: the server and every connected client
 
-### Source Connection of RPCs <a href="#source-connection-of-rpcs" id="source-connection-of-rpcs"></a>
+### Source Connection of RPCs
 
 If you need to know which connection (a client, or the server) the current RPC is being executed from, you can use `Sandbox.CurrentRpcSource`
 
