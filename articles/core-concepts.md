@@ -9,7 +9,7 @@
 
 ### Network Object
 
-Any GameObject which needs to be synced/replicated must be a <xref:Netick.NetworkObject> (has the <xref:Netick.NetworkObject> added to it). If you want to see something on everyone’s screen, it has to have a <xref:Netick.NetworkObject> component added to it. It’s the component that tells Netick that a GameObject is networked. The <xref:Netick.NetworkObject> component by itself just informs Netick that the object is networked. To add networked gameplay-logic to it, you must do so in a component of a class derived from <xref:Netick.NetworkBehaviour>. Netick comes with a few essential built-in components:
+Any GameObject which needs to be synced/replicated must have a <xref:Netick.NetworkObject> component added to it. If you want to see something on everyone’s screen, it has to have a <xref:Netick.NetworkObject> component added to it. It’s the component that tells Netick that a GameObject is networked. The <xref:Netick.NetworkObject> component by itself just informs Netick that the object is networked. To add networked gameplay-logic to it, you must do so in a component of a class derived from <xref:Netick.NetworkBehaviour>. Netick comes with a few essential built-in components:
 
 - <xref:Netick.NetworkTransform>: used to sync position and rotation
 - <xref:Netick.NetworkRigidbody>: used to sync controllable physical objects
