@@ -93,7 +93,7 @@ private void OnStackExampleChanged(OnChangedData onChangedData)
 ```
 
 > [!WARNING]
-> Don't use the array methods of OnChangedData on network collections. They only work on NetworkArray<T>.
+> Don't use the array methods of `OnChangedData` on network collections. They only work on `NetworkArray<T>`.
 
 > [!WARNING]
-> Be careful when using these methods on OnChangedData, since they are unsafe and can cause a crash if you go outside array range or use an incorrect type.
+> Be careful when using these methods on `OnChangedData`, since they are unsafe and can cause a crash if you go outside array range or use an incorrect type.

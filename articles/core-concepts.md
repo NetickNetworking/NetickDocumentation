@@ -17,7 +17,7 @@ Any GameObject which needs to be synced/replicated must have a <xref:Netick.Netw
 
 ### Network Behaviour
 
-The <xref:Netick.NetworkBehaviour> class is your old friend MonoBehaviour, just the networked version of it. To implement your networked functionality, create a new class and derive it from <xref:Netick.NetworkBehaviour>. You have several methods you can override which correspond to Unity’s non-networked equivalents (they must be used instead of Unity’s equivalents when doing anything related to the network simulation):
+The <xref:Netick.NetworkBehaviour> class is your old friend `MonoBehaviour`, just the networked version of it. To implement your networked functionality, create a new class and derive it from <xref:Netick.NetworkBehaviour>. You have several methods you can override which correspond to Unity’s non-networked equivalents (they must be used instead of Unity’s equivalents when doing anything related to the network simulation):
 
 - [NetworkStart](xref:Netick.NetickBehaviour#Netick_NetickBehaviour_NetworkStart)
 - [NetworkDestroy](xref:Netick.NetickBehaviour#Netick_NetickBehaviour_NetworkStart)

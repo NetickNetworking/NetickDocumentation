@@ -2,7 +2,7 @@
 
 ## Understanding Interest Management
 
-When you have a game with a big world and a high player count, it becomes more and more expensive to replicate every object in the game to every connected client. It's an O(N<sup>2</sup>) problem, meaning the bandwidth sent from the server scales quadratically with the number of players connected. Interest Management mitigates this problem by filtering objects that are of no interest to the client. Usually, this is done using Area of Interest, which is the area around the player. The client will only receive objects existing in this area. Interest management is often used in battle-royale scale games
+When you have a game with a big world and a high player count, it becomes more and more expensive to replicate every object in the game to every connected client. It's an O(N<sup>2</sup>) problem, meaning the bandwidth sent from the server scales quadratically with the number of players connected. Interest Management mitigates this problem by filtering objects that are of no interest to the client. Usually, this is done using Area of Interest, which is the area around the player. The client will only receive objects existing in this area. Interest management is often used in battle-royal scale games
 
 Interest Management is also useful as an anti-cheat measure. For instance, you can replicate team-specific objects to only players of the same team, using a Custom interest group, which we will learn about in this article.
 
@@ -16,9 +16,9 @@ Interest Management is also useful as an anti-cheat measure. For instance, you c
 
 Broad Phase Filtering is done using a group. An interest management group is a list of network objects that are processed together. Every network object has an option to choose the broad phase filter source, it can be one of three options:
 
-- **None**: no filtering, the object is replicated to everyone.
-- **Area of Interest**: only when a client's Area of Interest intersects this object's group cell it will be replicated.
-- **Custom**: using an explicitly assigned custom group through code, with an index. Only clients who explicitly choose to be interested in this group will receive updates to the object.
+- `**None**`: no filtering, the object is replicated to everyone.
+- `**Area of Interest**`: only when a client's Area of Interest intersects this object's group cell it will be replicated.
+- `**Custom**`: using an explicitly assigned custom group through code, with an index. Only clients who explicitly choose to be interested in this group will receive updates to the object.
 
 > [!Note]
 > Area of Interest implementation is done using a grid, which you can specify its settings in Netick Settings window.
@@ -66,7 +66,7 @@ InputSource.AddInterestGroup(customInterestGroupIndex);
 
 ## Callbacks
 
-There are two callbacks on NetworkBehaviour for when the interest status of an object changes in the client.
+There are two callbacks on `NetworkBehaviour` for when the interest status of an object changes in the client.
 
 ```csharp
 public override void OnBecameInterested()

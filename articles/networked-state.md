@@ -57,7 +57,7 @@ Netick 2 introduces a new type of network array, network arrays that are complet
 Network Array Structs are pretty useful since they can used as members of another struct, or even nested inside other arrays. In addition, they can be sent as RPC parameters.
 
 ```csharp
-// Network Struct Array Examples
+// Network Array Struct Examples
 
 [Networked]
 public NetworkArrayStruct8<int>                      IntFixedArray { get; set; } = new int[] {1 , 4 ,5}.ToNetworkStructArray8();
@@ -80,11 +80,11 @@ IntFixedArray = IntFixedArray.Set(index, value);
 
 ## Network Collections
 
-In addition to NetworkArray, Netick also has alternatives to C# collections that are fully synced, predicted, and interpolated.
+In addition to `NetworkArray<T>`, Netick also has alternatives to C# collections that are fully synced, predicted, and interpolated.
 
-- NetworkLinkedList<T>
-- NetworkStack<T>
-- NetworkQueue<T>
+- `NetworkLinkedList<T>`
+- `NetworkStack<T>`
+- `NetworkQueue<T>`
 
 ### Usage examples:
 

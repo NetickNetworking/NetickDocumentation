@@ -10,7 +10,7 @@ Client-Side Prediction basically means that the client, instead of waiting for t
 
 This ensures that the server still has the final say on the authority of the game (because, eventually, the client will overwrite its local state with whatever the server says), but at the same time allows the client to locally predict their input outcome and enjoy a lag-free experience.
 
-All simulation code must be done inside NetworkFixedUpdate on Network Behaviors. This method is called every network tick to step forward the simulation. **On the server, this method is only called for new inputs.** While on the client, it can and will be called several times in one network tick to resimulate all saved inputs (up to the current predicted tick) when applying the incoming server state. See the previous figure to fully understand this.\
+All simulation code must be done inside `NetworkFixedUpdate` on `NetworkBehavior`. This method is called every network tick to step forward the simulation. **On the server, this method is only called for new inputs.** While on the client, it can and will be called several times in one network tick to resimulate all saved inputs (up to the current predicted tick) when applying the incoming server state. See the previous figure to fully understand this.\
 \
 On what objects do resimulations happen?
 

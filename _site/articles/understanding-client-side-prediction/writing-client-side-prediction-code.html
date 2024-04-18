@@ -97,13 +97,13 @@
 </code></pre>
 <h3 id="network-input-constraints">Network Input Constraints:</h3>
 <ul>
-<li>Must not have class-based network collections as fields. Only <code>NetworkArrayStruct</code> varaints are allowed as network input fields.</li>
+<li>Must not have class-based network collections as fields. Only <code>NetworkArrayStruct</code> variants are allowed as network input fields.</li>
 <li>Must not have reference types as fields.</li>
-<li>Must not have <code>string</code> as a field. Instead, you can use NetworkString varaints.</li>
+<li>Must not have <code>string</code> as a field. Instead, you can use <code>NetworkString</code> variants.</li>
 </ul>
 <h2 id="setting-inputs">Setting Inputs</h2>
 <p>To set the fields of an input, you first need to acquire the input struct of the current tick, using <code>Sandbox.GetInput</code>.<br>
-Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
+Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour</code>:</p>
 <pre><code class="lang-csharp">public override void NetworkUpdate()
 {
     var input = Sandbox.GetInput&lt;MyInput&gt;();
@@ -114,7 +114,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
     Sandbox.SetInput(input);
 }
 </code></pre>
-<p>You could also set them on <code>OnInput</code> of NetworkEventsListner, which is preferred.</p>
+<p>You could also set them on <code>OnInput</code> of <code>NetworkEventsListener</code>, which is preferred.</p>
 <h2 id="simulating-executing-inputs">Simulating (Executing) Inputs</h2>
 <p>To drive the gameplay based on the input struct, you must do that in <code>NetworkFixedUpdate</code>:</p>
 <pre><code class="lang-csharp">public override void NetworkFixedUpdate()
@@ -137,7 +137,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 </div>
 <div class="NOTE">
 <h5>Note</h5>
-<p>When <code>IsResimulating</code> equals to true, every [Networked] variable has an older value, since we are resimulating past ticks. The first resimulated tick will have the server state applied to every networked variable.</p>
+<p>When <code>IsResimulating</code> equals to true, every <code>[Networked]</code> variable has an older value, since we are resimulating past ticks. The first resimulated tick will have the server state applied to every networked variable.</p>
 </div>
 <div class="WARNING">
 <h5>Warning</h5>
@@ -154,7 +154,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on NetworkBehaviour:</p>
 </ol>
 <p>And to avoid the previous issue we talked about, we make sure that we are only shooting if we are simulating a new input, by checking <code>IsResimulating</code>.</p>
 <h2 id="input-source">Input Source</h2>
-<p>For a client to be able to provide inputs to be used in an Object’s <code>NetworkFixedUpdate</code>, and hence take control of it, that client must be the Input Source of that object. Otherwise, <code>FetchInput</code> will return false. To check if you are the Input Source, use IsInputSource.</p>
+<p>For a client to be able to provide inputs to be used in an Object’s <code>NetworkFixedUpdate</code>, and hence take control of it, that client must be the Input Source of that object. Otherwise, <code>FetchInput</code> will return false. To check if you are the Input Source, use <code>IsInputSource</code>.</p>
 <p>The server can also be the Input Source of objects, although it won’t do any CSP, since it needs not to, after all, it’s the server.</p>
 <p>You can set the Input Source of an object when instantiating it:</p>
 <pre><code class="lang-csharp">sandbox.NetworkInstantiate(PlayerPrefab, spawnPos, Quaternion.identity, client);

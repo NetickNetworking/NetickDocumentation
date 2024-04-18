@@ -6,7 +6,7 @@ To make a `Rigidbody`/`Rigidbody2D` predictable, add `NetworkRigidbody`/`Network
 
 ## Cost of Predicting PhysX (Rigidbody3D)
 
-It's very expensive to predict 3D Physics as PhysX and its integration with Unity perform very badly when calling `PhysicsScene.Simulate` multiple times in one frame, even with small numbers of rigidbodies.
+It's very expensive to predict 3D physics as PhysX and its integration with Unity perform very badly when calling `PhysicsScene.Simulate` multiple times in one frame, even with small numbers of rigidbodies.
 
 The cost of predicting physics increases with two factors:
 

@@ -107,7 +107,7 @@ By default, all prefabs are not pooled. To enable pooling for a certain prefab, 
 <br>
 Although you still need to reset your objects. However, Netick automatically resets all network properties to their declaration values.</p>
 <h4 id="resetting-prefab-instances">Resetting Prefab Instances</h4>
-<p>To reset your object, override NetworkReset on your class inheriting from NetworkBehaviour:</p>
+<p>To reset your object, override <code>NetworkReset</code> on your class inheriting from <code>NetworkBehaviour</code>:</p>
 <pre><code class="lang-csharp">public override void NetworkReset()
 {
      // reset all non-networked state which need to be reset so that your object is ready to be used again

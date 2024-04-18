@@ -129,7 +129,7 @@ public readonly NetworkArray&lt;int&gt; IntArrayExample = new NetworkArray&lt;in
 <h2 id="network-array-structs">Network Array Structs</h2>
 <p>Netick 2 introduces a new type of network array, network arrays that are completely value types - Network Array Structs. These are fixed-size struct arrays available only in 4 fixed sizes: 8, 16, 32, and 64.</p>
 <p>Network Array Structs are pretty useful since they can used as members of another struct, or even nested inside other arrays. In addition, they can be sent as RPC parameters.</p>
-<pre><code class="lang-csharp">// Network Struct Array Examples
+<pre><code class="lang-csharp">// Network Array Struct Examples
 
 [Networked]
 public NetworkArrayStruct8&lt;int&gt;                      IntFixedArray { get; set; } = new int[] {1 , 4 ,5}.ToNetworkStructArray8();
@@ -147,11 +147,11 @@ public NetworkArrayStruct8&lt;NetworkArrayStruct8&lt;int&gt;&gt; ArrayOfArrays {
 // as you can see, we are reassigning the property with the new changed array which has the change.
 </code></pre>
 <h2 id="network-collections">Network Collections</h2>
-<p>In addition to NetworkArray, Netick also has alternatives to C# collections that are fully synced, predicted, and interpolated.</p>
+<p>In addition to <code>NetworkArray&lt;T&gt;</code>, Netick also has alternatives to C# collections that are fully synced, predicted, and interpolated.</p>
 <ul>
-<li>NetworkLinkedList<t></t></li>
-<li>NetworkStack<t></t></li>
-<li>NetworkQueue<t></t></li>
+<li><code>NetworkLinkedList&lt;T&gt;</code></li>
+<li><code>NetworkStack&lt;T&gt;</code></li>
+<li><code>NetworkQueue&lt;T&gt;</code></li>
 </ul>
 <h3 id="usage-examples">Usage examples:</h3>
 <pre><code class="lang-csharp">[Networked(size: 5)]

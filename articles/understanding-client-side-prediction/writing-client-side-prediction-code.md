@@ -17,14 +17,14 @@ public struct MyInput : INetworkInput
 ```
 
 ### Network Input Constraints:
-- Must not have class-based network collections as fields. Only `NetworkArrayStruct` varaints are allowed as network input fields. 
+- Must not have class-based network collections as fields. Only `NetworkArrayStruct` variants are allowed as network input fields. 
 - Must not have reference types as fields.
-- Must not have `string` as a field. Instead, you can use NetworkString varaints.
+- Must not have `string` as a field. Instead, you can use `NetworkString` variants.
 
 ## Setting Inputs 
 
 To set the fields of an input, you first need to acquire the input struct of the current tick, using `Sandbox.GetInput`.\
-Then, you can set it inside `NetworkUpdate` on NetworkBehaviour:
+Then, you can set it inside `NetworkUpdate` on `NetworkBehaviour`:
 
 ```csharp
 public override void NetworkUpdate()
@@ -38,7 +38,7 @@ public override void NetworkUpdate()
 }
 ```
 
-You could also set them on `OnInput` of NetworkEventsListner, which is preferred.
+You could also set them on `OnInput` of `NetworkEventsListener`, which is preferred.
 
 ## Simulating (Executing) Inputs
 
@@ -65,7 +65,7 @@ public override void NetworkFixedUpdate()
 > Everything that is modified around `FetchInput`, and also affects the networked state, must be networked using `[Networked]`. For example, if you have a variable that is changing over time which can affect the speed of the player, it must be networked.
 
 > [!NOTE]
-> When `IsResimulating` equals to true, every [Networked] variable has an older value, since we are resimulating past ticks. The first resimulated tick will have the server state applied to every networked variable.
+> When `IsResimulating` equals to true, every `[Networked]` variable has an older value, since we are resimulating past ticks. The first resimulated tick will have the server state applied to every networked variable.
 
 > [!WARNING]
 > `Sandbox.GetInput` and `Sandbox.SetInput` are used to read and set the user inputs into the input struct.
@@ -81,7 +81,7 @@ And to avoid the previous issue we talked about, we make sure that we are only s
 
 ## Input Source
 
-For a client to be able to provide inputs to be used in an Object’s `NetworkFixedUpdate`, and hence take control of it, that client must be the Input Source of that object. Otherwise, `FetchInput` will return false. To check if you are the Input Source, use IsInputSource.
+For a client to be able to provide inputs to be used in an Object’s `NetworkFixedUpdate`, and hence take control of it, that client must be the Input Source of that object. Otherwise, `FetchInput` will return false. To check if you are the Input Source, use `IsInputSource`.
 
 The server can also be the Input Source of objects, although it won’t do any CSP, since it needs not to, after all, it’s the server.
 
