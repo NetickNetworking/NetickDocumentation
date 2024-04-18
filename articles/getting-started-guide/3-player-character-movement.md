@@ -78,7 +78,7 @@ public class PlayerCharacterMovement : NetworkBehaviour
 In a single-player game, we use `Time.deltaTime` to move our player to make it frame independent. With Netick, instead of using `Time.deltaTime`, we use `Sandbox.FixedDeltaTime`, which represents the time between two network ticks.
 
 > [!Note]
-> Do not confuse `Sandbox.FixedDeltaTime` with `Sandbox.DeltaTime` (equal to Unity's Time.deltaTime). 
+> Do not confuse `Sandbox.FixedDeltaTime` with `Sandbox.DeltaTime` (equal to Unity's `Time.deltaTime`). 
 
 
 [Learn More About Writing Client-Side Prediction Code](../understanding-client-side-prediction/writing-client-side-prediction-code.md)
