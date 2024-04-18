@@ -97,9 +97,9 @@
 <figure><img src="../images/im.png" class="center" alt="Area of Interest"><figcaption></figcaption></figure>
 <p>Broad Phase Filtering is done using a group. An interest management group is a list of network objects that are processed together. Every network object has an option to choose the broad phase filter source, it can be one of three options:</p>
 <ul>
-<li><code>**None**</code>: no filtering, the object is replicated to everyone.</li>
-<li><code>**Area of Interest**</code>: only when a client's Area of Interest intersects this object's group cell it will be replicated.</li>
-<li><code>**Custom**</code>: using an explicitly assigned custom group through code, with an index. Only clients who explicitly choose to be interested in this group will receive updates to the object.</li>
+<li><code>None</code>: no filtering, the object is replicated to everyone.</li>
+<li><code>Area of Interest</code>: only when a client's Area of Interest intersects this object's group cell it will be replicated.</li>
+<li><code>Custom</code>: using an explicitly assigned custom group through code, with an index. Only clients who explicitly choose to be interested in this group will receive updates to the object.</li>
 </ul>
 <div class="NOTE">
 <h5>Note</h5>
@@ -131,7 +131,7 @@
 </code></pre>
 <div class="CAUTION">
 <h5>Caution</h5>
-<p>This must be done every NetworkFixedUpdate callback since it's cleared at the end of the tick. Usually, you should do this in the movement controller of your player character.</p>
+<p>This must be done every <code>NetworkFixedUpdate</code> callback since it's cleared at the end of the tick. Usually, you should do this in the movement controller of your player character.</p>
 </div>
 <h2 id="callbacks">Callbacks</h2>
 <p>There are two callbacks on <code>NetworkBehaviour</code> for when the interest status of an object changes in the client.</p>
