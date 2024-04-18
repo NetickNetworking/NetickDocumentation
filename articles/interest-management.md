@@ -32,7 +32,7 @@ Object.InterestGroup = Sandbox.InterestManagement.CustomGroups[groupIndex];
 ```
 
 > [!Note]
-> The above is only valid when the Broad Phase Filter of the object is set to Custom. When it's set to Area of Interest, it will only be controllable by Netick - meaning the object will be assigned a group that corresponds to its current position in the world.
+> The above is only valid when the `Broad Phase Filter` of the object is set to Custom. When it's set to `Area of Interest`, it will only be controllable by Netick - meaning the object will be assigned a group that corresponds to its current position in the world.
 
 ### Narrow Phase Filtering
 
@@ -45,8 +45,6 @@ Object.SetNarrowphaseInterest(client, false);
 ```
 
 ## Specifying the interest of a client
-
-
 
 #### Adding area of interest regions 
 The area of interest of the client is specified using bounding boxes that you can add.
