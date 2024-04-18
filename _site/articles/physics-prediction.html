@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Managing Netick | Netick Networking Engine </title>
+      <title>Physics Prediction (Unity) | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Managing Netick | Netick Networking Engine ">
+      <meta name="title" content="Physics Prediction (Unity) | Netick Networking Engine ">
       
       <link rel="icon" href="../images/logo.png">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -83,60 +83,24 @@
         </div>
 
         <article data-uid="">
-<h1 id="managing-netick">Managing Netick</h1>
+<h1 id="physics-prediction-unity">Physics Prediction (Unity)</h1>
 
-<h2 id="starting-and-shutting-down-netick">Starting and Shutting Down Netick</h2>
-<p>When you start Netick, you need to specify the mode you want to start it in. Like this:</p>
-<h3 id="single-peer">Single Peer</h3>
-<h4 id="start-as-client">Start as Client:</h4>
-<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsClient(Transport, Port);
-</code></pre>
-<h4 id="start-as-host-a-server-with-a-local-player">Start as Host (a server with a local player):</h4>
-<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsHost(Transport, Port);
-</code></pre>
-<h4 id="start-as-server">Start as Server</h4>
-<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsServer(Transport, Port);
-</code></pre>
-<h4 id="start-as-single-player-disables-low-level-networking">Start as Single-Player (disables low level networking)</h4>
-<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsSinglePlayer();
-</code></pre>
-<h3 id="multiple-peers-sandboxing">Multiple Peers (Sandboxing)</h3>
-<p><a href="sandboxing.html">Learn More About Sandboxing</a></p>
-<p>You can start both a client and a host together:</p>
-<pre><code class="lang-csharp">   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
-   {
-     Port              = Port,
-     TransportProvider = Transport,
-     NumberOfServers   = 1,
-     NumberOfClients   = 1
-   });
-</code></pre>
-<p>Starting multiple servers:</p>
-<pre><code class="lang-csharp">   int   portOffset = 4567;
-   int[] ports      = new int[20];
-   for (int i = 0; i &lt; 20; i++)
-     ports[i]  = portOffset + i;
-
-   // starts multiple servers (20 servers)
-   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
-   {
-     Ports             = ports,
-     TransportProvider = Transport,
-     NumberOfServers   = 20
-   });
-</code></pre>
-<p>To shut down Netick completely:</p>
-<pre><code class="lang-csharp">Netick.Network.Shutdown();
-</code></pre>
-<h2 id="connecting-to-the-server">Connecting to the Server</h2>
-<p>To connect the client to the server:</p>
-<pre><code class="lang-csharp">sandbox.Connect(serverIPAddress);
-</code></pre>
-<h2 id="disconnecting-from-the-server">Disconnecting From the Server</h2>
-<p>To disconnect the client:</p>
-<pre><code class="lang-csharp">sandbox.Disconnect();
-</code></pre>
-<p>You are advised to have a game starting scene used for server finding/matchmaking.</p>
+<p>Predicting physics means resimulating multiple physics steps in one tick. This can be very expensive and so by default physics prediction is turned off. To enable it, go to <code>Netick -&gt; Settings</code> and enable <code>Physics Prediction</code>.</p>
+<p>To make a <code>Rigidbody</code>/<code>Rigidbody2D</code> predictable, add <code>NetworkRigidbody</code>/<code>NetworkRigidbody2D</code> to its GameObject.</p>
+<h2 id="cost-of-predicting-physx-rigidbody3d">Cost of Predicting PhysX (Rigidbody3D)</h2>
+<p>It's very expensive to predict 3D Physics as PhysX and its integration with Unity perform very badly when calling <code>PhysicsScene.Simulate</code> multiple times in one frame, even with small numbers of rigidbodies.</p>
+<p>The cost of predicting physics increases with two factors:</p>
+<ul>
+<li>Ping</li>
+<li>Tickrate</li>
+</ul>
+<p>As ping increases, you would need to simulate more ticks in one frame for rollback and resimulation. As tickrate increases, the time period between each tick becomes smaller, therefore you will need to simulate more ticks for smaller values of latency.</p>
+<p>It's very much not recommended to enable 3D physics prediction, as it's almost impractical on some machines on relatively high tickrates (+33). It can take more than 10ms on some machines on 100ms ping just to resimulate a bunch of physics ticks.</p>
+<p>If you don't want to predict physics, you have two other alternatives:</p>
+<ul>
+<li>Not predicting physics at all, and make it server-authoritative completely.</li>
+<li>Make your physics objects client-authoritative by sending the resultant states as RPCs or network inputs.</li>
+</ul>
 
 </article>
 

@@ -38,6 +38,8 @@
 
 ## [Managing Netick](managing-netick.md)
 
+## [Scene Management](scene-management.md)
+
 ## [Listening to Network Events](listening-to-network-events.md)
 
 ## [Parenting](parenting.md)
@@ -45,6 +47,8 @@
 ## [Script Execution Order](script-execution-order.md)
 
 ## [Sandboxing](sandboxing.md)
+
+## [Physics Prediction](physics-prediction.md)
 
 # Advanced
 
