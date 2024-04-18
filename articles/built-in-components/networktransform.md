@@ -8,7 +8,6 @@ Network Transform is a built-in component to network the `Transform` component. 
 - Settings: the replications settings of the NetworkTransform. Choose what you want to sync, and whether you want to enable compression for it or not.
 - Interpolation Source: read [here](../interpolation.md#interpolation-source) for a detailed explanation.
 - Transform Space: the space used when replicating the data.
-- Teleport Distance: the distance at which auto interpolation occurs.
 - Precision: the precision of the data compression. 
 
 ## Teleportation
