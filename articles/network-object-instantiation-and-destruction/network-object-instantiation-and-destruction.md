@@ -14,7 +14,7 @@ To destroy any networked object:
 sandbox.Destroy(obj)
 ```
 
-This will destroy obj and all of its nested Network Objects. Should be called only from the server/owner, although it can also be used to destroy spawn-predicted objects on the client with invalid Ids.
+This will destroy `obj` and all of its nested Network Objects. Should be called only from the server/owner, although it can also be used to destroy spawn-predicted objects on the client with invalid Ids.
 
 > [!WARNING]
 > Make sure to never use Unity’s instantiate/destroy methods to create/destroy a network object, only Netick’s methods.
@@ -29,7 +29,7 @@ Spawn-Prediction allows you to instantiate/spawn network objects on the client, 
 
 **How To Use**
 
-To use Spawn-Prediction, you must pass a key (SpawnPredictionKey) to the NetworkInstantiate method.
+To use Spawn-Prediction, you must pass a key `SpawnPredictionKey` to the `NetworkInstantiate` method.
 
 Notes on the key:
 
@@ -43,7 +43,7 @@ But It’s important to know that you mustn’t destroy objects, successfully sp
 Notes:
 
 - Netick does not destroy spawn-predicted objects on the client which weren’t spawned on the server. You must destroy them yourself.
-- Netick would only call NetworkStart once for the spawn-predicted object on the client, and it’s when the client spawns it. It won’t be called when the object has been confirmed. Instead, you can override OnSpawnPredictionSucceeded for that.
+- Netick would only call `NetworkStart` once for the spawn-predicted object on the client, and it’s when the client spawns it. It won’t be called when the object has been confirmed. Instead, you can override `OnSpawnPredictionSucceeded` for that.
 - Netick automatically destroys all pending spawn-predicted (yet to be confirmed) network objects when input loss occurs on the client.
 
 Check out the Bomberman sample to see the usage of Spawn-Prediction on the Bomb prefab.\
