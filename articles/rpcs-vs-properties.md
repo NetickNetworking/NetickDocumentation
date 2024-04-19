@@ -12,7 +12,7 @@ On the other hand, RPCs are only relevant at the time of their execution, meanin
 
 If an event happens infrequently and is merely visual (doesn’t affect gameplay, for example, a sound effect event) you can use an RPC for it.
 
-However, you can, and should, avoid using RPCs even for events, and that’s by using a [change callback](change-callback.md) using \[OnChanged] attribute.
+However, you can, and should, avoid using RPCs even for events, and that’s by using a [change callback](change-callback.md) using `[OnChanged]` attribute.
 
 ## Avoiding using RPCs
 
@@ -20,4 +20,4 @@ It's highly recommended to avoid using RPCs, and only use them when necessary. E
 
 - RPCs from the client can be a security concern. Since you can't control how the client calls them. And they are not tick-aligned, which can be a problem if an RPC is intended to be used for tick-accurate gameplay logic. You can use network inputs to handle most of your client->server actions. 
 
-- RPCs from the server to every connected client are expensive. You can always find a way to mimic an RPC using a network property and an [OnChanged] event.
+- RPCs from the server to every connected client are expensive. You can always find a way to mimic an RPC using a network property and an `[OnChanged]` event.
