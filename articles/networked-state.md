@@ -48,7 +48,7 @@ public readonly NetworkArray<int> IntArrayExample = new NetworkArray<int>(32) { 
 ```
 
 > [!WARNING]
-> `size` of [<xref:Netick.Networked>(size: 32)] must be the same as the value that is passed to the array constructor `new NetworkArray<int>(32)`
+> `size` of `[Networked(size: 32)]` must be the same as the value that is passed to the array constructor `new NetworkArray<int>(32)`
 
 ## Network Array Structs
 
