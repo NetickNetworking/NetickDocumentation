@@ -112,7 +112,7 @@ Let's try to run the game now. In Netick, there is something called Sandboxing (
 2. Click on `Run Host + Client`.
 3. Click `Connect`.
 
-You can show/hide sandboxes in `Netick > Settings > Sandboxes`.
+You can show/hide sandboxes in `Netick > Sandboxes`.
 
 [Learn More About Sandboxing](../sandboxing.md)
 
