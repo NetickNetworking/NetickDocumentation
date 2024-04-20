@@ -153,7 +153,7 @@ public int              Ammo     {get; set;}
 
 ## State Synchronization
 
-Updates to the network state are atomic, it's not possible for a property to update in the client without other changed properties to update alongside it. If you change two properties in the server at the same time, you are ensured to have both replicate together in the client. This makes it so that you don't have to worry about packet loss and possible race conditions that might occur due to some properties updates arriving while others not arriving. This simplifies how you program your game as you never have to worry about such things happening.
+Updates to the network state are atomic, it's not possible for a property to update in the client without other changed properties to update alongside it. If you change two properties in the server at the same time (or in two subsequent ticks), you are ensured to have both replicate together in the client. This makes it so that you don't have to worry about packet loss and possible race conditions that might occur due to some properties updates arriving while others arriving later. This simplifies how you program your game as you never have to worry about such things happening.
 
 This also means that when you create an object in the server, assign some initial values to some network properties, when this object is created in the client, inside `NetworkStart` of that object you will have full initial state that you assigned in the server. 
 
