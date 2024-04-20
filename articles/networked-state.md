@@ -102,7 +102,7 @@ public readonly NetworkStack<int>       MyNetworkedStack = new NetworkStack<int>
 Removing and adding elements is the same as with C# collections.
 
 > [!Note]
-> The `size` that you pass to [Networked] and the constructor represents the fixed capacity of the collection. The collections don't support resizing as all network state sizes are set in compile time.
+> The `size` that you pass to `[Networked]` and the constructor represents the fixed capacity of the collection. The collections don't support resizing as all network state sizes are set in compile time.
 
 ## Network Structs
 
