@@ -25,7 +25,7 @@ public struct PlayerCharacterInput : INetworkInput
 ## Setting and Sending Input
 There are a few places to set your input. The preferred way is on `OnInput` on `NetworkEventsListener`.
 
-1. Modify the `GameplayManager` component.
+1. Modify the `GameplayManager` script.
 2. Override the `OnInput` method.
 3. Use `sandbox.SetInput` to set your input.
 
