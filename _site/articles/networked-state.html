@@ -139,9 +139,9 @@ public NetworkArrayStruct8&lt;NetworkArrayStruct8&lt;int&gt;&gt; ArrayOfArrays {
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Network Array Structs are treated as if they were simple struct types like <code>int</code> or <code>float</code>, so they must be defined as a property not as a field (like normal NetworkArray that is non-fixed size).</p>
+<p>Network Array Structs are treated as if they were simple struct types like <code>int</code> or <code>float</code>, so they must be defined as a property not as a field (like <code>NetworkArray&lt;T&gt;</code> that is non-fixed size).</p>
 </div>
-<h3 id="changing-elements-of-network-array-struct">Changing elements of Network Array Struct</h3>
+<h3 id="changing-elements-of-network-array-struct">Changing Elements of Network Array Struct</h3>
 <p>Because Network Array Structs are structs, the whole array will be replaced even when you change a single element. To avoid bugs, this should be how you change array elements:</p>
 <pre><code class="lang-csharp">IntFixedArray = IntFixedArray.Set(index, value);
 // as you can see, we are reassigning the property with the new changed array which has the change.

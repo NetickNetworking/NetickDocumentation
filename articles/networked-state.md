@@ -67,9 +67,9 @@ public NetworkArrayStruct8<NetworkArrayStruct8<int>> ArrayOfArrays { get; set; }
 ```
 
 > [!Note]
-> Network Array Structs are treated as if they were simple struct types like `int` or `float`, so they must be defined as a property not as a field (like normal NetworkArray that is non-fixed size).
+> Network Array Structs are treated as if they were simple struct types like `int` or `float`, so they must be defined as a property not as a field (like `NetworkArray<T>` that is non-fixed size).
 
-### Changing elements of Network Array Struct
+### Changing Elements of Network Array Struct
 
 Because Network Array Structs are structs, the whole array will be replaced even when you change a single element. To avoid bugs, this should be how you change array elements:
 
