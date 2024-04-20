@@ -86,7 +86,7 @@ Let's create our player character:
 2. Add `NetworkObject` component.
 3. Rename it to `PlayerCharacter`.
 
-Adding NetworkObject to a GameObject will give it an identity across the network, so that it's synced. 
+Adding `NetworkObject` to a GameObject will give it an identity across the network, so that it's synced. 
 
 ## Spawning our Player
 1. Add a field to hold the player character prefab in our gameplay manager script and give it type of `NetworkObject`.
@@ -96,7 +96,7 @@ Adding NetworkObject to a GameObject will give it an identity across the network
 On the `NetworkInstantiate`, you can pass an Input Source. 
 Input Source represents which peer has the authority to send inputs to this object, in this case that player is the joining player.
 
-3. Don't forget to assign the player prefab on the GameplayManger component!
+3. Don't forget to assign the player prefab on the `GameplayManger` script!
 
 ```cs
 using Netick;

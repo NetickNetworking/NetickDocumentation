@@ -154,7 +154,7 @@ public class GameplayManager : NetworkEventsListener
 <li>Add <code>NetworkObject</code> component.</li>
 <li>Rename it to <code>PlayerCharacter</code>.</li>
 </ol>
-<p>Adding NetworkObject to a GameObject will give it an identity across the network, so that it's synced.</p>
+<p>Adding <code>NetworkObject</code> to a GameObject will give it an identity across the network, so that it's synced.</p>
 <h2 id="spawning-our-player">Spawning our Player</h2>
 <ol>
 <li>Add a field to hold the player character prefab in our gameplay manager script and give it type of <code>NetworkObject</code>.</li>
@@ -164,7 +164,7 @@ public class GameplayManager : NetworkEventsListener
 <p>On the <code>NetworkInstantiate</code>, you can pass an Input Source.
 Input Source represents which peer has the authority to send inputs to this object, in this case that player is the joining player.</p>
 <ol start="3">
-<li>Don't forget to assign the player prefab on the GameplayManger component!</li>
+<li>Don't forget to assign the player prefab on the <code>GameplayManger</code> script!</li>
 </ol>
 <pre><code class="lang-cs">using Netick;
 
