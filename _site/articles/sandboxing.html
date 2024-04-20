@@ -94,7 +94,7 @@
 <figure><img src="../images/sandboxing.png" alt="Interpolation"><figcaption></figcaption></figure>
 <h2 id="starting-netick-as-multiple-peers">Starting Netick as Multiple Peers</h2>
 <h3 id="starting-a-client-and-a-server">Starting a Client and a Server</h3>
-<pre><code class="lang-csharp">   var sandboxes       = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+<pre><code class="lang-csharp">   var sandboxes       = Netick.Unity.Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
      Port              = Port,
      TransportProvider = Transport,
@@ -108,7 +108,7 @@
    for (int i = 0; i &lt; 20; i++)
      ports[i]          = portOffset + i;
 
-   var sandboxes       = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   var sandboxes       = Netick.Unity.Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
      Ports             = ports,
      TransportProvider = Transport,

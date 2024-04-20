@@ -9,25 +9,25 @@ When you start Netick, you need to specify the mode you want to start it in. Lik
 #### Start as Client:
 
 ```csharp
-var sandbox = Netick.Network.StartAsClient(Transport, Port);
+var sandbox = Netick.Unity.Network.StartAsClient(Transport, Port);
 ```
 
 #### Start as Host (a server with a local player):
 
 ```csharp
-var sandbox = Netick.Network.StartAsHost(Transport, Port);
+var sandbox = Netick.Unity.Network.StartAsHost(Transport, Port);
 ```
 
 #### Start as Server
 
 ```csharp
-var sandbox = Netick.Network.StartAsServer(Transport, Port);
+var sandbox = Netick.Unity.Network.StartAsServer(Transport, Port);
 ```
 
 #### Start as Single-Player (disables low level networking)
 
 ```csharp
-var sandbox = Netick.Network.StartAsSinglePlayer();
+var sandbox = Netick.Unity.Network.StartAsSinglePlayer();
 ```
 
 ### Multiple Peers (Sandboxing)
@@ -37,7 +37,7 @@ var sandbox = Netick.Network.StartAsSinglePlayer();
 You can start both a client and a host together:
 
 ```csharp
-   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   var sandboxes       = Netick.Unity.Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
      Port              = Port,
      TransportProvider = Transport,
@@ -49,13 +49,13 @@ You can start both a client and a host together:
 Starting multiple servers:
 
 ```csharp
-   int   portOffset = 4567;
-   int[] ports      = new int[20];
+   int   portOffset    = 4567;
+   int[] ports         = new int[20];
    for (int i = 0; i < 20; i++)
-     ports[i]  = portOffset + i;
+     ports[i]          = portOffset + i;
 
    // starts multiple servers (20 servers)
-   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   var sandboxes       = Netick.Unity.Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
      Ports             = ports,
      TransportProvider = Transport,
@@ -66,7 +66,7 @@ Starting multiple servers:
 To shut down Netick completely:
 
 ```csharp
-Netick.Network.Shutdown();
+Netick.Unity.Network.Shutdown();
 ```
 
 ## Connecting to the Server

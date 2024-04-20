@@ -5,19 +5,19 @@ There are a few methods we can use to start the game:
 
 ```cs
 // start the game as a server with a player
-Netick.Network.StartAsHost(...);
+Netick.Unity.Network.StartAsHost(...);
 
 // start the game as a client
-var sandbox = Netick.Network.StartAsClient(...);
+var sandbox = Netick.Unity.Network.StartAsClient(...);
 
 // connecting the client
 sandbox.Connect(...);
 
 // or just starting a server without a player (dedicated-server way)
-Netick.Network.StartAsServer(...);
+Netick.Unity.Network.StartAsServer(...);
 
 // or if we wanted to shut down Netick
-Netick.Network.Shutdown();
+Netick.Unity.Network.Shutdown();
 ```
 
 [Learn More About Managing Netick](../managing-netick.md)

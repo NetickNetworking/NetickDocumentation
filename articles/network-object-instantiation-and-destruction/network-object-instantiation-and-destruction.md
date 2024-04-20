@@ -27,14 +27,14 @@ This will destroy `obj` and all of its nested Network Objects. Should be called 
 
 Spawn-Prediction allows you to instantiate/spawn network objects on the client, without having to wait for the server to spawn them. The client would create a local copy of the object, and when the server actually creates the object and the confirmation arrives on the client, the client version of that object would then obtain a valid network Id – meaning it now exists on the network and has been successfully spawn-predicted.
 
-**How To Use**
+### Usage
 
 To use Spawn-Prediction, you must pass a key `SpawnPredictionKey` to the `NetworkInstantiate` method.
 
 Notes on the key:
 
-- **The key must be unique between calls, and usually also between different clients.**
-- **The key must be the same key when the NetworkInstantiate method is called on both the client and the server, for the object to correctly be spawned and confirmed on the network.**
+- The key must be unique between calls, and usually also between different clients.
+- The key must be the same key when the NetworkInstantiate method is called on both the client and the server, for the object to correctly be spawned and confirmed on the network.
 
 When the client locally instantiates the object, and before the confirmation arrives from the server, the object would have an Id of -1 (invalid id). That means it has yet to be confirmed to have been spawned on the server. Using this knowledge, you can know whether or not the object has been successfully spawn-predicted at this point in time. If after a relatively long period the server has yet to create, and therefore confirm, the object, you can choose to destory it on the client.
 
@@ -48,7 +48,7 @@ Notes:
 
 Check out the Bomberman sample to see the usage of Spawn-Prediction on the Bomb prefab.\
 
-**Spawn-Prediction Example**
+### Spawn-Prediction Example
 
 ```csharp
 public override void NetworkFixedUpdate()

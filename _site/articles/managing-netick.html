@@ -89,21 +89,21 @@
 <p>When you start Netick, you need to specify the mode you want to start it in. Like this:</p>
 <h3 id="single-peer">Single Peer</h3>
 <h4 id="start-as-client">Start as Client:</h4>
-<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsClient(Transport, Port);
+<pre><code class="lang-csharp">var sandbox = Netick.Unity.Network.StartAsClient(Transport, Port);
 </code></pre>
 <h4 id="start-as-host-a-server-with-a-local-player">Start as Host (a server with a local player):</h4>
-<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsHost(Transport, Port);
+<pre><code class="lang-csharp">var sandbox = Netick.Unity.Network.StartAsHost(Transport, Port);
 </code></pre>
 <h4 id="start-as-server">Start as Server</h4>
-<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsServer(Transport, Port);
+<pre><code class="lang-csharp">var sandbox = Netick.Unity.Network.StartAsServer(Transport, Port);
 </code></pre>
 <h4 id="start-as-single-player-disables-low-level-networking">Start as Single-Player (disables low level networking)</h4>
-<pre><code class="lang-csharp">var sandbox = Netick.Network.StartAsSinglePlayer();
+<pre><code class="lang-csharp">var sandbox = Netick.Unity.Network.StartAsSinglePlayer();
 </code></pre>
 <h3 id="multiple-peers-sandboxing">Multiple Peers (Sandboxing)</h3>
 <p><a href="sandboxing.html">Learn More About Sandboxing</a></p>
 <p>You can start both a client and a host together:</p>
-<pre><code class="lang-csharp">   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+<pre><code class="lang-csharp">   var sandboxes       = Netick.Unity.Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
      Port              = Port,
      TransportProvider = Transport,
@@ -112,13 +112,13 @@
    });
 </code></pre>
 <p>Starting multiple servers:</p>
-<pre><code class="lang-csharp">   int   portOffset = 4567;
-   int[] ports      = new int[20];
+<pre><code class="lang-csharp">   int   portOffset    = 4567;
+   int[] ports         = new int[20];
    for (int i = 0; i &lt; 20; i++)
-     ports[i]  = portOffset + i;
+     ports[i]          = portOffset + i;
 
    // starts multiple servers (20 servers)
-   var sandboxes = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   var sandboxes       = Netick.Unity.Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
      Ports             = ports,
      TransportProvider = Transport,
@@ -126,7 +126,7 @@
    });
 </code></pre>
 <p>To shut down Netick completely:</p>
-<pre><code class="lang-csharp">Netick.Network.Shutdown();
+<pre><code class="lang-csharp">Netick.Unity.Network.Shutdown();
 </code></pre>
 <h2 id="connecting-to-the-server">Connecting to the Server</h2>
 <p>To connect the client to the server:</p>

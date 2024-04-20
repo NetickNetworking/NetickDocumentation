@@ -13,7 +13,7 @@ Sandboxes panel can be accessed by going to `Netick > Settings > Sandboxes`
 ### Starting a Client and a Server
 
 ```csharp
-   var sandboxes       = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   var sandboxes       = Netick.Unity.Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
      Port              = Port,
      TransportProvider = Transport,
@@ -30,7 +30,7 @@ Sandboxes panel can be accessed by going to `Netick > Settings > Sandboxes`
    for (int i = 0; i < 20; i++)
      ports[i]          = portOffset + i;
 
-   var sandboxes       = Network.Launch(StartMode.MultiplePeers, new LaunchData()
+   var sandboxes       = Netick.Unity.Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
      Ports             = ports,
      TransportProvider = Transport,
