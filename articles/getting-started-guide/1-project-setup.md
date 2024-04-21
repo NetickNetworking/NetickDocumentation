@@ -14,7 +14,7 @@ In this tutorial, we will choose 3D (Built-in).
 
 ## Step 3 - Importing Netick
 
-Go to `Window > Package Manager > "+" Icon > Add package from git URL` and fill it with [https://github.com/karrarrahim/NetickForUnity.git](https://github.com/karrarrahim/NetickForUnity.git)
+Go to `Window > Package Manager > "+" Icon > Add package from git URL` and fill it with [https://github.com/NetickNetworking/NetickForUnity.git](https://github.com/NetickNetworking/NetickForUnity.git)
 
 
 Great, the project is now set, let's do some coding!
