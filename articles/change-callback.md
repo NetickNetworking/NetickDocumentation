@@ -23,7 +23,7 @@ Example:
 
 ```csharp
 [Networked(size: 32)]
-public NetworkArray<int> ArrayExample = new NetworkArray<int>(32);
+public readonly NetworkArray<int> ArrayExample = new NetworkArray<int>(32);
 
 [OnChanged(nameof(ArrayExample))]
 private void OnArrayExampleChanged(OnChangedData onChangedData)

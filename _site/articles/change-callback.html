@@ -100,7 +100,7 @@ private void OnHealthChanged(OnChangedData onChangedData)
 <h2 id="for-arrays">For Arrays</h2>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked(size: 32)]
-public NetworkArray&lt;int&gt; ArrayExample = new NetworkArray&lt;int&gt;(32);
+public readonly NetworkArray&lt;int&gt; ArrayExample = new NetworkArray&lt;int&gt;(32);
 
 [OnChanged(nameof(ArrayExample))]
 private void OnArrayExampleChanged(OnChangedData onChangedData)
