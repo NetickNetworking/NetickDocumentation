@@ -21,11 +21,25 @@ Watch this video for a visual explanation:
 
 ### **Setting up your character for Lag Compensation**
 
-You have to add a HitShape component (commonly known as a hitbox) on every part of your character which can move. And in the root of your character, you have to add a HitShape Container component which will register all child HitShapes.
+You have to add a HitShape component (commonly known as a hitbox) on every part of your character which can move. And in the root of your character, you have to add a `HitShape Container` component which will register all child HitShapes.
 
-<figure><img src="https://netick.net/wp-content/uploads/2022/11/image-1-1024x600.png" alt=""><figcaption><p>HitShape on each bone</p></figcaption></figure>
+<figure><img src="https://netick.net/wp-content/uploads/2022/11/image-1-1024x600.png" alt=""><figcaption><p>
 
-<figure><img src="https://netick.net/wp-content/uploads/2022/11/image-3.png" alt="" height="391" width="407"><figcaption><p>HitShape Container on the root of the character.</p></figcaption></figure>
+HitShape on each bone
+
+<figure><img src="https://netick.net/wp-content/uploads/2022/11/image-3.png" alt="" height="391" width="407"><figcaption><p>
+
+HitShape Container on the root of the character.
+
+The hierarchy should be as follows:
+
+```
+> Root (with NetworkObject)
+    > `HitShape Container`
+        > Render Transform
+            > Character Rig 
+                > Character Bone (with HitShape) 
+```
 
 ### **Performing a Lag-Compensated Raycast in Unity**
 

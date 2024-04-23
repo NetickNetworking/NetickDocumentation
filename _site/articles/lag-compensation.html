@@ -100,9 +100,18 @@ Watch this video for a visual explanation:</p>
 <div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/6EwaW2iz4iA" frameborder="0" allowfullscreen="true"></iframe></div>
 <h2 id="lag-compensation-in-netick">Lag Compensation in Netick</h2>
 <h3 id="setting-up-your-character-for-lag-compensation"><strong>Setting up your character for Lag Compensation</strong></h3>
-<p>You have to add a HitShape component (commonly known as a hitbox) on every part of your character which can move. And in the root of your character, you have to add a HitShape Container component which will register all child HitShapes.</p>
-<figure><img src="https://netick.net/wp-content/uploads/2022/11/image-1-1024x600.png" alt=""><figcaption><p>HitShape on each bone</p></figcaption></figure>
-<figure><img src="https://netick.net/wp-content/uploads/2022/11/image-3.png" alt="" height="391" width="407"><figcaption><p>HitShape Container on the root of the character.</p></figcaption></figure>
+<p>You have to add a HitShape component (commonly known as a hitbox) on every part of your character which can move. And in the root of your character, you have to add a <code>HitShape Container</code> component which will register all child HitShapes.</p>
+<figure><img src="https://netick.net/wp-content/uploads/2022/11/image-1-1024x600.png" alt=""><figcaption><p>
+<p>HitShape on each bone</p>
+<figure><img src="https://netick.net/wp-content/uploads/2022/11/image-3.png" alt="" height="391" width="407"><figcaption><p>
+<p>HitShape Container on the root of the character.</p>
+<p>The hierarchy should be as follows:</p>
+<pre><code>&gt; Root (with NetworkObject)
+    &gt; `HitShape Container`
+        &gt; Render Transform
+            &gt; Character Rig 
+                &gt; Character Bone (with HitShape) 
+</code></pre>
 <h3 id="performing-a-lag-compensated-raycast-in-unity"><strong>Performing a Lag-Compensated Raycast in Unity</strong></h3>
 <pre><code class="lang-csharp">          // lag-compensated Raycast
             if (Sandbox.Raycast(
@@ -130,7 +139,7 @@ Watch this video for a visual explanation:</p>
                 queryTriggerInteraction: QueryTriggerInteraction.Ignore);
 </code></pre>
 <p>For a practical example, you might want to get our comprehensive Arena Shooter sample which covers everything we talked about and more: <a href="https://netick.net/arena-shooter-sample/">https://netick.net/arena-shooter-sample/</a></p>
-
+</figcaption></figure></figcaption></figure>
 </article>
 
         <div class="contribution d-print-none">
