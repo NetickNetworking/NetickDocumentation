@@ -6,13 +6,13 @@ When you start Netick, you need to specify the mode you want to start it in. Lik
 
 ### Single Peer
 
-#### Start as Client:
+#### Start as Client
 
 ```csharp
 var sandbox = Netick.Unity.Network.StartAsClient(Transport, Port);
 ```
 
-#### Start as Host (a server with a local player):
+#### Start as Host (a server with a local player)
 
 ```csharp
 var sandbox = Netick.Unity.Network.StartAsHost(Transport, Port);

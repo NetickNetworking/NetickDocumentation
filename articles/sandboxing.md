@@ -22,7 +22,7 @@ Sandboxes panel can be accessed by going to `Netick > Sandboxes`
    });
 ```
 
-### Starting Multiple Servers:
+### Starting Multiple Servers
 
 ```csharp
    int   portOffset    = 4561;
