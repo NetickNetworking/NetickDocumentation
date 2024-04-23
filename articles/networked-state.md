@@ -192,6 +192,9 @@ Usage Example:
     }
 ```
 
+> [!WARNING]
+> Under the hood, these structs use ids which are `NetworkObject.Id` and `NetworkBehaviour.BehaviourId`, and since ids are recycled between objects, it's possible for a `NetworkObjectRef` and `NetworkBehaviourRef<T>` to refer to incorrect objects if they are not cleared properly when those objects are destroyed.
+
 ## Replication Relevancy
 
 You can choose to replicate a property only to the Input Source client of the object. This is done using the optional parameter `relevancy` of [<xref:Netick.Networked>]. 
@@ -202,9 +205,6 @@ Example:
 [Networked(relevancy: Relevancy.InputSource)] 
 public int              Ammo     {get; set;}
 ```
-
-> [!WARNING]
-> Under the hood, these structs use ids which are `NetworkObject.Id` and `NetworkBehaviour.BehaviourId`, and since ids are recycled between objects, it's possible for a `NetworkObjectRef` and `NetworkBehaviourRef<T>` to refer to incorrect objects if they are not cleared properly when those objects are destroyed.
 
 ## State Synchronization
 
