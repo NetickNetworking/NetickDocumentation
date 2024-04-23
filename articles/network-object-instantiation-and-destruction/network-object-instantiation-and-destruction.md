@@ -14,7 +14,7 @@ This must be called only in the server.
 
 ## Destroy
 
-To destroy any networked object:
+To destroy a network object:
 
 ```csharp
 sandbox.Destroy(obj)
