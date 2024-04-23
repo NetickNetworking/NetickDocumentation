@@ -1,27 +1,36 @@
 # Network Object Instantiation and Destruction
 
+## Instantiate
+
 To Instantiate a network prefab:
 
 ```csharp
 sandbox.NetworkInstantiate(prefab, position, Quaternion.identity);
 ```
 
-Normally, it’s only possible to instantiate network prefabs on the server. However, it’s possible to spawn-predict them on the client, check out the next section for that.
+This must be called only in the server.
+
+<!-- Normally, it’s only possible to instantiate network prefabs on the server. However, it’s possible to spawn-predict them on the client, check out the next section for that. -->
+
+## Destroy
 
 To destroy any networked object:
 
 ```csharp
 sandbox.Destroy(obj)
 ```
+This will destroy `obj` and all of its nested Network Objects. 
 
-This will destroy `obj` and all of its nested Network Objects. Should be called only from the server/owner, although it can also be used to destroy spawn-predicted objects on the client with invalid Ids.
+This must be called only in the server.
+
+<!-- This will destroy `obj` and all of its nested Network Objects. Should be called only from the server/owner, although it can also be used to destroy spawn-predicted objects on the client with invalid Ids. -->
 
 > [!WARNING]
 > Make sure to never use Unity’s instantiate/destroy methods to create/destroy a network object, only Netick’s methods.
 > [!WARNING]
 > Make sure that all your prefabs are registered by Netick in Netick Settings panel. And also make sure the prefab list is identical in both the client and the server (if you are running two Unity editors), otherwise, weird stuff will occur.
 
-## Spawn-Prediction
+<!-- ## Spawn-Prediction
 > [!CAUTION]
 > Spawn-Prediction is WIP in Netick 2. It's non-functional at the moment.
 
@@ -62,4 +71,4 @@ public override void NetworkFixedUpdate()
                 }
             }
         }
-```
+``` -->

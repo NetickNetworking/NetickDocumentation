@@ -70,6 +70,8 @@
 
 # Misc
 
+## [Networked Procedural Generation](networked-procedural-generation.md)
+
 ## [Coming from Netick 1](coming-from-netick-1.md)
 
 # Transports
