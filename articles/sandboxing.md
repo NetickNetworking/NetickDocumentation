@@ -48,6 +48,8 @@ Notes on how to make your project sandbox-safe:
 
 - When you want to disable a component on a GameObject, use `SetEnabled` instead of `enabled`. This method respects the running sandboxes so when a hidden sandbox enables a mesh renderer, for instance, it will not be visible because that sandbox is hidden.
 
+- When you want to instantiate a non-networked object, use `Sandbox.Instantiate` instead of `GameObject.Instantiate`. `Sandbox.Instantiate` respects the running sandboxes, so when a hidden sandbox instantiates a new object, it will not be visible because that sandbox is hidden.
+
 Some useful properties on `NetworkSandbox` for working with multiple sandboxes:
 ```cs
 // is the sandbox visible

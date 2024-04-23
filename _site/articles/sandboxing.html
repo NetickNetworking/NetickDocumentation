@@ -123,6 +123,8 @@
 </li>
 <li><p>When you want to disable a component on a GameObject, use <code>SetEnabled</code> instead of <code>enabled</code>. This method respects the running sandboxes so when a hidden sandbox enables a mesh renderer, for instance, it will not be visible because that sandbox is hidden.</p>
 </li>
+<li><p>When you want to instantiate a non-networked object, use <code>Sandbox.Instantiate</code> instead of <code>GameObject.Instantiate</code>. <code>Sandbox.Instantiate</code> respects the running sandboxes, so when a hidden sandbox instantiates a new object, it will not be visible because that sandbox is hidden.</p>
+</li>
 </ul>
 <p>Some useful properties on <code>NetworkSandbox</code> for working with multiple sandboxes:</p>
 <pre><code class="lang-cs">// is the sandbox visible
