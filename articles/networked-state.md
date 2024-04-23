@@ -154,7 +154,7 @@ public int              Ammo     {get; set;}
 
 ## Networking References to `NetworkObject` and `NetworkBehaviour`
 
-Since you can't directly synchronize class references, we provide two helper structs that are used to synchronize a reference to a `NetworkObject` and `NetworkBehaviour`:
+Since you can't directly synchronize class references, we provide two helper structs that are used to synchronize a reference to `NetworkObject` and `NetworkBehaviour`:
 
 ### NetworkObjectRef
 
@@ -203,6 +203,9 @@ Usage Example:
         }
     }
 ```
+
+> [!Note] 
+> Under the hood, these structs use ids which are `NetworkObject.Id` and `NetworkBehaviour.BehaviourId`, and since ids are recycled between objects, it's possible for a `NetworkObjectRef` and `NetworkBehaviourRef<T>` to refer to incorrect objects if they are not cleared properly when those objects are destroyed.
 
 ## State Synchronization
 

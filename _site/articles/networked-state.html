@@ -207,7 +207,7 @@ public MyStruct MyStructProperty {get; set;}
 public int              Ammo     {get; set;}
 </code></pre>
 <h2 id="networking-references-to-networkobject-and-networkbehaviour">Networking References to <code>NetworkObject</code> and <code>NetworkBehaviour</code></h2>
-<p>Since you can't directly synchronize class references, we provide two helper structs that are used to synchronize a reference to a <code>NetworkObject</code> and <code>NetworkBehaviour</code>:</p>
+<p>Since you can't directly synchronize class references, we provide two helper structs that are used to synchronize a reference to <code>NetworkObject</code> and <code>NetworkBehaviour</code>:</p>
 <h3 id="networkobjectref">NetworkObjectRef</h3>
 <p>Usage Example:</p>
 <pre><code class="lang-csharp">    public class PlayerController : NetworkBehaviour
@@ -248,6 +248,10 @@ public int              Ammo     {get; set;}
         }
     }
 </code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Under the hood, these structs use ids which are <code>NetworkObject.Id</code> and <code>NetworkBehaviour.BehaviourId</code>, and since ids are recycled between objects, it's possible for a <code>NetworkObjectRef</code> and <code>NetworkBehaviourRef&lt;T&gt;</code> to refer to incorrect objects if they are not cleared properly when those objects are destroyed.</p>
+</div>
 <h2 id="state-synchronization">State Synchronization</h2>
 <p>Updates to the network state are atomic, it's not possible for a property to update in the client without other changed properties to update alongside it. If you change two (or more) properties in the server at the same time (or in two subsequent ticks), you are ensured to have both replicate together in the client. This makes it so that you don't have to worry about packet loss and possible race conditions that might occur due to some properties updates arriving while others arriving later. This simplifies how you program your game as you never have to worry about such things happening.</p>
 <p>This also means that when you create an object in the server, assign some initial values to some network properties, when this object is created in the client, inside <code>NetworkStart</code> of that object you will have full initial state that you assigned in the server.</p>
