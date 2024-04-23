@@ -140,18 +140,6 @@ public MyStruct MyStructProperty {get; set;}
 > [!Note] 
 > `string` is not supported as a type that can be used inside a struct. Use `NetworkString` instead.
 
-## Replication Relevancy
-
-You can choose to replicate a property only to the Input Source client of the object. This is done using the optional parameter `relevancy` of [<xref:Netick.Networked>]. 
-
-Example:
-
-```csharp
-[Networked(relevancy: Relevancy.InputSource)] 
-public int              Ammo     {get; set;}
-```
-
-
 ## Networking References to `NetworkObject` and `NetworkBehaviour`
 
 Since you can't directly synchronize class references, we provide two helper structs that are used to synchronize a reference to `NetworkObject` and `NetworkBehaviour`:
@@ -202,6 +190,17 @@ Usage Example:
             var playerController = MyPlayer.GetBehaviour<PlayerController>(Sandbox); // or TryGetBehaviour
         }
     }
+```
+
+## Replication Relevancy
+
+You can choose to replicate a property only to the Input Source client of the object. This is done using the optional parameter `relevancy` of [<xref:Netick.Networked>]. 
+
+Example:
+
+```csharp
+[Networked(relevancy: Relevancy.InputSource)] 
+public int              Ammo     {get; set;}
 ```
 
 > [!WARNING]

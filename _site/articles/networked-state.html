@@ -200,12 +200,6 @@ public MyStruct MyStructProperty {get; set;}
 <h5>Note</h5>
 <p><code>string</code> is not supported as a type that can be used inside a struct. Use <code>NetworkString</code> instead.</p>
 </div>
-<h2 id="replication-relevancy">Replication Relevancy</h2>
-<p>You can choose to replicate a property only to the Input Source client of the object. This is done using the optional parameter <code>relevancy</code> of [<a class="xref" href="../api/Netick.Networked.html">Networked</a>].</p>
-<p>Example:</p>
-<pre><code class="lang-csharp">[Networked(relevancy: Relevancy.InputSource)] 
-public int              Ammo     {get; set;}
-</code></pre>
 <h2 id="networking-references-to-networkobject-and-networkbehaviour">Networking References to <code>NetworkObject</code> and <code>NetworkBehaviour</code></h2>
 <p>Since you can't directly synchronize class references, we provide two helper structs that are used to synchronize a reference to <code>NetworkObject</code> and <code>NetworkBehaviour</code>:</p>
 <h3 id="networkobjectref">NetworkObjectRef</h3>
@@ -247,6 +241,12 @@ public int              Ammo     {get; set;}
             var playerController = MyPlayer.GetBehaviour&lt;PlayerController&gt;(Sandbox); // or TryGetBehaviour
         }
     }
+</code></pre>
+<h2 id="replication-relevancy">Replication Relevancy</h2>
+<p>You can choose to replicate a property only to the Input Source client of the object. This is done using the optional parameter <code>relevancy</code> of [<a class="xref" href="../api/Netick.Networked.html">Networked</a>].</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">[Networked(relevancy: Relevancy.InputSource)] 
+public int              Ammo     {get; set;}
 </code></pre>
 <div class="WARNING">
 <h5>Warning</h5>
