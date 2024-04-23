@@ -248,8 +248,8 @@ public int              Ammo     {get; set;}
         }
     }
 </code></pre>
-<div class="NOTE">
-<h5>Note</h5>
+<div class="WARNING">
+<h5>Warning</h5>
 <p>Under the hood, these structs use ids which are <code>NetworkObject.Id</code> and <code>NetworkBehaviour.BehaviourId</code>, and since ids are recycled between objects, it's possible for a <code>NetworkObjectRef</code> and <code>NetworkBehaviourRef&lt;T&gt;</code> to refer to incorrect objects if they are not cleared properly when those objects are destroyed.</p>
 </div>
 <h2 id="state-synchronization">State Synchronization</h2>
