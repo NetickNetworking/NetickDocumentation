@@ -1859,6 +1859,26 @@
     "title": "RPCs vs Properties | Netick Networking Engine",
     "keywords": "RPCs vs Properties RPCs can be used to replicate non-critical (often visual/cosmetic) events. In contrast, Network Properties are used to replicate critical gameplay state. Network Properties are best when you have a variable that is constantly changing and whose exact value matters for the duration of the game, because properties will replicate to everyone. Example: a health property. On the other hand, RPCs are only relevant at the time of their execution, meaning anyone joining after that will never know anything about any RPCs before it. Example: a damage effect event. If an event happens infrequently and is merely visual (doesn’t affect gameplay, for example, a sound effect event) you can use an RPC for it. However, you can, and should, avoid using RPCs even for events, and that’s by using a change callback using [OnChanged] attribute. Avoiding using RPCs It's highly recommended to avoid using RPCs, and only use them when necessary. Especially server->client RPCs, if possible, they should be completely avoided. And client->server RPCs should only be used for sending a player's name or setting up things or similar actions. RPCs from the client can be a security concern. Since you can't control how the client calls them. And they are not tick-aligned, which can be a problem if an RPC is intended to be used for tick-accurate gameplay logic. You can use network inputs to handle most of your client->server actions. RPCs from the server to every connected client are expensive. You can always find a way to mimic an RPC using a network property and an [OnChanged] event."
   },
+  "articles/samples/arena-shooter.html": {
+    "href": "articles/samples/arena-shooter.html",
+    "title": "Arena Shooter Sample (Unity) | Netick Networking Engine",
+    "keywords": "Arena Shooter Sample (Unity)"
+  },
+  "articles/samples/bomberman.html": {
+    "href": "articles/samples/bomberman.html",
+    "title": "Bombmerman (Unity) | Netick Networking Engine",
+    "keywords": "Bombmerman (Unity) This is a very simple clone of the popular Bomberman game. It's a 4-player game where players try to kill each other using bombs. Features Simple character controller Procedural level generation Pickups Download This is included in the main Netick package. https://github.com/NetickNetworking/NetickForUnity/tree/master/Samples~/Bomberman"
+  },
+  "articles/samples/dungeon-frenzy.html": {
+    "href": "articles/samples/dungeon-frenzy.html",
+    "title": "Dungeon Frenzy (Unity) | Netick Networking Engine",
+    "keywords": "Dungeon Frenzy (Unity) A simple 2D fast-paced platformer shooter. Made by one of our community members. Features Efficient projectile spawn system Proper spawn/despawning system Custom interpolation on weapon rotation Optional lag compensation scripts server-auth raycast Custom execution order Download https://github.com/StinkySteak/dungeon-frenzy"
+  },
+  "articles/samples/simple-first-person.html": {
+    "href": "articles/samples/simple-first-person.html",
+    "title": "Simple First Person (Unity) | Netick Networking Engine",
+    "keywords": "Simple First Person (Unity) This is a very simple FPS game. Features Simple FPS character controller Download This is included in the main Netick package. https://github.com/NetickNetworking/NetickForUnity/tree/master/Samples~/First%20Person%20Shooter"
+  },
   "articles/sandboxing.html": {
     "href": "articles/sandboxing.html",
     "title": "Sandboxing | Netick Networking Engine",

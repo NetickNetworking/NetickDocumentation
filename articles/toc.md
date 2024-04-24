@@ -74,6 +74,14 @@
 
 ## [Coming from Netick 1](coming-from-netick-1.md)
 
+# Samples
+
+## [Bomberman](samples/bomberman.md)
+
+## [Simple First Person](samples/simple-first-person.md)
+
+## [Dungeon Frenzy](samples/dungeon-frenzy.md)
+
 # Transports
 
 ## [Available Transports](transports.md)
