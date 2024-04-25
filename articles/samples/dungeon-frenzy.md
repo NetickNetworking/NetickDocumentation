@@ -7,10 +7,10 @@ A simple 2D fast-paced platformer shooter. Made by one of our community members.
 ## Features
 
 - Efficient projectile spawn system
-- Proper spawn/despawning system
+- Spawn system
 - Custom interpolation on weapon rotation
 - Optional lag compensation scripts
-- server-auth raycast
+- Server-authoritative hit-Detection
 - Custom execution order
 
 ## Download
