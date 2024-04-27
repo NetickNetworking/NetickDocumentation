@@ -1,4 +1,4 @@
-# Writing Client-Side Prediction code
+# Writing Client-Side Prediction Code
 
 ## Network Input 
 

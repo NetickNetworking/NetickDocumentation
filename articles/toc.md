@@ -30,7 +30,7 @@
 
 ## [Understanding Client-Side Prediction](understanding-client-side-prediction/understanding-client-side-prediction.md)
 
-## [Writing Client-Side Prediction code](understanding-client-side-prediction/writing-client-side-prediction-code.md)
+## [Writing Client-Side Prediction Code](understanding-client-side-prediction/writing-client-side-prediction-code.md)
 
 ## [Network Object Instantiation and Destruction](network-object-instantiation-and-destruction/network-object-instantiation-and-destruction.md)
 
