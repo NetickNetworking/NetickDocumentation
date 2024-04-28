@@ -61,16 +61,14 @@ Or you can manually subscribe/unsubscribe on a `NetworkBehaviour`.
 ```cs
 public override void NetworkStart()
 {
-  Sandbox.Events.OnSceneOperationBegan += OnPlayerConnected ;
-  Sandbox.Events.OnSceneOperationDone  += OnSceneOperationDone ;
-
+  Sandbox.Events.OnSceneOperationBegan += OnSceneOperationBegan;
+  Sandbox.Events.OnSceneOperationDone  += OnSceneOperationDone;
 }
 
 public override void NetworkDestroy()
 {
-  Sandbox.Events.OnSceneOperationBegan -= OnSceneOperationBegan ;
-  Sandbox.Events.OnSceneOperationDone  -= OnSceneOperationDone ;
-
+  Sandbox.Events.OnSceneOperationBegan -= OnSceneOperationBegan;
+  Sandbox.Events.OnSceneOperationDone  -= OnSceneOperationDone;
 }
 
 private void OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)
