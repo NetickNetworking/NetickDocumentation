@@ -89,14 +89,64 @@
 <p>To switch from the current scene to another:</p>
 <pre><code class="lang-csharp">sandbox.SwitchScene(&quot;sceneName&quot;);
 </code></pre>
-<h3 id="additive-scenes-experimental">Additive Scenes (Experimental)</h3>
+<h3 id="additive-scenes">Additive Scenes</h3>
 <p>Loading an additive scene:</p>
 <pre><code class="lang-csharp">sandbox.LoadSceneAsync(&quot;sceneName&quot;, LoadSceneMode.Additive);
 </code></pre>
-<p>Unloading additive scene (this must only be called for unloading an additively loaded scene)</p>
+<p>Unloading additive scene:</p>
 <pre><code class="lang-csharp">sandbox.UnloadSceneAsync(&quot;sceneName&quot;);
 </code></pre>
-<p>To find the build index of a scene, open the Build Settings window where you will see a list of all added scenes. If the desired scene is not present, open that scene and add it to the list.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>All scene load/unload methods must only be called in the server.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p><code>UnloadSceneAsync</code> must only be called for unloading additively loaded scenes. To unload the main scene, use <code>SwitchScene</code> or <code>LoadSceneAsync</code> with <code>LoadSceneMode.Single</code>.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To find the build index of a scene, open the <code>Build Settings</code> window where you will see a list of all added scenes. If the desired scene is not present, open that scene and add it to the list.</p>
+</div>
+<h2 id="scene-events">Scene Events</h2>
+<p>When you call <code>sandbox.LoadSceneAsync</code> in the server, for instance, <code>OnSceneOperationBegan</code> event will be invoked in both the client and the server. You can use the <code>NetworkSceneOperation</code> parameter to know information about the scene load/unload operation like the current progress.</p>
+<p><code>OnSceneOperationBegan</code> will be invoked when that scene operation finishes. <code>NetworkSceneOperation</code> struct includes a <code>Scene</code> getter you can use to access the <code> UnityEngine.SceneManagement.Scene</code> struct.</p>
+<h3 id="using-networkeventslistener">Using <code>NetworkEventsListener</code></h3>
+<p>On a script inheriting from <code>NetworkEventsListener</code>, you can run code for when a certain scene operation has began and when it has finished.</p>
+<pre><code class="lang-cs">public override void OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)
+ {
+  // invoked in both the client and the server when when you call Sandbox.LoadSceneAsync, Sandbox.UnloadSceneAsync, or Sandbox.SwitchScene.
+  // sceneOperation lets you know information about the scene operation like the current progress of the scene load/unload.
+ }
+
+ public override void OnSceneOperationDone(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)
+ {
+  // invoked in both the client and the server when a scene operation caused by calling Sandbox.LoadSceneAsync, Sandbox.UnloadSceneAsync, or Sandbox.SwitchScene finishes.
+ }
+</code></pre>
+<h3 id="using-sandboxevents">Using <code>Sandbox.Events</code></h3>
+<p>Or you can manually subscribe/unsubscribe on a <code>NetworkBehaviour</code>.</p>
+<pre><code class="lang-cs">public override void NetworkStart()
+{
+  Sandbox.Events.OnSceneOperationBegan += OnPlayerConnected ;
+  Sandbox.Events.OnSceneOperationDone  += OnSceneOperationDone ;
+
+}
+
+public override void NetworkDestroy()
+{
+  Sandbox.Events.OnSceneOperationBegan -= OnSceneOperationBegan ;
+  Sandbox.Events.OnSceneOperationDone  -= OnSceneOperationDone ;
+
+}
+
+private void OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)
+{
+}
+private void OnSceneOperationDone(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)
+{
+}
+</code></pre>
 
 </article>
 

@@ -126,3 +126,53 @@ private MyType LerpMyType(MyType from, MyType to, float alpha)
 
 > [!NOTE]
 > You should cache the result to `FindInterpolator` on [NetworkStart](xref:Netick.NetickBehaviour#Netick_NetickBehaviour_NetworkStart), instead of calling it repeatedly every frame (NetworkRender is called every frame), since it might be a bit slow.
+
+
+<!-- #### Teleportation for Manual Interpolation
+
+
+Teleportation in this context refers to when you want to teleport or snap your character position or variable value, and disable interpolation in that duration.
+
+```csharp
+
+[Networked]
+public Tick   TeleportTick {get; set;} // used to sync the teleportation
+
+[Networked][Smooth(false)]
+public MyType MyType       {get; set;}
+
+public override NetworkRender()
+{
+    var    interpolator      = FindInterpolator(nameof(MyType));
+    bool   didGetData        = interpolator.GetInterpolationData<int>(InterpolationSource.Auto, out var from, out var to, out float alpha);
+
+    MyType interpolatedValue = default;
+
+
+    if (interpolation.From.TickValue < TeleportTick)
+    {
+        interpolatedValue    = MyType;
+        return;
+    }
+
+    // if we were able to get interpolation data
+    if (didGetData)
+        interpolatedValue    = LerpMyType(from,to,alpha);
+    else // if not we just use the non-interpolated value
+        interpolatedValue    = MyType;
+}
+
+private MyType LerpMyType(MyType from, MyType to, float alpha)
+{
+    // write the interpolation code here
+}
+```
+
+if (interpolation.From.TickValue < TeleportTick || (Vector3.Distance(fromPos, toPos) >= TeleportDistance))
+{
+  if (_syncPosition)
+    RenderTransform.position = transform.position;
+  if (_syncRot)
+    RenderTransform.rotation = transform.rotation;
+  return;
+} -->

@@ -146,19 +146,14 @@
 <td>Server</td>
 </tr>
 <tr>
-<td>OnSceneLoaded(NetworkSandbox sandbox)</td>
-<td>Called on both the client and the server when the scene has been loaded.</td>
+<td>OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)</td>
+<td>Called on both the client and the server a scene operation has began.</td>
 <td>Client/Server</td>
 </tr>
 <tr>
-<td>OnSceneLoadStarted(NetworkSandbox sandbox)</td>
-<td>Called on both the client and the server before beginning to load the new scene.</td>
+<td>OnSceneOperationDone(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)</td>
+<td>Called on both the client and the server a scene operation has finished.</td>
 <td>Client/Server</td>
-</tr>
-<tr>
-<td>OnClientSceneLoaded(NetworkSandbox sandbox, NetworkConnection client)</td>
-<td>Called on the server when a specific client finished loading the scene.</td>
-<td>Server</td>
 </tr>
 <tr>
 <td>OnObjectCreated(NetworkObject obj)</td>
