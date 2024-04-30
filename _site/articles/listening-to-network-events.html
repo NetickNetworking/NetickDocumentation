@@ -97,78 +97,78 @@
 <tbody>
 <tr>
 <td>OnStartup(NetworkSandbox sandbox)</td>
-<td>Called when Netick has been started.</td>
+<td>Invoked when Netick has been started.</td>
 <td>Client/Server</td>
 </tr>
 <tr>
 <td>OnShutdown(NetworkSandbox sandbox)</td>
-<td>Called when Netick has been shut down.</td>
+<td>Invoked when Netick has been shut down.</td>
 <td>Client/Server</td>
 </tr>
 <tr>
 <td>OnInput(NetworkSandbox sandbox)</td>
-<td>Called to read inputs.</td>
+<td>Invoked to read inputs.</td>
 <td>Client/Server</td>
 </tr>
 <tr>
 <td>OnConnectRequest(NetworkSandbox sandbox, NetworkConnectionRequest request)</td>
-<td>Called on the server when a client tries to connect. Use request to decide whether or not to allow this client to connect.</td>
+<td>Invoked when a client tries to connect. Use request to decide whether or not to allow this client to connect.</td>
 <td>Server</td>
 </tr>
 <tr>
 <td>OnConnectFailed(NetworkSandbox sandbox, ConnectionFailedReason reason)</td>
-<td>Called on the client when the connection to the server was refused, or simply failed.</td>
+<td>Invoked when the connection to the server was refused, or simply failed.</td>
 <td>Client</td>
 </tr>
 <tr>
 <td>OnConnectedToServer(NetworkSandbox sandbox, NetworkConnection server)</td>
-<td>Called on the client when the connection to the server has succeeded.</td>
+<td>Invoked when the connection to the server has succeeded.</td>
 <td>Client</td>
 </tr>
 <tr>
 <td>OnPlayerConnected(NetworkSandbox sandbox, Netick.NetworkPlayer client)</td>
-<td>Called on the server when a specific player has connected. Called for the server, when started as a Host.</td>
+<td>Invoked when a specific player has connected. Called for the server, when started as a Host.</td>
 <td>Server</td>
 </tr>
 <tr>
 <td>OnPlayerDisconnected(NetworkSandbox sandbox, Netick.NetworkConnection client)</td>
-<td>Called on the server when a specific player has disconnected.</td>
+<td>Invoked when a specific player has disconnected.</td>
 <td>Server</td>
 </tr>
 <tr>
 <td>OnClientConnected(NetworkSandbox sandbox, NetworkConnection client)</td>
-<td>Called on the server when a specific client has connected.</td>
+<td>Invoked when a specific client has connected.</td>
 <td>Server</td>
 </tr>
 <tr>
 <td>OnClientDisconnected(NetworkSandbox sandbox, NetworkConnection client)</td>
-<td>Called on the server when a specific client has disconnected.</td>
+<td>Invoked when a specific client has disconnected.</td>
 <td>Server</td>
 </tr>
 <tr>
 <td>OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)</td>
-<td>Called on both the client and the server a scene operation has began.</td>
+<td>Invoked when a scene operation has began.</td>
 <td>Client/Server</td>
 </tr>
 <tr>
 <td>OnSceneOperationDone(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)</td>
-<td>Called on both the client and the server a scene operation has finished.</td>
+<td>Invoked when a scene operation has finished.</td>
 <td>Client/Server</td>
 </tr>
 <tr>
 <td>OnObjectCreated(NetworkObject obj)</td>
-<td>Called when a network object has been created/initialized.</td>
+<td>Invoked when a network object has been created/initialized.</td>
 <td>Client/Server</td>
 </tr>
 <tr>
 <td>OnObjectDestroyed(NetworkObject obj)</td>
-<td>Called when a network object has been destroyed/recycled.</td>
+<td>Invoked when a network object has been destroyed/recycled.</td>
 <td>Client/Server</td>
 </tr>
 </tbody>
 </table>
-<p>You can override these methods on a class inheriting from NetworkEventsListener, and add it to an object in the scene, and Netick will find it automatically. Or, you can add it to a network prefab that you instantiate, and Netick will also find it can call methods on it.</p>
-<p>You could also add the component NetworkEvents to an object, which does the same, but the difference is that you can plug your events right into it.</p>
+<p>You can override these methods on a class inheriting from <code>NetworkEventsListener</code>, and add it to an object in the scene, and Netick will find it automatically. Or, you can add it to a network prefab that you instantiate, and Netick will also find it can call methods on it.</p>
+<p>You could also add the component <code>NetworkEvents</code> to an object, which does the same, but the difference is that you can plug your events right into it.</p>
 <p>And finally, you can use <code>Sandbox.Events</code> to directly subscribe/unsubscribe network events from any script, including network behaviours:</p>
 <pre><code class="lang-csharp">public override void NetworkStart()
 {
