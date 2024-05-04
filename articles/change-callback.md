@@ -56,7 +56,7 @@ public readonly NetworkLinkedList<int> ListExample = new NetworkArray<int>(32);
 private void OnListExampleChanged(OnChangedData onChangedData)
 {
   // getting a snapshot of the previous state of the collection
-  var previous = onChangedData.GetPreviousNetworkStack(ListExample);
+  var previous = onChangedData.GetPreviousNetworkLinkedList(ListExample);
 }
 ```
 
