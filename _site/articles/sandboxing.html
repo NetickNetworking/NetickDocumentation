@@ -125,6 +125,8 @@
 </li>
 <li><p>When you want to instantiate a non-networked GameObject, use <code>Sandbox.Instantiate</code> instead of <code>GameObject.Instantiate</code>. <code>Sandbox.Instantiate</code> respects the running sandboxes, so when a hidden sandbox instantiates a new GameObject, it will not be visible because that sandbox is hidden.</p>
 </li>
+<li><p>Use <code>Sandbox.Log</code>, <code>Sandbox.LogWarning</code>, and <code>Sandbox.LogError</code> instead of Unity equivalents. These will include the name of the sandbox at the start of the log message.</p>
+</li>
 </ul>
 <p>Some useful properties on <code>NetworkSandbox</code> for working with multiple sandboxes:</p>
 <pre><code class="lang-cs">// is the sandbox visible

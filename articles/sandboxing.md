@@ -50,6 +50,8 @@ Notes on how to make your project sandbox-safe:
 
 - When you want to instantiate a non-networked GameObject, use `Sandbox.Instantiate` instead of `GameObject.Instantiate`. `Sandbox.Instantiate` respects the running sandboxes, so when a hidden sandbox instantiates a new GameObject, it will not be visible because that sandbox is hidden.
 
+- Use `Sandbox.Log`, `Sandbox.LogWarning`, and `Sandbox.LogError` instead of Unity equivalents. These will include the name of the sandbox at the start of the log message.
+
 Some useful properties on `NetworkSandbox` for working with multiple sandboxes:
 ```cs
 // is the sandbox visible
