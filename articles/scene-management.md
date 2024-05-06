@@ -5,7 +5,7 @@
 To switch from the current scene to another:
 
 ```csharp
-sandbox.SwitchScene("sceneName");
+Sandbox.SwitchScene("sceneName");
 ```
 
 ### Additive Scenes
@@ -13,12 +13,12 @@ sandbox.SwitchScene("sceneName");
 Loading an additive scene:
 
 ```csharp
-sandbox.LoadSceneAsync("sceneName", LoadSceneMode.Additive);
+Sandbox.LoadSceneAsync("sceneName", LoadSceneMode.Additive);
 ```
 
 Unloading additive scene:
 ```csharp
-sandbox.UnloadSceneAsync("sceneName");
+Sandbox.UnloadSceneAsync("sceneName");
 ```
 
 > [!WARNING]
