@@ -16,7 +16,7 @@ Loading an additive scene:
 Sandbox.LoadSceneAsync("sceneName", LoadSceneMode.Additive);
 ```
 
-Unloading additive scene:
+Unloading an additive scene:
 ```csharp
 Sandbox.UnloadSceneAsync("sceneName");
 ```
