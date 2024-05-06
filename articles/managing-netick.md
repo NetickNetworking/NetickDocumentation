@@ -34,7 +34,7 @@ var sandbox = Netick.Unity.Network.StartAsSinglePlayer();
 
 [Learn More About Sandboxing](sandboxing.md)
 
-You can start both a client and a host together:
+You can start both a client and a server together:
 
 ```csharp
    var sandboxes       = Netick.Unity.Network.Launch(StartMode.MultiplePeers, new LaunchData()
