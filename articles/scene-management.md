@@ -32,9 +32,9 @@ sandbox.UnloadSceneAsync("sceneName");
 
 ## Scene Events
 
-When you call `sandbox.LoadSceneAsync` in the server, for instance, `OnSceneOperationBegan` event will be invoked in both the client and the server. You can use the `NetworkSceneOperation` parameter to know information about the scene load/unload operation like the current progress.
+When you call `Sandbox.LoadSceneAsync` in the server, for instance, `OnSceneOperationBegan` event will be invoked in both the client and the server. You can use the `NetworkSceneOperation` parameter to know information about the scene load/unload operation like the current progress.
 
-`OnSceneOperationBegan` will be invoked when that scene operation finishes. `NetworkSceneOperation` struct includes a `Scene` getter you can use to access the ` UnityEngine.SceneManagement.Scene` struct.
+`OnSceneOperationDone` will be invoked when that scene operation finishes. `NetworkSceneOperation` struct includes a `Scene` getter you can use to access the ` UnityEngine.SceneManagement.Scene` struct.
 
 
 ### Using `NetworkEventsListener`
