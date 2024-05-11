@@ -127,6 +127,8 @@
 </li>
 <li><p>Use <code>Sandbox.Log</code>, <code>Sandbox.LogWarning</code>, and <code>Sandbox.LogError</code> instead of Unity equivalents. These will include the name of the sandbox at the start of the log message.</p>
 </li>
+<li><p>Use <code>Sandbox.Physics.Raycast</code> instead of <code>Physics.Raycast</code> when wanting to perform a raycast, same thing goes for other physics queries too. Using <code>Sandbox.Physics.Raycast</code> lets you query against the physics scene associated with this sandbox. Since <code>Physics.Raycast</code> simply uses the main Unity physics scene that is created when starting Unity, which is not sandbox-safe since it would raycast against objects in the first sandbox only (the sandbox that has the main Unity physics scene associated with it).</p>
+</li>
 </ul>
 <p>Some useful properties on <code>NetworkSandbox</code> for working with multiple sandboxes:</p>
 <pre><code class="lang-cs">// is the sandbox visible

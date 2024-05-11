@@ -52,6 +52,8 @@ Notes on how to make your project sandbox-safe:
 
 - Use `Sandbox.Log`, `Sandbox.LogWarning`, and `Sandbox.LogError` instead of Unity equivalents. These will include the name of the sandbox at the start of the log message.
 
+- Use `Sandbox.Physics.Raycast` instead of `Physics.Raycast` when wanting to perform a raycast, same thing goes for other physics queries too. Using `Sandbox.Physics.Raycast` lets you query against the physics scene associated with this sandbox. Since `Physics.Raycast` simply uses the main Unity physics scene that is created when starting Unity, which is not sandbox-safe since it would raycast against objects in the first sandbox only (the sandbox that has the main Unity physics scene associated with it).
+
 Some useful properties on `NetworkSandbox` for working with multiple sandboxes:
 ```cs
 // is the sandbox visible
