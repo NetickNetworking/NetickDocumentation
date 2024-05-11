@@ -4,6 +4,8 @@ Predicting physics means resimulating multiple physics steps in one tick. This c
 
 To make a `Rigidbody`/`Rigidbody2D` predictable, add `NetworkRigidbody`/`NetworkRigidbody2D` to its GameObject. 
 
+To enable/disable Physics Prediction in the client at runtime, use `Sandbox.PhysicsPrediction`.
+
 ## Cost of Predicting PhysX (Rigidbody3D)
 
 It's very expensive to predict 3D physics as PhysX and its integration with Unity perform very badly when calling `PhysicsScene.Simulate` multiple times in one frame, even with small numbers of rigidbodies.
