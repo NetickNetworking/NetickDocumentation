@@ -80,7 +80,7 @@ public MyType MyType {get; set;}
 public override NetworkRender()
 {
     var    interpolator      = FindInterpolator(nameof(MyType));
-    bool   didGetData        = interpolator.GetInterpolationData<int>(InterpolationSource.Auto, out var from, out var to, out float alpha);
+    bool   didGetData        = interpolator.GetInterpolationData<MyType>(InterpolationSource.Auto, out var from, out var to, out float alpha);
 
     MyType interpolatedValue = default;
 
@@ -107,7 +107,7 @@ public override NetworkRender()
 {
     var          interpolator      = FindInterpolator(nameof(MyTypeArray));
     int          index             = 5;
-    bool         didGetData        = interpolator.GetInterpolationData<int>(InterpolationSource.Auto, index, out var from, out var to, out float alpha);
+    bool         didGetData        = interpolator.GetInterpolationData<MyType>(InterpolationSource.Auto, index, out var from, out var to, out float alpha);
 
     MyType       interpolatedValue = default;
 
