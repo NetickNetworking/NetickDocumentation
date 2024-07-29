@@ -169,8 +169,8 @@ private void OnMyNetworkUnorderedListChanged(OnChangedData onChangedData)
 </code></pre>
 <h3 id="networkqueue">NetworkQueue<t></t></h3>
 <p>Example:</p>
-<pre><code class="lang-csharp">[Networked(size: 32)]
-public readonly NetworkQueue&lt;int&gt; MyNetworkQueue = new NetworkQueue&lt;int&gt;(32);
+<pre><code class="lang-csharp">[Networked(size: 5)]
+public readonly NetworkQueue&lt;int&gt; MyNetworkQueue = new NetworkQueue&lt;int&gt;(5);
 
 [OnChanged(nameof(MyNetworkQueue))]
 private void OnMyNetworkQueueChanged(OnChangedData onChangedData)
@@ -181,8 +181,8 @@ private void OnMyNetworkQueueChanged(OnChangedData onChangedData)
 </code></pre>
 <h3 id="networkstack">NetworkStack<t></t></h3>
 <p>Example:</p>
-<pre><code class="lang-csharp">[Networked(size: 32)]
-public readonly NetworkStack&lt;int&gt; MyNetworkStack = new NetworkStack&lt;int&gt;(32);
+<pre><code class="lang-csharp">[Networked(size: 5)]
+public readonly NetworkStack&lt;int&gt; MyNetworkStack = new NetworkStack&lt;int&gt;(5);
 
 [OnChanged(nameof(MyNetworkStack))]
 private void OnMyNetworkStackChanged(OnChangedData onChangedData)
