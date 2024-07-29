@@ -68,9 +68,7 @@ public override void NetworkFixedUpdate()
 > When `IsResimulating` equals to true, every `[Networked]` variable has an older value, since we are resimulating past ticks. The first resimulated tick will have the server state applied to every networked variable.
 
 > [!WARNING]
-> `Sandbox.GetInput` and `Sandbox.SetInput` are used to read and set the user inputs into the input struct.
-> [!WARNING]
-> `FetchInput` is used to actually use the input struct in the simulation.
+> `Sandbox.GetInput` and `Sandbox.SetInput` are used to read and set the user inputs into the input struct. While `FetchInput` is used to actually use the input struct in the simulation.
 
 FetchInput tries to fetch an input for the state/tick being simulated/resimulated. It only returns true if either:
 
