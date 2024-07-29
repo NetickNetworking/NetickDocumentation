@@ -7,16 +7,15 @@ items:
   children:
   - Netick.INetickScript.Engine
   - Netick.INetickScript.Entity
+  - Netick.INetickScript.Index
   - Netick.INetickScript.Initialize(Netick.NetickEngine)
   - Netick.INetickScript.NetworkDestroy
   - Netick.INetickScript.NetworkFixedUpdate
   - Netick.INetickScript.NetworkRender
   - Netick.INetickScript.NetworkStart
   - Netick.INetickScript.NetworkUpdate
-  - Netick.INetickScript.Next
   - Netick.INetickScript.OnBecameSimulated
   - Netick.INetickScript.OnBecameUnsimulated
-  - Netick.INetickScript.Previous
   langs:
   - csharp
   - vb
@@ -195,48 +194,27 @@ items:
     content: void OnBecameUnsimulated()
     content.vb: Sub OnBecameUnsimulated()
   overload: Netick.INetickScript.OnBecameUnsimulated*
-- uid: Netick.INetickScript.Next
-  commentId: P:Netick.INetickScript.Next
-  id: Next
+- uid: Netick.INetickScript.Index
+  commentId: P:Netick.INetickScript.Index
+  id: Index
   parent: Netick.INetickScript
   langs:
   - csharp
   - vb
-  name: Next
-  nameWithType: INetickScript.Next
-  fullName: Netick.INetickScript.Next
+  name: Index
+  nameWithType: INetickScript.Index
+  fullName: Netick.INetickScript.Index
   type: Property
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: INetickScript Next { get; set; }
+    content: int Index { get; set; }
     parameters: []
     return:
-      type: Netick.INetickScript
-    content.vb: Property [Next] As INetickScript
-  overload: Netick.INetickScript.Next*
-- uid: Netick.INetickScript.Previous
-  commentId: P:Netick.INetickScript.Previous
-  id: Previous
-  parent: Netick.INetickScript
-  langs:
-  - csharp
-  - vb
-  name: Previous
-  nameWithType: INetickScript.Previous
-  fullName: Netick.INetickScript.Previous
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: INetickScript Previous { get; set; }
-    parameters: []
-    return:
-      type: Netick.INetickScript
-    content.vb: Property Previous As INetickScript
-  overload: Netick.INetickScript.Previous*
+      type: System.Int32
+    content.vb: Property Index As Integer
+  overload: Netick.INetickScript.Index*
 - uid: Netick.INetickScript.Entity
   commentId: P:Netick.INetickScript.Entity
   id: Entity
@@ -358,28 +336,31 @@ references:
   name: OnBecameUnsimulated
   nameWithType: INetickScript.OnBecameUnsimulated
   fullName: Netick.INetickScript.OnBecameUnsimulated
-- uid: Netick.INetickScript.Next*
-  commentId: Overload:Netick.INetickScript.Next
+- uid: Netick.INetickScript.Index*
+  commentId: Overload:Netick.INetickScript.Index
   isExternal: true
-  href: Netick.INetickScript.html#Netick_INetickScript_Next
-  name: Next
-  nameWithType: INetickScript.Next
-  fullName: Netick.INetickScript.Next
-- uid: Netick.INetickScript
-  commentId: T:Netick.INetickScript
-  parent: Netick
+  href: Netick.INetickScript.html#Netick_INetickScript_Index
+  name: Index
+  nameWithType: INetickScript.Index
+  fullName: Netick.INetickScript.Index
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
-  href: Netick.INetickScript.html
-  name: INetickScript
-  nameWithType: INetickScript
-  fullName: Netick.INetickScript
-- uid: Netick.INetickScript.Previous*
-  commentId: Overload:Netick.INetickScript.Previous
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
   isExternal: true
-  href: Netick.INetickScript.html#Netick_INetickScript_Previous
-  name: Previous
-  nameWithType: INetickScript.Previous
-  fullName: Netick.INetickScript.Previous
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Netick.INetickScript.Entity*
   commentId: Overload:Netick.INetickScript.Entity
   isExternal: true

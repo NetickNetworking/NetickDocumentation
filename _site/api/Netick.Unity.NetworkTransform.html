@@ -107,7 +107,7 @@
 [AddComponentMenu(&quot;Netick/Network Transform&quot;)]
 [RequireComponent(typeof(Transform))]
 [DisallowMultipleComponent]
-public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickScript</code></pre>
+public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickScript, IClientSimulationCallbacks</code></pre>
   </div>
 
 
@@ -133,6 +133,7 @@ public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickS
     <dd>
       <div><a class="xref" href="Netick.INetickNetworkScript.html">INetickNetworkScript</a></div>
       <div><a class="xref" href="Netick.INetickScript.html">INetickScript</a></div>
+      <div><a class="xref" href="Netick.IClientSimulationCallbacks.html">IClientSimulationCallbacks</a></div>
     </dd>
   </dl>
 
@@ -152,6 +153,12 @@ public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickS
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GetRef__1">NetworkBehaviour.GetRef&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__">NetworkBehaviour.CopyStateTo(byte*)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__">NetworkBehaviour.SetStateFrom(byte*)</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_">NetworkBehaviour.FetchInput&lt;T&gt;(out T, int)</a>
@@ -214,7 +221,7 @@ public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickS
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSourcePlayerId">NetworkBehaviour.InputSourcePlayerId</a>
     </div>
     <div>
-      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy">NetickBehaviour.NetworkDestroy()</a>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_StateSize">NetworkBehaviour.StateSize</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkUpdate">NetickBehaviour.NetworkUpdate()</a>
@@ -628,6 +635,96 @@ public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickS
 
 
 
+  <h3 id="Netick_Unity_NetworkTransform_CorrectionMaxBlendAlpha" data-uid="Netick.Unity.NetworkTransform.CorrectionMaxBlendAlpha">
+  CorrectionMaxBlendAlpha
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CorrectionMaxBlendAlpha</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkTransform_CorrectionMultiplier" data-uid="Netick.Unity.NetworkTransform.CorrectionMultiplier">
+  CorrectionMultiplier
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CorrectionMultiplier</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkTransform_InterpolationMultiplier" data-uid="Netick.Unity.NetworkTransform.InterpolationMultiplier">
+  InterpolationMultiplier
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float InterpolationMultiplier</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="Netick_Unity_NetworkTransform_RenderTransform" data-uid="Netick.Unity.NetworkTransform.RenderTransform">
   RenderTransform
   
@@ -646,6 +743,68 @@ public class NetworkTransform : NetworkBehaviour, INetickNetworkScript, INetickS
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><span class="xref">Transform</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkTransform_TeleportDistance" data-uid="Netick.Unity.NetworkTransform.TeleportDistance">
+  TeleportDistance
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HideInInspector]
+[SerializeField]
+public float TeleportDistance</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkTransform_TeleportErrorThreshold" data-uid="Netick.Unity.NetworkTransform.TeleportErrorThreshold">
+  TeleportErrorThreshold
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float TeleportErrorThreshold</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
 
@@ -729,6 +888,66 @@ protected TransformSpace TransformSpace</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected float _posPrecision</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkTransform__rotInversePrecision" data-uid="Netick.Unity.NetworkTransform._rotInversePrecision">
+  _rotInversePrecision
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected float _rotInversePrecision</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkTransform__rotPrecision" data-uid="Netick.Unity.NetworkTransform._rotPrecision">
+  _rotPrecision
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected float _rotPrecision</code></pre>
   </div>
 
 
@@ -843,6 +1062,68 @@ protected TransformSpace TransformSpace</code></pre>
 
 
 
+  <a id="Netick_Unity_NetworkTransform_Position_" data-uid="Netick.Unity.NetworkTransform.Position*"></a>
+
+  <h3 id="Netick_Unity_NetworkTransform_Position" data-uid="Netick.Unity.NetworkTransform.Position">
+  Position
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Position { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkTransform_Rotation_" data-uid="Netick.Unity.NetworkTransform.Rotation*"></a>
+
+  <h3 id="Netick_Unity_NetworkTransform_Rotation" data-uid="Netick.Unity.NetworkTransform.Rotation">
+  Rotation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion Rotation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Quaternion</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -942,32 +1223,6 @@ protected TransformSpace TransformSpace</code></pre>
 
 
 
-  <a id="Netick_Unity_NetworkTransform_Interpolate2_" data-uid="Netick.Unity.NetworkTransform.Interpolate2*"></a>
-
-  <h3 id="Netick_Unity_NetworkTransform_Interpolate2" data-uid="Netick.Unity.NetworkTransform.Interpolate2">
-  Interpolate2()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Interpolate2()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="Netick_Unity_NetworkTransform_NetcodeIntoGameEngine_" data-uid="Netick.Unity.NetworkTransform.NetcodeIntoGameEngine*"></a>
 
   <h3 id="Netick_Unity_NetworkTransform_NetcodeIntoGameEngine" data-uid="Netick.Unity.NetworkTransform.NetcodeIntoGameEngine">
@@ -1006,6 +1261,33 @@ protected TransformSpace TransformSpace</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void NetworkAwake()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkTransform_NetworkDestroy_" data-uid="Netick.Unity.NetworkTransform.NetworkDestroy*"></a>
+
+  <h3 id="Netick_Unity_NetworkTransform_NetworkDestroy" data-uid="Netick.Unity.NetworkTransform.NetworkDestroy">
+  NetworkDestroy()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when this behaviour has been removed from the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void NetworkDestroy()</code></pre>
   </div>
 
 
@@ -1116,6 +1398,130 @@ protected TransformSpace TransformSpace</code></pre>
     <pre><code class="lang-csharp hljs">public override void OnBecameInterested()</code></pre>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkTransform_Render_" data-uid="Netick.Unity.NetworkTransform.Render*"></a>
+
+  <h3 id="Netick_Unity_NetworkTransform_Render" data-uid="Netick.Unity.NetworkTransform.Render">
+  Render()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Render()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkTransform_Teleport_" data-uid="Netick.Unity.NetworkTransform.Teleport*"></a>
+
+  <h3 id="Netick_Unity_NetworkTransform_Teleport_UnityEngine_Quaternion_" data-uid="Netick.Unity.NetworkTransform.Teleport(UnityEngine.Quaternion)">
+  Teleport(Quaternion)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Instantly moves the object. By calling this method, the object won't be interpolated for one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Teleport(Quaternion rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rotation</code> <span class="xref">Quaternion</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkTransform_Teleport_" data-uid="Netick.Unity.NetworkTransform.Teleport*"></a>
+
+  <h3 id="Netick_Unity_NetworkTransform_Teleport_UnityEngine_Vector3_" data-uid="Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3)">
+  Teleport(Vector3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Instantly moves the object. By calling this method, the object won't be interpolated for one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Teleport(Vector3 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkTransform_Teleport_" data-uid="Netick.Unity.NetworkTransform.Teleport*"></a>
+
+  <h3 id="Netick_Unity_NetworkTransform_Teleport_UnityEngine_Vector3_UnityEngine_Quaternion_" data-uid="Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3,UnityEngine.Quaternion)">
+  Teleport(Vector3, Quaternion)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Instantly moves the object. By calling this method, the object won't be interpolated for one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Teleport(Vector3 position, Quaternion rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <span class="xref">Quaternion</span></dt>
+    <dd></dd>
+  </dl>
 
 
 

@@ -9,8 +9,7 @@ items:
   - Netick.ExecutionListLL.Count
   - Netick.ExecutionListLL.GetEnumerator
   - Netick.ExecutionListLL.Items
-  - Netick.ExecutionListLL.Remove(Netick.INetickEntity,System.Boolean,System.Boolean)
-  - Netick.ExecutionListLL.RemoveFromLoop(Netick.INetickEntity)
+  - Netick.ExecutionListLL.Remove(Netick.INetickEntity,System.Boolean)
   langs:
   - csharp
   - vb
@@ -96,55 +95,32 @@ items:
     content: public void Clear()
     content.vb: Public Sub Clear()
   overload: Netick.ExecutionListLL.Clear*
-- uid: Netick.ExecutionListLL.Remove(Netick.INetickEntity,System.Boolean,System.Boolean)
-  commentId: M:Netick.ExecutionListLL.Remove(Netick.INetickEntity,System.Boolean,System.Boolean)
-  id: Remove(Netick.INetickEntity,System.Boolean,System.Boolean)
+- uid: Netick.ExecutionListLL.Remove(Netick.INetickEntity,System.Boolean)
+  commentId: M:Netick.ExecutionListLL.Remove(Netick.INetickEntity,System.Boolean)
+  id: Remove(Netick.INetickEntity,System.Boolean)
   parent: Netick.ExecutionListLL
   langs:
   - csharp
   - vb
-  name: Remove(INetickEntity, bool, bool)
-  nameWithType: ExecutionListLL.Remove(INetickEntity, bool, bool)
-  fullName: Netick.ExecutionListLL.Remove(Netick.INetickEntity, bool, bool)
+  name: Remove(INetickEntity, bool)
+  nameWithType: ExecutionListLL.Remove(INetickEntity, bool)
+  fullName: Netick.ExecutionListLL.Remove(Netick.INetickEntity, bool)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void Remove(INetickEntity obj, bool callDestroy, bool removeFromItems = true)
+    content: public void Remove(INetickEntity obj, bool callDestroy)
     parameters:
     - id: obj
       type: Netick.INetickEntity
     - id: callDestroy
       type: System.Boolean
-    - id: removeFromItems
-      type: System.Boolean
-    content.vb: Public Sub Remove(obj As INetickEntity, callDestroy As Boolean, removeFromItems As Boolean = True)
+    content.vb: Public Sub Remove(obj As INetickEntity, callDestroy As Boolean)
   overload: Netick.ExecutionListLL.Remove*
-  nameWithType.vb: ExecutionListLL.Remove(INetickEntity, Boolean, Boolean)
-  fullName.vb: Netick.ExecutionListLL.Remove(Netick.INetickEntity, Boolean, Boolean)
-  name.vb: Remove(INetickEntity, Boolean, Boolean)
-- uid: Netick.ExecutionListLL.RemoveFromLoop(Netick.INetickEntity)
-  commentId: M:Netick.ExecutionListLL.RemoveFromLoop(Netick.INetickEntity)
-  id: RemoveFromLoop(Netick.INetickEntity)
-  parent: Netick.ExecutionListLL
-  langs:
-  - csharp
-  - vb
-  name: RemoveFromLoop(INetickEntity)
-  nameWithType: ExecutionListLL.RemoveFromLoop(INetickEntity)
-  fullName: Netick.ExecutionListLL.RemoveFromLoop(Netick.INetickEntity)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void RemoveFromLoop(INetickEntity obj)
-    parameters:
-    - id: obj
-      type: Netick.INetickEntity
-    content.vb: Public Sub RemoveFromLoop(obj As INetickEntity)
-  overload: Netick.ExecutionListLL.RemoveFromLoop*
+  nameWithType.vb: ExecutionListLL.Remove(INetickEntity, Boolean)
+  fullName.vb: Netick.ExecutionListLL.Remove(Netick.INetickEntity, Boolean)
+  name.vb: Remove(INetickEntity, Boolean)
 - uid: Netick.ExecutionListLL.Count
   commentId: P:Netick.ExecutionListLL.Count
   id: Count
@@ -712,7 +688,7 @@ references:
 - uid: Netick.ExecutionListLL.Remove*
   commentId: Overload:Netick.ExecutionListLL.Remove
   isExternal: true
-  href: Netick.ExecutionListLL.html#Netick_ExecutionListLL_Remove_Netick_INetickEntity_System_Boolean_System_Boolean_
+  href: Netick.ExecutionListLL.html#Netick_ExecutionListLL_Remove_Netick_INetickEntity_System_Boolean_
   name: Remove
   nameWithType: ExecutionListLL.Remove
   fullName: Netick.ExecutionListLL.Remove
@@ -735,13 +711,6 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Netick.ExecutionListLL.RemoveFromLoop*
-  commentId: Overload:Netick.ExecutionListLL.RemoveFromLoop
-  isExternal: true
-  href: Netick.ExecutionListLL.html#Netick_ExecutionListLL_RemoveFromLoop_Netick_INetickEntity_
-  name: RemoveFromLoop
-  nameWithType: ExecutionListLL.RemoveFromLoop
-  fullName: Netick.ExecutionListLL.RemoveFromLoop
 - uid: Netick.ExecutionListLL.Count*
   commentId: Overload:Netick.ExecutionListLL.Count
   isExternal: true

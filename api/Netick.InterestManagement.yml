@@ -15,6 +15,7 @@ items:
   - Netick.InterestManagement.ConvertFromWorldToCell3D(System.Numerics.Vector3)
   - Netick.InterestManagement.CustomGroups
   - Netick.InterestManagement.Engine
+  - Netick.InterestManagement.SimulationList
   - Netick.InterestManagement.TotalGroupCount
   langs:
   - csharp
@@ -209,6 +210,25 @@ items:
     return:
       type: Netick.InterestManagementGroup[,,]
     content.vb: Public ReadOnly Cells As InterestManagementGroup(,,)
+- uid: Netick.InterestManagement.SimulationList
+  commentId: F:Netick.InterestManagement.SimulationList
+  id: SimulationList
+  parent: Netick.InterestManagement
+  langs:
+  - csharp
+  - vb
+  name: SimulationList
+  nameWithType: InterestManagement.SimulationList
+  fullName: Netick.InterestManagement.SimulationList
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly ExecutionListLL SimulationList
+    return:
+      type: Netick.ExecutionListLL
+    content.vb: Public ReadOnly SimulationList As ExecutionListLL
 - uid: Netick.InterestManagement.CalcTotalGroupCount(Netick.NetickEngine)
   commentId: M:Netick.InterestManagement.CalcTotalGroupCount(Netick.NetickEngine)
   id: CalcTotalGroupCount(Netick.NetickEngine)
@@ -545,6 +565,14 @@ references:
   - name: ','
   - name: ','
   - name: )
+- uid: Netick.ExecutionListLL
+  commentId: T:Netick.ExecutionListLL
+  parent: Netick
+  isExternal: true
+  href: Netick.ExecutionListLL.html
+  name: ExecutionListLL
+  nameWithType: ExecutionListLL
+  fullName: Netick.ExecutionListLL
 - uid: Netick.InterestManagement.CalcTotalGroupCount*
   commentId: Overload:Netick.InterestManagement.CalcTotalGroupCount
   isExternal: true

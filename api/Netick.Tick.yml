@@ -6,7 +6,6 @@ items:
   parent: Netick
   children:
   - Netick.Tick.#ctor(System.Int32)
-  - Netick.Tick.Comparer
   - Netick.Tick.Equals(Netick.Tick)
   - Netick.Tick.Equals(System.Object)
   - Netick.Tick.GetHashCode
@@ -44,25 +43,25 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Netick.Tick.Comparer
-  commentId: F:Netick.Tick.Comparer
-  id: Comparer
+- uid: Netick.Tick.TickValue
+  commentId: F:Netick.Tick.TickValue
+  id: TickValue
   parent: Netick.Tick
   langs:
   - csharp
   - vb
-  name: Comparer
-  nameWithType: Tick.Comparer
-  fullName: Netick.Tick.Comparer
+  name: TickValue
+  nameWithType: Tick.TickValue
+  fullName: Netick.Tick.TickValue
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public static readonly IEqualityComparer<Tick> Comparer
+    content: public int TickValue
     return:
-      type: System.Collections.Generic.IEqualityComparer{Netick.Tick}
-    content.vb: Public Shared ReadOnly Comparer As IEqualityComparer(Of Tick)
+      type: System.Int32
+    content.vb: Public TickValue As Integer
 - uid: Netick.Tick.InvalidTick
   commentId: F:Netick.Tick.InvalidTick
   id: InvalidTick
@@ -531,27 +530,6 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsValid As Boolean
   overload: Netick.Tick.IsValid*
-- uid: Netick.Tick.TickValue
-  commentId: P:Netick.Tick.TickValue
-  id: TickValue
-  parent: Netick.Tick
-  langs:
-  - csharp
-  - vb
-  name: TickValue
-  nameWithType: Tick.TickValue
-  fullName: Netick.Tick.TickValue
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int TickValue { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property TickValue As Integer
-  overload: Netick.Tick.TickValue*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -755,106 +733,17 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.Collections.Generic.IEqualityComparer{Netick.Tick}
-  commentId: T:System.Collections.Generic.IEqualityComparer{Netick.Tick}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IEqualityComparer`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
-  name: IEqualityComparer<Tick>
-  nameWithType: IEqualityComparer<Tick>
-  fullName: System.Collections.Generic.IEqualityComparer<Netick.Tick>
-  nameWithType.vb: IEqualityComparer(Of Tick)
-  fullName.vb: System.Collections.Generic.IEqualityComparer(Of Netick.Tick)
-  name.vb: IEqualityComparer(Of Tick)
-  spec.csharp:
-  - uid: System.Collections.Generic.IEqualityComparer`1
-    name: IEqualityComparer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
-  - name: <
-  - uid: Netick.Tick
-    name: Tick
-    isExternal: true
-    href: Netick.Tick.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IEqualityComparer`1
-    name: IEqualityComparer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: Netick.Tick
-    name: Tick
-    isExternal: true
-    href: Netick.Tick.html
-  - name: )
-- uid: System.Collections.Generic.IEqualityComparer`1
-  commentId: T:System.Collections.Generic.IEqualityComparer`1
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
-  name: IEqualityComparer<T>
-  nameWithType: IEqualityComparer<T>
-  fullName: System.Collections.Generic.IEqualityComparer<T>
-  nameWithType.vb: IEqualityComparer(Of T)
-  fullName.vb: System.Collections.Generic.IEqualityComparer(Of T)
-  name.vb: IEqualityComparer(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.IEqualityComparer`1
-    name: IEqualityComparer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IEqualityComparer`1
-    name: IEqualityComparer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.iequalitycomparer-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: Netick.Tick
   commentId: T:Netick.Tick
   parent: Netick
@@ -873,17 +762,6 @@ references:
   nameWithType.vb: Tick.New
   fullName.vb: Netick.Tick.New
   name.vb: New
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: Netick.Tick.op_Addition*
   commentId: Overload:Netick.Tick.op_Addition
   isExternal: true
@@ -1246,10 +1124,3 @@ references:
   name: IsValid
   nameWithType: Tick.IsValid
   fullName: Netick.Tick.IsValid
-- uid: Netick.Tick.TickValue*
-  commentId: Overload:Netick.Tick.TickValue
-  isExternal: true
-  href: Netick.Tick.html#Netick_Tick_TickValue
-  name: TickValue
-  nameWithType: Tick.TickValue
-  fullName: Netick.Tick.TickValue

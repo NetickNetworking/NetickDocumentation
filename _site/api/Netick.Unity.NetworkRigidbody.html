@@ -107,7 +107,7 @@
 [AddComponentMenu(&quot;Netick/Network Rigidbody&quot;)]
 [RequireComponent(typeof(Rigidbody))]
 [DisallowMultipleComponent]
-public sealed class NetworkRigidbody : NetworkTransform, INetickNetworkScript, INetickScript, IPhysicsComponent</code></pre>
+public sealed class NetworkRigidbody : NetworkTransform, INetickNetworkScript, INetickScript, IClientSimulationCallbacks, IPhysicsComponent</code></pre>
   </div>
 
 
@@ -134,6 +134,7 @@ public sealed class NetworkRigidbody : NetworkTransform, INetickNetworkScript, I
     <dd>
       <div><a class="xref" href="Netick.INetickNetworkScript.html">INetickNetworkScript</a></div>
       <div><a class="xref" href="Netick.INetickScript.html">INetickScript</a></div>
+      <div><a class="xref" href="Netick.IClientSimulationCallbacks.html">IClientSimulationCallbacks</a></div>
       <div><a class="xref" href="Netick.Unity.IPhysicsComponent.html">IPhysicsComponent</a></div>
     </dd>
   </dl>
@@ -146,13 +147,37 @@ public sealed class NetworkRigidbody : NetworkTransform, INetickNetworkScript, I
       <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_RenderTransform">NetworkTransform.RenderTransform</a>
     </div>
     <div>
+      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_TeleportDistance">NetworkTransform.TeleportDistance</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_InterpolationMultiplier">NetworkTransform.InterpolationMultiplier</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_CorrectionMultiplier">NetworkTransform.CorrectionMultiplier</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_CorrectionMaxBlendAlpha">NetworkTransform.CorrectionMaxBlendAlpha</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_TeleportErrorThreshold">NetworkTransform.TeleportErrorThreshold</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Vector3_">NetworkTransform.Teleport(Vector3)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Vector3_UnityEngine_Quaternion_">NetworkTransform.Teleport(Vector3, Quaternion)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Quaternion_">NetworkTransform.Teleport(Quaternion)</a>
+    </div>
+    <div>
       <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_NetworkRender">NetworkTransform.NetworkRender()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_GetInterpolationData_UnityEngine_Vector3__UnityEngine_Quaternion__">NetworkTransform.GetInterpolationData(out Vector3, out Quaternion)</a>
     </div>
     <div>
-      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Interpolate2">NetworkTransform.Interpolate2()</a>
+      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Render">NetworkTransform.Render()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_OnBecameInterested">NetworkTransform.OnBecameInterested()</a>
@@ -161,10 +186,22 @@ public sealed class NetworkRigidbody : NetworkTransform, INetickNetworkScript, I
       <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_InterpolationSource">NetworkTransform.InterpolationSource</a>
     </div>
     <div>
+      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Position">NetworkTransform.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Rotation">NetworkTransform.Rotation</a>
+    </div>
+    <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_S">NetworkBehaviour.S</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GetRef__1">NetworkBehaviour.GetRef&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__">NetworkBehaviour.CopyStateTo(byte*)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__">NetworkBehaviour.SetStateFrom(byte*)</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_">NetworkBehaviour.FetchInput&lt;T&gt;(out T, int)</a>
@@ -225,6 +262,9 @@ public sealed class NetworkRigidbody : NetworkTransform, INetickNetworkScript, I
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSourcePlayerId">NetworkBehaviour.InputSourcePlayerId</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_StateSize">NetworkBehaviour.StateSize</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkUpdate">NetickBehaviour.NetworkUpdate()</a>

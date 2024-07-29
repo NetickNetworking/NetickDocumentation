@@ -5,9 +5,8 @@ items:
   id: ServerConnection
   parent: Netick
   children:
-  - Netick.ServerConnection.#ctor(System.Int32,Netick.TransportConnection,Netick.NetickEngine)
+  - Netick.ServerConnection.#ctor(System.Int16,Netick.TransportConnection,Netick.NetickEngine)
   - Netick.ServerConnection.InterestGroups
-  - Netick.ServerConnection.OnAck(Netick.Tick)
   - Netick.ServerConnection.ProcessAck(Netick.Tick,System.Boolean)
   - Netick.ServerConnection.SimulationData
   langs:
@@ -32,12 +31,14 @@ items:
   - Netick.NetworkConnection.LocalUserData
   - Netick.NetworkConnection.MaxOutgoingDataPerTickInBytes
   - Netick.NetworkConnection.RTT
+  - Netick.NetworkConnection.SendData(System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  - Netick.NetworkConnection.SendData(System.Byte,System.Byte[],System.Int32,Netick.TransportDeliveryMethod)
   - Netick.NetworkConnection.Id
-  - Netick.NetworkConnection.SendEntities
+  - Netick.NetworkConnection.ReplicateEntities
   - Netick.NetworkConnection.EndPoint
+  - Netick.NetworkConnection.TransportConnection
   - Netick.NetworkConnection.BytesIn
   - Netick.NetworkConnection.BytesOut
-  - Netick.NetworkConnection.TransportConnection
   - Netick.NetworkPlayer.Engine
   - Netick.NetworkPlayer.AddInterestGroup(System.Int32)
   - Netick.NetworkPlayer.AddInterestGroup(Netick.InterestManagementGroup)
@@ -73,55 +74,34 @@ items:
     return:
       type: Netick.ClientData
     content.vb: Public ReadOnly SimulationData As ClientData
-- uid: Netick.ServerConnection.#ctor(System.Int32,Netick.TransportConnection,Netick.NetickEngine)
-  commentId: M:Netick.ServerConnection.#ctor(System.Int32,Netick.TransportConnection,Netick.NetickEngine)
-  id: '#ctor(System.Int32,Netick.TransportConnection,Netick.NetickEngine)'
+- uid: Netick.ServerConnection.#ctor(System.Int16,Netick.TransportConnection,Netick.NetickEngine)
+  commentId: M:Netick.ServerConnection.#ctor(System.Int16,Netick.TransportConnection,Netick.NetickEngine)
+  id: '#ctor(System.Int16,Netick.TransportConnection,Netick.NetickEngine)'
   parent: Netick.ServerConnection
   langs:
   - csharp
   - vb
-  name: ServerConnection(int, TransportConnection, NetickEngine)
-  nameWithType: ServerConnection.ServerConnection(int, TransportConnection, NetickEngine)
-  fullName: Netick.ServerConnection.ServerConnection(int, Netick.TransportConnection, Netick.NetickEngine)
+  name: ServerConnection(short, TransportConnection, NetickEngine)
+  nameWithType: ServerConnection.ServerConnection(short, TransportConnection, NetickEngine)
+  fullName: Netick.ServerConnection.ServerConnection(short, Netick.TransportConnection, Netick.NetickEngine)
   type: Constructor
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public ServerConnection(int clientIndex, TransportConnection netPeer, NetickEngine engine)
+    content: public ServerConnection(short clientIndex, TransportConnection netPeer, NetickEngine engine)
     parameters:
     - id: clientIndex
-      type: System.Int32
+      type: System.Int16
     - id: netPeer
       type: Netick.TransportConnection
     - id: engine
       type: Netick.NetickEngine
-    content.vb: Public Sub New(clientIndex As Integer, netPeer As TransportConnection, engine As NetickEngine)
+    content.vb: Public Sub New(clientIndex As Short, netPeer As TransportConnection, engine As NetickEngine)
   overload: Netick.ServerConnection.#ctor*
-  nameWithType.vb: ServerConnection.New(Integer, TransportConnection, NetickEngine)
-  fullName.vb: Netick.ServerConnection.New(Integer, Netick.TransportConnection, Netick.NetickEngine)
-  name.vb: New(Integer, TransportConnection, NetickEngine)
-- uid: Netick.ServerConnection.OnAck(Netick.Tick)
-  commentId: M:Netick.ServerConnection.OnAck(Netick.Tick)
-  id: OnAck(Netick.Tick)
-  parent: Netick.ServerConnection
-  langs:
-  - csharp
-  - vb
-  name: OnAck(Tick)
-  nameWithType: ServerConnection.OnAck(Tick)
-  fullName: Netick.ServerConnection.OnAck(Netick.Tick)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void OnAck(Tick snapTick)
-    parameters:
-    - id: snapTick
-      type: Netick.Tick
-    content.vb: Public Sub OnAck(snapTick As Tick)
-  overload: Netick.ServerConnection.OnAck*
+  nameWithType.vb: ServerConnection.New(Short, TransportConnection, NetickEngine)
+  fullName.vb: Netick.ServerConnection.New(Short, Netick.TransportConnection, Netick.NetickEngine)
+  name.vb: New(Short, TransportConnection, NetickEngine)
 - uid: Netick.ServerConnection.ProcessAck(Netick.Tick,System.Boolean)
   commentId: M:Netick.ServerConnection.ProcessAck(Netick.Tick,System.Boolean)
   id: ProcessAck(Netick.Tick,System.Boolean)
@@ -163,11 +143,11 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public HashSet<InterestManagementGroup> InterestGroups { get; }
+    content: public IReadOnlyList<InterestManagementGroup> InterestGroups { get; }
     parameters: []
     return:
-      type: System.Collections.Generic.HashSet{Netick.InterestManagementGroup}
-    content.vb: Public ReadOnly Property InterestGroups As HashSet(Of InterestManagementGroup)
+      type: System.Collections.Generic.IReadOnlyList{Netick.InterestManagementGroup}
+    content.vb: Public ReadOnly Property InterestGroups As IReadOnlyList(Of InterestManagementGroup)
   overload: Netick.ServerConnection.InterestGroups*
 references:
 - uid: Netick
@@ -236,6 +216,150 @@ references:
   name: RTT
   nameWithType: NetworkConnection.RTT
   fullName: Netick.NetworkConnection.RTT
+- uid: Netick.NetworkConnection.SendData(System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  commentId: M:Netick.NetworkConnection.SendData(System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  parent: Netick.NetworkConnection
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_SendData_System_Byte_System_Byte__System_Int32_Netick_TransportDeliveryMethod_
+  name: SendData(byte, byte*, int, TransportDeliveryMethod)
+  nameWithType: NetworkConnection.SendData(byte, byte*, int, TransportDeliveryMethod)
+  fullName: Netick.NetworkConnection.SendData(byte, byte*, int, Netick.TransportDeliveryMethod)
+  nameWithType.vb: NetworkConnection.SendData(Byte, Byte*, Integer, TransportDeliveryMethod)
+  fullName.vb: Netick.NetworkConnection.SendData(Byte, Byte*, Integer, Netick.TransportDeliveryMethod)
+  name.vb: SendData(Byte, Byte*, Integer, TransportDeliveryMethod)
+  spec.csharp:
+  - uid: Netick.NetworkConnection.SendData(System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+    name: SendData
+    isExternal: true
+    href: Netick.NetworkConnection.html#Netick_NetworkConnection_SendData_System_Byte_System_Byte__System_Int32_Netick_TransportDeliveryMethod_
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDeliveryMethod
+    name: TransportDeliveryMethod
+    isExternal: true
+    href: Netick.TransportDeliveryMethod.html
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkConnection.SendData(System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+    name: SendData
+    isExternal: true
+    href: Netick.NetworkConnection.html#Netick_NetworkConnection_SendData_System_Byte_System_Byte__System_Int32_Netick_TransportDeliveryMethod_
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDeliveryMethod
+    name: TransportDeliveryMethod
+    isExternal: true
+    href: Netick.TransportDeliveryMethod.html
+  - name: )
+- uid: Netick.NetworkConnection.SendData(System.Byte,System.Byte[],System.Int32,Netick.TransportDeliveryMethod)
+  commentId: M:Netick.NetworkConnection.SendData(System.Byte,System.Byte[],System.Int32,Netick.TransportDeliveryMethod)
+  parent: Netick.NetworkConnection
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_SendData_System_Byte_System_Byte___System_Int32_Netick_TransportDeliveryMethod_
+  name: SendData(byte, byte[], int, TransportDeliveryMethod)
+  nameWithType: NetworkConnection.SendData(byte, byte[], int, TransportDeliveryMethod)
+  fullName: Netick.NetworkConnection.SendData(byte, byte[], int, Netick.TransportDeliveryMethod)
+  nameWithType.vb: NetworkConnection.SendData(Byte, Byte(), Integer, TransportDeliveryMethod)
+  fullName.vb: Netick.NetworkConnection.SendData(Byte, Byte(), Integer, Netick.TransportDeliveryMethod)
+  name.vb: SendData(Byte, Byte(), Integer, TransportDeliveryMethod)
+  spec.csharp:
+  - uid: Netick.NetworkConnection.SendData(System.Byte,System.Byte[],System.Int32,Netick.TransportDeliveryMethod)
+    name: SendData
+    isExternal: true
+    href: Netick.NetworkConnection.html#Netick_NetworkConnection_SendData_System_Byte_System_Byte___System_Int32_Netick_TransportDeliveryMethod_
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDeliveryMethod
+    name: TransportDeliveryMethod
+    isExternal: true
+    href: Netick.TransportDeliveryMethod.html
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkConnection.SendData(System.Byte,System.Byte[],System.Int32,Netick.TransportDeliveryMethod)
+    name: SendData
+    isExternal: true
+    href: Netick.NetworkConnection.html#Netick_NetworkConnection_SendData_System_Byte_System_Byte___System_Int32_Netick_TransportDeliveryMethod_
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDeliveryMethod
+    name: TransportDeliveryMethod
+    isExternal: true
+    href: Netick.TransportDeliveryMethod.html
+  - name: )
 - uid: Netick.NetworkConnection.Id
   commentId: P:Netick.NetworkConnection.Id
   parent: Netick.NetworkConnection
@@ -244,14 +368,14 @@ references:
   name: Id
   nameWithType: NetworkConnection.Id
   fullName: Netick.NetworkConnection.Id
-- uid: Netick.NetworkConnection.SendEntities
-  commentId: P:Netick.NetworkConnection.SendEntities
+- uid: Netick.NetworkConnection.ReplicateEntities
+  commentId: P:Netick.NetworkConnection.ReplicateEntities
   parent: Netick.NetworkConnection
   isExternal: true
-  href: Netick.NetworkConnection.html#Netick_NetworkConnection_SendEntities
-  name: SendEntities
-  nameWithType: NetworkConnection.SendEntities
-  fullName: Netick.NetworkConnection.SendEntities
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_ReplicateEntities
+  name: ReplicateEntities
+  nameWithType: NetworkConnection.ReplicateEntities
+  fullName: Netick.NetworkConnection.ReplicateEntities
 - uid: Netick.NetworkConnection.EndPoint
   commentId: P:Netick.NetworkConnection.EndPoint
   parent: Netick.NetworkConnection
@@ -260,6 +384,14 @@ references:
   name: EndPoint
   nameWithType: NetworkConnection.EndPoint
   fullName: Netick.NetworkConnection.EndPoint
+- uid: Netick.NetworkConnection.TransportConnection
+  commentId: P:Netick.NetworkConnection.TransportConnection
+  parent: Netick.NetworkConnection
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_TransportConnection
+  name: TransportConnection
+  nameWithType: NetworkConnection.TransportConnection
+  fullName: Netick.NetworkConnection.TransportConnection
 - uid: Netick.NetworkConnection.BytesIn
   commentId: P:Netick.NetworkConnection.BytesIn
   parent: Netick.NetworkConnection
@@ -276,14 +408,6 @@ references:
   name: BytesOut
   nameWithType: NetworkConnection.BytesOut
   fullName: Netick.NetworkConnection.BytesOut
-- uid: Netick.NetworkConnection.TransportConnection
-  commentId: P:Netick.NetworkConnection.TransportConnection
-  parent: Netick.NetworkConnection
-  isExternal: true
-  href: Netick.NetworkConnection.html#Netick_NetworkConnection_TransportConnection
-  name: TransportConnection
-  nameWithType: NetworkConnection.TransportConnection
-  fullName: Netick.NetworkConnection.TransportConnection
 - uid: Netick.NetworkPlayer.Engine
   commentId: F:Netick.NetworkPlayer.Engine
   parent: Netick.NetworkPlayer
@@ -646,24 +770,24 @@ references:
 - uid: Netick.ServerConnection.#ctor*
   commentId: Overload:Netick.ServerConnection.#ctor
   isExternal: true
-  href: Netick.ServerConnection.html#Netick_ServerConnection__ctor_System_Int32_Netick_TransportConnection_Netick_NetickEngine_
+  href: Netick.ServerConnection.html#Netick_ServerConnection__ctor_System_Int16_Netick_TransportConnection_Netick_NetickEngine_
   name: ServerConnection
   nameWithType: ServerConnection.ServerConnection
   fullName: Netick.ServerConnection.ServerConnection
   nameWithType.vb: ServerConnection.New
   fullName.vb: Netick.ServerConnection.New
   name.vb: New
-- uid: System.Int32
-  commentId: T:System.Int32
+- uid: System.Int16
+  commentId: T:System.Int16
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
+  href: https://learn.microsoft.com/dotnet/api/system.int16
+  name: short
+  nameWithType: short
+  fullName: short
+  nameWithType.vb: Short
+  fullName.vb: Short
+  name.vb: Short
 - uid: Netick.TransportConnection
   commentId: T:Netick.TransportConnection
   parent: Netick
@@ -680,13 +804,13 @@ references:
   name: NetickEngine
   nameWithType: NetickEngine
   fullName: Netick.NetickEngine
-- uid: Netick.ServerConnection.OnAck*
-  commentId: Overload:Netick.ServerConnection.OnAck
+- uid: Netick.ServerConnection.ProcessAck*
+  commentId: Overload:Netick.ServerConnection.ProcessAck
   isExternal: true
-  href: Netick.ServerConnection.html#Netick_ServerConnection_OnAck_Netick_Tick_
-  name: OnAck
-  nameWithType: ServerConnection.OnAck
-  fullName: Netick.ServerConnection.OnAck
+  href: Netick.ServerConnection.html#Netick_ServerConnection_ProcessAck_Netick_Tick_System_Boolean_
+  name: ProcessAck
+  nameWithType: ServerConnection.ProcessAck
+  fullName: Netick.ServerConnection.ProcessAck
 - uid: Netick.Tick
   commentId: T:Netick.Tick
   parent: Netick
@@ -695,13 +819,6 @@ references:
   name: Tick
   nameWithType: Tick
   fullName: Netick.Tick
-- uid: Netick.ServerConnection.ProcessAck*
-  commentId: Overload:Netick.ServerConnection.ProcessAck
-  isExternal: true
-  href: Netick.ServerConnection.html#Netick_ServerConnection_ProcessAck_Netick_Tick_System_Boolean_
-  name: ProcessAck
-  nameWithType: ServerConnection.ProcessAck
-  fullName: Netick.ServerConnection.ProcessAck
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -720,22 +837,22 @@ references:
   name: InterestGroups
   nameWithType: ServerConnection.InterestGroups
   fullName: Netick.ServerConnection.InterestGroups
-- uid: System.Collections.Generic.HashSet{Netick.InterestManagementGroup}
-  commentId: T:System.Collections.Generic.HashSet{Netick.InterestManagementGroup}
+- uid: System.Collections.Generic.IReadOnlyList{Netick.InterestManagementGroup}
+  commentId: T:System.Collections.Generic.IReadOnlyList{Netick.InterestManagementGroup}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.HashSet`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
-  name: HashSet<InterestManagementGroup>
-  nameWithType: HashSet<InterestManagementGroup>
-  fullName: System.Collections.Generic.HashSet<Netick.InterestManagementGroup>
-  nameWithType.vb: HashSet(Of InterestManagementGroup)
-  fullName.vb: System.Collections.Generic.HashSet(Of Netick.InterestManagementGroup)
-  name.vb: HashSet(Of InterestManagementGroup)
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<InterestManagementGroup>
+  nameWithType: IReadOnlyList<InterestManagementGroup>
+  fullName: System.Collections.Generic.IReadOnlyList<Netick.InterestManagementGroup>
+  nameWithType.vb: IReadOnlyList(Of InterestManagementGroup)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Netick.InterestManagementGroup)
+  name.vb: IReadOnlyList(Of InterestManagementGroup)
   spec.csharp:
-  - uid: System.Collections.Generic.HashSet`1
-    name: HashSet
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
   - name: <
   - uid: Netick.InterestManagementGroup
     name: InterestManagementGroup
@@ -743,10 +860,10 @@ references:
     href: Netick.InterestManagementGroup.html
   - name: '>'
   spec.vb:
-  - uid: System.Collections.Generic.HashSet`1
-    name: HashSet
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
   - name: (
   - name: Of
   - name: " "
@@ -755,29 +872,29 @@ references:
     isExternal: true
     href: Netick.InterestManagementGroup.html
   - name: )
-- uid: System.Collections.Generic.HashSet`1
-  commentId: T:System.Collections.Generic.HashSet`1
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
-  name: HashSet<T>
-  nameWithType: HashSet<T>
-  fullName: System.Collections.Generic.HashSet<T>
-  nameWithType.vb: HashSet(Of T)
-  fullName.vb: System.Collections.Generic.HashSet(Of T)
-  name.vb: HashSet(Of T)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
   spec.csharp:
-  - uid: System.Collections.Generic.HashSet`1
-    name: HashSet
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
   - name: <
   - name: T
   - name: '>'
   spec.vb:
-  - uid: System.Collections.Generic.HashSet`1
-    name: HashSet
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
   - name: (
   - name: Of
   - name: " "

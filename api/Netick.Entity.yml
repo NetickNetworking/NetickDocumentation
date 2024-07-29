@@ -29,14 +29,8 @@ items:
   - Netick.Entity.IsResimulating
   - Netick.Entity.Move(System.Numerics.Vector3)
   - Netick.Entity.NetcodeIntoGameEngine
-  - Netick.Entity.NetworkAwake
   - Netick.Entity.NetworkId
   - Netick.Entity.ObjectMeta
-  - Netick.Entity.OnBecameInterested
-  - Netick.Entity.OnBecameSimulated
-  - Netick.Entity.OnBecameUninterested
-  - Netick.Entity.OnBecameUnsimulated
-  - Netick.Entity.OnInputSourceChanged(Netick.NetworkPlayer)
   - Netick.Entity.PoolIndex
   - Netick.Entity.Position
   - Netick.Entity.S
@@ -494,24 +488,6 @@ items:
   nameWithType.vb: Entity.GetStateSizeWords(INetickNetworkScript())
   fullName.vb: Netick.Entity.GetStateSizeWords(Netick.INetickNetworkScript())
   name.vb: GetStateSizeWords(INetickNetworkScript())
-- uid: Netick.Entity.NetworkAwake
-  commentId: M:Netick.Entity.NetworkAwake
-  id: NetworkAwake
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: NetworkAwake()
-  nameWithType: Entity.NetworkAwake()
-  fullName: Netick.Entity.NetworkAwake()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void NetworkAwake()
-    content.vb: Public Sub NetworkAwake()
-  overload: Netick.Entity.NetworkAwake*
 - uid: Netick.Entity.GameEngineIntoNetcode
   commentId: M:Netick.Entity.GameEngineIntoNetcode
   id: GameEngineIntoNetcode
@@ -548,99 +524,6 @@ items:
     content: public void NetcodeIntoGameEngine()
     content.vb: Public Sub NetcodeIntoGameEngine()
   overload: Netick.Entity.NetcodeIntoGameEngine*
-- uid: Netick.Entity.OnInputSourceChanged(Netick.NetworkPlayer)
-  commentId: M:Netick.Entity.OnInputSourceChanged(Netick.NetworkPlayer)
-  id: OnInputSourceChanged(Netick.NetworkPlayer)
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: OnInputSourceChanged(NetworkPlayer)
-  nameWithType: Entity.OnInputSourceChanged(NetworkPlayer)
-  fullName: Netick.Entity.OnInputSourceChanged(Netick.NetworkPlayer)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void OnInputSourceChanged(NetworkPlayer previous)
-    parameters:
-    - id: previous
-      type: Netick.NetworkPlayer
-    content.vb: Public Sub OnInputSourceChanged(previous As NetworkPlayer)
-  overload: Netick.Entity.OnInputSourceChanged*
-- uid: Netick.Entity.OnBecameInterested
-  commentId: M:Netick.Entity.OnBecameInterested
-  id: OnBecameInterested
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: OnBecameInterested()
-  nameWithType: Entity.OnBecameInterested()
-  fullName: Netick.Entity.OnBecameInterested()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void OnBecameInterested()
-    content.vb: Public Sub OnBecameInterested()
-  overload: Netick.Entity.OnBecameInterested*
-- uid: Netick.Entity.OnBecameUninterested
-  commentId: M:Netick.Entity.OnBecameUninterested
-  id: OnBecameUninterested
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: OnBecameUninterested()
-  nameWithType: Entity.OnBecameUninterested()
-  fullName: Netick.Entity.OnBecameUninterested()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void OnBecameUninterested()
-    content.vb: Public Sub OnBecameUninterested()
-  overload: Netick.Entity.OnBecameUninterested*
-- uid: Netick.Entity.OnBecameSimulated
-  commentId: M:Netick.Entity.OnBecameSimulated
-  id: OnBecameSimulated
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: OnBecameSimulated()
-  nameWithType: Entity.OnBecameSimulated()
-  fullName: Netick.Entity.OnBecameSimulated()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void OnBecameSimulated()
-    content.vb: Public Sub OnBecameSimulated()
-  overload: Netick.Entity.OnBecameSimulated*
-- uid: Netick.Entity.OnBecameUnsimulated
-  commentId: M:Netick.Entity.OnBecameUnsimulated
-  id: OnBecameUnsimulated
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: OnBecameUnsimulated()
-  nameWithType: Entity.OnBecameUnsimulated()
-  fullName: Netick.Entity.OnBecameUnsimulated()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void OnBecameUnsimulated()
-    content.vb: Public Sub OnBecameUnsimulated()
-  overload: Netick.Entity.OnBecameUnsimulated*
 - uid: Netick.Entity.Move(System.Numerics.Vector3)
   commentId: M:Netick.Entity.Move(System.Numerics.Vector3)
   id: Move(System.Numerics.Vector3)
@@ -1429,13 +1312,6 @@ references:
     href: Netick.INetickNetworkScript.html
   - name: (
   - name: )
-- uid: Netick.Entity.NetworkAwake*
-  commentId: Overload:Netick.Entity.NetworkAwake
-  isExternal: true
-  href: Netick.Entity.html#Netick_Entity_NetworkAwake
-  name: NetworkAwake
-  nameWithType: Entity.NetworkAwake
-  fullName: Netick.Entity.NetworkAwake
 - uid: Netick.Entity.GameEngineIntoNetcode*
   commentId: Overload:Netick.Entity.GameEngineIntoNetcode
   isExternal: true
@@ -1450,49 +1326,6 @@ references:
   name: NetcodeIntoGameEngine
   nameWithType: Entity.NetcodeIntoGameEngine
   fullName: Netick.Entity.NetcodeIntoGameEngine
-- uid: Netick.Entity.OnInputSourceChanged*
-  commentId: Overload:Netick.Entity.OnInputSourceChanged
-  isExternal: true
-  href: Netick.Entity.html#Netick_Entity_OnInputSourceChanged_Netick_NetworkPlayer_
-  name: OnInputSourceChanged
-  nameWithType: Entity.OnInputSourceChanged
-  fullName: Netick.Entity.OnInputSourceChanged
-- uid: Netick.NetworkPlayer
-  commentId: T:Netick.NetworkPlayer
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkPlayer.html
-  name: NetworkPlayer
-  nameWithType: NetworkPlayer
-  fullName: Netick.NetworkPlayer
-- uid: Netick.Entity.OnBecameInterested*
-  commentId: Overload:Netick.Entity.OnBecameInterested
-  isExternal: true
-  href: Netick.Entity.html#Netick_Entity_OnBecameInterested
-  name: OnBecameInterested
-  nameWithType: Entity.OnBecameInterested
-  fullName: Netick.Entity.OnBecameInterested
-- uid: Netick.Entity.OnBecameUninterested*
-  commentId: Overload:Netick.Entity.OnBecameUninterested
-  isExternal: true
-  href: Netick.Entity.html#Netick_Entity_OnBecameUninterested
-  name: OnBecameUninterested
-  nameWithType: Entity.OnBecameUninterested
-  fullName: Netick.Entity.OnBecameUninterested
-- uid: Netick.Entity.OnBecameSimulated*
-  commentId: Overload:Netick.Entity.OnBecameSimulated
-  isExternal: true
-  href: Netick.Entity.html#Netick_Entity_OnBecameSimulated
-  name: OnBecameSimulated
-  nameWithType: Entity.OnBecameSimulated
-  fullName: Netick.Entity.OnBecameSimulated
-- uid: Netick.Entity.OnBecameUnsimulated*
-  commentId: Overload:Netick.Entity.OnBecameUnsimulated
-  isExternal: true
-  href: Netick.Entity.html#Netick_Entity_OnBecameUnsimulated
-  name: OnBecameUnsimulated
-  nameWithType: Entity.OnBecameUnsimulated
-  fullName: Netick.Entity.OnBecameUnsimulated
 - uid: Netick.Entity.Move*
   commentId: Overload:Netick.Entity.Move
   isExternal: true
@@ -1507,6 +1340,14 @@ references:
   name: SetNarrowphaseInterest
   nameWithType: Entity.SetNarrowphaseInterest
   fullName: Netick.Entity.SetNarrowphaseInterest
+- uid: Netick.NetworkPlayer
+  commentId: T:Netick.NetworkPlayer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayer.html
+  name: NetworkPlayer
+  nameWithType: NetworkPlayer
+  fullName: Netick.NetworkPlayer
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System

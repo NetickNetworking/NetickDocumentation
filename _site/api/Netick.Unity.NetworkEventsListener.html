@@ -640,7 +640,8 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void OnClientSceneLoaded(NetworkSandbox sandbox, NetworkConnection client)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed. No alternative will be provided. Use an client-&gt;server RPC for the same functionality.&quot;)]
+public virtual void OnClientSceneLoaded(NetworkSandbox sandbox, NetworkConnection client)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -750,6 +751,47 @@
     <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
     <dd></dd>
     <dt><code>server</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEventsListener_OnDataReceived_" data-uid="Netick.Unity.NetworkEventsListener.OnDataReceived*"></a>
+
+  <h3 id="Netick_Unity_NetworkEventsListener_OnDataReceived_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_System_Byte_System_Byte__System_Int32_Netick_TransportDeliveryMethod_" data-uid="Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)">
+  OnDataReceived(NetworkSandbox, NetworkConnection, byte, byte*, int, TransportDeliveryMethod)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnDataReceived(NetworkSandbox sandbox, NetworkConnection sender, byte id, byte* data, int length, TransportDeliveryMethod transportDeliveryMethod)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>sender</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>transportDeliveryMethod</code> <a class="xref" href="Netick.TransportDeliveryMethod.html">TransportDeliveryMethod</a></dt>
     <dd></dd>
   </dl>
 
@@ -1042,7 +1084,8 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void OnSceneLoadStarted(NetworkSandbox sandbox)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed. Use OnSceneLoadDone instead.&quot;)]
+public virtual void OnSceneLoadStarted(NetworkSandbox sandbox)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1074,12 +1117,81 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void OnSceneLoaded(NetworkSandbox sandbox)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed. Use OnSceneLoadBegan instead.&quot;)]
+public virtual void OnSceneLoaded(NetworkSandbox sandbox)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEventsListener_OnSceneOperationBegan_" data-uid="Netick.Unity.NetworkEventsListener.OnSceneOperationBegan*"></a>
+
+  <h3 id="Netick_Unity_NetworkEventsListener_OnSceneOperationBegan_Netick_Unity_NetworkSandbox_Netick_Unity_NetworkSceneOperation_" data-uid="Netick.Unity.NetworkEventsListener.OnSceneOperationBegan(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)">
+  OnSceneOperationBegan(NetworkSandbox, NetworkSceneOperation)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on both the client and the server when a scene load/unload operation was started.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>sceneOperation</code> <a class="xref" href="Netick.Unity.NetworkSceneOperation.html">NetworkSceneOperation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEventsListener_OnSceneOperationDone_" data-uid="Netick.Unity.NetworkEventsListener.OnSceneOperationDone*"></a>
+
+  <h3 id="Netick_Unity_NetworkEventsListener_OnSceneOperationDone_Netick_Unity_NetworkSandbox_Netick_Unity_NetworkSceneOperation_" data-uid="Netick.Unity.NetworkEventsListener.OnSceneOperationDone(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)">
+  OnSceneOperationDone(NetworkSandbox, NetworkSceneOperation)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called on both the client and the server when a scene load/unload operation finished.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnSceneOperationDone(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+    <dt><code>sceneOperation</code> <a class="xref" href="Netick.Unity.NetworkSceneOperation.html">NetworkSceneOperation</a></dt>
     <dd></dd>
   </dl>
 
@@ -1139,6 +1251,38 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void OnStartup(NetworkSandbox sandbox)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sandbox</code> <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkEventsListener_OnVisibilityChanged_" data-uid="Netick.Unity.NetworkEventsListener.OnVisibilityChanged*"></a>
+
+  <h3 id="Netick_Unity_NetworkEventsListener_OnVisibilityChanged_Netick_Unity_NetworkSandbox_" data-uid="Netick.Unity.NetworkEventsListener.OnVisibilityChanged(Netick.Unity.NetworkSandbox)">
+  OnVisibilityChanged(NetworkSandbox)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when a sandbox visibility changes. Use Sandbox.IsVisible to find if the sandbox is visible or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnVisibilityChanged(NetworkSandbox sandbox)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>

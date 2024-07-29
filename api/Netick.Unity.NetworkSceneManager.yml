@@ -6,12 +6,11 @@ items:
   parent: Netick.Unity
   children:
   - Netick.Unity.NetworkSceneManager.#ctor
-  - Netick.Unity.NetworkSceneManager.Awake
   - Netick.Unity.NetworkSceneManager.InternalGetStateSizeWords
-  - Netick.Unity.NetworkSceneManager.InternalInit
   - Netick.Unity.NetworkSceneManager.InternalReset
-  - Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes(Netick.OnChangedData)
-  - Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler(Netick.INetickScript,Netick.OnChangedData)
+  - Netick.Unity.NetworkSceneManager.NetworkAwake
+  - Netick.Unity.NetworkSceneManager.NetworkStart
+  - Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes
   langs:
   - csharp
   - vb
@@ -46,6 +45,8 @@ items:
   inheritedMembers:
   - Netick.Unity.NetworkBehaviour.S
   - Netick.Unity.NetworkBehaviour.GetRef``1
+  - Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  - Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
   - Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Int32)
   - Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
   - Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
@@ -55,8 +56,8 @@ items:
   - Netick.Unity.NetworkBehaviour.OnInputSourceChanged(Netick.NetworkPlayer)
   - Netick.Unity.NetworkBehaviour.OnInputSourceLeft
   - Netick.Unity.NetworkBehaviour.OnSpawnPredictionSucceeded
-  - Netick.Unity.NetworkBehaviour.NetworkAwake
   - Netick.Unity.NetworkBehaviour.NetworkReset
+  - Netick.Unity.NetworkBehaviour.InternalInit
   - Netick.Unity.NetworkBehaviour.BehaviourId
   - Netick.Unity.NetworkBehaviour.Id
   - Netick.Unity.NetworkBehaviour.IsClient
@@ -68,7 +69,7 @@ items:
   - Netick.Unity.NetworkBehaviour.IsPredicted
   - Netick.Unity.NetworkBehaviour.InputSource
   - Netick.Unity.NetworkBehaviour.InputSourcePlayerId
-  - Netick.Unity.NetickBehaviour.NetworkStart
+  - Netick.Unity.NetworkBehaviour.StateSize
   - Netick.Unity.NetickBehaviour.NetworkDestroy
   - Netick.Unity.NetickBehaviour.NetworkUpdate
   - Netick.Unity.NetickBehaviour.NetworkFixedUpdate
@@ -201,65 +202,65 @@ items:
     arguments:
     - type: System.Int32
       value: -10000
-- uid: Netick.Unity.NetworkSceneManager.Awake
-  commentId: M:Netick.Unity.NetworkSceneManager.Awake
-  id: Awake
+- uid: Netick.Unity.NetworkSceneManager.NetworkAwake
+  commentId: M:Netick.Unity.NetworkSceneManager.NetworkAwake
+  id: NetworkAwake
   parent: Netick.Unity.NetworkSceneManager
   langs:
   - csharp
   - vb
-  name: Awake()
-  nameWithType: NetworkSceneManager.Awake()
-  fullName: Netick.Unity.NetworkSceneManager.Awake()
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public void Awake()
-    content.vb: Public Sub Awake()
-  overload: Netick.Unity.NetworkSceneManager.Awake*
-- uid: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes(Netick.OnChangedData)
-  commentId: M:Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes(Netick.OnChangedData)
-  id: OnSyncedLoadedAdditiveScenes(Netick.OnChangedData)
-  parent: Netick.Unity.NetworkSceneManager
-  langs:
-  - csharp
-  - vb
-  name: OnSyncedLoadedAdditiveScenes(OnChangedData)
-  nameWithType: NetworkSceneManager.OnSyncedLoadedAdditiveScenes(OnChangedData)
-  fullName: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes(Netick.OnChangedData)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public void OnSyncedLoadedAdditiveScenes(OnChangedData ocd)
-    parameters:
-    - id: ocd
-      type: Netick.OnChangedData
-    content.vb: Public Sub OnSyncedLoadedAdditiveScenes(ocd As OnChangedData)
-  overload: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes*
-- uid: Netick.Unity.NetworkSceneManager.InternalInit
-  commentId: M:Netick.Unity.NetworkSceneManager.InternalInit
-  id: InternalInit
-  parent: Netick.Unity.NetworkSceneManager
-  langs:
-  - csharp
-  - vb
-  name: InternalInit()
-  nameWithType: NetworkSceneManager.InternalInit()
-  fullName: Netick.Unity.NetworkSceneManager.InternalInit()
+  name: NetworkAwake()
+  nameWithType: NetworkSceneManager.NetworkAwake()
+  fullName: Netick.Unity.NetworkSceneManager.NetworkAwake()
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   example: []
   syntax:
-    content: public override void InternalInit()
-    content.vb: Public Overrides Sub InternalInit()
-  overridden: Netick.Unity.NetworkBehaviour.InternalInit
-  overload: Netick.Unity.NetworkSceneManager.InternalInit*
+    content: public override void NetworkAwake()
+    content.vb: Public Overrides Sub NetworkAwake()
+  overridden: Netick.Unity.NetworkBehaviour.NetworkAwake
+  overload: Netick.Unity.NetworkSceneManager.NetworkAwake*
+- uid: Netick.Unity.NetworkSceneManager.NetworkStart
+  commentId: M:Netick.Unity.NetworkSceneManager.NetworkStart
+  id: NetworkStart
+  parent: Netick.Unity.NetworkSceneManager
+  langs:
+  - csharp
+  - vb
+  name: NetworkStart()
+  nameWithType: NetworkSceneManager.NetworkStart()
+  fullName: Netick.Unity.NetworkSceneManager.NetworkStart()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Called when this behaviour has been added to the simulation.
+  example: []
+  syntax:
+    content: public override void NetworkStart()
+    content.vb: Public Overrides Sub NetworkStart()
+  overridden: Netick.Unity.NetickBehaviour.NetworkStart
+  overload: Netick.Unity.NetworkSceneManager.NetworkStart*
+- uid: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes
+  commentId: M:Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes
+  id: OnSyncedLoadedAdditiveScenes
+  parent: Netick.Unity.NetworkSceneManager
+  langs:
+  - csharp
+  - vb
+  name: OnSyncedLoadedAdditiveScenes()
+  nameWithType: NetworkSceneManager.OnSyncedLoadedAdditiveScenes()
+  fullName: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void OnSyncedLoadedAdditiveScenes()
+    content.vb: Public Sub OnSyncedLoadedAdditiveScenes()
+  overload: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes*
 - uid: Netick.Unity.NetworkSceneManager.InternalReset
   commentId: M:Netick.Unity.NetworkSceneManager.InternalReset
   id: InternalReset
@@ -280,29 +281,6 @@ items:
     content.vb: Public Overrides Sub InternalReset()
   overridden: Netick.Unity.NetworkBehaviour.InternalReset
   overload: Netick.Unity.NetworkSceneManager.InternalReset*
-- uid: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler(Netick.INetickScript,Netick.OnChangedData)
-  commentId: M:Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler(Netick.INetickScript,Netick.OnChangedData)
-  id: OnSyncedLoadedAdditiveScenes__handler(Netick.INetickScript,Netick.OnChangedData)
-  parent: Netick.Unity.NetworkSceneManager
-  langs:
-  - csharp
-  - vb
-  name: OnSyncedLoadedAdditiveScenes__handler(INetickScript, OnChangedData)
-  nameWithType: NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler(INetickScript, OnChangedData)
-  fullName: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler(Netick.INetickScript, Netick.OnChangedData)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public static void OnSyncedLoadedAdditiveScenes__handler(INetickScript beh, OnChangedData change)
-    parameters:
-    - id: beh
-      type: Netick.INetickScript
-    - id: change
-      type: Netick.OnChangedData
-    content.vb: Public Shared Sub OnSyncedLoadedAdditiveScenes__handler(beh As INetickScript, change As OnChangedData)
-  overload: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler*
 - uid: Netick.Unity.NetworkSceneManager.InternalGetStateSizeWords
   commentId: M:Netick.Unity.NetworkSceneManager.InternalGetStateSizeWords
   id: InternalGetStateSizeWords
@@ -493,6 +471,76 @@ references:
   - name: T
   - name: )
   - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  commentId: M:Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__
+  name: CopyStateTo(byte*)
+  nameWithType: NetworkBehaviour.CopyStateTo(byte*)
+  fullName: Netick.Unity.NetworkBehaviour.CopyStateTo(byte*)
+  nameWithType.vb: NetworkBehaviour.CopyStateTo(Byte*)
+  fullName.vb: Netick.Unity.NetworkBehaviour.CopyStateTo(Byte*)
+  name.vb: CopyStateTo(Byte*)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+    name: CopyStateTo
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+    name: CopyStateTo
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+  commentId: M:Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__
+  name: SetStateFrom(byte*)
+  nameWithType: NetworkBehaviour.SetStateFrom(byte*)
+  fullName: Netick.Unity.NetworkBehaviour.SetStateFrom(byte*)
+  nameWithType.vb: NetworkBehaviour.SetStateFrom(Byte*)
+  fullName.vb: Netick.Unity.NetworkBehaviour.SetStateFrom(Byte*)
+  name.vb: SetStateFrom(Byte*)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+    name: SetStateFrom
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+    name: SetStateFrom
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
   - name: )
 - uid: Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Int32)
   commentId: M:Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
@@ -736,28 +784,6 @@ references:
     href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnSpawnPredictionSucceeded
   - name: (
   - name: )
-- uid: Netick.Unity.NetworkBehaviour.NetworkAwake
-  commentId: M:Netick.Unity.NetworkBehaviour.NetworkAwake
-  parent: Netick.Unity.NetworkBehaviour
-  isExternal: true
-  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
-  name: NetworkAwake()
-  nameWithType: NetworkBehaviour.NetworkAwake()
-  fullName: Netick.Unity.NetworkBehaviour.NetworkAwake()
-  spec.csharp:
-  - uid: Netick.Unity.NetworkBehaviour.NetworkAwake
-    name: NetworkAwake
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetworkBehaviour.NetworkAwake
-    name: NetworkAwake
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
-  - name: (
-  - name: )
 - uid: Netick.Unity.NetworkBehaviour.NetworkReset
   commentId: M:Netick.Unity.NetworkBehaviour.NetworkReset
   parent: Netick.Unity.NetworkBehaviour
@@ -778,6 +804,28 @@ references:
     name: NetworkReset
     isExternal: true
     href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.InternalInit
+  commentId: M:Netick.Unity.NetworkBehaviour.InternalInit
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit
+  name: InternalInit()
+  nameWithType: NetworkBehaviour.InternalInit()
+  fullName: Netick.Unity.NetworkBehaviour.InternalInit()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.InternalInit
+    name: InternalInit
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.InternalInit
+    name: InternalInit
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit
   - name: (
   - name: )
 - uid: Netick.Unity.NetworkBehaviour.BehaviourId
@@ -868,28 +916,14 @@ references:
   name: InputSourcePlayerId
   nameWithType: NetworkBehaviour.InputSourcePlayerId
   fullName: Netick.Unity.NetworkBehaviour.InputSourcePlayerId
-- uid: Netick.Unity.NetickBehaviour.NetworkStart
-  commentId: M:Netick.Unity.NetickBehaviour.NetworkStart
-  parent: Netick.Unity.NetickBehaviour
+- uid: Netick.Unity.NetworkBehaviour.StateSize
+  commentId: P:Netick.Unity.NetworkBehaviour.StateSize
+  parent: Netick.Unity.NetworkBehaviour
   isExternal: true
-  href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
-  name: NetworkStart()
-  nameWithType: NetickBehaviour.NetworkStart()
-  fullName: Netick.Unity.NetickBehaviour.NetworkStart()
-  spec.csharp:
-  - uid: Netick.Unity.NetickBehaviour.NetworkStart
-    name: NetworkStart
-    isExternal: true
-    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetickBehaviour.NetworkStart
-    name: NetworkStart
-    isExternal: true
-    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
-  - name: (
-  - name: )
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_StateSize
+  name: StateSize
+  nameWithType: NetworkBehaviour.StateSize
+  fullName: Netick.Unity.NetworkBehaviour.StateSize
 - uid: Netick.Unity.NetickBehaviour.NetworkDestroy
   commentId: M:Netick.Unity.NetickBehaviour.NetworkDestroy
   parent: Netick.Unity.NetickBehaviour
@@ -5535,57 +5569,71 @@ references:
   name: ComponentExtensions
   nameWithType: ComponentExtensions
   fullName: Netick.Unity.ComponentExtensions
-- uid: Netick.Unity.NetworkSceneManager.Awake*
-  commentId: Overload:Netick.Unity.NetworkSceneManager.Awake
-  isExternal: true
-  href: Netick.Unity.NetworkSceneManager.html#Netick_Unity_NetworkSceneManager_Awake
-  name: Awake
-  nameWithType: NetworkSceneManager.Awake
-  fullName: Netick.Unity.NetworkSceneManager.Awake
-- uid: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes*
-  commentId: Overload:Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes
-  isExternal: true
-  href: Netick.Unity.NetworkSceneManager.html#Netick_Unity_NetworkSceneManager_OnSyncedLoadedAdditiveScenes_Netick_OnChangedData_
-  name: OnSyncedLoadedAdditiveScenes
-  nameWithType: NetworkSceneManager.OnSyncedLoadedAdditiveScenes
-  fullName: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes
-- uid: Netick.OnChangedData
-  commentId: T:Netick.OnChangedData
-  parent: Netick
-  isExternal: true
-  href: Netick.OnChangedData.html
-  name: OnChangedData
-  nameWithType: OnChangedData
-  fullName: Netick.OnChangedData
-- uid: Netick.Unity.NetworkBehaviour.InternalInit
-  commentId: M:Netick.Unity.NetworkBehaviour.InternalInit
+- uid: Netick.Unity.NetworkBehaviour.NetworkAwake
+  commentId: M:Netick.Unity.NetworkBehaviour.NetworkAwake
   parent: Netick.Unity.NetworkBehaviour
   isExternal: true
-  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit
-  name: InternalInit()
-  nameWithType: NetworkBehaviour.InternalInit()
-  fullName: Netick.Unity.NetworkBehaviour.InternalInit()
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
+  name: NetworkAwake()
+  nameWithType: NetworkBehaviour.NetworkAwake()
+  fullName: Netick.Unity.NetworkBehaviour.NetworkAwake()
   spec.csharp:
-  - uid: Netick.Unity.NetworkBehaviour.InternalInit
-    name: InternalInit
+  - uid: Netick.Unity.NetworkBehaviour.NetworkAwake
+    name: NetworkAwake
     isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
   - name: (
   - name: )
   spec.vb:
-  - uid: Netick.Unity.NetworkBehaviour.InternalInit
-    name: InternalInit
+  - uid: Netick.Unity.NetworkBehaviour.NetworkAwake
+    name: NetworkAwake
     isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
   - name: (
   - name: )
-- uid: Netick.Unity.NetworkSceneManager.InternalInit*
-  commentId: Overload:Netick.Unity.NetworkSceneManager.InternalInit
+- uid: Netick.Unity.NetworkSceneManager.NetworkAwake*
+  commentId: Overload:Netick.Unity.NetworkSceneManager.NetworkAwake
   isExternal: true
-  href: Netick.Unity.NetworkSceneManager.html#Netick_Unity_NetworkSceneManager_InternalInit
-  name: InternalInit
-  nameWithType: NetworkSceneManager.InternalInit
-  fullName: Netick.Unity.NetworkSceneManager.InternalInit
+  href: Netick.Unity.NetworkSceneManager.html#Netick_Unity_NetworkSceneManager_NetworkAwake
+  name: NetworkAwake
+  nameWithType: NetworkSceneManager.NetworkAwake
+  fullName: Netick.Unity.NetworkSceneManager.NetworkAwake
+- uid: Netick.Unity.NetickBehaviour.NetworkStart
+  commentId: M:Netick.Unity.NetickBehaviour.NetworkStart
+  parent: Netick.Unity.NetickBehaviour
+  isExternal: true
+  href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
+  name: NetworkStart()
+  nameWithType: NetickBehaviour.NetworkStart()
+  fullName: Netick.Unity.NetickBehaviour.NetworkStart()
+  spec.csharp:
+  - uid: Netick.Unity.NetickBehaviour.NetworkStart
+    name: NetworkStart
+    isExternal: true
+    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetickBehaviour.NetworkStart
+    name: NetworkStart
+    isExternal: true
+    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkSceneManager.NetworkStart*
+  commentId: Overload:Netick.Unity.NetworkSceneManager.NetworkStart
+  isExternal: true
+  href: Netick.Unity.NetworkSceneManager.html#Netick_Unity_NetworkSceneManager_NetworkStart
+  name: NetworkStart
+  nameWithType: NetworkSceneManager.NetworkStart
+  fullName: Netick.Unity.NetworkSceneManager.NetworkStart
+- uid: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes*
+  commentId: Overload:Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes
+  isExternal: true
+  href: Netick.Unity.NetworkSceneManager.html#Netick_Unity_NetworkSceneManager_OnSyncedLoadedAdditiveScenes
+  name: OnSyncedLoadedAdditiveScenes
+  nameWithType: NetworkSceneManager.OnSyncedLoadedAdditiveScenes
+  fullName: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes
 - uid: Netick.Unity.NetworkBehaviour.InternalReset
   commentId: M:Netick.Unity.NetworkBehaviour.InternalReset
   parent: Netick.Unity.NetworkBehaviour
@@ -5615,13 +5663,6 @@ references:
   name: InternalReset
   nameWithType: NetworkSceneManager.InternalReset
   fullName: Netick.Unity.NetworkSceneManager.InternalReset
-- uid: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler*
-  commentId: Overload:Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler
-  isExternal: true
-  href: Netick.Unity.NetworkSceneManager.html#Netick_Unity_NetworkSceneManager_OnSyncedLoadedAdditiveScenes__handler_Netick_INetickScript_Netick_OnChangedData_
-  name: OnSyncedLoadedAdditiveScenes__handler
-  nameWithType: NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler
-  fullName: Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler
 - uid: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
   commentId: M:Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
   parent: Netick.Unity.NetworkBehaviour

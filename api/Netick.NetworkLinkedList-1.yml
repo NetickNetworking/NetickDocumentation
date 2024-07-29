@@ -23,6 +23,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: A networked linked list collection. This is an ordered list meaning that the elements insertion order is maintained when iterating through the collection.
+  example: []
   syntax:
     content: 'public sealed class NetworkLinkedList<T> : NetworkLinkedList, INetworkCollection, IEnumerable<T>, IEnumerable where T : unmanaged'
     typeParameters:
@@ -122,13 +124,13 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool Add(T element)
+    content: public bool Add(T item)
     parameters:
-    - id: element
+    - id: item
       type: '{T}'
     return:
       type: System.Boolean
-    content.vb: Public Function Add(element As T) As Boolean
+    content.vb: Public Function Add(item As T) As Boolean
   overload: Netick.NetworkLinkedList`1.Add*
   nameWithType.vb: NetworkLinkedList(Of T).Add(T)
   fullName.vb: Netick.NetworkLinkedList(Of T).Add(T)
@@ -147,13 +149,13 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool Remove(T element)
+    content: public bool Remove(T item)
     parameters:
-    - id: element
+    - id: item
       type: '{T}'
     return:
       type: System.Boolean
-    content.vb: Public Function Remove(element As T) As Boolean
+    content.vb: Public Function Remove(item As T) As Boolean
   overload: Netick.NetworkLinkedList`1.Remove*
   nameWithType.vb: NetworkLinkedList(Of T).Remove(T)
   fullName.vb: Netick.NetworkLinkedList(Of T).Remove(T)

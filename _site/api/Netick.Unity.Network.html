@@ -98,7 +98,7 @@
   <dl><dt>Assembly</dt><dd>Netick.Unity.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Manages Netick and its clients, and is used to start and shut down Netick.</p>
+  <div class="markdown summary"><p>Manages Netick and its sandboxes, and is used to start and shut down Netick.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -495,7 +495,7 @@ public sealed class Network : MonoBehaviour</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string Version = &quot;0.11.30&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">public const string Version = &quot;0.12.2&quot;</code></pre>
   </div>
 
 
@@ -744,8 +744,8 @@ public sealed class Network : MonoBehaviour</code></pre>
 
   <a id="Netick_Unity_Network_Init_" data-uid="Netick.Unity.Network.Init*"></a>
 
-  <h3 id="Netick_Unity_Network_Init_Netick_Unity_NetickConfig_System_Int32_" data-uid="Netick.Unity.Network.Init(Netick.Unity.NetickConfig,System.Int32)">
-  Init(NetickConfig, int)
+  <h3 id="Netick_Unity_Network_Init_Netick_Unity_NetickConfig_" data-uid="Netick.Unity.Network.Init(Netick.Unity.NetickConfig)">
+  Init(NetickConfig)
   
   </h3>
 
@@ -755,14 +755,12 @@ public sealed class Network : MonoBehaviour</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Init(NetickConfig config = null, int sceneBuildIndex = -1)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Init(NetickConfig config = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>config</code> <a class="xref" href="Netick.Unity.NetickConfig.html">NetickConfig</a></dt>
-    <dd></dd>
-    <dt><code>sceneBuildIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -822,7 +820,7 @@ public sealed class Network : MonoBehaviour</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Shuts down Netick and destroys all clients. The shutdown will occur in the next frame. For immediate shutdown, use: <a class="xref" href="Netick.Unity.Network.html#Netick_Unity_Network_ShutdownImmediately_System_Boolean_">ShutdownImmediately(bool)</a></p>
+  <div class="markdown level1 summary"><p>Shuts down Netick and destroys all sandboxes. The shutdown will occur in the next frame. For immediate shutdown, use: <a class="xref" href="Netick.Unity.Network.html#Netick_Unity_Network_ShutdownImmediately_System_Boolean_">ShutdownImmediately(bool)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -854,7 +852,7 @@ public sealed class Network : MonoBehaviour</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Shuts down Netick and destroys all clients immediately.</p>
+  <div class="markdown level1 summary"><p>Shuts down Netick and destroys all sandboxes immediately.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

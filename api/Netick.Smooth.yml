@@ -5,7 +5,7 @@ items:
   id: Smooth
   parent: Netick
   children:
-  - Netick.Smooth.#ctor(System.Boolean)
+  - Netick.Smooth.#ctor(System.Boolean,Netick.InterpolationSource)
   - Netick.Smooth.Auto
   langs:
   - csharp
@@ -85,30 +85,32 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Auto As Boolean
-- uid: Netick.Smooth.#ctor(System.Boolean)
-  commentId: M:Netick.Smooth.#ctor(System.Boolean)
-  id: '#ctor(System.Boolean)'
+- uid: Netick.Smooth.#ctor(System.Boolean,Netick.InterpolationSource)
+  commentId: M:Netick.Smooth.#ctor(System.Boolean,Netick.InterpolationSource)
+  id: '#ctor(System.Boolean,Netick.InterpolationSource)'
   parent: Netick.Smooth
   langs:
   - csharp
   - vb
-  name: Smooth(bool)
-  nameWithType: Smooth.Smooth(bool)
-  fullName: Netick.Smooth.Smooth(bool)
+  name: Smooth(bool, InterpolationSource)
+  nameWithType: Smooth.Smooth(bool, InterpolationSource)
+  fullName: Netick.Smooth.Smooth(bool, Netick.InterpolationSource)
   type: Constructor
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public Smooth(bool auto = true)
+    content: public Smooth(bool auto = true, InterpolationSource interpolationSource = InterpolationSource.Auto)
     parameters:
     - id: auto
       type: System.Boolean
-    content.vb: Public Sub New(auto As Boolean = True)
+    - id: interpolationSource
+      type: Netick.InterpolationSource
+    content.vb: Public Sub New(auto As Boolean = True, interpolationSource As InterpolationSource = InterpolationSource.Auto)
   overload: Netick.Smooth.#ctor*
-  nameWithType.vb: Smooth.New(Boolean)
-  fullName.vb: Netick.Smooth.New(Boolean)
-  name.vb: New(Boolean)
+  nameWithType.vb: Smooth.New(Boolean, InterpolationSource)
+  fullName.vb: Netick.Smooth.New(Boolean, Netick.InterpolationSource)
+  name.vb: New(Boolean, InterpolationSource)
 references:
 - uid: Netick
   commentId: N:Netick
@@ -1925,10 +1927,18 @@ references:
 - uid: Netick.Smooth.#ctor*
   commentId: Overload:Netick.Smooth.#ctor
   isExternal: true
-  href: Netick.Smooth.html#Netick_Smooth__ctor_System_Boolean_
+  href: Netick.Smooth.html#Netick_Smooth__ctor_System_Boolean_Netick_InterpolationSource_
   name: Smooth
   nameWithType: Smooth.Smooth
   fullName: Netick.Smooth.Smooth
   nameWithType.vb: Smooth.New
   fullName.vb: Netick.Smooth.New
   name.vb: New
+- uid: Netick.InterpolationSource
+  commentId: T:Netick.InterpolationSource
+  parent: Netick
+  isExternal: true
+  href: Netick.InterpolationSource.html
+  name: InterpolationSource
+  nameWithType: InterpolationSource
+  fullName: Netick.InterpolationSource

@@ -48,8 +48,8 @@ items:
   - Netick.Unity.NetworkRigidbody
   - Netick.Unity.NetworkRigidbody2D
   - Netick.Unity.NetworkSandbox
-  - Netick.Unity.NetworkScene
   - Netick.Unity.NetworkSceneManager
+  - Netick.Unity.NetworkSceneOperation
   - Netick.Unity.NetworkTimerExt
   - Netick.Unity.NetworkTransform
   - Netick.Unity.NetworkTransformRepConditions
@@ -60,6 +60,7 @@ items:
   - Netick.Unity.OnConnectFailedDelegate
   - Netick.Unity.OnConnectRequestDelegate
   - Netick.Unity.OnConnectedToServerDelegate
+  - Netick.Unity.OnDataReceivedDelegate
   - Netick.Unity.OnDisconnectedFromServerDelegate
   - Netick.Unity.OnEntityDestroyedDelegate
   - Netick.Unity.OnInputReadDelegate
@@ -70,18 +71,22 @@ items:
   - Netick.Unity.OnPlayerDisconnectedDelegate
   - Netick.Unity.OnSceneLoadStartedDelegate
   - Netick.Unity.OnSceneLoadedDelegate
+  - Netick.Unity.OnSceneOperationDelegate
   - Netick.Unity.OnShutdownDelegate
   - Netick.Unity.OnStartupDelegate
+  - Netick.Unity.OnVisibilityChangedDelegate
   - Netick.Unity.PhysicsSimulationStep
   - Netick.Unity.PhysicsType
   - Netick.Unity.ProfilerIMGUI
-  - Netick.Unity.ResetOnSceneSwitch
+  - Netick.Unity.QuaternionErrorCorrector
   - Netick.Unity.SingleInstanceEnforcer
   - Netick.Unity.StartMode
   - Netick.Unity.TrackedRigidbody2D
   - Netick.Unity.TrackedRigidbody3D
   - Netick.Unity.TrackedRigidbodyBase
+  - Netick.Unity.TransformErrorCorrector
   - Netick.Unity.TransformSpace
+  - Netick.Unity.Vector3ErrorCorrector
   langs:
   - csharp
   - vb
@@ -136,13 +141,14 @@ references:
   name: NetworkObjectRef
   nameWithType: NetworkObjectRef
   fullName: Netick.Unity.NetworkObjectRef
-- uid: Netick.Unity.NetworkScene
-  commentId: T:Netick.Unity.NetworkScene
+- uid: Netick.Unity.NetworkSceneOperation
+  commentId: T:Netick.Unity.NetworkSceneOperation
+  parent: Netick.Unity
   isExternal: true
-  href: Netick.Unity.NetworkScene.html
-  name: NetworkScene
-  nameWithType: NetworkScene
-  fullName: Netick.Unity.NetworkScene
+  href: Netick.Unity.NetworkSceneOperation.html
+  name: NetworkSceneOperation
+  nameWithType: NetworkSceneOperation
+  fullName: Netick.Unity.NetworkSceneOperation
 - uid: Netick.Unity.NetworkSceneManager
   commentId: T:Netick.Unity.NetworkSceneManager
   isExternal: true
@@ -254,13 +260,6 @@ references:
   name: PhysicsType
   nameWithType: PhysicsType
   fullName: Netick.Unity.PhysicsType
-- uid: Netick.Unity.ResetOnSceneSwitch
-  commentId: T:Netick.Unity.ResetOnSceneSwitch
-  isExternal: true
-  href: Netick.Unity.ResetOnSceneSwitch.html
-  name: ResetOnSceneSwitch
-  nameWithType: ResetOnSceneSwitch
-  fullName: Netick.Unity.ResetOnSceneSwitch
 - uid: Netick.Unity.NetworkPlayerExtensions
   commentId: T:Netick.Unity.NetworkPlayerExtensions
   isExternal: true
@@ -933,6 +932,14 @@ references:
   name: NetworkEventsListener
   nameWithType: NetworkEventsListener
   fullName: Netick.Unity.NetworkEventsListener
+- uid: Netick.Unity.OnDataReceivedDelegate
+  commentId: T:Netick.Unity.OnDataReceivedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnDataReceivedDelegate.html
+  name: OnDataReceivedDelegate
+  nameWithType: OnDataReceivedDelegate
+  fullName: Netick.Unity.OnDataReceivedDelegate
 - uid: Netick.Unity.OnConnectRequestDelegate
   commentId: T:Netick.Unity.OnConnectRequestDelegate
   parent: Netick.Unity
@@ -973,6 +980,22 @@ references:
   name: OnInputReadDelegate
   nameWithType: OnInputReadDelegate
   fullName: Netick.Unity.OnInputReadDelegate
+- uid: Netick.Unity.OnVisibilityChangedDelegate
+  commentId: T:Netick.Unity.OnVisibilityChangedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnVisibilityChangedDelegate.html
+  name: OnVisibilityChangedDelegate
+  nameWithType: OnVisibilityChangedDelegate
+  fullName: Netick.Unity.OnVisibilityChangedDelegate
+- uid: Netick.Unity.OnSceneOperationDelegate
+  commentId: T:Netick.Unity.OnSceneOperationDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnSceneOperationDelegate.html
+  name: OnSceneOperationDelegate
+  nameWithType: OnSceneOperationDelegate
+  fullName: Netick.Unity.OnSceneOperationDelegate
 - uid: Netick.Unity.OnSceneLoadedDelegate
   commentId: T:Netick.Unity.OnSceneLoadedDelegate
   parent: Netick.Unity
@@ -1099,6 +1122,27 @@ references:
   name: PhysicsSimulationStep
   nameWithType: PhysicsSimulationStep
   fullName: Netick.Unity.PhysicsSimulationStep
+- uid: Netick.Unity.TransformErrorCorrector
+  commentId: T:Netick.Unity.TransformErrorCorrector
+  isExternal: true
+  href: Netick.Unity.TransformErrorCorrector.html
+  name: TransformErrorCorrector
+  nameWithType: TransformErrorCorrector
+  fullName: Netick.Unity.TransformErrorCorrector
+- uid: Netick.Unity.Vector3ErrorCorrector
+  commentId: T:Netick.Unity.Vector3ErrorCorrector
+  isExternal: true
+  href: Netick.Unity.Vector3ErrorCorrector.html
+  name: Vector3ErrorCorrector
+  nameWithType: Vector3ErrorCorrector
+  fullName: Netick.Unity.Vector3ErrorCorrector
+- uid: Netick.Unity.QuaternionErrorCorrector
+  commentId: T:Netick.Unity.QuaternionErrorCorrector
+  isExternal: true
+  href: Netick.Unity.QuaternionErrorCorrector.html
+  name: QuaternionErrorCorrector
+  nameWithType: QuaternionErrorCorrector
+  fullName: Netick.Unity.QuaternionErrorCorrector
 - uid: Netick.Unity
   commentId: N:Netick.Unity
   isExternal: true

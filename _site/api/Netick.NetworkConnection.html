@@ -439,10 +439,10 @@
 
 
 
-  <a id="Netick_NetworkConnection_SendEntities_" data-uid="Netick.NetworkConnection.SendEntities*"></a>
+  <a id="Netick_NetworkConnection_ReplicateEntities_" data-uid="Netick.NetworkConnection.ReplicateEntities*"></a>
 
-  <h3 id="Netick_NetworkConnection_SendEntities" data-uid="Netick.NetworkConnection.SendEntities">
-  SendEntities
+  <h3 id="Netick_NetworkConnection_ReplicateEntities" data-uid="Netick.NetworkConnection.ReplicateEntities">
+  ReplicateEntities
   
   </h3>
 
@@ -450,7 +450,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool SendEntities { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool ReplicateEntities { get; set; }</code></pre>
   </div>
 
 
@@ -519,6 +519,82 @@
     <pre><code class="lang-csharp hljs">protected ~NetworkConnection()</code></pre>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkConnection_SendData_" data-uid="Netick.NetworkConnection.SendData*"></a>
+
+  <h3 id="Netick_NetworkConnection_SendData_System_Byte_System_Byte__System_Int32_Netick_TransportDeliveryMethod_" data-uid="Netick.NetworkConnection.SendData(System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)">
+  SendData(byte, byte*, int, TransportDeliveryMethod)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sends data to this connection.</p>
+<p>Note: the low-level transport must implement <a class="xref" href="Netick.TransportConnection.html#Netick_TransportConnection_SendUserData_System_IntPtr_System_Int32_Netick_TransportDeliveryMethod_">SendUserData(IntPtr, int, TransportDeliveryMethod)</a> for this method to have an effect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SendData(byte id, byte* data, int length, TransportDeliveryMethod deliveryMethod)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>deliveryMethod</code> <a class="xref" href="Netick.TransportDeliveryMethod.html">TransportDeliveryMethod</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkConnection_SendData_" data-uid="Netick.NetworkConnection.SendData*"></a>
+
+  <h3 id="Netick_NetworkConnection_SendData_System_Byte_System_Byte___System_Int32_Netick_TransportDeliveryMethod_" data-uid="Netick.NetworkConnection.SendData(System.Byte,System.Byte[],System.Int32,Netick.TransportDeliveryMethod)">
+  SendData(byte, byte[], int, TransportDeliveryMethod)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SendData(byte id, byte[] data, int length, TransportDeliveryMethod deliveryMethod)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>deliveryMethod</code> <a class="xref" href="Netick.TransportDeliveryMethod.html">TransportDeliveryMethod</a></dt>
+    <dd></dd>
+  </dl>
 
 
 

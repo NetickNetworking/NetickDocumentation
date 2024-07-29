@@ -10,6 +10,7 @@ items:
   - Netick.TransportConnection.EndPoint
   - Netick.TransportConnection.Mtu
   - Netick.TransportConnection.Send(System.IntPtr,System.Int32)
+  - Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
   langs:
   - csharp
   - vb
@@ -61,6 +62,34 @@ items:
   nameWithType.vb: TransportConnection.Send(IntPtr, Integer)
   fullName.vb: Netick.TransportConnection.Send(System.IntPtr, Integer)
   name.vb: Send(IntPtr, Integer)
+- uid: Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
+  commentId: M:Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
+  id: SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
+  parent: Netick.TransportConnection
+  langs:
+  - csharp
+  - vb
+  name: SendUserData(IntPtr, int, TransportDeliveryMethod)
+  nameWithType: TransportConnection.SendUserData(IntPtr, int, TransportDeliveryMethod)
+  fullName: Netick.TransportConnection.SendUserData(System.IntPtr, int, Netick.TransportDeliveryMethod)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public virtual void SendUserData(IntPtr ptr, int length, TransportDeliveryMethod transportDeliveryMethod)
+    parameters:
+    - id: ptr
+      type: System.IntPtr
+    - id: length
+      type: System.Int32
+    - id: transportDeliveryMethod
+      type: Netick.TransportDeliveryMethod
+    content.vb: Public Overridable Sub SendUserData(ptr As IntPtr, length As Integer, transportDeliveryMethod As TransportDeliveryMethod)
+  overload: Netick.TransportConnection.SendUserData*
+  nameWithType.vb: TransportConnection.SendUserData(IntPtr, Integer, TransportDeliveryMethod)
+  fullName.vb: Netick.TransportConnection.SendUserData(System.IntPtr, Integer, Netick.TransportDeliveryMethod)
+  name.vb: SendUserData(IntPtr, Integer, TransportDeliveryMethod)
 - uid: Netick.TransportConnection.#ctor
   commentId: M:Netick.TransportConnection.#ctor
   id: '#ctor'
@@ -416,6 +445,21 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: Netick.TransportConnection.SendUserData*
+  commentId: Overload:Netick.TransportConnection.SendUserData
+  isExternal: true
+  href: Netick.TransportConnection.html#Netick_TransportConnection_SendUserData_System_IntPtr_System_Int32_Netick_TransportDeliveryMethod_
+  name: SendUserData
+  nameWithType: TransportConnection.SendUserData
+  fullName: Netick.TransportConnection.SendUserData
+- uid: Netick.TransportDeliveryMethod
+  commentId: T:Netick.TransportDeliveryMethod
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportDeliveryMethod.html
+  name: TransportDeliveryMethod
+  nameWithType: TransportDeliveryMethod
+  fullName: Netick.TransportDeliveryMethod
 - uid: Netick.TransportConnection.#ctor*
   commentId: Overload:Netick.TransportConnection.#ctor
   isExternal: true

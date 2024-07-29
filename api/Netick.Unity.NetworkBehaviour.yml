@@ -7,6 +7,7 @@ items:
   children:
   - Netick.Unity.NetworkBehaviour.#ctor
   - Netick.Unity.NetworkBehaviour.BehaviourId
+  - Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
   - Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
   - Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
   - Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
@@ -33,6 +34,8 @@ items:
   - Netick.Unity.NetworkBehaviour.OnInputSourceLeft
   - Netick.Unity.NetworkBehaviour.OnSpawnPredictionSucceeded
   - Netick.Unity.NetworkBehaviour.S
+  - Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+  - Netick.Unity.NetworkBehaviour.StateSize
   langs:
   - csharp
   - vb
@@ -233,6 +236,57 @@ items:
   nameWithType.vb: NetworkBehaviour.GetRef(Of T)()
   fullName.vb: Netick.Unity.NetworkBehaviour.GetRef(Of T)()
   name.vb: GetRef(Of T)()
+- uid: Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  commentId: M:Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  id: CopyStateTo(System.Byte*)
+  parent: Netick.Unity.NetworkBehaviour
+  langs:
+  - csharp
+  - vb
+  name: CopyStateTo(byte*)
+  nameWithType: NetworkBehaviour.CopyStateTo(byte*)
+  fullName: Netick.Unity.NetworkBehaviour.CopyStateTo(byte*)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void CopyStateTo(byte* target)
+    parameters:
+    - id: target
+      type: System.Byte*
+    content.vb: Public Sub CopyStateTo(target As Byte*)
+  overload: Netick.Unity.NetworkBehaviour.CopyStateTo*
+  nameWithType.vb: NetworkBehaviour.CopyStateTo(Byte*)
+  fullName.vb: Netick.Unity.NetworkBehaviour.CopyStateTo(Byte*)
+  name.vb: CopyStateTo(Byte*)
+- uid: Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+  commentId: M:Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+  id: SetStateFrom(System.Byte*)
+  parent: Netick.Unity.NetworkBehaviour
+  langs:
+  - csharp
+  - vb
+  name: SetStateFrom(byte*)
+  nameWithType: NetworkBehaviour.SetStateFrom(byte*)
+  fullName: Netick.Unity.NetworkBehaviour.SetStateFrom(byte*)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Sets the state of this behavior. Ignores [OnChanged] callbacks when setting the data.
+  example: []
+  syntax:
+    content: public void SetStateFrom(byte* source)
+    parameters:
+    - id: source
+      type: System.Byte*
+      description: ''
+    content.vb: Public Sub SetStateFrom(source As Byte*)
+  overload: Netick.Unity.NetworkBehaviour.SetStateFrom*
+  nameWithType.vb: NetworkBehaviour.SetStateFrom(Byte*)
+  fullName.vb: Netick.Unity.NetworkBehaviour.SetStateFrom(Byte*)
+  name.vb: SetStateFrom(Byte*)
 - uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
   commentId: M:Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
   id: FetchInput``1(``0@,System.Int32)
@@ -823,6 +877,29 @@ items:
       type: System.Int32
     content.vb: Public ReadOnly Property InputSourcePlayerId As Integer
   overload: Netick.Unity.NetworkBehaviour.InputSourcePlayerId*
+- uid: Netick.Unity.NetworkBehaviour.StateSize
+  commentId: P:Netick.Unity.NetworkBehaviour.StateSize
+  id: StateSize
+  parent: Netick.Unity.NetworkBehaviour
+  langs:
+  - csharp
+  - vb
+  name: StateSize
+  nameWithType: NetworkBehaviour.StateSize
+  fullName: Netick.Unity.NetworkBehaviour.StateSize
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns the networked state size of this behavior in bytes.
+  example: []
+  syntax:
+    content: public int StateSize { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property StateSize As Integer
+  overload: Netick.Unity.NetworkBehaviour.StateSize*
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -5627,6 +5704,41 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: Netick.Unity.NetworkBehaviour.CopyStateTo*
+  commentId: Overload:Netick.Unity.NetworkBehaviour.CopyStateTo
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__
+  name: CopyStateTo
+  nameWithType: NetworkBehaviour.CopyStateTo
+  fullName: Netick.Unity.NetworkBehaviour.CopyStateTo
+- uid: System.Byte*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte*
+  nameWithType: byte*
+  fullName: byte*
+  nameWithType.vb: Byte*
+  fullName.vb: Byte*
+  name.vb: Byte*
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+- uid: Netick.Unity.NetworkBehaviour.SetStateFrom*
+  commentId: Overload:Netick.Unity.NetworkBehaviour.SetStateFrom
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__
+  name: SetStateFrom
+  nameWithType: NetworkBehaviour.SetStateFrom
+  fullName: Netick.Unity.NetworkBehaviour.SetStateFrom
 - uid: Netick.Unity.NetworkBehaviour.FetchInput*
   commentId: Overload:Netick.Unity.NetworkBehaviour.FetchInput
   isExternal: true
@@ -6133,3 +6245,10 @@ references:
   name: InputSourcePlayerId
   nameWithType: NetworkBehaviour.InputSourcePlayerId
   fullName: Netick.Unity.NetworkBehaviour.InputSourcePlayerId
+- uid: Netick.Unity.NetworkBehaviour.StateSize*
+  commentId: Overload:Netick.Unity.NetworkBehaviour.StateSize
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_StateSize
+  name: StateSize
+  nameWithType: NetworkBehaviour.StateSize
+  fullName: Netick.Unity.NetworkBehaviour.StateSize

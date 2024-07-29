@@ -16,6 +16,7 @@ items:
   - Netick.IGameEngine.OnEntityDespawned(Netick.Entity)
   - Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity,System.Boolean)
   - Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  - Netick.IGameEngine.OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta,System.Byte*,System.Int32)
   - Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*,System.Int32)
   - Netick.IGameEngine.OnEntitySpawned(Netick.Entity)
   - Netick.IGameEngine.OnInputRead
@@ -28,6 +29,7 @@ items:
   - Netick.IGameEngine.OnPeerDisconnected(Netick.NetworkConnection,Netick.TransportDisconnectReason)
   - Netick.IGameEngine.OnPlayerConnected(Netick.NetworkPlayer)
   - Netick.IGameEngine.OnPlayerDisconnected(Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  - Netick.IGameEngine.OnReceiveData(Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
   - Netick.IGameEngine.OnUnlinkedEntityDespawned(Netick.Entity)
   - Netick.IGameEngine.PopulateEntityMeta(Netick.Entity)
   - Netick.IGameEngine.SyncTransformsToPhysics
@@ -313,6 +315,34 @@ items:
   nameWithType.vb: IGameEngine.OnEntityMetaChangedPhaseTwo(NetickEntityMeta, Byte*, Integer)
   fullName.vb: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta, Byte*, Integer)
   name.vb: OnEntityMetaChangedPhaseTwo(NetickEntityMeta, Byte*, Integer)
+- uid: Netick.IGameEngine.OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  commentId: M:Netick.IGameEngine.OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  id: OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnEntityMetaChangedPhaseThree(NetickEntityMeta, byte*, int)
+  nameWithType: IGameEngine.OnEntityMetaChangedPhaseThree(NetickEntityMeta, byte*, int)
+  fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta, byte*, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnEntityMetaChangedPhaseThree(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)
+    parameters:
+    - id: netickMeta
+      type: Netick.NetickEntityMeta
+    - id: userMetaData
+      type: System.Byte*
+    - id: worldIndex
+      type: System.Int32
+    content.vb: Sub OnEntityMetaChangedPhaseThree(netickMeta As NetickEntityMeta, userMetaData As Byte*, worldIndex As Integer)
+  overload: Netick.IGameEngine.OnEntityMetaChangedPhaseThree*
+  nameWithType.vb: IGameEngine.OnEntityMetaChangedPhaseThree(NetickEntityMeta, Byte*, Integer)
+  fullName.vb: Netick.IGameEngine.OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta, Byte*, Integer)
+  name.vb: OnEntityMetaChangedPhaseThree(NetickEntityMeta, Byte*, Integer)
 - uid: Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
   commentId: M:Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
   id: OnBeforeSend(Netick.NetworkConnection)
@@ -626,6 +656,38 @@ items:
   nameWithType.vb: IGameEngine.OnMatchListUpdate(List(Of Session))
   fullName.vb: Netick.IGameEngine.OnMatchListUpdate(System.Collections.Generic.List(Of Netick.Session))
   name.vb: OnMatchListUpdate(List(Of Session))
+- uid: Netick.IGameEngine.OnReceiveData(Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  commentId: M:Netick.IGameEngine.OnReceiveData(Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  id: OnReceiveData(Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnReceiveData(NetworkConnection, byte, byte*, int, TransportDeliveryMethod)
+  nameWithType: IGameEngine.OnReceiveData(NetworkConnection, byte, byte*, int, TransportDeliveryMethod)
+  fullName: Netick.IGameEngine.OnReceiveData(Netick.NetworkConnection, byte, byte*, int, Netick.TransportDeliveryMethod)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnReceiveData(NetworkConnection sender, byte id, byte* data, int len, TransportDeliveryMethod transportDeliveryMethod)
+    parameters:
+    - id: sender
+      type: Netick.NetworkConnection
+    - id: id
+      type: System.Byte
+    - id: data
+      type: System.Byte*
+    - id: len
+      type: System.Int32
+    - id: transportDeliveryMethod
+      type: Netick.TransportDeliveryMethod
+    content.vb: Sub OnReceiveData(sender As NetworkConnection, id As Byte, data As Byte*, len As Integer, transportDeliveryMethod As TransportDeliveryMethod)
+  overload: Netick.IGameEngine.OnReceiveData*
+  nameWithType.vb: IGameEngine.OnReceiveData(NetworkConnection, Byte, Byte*, Integer, TransportDeliveryMethod)
+  fullName.vb: Netick.IGameEngine.OnReceiveData(Netick.NetworkConnection, Byte, Byte*, Integer, Netick.TransportDeliveryMethod)
+  name.vb: OnReceiveData(NetworkConnection, Byte, Byte*, Integer, TransportDeliveryMethod)
 references:
 - uid: Netick
   commentId: N:Netick
@@ -785,6 +847,13 @@ references:
   name: OnEntityMetaChangedPhaseTwo
   nameWithType: IGameEngine.OnEntityMetaChangedPhaseTwo
   fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo
+- uid: Netick.IGameEngine.OnEntityMetaChangedPhaseThree*
+  commentId: Overload:Netick.IGameEngine.OnEntityMetaChangedPhaseThree
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChangedPhaseThree_Netick_NetickEntityMeta_System_Byte__System_Int32_
+  name: OnEntityMetaChangedPhaseThree
+  nameWithType: IGameEngine.OnEntityMetaChangedPhaseThree
+  fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseThree
 - uid: Netick.IGameEngine.OnBeforeSend*
   commentId: Overload:Netick.IGameEngine.OnBeforeSend
   isExternal: true
@@ -1030,3 +1099,29 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Netick.IGameEngine.OnReceiveData*
+  commentId: Overload:Netick.IGameEngine.OnReceiveData
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnReceiveData_Netick_NetworkConnection_System_Byte_System_Byte__System_Int32_Netick_TransportDeliveryMethod_
+  name: OnReceiveData
+  nameWithType: IGameEngine.OnReceiveData
+  fullName: Netick.IGameEngine.OnReceiveData
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Netick.TransportDeliveryMethod
+  commentId: T:Netick.TransportDeliveryMethod
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportDeliveryMethod.html
+  name: TransportDeliveryMethod
+  nameWithType: TransportDeliveryMethod
+  fullName: Netick.TransportDeliveryMethod

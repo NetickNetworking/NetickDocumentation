@@ -7,7 +7,7 @@ items:
   children:
   - Netick.Unity.Network.Config
   - Netick.Unity.Network.Focus(Netick.Unity.NetworkSandbox)
-  - Netick.Unity.Network.Init(Netick.Unity.NetickConfig,System.Int32)
+  - Netick.Unity.Network.Init(Netick.Unity.NetickConfig)
   - Netick.Unity.Network.Instance
   - Netick.Unity.Network.IsHeadless
   - Netick.Unity.Network.IsRunning
@@ -34,7 +34,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Manages Netick and its clients, and is used to start and shut down Netick.
+  summary: Manages Netick and its sandboxes, and is used to start and shut down Netick.
   example: []
   syntax:
     content: >-
@@ -193,20 +193,20 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public const string Version = "0.11.30"
+    content: public const string Version = "0.12.2"
     return:
       type: System.String
-    content.vb: Public Const Version As String = "0.11.30"
-- uid: Netick.Unity.Network.Init(Netick.Unity.NetickConfig,System.Int32)
-  commentId: M:Netick.Unity.Network.Init(Netick.Unity.NetickConfig,System.Int32)
-  id: Init(Netick.Unity.NetickConfig,System.Int32)
+    content.vb: Public Const Version As String = "0.12.2"
+- uid: Netick.Unity.Network.Init(Netick.Unity.NetickConfig)
+  commentId: M:Netick.Unity.Network.Init(Netick.Unity.NetickConfig)
+  id: Init(Netick.Unity.NetickConfig)
   parent: Netick.Unity.Network
   langs:
   - csharp
   - vb
-  name: Init(NetickConfig, int)
-  nameWithType: Network.Init(NetickConfig, int)
-  fullName: Netick.Unity.Network.Init(Netick.Unity.NetickConfig, int)
+  name: Init(NetickConfig)
+  nameWithType: Network.Init(NetickConfig)
+  fullName: Netick.Unity.Network.Init(Netick.Unity.NetickConfig)
   type: Method
   assemblies:
   - Netick.Unity
@@ -217,17 +217,12 @@ items:
     <p>If you don't provide a <xref href="Netick.Unity.NetickConfig" data-throw-if-not-resolved="false"></xref>, Netick will use the default config, which can be modified/found in (Netick -&gt; Settings).</p>
   example: []
   syntax:
-    content: public static void Init(NetickConfig config = null, int sceneBuildIndex = -1)
+    content: public static void Init(NetickConfig config = null)
     parameters:
     - id: config
       type: Netick.Unity.NetickConfig
-    - id: sceneBuildIndex
-      type: System.Int32
-    content.vb: Public Shared Sub Init(config As NetickConfig = Nothing, sceneBuildIndex As Integer = -1)
+    content.vb: Public Shared Sub Init(config As NetickConfig = Nothing)
   overload: Netick.Unity.Network.Init*
-  nameWithType.vb: Network.Init(NetickConfig, Integer)
-  fullName.vb: Netick.Unity.Network.Init(Netick.Unity.NetickConfig, Integer)
-  name.vb: Init(NetickConfig, Integer)
 - uid: Netick.Unity.Network.Shutdown(System.Boolean)
   commentId: M:Netick.Unity.Network.Shutdown(System.Boolean)
   id: Shutdown(System.Boolean)
@@ -242,7 +237,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: 'Shuts down Netick and destroys all clients. The shutdown will occur in the next frame. For immediate shutdown, use: <xref href="Netick.Unity.Network.ShutdownImmediately(System.Boolean)" data-throw-if-not-resolved="false"></xref>'
+  summary: 'Shuts down Netick and destroys all sandboxes. The shutdown will occur in the next frame. For immediate shutdown, use: <xref href="Netick.Unity.Network.ShutdownImmediately(System.Boolean)" data-throw-if-not-resolved="false"></xref>'
   example: []
   syntax:
     content: public static void Shutdown(bool destroyAllNetworkObjects = false)
@@ -268,7 +263,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Shuts down Netick and destroys all clients immediately.
+  summary: Shuts down Netick and destroys all sandboxes immediately.
   example: []
   syntax:
     content: public static void ShutdownImmediately(bool destroyAllNetworkObjects = false)
@@ -589,7 +584,6 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  example: []
   syntax:
     content: public static StartMode StartMode { get; }
     parameters: []
@@ -5193,21 +5187,10 @@ references:
 - uid: Netick.Unity.Network.Init*
   commentId: Overload:Netick.Unity.Network.Init
   isExternal: true
-  href: Netick.Unity.Network.html#Netick_Unity_Network_Init_Netick_Unity_NetickConfig_System_Int32_
+  href: Netick.Unity.Network.html#Netick_Unity_Network_Init_Netick_Unity_NetickConfig_
   name: Init
   nameWithType: Network.Init
   fullName: Netick.Unity.Network.Init
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: Netick.Unity.Network.ShutdownImmediately(System.Boolean)
   commentId: M:Netick.Unity.Network.ShutdownImmediately(System.Boolean)
   isExternal: true
@@ -5302,6 +5285,17 @@ references:
   name: NetworkTransportProvider
   nameWithType: NetworkTransportProvider
   fullName: Netick.Unity.NetworkTransportProvider
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: UnityEngine.GameObject
   commentId: T:UnityEngine.GameObject
   parent: UnityEngine

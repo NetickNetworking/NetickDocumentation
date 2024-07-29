@@ -11,6 +11,8 @@ items:
   - Netick.OnChangedData.GetArrayPreviousElementValue``1
   - Netick.OnChangedData.GetArrayPreviousElementValue``1(System.Int32)
   - Netick.OnChangedData.GetHashCode
+  - Netick.OnChangedData.GetPreviousNetworkDictionary``2(Netick.NetworkDictionary{``0,``1})
+  - Netick.OnChangedData.GetPreviousNetworkHashSet``1(Netick.NetworkHashSet{``0})
   - Netick.OnChangedData.GetPreviousNetworkLinkedList``1(Netick.NetworkLinkedList{``0})
   - Netick.OnChangedData.GetPreviousNetworkQueue``1(Netick.NetworkQueue{``0})
   - Netick.OnChangedData.GetPreviousNetworkStack``1(Netick.NetworkStack{``0})
@@ -37,6 +39,69 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Netick.OnChangedData.GetPreviousNetworkDictionary``2(Netick.NetworkDictionary{``0,``1})
+  commentId: M:Netick.OnChangedData.GetPreviousNetworkDictionary``2(Netick.NetworkDictionary{``0,``1})
+  id: GetPreviousNetworkDictionary``2(Netick.NetworkDictionary{``0,``1})
+  parent: Netick.OnChangedData
+  langs:
+  - csharp
+  - vb
+  name: GetPreviousNetworkDictionary<TKey, TValue>(NetworkDictionary<TKey, TValue>)
+  nameWithType: OnChangedData.GetPreviousNetworkDictionary<TKey, TValue>(NetworkDictionary<TKey, TValue>)
+  fullName: Netick.OnChangedData.GetPreviousNetworkDictionary<TKey, TValue>(Netick.NetworkDictionary<TKey, TValue>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Gets a snapshot of the previous state of a NetworkDictionary collection.
+  example: []
+  syntax:
+    content: 'public NetworkDictionarySnapshot<TKey, TValue> GetPreviousNetworkDictionary<TKey, TValue>(NetworkDictionary<TKey, TValue> collection) where TKey : unmanaged where TValue : unmanaged'
+    parameters:
+    - id: collection
+      type: Netick.NetworkDictionary{{TKey},{TValue}}
+    typeParameters:
+    - id: TKey
+    - id: TValue
+    return:
+      type: Netick.NetworkDictionarySnapshot{{TKey},{TValue}}
+      description: ''
+    content.vb: Public Function GetPreviousNetworkDictionary(Of TKey As Structure, TValue As Structure)(collection As NetworkDictionary(Of TKey, TValue)) As NetworkDictionarySnapshot(Of TKey, TValue)
+  overload: Netick.OnChangedData.GetPreviousNetworkDictionary*
+  nameWithType.vb: OnChangedData.GetPreviousNetworkDictionary(Of TKey, TValue)(NetworkDictionary(Of TKey, TValue))
+  fullName.vb: Netick.OnChangedData.GetPreviousNetworkDictionary(Of TKey, TValue)(Netick.NetworkDictionary(Of TKey, TValue))
+  name.vb: GetPreviousNetworkDictionary(Of TKey, TValue)(NetworkDictionary(Of TKey, TValue))
+- uid: Netick.OnChangedData.GetPreviousNetworkHashSet``1(Netick.NetworkHashSet{``0})
+  commentId: M:Netick.OnChangedData.GetPreviousNetworkHashSet``1(Netick.NetworkHashSet{``0})
+  id: GetPreviousNetworkHashSet``1(Netick.NetworkHashSet{``0})
+  parent: Netick.OnChangedData
+  langs:
+  - csharp
+  - vb
+  name: GetPreviousNetworkHashSet<T>(NetworkHashSet<T>)
+  nameWithType: OnChangedData.GetPreviousNetworkHashSet<T>(NetworkHashSet<T>)
+  fullName: Netick.OnChangedData.GetPreviousNetworkHashSet<T>(Netick.NetworkHashSet<T>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Gets a snapshot of the previous state of a NetworkHashSet collection.
+  example: []
+  syntax:
+    content: 'public NetworkHashSetSnapshot<T> GetPreviousNetworkHashSet<T>(NetworkHashSet<T> collection) where T : unmanaged'
+    parameters:
+    - id: collection
+      type: Netick.NetworkHashSet{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: Netick.NetworkHashSetSnapshot{{T}}
+      description: ''
+    content.vb: Public Function GetPreviousNetworkHashSet(Of T As Structure)(collection As NetworkHashSet(Of T)) As NetworkHashSetSnapshot(Of T)
+  overload: Netick.OnChangedData.GetPreviousNetworkHashSet*
+  nameWithType.vb: OnChangedData.GetPreviousNetworkHashSet(Of T)(NetworkHashSet(Of T))
+  fullName.vb: Netick.OnChangedData.GetPreviousNetworkHashSet(Of T)(Netick.NetworkHashSet(Of T))
+  name.vb: GetPreviousNetworkHashSet(Of T)(NetworkHashSet(Of T))
 - uid: Netick.OnChangedData.GetPreviousNetworkLinkedList``1(Netick.NetworkLinkedList{``0})
   commentId: M:Netick.OnChangedData.GetPreviousNetworkLinkedList``1(Netick.NetworkLinkedList{``0})
   id: GetPreviousNetworkLinkedList``1(Netick.NetworkLinkedList{``0})
@@ -54,16 +119,16 @@ items:
   summary: Gets a snapshot of the previous state of a NetworkLinkedList collection.
   example: []
   syntax:
-    content: 'public NetworkLinkedListSnapshot<T> GetPreviousNetworkLinkedList<T>(NetworkLinkedList<T> networkLinkedList) where T : unmanaged'
+    content: 'public NetworkLinkedListSnapshot<T> GetPreviousNetworkLinkedList<T>(NetworkLinkedList<T> collection) where T : unmanaged'
     parameters:
-    - id: networkLinkedList
+    - id: collection
       type: Netick.NetworkLinkedList{{T}}
     typeParameters:
     - id: T
     return:
       type: Netick.NetworkLinkedListSnapshot{{T}}
       description: ''
-    content.vb: Public Function GetPreviousNetworkLinkedList(Of T As Structure)(networkLinkedList As NetworkLinkedList(Of T)) As NetworkLinkedListSnapshot(Of T)
+    content.vb: Public Function GetPreviousNetworkLinkedList(Of T As Structure)(collection As NetworkLinkedList(Of T)) As NetworkLinkedListSnapshot(Of T)
   overload: Netick.OnChangedData.GetPreviousNetworkLinkedList*
   nameWithType.vb: OnChangedData.GetPreviousNetworkLinkedList(Of T)(NetworkLinkedList(Of T))
   fullName.vb: Netick.OnChangedData.GetPreviousNetworkLinkedList(Of T)(Netick.NetworkLinkedList(Of T))
@@ -85,16 +150,16 @@ items:
   summary: Gets a snapshot of the previous state of a NetworkQueue collection.
   example: []
   syntax:
-    content: 'public NetworkQueueSnapshot<T> GetPreviousNetworkQueue<T>(NetworkQueue<T> networkQueue) where T : unmanaged'
+    content: 'public NetworkQueueSnapshot<T> GetPreviousNetworkQueue<T>(NetworkQueue<T> collection) where T : unmanaged'
     parameters:
-    - id: networkQueue
+    - id: collection
       type: Netick.NetworkQueue{{T}}
     typeParameters:
     - id: T
     return:
       type: Netick.NetworkQueueSnapshot{{T}}
       description: ''
-    content.vb: Public Function GetPreviousNetworkQueue(Of T As Structure)(networkQueue As NetworkQueue(Of T)) As NetworkQueueSnapshot(Of T)
+    content.vb: Public Function GetPreviousNetworkQueue(Of T As Structure)(collection As NetworkQueue(Of T)) As NetworkQueueSnapshot(Of T)
   overload: Netick.OnChangedData.GetPreviousNetworkQueue*
   nameWithType.vb: OnChangedData.GetPreviousNetworkQueue(Of T)(NetworkQueue(Of T))
   fullName.vb: Netick.OnChangedData.GetPreviousNetworkQueue(Of T)(Netick.NetworkQueue(Of T))
@@ -116,16 +181,16 @@ items:
   summary: Gets a snapshot of the previous state of a NetworkStack collection.
   example: []
   syntax:
-    content: 'public NetworkStackSnapshot<T> GetPreviousNetworkStack<T>(NetworkStack<T> networkStack) where T : unmanaged'
+    content: 'public NetworkStackSnapshot<T> GetPreviousNetworkStack<T>(NetworkStack<T> collection) where T : unmanaged'
     parameters:
-    - id: networkStack
+    - id: collection
       type: Netick.NetworkStack{{T}}
     typeParameters:
     - id: T
     return:
       type: Netick.NetworkStackSnapshot{{T}}
       description: ''
-    content.vb: Public Function GetPreviousNetworkStack(Of T As Structure)(networkStack As NetworkStack(Of T)) As NetworkStackSnapshot(Of T)
+    content.vb: Public Function GetPreviousNetworkStack(Of T As Structure)(collection As NetworkStack(Of T)) As NetworkStackSnapshot(Of T)
   overload: Netick.OnChangedData.GetPreviousNetworkStack*
   nameWithType.vb: OnChangedData.GetPreviousNetworkStack(Of T)(NetworkStack(Of T))
   fullName.vb: Netick.OnChangedData.GetPreviousNetworkStack(Of T)(Netick.NetworkStack(Of T))
@@ -600,6 +665,272 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: Netick.OnChangedData.GetPreviousNetworkDictionary*
+  commentId: Overload:Netick.OnChangedData.GetPreviousNetworkDictionary
+  isExternal: true
+  href: Netick.OnChangedData.html#Netick_OnChangedData_GetPreviousNetworkDictionary__2_Netick_NetworkDictionary___0___1__
+  name: GetPreviousNetworkDictionary
+  nameWithType: OnChangedData.GetPreviousNetworkDictionary
+  fullName: Netick.OnChangedData.GetPreviousNetworkDictionary
+- uid: Netick.NetworkDictionary{{TKey},{TValue}}
+  commentId: T:Netick.NetworkDictionary{``0,``1}
+  parent: Netick
+  definition: Netick.NetworkDictionary`2
+  href: Netick.NetworkDictionary-2.html
+  name: NetworkDictionary<TKey, TValue>
+  nameWithType: NetworkDictionary<TKey, TValue>
+  fullName: Netick.NetworkDictionary<TKey, TValue>
+  nameWithType.vb: NetworkDictionary(Of TKey, TValue)
+  fullName.vb: Netick.NetworkDictionary(Of TKey, TValue)
+  name.vb: NetworkDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: Netick.NetworkDictionary`2
+    name: NetworkDictionary
+    isExternal: true
+    href: Netick.NetworkDictionary-2.html
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkDictionary`2
+    name: NetworkDictionary
+    isExternal: true
+    href: Netick.NetworkDictionary-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Netick.NetworkDictionarySnapshot{{TKey},{TValue}}
+  commentId: T:Netick.NetworkDictionarySnapshot{``0,``1}
+  parent: Netick
+  definition: Netick.NetworkDictionarySnapshot`2
+  href: Netick.NetworkDictionarySnapshot-2.html
+  name: NetworkDictionarySnapshot<TKey, TValue>
+  nameWithType: NetworkDictionarySnapshot<TKey, TValue>
+  fullName: Netick.NetworkDictionarySnapshot<TKey, TValue>
+  nameWithType.vb: NetworkDictionarySnapshot(Of TKey, TValue)
+  fullName.vb: Netick.NetworkDictionarySnapshot(Of TKey, TValue)
+  name.vb: NetworkDictionarySnapshot(Of TKey, TValue)
+  spec.csharp:
+  - uid: Netick.NetworkDictionarySnapshot`2
+    name: NetworkDictionarySnapshot
+    isExternal: true
+    href: Netick.NetworkDictionarySnapshot-2.html
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkDictionarySnapshot`2
+    name: NetworkDictionarySnapshot
+    isExternal: true
+    href: Netick.NetworkDictionarySnapshot-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Netick.NetworkDictionary`2
+  commentId: T:Netick.NetworkDictionary`2
+  isExternal: true
+  href: Netick.NetworkDictionary-2.html
+  name: NetworkDictionary<TKey, TValue>
+  nameWithType: NetworkDictionary<TKey, TValue>
+  fullName: Netick.NetworkDictionary<TKey, TValue>
+  nameWithType.vb: NetworkDictionary(Of TKey, TValue)
+  fullName.vb: Netick.NetworkDictionary(Of TKey, TValue)
+  name.vb: NetworkDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: Netick.NetworkDictionary`2
+    name: NetworkDictionary
+    isExternal: true
+    href: Netick.NetworkDictionary-2.html
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkDictionary`2
+    name: NetworkDictionary
+    isExternal: true
+    href: Netick.NetworkDictionary-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Netick.NetworkDictionarySnapshot`2
+  commentId: T:Netick.NetworkDictionarySnapshot`2
+  isExternal: true
+  href: Netick.NetworkDictionarySnapshot-2.html
+  name: NetworkDictionarySnapshot<TKey, TValue>
+  nameWithType: NetworkDictionarySnapshot<TKey, TValue>
+  fullName: Netick.NetworkDictionarySnapshot<TKey, TValue>
+  nameWithType.vb: NetworkDictionarySnapshot(Of TKey, TValue)
+  fullName.vb: Netick.NetworkDictionarySnapshot(Of TKey, TValue)
+  name.vb: NetworkDictionarySnapshot(Of TKey, TValue)
+  spec.csharp:
+  - uid: Netick.NetworkDictionarySnapshot`2
+    name: NetworkDictionarySnapshot
+    isExternal: true
+    href: Netick.NetworkDictionarySnapshot-2.html
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkDictionarySnapshot`2
+    name: NetworkDictionarySnapshot
+    isExternal: true
+    href: Netick.NetworkDictionarySnapshot-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: Netick.OnChangedData.GetPreviousNetworkHashSet*
+  commentId: Overload:Netick.OnChangedData.GetPreviousNetworkHashSet
+  isExternal: true
+  href: Netick.OnChangedData.html#Netick_OnChangedData_GetPreviousNetworkHashSet__1_Netick_NetworkHashSet___0__
+  name: GetPreviousNetworkHashSet
+  nameWithType: OnChangedData.GetPreviousNetworkHashSet
+  fullName: Netick.OnChangedData.GetPreviousNetworkHashSet
+- uid: Netick.NetworkHashSet{{T}}
+  commentId: T:Netick.NetworkHashSet{``0}
+  parent: Netick
+  definition: Netick.NetworkHashSet`1
+  href: Netick.NetworkHashSet-1.html
+  name: NetworkHashSet<T>
+  nameWithType: NetworkHashSet<T>
+  fullName: Netick.NetworkHashSet<T>
+  nameWithType.vb: NetworkHashSet(Of T)
+  fullName.vb: Netick.NetworkHashSet(Of T)
+  name.vb: NetworkHashSet(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkHashSet`1
+    name: NetworkHashSet
+    isExternal: true
+    href: Netick.NetworkHashSet-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkHashSet`1
+    name: NetworkHashSet
+    isExternal: true
+    href: Netick.NetworkHashSet-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetworkHashSetSnapshot{{T}}
+  commentId: T:Netick.NetworkHashSetSnapshot{``0}
+  parent: Netick
+  definition: Netick.NetworkHashSetSnapshot`1
+  href: Netick.NetworkHashSetSnapshot-1.html
+  name: NetworkHashSetSnapshot<T>
+  nameWithType: NetworkHashSetSnapshot<T>
+  fullName: Netick.NetworkHashSetSnapshot<T>
+  nameWithType.vb: NetworkHashSetSnapshot(Of T)
+  fullName.vb: Netick.NetworkHashSetSnapshot(Of T)
+  name.vb: NetworkHashSetSnapshot(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkHashSetSnapshot`1
+    name: NetworkHashSetSnapshot
+    isExternal: true
+    href: Netick.NetworkHashSetSnapshot-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkHashSetSnapshot`1
+    name: NetworkHashSetSnapshot
+    isExternal: true
+    href: Netick.NetworkHashSetSnapshot-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetworkHashSet`1
+  commentId: T:Netick.NetworkHashSet`1
+  isExternal: true
+  href: Netick.NetworkHashSet-1.html
+  name: NetworkHashSet<T>
+  nameWithType: NetworkHashSet<T>
+  fullName: Netick.NetworkHashSet<T>
+  nameWithType.vb: NetworkHashSet(Of T)
+  fullName.vb: Netick.NetworkHashSet(Of T)
+  name.vb: NetworkHashSet(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkHashSet`1
+    name: NetworkHashSet
+    isExternal: true
+    href: Netick.NetworkHashSet-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkHashSet`1
+    name: NetworkHashSet
+    isExternal: true
+    href: Netick.NetworkHashSet-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetworkHashSetSnapshot`1
+  commentId: T:Netick.NetworkHashSetSnapshot`1
+  isExternal: true
+  href: Netick.NetworkHashSetSnapshot-1.html
+  name: NetworkHashSetSnapshot<T>
+  nameWithType: NetworkHashSetSnapshot<T>
+  fullName: Netick.NetworkHashSetSnapshot<T>
+  nameWithType.vb: NetworkHashSetSnapshot(Of T)
+  fullName.vb: Netick.NetworkHashSetSnapshot(Of T)
+  name.vb: NetworkHashSetSnapshot(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkHashSetSnapshot`1
+    name: NetworkHashSetSnapshot
+    isExternal: true
+    href: Netick.NetworkHashSetSnapshot-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkHashSetSnapshot`1
+    name: NetworkHashSetSnapshot
+    isExternal: true
+    href: Netick.NetworkHashSetSnapshot-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick.OnChangedData.GetPreviousNetworkLinkedList*
   commentId: Overload:Netick.OnChangedData.GetPreviousNetworkLinkedList
   isExternal: true

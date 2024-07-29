@@ -11,7 +11,7 @@ items:
   - Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
   - Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
   - Netick.NetworkPeer.OutKBps
-  - Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
+  - Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
   - Netick.NetworkPeer.Transport
   langs:
   - csharp
@@ -69,28 +69,30 @@ items:
     return:
       type: Netick.NetworkTransport
     content.vb: Public ReadOnly Transport As NetworkTransport
-- uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
-  commentId: M:Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
-  id: Receive(Netick.TransportConnection,Netick.BitBuffer)
+- uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
+  commentId: M:Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
+  id: Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
   parent: Netick.NetworkPeer
   langs:
   - csharp
   - vb
-  name: Receive(TransportConnection, BitBuffer)
-  nameWithType: NetworkPeer.Receive(TransportConnection, BitBuffer)
-  fullName: Netick.NetworkPeer.Receive(Netick.TransportConnection, Netick.BitBuffer)
+  name: Receive(TransportConnection, BitBuffer, TransportDeliveryMethod)
+  nameWithType: NetworkPeer.Receive(TransportConnection, BitBuffer, TransportDeliveryMethod)
+  fullName: Netick.NetworkPeer.Receive(Netick.TransportConnection, Netick.BitBuffer, Netick.TransportDeliveryMethod)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public abstract void Receive(TransportConnection connection, BitBuffer reader)
+    content: public abstract void Receive(TransportConnection connection, BitBuffer reader, TransportDeliveryMethod transportDeliveryMethod = TransportDeliveryMethod.Unreliable)
     parameters:
     - id: connection
       type: Netick.TransportConnection
     - id: reader
       type: Netick.BitBuffer
-    content.vb: Public MustOverride Sub Receive(connection As TransportConnection, reader As BitBuffer)
+    - id: transportDeliveryMethod
+      type: Netick.TransportDeliveryMethod
+    content.vb: Public MustOverride Sub Receive(connection As TransportConnection, reader As BitBuffer, transportDeliveryMethod As TransportDeliveryMethod = TransportDeliveryMethod.Unreliable)
   overload: Netick.NetworkPeer.Receive*
 - uid: Netick.NetworkPeer.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
   commentId: M:Netick.NetworkPeer.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
@@ -642,7 +644,7 @@ references:
 - uid: Netick.NetworkPeer.Receive*
   commentId: Overload:Netick.NetworkPeer.Receive
   isExternal: true
-  href: Netick.NetworkPeer.html#Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_Netick_TransportDeliveryMethod_
   name: Receive
   nameWithType: NetworkPeer.Receive
   fullName: Netick.NetworkPeer.Receive
@@ -662,6 +664,14 @@ references:
   name: BitBuffer
   nameWithType: BitBuffer
   fullName: Netick.BitBuffer
+- uid: Netick.TransportDeliveryMethod
+  commentId: T:Netick.TransportDeliveryMethod
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportDeliveryMethod.html
+  name: TransportDeliveryMethod
+  nameWithType: TransportDeliveryMethod
+  fullName: Netick.TransportDeliveryMethod
 - uid: Netick.NetworkPeer.OnConnectRequest*
   commentId: Overload:Netick.NetworkPeer.OnConnectRequest
   isExternal: true

@@ -6,23 +6,24 @@ items:
   parent: Netick.Unity
   children:
   - Netick.Unity.NetickConfig.#ctor
-  - Netick.Unity.NetickConfig.AllocatorMetaBlockSize
-  - Netick.Unity.NetickConfig.AllocatorStateBlockSize
   - Netick.Unity.NetickConfig.Assemblies
   - Netick.Unity.NetickConfig.CellSize
   - Netick.Unity.NetickConfig.ClientDivisor
+  - Netick.Unity.NetickConfig.ClientSimulatedLossOut
+  - Netick.Unity.NetickConfig.CustomGroupCount
   - Netick.Unity.NetickConfig.EnableInterestManagement
   - Netick.Unity.NetickConfig.EnableLagCompensation
   - Netick.Unity.NetickConfig.EnableLogging
   - Netick.Unity.NetickConfig.GetMaxPlayers
-  - Netick.Unity.NetickConfig.InterestGroupCount
   - Netick.Unity.NetickConfig.InvokeRenderInHeadless
   - Netick.Unity.NetickConfig.InvokeUpdate
-  - Netick.Unity.NetickConfig.LAN_DISCOVERY
-  - Netick.Unity.NetickConfig.LAN_DISCOVERY_RESPONSE
   - Netick.Unity.NetickConfig.LagCompensationDebug
+  - Netick.Unity.NetickConfig.MaxAdditiveScenes
+  - Netick.Unity.NetickConfig.MaxObjects
+  - Netick.Unity.NetickConfig.MaxPlayers
   - Netick.Unity.NetickConfig.MaxPredictedTicks
   - Netick.Unity.NetickConfig.MaxSendableDataSize
+  - Netick.Unity.NetickConfig.MetaAllocatorBlockSize
   - Netick.Unity.NetickConfig.PhysicsPrediction
   - Netick.Unity.NetickConfig.PhysicsType
   - Netick.Unity.NetickConfig.ReceiveBufferSize
@@ -30,10 +31,9 @@ items:
   - Netick.Unity.NetickConfig.RenderWorldGrid
   - Netick.Unity.NetickConfig.SendBufferSize
   - Netick.Unity.NetickConfig.ServerDivisor
-  - Netick.Unity.NetickConfig.SimClientLoss
-  - Netick.Unity.NetickConfig.SimServerLoss
+  - Netick.Unity.NetickConfig.ServerSimulatedLossOut
   - Netick.Unity.NetickConfig.SimulationCulling
-  - Netick.Unity.NetickConfig.TickPeriod
+  - Netick.Unity.NetickConfig.StateAllocatorBlockSize
   - Netick.Unity.NetickConfig.TickRate
   - Netick.Unity.NetickConfig.Timeout
   - Netick.Unity.NetickConfig.UseSceneSwitchThread
@@ -159,7 +159,7 @@ items:
     content: >-
       [HideInInspector]
 
-      [Range(1, 240)]
+      [Range(2, 240)]
 
       [Tooltip("Network simulation rate [ticks per second]. Overrides <b>Time.fixedDeltaTime</b> when starting Netick. Must not be changed at runtime. Default: 33")]
 
@@ -169,7 +169,7 @@ items:
     content.vb: >-
       <HideInInspector>
 
-      <Range(1, 240)>
+      <Range(2, 240)>
 
       <Tooltip("Network simulation rate [ticks per second]. Overrides <b>Time.fixedDeltaTime</b> when starting Netick. Must not be changed at runtime. Default: 33")>
 
@@ -182,7 +182,7 @@ items:
     ctor: UnityEngine.RangeAttribute.#ctor(System.Single,System.Single)
     arguments:
     - type: System.Single
-      value: 1
+      value: 2
     - type: System.Single
       value: 240
   - type: UnityEngine.TooltipAttribute
@@ -190,6 +190,93 @@ items:
     arguments:
     - type: System.String
       value: 'Network simulation rate [ticks per second]. Overrides <b>Time.fixedDeltaTime</b> when starting Netick. Must not be changed at runtime. Default: 33'
+- uid: Netick.Unity.NetickConfig.MaxPlayers
+  commentId: F:Netick.Unity.NetickConfig.MaxPlayers
+  id: MaxPlayers
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: MaxPlayers
+  nameWithType: NetickConfig.MaxPlayers
+  fullName: Netick.Unity.NetickConfig.MaxPlayers
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [Tooltip("Max number of players that can connect at one time to the server. Lower is always more performant, even if not that many clients are connected, so don't use an arbitrarily large number.")]
+
+      [SerializeField]
+
+      [Range(1, 16384)]
+
+      public int MaxPlayers
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Tooltip("Max number of players that can connect at one time to the server. Lower is always more performant, even if not that many clients are connected, so don't use an arbitrarily large number.")>
+
+      <SerializeField>
+
+      <Range(1, 16384)>
+
+      Public MaxPlayers As Integer
+  attributes:
+  - type: UnityEngine.TooltipAttribute
+    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Max number of players that can connect at one time to the server. Lower is always more performant, even if not that many clients are connected, so don't use an arbitrarily large number.
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+  - type: UnityEngine.RangeAttribute
+    ctor: UnityEngine.RangeAttribute.#ctor(System.Single,System.Single)
+    arguments:
+    - type: System.Single
+      value: 1
+    - type: System.Single
+      value: 16384
+- uid: Netick.Unity.NetickConfig.MaxObjects
+  commentId: F:Netick.Unity.NetickConfig.MaxObjects
+  id: MaxObjects
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: MaxObjects
+  nameWithType: NetickConfig.MaxObjects
+  fullName: Netick.Unity.NetickConfig.MaxObjects
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [Tooltip("Max number of network objects that can exist at one time in the game. This must not be exceeded at runtime, or Netick will shutdown.")]
+
+      [SerializeField]
+
+      public int MaxObjects
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Tooltip("Max number of network objects that can exist at one time in the game. This must not be exceeded at runtime, or Netick will shutdown.")>
+
+      <SerializeField>
+
+      Public MaxObjects As Integer
+  attributes:
+  - type: UnityEngine.TooltipAttribute
+    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Max number of network objects that can exist at one time in the game. This must not be exceeded at runtime, or Netick will shutdown.
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: Netick.Unity.NetickConfig.MaxSendableDataSize
   commentId: F:Netick.Unity.NetickConfig.MaxSendableDataSize
   id: MaxSendableDataSize
@@ -206,7 +293,7 @@ items:
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Max data size [bytes] that can be sent to a peer in a single tick. Default: 50000")]
+      [Tooltip("Max data size [bytes] that can be sent to a peer in a single tick. Default: 50000 bytes")]
 
       [SerializeField]
 
@@ -214,7 +301,7 @@ items:
     return:
       type: System.Int32
     content.vb: >-
-      <Tooltip("Max data size [bytes] that can be sent to a peer in a single tick. Default: 50000")>
+      <Tooltip("Max data size [bytes] that can be sent to a peer in a single tick. Default: 50000 bytes")>
 
       <SerializeField>
 
@@ -224,86 +311,104 @@ items:
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: 'Max data size [bytes] that can be sent to a peer in a single tick. Default: 50000'
+      value: 'Max data size [bytes] that can be sent to a peer in a single tick. Default: 50000 bytes'
   - type: UnityEngine.SerializeField
     ctor: UnityEngine.SerializeField.#ctor
     arguments: []
-- uid: Netick.Unity.NetickConfig.AllocatorStateBlockSize
-  commentId: F:Netick.Unity.NetickConfig.AllocatorStateBlockSize
-  id: AllocatorStateBlockSize
+- uid: Netick.Unity.NetickConfig.StateAllocatorBlockSize
+  commentId: F:Netick.Unity.NetickConfig.StateAllocatorBlockSize
+  id: StateAllocatorBlockSize
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: AllocatorStateBlockSize
-  nameWithType: NetickConfig.AllocatorStateBlockSize
-  fullName: Netick.Unity.NetickConfig.AllocatorStateBlockSize
+  name: StateAllocatorBlockSize
+  nameWithType: NetickConfig.StateAllocatorBlockSize
+  fullName: Netick.Unity.NetickConfig.StateAllocatorBlockSize
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Default: 131072")]
+      [Tooltip("Default: 131072 bytes")]
 
       [SerializeField]
 
-      public int AllocatorStateBlockSize
+      [FormerlySerializedAs("AllocatorStateBlockSize")]
+
+      public int StateAllocatorBlockSize
     return:
       type: System.Int32
     content.vb: >-
-      <Tooltip("Default: 131072")>
+      <Tooltip("Default: 131072 bytes")>
 
       <SerializeField>
 
-      Public AllocatorStateBlockSize As Integer
+      <FormerlySerializedAs("AllocatorStateBlockSize")>
+
+      Public StateAllocatorBlockSize As Integer
   attributes:
   - type: UnityEngine.TooltipAttribute
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: 'Default: 131072'
+      value: 'Default: 131072 bytes'
   - type: UnityEngine.SerializeField
     ctor: UnityEngine.SerializeField.#ctor
     arguments: []
-- uid: Netick.Unity.NetickConfig.AllocatorMetaBlockSize
-  commentId: F:Netick.Unity.NetickConfig.AllocatorMetaBlockSize
-  id: AllocatorMetaBlockSize
+  - type: UnityEngine.Serialization.FormerlySerializedAsAttribute
+    ctor: UnityEngine.Serialization.FormerlySerializedAsAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AllocatorStateBlockSize
+- uid: Netick.Unity.NetickConfig.MetaAllocatorBlockSize
+  commentId: F:Netick.Unity.NetickConfig.MetaAllocatorBlockSize
+  id: MetaAllocatorBlockSize
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: AllocatorMetaBlockSize
-  nameWithType: NetickConfig.AllocatorMetaBlockSize
-  fullName: Netick.Unity.NetickConfig.AllocatorMetaBlockSize
+  name: MetaAllocatorBlockSize
+  nameWithType: NetickConfig.MetaAllocatorBlockSize
+  fullName: Netick.Unity.NetickConfig.MetaAllocatorBlockSize
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Default: 1048576")]
+      [Tooltip("Default: 1048576 bytes")]
 
       [SerializeField]
 
-      public int AllocatorMetaBlockSize
+      [FormerlySerializedAs("AllocatorMetaBlockSize")]
+
+      public int MetaAllocatorBlockSize
     return:
       type: System.Int32
     content.vb: >-
-      <Tooltip("Default: 1048576")>
+      <Tooltip("Default: 1048576 bytes")>
 
       <SerializeField>
 
-      Public AllocatorMetaBlockSize As Integer
+      <FormerlySerializedAs("AllocatorMetaBlockSize")>
+
+      Public MetaAllocatorBlockSize As Integer
   attributes:
   - type: UnityEngine.TooltipAttribute
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: 'Default: 1048576'
+      value: 'Default: 1048576 bytes'
   - type: UnityEngine.SerializeField
     ctor: UnityEngine.SerializeField.#ctor
     arguments: []
+  - type: UnityEngine.Serialization.FormerlySerializedAsAttribute
+    ctor: UnityEngine.Serialization.FormerlySerializedAsAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: AllocatorMetaBlockSize
 - uid: Netick.Unity.NetickConfig.ReceiveBufferSize
   commentId: F:Netick.Unity.NetickConfig.ReceiveBufferSize
   id: ReceiveBufferSize
@@ -688,6 +793,44 @@ items:
     arguments:
     - type: System.String
       value: 'Choose the place where Network Render will be invoked. Update means it will be invoked after all Netick NetworkUpdate callbacks, but before any of Unity LateUpdate callbacks. LateUpdate means it will be invoked after all Unity Update callbacks and all Netick NetworkUpdate callbacks. '
+- uid: Netick.Unity.NetickConfig.MaxAdditiveScenes
+  commentId: F:Netick.Unity.NetickConfig.MaxAdditiveScenes
+  id: MaxAdditiveScenes
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: MaxAdditiveScenes
+  nameWithType: NetickConfig.MaxAdditiveScenes
+  fullName: Netick.Unity.NetickConfig.MaxAdditiveScenes
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [Tooltip("Max number of additive scenes you can have loaded at once.")]
+
+      [SerializeField]
+
+      public int MaxAdditiveScenes
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Tooltip("Max number of additive scenes you can have loaded at once.")>
+
+      <SerializeField>
+
+      Public MaxAdditiveScenes As Integer
+  attributes:
+  - type: UnityEngine.TooltipAttribute
+    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Max number of additive scenes you can have loaded at once.
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
 - uid: Netick.Unity.NetickConfig.EnableLogging
   commentId: F:Netick.Unity.NetickConfig.EnableLogging
   id: EnableLogging
@@ -719,16 +862,16 @@ items:
     arguments:
     - type: System.String
       value: Disable this before doing a production build because you don't want Netick to log to the console.
-- uid: Netick.Unity.NetickConfig.SimServerLoss
-  commentId: F:Netick.Unity.NetickConfig.SimServerLoss
-  id: SimServerLoss
+- uid: Netick.Unity.NetickConfig.ServerSimulatedLossOut
+  commentId: F:Netick.Unity.NetickConfig.ServerSimulatedLossOut
+  id: ServerSimulatedLossOut
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: SimServerLoss
-  nameWithType: NetickConfig.SimServerLoss
-  fullName: Netick.Unity.NetickConfig.SimServerLoss
+  name: ServerSimulatedLossOut
+  nameWithType: NetickConfig.ServerSimulatedLossOut
+  fullName: Netick.Unity.NetickConfig.ServerSimulatedLossOut
   type: Field
   assemblies:
   - Netick.Unity
@@ -739,7 +882,7 @@ items:
 
       [HideInInspector]
 
-      public float SimServerLoss
+      public float ServerSimulatedLossOut
     return:
       type: System.Single
     content.vb: >-
@@ -747,7 +890,7 @@ items:
 
       <HideInInspector>
 
-      Public SimServerLoss As Single
+      Public ServerSimulatedLossOut As Single
   attributes:
   - type: UnityEngine.TooltipAttribute
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
@@ -757,16 +900,16 @@ items:
   - type: UnityEngine.HideInInspector
     ctor: UnityEngine.HideInInspector.#ctor
     arguments: []
-- uid: Netick.Unity.NetickConfig.SimClientLoss
-  commentId: F:Netick.Unity.NetickConfig.SimClientLoss
-  id: SimClientLoss
+- uid: Netick.Unity.NetickConfig.ClientSimulatedLossOut
+  commentId: F:Netick.Unity.NetickConfig.ClientSimulatedLossOut
+  id: ClientSimulatedLossOut
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: SimClientLoss
-  nameWithType: NetickConfig.SimClientLoss
-  fullName: Netick.Unity.NetickConfig.SimClientLoss
+  name: ClientSimulatedLossOut
+  nameWithType: NetickConfig.ClientSimulatedLossOut
+  fullName: Netick.Unity.NetickConfig.ClientSimulatedLossOut
   type: Field
   assemblies:
   - Netick.Unity
@@ -777,7 +920,7 @@ items:
 
       [HideInInspector]
 
-      public float SimClientLoss
+      public float ClientSimulatedLossOut
     return:
       type: System.Single
     content.vb: >-
@@ -785,7 +928,7 @@ items:
 
       <HideInInspector>
 
-      Public SimClientLoss As Single
+      Public ClientSimulatedLossOut As Single
   attributes:
   - type: UnityEngine.TooltipAttribute
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
@@ -862,16 +1005,16 @@ items:
   - type: UnityEngine.HideInInspector
     ctor: UnityEngine.HideInInspector.#ctor
     arguments: []
-- uid: Netick.Unity.NetickConfig.InterestGroupCount
-  commentId: F:Netick.Unity.NetickConfig.InterestGroupCount
-  id: InterestGroupCount
+- uid: Netick.Unity.NetickConfig.CustomGroupCount
+  commentId: F:Netick.Unity.NetickConfig.CustomGroupCount
+  id: CustomGroupCount
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: InterestGroupCount
-  nameWithType: NetickConfig.InterestGroupCount
-  fullName: Netick.Unity.NetickConfig.InterestGroupCount
+  name: CustomGroupCount
+  nameWithType: NetickConfig.CustomGroupCount
+  fullName: Netick.Unity.NetickConfig.CustomGroupCount
   type: Field
   assemblies:
   - Netick.Unity
@@ -880,17 +1023,17 @@ items:
     content: >-
       [HideInInspector]
 
-      [Tooltip("Count of interest groups.")]
+      [Tooltip("Count of custom interest groups.")]
 
-      public int InterestGroupCount
+      public int CustomGroupCount
     return:
       type: System.Int32
     content.vb: >-
       <HideInInspector>
 
-      <Tooltip("Count of interest groups.")>
+      <Tooltip("Count of custom interest groups.")>
 
-      Public InterestGroupCount As Integer
+      Public CustomGroupCount As Integer
   attributes:
   - type: UnityEngine.HideInInspector
     ctor: UnityEngine.HideInInspector.#ctor
@@ -899,7 +1042,7 @@ items:
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: Count of interest groups.
+      value: Count of custom interest groups.
 - uid: Netick.Unity.NetickConfig.SimulationCulling
   commentId: F:Netick.Unity.NetickConfig.SimulationCulling
   id: SimulationCulling
@@ -1076,44 +1219,6 @@ items:
   - type: UnityEngine.HideInInspector
     ctor: UnityEngine.HideInInspector.#ctor
     arguments: []
-- uid: Netick.Unity.NetickConfig.LAN_DISCOVERY
-  commentId: F:Netick.Unity.NetickConfig.LAN_DISCOVERY
-  id: LAN_DISCOVERY
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: LAN_DISCOVERY
-  nameWithType: NetickConfig.LAN_DISCOVERY
-  fullName: Netick.Unity.NetickConfig.LAN_DISCOVERY
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public const ulong LAN_DISCOVERY = 17392885680301928799
-    return:
-      type: System.UInt64
-    content.vb: Public Const LAN_DISCOVERY As ULong = 17392885680301928799
-- uid: Netick.Unity.NetickConfig.LAN_DISCOVERY_RESPONSE
-  commentId: F:Netick.Unity.NetickConfig.LAN_DISCOVERY_RESPONSE
-  id: LAN_DISCOVERY_RESPONSE
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: LAN_DISCOVERY_RESPONSE
-  nameWithType: NetickConfig.LAN_DISCOVERY_RESPONSE
-  fullName: Netick.Unity.NetickConfig.LAN_DISCOVERY_RESPONSE
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public const ulong LAN_DISCOVERY_RESPONSE = 1251984615806071114
-    return:
-      type: System.UInt64
-    content.vb: Public Const LAN_DISCOVERY_RESPONSE As ULong = 1251984615806071114
 - uid: Netick.Unity.NetickConfig.#ctor
   commentId: M:Netick.Unity.NetickConfig.#ctor
   id: '#ctor'
@@ -1135,39 +1240,6 @@ items:
   nameWithType.vb: NetickConfig.New()
   fullName.vb: Netick.Unity.NetickConfig.New()
   name.vb: New()
-- uid: Netick.Unity.NetickConfig.TickPeriod
-  commentId: P:Netick.Unity.NetickConfig.TickPeriod
-  id: TickPeriod
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: TickPeriod
-  nameWithType: NetickConfig.TickPeriod
-  fullName: Netick.Unity.NetickConfig.TickPeriod
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: >-
-      [Tooltip("Time period between network simulation steps. Same as UnityEngine.Time.fixedDeltaTime")]
-
-      public float TickPeriod { get; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: >-
-      <Tooltip("Time period between network simulation steps. Same as UnityEngine.Time.fixedDeltaTime")>
-
-      Public ReadOnly Property TickPeriod As Single
-  overload: Netick.Unity.NetickConfig.TickPeriod*
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Time period between network simulation steps. Same as UnityEngine.Time.fixedDeltaTime
 - uid: Netick.Unity.NetickConfig.GetMaxPlayers
   commentId: P:Netick.Unity.NetickConfig.GetMaxPlayers
   id: GetMaxPlayers
@@ -3470,17 +3542,6 @@ references:
   name: Vector3
   nameWithType: Vector3
   fullName: UnityEngine.Vector3
-- uid: System.UInt64
-  commentId: T:System.UInt64
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.uint64
-  name: ulong
-  nameWithType: ulong
-  fullName: ulong
-  nameWithType.vb: ULong
-  fullName.vb: ULong
-  name.vb: ULong
 - uid: Netick.Unity.NetickConfig.#ctor*
   commentId: Overload:Netick.Unity.NetickConfig.#ctor
   isExternal: true
@@ -3491,13 +3552,6 @@ references:
   nameWithType.vb: NetickConfig.New
   fullName.vb: Netick.Unity.NetickConfig.New
   name.vb: New
-- uid: Netick.Unity.NetickConfig.TickPeriod*
-  commentId: Overload:Netick.Unity.NetickConfig.TickPeriod
-  isExternal: true
-  href: Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_TickPeriod
-  name: TickPeriod
-  nameWithType: NetickConfig.TickPeriod
-  fullName: Netick.Unity.NetickConfig.TickPeriod
 - uid: Netick.Unity.NetickConfig.GetMaxPlayers*
   commentId: Overload:Netick.Unity.NetickConfig.GetMaxPlayers
   isExternal: true

@@ -6,10 +6,14 @@ items:
   parent: Netick.Unity.Pro
   children:
   - Netick.Unity.Pro.HitShape.#ctor
+  - Netick.Unity.Pro.HitShape.Center
   - Netick.Unity.Pro.HitShape.Container
   - Netick.Unity.Pro.HitShape.Index
   - Netick.Unity.Pro.HitShape.LagCompShape
+  - Netick.Unity.Pro.HitShape.Radius
   - Netick.Unity.Pro.HitShape.Sandbox
+  - Netick.Unity.Pro.HitShape.Shape
+  - Netick.Unity.Pro.HitShape.Size
   langs:
   - csharp
   - vb
@@ -158,6 +162,82 @@ items:
     arguments:
     - type: System.String
       value: Netick/HitShape
+- uid: Netick.Unity.Pro.HitShape.Shape
+  commentId: F:Netick.Unity.Pro.HitShape.Shape
+  id: Shape
+  parent: Netick.Unity.Pro.HitShape
+  langs:
+  - csharp
+  - vb
+  name: Shape
+  nameWithType: HitShape.Shape
+  fullName: Netick.Unity.Pro.HitShape.Shape
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public HitShapeType Shape
+    return:
+      type: Netick.Pro.HitShapeType
+    content.vb: Public Shape As HitShapeType
+- uid: Netick.Unity.Pro.HitShape.Center
+  commentId: F:Netick.Unity.Pro.HitShape.Center
+  id: Center
+  parent: Netick.Unity.Pro.HitShape
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: HitShape.Center
+  fullName: Netick.Unity.Pro.HitShape.Center
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public Vector3 Center
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Center As Vector3
+- uid: Netick.Unity.Pro.HitShape.Size
+  commentId: F:Netick.Unity.Pro.HitShape.Size
+  id: Size
+  parent: Netick.Unity.Pro.HitShape
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: HitShape.Size
+  fullName: Netick.Unity.Pro.HitShape.Size
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public Vector3 Size
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Size As Vector3
+- uid: Netick.Unity.Pro.HitShape.Radius
+  commentId: F:Netick.Unity.Pro.HitShape.Radius
+  id: Radius
+  parent: Netick.Unity.Pro.HitShape
+  langs:
+  - csharp
+  - vb
+  name: Radius
+  nameWithType: HitShape.Radius
+  fullName: Netick.Unity.Pro.HitShape.Radius
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public float Radius
+    return:
+      type: System.Single
+    content.vb: Public Radius As Single
 - uid: Netick.Unity.Pro.HitShape.#ctor
   commentId: M:Netick.Unity.Pro.HitShape.#ctor
   id: '#ctor'
@@ -4684,6 +4764,32 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
+- uid: Netick.Pro.HitShapeType
+  commentId: T:Netick.Pro.HitShapeType
+  parent: Netick.Pro
+  isExternal: true
+  href: Netick.Pro.HitShapeType.html
+  name: HitShapeType
+  nameWithType: HitShapeType
+  fullName: Netick.Pro.HitShapeType
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
 - uid: Netick.Unity.Pro.HitShape.#ctor*
   commentId: Overload:Netick.Unity.Pro.HitShape.#ctor
   isExternal: true

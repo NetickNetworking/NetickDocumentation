@@ -69,6 +69,8 @@ items:
     name: FixedSize8<T>
   - uid: Netick.FloatStats
     name: FloatStats
+  - uid: Netick.IClientSimulationCallbacks
+    name: IClientSimulationCallbacks
   - uid: Netick.IEndPoint
     name: IEndPoint
   - uid: Netick.IGameEngine
@@ -109,6 +111,8 @@ items:
     name: Interpolator
   - uid: Netick.LocalInterpolation
     name: LocalInterpolation
+  - uid: Netick.MemoryAllocation
+    name: MemoryAllocation
   - uid: Netick.Monitor
     name: Monitor
   - uid: Netick.NativeUDPSocket
@@ -147,8 +151,6 @@ items:
     name: NetickVector2Int
   - uid: Netick.NetickVector3Int
     name: NetickVector3Int
-  - uid: Netick.NetworkArrayMeta
-    name: NetworkArrayMeta
   - uid: Netick.NetworkArrayStruct16`1
     name: NetworkArrayStruct16<T>
   - uid: Netick.NetworkArrayStruct32`1
@@ -165,10 +167,24 @@ items:
     name: NetworkBoolExt
   - uid: Netick.NetworkChannel
     name: NetworkChannel
+  - uid: Netick.NetworkCollectionMeta
+    name: NetworkCollectionMeta
   - uid: Netick.NetworkConnection
     name: NetworkConnection
   - uid: Netick.NetworkConnectionRequest
     name: NetworkConnectionRequest
+  - uid: Netick.NetworkDictionary
+    name: NetworkDictionary
+  - uid: Netick.NetworkDictionarySnapshot`2
+    name: NetworkDictionarySnapshot<TKey, TValue>
+  - uid: Netick.NetworkDictionary`2
+    name: NetworkDictionary<TKey, TValue>
+  - uid: Netick.NetworkHashSet
+    name: NetworkHashSet
+  - uid: Netick.NetworkHashSetSnapshot`1
+    name: NetworkHashSetSnapshot<T>
+  - uid: Netick.NetworkHashSet`1
+    name: NetworkHashSet<T>
   - uid: Netick.NetworkLinkedList
     name: NetworkLinkedList
   - uid: Netick.NetworkLinkedListSnapshot`1
@@ -209,6 +225,12 @@ items:
     name: NetworkTimer
   - uid: Netick.NetworkTransport
     name: NetworkTransport
+  - uid: Netick.NetworkUnorderedList
+    name: NetworkUnorderedList
+  - uid: Netick.NetworkUnorderedListSnapshot`1
+    name: NetworkUnorderedListSnapshot<T>
+  - uid: Netick.NetworkUnorderedList`1
+    name: NetworkUnorderedList<T>
   - uid: Netick.Networked
     name: Networked
   - uid: Netick.NotClientException
@@ -233,8 +255,6 @@ items:
     name: OnPeerConnected
   - uid: Netick.OnPeerDisconnected
     name: OnPeerDisconnected
-  - uid: Netick.PredictionErrorSmootherVector3
-    name: PredictionErrorSmootherVector3
   - uid: Netick.ReflectionData
     name: ReflectionData
   - uid: Netick.Relevancy
@@ -271,11 +291,15 @@ items:
     name: Tick
   - uid: Netick.TransportConnection
     name: TransportConnection
+  - uid: Netick.TransportDeliveryMethod
+    name: TransportDeliveryMethod
   - uid: Netick.TransportDisconnectReason
     name: TransportDisconnectReason
 - uid: Netick.Pro
   name: Netick.Pro
   items:
+  - uid: Netick.Pro.HitShapeState
+    name: HitShapeState
   - uid: Netick.Pro.HitShapeType
     name: HitShapeType
   - uid: Netick.Pro.IHitShape
@@ -292,8 +316,6 @@ items:
     name: NetHit
   - uid: Netick.Pro.NetHitType
     name: NetHitType
-  - uid: Netick.Pro.NetickProHelper
-    name: NetickProHelper
   - uid: Netick.Pro.NetickRay
     name: NetickRay
 - uid: Netick.Unity
@@ -387,10 +409,10 @@ items:
     name: NetworkRigidbody2D
   - uid: Netick.Unity.NetworkSandbox
     name: NetworkSandbox
-  - uid: Netick.Unity.NetworkScene
-    name: NetworkScene
   - uid: Netick.Unity.NetworkSceneManager
     name: NetworkSceneManager
+  - uid: Netick.Unity.NetworkSceneOperation
+    name: NetworkSceneOperation
   - uid: Netick.Unity.NetworkTimerExt
     name: NetworkTimerExt
   - uid: Netick.Unity.NetworkTransform
@@ -411,6 +433,8 @@ items:
     name: OnConnectRequestDelegate
   - uid: Netick.Unity.OnConnectedToServerDelegate
     name: OnConnectedToServerDelegate
+  - uid: Netick.Unity.OnDataReceivedDelegate
+    name: OnDataReceivedDelegate
   - uid: Netick.Unity.OnDisconnectedFromServerDelegate
     name: OnDisconnectedFromServerDelegate
   - uid: Netick.Unity.OnEntityDestroyedDelegate
@@ -431,18 +455,22 @@ items:
     name: OnSceneLoadStartedDelegate
   - uid: Netick.Unity.OnSceneLoadedDelegate
     name: OnSceneLoadedDelegate
+  - uid: Netick.Unity.OnSceneOperationDelegate
+    name: OnSceneOperationDelegate
   - uid: Netick.Unity.OnShutdownDelegate
     name: OnShutdownDelegate
   - uid: Netick.Unity.OnStartupDelegate
     name: OnStartupDelegate
+  - uid: Netick.Unity.OnVisibilityChangedDelegate
+    name: OnVisibilityChangedDelegate
   - uid: Netick.Unity.PhysicsSimulationStep
     name: PhysicsSimulationStep
   - uid: Netick.Unity.PhysicsType
     name: PhysicsType
   - uid: Netick.Unity.ProfilerIMGUI
     name: ProfilerIMGUI
-  - uid: Netick.Unity.ResetOnSceneSwitch
-    name: ResetOnSceneSwitch
+  - uid: Netick.Unity.QuaternionErrorCorrector
+    name: QuaternionErrorCorrector
   - uid: Netick.Unity.SingleInstanceEnforcer
     name: SingleInstanceEnforcer
   - uid: Netick.Unity.StartMode
@@ -453,8 +481,12 @@ items:
     name: TrackedRigidbody3D
   - uid: Netick.Unity.TrackedRigidbodyBase
     name: TrackedRigidbodyBase
+  - uid: Netick.Unity.TransformErrorCorrector
+    name: TransformErrorCorrector
   - uid: Netick.Unity.TransformSpace
     name: TransformSpace
+  - uid: Netick.Unity.Vector3ErrorCorrector
+    name: Vector3ErrorCorrector
 - uid: Netick.Unity.Pro
   name: Netick.Unity.Pro
   items:

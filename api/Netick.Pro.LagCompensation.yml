@@ -8,9 +8,15 @@ items:
   - Netick.Pro.LagCompensation.#ctor
   - Netick.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
   - Netick.Pro.LagCompensation.Compensate
+  - Netick.Pro.LagCompensation.Epsilon
   - Netick.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Pro.LagCompShape,Netick.NetworkPlayer,System.Numerics.Vector3@,System.Numerics.Quaternion@)
+  - Netick.Pro.LagCompensation.FloatEqualsApproximately(System.Single,System.Single)
+  - Netick.Pro.LagCompensation.FloatMinDenormal
+  - Netick.Pro.LagCompensation.FloatMinNormal
+  - Netick.Pro.LagCompensation.IsFlushToZeroEnabled
   - Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean)
   - Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean)
+  - Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
   langs:
   - csharp
   - vb
@@ -54,6 +60,82 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Compensate As Boolean
+- uid: Netick.Pro.LagCompensation.FloatMinNormal
+  commentId: F:Netick.Pro.LagCompensation.FloatMinNormal
+  id: FloatMinNormal
+  parent: Netick.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: FloatMinNormal
+  nameWithType: LagCompensation.FloatMinNormal
+  fullName: Netick.Pro.LagCompensation.FloatMinNormal
+  type: Field
+  assemblies:
+  - Netick.Pro
+  namespace: Netick.Pro
+  syntax:
+    content: public static volatile float FloatMinNormal
+    return:
+      type: System.Single
+    content.vb: Public Shared FloatMinNormal As Single
+- uid: Netick.Pro.LagCompensation.FloatMinDenormal
+  commentId: F:Netick.Pro.LagCompensation.FloatMinDenormal
+  id: FloatMinDenormal
+  parent: Netick.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: FloatMinDenormal
+  nameWithType: LagCompensation.FloatMinDenormal
+  fullName: Netick.Pro.LagCompensation.FloatMinDenormal
+  type: Field
+  assemblies:
+  - Netick.Pro
+  namespace: Netick.Pro
+  syntax:
+    content: public static volatile float FloatMinDenormal
+    return:
+      type: System.Single
+    content.vb: Public Shared FloatMinDenormal As Single
+- uid: Netick.Pro.LagCompensation.IsFlushToZeroEnabled
+  commentId: F:Netick.Pro.LagCompensation.IsFlushToZeroEnabled
+  id: IsFlushToZeroEnabled
+  parent: Netick.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: IsFlushToZeroEnabled
+  nameWithType: LagCompensation.IsFlushToZeroEnabled
+  fullName: Netick.Pro.LagCompensation.IsFlushToZeroEnabled
+  type: Field
+  assemblies:
+  - Netick.Pro
+  namespace: Netick.Pro
+  syntax:
+    content: public static bool IsFlushToZeroEnabled
+    return:
+      type: System.Boolean
+    content.vb: Public Shared IsFlushToZeroEnabled As Boolean
+- uid: Netick.Pro.LagCompensation.Epsilon
+  commentId: F:Netick.Pro.LagCompensation.Epsilon
+  id: Epsilon
+  parent: Netick.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: Epsilon
+  nameWithType: LagCompensation.Epsilon
+  fullName: Netick.Pro.LagCompensation.Epsilon
+  type: Field
+  assemblies:
+  - Netick.Pro
+  namespace: Netick.Pro
+  syntax:
+    content: public static readonly float Epsilon
+    return:
+      type: System.Single
+    content.vb: Public Shared ReadOnly Epsilon As Single
 - uid: Netick.Pro.LagCompensation.#ctor
   commentId: M:Netick.Pro.LagCompensation.#ctor
   id: '#ctor'
@@ -155,29 +237,54 @@ items:
   nameWithType.vb: LagCompensation.Raycast(Vector3, Vector3, NetHit, NetworkPlayer, Single, Integer, Boolean)
   fullName.vb: Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3, System.Numerics.Vector3, Netick.Pro.NetHit, Netick.NetworkPlayer, Single, Integer, Boolean)
   name.vb: Raycast(Vector3, Vector3, NetHit, NetworkPlayer, Single, Integer, Boolean)
-- uid: Netick.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
-  commentId: M:Netick.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
-  id: CanRewind(Netick.ServerConnection)
+- uid: Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
+  commentId: M:Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
+  id: RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
   parent: Netick.Pro.LagCompensation
   langs:
   - csharp
   - vb
-  name: CanRewind(ServerConnection)
-  nameWithType: LagCompensation.CanRewind(ServerConnection)
-  fullName: Netick.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
+  name: RaycastAll(Vector3, Vector3, List<NetHit>, NetworkPlayer, float, int, bool, bool)
+  nameWithType: LagCompensation.RaycastAll(Vector3, Vector3, List<NetHit>, NetworkPlayer, float, int, bool, bool)
+  fullName: Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3, System.Numerics.Vector3, System.Collections.Generic.List<Netick.Pro.NetHit>, Netick.NetworkPlayer, float, int, bool, bool)
   type: Method
   assemblies:
   - Netick.Pro
   namespace: Netick.Pro
+  summary: >-
+    Casts a lag compensated ray, from point origin, in direction direction, of length maxDistance,
+
+    against all HitShapes and in the Scene, and return all hits.
+  example: []
   syntax:
-    content: public static bool CanRewind(ServerConnection inputSource)
+    content: public void RaycastAll(Vector3 origin, Vector3 direction, List<NetHit> hits, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false)
     parameters:
+    - id: origin
+      type: System.Numerics.Vector3
+      description: The starting point of the ray in world coordinates.
+    - id: direction
+      type: System.Numerics.Vector3
+      description: The direction of the ray.
+    - id: hits
+      type: System.Collections.Generic.List{Netick.Pro.NetHit}
     - id: inputSource
-      type: Netick.ServerConnection
-    return:
+      type: Netick.NetworkPlayer
+      description: The input source to compensate for.
+    - id: maxDistance
+      type: System.Single
+      description: The max distance the ray should check for collisions.
+    - id: layerMask
+      type: System.Int32
+      description: A that is used to selectively ignore Colliders when casting a ray.
+    - id: includeInputSource
       type: System.Boolean
-    content.vb: Public Shared Function CanRewind(inputSource As ServerConnection) As Boolean
-  overload: Netick.Pro.LagCompensation.CanRewind*
+    - id: oneHitPerHitShapeContainer
+      type: System.Boolean
+    content.vb: Public Sub RaycastAll(origin As Vector3, direction As Vector3, hits As List(Of NetHit), inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -1, includeInputSource As Boolean = False, oneHitPerHitShapeContainer As Boolean = False)
+  overload: Netick.Pro.LagCompensation.RaycastAll*
+  nameWithType.vb: LagCompensation.RaycastAll(Vector3, Vector3, List(Of NetHit), NetworkPlayer, Single, Integer, Boolean, Boolean)
+  fullName.vb: Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3, System.Numerics.Vector3, System.Collections.Generic.List(Of Netick.Pro.NetHit), Netick.NetworkPlayer, Single, Integer, Boolean, Boolean)
+  name.vb: RaycastAll(Vector3, Vector3, List(Of NetHit), NetworkPlayer, Single, Integer, Boolean, Boolean)
 - uid: Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean)
   commentId: M:Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean)
   id: OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean)
@@ -222,6 +329,57 @@ items:
   nameWithType.vb: LagCompensation.OverlapSphere(Vector3, Single, List(Of NetHit), NetworkPlayer, Integer, Boolean, Boolean)
   fullName.vb: Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3, Single, System.Collections.Generic.List(Of Netick.Pro.NetHit), Netick.NetworkPlayer, Integer, Boolean, Boolean)
   name.vb: OverlapSphere(Vector3, Single, List(Of NetHit), NetworkPlayer, Integer, Boolean, Boolean)
+- uid: Netick.Pro.LagCompensation.FloatEqualsApproximately(System.Single,System.Single)
+  commentId: M:Netick.Pro.LagCompensation.FloatEqualsApproximately(System.Single,System.Single)
+  id: FloatEqualsApproximately(System.Single,System.Single)
+  parent: Netick.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: FloatEqualsApproximately(float, float)
+  nameWithType: LagCompensation.FloatEqualsApproximately(float, float)
+  fullName: Netick.Pro.LagCompensation.FloatEqualsApproximately(float, float)
+  type: Method
+  assemblies:
+  - Netick.Pro
+  namespace: Netick.Pro
+  syntax:
+    content: public static bool FloatEqualsApproximately(float a, float b)
+    parameters:
+    - id: a
+      type: System.Single
+    - id: b
+      type: System.Single
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function FloatEqualsApproximately(a As Single, b As Single) As Boolean
+  overload: Netick.Pro.LagCompensation.FloatEqualsApproximately*
+  nameWithType.vb: LagCompensation.FloatEqualsApproximately(Single, Single)
+  fullName.vb: Netick.Pro.LagCompensation.FloatEqualsApproximately(Single, Single)
+  name.vb: FloatEqualsApproximately(Single, Single)
+- uid: Netick.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
+  commentId: M:Netick.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
+  id: CanRewind(Netick.ServerConnection)
+  parent: Netick.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: CanRewind(ServerConnection)
+  nameWithType: LagCompensation.CanRewind(ServerConnection)
+  fullName: Netick.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
+  type: Method
+  assemblies:
+  - Netick.Pro
+  namespace: Netick.Pro
+  syntax:
+    content: public static bool CanRewind(ServerConnection inputSource)
+    parameters:
+    - id: inputSource
+      type: Netick.ServerConnection
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function CanRewind(inputSource As ServerConnection) As Boolean
+  overload: Netick.Pro.LagCompensation.CanRewind*
 references:
 - uid: Netick.Pro
   commentId: N:Netick.Pro
@@ -489,6 +647,17 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
 - uid: Netick.Pro.LagCompensation.#ctor*
   commentId: Overload:Netick.Pro.LagCompensation.#ctor
   isExternal: true
@@ -580,17 +749,6 @@ references:
   name: NetHit
   nameWithType: NetHit
   fullName: Netick.Pro.NetHit
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -602,28 +760,13 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: Netick.Pro.LagCompensation.CanRewind*
-  commentId: Overload:Netick.Pro.LagCompensation.CanRewind
+- uid: Netick.Pro.LagCompensation.RaycastAll*
+  commentId: Overload:Netick.Pro.LagCompensation.RaycastAll
   isExternal: true
-  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_CanRewind_Netick_ServerConnection_
-  name: CanRewind
-  nameWithType: LagCompensation.CanRewind
-  fullName: Netick.Pro.LagCompensation.CanRewind
-- uid: Netick.ServerConnection
-  commentId: T:Netick.ServerConnection
-  parent: Netick
-  isExternal: true
-  href: Netick.ServerConnection.html
-  name: ServerConnection
-  nameWithType: ServerConnection
-  fullName: Netick.ServerConnection
-- uid: Netick.Pro.LagCompensation.OverlapSphere*
-  commentId: Overload:Netick.Pro.LagCompensation.OverlapSphere
-  isExternal: true
-  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_OverlapSphere_System_Numerics_Vector3_System_Single_System_Collections_Generic_List_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_
-  name: OverlapSphere
-  nameWithType: LagCompensation.OverlapSphere
-  fullName: Netick.Pro.LagCompensation.OverlapSphere
+  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_RaycastAll_System_Numerics_Vector3_System_Numerics_Vector3_System_Collections_Generic_List_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Boolean_
+  name: RaycastAll
+  nameWithType: LagCompensation.RaycastAll
+  fullName: Netick.Pro.LagCompensation.RaycastAll
 - uid: System.Collections.Generic.List{Netick.Pro.NetHit}
   commentId: T:System.Collections.Generic.List{Netick.Pro.NetHit}
   parent: System.Collections.Generic
@@ -724,3 +867,32 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Netick.Pro.LagCompensation.OverlapSphere*
+  commentId: Overload:Netick.Pro.LagCompensation.OverlapSphere
+  isExternal: true
+  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_OverlapSphere_System_Numerics_Vector3_System_Single_System_Collections_Generic_List_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_
+  name: OverlapSphere
+  nameWithType: LagCompensation.OverlapSphere
+  fullName: Netick.Pro.LagCompensation.OverlapSphere
+- uid: Netick.Pro.LagCompensation.FloatEqualsApproximately*
+  commentId: Overload:Netick.Pro.LagCompensation.FloatEqualsApproximately
+  isExternal: true
+  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_FloatEqualsApproximately_System_Single_System_Single_
+  name: FloatEqualsApproximately
+  nameWithType: LagCompensation.FloatEqualsApproximately
+  fullName: Netick.Pro.LagCompensation.FloatEqualsApproximately
+- uid: Netick.Pro.LagCompensation.CanRewind*
+  commentId: Overload:Netick.Pro.LagCompensation.CanRewind
+  isExternal: true
+  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_CanRewind_Netick_ServerConnection_
+  name: CanRewind
+  nameWithType: LagCompensation.CanRewind
+  fullName: Netick.Pro.LagCompensation.CanRewind
+- uid: Netick.ServerConnection
+  commentId: T:Netick.ServerConnection
+  parent: Netick
+  isExternal: true
+  href: Netick.ServerConnection.html
+  name: ServerConnection
+  nameWithType: ServerConnection
+  fullName: Netick.ServerConnection

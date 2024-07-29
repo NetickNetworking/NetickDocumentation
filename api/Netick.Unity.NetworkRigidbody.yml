@@ -35,7 +35,7 @@ items:
 
       [DisallowMultipleComponent]
 
-      public sealed class NetworkRigidbody : NetworkTransform, INetickNetworkScript, INetickScript, IPhysicsComponent
+      public sealed class NetworkRigidbody : NetworkTransform, INetickNetworkScript, INetickScript, IClientSimulationCallbacks, IPhysicsComponent
     content.vb: >-
       <IgnoreCodeGen>
 
@@ -45,7 +45,7 @@ items:
 
       <DisallowMultipleComponent>
 
-      Public NotInheritable Class NetworkRigidbody Inherits NetworkTransform Implements INetickNetworkScript, INetickScript, IPhysicsComponent
+      Public NotInheritable Class NetworkRigidbody Inherits NetworkTransform Implements INetickNetworkScript, INetickScript, IClientSimulationCallbacks, IPhysicsComponent
   inheritance:
   - System.Object
   - UnityEngine.Object
@@ -59,16 +59,29 @@ items:
   implements:
   - Netick.INetickNetworkScript
   - Netick.INetickScript
+  - Netick.IClientSimulationCallbacks
   - Netick.Unity.IPhysicsComponent
   inheritedMembers:
   - Netick.Unity.NetworkTransform.RenderTransform
+  - Netick.Unity.NetworkTransform.TeleportDistance
+  - Netick.Unity.NetworkTransform.InterpolationMultiplier
+  - Netick.Unity.NetworkTransform.CorrectionMultiplier
+  - Netick.Unity.NetworkTransform.CorrectionMaxBlendAlpha
+  - Netick.Unity.NetworkTransform.TeleportErrorThreshold
+  - Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3)
+  - Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3,UnityEngine.Quaternion)
+  - Netick.Unity.NetworkTransform.Teleport(UnityEngine.Quaternion)
   - Netick.Unity.NetworkTransform.NetworkRender
   - Netick.Unity.NetworkTransform.GetInterpolationData(UnityEngine.Vector3@,UnityEngine.Quaternion@)
-  - Netick.Unity.NetworkTransform.Interpolate2
+  - Netick.Unity.NetworkTransform.Render
   - Netick.Unity.NetworkTransform.OnBecameInterested
   - Netick.Unity.NetworkTransform.InterpolationSource
+  - Netick.Unity.NetworkTransform.Position
+  - Netick.Unity.NetworkTransform.Rotation
   - Netick.Unity.NetworkBehaviour.S
   - Netick.Unity.NetworkBehaviour.GetRef``1
+  - Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  - Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
   - Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Int32)
   - Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
   - Netick.Unity.NetworkBehaviour.OnBecameUninterested
@@ -89,6 +102,7 @@ items:
   - Netick.Unity.NetworkBehaviour.IsPredicted
   - Netick.Unity.NetworkBehaviour.InputSource
   - Netick.Unity.NetworkBehaviour.InputSourcePlayerId
+  - Netick.Unity.NetworkBehaviour.StateSize
   - Netick.Unity.NetickBehaviour.NetworkUpdate
   - Netick.Unity.NetickBehaviour.OnBecameSimulated
   - Netick.Unity.NetickBehaviour.OnBecameUnsimulated
@@ -310,7 +324,7 @@ items:
   syntax:
     content: public override void NetworkDestroy()
     content.vb: Public Overrides Sub NetworkDestroy()
-  overridden: Netick.Unity.NetickBehaviour.NetworkDestroy
+  overridden: Netick.Unity.NetworkTransform.NetworkDestroy
   overload: Netick.Unity.NetworkRigidbody.NetworkDestroy*
 - uid: Netick.Unity.NetworkRigidbody.NetworkFixedUpdate
   commentId: M:Netick.Unity.NetworkRigidbody.NetworkFixedUpdate
@@ -512,6 +526,14 @@ references:
   name: INetickScript
   nameWithType: INetickScript
   fullName: Netick.INetickScript
+- uid: Netick.IClientSimulationCallbacks
+  commentId: T:Netick.IClientSimulationCallbacks
+  parent: Netick
+  isExternal: true
+  href: Netick.IClientSimulationCallbacks.html
+  name: IClientSimulationCallbacks
+  nameWithType: IClientSimulationCallbacks
+  fullName: Netick.IClientSimulationCallbacks
 - uid: Netick.Unity.IPhysicsComponent
   commentId: T:Netick.Unity.IPhysicsComponent
   parent: Netick.Unity
@@ -528,6 +550,140 @@ references:
   name: RenderTransform
   nameWithType: NetworkTransform.RenderTransform
   fullName: Netick.Unity.NetworkTransform.RenderTransform
+- uid: Netick.Unity.NetworkTransform.TeleportDistance
+  commentId: F:Netick.Unity.NetworkTransform.TeleportDistance
+  parent: Netick.Unity.NetworkTransform
+  isExternal: true
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_TeleportDistance
+  name: TeleportDistance
+  nameWithType: NetworkTransform.TeleportDistance
+  fullName: Netick.Unity.NetworkTransform.TeleportDistance
+- uid: Netick.Unity.NetworkTransform.InterpolationMultiplier
+  commentId: F:Netick.Unity.NetworkTransform.InterpolationMultiplier
+  parent: Netick.Unity.NetworkTransform
+  isExternal: true
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_InterpolationMultiplier
+  name: InterpolationMultiplier
+  nameWithType: NetworkTransform.InterpolationMultiplier
+  fullName: Netick.Unity.NetworkTransform.InterpolationMultiplier
+- uid: Netick.Unity.NetworkTransform.CorrectionMultiplier
+  commentId: F:Netick.Unity.NetworkTransform.CorrectionMultiplier
+  parent: Netick.Unity.NetworkTransform
+  isExternal: true
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_CorrectionMultiplier
+  name: CorrectionMultiplier
+  nameWithType: NetworkTransform.CorrectionMultiplier
+  fullName: Netick.Unity.NetworkTransform.CorrectionMultiplier
+- uid: Netick.Unity.NetworkTransform.CorrectionMaxBlendAlpha
+  commentId: F:Netick.Unity.NetworkTransform.CorrectionMaxBlendAlpha
+  parent: Netick.Unity.NetworkTransform
+  isExternal: true
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_CorrectionMaxBlendAlpha
+  name: CorrectionMaxBlendAlpha
+  nameWithType: NetworkTransform.CorrectionMaxBlendAlpha
+  fullName: Netick.Unity.NetworkTransform.CorrectionMaxBlendAlpha
+- uid: Netick.Unity.NetworkTransform.TeleportErrorThreshold
+  commentId: F:Netick.Unity.NetworkTransform.TeleportErrorThreshold
+  parent: Netick.Unity.NetworkTransform
+  isExternal: true
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_TeleportErrorThreshold
+  name: TeleportErrorThreshold
+  nameWithType: NetworkTransform.TeleportErrorThreshold
+  fullName: Netick.Unity.NetworkTransform.TeleportErrorThreshold
+- uid: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3)
+  commentId: M:Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3)
+  parent: Netick.Unity.NetworkTransform
+  isExternal: true
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Vector3_
+  name: Teleport(Vector3)
+  nameWithType: NetworkTransform.Teleport(Vector3)
+  fullName: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3)
+    name: Teleport
+    isExternal: true
+    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Vector3_
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3)
+    name: Teleport
+    isExternal: true
+    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Vector3_
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3,UnityEngine.Quaternion)
+  commentId: M:Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3,UnityEngine.Quaternion)
+  parent: Netick.Unity.NetworkTransform
+  isExternal: true
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Vector3_UnityEngine_Quaternion_
+  name: Teleport(Vector3, Quaternion)
+  nameWithType: NetworkTransform.Teleport(Vector3, Quaternion)
+  fullName: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3, UnityEngine.Quaternion)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3,UnityEngine.Quaternion)
+    name: Teleport
+    isExternal: true
+    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Vector3_UnityEngine_Quaternion_
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Quaternion
+    name: Quaternion
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Vector3,UnityEngine.Quaternion)
+    name: Teleport
+    isExternal: true
+    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Vector3_UnityEngine_Quaternion_
+  - name: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: UnityEngine.Quaternion
+    name: Quaternion
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Quaternion)
+  commentId: M:Netick.Unity.NetworkTransform.Teleport(UnityEngine.Quaternion)
+  parent: Netick.Unity.NetworkTransform
+  isExternal: true
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Quaternion_
+  name: Teleport(Quaternion)
+  nameWithType: NetworkTransform.Teleport(Quaternion)
+  fullName: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Quaternion)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Quaternion)
+    name: Teleport
+    isExternal: true
+    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Quaternion_
+  - name: (
+  - uid: UnityEngine.Quaternion
+    name: Quaternion
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkTransform.Teleport(UnityEngine.Quaternion)
+    name: Teleport
+    isExternal: true
+    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Teleport_UnityEngine_Quaternion_
+  - name: (
+  - uid: UnityEngine.Quaternion
+    name: Quaternion
+    isExternal: true
+  - name: )
 - uid: Netick.Unity.NetworkTransform.NetworkRender
   commentId: M:Netick.Unity.NetworkTransform.NetworkRender
   parent: Netick.Unity.NetworkTransform
@@ -595,26 +751,26 @@ references:
     name: Quaternion
     isExternal: true
   - name: )
-- uid: Netick.Unity.NetworkTransform.Interpolate2
-  commentId: M:Netick.Unity.NetworkTransform.Interpolate2
+- uid: Netick.Unity.NetworkTransform.Render
+  commentId: M:Netick.Unity.NetworkTransform.Render
   parent: Netick.Unity.NetworkTransform
   isExternal: true
-  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Interpolate2
-  name: Interpolate2()
-  nameWithType: NetworkTransform.Interpolate2()
-  fullName: Netick.Unity.NetworkTransform.Interpolate2()
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Render
+  name: Render()
+  nameWithType: NetworkTransform.Render()
+  fullName: Netick.Unity.NetworkTransform.Render()
   spec.csharp:
-  - uid: Netick.Unity.NetworkTransform.Interpolate2
-    name: Interpolate2
+  - uid: Netick.Unity.NetworkTransform.Render
+    name: Render
     isExternal: true
-    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Interpolate2
+    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Render
   - name: (
   - name: )
   spec.vb:
-  - uid: Netick.Unity.NetworkTransform.Interpolate2
-    name: Interpolate2
+  - uid: Netick.Unity.NetworkTransform.Render
+    name: Render
     isExternal: true
-    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Interpolate2
+    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Render
   - name: (
   - name: )
 - uid: Netick.Unity.NetworkTransform.OnBecameInterested
@@ -647,6 +803,22 @@ references:
   name: InterpolationSource
   nameWithType: NetworkTransform.InterpolationSource
   fullName: Netick.Unity.NetworkTransform.InterpolationSource
+- uid: Netick.Unity.NetworkTransform.Position
+  commentId: P:Netick.Unity.NetworkTransform.Position
+  parent: Netick.Unity.NetworkTransform
+  isExternal: true
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Position
+  name: Position
+  nameWithType: NetworkTransform.Position
+  fullName: Netick.Unity.NetworkTransform.Position
+- uid: Netick.Unity.NetworkTransform.Rotation
+  commentId: P:Netick.Unity.NetworkTransform.Rotation
+  parent: Netick.Unity.NetworkTransform
+  isExternal: true
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Rotation
+  name: Rotation
+  nameWithType: NetworkTransform.Rotation
+  fullName: Netick.Unity.NetworkTransform.Rotation
 - uid: Netick.Unity.NetworkBehaviour.S
   commentId: F:Netick.Unity.NetworkBehaviour.S
   parent: Netick.Unity.NetworkBehaviour
@@ -687,6 +859,76 @@ references:
   - name: T
   - name: )
   - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  commentId: M:Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__
+  name: CopyStateTo(byte*)
+  nameWithType: NetworkBehaviour.CopyStateTo(byte*)
+  fullName: Netick.Unity.NetworkBehaviour.CopyStateTo(byte*)
+  nameWithType.vb: NetworkBehaviour.CopyStateTo(Byte*)
+  fullName.vb: Netick.Unity.NetworkBehaviour.CopyStateTo(Byte*)
+  name.vb: CopyStateTo(Byte*)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+    name: CopyStateTo
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+    name: CopyStateTo
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+  commentId: M:Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__
+  name: SetStateFrom(byte*)
+  nameWithType: NetworkBehaviour.SetStateFrom(byte*)
+  fullName: Netick.Unity.NetworkBehaviour.SetStateFrom(byte*)
+  nameWithType.vb: NetworkBehaviour.SetStateFrom(Byte*)
+  fullName.vb: Netick.Unity.NetworkBehaviour.SetStateFrom(Byte*)
+  name.vb: SetStateFrom(Byte*)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+    name: SetStateFrom
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+    name: SetStateFrom
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
   - name: )
 - uid: Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Int32)
   commentId: M:Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
@@ -1018,6 +1260,14 @@ references:
   name: InputSourcePlayerId
   nameWithType: NetworkBehaviour.InputSourcePlayerId
   fullName: Netick.Unity.NetworkBehaviour.InputSourcePlayerId
+- uid: Netick.Unity.NetworkBehaviour.StateSize
+  commentId: P:Netick.Unity.NetworkBehaviour.StateSize
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_StateSize
+  name: StateSize
+  nameWithType: NetworkBehaviour.StateSize
+  fullName: Netick.Unity.NetworkBehaviour.StateSize
 - uid: Netick.Unity.NetickBehaviour.NetworkUpdate
   commentId: M:Netick.Unity.NetickBehaviour.NetworkUpdate
   parent: Netick.Unity.NetickBehaviour
@@ -5671,26 +5921,26 @@ references:
   name: NetworkStart
   nameWithType: NetworkRigidbody.NetworkStart
   fullName: Netick.Unity.NetworkRigidbody.NetworkStart
-- uid: Netick.Unity.NetickBehaviour.NetworkDestroy
-  commentId: M:Netick.Unity.NetickBehaviour.NetworkDestroy
-  parent: Netick.Unity.NetickBehaviour
+- uid: Netick.Unity.NetworkTransform.NetworkDestroy
+  commentId: M:Netick.Unity.NetworkTransform.NetworkDestroy
+  parent: Netick.Unity.NetworkTransform
   isExternal: true
-  href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_NetworkDestroy
   name: NetworkDestroy()
-  nameWithType: NetickBehaviour.NetworkDestroy()
-  fullName: Netick.Unity.NetickBehaviour.NetworkDestroy()
+  nameWithType: NetworkTransform.NetworkDestroy()
+  fullName: Netick.Unity.NetworkTransform.NetworkDestroy()
   spec.csharp:
-  - uid: Netick.Unity.NetickBehaviour.NetworkDestroy
+  - uid: Netick.Unity.NetworkTransform.NetworkDestroy
     name: NetworkDestroy
     isExternal: true
-    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy
+    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_NetworkDestroy
   - name: (
   - name: )
   spec.vb:
-  - uid: Netick.Unity.NetickBehaviour.NetworkDestroy
+  - uid: Netick.Unity.NetworkTransform.NetworkDestroy
     name: NetworkDestroy
     isExternal: true
-    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy
+    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_NetworkDestroy
   - name: (
   - name: )
 - uid: Netick.Unity.NetworkRigidbody.NetworkDestroy*

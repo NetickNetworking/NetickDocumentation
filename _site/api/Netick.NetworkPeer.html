@@ -428,8 +428,8 @@
 
   <a id="Netick_NetworkPeer_Receive_" data-uid="Netick.NetworkPeer.Receive*"></a>
 
-  <h3 id="Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_" data-uid="Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)">
-  Receive(TransportConnection, BitBuffer)
+  <h3 id="Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_Netick_TransportDeliveryMethod_" data-uid="Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)">
+  Receive(TransportConnection, BitBuffer, TransportDeliveryMethod)
   
   </h3>
 
@@ -437,7 +437,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void Receive(TransportConnection connection, BitBuffer reader)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract void Receive(TransportConnection connection, BitBuffer reader, TransportDeliveryMethod transportDeliveryMethod = TransportDeliveryMethod.Unreliable)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -445,6 +445,8 @@
     <dt><code>connection</code> <a class="xref" href="Netick.TransportConnection.html">TransportConnection</a></dt>
     <dd></dd>
     <dt><code>reader</code> <a class="xref" href="Netick.BitBuffer.html">BitBuffer</a></dt>
+    <dd></dd>
+    <dt><code>transportDeliveryMethod</code> <a class="xref" href="Netick.TransportDeliveryMethod.html">TransportDeliveryMethod</a></dt>
     <dd></dd>
   </dl>
 

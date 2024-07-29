@@ -6,12 +6,18 @@ items:
   parent: Netick
   children:
   - Netick.Monitor.#ctor
+  - Netick.Monitor.AckProfiler
+  - Netick.Monitor.ChangesProfiler
   - Netick.Monitor.FPS
+  - Netick.Monitor.FixedUpdateProfiler
+  - Netick.Monitor.PacketSizeProfiler
   - Netick.Monitor.RTT
+  - Netick.Monitor.ReadProfiler
+  - Netick.Monitor.RenderProfiler
+  - Netick.Monitor.ReplicatorProfiler
   - Netick.Monitor.Resimulations
-  - Netick.Monitor._ackProfiler
-  - Netick.Monitor._replicatorProfiler
-  - Netick.Monitor._writeProfiler
+  - Netick.Monitor.TickTimeProfiler
+  - Netick.Monitor.WriteProfiler
   langs:
   - csharp
   - vb
@@ -34,63 +40,177 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Netick.Monitor._writeProfiler
-  commentId: F:Netick.Monitor._writeProfiler
-  id: _writeProfiler
+- uid: Netick.Monitor.WriteProfiler
+  commentId: F:Netick.Monitor.WriteProfiler
+  id: WriteProfiler
   parent: Netick.Monitor
   langs:
   - csharp
   - vb
-  name: _writeProfiler
-  nameWithType: Monitor._writeProfiler
-  fullName: Netick.Monitor._writeProfiler
+  name: WriteProfiler
+  nameWithType: Monitor.WriteProfiler
+  fullName: Netick.Monitor.WriteProfiler
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public NetcodeProfiler _writeProfiler
+    content: public NetcodeProfiler WriteProfiler
     return:
       type: Netick.NetcodeProfiler
-    content.vb: Public _writeProfiler As NetcodeProfiler
-- uid: Netick.Monitor._ackProfiler
-  commentId: F:Netick.Monitor._ackProfiler
-  id: _ackProfiler
+    content.vb: Public WriteProfiler As NetcodeProfiler
+- uid: Netick.Monitor.ReadProfiler
+  commentId: F:Netick.Monitor.ReadProfiler
+  id: ReadProfiler
   parent: Netick.Monitor
   langs:
   - csharp
   - vb
-  name: _ackProfiler
-  nameWithType: Monitor._ackProfiler
-  fullName: Netick.Monitor._ackProfiler
+  name: ReadProfiler
+  nameWithType: Monitor.ReadProfiler
+  fullName: Netick.Monitor.ReadProfiler
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public NetcodeProfiler _ackProfiler
+    content: public NetcodeProfiler ReadProfiler
     return:
       type: Netick.NetcodeProfiler
-    content.vb: Public _ackProfiler As NetcodeProfiler
-- uid: Netick.Monitor._replicatorProfiler
-  commentId: F:Netick.Monitor._replicatorProfiler
-  id: _replicatorProfiler
+    content.vb: Public ReadProfiler As NetcodeProfiler
+- uid: Netick.Monitor.TickTimeProfiler
+  commentId: F:Netick.Monitor.TickTimeProfiler
+  id: TickTimeProfiler
   parent: Netick.Monitor
   langs:
   - csharp
   - vb
-  name: _replicatorProfiler
-  nameWithType: Monitor._replicatorProfiler
-  fullName: Netick.Monitor._replicatorProfiler
+  name: TickTimeProfiler
+  nameWithType: Monitor.TickTimeProfiler
+  fullName: Netick.Monitor.TickTimeProfiler
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public NetcodeProfiler _replicatorProfiler
+    content: public NetcodeProfiler TickTimeProfiler
     return:
       type: Netick.NetcodeProfiler
-    content.vb: Public _replicatorProfiler As NetcodeProfiler
+    content.vb: Public TickTimeProfiler As NetcodeProfiler
+- uid: Netick.Monitor.FixedUpdateProfiler
+  commentId: F:Netick.Monitor.FixedUpdateProfiler
+  id: FixedUpdateProfiler
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: FixedUpdateProfiler
+  nameWithType: Monitor.FixedUpdateProfiler
+  fullName: Netick.Monitor.FixedUpdateProfiler
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetcodeProfiler FixedUpdateProfiler
+    return:
+      type: Netick.NetcodeProfiler
+    content.vb: Public FixedUpdateProfiler As NetcodeProfiler
+- uid: Netick.Monitor.RenderProfiler
+  commentId: F:Netick.Monitor.RenderProfiler
+  id: RenderProfiler
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: RenderProfiler
+  nameWithType: Monitor.RenderProfiler
+  fullName: Netick.Monitor.RenderProfiler
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetcodeProfiler RenderProfiler
+    return:
+      type: Netick.NetcodeProfiler
+    content.vb: Public RenderProfiler As NetcodeProfiler
+- uid: Netick.Monitor.AckProfiler
+  commentId: F:Netick.Monitor.AckProfiler
+  id: AckProfiler
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: AckProfiler
+  nameWithType: Monitor.AckProfiler
+  fullName: Netick.Monitor.AckProfiler
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetcodeProfiler AckProfiler
+    return:
+      type: Netick.NetcodeProfiler
+    content.vb: Public AckProfiler As NetcodeProfiler
+- uid: Netick.Monitor.ChangesProfiler
+  commentId: F:Netick.Monitor.ChangesProfiler
+  id: ChangesProfiler
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: ChangesProfiler
+  nameWithType: Monitor.ChangesProfiler
+  fullName: Netick.Monitor.ChangesProfiler
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetcodeProfiler ChangesProfiler
+    return:
+      type: Netick.NetcodeProfiler
+    content.vb: Public ChangesProfiler As NetcodeProfiler
+- uid: Netick.Monitor.PacketSizeProfiler
+  commentId: F:Netick.Monitor.PacketSizeProfiler
+  id: PacketSizeProfiler
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: PacketSizeProfiler
+  nameWithType: Monitor.PacketSizeProfiler
+  fullName: Netick.Monitor.PacketSizeProfiler
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetcodeProfiler PacketSizeProfiler
+    return:
+      type: Netick.NetcodeProfiler
+    content.vb: Public PacketSizeProfiler As NetcodeProfiler
+- uid: Netick.Monitor.ReplicatorProfiler
+  commentId: F:Netick.Monitor.ReplicatorProfiler
+  id: ReplicatorProfiler
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: ReplicatorProfiler
+  nameWithType: Monitor.ReplicatorProfiler
+  fullName: Netick.Monitor.ReplicatorProfiler
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetcodeProfiler ReplicatorProfiler
+    return:
+      type: Netick.NetcodeProfiler
+    content.vb: Public ReplicatorProfiler As NetcodeProfiler
 - uid: Netick.Monitor.#ctor
   commentId: M:Netick.Monitor.#ctor
   id: '#ctor'

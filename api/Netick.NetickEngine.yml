@@ -12,9 +12,9 @@ items:
   - Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)
   - Netick.NetickEngine.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
   - Netick.NetickEngine.ClientSimulation
+  - Netick.NetickEngine.ClientSimulationCallbacks
   - Netick.NetickEngine.Config
   - Netick.NetickEngine.Connect(System.Int32,System.String,System.Byte[],System.Int32)
-  - Netick.NetickEngine.ConnectHost
   - Netick.NetickEngine.ConnectedClients
   - Netick.NetickEngine.ConnectedPlayers
   - Netick.NetickEngine.CreateAndLinkEntityLocal(Netick.INetickEntity)
@@ -24,6 +24,7 @@ items:
   - Netick.NetickEngine.DeattachBehaviour(Netick.INetickScript)
   - Netick.NetickEngine.DestroyEntity(Netick.Entity,System.Boolean,System.Boolean)
   - Netick.NetickEngine.DisconnectFromServer
+  - Netick.NetickEngine.DisconnectHost
   - Netick.NetickEngine.Entities
   - Netick.NetickEngine.FetchInput``1(``0@,Netick.Entity,System.Int32)
   - Netick.NetickEngine.Finalize
@@ -36,11 +37,11 @@ items:
   - Netick.NetickEngine.InputEnabled
   - Netick.NetickEngine.InterestManagement
   - Netick.NetickEngine.InterpolationDelay
+  - Netick.NetickEngine.InvokeOnPlayerConnectedForHost
   - Netick.NetickEngine.IsClient
   - Netick.NetickEngine.IsConnected
   - Netick.NetickEngine.IsIMEnabled
   - Netick.NetickEngine.IsInvokingNetworkRender
-  - Netick.NetickEngine.IsPro
   - Netick.NetickEngine.IsResimulating
   - Netick.NetickEngine.IsRunning
   - Netick.NetickEngine.IsServer
@@ -50,9 +51,12 @@ items:
   - Netick.NetickEngine.LocalInterpolation
   - Netick.NetickEngine.LocalPeer
   - Netick.NetickEngine.LocalPlayer
+  - Netick.NetickEngine.MaxClients
   - Netick.NetickEngine.Monitor
   - Netick.NetickEngine.Name
+  - Netick.NetickEngine.OnPostNetworkStart
   - Netick.NetickEngine.OnTickEnd
+  - Netick.NetickEngine.OnTickStart
   - Netick.NetickEngine.OutKBps
   - Netick.NetickEngine.Port
   - Netick.NetickEngine.PostNetworkFixedUpdate
@@ -110,6 +114,25 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: Netick.NetickEngine.ClientSimulationCallbacks
+  commentId: F:Netick.NetickEngine.ClientSimulationCallbacks
+  id: ClientSimulationCallbacks
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: ClientSimulationCallbacks
+  nameWithType: NetickEngine.ClientSimulationCallbacks
+  fullName: Netick.NetickEngine.ClientSimulationCallbacks
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly List<IClientSimulationCallbacks> ClientSimulationCallbacks
+    return:
+      type: System.Collections.Generic.List{Netick.IClientSimulationCallbacks}
+    content.vb: Public ReadOnly ClientSimulationCallbacks As List(Of IClientSimulationCallbacks)
 - uid: Netick.NetickEngine.SimulatedLossOut
   commentId: F:Netick.NetickEngine.SimulatedLossOut
   id: SimulatedLossOut
@@ -148,25 +171,6 @@ items:
     return:
       type: System.Single
     content.vb: Public SimulatedLossIn As Single
-- uid: Netick.NetickEngine.IsPro
-  commentId: F:Netick.NetickEngine.IsPro
-  id: IsPro
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: IsPro
-  nameWithType: NetickEngine.IsPro
-  fullName: Netick.NetickEngine.IsPro
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public static bool IsPro
-    return:
-      type: System.Boolean
-    content.vb: Public Shared IsPro As Boolean
 - uid: Netick.NetickEngine.FetchInput``1(``0@,Netick.Entity,System.Int32)
   commentId: M:Netick.NetickEngine.FetchInput``1(``0@,Netick.Entity,System.Int32)
   id: FetchInput``1(``0@,Netick.Entity,System.Int32)
@@ -357,24 +361,42 @@ items:
     content: public void Shutdown()
     content.vb: Public Sub Shutdown()
   overload: Netick.NetickEngine.Shutdown*
-- uid: Netick.NetickEngine.ConnectHost
-  commentId: M:Netick.NetickEngine.ConnectHost
-  id: ConnectHost
+- uid: Netick.NetickEngine.InvokeOnPlayerConnectedForHost
+  commentId: M:Netick.NetickEngine.InvokeOnPlayerConnectedForHost
+  id: InvokeOnPlayerConnectedForHost
   parent: Netick.NetickEngine
   langs:
   - csharp
   - vb
-  name: ConnectHost()
-  nameWithType: NetickEngine.ConnectHost()
-  fullName: Netick.NetickEngine.ConnectHost()
+  name: InvokeOnPlayerConnectedForHost()
+  nameWithType: NetickEngine.InvokeOnPlayerConnectedForHost()
+  fullName: Netick.NetickEngine.InvokeOnPlayerConnectedForHost()
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void ConnectHost()
-    content.vb: Public Sub ConnectHost()
-  overload: Netick.NetickEngine.ConnectHost*
+    content: public void InvokeOnPlayerConnectedForHost()
+    content.vb: Public Sub InvokeOnPlayerConnectedForHost()
+  overload: Netick.NetickEngine.InvokeOnPlayerConnectedForHost*
+- uid: Netick.NetickEngine.DisconnectHost
+  commentId: M:Netick.NetickEngine.DisconnectHost
+  id: DisconnectHost
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: DisconnectHost()
+  nameWithType: NetickEngine.DisconnectHost()
+  fullName: Netick.NetickEngine.DisconnectHost()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void DisconnectHost()
+    content.vb: Public Sub DisconnectHost()
+  overload: Netick.NetickEngine.DisconnectHost*
 - uid: Netick.NetickEngine.Connect(System.Int32,System.String,System.Byte[],System.Int32)
   commentId: M:Netick.NetickEngine.Connect(System.Int32,System.String,System.Byte[],System.Int32)
   id: Connect(System.Int32,System.String,System.Byte[],System.Int32)
@@ -1662,6 +1684,27 @@ items:
       type: System.Action
     content.vb: Public Property PostRollback As Action
   overload: Netick.NetickEngine.PostRollback*
+- uid: Netick.NetickEngine.OnPostNetworkStart
+  commentId: P:Netick.NetickEngine.OnPostNetworkStart
+  id: OnPostNetworkStart
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: OnPostNetworkStart
+  nameWithType: NetickEngine.OnPostNetworkStart
+  fullName: Netick.NetickEngine.OnPostNetworkStart
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Action OnPostNetworkStart { get; set; }
+    parameters: []
+    return:
+      type: System.Action
+    content.vb: Public Property OnPostNetworkStart As Action
+  overload: Netick.NetickEngine.OnPostNetworkStart*
 - uid: Netick.NetickEngine.OnTickEnd
   commentId: P:Netick.NetickEngine.OnTickEnd
   id: OnTickEnd
@@ -1683,6 +1726,27 @@ items:
       type: System.Action
     content.vb: Public Property OnTickEnd As Action
   overload: Netick.NetickEngine.OnTickEnd*
+- uid: Netick.NetickEngine.OnTickStart
+  commentId: P:Netick.NetickEngine.OnTickStart
+  id: OnTickStart
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: OnTickStart
+  nameWithType: NetickEngine.OnTickStart
+  fullName: Netick.NetickEngine.OnTickStart
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Action OnTickStart { get; set; }
+    parameters: []
+    return:
+      type: System.Action
+    content.vb: Public Property OnTickStart As Action
+  overload: Netick.NetickEngine.OnTickStart*
 - uid: Netick.NetickEngine.InputEnabled
   commentId: P:Netick.NetickEngine.InputEnabled
   id: InputEnabled
@@ -1977,6 +2041,27 @@ items:
       type: Netick.NetworkPlayer
     content.vb: Public ReadOnly Property CurrentRpcCaller As NetworkPlayer
   overload: Netick.NetickEngine.CurrentRpcCaller*
+- uid: Netick.NetickEngine.MaxClients
+  commentId: P:Netick.NetickEngine.MaxClients
+  id: MaxClients
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: MaxClients
+  nameWithType: NetickEngine.MaxClients
+  fullName: Netick.NetickEngine.MaxClients
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int MaxClients { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxClients As Integer
+  overload: Netick.NetickEngine.MaxClients*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -2198,6 +2283,106 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Collections.Generic.List{Netick.IClientSimulationCallbacks}
+  commentId: T:System.Collections.Generic.List{Netick.IClientSimulationCallbacks}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<IClientSimulationCallbacks>
+  nameWithType: List<IClientSimulationCallbacks>
+  fullName: System.Collections.Generic.List<Netick.IClientSimulationCallbacks>
+  nameWithType.vb: List(Of IClientSimulationCallbacks)
+  fullName.vb: System.Collections.Generic.List(Of Netick.IClientSimulationCallbacks)
+  name.vb: List(Of IClientSimulationCallbacks)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.IClientSimulationCallbacks
+    name: IClientSimulationCallbacks
+    isExternal: true
+    href: Netick.IClientSimulationCallbacks.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.IClientSimulationCallbacks
+    name: IClientSimulationCallbacks
+    isExternal: true
+    href: Netick.IClientSimulationCallbacks.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -2209,17 +2394,6 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: Netick.NetickEngine.FetchInput*
   commentId: Overload:Netick.NetickEngine.FetchInput
   isExternal: true
@@ -2252,6 +2426,17 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: T
   name: T
   nameWithType: T
@@ -2379,13 +2564,20 @@ references:
   name: Shutdown
   nameWithType: NetickEngine.Shutdown
   fullName: Netick.NetickEngine.Shutdown
-- uid: Netick.NetickEngine.ConnectHost*
-  commentId: Overload:Netick.NetickEngine.ConnectHost
+- uid: Netick.NetickEngine.InvokeOnPlayerConnectedForHost*
+  commentId: Overload:Netick.NetickEngine.InvokeOnPlayerConnectedForHost
   isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_ConnectHost
-  name: ConnectHost
-  nameWithType: NetickEngine.ConnectHost
-  fullName: Netick.NetickEngine.ConnectHost
+  href: Netick.NetickEngine.html#Netick_NetickEngine_InvokeOnPlayerConnectedForHost
+  name: InvokeOnPlayerConnectedForHost
+  nameWithType: NetickEngine.InvokeOnPlayerConnectedForHost
+  fullName: Netick.NetickEngine.InvokeOnPlayerConnectedForHost
+- uid: Netick.NetickEngine.DisconnectHost*
+  commentId: Overload:Netick.NetickEngine.DisconnectHost
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_DisconnectHost
+  name: DisconnectHost
+  nameWithType: NetickEngine.DisconnectHost
+  fullName: Netick.NetickEngine.DisconnectHost
 - uid: Netick.NetickEngine.Connect*
   commentId: Overload:Netick.NetickEngine.Connect
   isExternal: true
@@ -2941,43 +3133,6 @@ references:
   - name: " "
   - name: TValue
   - name: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
-  - name: .
-  - uid: System.Collections.Generic
-    name: Generic
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: Netick.NetickEngine.ConnectedPlayers
   commentId: P:Netick.NetickEngine.ConnectedPlayers
   isExternal: true
@@ -3307,6 +3462,13 @@ references:
   name: PostRollback
   nameWithType: NetickEngine.PostRollback
   fullName: Netick.NetickEngine.PostRollback
+- uid: Netick.NetickEngine.OnPostNetworkStart*
+  commentId: Overload:Netick.NetickEngine.OnPostNetworkStart
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_OnPostNetworkStart
+  name: OnPostNetworkStart
+  nameWithType: NetickEngine.OnPostNetworkStart
+  fullName: Netick.NetickEngine.OnPostNetworkStart
 - uid: Netick.NetickEngine.OnTickEnd*
   commentId: Overload:Netick.NetickEngine.OnTickEnd
   isExternal: true
@@ -3314,6 +3476,13 @@ references:
   name: OnTickEnd
   nameWithType: NetickEngine.OnTickEnd
   fullName: Netick.NetickEngine.OnTickEnd
+- uid: Netick.NetickEngine.OnTickStart*
+  commentId: Overload:Netick.NetickEngine.OnTickStart
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_OnTickStart
+  name: OnTickStart
+  nameWithType: NetickEngine.OnTickStart
+  fullName: Netick.NetickEngine.OnTickStart
 - uid: Netick.NetickEngine.InputEnabled*
   commentId: Overload:Netick.NetickEngine.InputEnabled
   isExternal: true
@@ -3420,3 +3589,10 @@ references:
   name: CurrentRpcCaller
   nameWithType: NetickEngine.CurrentRpcCaller
   fullName: Netick.NetickEngine.CurrentRpcCaller
+- uid: Netick.NetickEngine.MaxClients*
+  commentId: Overload:Netick.NetickEngine.MaxClients
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_MaxClients
+  name: MaxClients
+  nameWithType: NetickEngine.MaxClients
+  fullName: Netick.NetickEngine.MaxClients

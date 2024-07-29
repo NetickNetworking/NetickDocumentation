@@ -351,9 +351,6 @@
       <span class="xref">Object.Instantiate&lt;T&gt;(T)</span>
     </div>
     <div>
-      <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion)</span>
-    </div>
-    <div>
       <span class="xref">Object.Instantiate&lt;T&gt;(T, Vector3, Quaternion, Transform)</span>
     </div>
     <div>
@@ -1530,6 +1527,38 @@
 
 
 
+  <a id="Netick_Unity_NetworkSandbox_PhysicsPrediction_" data-uid="Netick.Unity.NetworkSandbox.PhysicsPrediction*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_PhysicsPrediction" data-uid="Netick.Unity.NetworkSandbox.PhysicsPrediction">
+  PhysicsPrediction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Use this to enable/disable Physics Prediction in the client at runtime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PhysicsPrediction { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_PostNetworkFixedUpdate_" data-uid="Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_PostNetworkFixedUpdate" data-uid="Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate">
@@ -1953,7 +1982,8 @@
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The underlying transport used for low-level networking.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -2102,7 +2132,7 @@
     <dd><p>IP address of the server.</p>
 </dd>
     <dt><code>connectionData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
-    <dd><p>Data sent with the connection request. Could be used to decide whether or not to allow the connection.</p>
+    <dd><p>RawValue sent with the connection request. Could be used to decide whether or not to allow the connection.</p>
 </dd>
     <dt><code>connectionDataLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
@@ -2605,6 +2635,47 @@
 
 
 
+  <a id="Netick_Unity_NetworkSandbox_GetBehaviour_" data-uid="Netick.Unity.NetworkSandbox.GetBehaviour*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_GetBehaviour__1_Netick_Unity_NetworkBehaviourRef___0__" data-uid="Netick.Unity.NetworkSandbox.GetBehaviour``1(Netick.Unity.NetworkBehaviourRef{``0})">
+  GetBehaviour&lt;T&gt;(NetworkBehaviourRef&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T GetBehaviour&lt;T&gt;(NetworkBehaviourRef&lt;T&gt; networkBehaviourRef) where T : NetworkBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkBehaviourRef</code> <a class="xref" href="Netick.Unity.NetworkBehaviourRef-1.html">NetworkBehaviourRef</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_GetInput_" data-uid="Netick.Unity.NetworkSandbox.GetInput*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_GetInput__1_System_Int32_" data-uid="Netick.Unity.NetworkSandbox.GetInput``1(System.Int32)">
@@ -2636,6 +2707,42 @@
     <dt><code>T</code></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_GetObject_" data-uid="Netick.Unity.NetworkSandbox.GetObject*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_GetObject_Netick_Unity_NetworkObjectRef_" data-uid="Netick.Unity.NetworkSandbox.GetObject(Netick.Unity.NetworkObjectRef)">
+  GetObject(NetworkObjectRef)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkObject GetObject(NetworkObjectRef networkObjectRef)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkObjectRef</code> <a class="xref" href="Netick.Unity.NetworkObjectRef.html">NetworkObjectRef</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
 
 
 
@@ -2834,6 +2941,51 @@
 
 
 
+  <a id="Netick_Unity_NetworkSandbox_Instantiate_" data-uid="Netick.Unity.NetworkSandbox.Instantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_Instantiate__1___0_UnityEngine_Vector3_UnityEngine_Quaternion_" data-uid="Netick.Unity.NetworkSandbox.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)">
+  Instantiate&lt;T&gt;(T, Vector3, Quaternion)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) where T : MonoBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <span class="xref">Quaternion</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_Kick_" data-uid="Netick.Unity.NetworkSandbox.Kick*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_Kick_Netick_ServerConnection_" data-uid="Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)">
@@ -2940,7 +3092,8 @@
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i>  Loads a scene asynchronously.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -3134,6 +3287,55 @@
     <dd></dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate__1___0_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_Netick_SpawnPredictionKey_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer,Netick.SpawnPredictionKey)">
+  NetworkInstantiate&lt;T&gt;(T, Vector3, Quaternion, NetworkPlayer, SpawnPredictionKey)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T NetworkInstantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation, NetworkPlayer inputSource = null, SpawnPredictionKey predictedSpawnKey = default) where T : MonoBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <span class="xref">Quaternion</span></dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+    <dt><code>predictedSpawnKey</code> <a class="xref" href="Netick.SpawnPredictionKey.html">SpawnPredictionKey</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -3516,6 +3718,49 @@
 
   <a id="Netick_Unity_NetworkSandbox_TryGetBehaviour_" data-uid="Netick.Unity.NetworkSandbox.TryGetBehaviour*"></a>
 
+  <h3 id="Netick_Unity_NetworkSandbox_TryGetBehaviour__1_Netick_Unity_NetworkBehaviourRef___0____0__" data-uid="Netick.Unity.NetworkSandbox.TryGetBehaviour``1(Netick.Unity.NetworkBehaviourRef{``0},``0@)">
+  TryGetBehaviour&lt;T&gt;(NetworkBehaviourRef&lt;T&gt;, out T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetBehaviour&lt;T&gt;(NetworkBehaviourRef&lt;T&gt; networkBehaviourRef, out T behaviour) where T : NetworkBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkBehaviourRef</code> <a class="xref" href="Netick.Unity.NetworkBehaviourRef-1.html">NetworkBehaviourRef</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>behaviour</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_TryGetBehaviour_" data-uid="Netick.Unity.NetworkSandbox.TryGetBehaviour*"></a>
+
   <h3 id="Netick_Unity_NetworkSandbox_TryGetBehaviour__1_System_Int32___0__" data-uid="Netick.Unity.NetworkSandbox.TryGetBehaviour``1(System.Int32,``0@)">
   TryGetBehaviour&lt;T&gt;(int, out T)
   
@@ -3549,6 +3794,44 @@
     <dt><code>T</code></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_TryGetObject_" data-uid="Netick.Unity.NetworkSandbox.TryGetObject*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_TryGetObject_Netick_Unity_NetworkObjectRef_Netick_Unity_NetworkObject__" data-uid="Netick.Unity.NetworkSandbox.TryGetObject(Netick.Unity.NetworkObjectRef,Netick.Unity.NetworkObject@)">
+  TryGetObject(NetworkObjectRef, out NetworkObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetObject(NetworkObjectRef networkObjectRef, out NetworkObject obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkObjectRef</code> <a class="xref" href="Netick.Unity.NetworkObjectRef.html">NetworkObjectRef</a></dt>
+    <dd></dd>
+    <dt><code>obj</code> <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
 
 
 
@@ -3606,8 +3889,7 @@
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Unloads a scene asynchronously.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -3638,7 +3920,8 @@
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i>  Unloads a scene asynchronously.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

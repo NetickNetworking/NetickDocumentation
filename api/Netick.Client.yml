@@ -16,7 +16,7 @@ items:
   - Netick.Client.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
   - Netick.Client.OutKBps
   - Netick.Client.Peer
-  - Netick.Client.Receive(Netick.TransportConnection,Netick.BitBuffer)
+  - Netick.Client.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
   langs:
   - csharp
   - vb
@@ -237,30 +237,32 @@ items:
     content.vb: Public Overrides Sub OnDisconnected(peer As TransportConnection, transportDisconnectReason As TransportDisconnectReason)
   overridden: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
   overload: Netick.Client.OnDisconnected*
-- uid: Netick.Client.Receive(Netick.TransportConnection,Netick.BitBuffer)
-  commentId: M:Netick.Client.Receive(Netick.TransportConnection,Netick.BitBuffer)
-  id: Receive(Netick.TransportConnection,Netick.BitBuffer)
+- uid: Netick.Client.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
+  commentId: M:Netick.Client.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
+  id: Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
   parent: Netick.Client
   langs:
   - csharp
   - vb
-  name: Receive(TransportConnection, BitBuffer)
-  nameWithType: Client.Receive(TransportConnection, BitBuffer)
-  fullName: Netick.Client.Receive(Netick.TransportConnection, Netick.BitBuffer)
+  name: Receive(TransportConnection, BitBuffer, TransportDeliveryMethod)
+  nameWithType: Client.Receive(TransportConnection, BitBuffer, TransportDeliveryMethod)
+  fullName: Netick.Client.Receive(Netick.TransportConnection, Netick.BitBuffer, Netick.TransportDeliveryMethod)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   example: []
   syntax:
-    content: public override void Receive(TransportConnection connection, BitBuffer reader)
+    content: public override void Receive(TransportConnection connection, BitBuffer reader, TransportDeliveryMethod transportDeliveryMethod)
     parameters:
     - id: connection
       type: Netick.TransportConnection
     - id: reader
       type: Netick.BitBuffer
-    content.vb: Public Overrides Sub Receive(connection As TransportConnection, reader As BitBuffer)
-  overridden: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
+    - id: transportDeliveryMethod
+      type: Netick.TransportDeliveryMethod
+    content.vb: Public Overrides Sub Receive(connection As TransportConnection, reader As BitBuffer, transportDeliveryMethod As TransportDeliveryMethod)
+  overridden: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
   overload: Netick.Client.Receive*
 - uid: Netick.Client.InKBps
   commentId: P:Netick.Client.InKBps
@@ -1048,19 +1050,19 @@ references:
   name: TransportDisconnectReason
   nameWithType: TransportDisconnectReason
   fullName: Netick.TransportDisconnectReason
-- uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
-  commentId: M:Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
+- uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
+  commentId: M:Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
   parent: Netick.NetworkPeer
   isExternal: true
-  href: Netick.NetworkPeer.html#Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_
-  name: Receive(TransportConnection, BitBuffer)
-  nameWithType: NetworkPeer.Receive(TransportConnection, BitBuffer)
-  fullName: Netick.NetworkPeer.Receive(Netick.TransportConnection, Netick.BitBuffer)
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_Netick_TransportDeliveryMethod_
+  name: Receive(TransportConnection, BitBuffer, TransportDeliveryMethod)
+  nameWithType: NetworkPeer.Receive(TransportConnection, BitBuffer, TransportDeliveryMethod)
+  fullName: Netick.NetworkPeer.Receive(Netick.TransportConnection, Netick.BitBuffer, Netick.TransportDeliveryMethod)
   spec.csharp:
-  - uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
+  - uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
     name: Receive
     isExternal: true
-    href: Netick.NetworkPeer.html#Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_Netick_TransportDeliveryMethod_
   - name: (
   - uid: Netick.TransportConnection
     name: TransportConnection
@@ -1072,12 +1074,18 @@ references:
     name: BitBuffer
     isExternal: true
     href: Netick.BitBuffer.html
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDeliveryMethod
+    name: TransportDeliveryMethod
+    isExternal: true
+    href: Netick.TransportDeliveryMethod.html
   - name: )
   spec.vb:
-  - uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer)
+  - uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
     name: Receive
     isExternal: true
-    href: Netick.NetworkPeer.html#Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_Receive_Netick_TransportConnection_Netick_BitBuffer_Netick_TransportDeliveryMethod_
   - name: (
   - uid: Netick.TransportConnection
     name: TransportConnection
@@ -1089,11 +1097,17 @@ references:
     name: BitBuffer
     isExternal: true
     href: Netick.BitBuffer.html
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDeliveryMethod
+    name: TransportDeliveryMethod
+    isExternal: true
+    href: Netick.TransportDeliveryMethod.html
   - name: )
 - uid: Netick.Client.Receive*
   commentId: Overload:Netick.Client.Receive
   isExternal: true
-  href: Netick.Client.html#Netick_Client_Receive_Netick_TransportConnection_Netick_BitBuffer_
+  href: Netick.Client.html#Netick_Client_Receive_Netick_TransportConnection_Netick_BitBuffer_Netick_TransportDeliveryMethod_
   name: Receive
   nameWithType: Client.Receive
   fullName: Netick.Client.Receive
@@ -1105,6 +1119,14 @@ references:
   name: BitBuffer
   nameWithType: BitBuffer
   fullName: Netick.BitBuffer
+- uid: Netick.TransportDeliveryMethod
+  commentId: T:Netick.TransportDeliveryMethod
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportDeliveryMethod.html
+  name: TransportDeliveryMethod
+  nameWithType: TransportDeliveryMethod
+  fullName: Netick.TransportDeliveryMethod
 - uid: Netick.NetworkPeer.InKBps
   commentId: P:Netick.NetworkPeer.InKBps
   parent: Netick.NetworkPeer

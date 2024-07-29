@@ -181,8 +181,8 @@
 
 
 
-  <h3 id="Netick_NetickEngine_IsPro" data-uid="Netick.NetickEngine.IsPro">
-  IsPro
+  <h3 id="Netick_NetickEngine_ClientSimulationCallbacks" data-uid="Netick.NetickEngine.ClientSimulationCallbacks">
+  ClientSimulationCallbacks
   
   </h3>
 
@@ -190,7 +190,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool IsPro</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly List&lt;IClientSimulationCallbacks&gt; ClientSimulationCallbacks</code></pre>
   </div>
 
 
@@ -198,7 +198,7 @@
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.IClientSimulationCallbacks.html">IClientSimulationCallbacks</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -1058,6 +1058,37 @@
 
 
 
+  <a id="Netick_NetickEngine_MaxClients_" data-uid="Netick.NetickEngine.MaxClients*"></a>
+
+  <h3 id="Netick_NetickEngine_MaxClients" data-uid="Netick.NetickEngine.MaxClients">
+  MaxClients
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxClients { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_NetickEngine_Monitor_" data-uid="Netick.NetickEngine.Monitor*"></a>
 
   <h3 id="Netick_NetickEngine_Monitor" data-uid="Netick.NetickEngine.Monitor">
@@ -1120,6 +1151,37 @@
 
 
 
+  <a id="Netick_NetickEngine_OnPostNetworkStart_" data-uid="Netick.NetickEngine.OnPostNetworkStart*"></a>
+
+  <h3 id="Netick_NetickEngine_OnPostNetworkStart" data-uid="Netick.NetickEngine.OnPostNetworkStart">
+  OnPostNetworkStart
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action OnPostNetworkStart { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_NetickEngine_OnTickEnd_" data-uid="Netick.NetickEngine.OnTickEnd*"></a>
 
   <h3 id="Netick_NetickEngine_OnTickEnd" data-uid="Netick.NetickEngine.OnTickEnd">
@@ -1132,6 +1194,37 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Action OnTickEnd { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_OnTickStart_" data-uid="Netick.NetickEngine.OnTickStart*"></a>
+
+  <h3 id="Netick_NetickEngine_OnTickStart" data-uid="Netick.NetickEngine.OnTickStart">
+  OnTickStart
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action OnTickStart { get; set; }</code></pre>
   </div>
 
 
@@ -2045,32 +2138,6 @@
 
 
 
-  <a id="Netick_NetickEngine_ConnectHost_" data-uid="Netick.NetickEngine.ConnectHost*"></a>
-
-  <h3 id="Netick_NetickEngine_ConnectHost" data-uid="Netick.NetickEngine.ConnectHost">
-  ConnectHost()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ConnectHost()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="Netick_NetickEngine_CreateAndLinkEntityLocal_" data-uid="Netick.NetickEngine.CreateAndLinkEntityLocal*"></a>
 
   <h3 id="Netick_NetickEngine_CreateAndLinkEntityLocal_Netick_INetickEntity_" data-uid="Netick.NetickEngine.CreateAndLinkEntityLocal(Netick.INetickEntity)">
@@ -2223,6 +2290,32 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DisconnectFromServer()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_DisconnectHost_" data-uid="Netick.NetickEngine.DisconnectHost*"></a>
+
+  <h3 id="Netick_NetickEngine_DisconnectHost" data-uid="Netick.NetickEngine.DisconnectHost">
+  DisconnectHost()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DisconnectHost()</code></pre>
   </div>
 
 
@@ -2447,6 +2540,32 @@
     <dt><code>T</code></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_InvokeOnPlayerConnectedForHost_" data-uid="Netick.NetickEngine.InvokeOnPlayerConnectedForHost*"></a>
+
+  <h3 id="Netick_NetickEngine_InvokeOnPlayerConnectedForHost" data-uid="Netick.NetickEngine.InvokeOnPlayerConnectedForHost">
+  InvokeOnPlayerConnectedForHost()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InvokeOnPlayerConnectedForHost()</code></pre>
+  </div>
+
+
+
 
 
 

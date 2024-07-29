@@ -17,13 +17,12 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: A snapshot of the previous state of a NetworkLinkedList collection. Note this must not be used outside the the scope of an OnChanged call.
+  summary: A snapshot of the state of a <xref href="Netick.NetworkLinkedList%601" data-throw-if-not-resolved="false"></xref> collection. Note this must not be used outside the scope of an OnChanged call or a NetworkRender call.
   example: []
   syntax:
     content: 'public struct NetworkLinkedListSnapshot<T> : IEnumerable<T>, IEnumerable where T : unmanaged'
     typeParameters:
     - id: T
-      description: ''
     content.vb: Public Structure NetworkLinkedListSnapshot(Of T As Structure) Implements IEnumerable(Of T), IEnumerable
   implements:
   - System.Collections.Generic.IEnumerable{{T}}
@@ -87,6 +86,34 @@ items:
   nameWithType.vb: NetworkLinkedListSnapshot(Of T).Count
   fullName.vb: Netick.NetworkLinkedListSnapshot(Of T).Count
 references:
+- uid: Netick.NetworkLinkedList`1
+  commentId: T:Netick.NetworkLinkedList`1
+  isExternal: true
+  href: Netick.NetworkLinkedList-1.html
+  name: NetworkLinkedList<T>
+  nameWithType: NetworkLinkedList<T>
+  fullName: Netick.NetworkLinkedList<T>
+  nameWithType.vb: NetworkLinkedList(Of T)
+  fullName.vb: Netick.NetworkLinkedList(Of T)
+  name.vb: NetworkLinkedList(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkLinkedList`1
+    name: NetworkLinkedList
+    isExternal: true
+    href: Netick.NetworkLinkedList-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkLinkedList`1
+    name: NetworkLinkedList
+    isExternal: true
+    href: Netick.NetworkLinkedList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick
   commentId: N:Netick
   isExternal: true

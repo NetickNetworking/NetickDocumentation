@@ -6,6 +6,7 @@ items:
   parent: Netick.Unity
   children:
   - Netick.Unity.LaunchData.Config
+  - Netick.Unity.LaunchData.Configs
   - Netick.Unity.LaunchData.NumberOfClients
   - Netick.Unity.LaunchData.NumberOfServers
   - Netick.Unity.LaunchData.Port
@@ -52,25 +53,6 @@ items:
     return:
       type: Netick.Unity.NetworkTransportProvider
     content.vb: Public TransportProvider As NetworkTransportProvider
-- uid: Netick.Unity.LaunchData.Config
-  commentId: F:Netick.Unity.LaunchData.Config
-  id: Config
-  parent: Netick.Unity.LaunchData
-  langs:
-  - csharp
-  - vb
-  name: Config
-  nameWithType: LaunchData.Config
-  fullName: Netick.Unity.LaunchData.Config
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public NetickConfig Config
-    return:
-      type: Netick.Unity.NetickConfig
-    content.vb: Public Config As NetickConfig
 - uid: Netick.Unity.LaunchData.SandboxPrefab
   commentId: F:Netick.Unity.LaunchData.SandboxPrefab
   id: SandboxPrefab
@@ -128,6 +110,44 @@ items:
     return:
       type: System.Int32
     content.vb: Public NumberOfServers As Integer
+- uid: Netick.Unity.LaunchData.Config
+  commentId: F:Netick.Unity.LaunchData.Config
+  id: Config
+  parent: Netick.Unity.LaunchData
+  langs:
+  - csharp
+  - vb
+  name: Config
+  nameWithType: LaunchData.Config
+  fullName: Netick.Unity.LaunchData.Config
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public NetickConfig Config
+    return:
+      type: Netick.Unity.NetickConfig
+    content.vb: Public Config As NetickConfig
+- uid: Netick.Unity.LaunchData.Configs
+  commentId: F:Netick.Unity.LaunchData.Configs
+  id: Configs
+  parent: Netick.Unity.LaunchData
+  langs:
+  - csharp
+  - vb
+  name: Configs
+  nameWithType: LaunchData.Configs
+  fullName: Netick.Unity.LaunchData.Configs
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public NetickConfig[] Configs
+    return:
+      type: Netick.Unity.NetickConfig[]
+    content.vb: Public Configs As NetickConfig()
 - uid: Netick.Unity.LaunchData.Port
   commentId: F:Netick.Unity.LaunchData.Port
   id: Port
@@ -438,14 +458,6 @@ references:
   name: NetworkTransportProvider
   nameWithType: NetworkTransportProvider
   fullName: Netick.Unity.NetworkTransportProvider
-- uid: Netick.Unity.NetickConfig
-  commentId: T:Netick.Unity.NetickConfig
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.NetickConfig.html
-  name: NetickConfig
-  nameWithType: NetickConfig
-  fullName: Netick.Unity.NetickConfig
 - uid: UnityEngine.GameObject
   commentId: T:UnityEngine.GameObject
   parent: UnityEngine
@@ -470,6 +482,37 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: Netick.Unity.NetickConfig
+  commentId: T:Netick.Unity.NetickConfig
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetickConfig.html
+  name: NetickConfig
+  nameWithType: NetickConfig
+  fullName: Netick.Unity.NetickConfig
+- uid: Netick.Unity.NetickConfig[]
+  isExternal: true
+  href: Netick.Unity.NetickConfig.html
+  name: NetickConfig[]
+  nameWithType: NetickConfig[]
+  fullName: Netick.Unity.NetickConfig[]
+  nameWithType.vb: NetickConfig()
+  fullName.vb: Netick.Unity.NetickConfig()
+  name.vb: NetickConfig()
+  spec.csharp:
+  - uid: Netick.Unity.NetickConfig
+    name: NetickConfig
+    isExternal: true
+    href: Netick.Unity.NetickConfig.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Netick.Unity.NetickConfig
+    name: NetickConfig
+    isExternal: true
+    href: Netick.Unity.NetickConfig.html
+  - name: (
+  - name: )
 - uid: System.Int32[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.int32

@@ -143,6 +143,12 @@ public class NetworkSceneManager : NetworkBehaviour, INetickNetworkScript, INeti
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GetRef__1">NetworkBehaviour.GetRef&lt;T&gt;()</a>
     </div>
     <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__">NetworkBehaviour.CopyStateTo(byte*)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__">NetworkBehaviour.SetStateFrom(byte*)</a>
+    </div>
+    <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_">NetworkBehaviour.FetchInput&lt;T&gt;(out T, int)</a>
     </div>
     <div>
@@ -170,10 +176,10 @@ public class NetworkSceneManager : NetworkBehaviour, INetickNetworkScript, INeti
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnSpawnPredictionSucceeded">NetworkBehaviour.OnSpawnPredictionSucceeded()</a>
     </div>
     <div>
-      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake">NetworkBehaviour.NetworkAwake()</a>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset">NetworkBehaviour.NetworkReset()</a>
     </div>
     <div>
-      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset">NetworkBehaviour.NetworkReset()</a>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit">NetworkBehaviour.InternalInit()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_BehaviourId">NetworkBehaviour.BehaviourId</a>
@@ -209,7 +215,7 @@ public class NetworkSceneManager : NetworkBehaviour, INetickNetworkScript, INeti
       <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSourcePlayerId">NetworkBehaviour.InputSourcePlayerId</a>
     </div>
     <div>
-      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart">NetickBehaviour.NetworkStart()</a>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_StateSize">NetworkBehaviour.StateSize</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy">NetickBehaviour.NetworkDestroy()</a>
@@ -631,32 +637,6 @@ public class NetworkSceneManager : NetworkBehaviour, INetickNetworkScript, INeti
 </h2>
 
 
-  <a id="Netick_Unity_NetworkSceneManager_Awake_" data-uid="Netick.Unity.NetworkSceneManager.Awake*"></a>
-
-  <h3 id="Netick_Unity_NetworkSceneManager_Awake" data-uid="Netick.Unity.NetworkSceneManager.Awake">
-  Awake()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Awake()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="Netick_Unity_NetworkSceneManager_InternalGetStateSizeWords_" data-uid="Netick.Unity.NetworkSceneManager.InternalGetStateSizeWords*"></a>
 
   <h3 id="Netick_Unity_NetworkSceneManager_InternalGetStateSizeWords" data-uid="Netick.Unity.NetworkSceneManager.InternalGetStateSizeWords">
@@ -677,32 +657,6 @@ public class NetworkSceneManager : NetworkBehaviour, INetickNetworkScript, INeti
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_NetworkSceneManager_InternalInit_" data-uid="Netick.Unity.NetworkSceneManager.InternalInit*"></a>
-
-  <h3 id="Netick_Unity_NetworkSceneManager_InternalInit" data-uid="Netick.Unity.NetworkSceneManager.InternalInit">
-  InternalInit()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void InternalInit()</code></pre>
-  </div>
-
-
 
 
 
@@ -740,10 +694,63 @@ public class NetworkSceneManager : NetworkBehaviour, INetickNetworkScript, INeti
 
 
 
+  <a id="Netick_Unity_NetworkSceneManager_NetworkAwake_" data-uid="Netick.Unity.NetworkSceneManager.NetworkAwake*"></a>
+
+  <h3 id="Netick_Unity_NetworkSceneManager_NetworkAwake" data-uid="Netick.Unity.NetworkSceneManager.NetworkAwake">
+  NetworkAwake()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void NetworkAwake()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSceneManager_NetworkStart_" data-uid="Netick.Unity.NetworkSceneManager.NetworkStart*"></a>
+
+  <h3 id="Netick_Unity_NetworkSceneManager_NetworkStart" data-uid="Netick.Unity.NetworkSceneManager.NetworkStart">
+  NetworkStart()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when this behaviour has been added to the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void NetworkStart()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSceneManager_OnSyncedLoadedAdditiveScenes_" data-uid="Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes*"></a>
 
-  <h3 id="Netick_Unity_NetworkSceneManager_OnSyncedLoadedAdditiveScenes_Netick_OnChangedData_" data-uid="Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes(Netick.OnChangedData)">
-  OnSyncedLoadedAdditiveScenes(OnChangedData)
+  <h3 id="Netick_Unity_NetworkSceneManager_OnSyncedLoadedAdditiveScenes" data-uid="Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes">
+  OnSyncedLoadedAdditiveScenes()
   
   </h3>
 
@@ -751,47 +758,9 @@ public class NetworkSceneManager : NetworkBehaviour, INetickNetworkScript, INeti
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void OnSyncedLoadedAdditiveScenes(OnChangedData ocd)</code></pre>
+    <pre><code class="lang-csharp hljs">public void OnSyncedLoadedAdditiveScenes()</code></pre>
   </div>
 
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>ocd</code> <a class="xref" href="Netick.OnChangedData.html">OnChangedData</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_NetworkSceneManager_OnSyncedLoadedAdditiveScenes__handler_" data-uid="Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler*"></a>
-
-  <h3 id="Netick_Unity_NetworkSceneManager_OnSyncedLoadedAdditiveScenes__handler_Netick_INetickScript_Netick_OnChangedData_" data-uid="Netick.Unity.NetworkSceneManager.OnSyncedLoadedAdditiveScenes__handler(Netick.INetickScript,Netick.OnChangedData)">
-  OnSyncedLoadedAdditiveScenes__handler(INetickScript, OnChangedData)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void OnSyncedLoadedAdditiveScenes__handler(INetickScript beh, OnChangedData change)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>beh</code> <a class="xref" href="Netick.INetickScript.html">INetickScript</a></dt>
-    <dd></dd>
-    <dt><code>change</code> <a class="xref" href="Netick.OnChangedData.html">OnChangedData</a></dt>
-    <dd></dd>
-  </dl>
 
 
 

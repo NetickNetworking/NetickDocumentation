@@ -210,6 +210,10 @@ Classes
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Netick.MemoryAllocation.html">MemoryAllocation</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Netick.Monitor.html">Monitor</a></dt>
       <dd></dd>
     </dl>
@@ -274,12 +278,31 @@ Classes
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetworkDictionary.html">NetworkDictionary</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetworkDictionary-2.html">NetworkDictionary&lt;TKey, TValue&gt;</a></dt>
+      <dd><p>A networked <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary&lt;TKey, TValue&gt;</a> collection.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetworkHashSet.html">NetworkHashSet</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetworkHashSet-1.html">NetworkHashSet&lt;T&gt;</a></dt>
+      <dd><p>A networked <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet&lt;T&gt;</a> collection.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkLinkedList.html">NetworkLinkedList</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkLinkedList-1.html">NetworkLinkedList&lt;T&gt;</a></dt>
-      <dd></dd>
+      <dd><p>A networked linked list collection. This is an ordered list meaning that the elements insertion order is maintained when iterating through the collection.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkPeer.html">NetworkPeer</a></dt>
@@ -296,7 +319,8 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkQueue-1.html">NetworkQueue&lt;T&gt;</a></dt>
-      <dd></dd>
+      <dd><p>A networked <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1">Queue&lt;T&gt;</a> collection.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkRpc.html">NetworkRpc</a></dt>
@@ -308,11 +332,21 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkStack-1.html">NetworkStack&lt;T&gt;</a></dt>
-      <dd></dd>
+      <dd><p>A networked <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.stack-1">Stack&lt;T&gt;</a> collection.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkTransport.html">NetworkTransport</a></dt>
       <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetworkUnorderedList.html">NetworkUnorderedList</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetworkUnorderedList-1.html">NetworkUnorderedList&lt;T&gt;</a></dt>
+      <dd><p>A networked list collection. This is an unordered list meaning that the order of the elements during iteration is undefined.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Networked.html">Networked</a></dt>
@@ -478,18 +512,28 @@ Structs
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetworkDictionarySnapshot-2.html">NetworkDictionarySnapshot&lt;TKey, TValue&gt;</a></dt>
+      <dd><p>A snapshot of the state of a <a class="xref" href="Netick.NetworkDictionary-2.html">NetworkDictionary&lt;TKey, TValue&gt;</a> collection. Note this must not be used outside the scope of an OnChanged call or a NetworkRender call.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetworkHashSetSnapshot-1.html">NetworkHashSetSnapshot&lt;T&gt;</a></dt>
+      <dd><p>A snapshot of the state of a <a class="xref" href="Netick.NetworkHashSet-1.html">NetworkHashSet&lt;T&gt;</a> collection. Note this must not be used outside the scope of an OnChanged call or a NetworkRender call.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkLinkedListSnapshot-1.html">NetworkLinkedListSnapshot&lt;T&gt;</a></dt>
-      <dd><p>A snapshot of the previous state of a NetworkLinkedList collection. Note this must not be used outside the the scope of an OnChanged call.</p>
+      <dd><p>A snapshot of the state of a <a class="xref" href="Netick.NetworkLinkedList-1.html">NetworkLinkedList&lt;T&gt;</a> collection. Note this must not be used outside the scope of an OnChanged call or a NetworkRender call.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkQueueSnapshot-1.html">NetworkQueueSnapshot&lt;T&gt;</a></dt>
-      <dd><p>A snapshot of the previous state of a NetworkQueue collection. Note this must not be used outside the the scope of an OnChanged call.</p>
+      <dd><p>A snapshot of the state of a <a class="xref" href="Netick.NetworkQueue-1.html">NetworkQueue&lt;T&gt;</a> collection. Note this must not be used outside the scope of an OnChanged call or a NetworkRender call.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkStackSnapshot-1.html">NetworkStackSnapshot&lt;T&gt;</a></dt>
-      <dd><p>A snapshot of the previous state of a NetworkStack collection. Note this must not be used outside the the scope of an OnChanged call.</p>
+      <dd><p>A snapshot of the state of a <a class="xref" href="Netick.NetworkStack-1.html">NetworkStack&lt;T&gt;</a> collection. Note this must not be used outside the scope of an OnChanged call or a NetworkRender call.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -521,15 +565,16 @@ Structs
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetworkUnorderedListSnapshot-1.html">NetworkUnorderedListSnapshot&lt;T&gt;</a></dt>
+      <dd><p>A snapshot of the state of a <a class="xref" href="Netick.NetworkUnorderedList-1.html">NetworkUnorderedList&lt;T&gt;</a> collection. Note this must not be used outside the scope of an OnChanged call or a NetworkRender call.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Netick.OnChangedData.html">OnChangedData</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.OnChangedMethod.html">OnChangedMethod</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Netick.PredictionErrorSmootherVector3.html">PredictionErrorSmootherVector3</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
@@ -551,6 +596,10 @@ Structs
     <h3 id="interfaces">
 Interfaces
 </h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.IClientSimulationCallbacks.html">IClientSimulationCallbacks</a></dt>
+      <dd></dd>
+    </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.IEndPoint.html">IEndPoint</a></dt>
       <dd></dd>
@@ -617,7 +666,7 @@ Enums
       <dd></dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Netick.NetworkArrayMeta.html">NetworkArrayMeta</a></dt>
+      <dt><a class="xref" href="Netick.NetworkCollectionMeta.html">NetworkCollectionMeta</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
@@ -630,6 +679,10 @@ Enums
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.RunMode.html">RunMode</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.TransportDeliveryMethod.html">TransportDeliveryMethod</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">

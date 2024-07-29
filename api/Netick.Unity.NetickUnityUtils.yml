@@ -11,15 +11,15 @@ items:
   - Netick.Unity.NetickUnityUtils.GetFloat(System.Int32*,System.Single)
   - Netick.Unity.NetickUnityUtils.GetQuaternion(System.Int32*,System.Single)
   - Netick.Unity.NetickUnityUtils.GetQuaternionCompressed(System.Int32*)
-  - Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  - Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  - Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  - Netick.Unity.NetickUnityUtils.GetSmoothFloat(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  - Netick.Unity.NetickUnityUtils.GetSmoothInt(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  - Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  - Netick.Unity.NetickUnityUtils.GetSmoothQuaternion(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  - Netick.Unity.NetickUnityUtils.GetSmoothVector2(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  - Netick.Unity.NetickUnityUtils.GetSmoothVector3(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
+  - Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  - Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  - Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  - Netick.Unity.NetickUnityUtils.GetSmoothFloat(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  - Netick.Unity.NetickUnityUtils.GetSmoothInt(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  - Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  - Netick.Unity.NetickUnityUtils.GetSmoothQuaternion(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  - Netick.Unity.NetickUnityUtils.GetSmoothVector2(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  - Netick.Unity.NetickUnityUtils.GetSmoothVector3(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   - Netick.Unity.NetickUnityUtils.GetVector2(System.Int32*,System.Single)
   - Netick.Unity.NetickUnityUtils.GetVector3(System.Int32*,System.Single)
   - Netick.Unity.NetickUnityUtils.QuatMemberPack(System.Single)
@@ -183,22 +183,22 @@ items:
   nameWithType.vb: NetickUnityUtils.GetQuaternionCompressed(Integer*)
   fullName.vb: Netick.Unity.NetickUnityUtils.GetQuaternionCompressed(Integer*)
   name.vb: GetQuaternionCompressed(Integer*)
-- uid: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  id: GetSmoothNetworkBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  id: GetSmoothNetworkBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   parent: Netick.Unity.NetickUnityUtils
   langs:
   - csharp
   - vb
-  name: GetSmoothNetworkBool(NetickEngine, int*, ref Interpolator)
-  nameWithType: NetickUnityUtils.GetSmoothNetworkBool(NetickEngine, int*, ref Interpolator)
-  fullName: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine, int*, ref Netick.Interpolator)
+  name: GetSmoothNetworkBool(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  nameWithType: NetickUnityUtils.GetSmoothNetworkBool(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine, int*, ref Netick.Interpolator, Netick.InterpolationSource)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static NetworkBool GetSmoothNetworkBool(NetickEngine engine, int* data, ref Interpolator interpolator)
+    content: public static NetworkBool GetSmoothNetworkBool(NetickEngine engine, int* data, ref Interpolator interpolator, InterpolationSource interpolationSource)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -206,29 +206,31 @@ items:
       type: System.Int32*
     - id: interpolator
       type: Netick.Interpolator
+    - id: interpolationSource
+      type: Netick.InterpolationSource
     return:
       type: Netick.NetworkBool
-    content.vb: Public Shared Function GetSmoothNetworkBool(engine As NetickEngine, data As Integer*, interpolator As Interpolator) As NetworkBool
+    content.vb: Public Shared Function GetSmoothNetworkBool(engine As NetickEngine, data As Integer*, interpolator As Interpolator, interpolationSource As InterpolationSource) As NetworkBool
   overload: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool*
-  nameWithType.vb: NetickUnityUtils.GetSmoothNetworkBool(NetickEngine, Integer*, Interpolator)
-  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine, Integer*, Netick.Interpolator)
-  name.vb: GetSmoothNetworkBool(NetickEngine, Integer*, Interpolator)
-- uid: Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  id: GetSmoothBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
+  nameWithType.vb: NetickUnityUtils.GetSmoothNetworkBool(NetickEngine, Integer*, Interpolator, InterpolationSource)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine, Integer*, Netick.Interpolator, Netick.InterpolationSource)
+  name.vb: GetSmoothNetworkBool(NetickEngine, Integer*, Interpolator, InterpolationSource)
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  id: GetSmoothBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   parent: Netick.Unity.NetickUnityUtils
   langs:
   - csharp
   - vb
-  name: GetSmoothBool(NetickEngine, int*, ref Interpolator)
-  nameWithType: NetickUnityUtils.GetSmoothBool(NetickEngine, int*, ref Interpolator)
-  fullName: Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine, int*, ref Netick.Interpolator)
+  name: GetSmoothBool(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  nameWithType: NetickUnityUtils.GetSmoothBool(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine, int*, ref Netick.Interpolator, Netick.InterpolationSource)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static bool GetSmoothBool(NetickEngine engine, int* data, ref Interpolator interpolator)
+    content: public static bool GetSmoothBool(NetickEngine engine, int* data, ref Interpolator interpolator, InterpolationSource interpolationSource)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -236,29 +238,31 @@ items:
       type: System.Int32*
     - id: interpolator
       type: Netick.Interpolator
+    - id: interpolationSource
+      type: Netick.InterpolationSource
     return:
       type: System.Boolean
-    content.vb: Public Shared Function GetSmoothBool(engine As NetickEngine, data As Integer*, interpolator As Interpolator) As Boolean
+    content.vb: Public Shared Function GetSmoothBool(engine As NetickEngine, data As Integer*, interpolator As Interpolator, interpolationSource As InterpolationSource) As Boolean
   overload: Netick.Unity.NetickUnityUtils.GetSmoothBool*
-  nameWithType.vb: NetickUnityUtils.GetSmoothBool(NetickEngine, Integer*, Interpolator)
-  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine, Integer*, Netick.Interpolator)
-  name.vb: GetSmoothBool(NetickEngine, Integer*, Interpolator)
-- uid: Netick.Unity.NetickUnityUtils.GetSmoothInt(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothInt(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  id: GetSmoothInt(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
+  nameWithType.vb: NetickUnityUtils.GetSmoothBool(NetickEngine, Integer*, Interpolator, InterpolationSource)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine, Integer*, Netick.Interpolator, Netick.InterpolationSource)
+  name.vb: GetSmoothBool(NetickEngine, Integer*, Interpolator, InterpolationSource)
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothInt(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothInt(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  id: GetSmoothInt(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   parent: Netick.Unity.NetickUnityUtils
   langs:
   - csharp
   - vb
-  name: GetSmoothInt(NetickEngine, int*, ref Interpolator)
-  nameWithType: NetickUnityUtils.GetSmoothInt(NetickEngine, int*, ref Interpolator)
-  fullName: Netick.Unity.NetickUnityUtils.GetSmoothInt(Netick.NetickEngine, int*, ref Netick.Interpolator)
+  name: GetSmoothInt(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  nameWithType: NetickUnityUtils.GetSmoothInt(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothInt(Netick.NetickEngine, int*, ref Netick.Interpolator, Netick.InterpolationSource)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static int GetSmoothInt(NetickEngine engine, int* data, ref Interpolator interpolator)
+    content: public static int GetSmoothInt(NetickEngine engine, int* data, ref Interpolator interpolator, InterpolationSource interpolationSource)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -266,29 +270,31 @@ items:
       type: System.Int32*
     - id: interpolator
       type: Netick.Interpolator
+    - id: interpolationSource
+      type: Netick.InterpolationSource
     return:
       type: System.Int32
-    content.vb: Public Shared Function GetSmoothInt(engine As NetickEngine, data As Integer*, interpolator As Interpolator) As Integer
+    content.vb: Public Shared Function GetSmoothInt(engine As NetickEngine, data As Integer*, interpolator As Interpolator, interpolationSource As InterpolationSource) As Integer
   overload: Netick.Unity.NetickUnityUtils.GetSmoothInt*
-  nameWithType.vb: NetickUnityUtils.GetSmoothInt(NetickEngine, Integer*, Interpolator)
-  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothInt(Netick.NetickEngine, Integer*, Netick.Interpolator)
-  name.vb: GetSmoothInt(NetickEngine, Integer*, Interpolator)
-- uid: Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  id: GetSmoothDouble(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
+  nameWithType.vb: NetickUnityUtils.GetSmoothInt(NetickEngine, Integer*, Interpolator, InterpolationSource)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothInt(Netick.NetickEngine, Integer*, Netick.Interpolator, Netick.InterpolationSource)
+  name.vb: GetSmoothInt(NetickEngine, Integer*, Interpolator, InterpolationSource)
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  id: GetSmoothDouble(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   parent: Netick.Unity.NetickUnityUtils
   langs:
   - csharp
   - vb
-  name: GetSmoothDouble(NetickEngine, int*, ref Interpolator)
-  nameWithType: NetickUnityUtils.GetSmoothDouble(NetickEngine, int*, ref Interpolator)
-  fullName: Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine, int*, ref Netick.Interpolator)
+  name: GetSmoothDouble(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  nameWithType: NetickUnityUtils.GetSmoothDouble(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine, int*, ref Netick.Interpolator, Netick.InterpolationSource)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static double GetSmoothDouble(NetickEngine engine, int* data, ref Interpolator interpolator)
+    content: public static double GetSmoothDouble(NetickEngine engine, int* data, ref Interpolator interpolator, InterpolationSource interpolationSource)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -296,29 +302,31 @@ items:
       type: System.Int32*
     - id: interpolator
       type: Netick.Interpolator
+    - id: interpolationSource
+      type: Netick.InterpolationSource
     return:
       type: System.Double
-    content.vb: Public Shared Function GetSmoothDouble(engine As NetickEngine, data As Integer*, interpolator As Interpolator) As Double
+    content.vb: Public Shared Function GetSmoothDouble(engine As NetickEngine, data As Integer*, interpolator As Interpolator, interpolationSource As InterpolationSource) As Double
   overload: Netick.Unity.NetickUnityUtils.GetSmoothDouble*
-  nameWithType.vb: NetickUnityUtils.GetSmoothDouble(NetickEngine, Integer*, Interpolator)
-  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine, Integer*, Netick.Interpolator)
-  name.vb: GetSmoothDouble(NetickEngine, Integer*, Interpolator)
-- uid: Netick.Unity.NetickUnityUtils.GetSmoothFloat(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothFloat(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  id: GetSmoothFloat(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
+  nameWithType.vb: NetickUnityUtils.GetSmoothDouble(NetickEngine, Integer*, Interpolator, InterpolationSource)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine, Integer*, Netick.Interpolator, Netick.InterpolationSource)
+  name.vb: GetSmoothDouble(NetickEngine, Integer*, Interpolator, InterpolationSource)
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothFloat(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothFloat(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  id: GetSmoothFloat(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   parent: Netick.Unity.NetickUnityUtils
   langs:
   - csharp
   - vb
-  name: GetSmoothFloat(NetickEngine, int*, ref Interpolator)
-  nameWithType: NetickUnityUtils.GetSmoothFloat(NetickEngine, int*, ref Interpolator)
-  fullName: Netick.Unity.NetickUnityUtils.GetSmoothFloat(Netick.NetickEngine, int*, ref Netick.Interpolator)
+  name: GetSmoothFloat(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  nameWithType: NetickUnityUtils.GetSmoothFloat(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothFloat(Netick.NetickEngine, int*, ref Netick.Interpolator, Netick.InterpolationSource)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static float GetSmoothFloat(NetickEngine engine, int* data, ref Interpolator interpolator)
+    content: public static float GetSmoothFloat(NetickEngine engine, int* data, ref Interpolator interpolator, InterpolationSource interpolationSource)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -326,29 +334,31 @@ items:
       type: System.Int32*
     - id: interpolator
       type: Netick.Interpolator
+    - id: interpolationSource
+      type: Netick.InterpolationSource
     return:
       type: System.Single
-    content.vb: Public Shared Function GetSmoothFloat(engine As NetickEngine, data As Integer*, interpolator As Interpolator) As Single
+    content.vb: Public Shared Function GetSmoothFloat(engine As NetickEngine, data As Integer*, interpolator As Interpolator, interpolationSource As InterpolationSource) As Single
   overload: Netick.Unity.NetickUnityUtils.GetSmoothFloat*
-  nameWithType.vb: NetickUnityUtils.GetSmoothFloat(NetickEngine, Integer*, Interpolator)
-  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothFloat(Netick.NetickEngine, Integer*, Netick.Interpolator)
-  name.vb: GetSmoothFloat(NetickEngine, Integer*, Interpolator)
-- uid: Netick.Unity.NetickUnityUtils.GetSmoothVector2(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothVector2(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  id: GetSmoothVector2(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
+  nameWithType.vb: NetickUnityUtils.GetSmoothFloat(NetickEngine, Integer*, Interpolator, InterpolationSource)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothFloat(Netick.NetickEngine, Integer*, Netick.Interpolator, Netick.InterpolationSource)
+  name.vb: GetSmoothFloat(NetickEngine, Integer*, Interpolator, InterpolationSource)
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothVector2(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothVector2(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  id: GetSmoothVector2(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   parent: Netick.Unity.NetickUnityUtils
   langs:
   - csharp
   - vb
-  name: GetSmoothVector2(NetickEngine, int*, ref Interpolator)
-  nameWithType: NetickUnityUtils.GetSmoothVector2(NetickEngine, int*, ref Interpolator)
-  fullName: Netick.Unity.NetickUnityUtils.GetSmoothVector2(Netick.NetickEngine, int*, ref Netick.Interpolator)
+  name: GetSmoothVector2(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  nameWithType: NetickUnityUtils.GetSmoothVector2(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothVector2(Netick.NetickEngine, int*, ref Netick.Interpolator, Netick.InterpolationSource)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static Vector2 GetSmoothVector2(NetickEngine engine, int* data, ref Interpolator interpolator)
+    content: public static Vector2 GetSmoothVector2(NetickEngine engine, int* data, ref Interpolator interpolator, InterpolationSource interpolationSource)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -356,29 +366,31 @@ items:
       type: System.Int32*
     - id: interpolator
       type: Netick.Interpolator
+    - id: interpolationSource
+      type: Netick.InterpolationSource
     return:
       type: UnityEngine.Vector2
-    content.vb: Public Shared Function GetSmoothVector2(engine As NetickEngine, data As Integer*, interpolator As Interpolator) As Vector2
+    content.vb: Public Shared Function GetSmoothVector2(engine As NetickEngine, data As Integer*, interpolator As Interpolator, interpolationSource As InterpolationSource) As Vector2
   overload: Netick.Unity.NetickUnityUtils.GetSmoothVector2*
-  nameWithType.vb: NetickUnityUtils.GetSmoothVector2(NetickEngine, Integer*, Interpolator)
-  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothVector2(Netick.NetickEngine, Integer*, Netick.Interpolator)
-  name.vb: GetSmoothVector2(NetickEngine, Integer*, Interpolator)
-- uid: Netick.Unity.NetickUnityUtils.GetSmoothVector3(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothVector3(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  id: GetSmoothVector3(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
+  nameWithType.vb: NetickUnityUtils.GetSmoothVector2(NetickEngine, Integer*, Interpolator, InterpolationSource)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothVector2(Netick.NetickEngine, Integer*, Netick.Interpolator, Netick.InterpolationSource)
+  name.vb: GetSmoothVector2(NetickEngine, Integer*, Interpolator, InterpolationSource)
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothVector3(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothVector3(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  id: GetSmoothVector3(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   parent: Netick.Unity.NetickUnityUtils
   langs:
   - csharp
   - vb
-  name: GetSmoothVector3(NetickEngine, int*, ref Interpolator)
-  nameWithType: NetickUnityUtils.GetSmoothVector3(NetickEngine, int*, ref Interpolator)
-  fullName: Netick.Unity.NetickUnityUtils.GetSmoothVector3(Netick.NetickEngine, int*, ref Netick.Interpolator)
+  name: GetSmoothVector3(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  nameWithType: NetickUnityUtils.GetSmoothVector3(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothVector3(Netick.NetickEngine, int*, ref Netick.Interpolator, Netick.InterpolationSource)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static Vector3 GetSmoothVector3(NetickEngine engine, int* data, ref Interpolator interpolator)
+    content: public static Vector3 GetSmoothVector3(NetickEngine engine, int* data, ref Interpolator interpolator, InterpolationSource interpolationSource)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -386,29 +398,31 @@ items:
       type: System.Int32*
     - id: interpolator
       type: Netick.Interpolator
+    - id: interpolationSource
+      type: Netick.InterpolationSource
     return:
       type: UnityEngine.Vector3
-    content.vb: Public Shared Function GetSmoothVector3(engine As NetickEngine, data As Integer*, interpolator As Interpolator) As Vector3
+    content.vb: Public Shared Function GetSmoothVector3(engine As NetickEngine, data As Integer*, interpolator As Interpolator, interpolationSource As InterpolationSource) As Vector3
   overload: Netick.Unity.NetickUnityUtils.GetSmoothVector3*
-  nameWithType.vb: NetickUnityUtils.GetSmoothVector3(NetickEngine, Integer*, Interpolator)
-  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothVector3(Netick.NetickEngine, Integer*, Netick.Interpolator)
-  name.vb: GetSmoothVector3(NetickEngine, Integer*, Interpolator)
-- uid: Netick.Unity.NetickUnityUtils.GetSmoothQuaternion(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothQuaternion(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  id: GetSmoothQuaternion(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
+  nameWithType.vb: NetickUnityUtils.GetSmoothVector3(NetickEngine, Integer*, Interpolator, InterpolationSource)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothVector3(Netick.NetickEngine, Integer*, Netick.Interpolator, Netick.InterpolationSource)
+  name.vb: GetSmoothVector3(NetickEngine, Integer*, Interpolator, InterpolationSource)
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothQuaternion(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothQuaternion(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  id: GetSmoothQuaternion(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   parent: Netick.Unity.NetickUnityUtils
   langs:
   - csharp
   - vb
-  name: GetSmoothQuaternion(NetickEngine, int*, ref Interpolator)
-  nameWithType: NetickUnityUtils.GetSmoothQuaternion(NetickEngine, int*, ref Interpolator)
-  fullName: Netick.Unity.NetickUnityUtils.GetSmoothQuaternion(Netick.NetickEngine, int*, ref Netick.Interpolator)
+  name: GetSmoothQuaternion(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  nameWithType: NetickUnityUtils.GetSmoothQuaternion(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothQuaternion(Netick.NetickEngine, int*, ref Netick.Interpolator, Netick.InterpolationSource)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static Quaternion GetSmoothQuaternion(NetickEngine engine, int* data, ref Interpolator interpolator)
+    content: public static Quaternion GetSmoothQuaternion(NetickEngine engine, int* data, ref Interpolator interpolator, InterpolationSource interpolationSource)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -416,29 +430,31 @@ items:
       type: System.Int32*
     - id: interpolator
       type: Netick.Interpolator
+    - id: interpolationSource
+      type: Netick.InterpolationSource
     return:
       type: UnityEngine.Quaternion
-    content.vb: Public Shared Function GetSmoothQuaternion(engine As NetickEngine, data As Integer*, interpolator As Interpolator) As Quaternion
+    content.vb: Public Shared Function GetSmoothQuaternion(engine As NetickEngine, data As Integer*, interpolator As Interpolator, interpolationSource As InterpolationSource) As Quaternion
   overload: Netick.Unity.NetickUnityUtils.GetSmoothQuaternion*
-  nameWithType.vb: NetickUnityUtils.GetSmoothQuaternion(NetickEngine, Integer*, Interpolator)
-  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothQuaternion(Netick.NetickEngine, Integer*, Netick.Interpolator)
-  name.vb: GetSmoothQuaternion(NetickEngine, Integer*, Interpolator)
-- uid: Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
-  id: GetSmoothColor(Netick.NetickEngine,System.Int32*,Netick.Interpolator@)
+  nameWithType.vb: NetickUnityUtils.GetSmoothQuaternion(NetickEngine, Integer*, Interpolator, InterpolationSource)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothQuaternion(Netick.NetickEngine, Integer*, Netick.Interpolator, Netick.InterpolationSource)
+  name.vb: GetSmoothQuaternion(NetickEngine, Integer*, Interpolator, InterpolationSource)
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  id: GetSmoothColor(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   parent: Netick.Unity.NetickUnityUtils
   langs:
   - csharp
   - vb
-  name: GetSmoothColor(NetickEngine, int*, ref Interpolator)
-  nameWithType: NetickUnityUtils.GetSmoothColor(NetickEngine, int*, ref Interpolator)
-  fullName: Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine, int*, ref Netick.Interpolator)
+  name: GetSmoothColor(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  nameWithType: NetickUnityUtils.GetSmoothColor(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine, int*, ref Netick.Interpolator, Netick.InterpolationSource)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static Color GetSmoothColor(NetickEngine engine, int* data, ref Interpolator interpolator)
+    content: public static Color GetSmoothColor(NetickEngine engine, int* data, ref Interpolator interpolator, InterpolationSource interpolationSource)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -446,13 +462,15 @@ items:
       type: System.Int32*
     - id: interpolator
       type: Netick.Interpolator
+    - id: interpolationSource
+      type: Netick.InterpolationSource
     return:
       type: UnityEngine.Color
-    content.vb: Public Shared Function GetSmoothColor(engine As NetickEngine, data As Integer*, interpolator As Interpolator) As Color
+    content.vb: Public Shared Function GetSmoothColor(engine As NetickEngine, data As Integer*, interpolator As Interpolator, interpolationSource As InterpolationSource) As Color
   overload: Netick.Unity.NetickUnityUtils.GetSmoothColor*
-  nameWithType.vb: NetickUnityUtils.GetSmoothColor(NetickEngine, Integer*, Interpolator)
-  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine, Integer*, Netick.Interpolator)
-  name.vb: GetSmoothColor(NetickEngine, Integer*, Interpolator)
+  nameWithType.vb: NetickUnityUtils.GetSmoothColor(NetickEngine, Integer*, Interpolator, InterpolationSource)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine, Integer*, Netick.Interpolator, Netick.InterpolationSource)
+  name.vb: GetSmoothColor(NetickEngine, Integer*, Interpolator, InterpolationSource)
 - uid: Netick.Unity.NetickUnityUtils.GetFloat(System.Int32*,System.Single)
   commentId: M:Netick.Unity.NetickUnityUtils.GetFloat(System.Int32*,System.Single)
   id: GetFloat(System.Int32*,System.Single)
@@ -1113,7 +1131,7 @@ references:
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothNetworkBool_Netick_NetickEngine_System_Int32__Netick_Interpolator__
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothNetworkBool_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
   name: GetSmoothNetworkBool
   nameWithType: NetickUnityUtils.GetSmoothNetworkBool
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool
@@ -1133,6 +1151,14 @@ references:
   name: Interpolator
   nameWithType: Interpolator
   fullName: Netick.Interpolator
+- uid: Netick.InterpolationSource
+  commentId: T:Netick.InterpolationSource
+  parent: Netick
+  isExternal: true
+  href: Netick.InterpolationSource.html
+  name: InterpolationSource
+  nameWithType: InterpolationSource
+  fullName: Netick.InterpolationSource
 - uid: Netick.NetworkBool
   commentId: T:Netick.NetworkBool
   parent: Netick
@@ -1151,7 +1177,7 @@ references:
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothBool*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothBool
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothBool_Netick_NetickEngine_System_Int32__Netick_Interpolator__
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothBool_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
   name: GetSmoothBool
   nameWithType: NetickUnityUtils.GetSmoothBool
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothBool
@@ -1169,7 +1195,7 @@ references:
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothInt*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothInt
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothInt_Netick_NetickEngine_System_Int32__Netick_Interpolator__
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothInt_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
   name: GetSmoothInt
   nameWithType: NetickUnityUtils.GetSmoothInt
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothInt
@@ -1187,7 +1213,7 @@ references:
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothDouble*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothDouble
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothDouble_Netick_NetickEngine_System_Int32__Netick_Interpolator__
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothDouble_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
   name: GetSmoothDouble
   nameWithType: NetickUnityUtils.GetSmoothDouble
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothDouble
@@ -1205,14 +1231,14 @@ references:
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothFloat*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothFloat
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothFloat_Netick_NetickEngine_System_Int32__Netick_Interpolator__
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothFloat_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
   name: GetSmoothFloat
   nameWithType: NetickUnityUtils.GetSmoothFloat
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothFloat
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothVector2*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothVector2
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothVector2_Netick_NetickEngine_System_Int32__Netick_Interpolator__
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothVector2_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
   name: GetSmoothVector2
   nameWithType: NetickUnityUtils.GetSmoothVector2
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothVector2
@@ -1226,7 +1252,7 @@ references:
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothVector3*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothVector3
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothVector3_Netick_NetickEngine_System_Int32__Netick_Interpolator__
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothVector3_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
   name: GetSmoothVector3
   nameWithType: NetickUnityUtils.GetSmoothVector3
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothVector3
@@ -1240,14 +1266,14 @@ references:
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothQuaternion*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothQuaternion
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothQuaternion_Netick_NetickEngine_System_Int32__Netick_Interpolator__
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothQuaternion_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
   name: GetSmoothQuaternion
   nameWithType: NetickUnityUtils.GetSmoothQuaternion
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothQuaternion
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothColor*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothColor
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothColor_Netick_NetickEngine_System_Int32__Netick_Interpolator__
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothColor_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
   name: GetSmoothColor
   nameWithType: NetickUnityUtils.GetSmoothColor
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothColor

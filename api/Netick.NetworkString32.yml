@@ -6,6 +6,8 @@ items:
   parent: Netick
   children:
   - Netick.NetworkString32.#ctor(System.String)
+  - Netick.NetworkString32.LoadIntoStringBuilder(System.Text.StringBuilder)
+  - Netick.NetworkString32.RawValue
   - Netick.NetworkString32.ToString
   - Netick.NetworkString32.op_Implicit(Netick.NetworkString32)~System.String
   - Netick.NetworkString32.op_Implicit(System.String)~Netick.NetworkString32
@@ -28,6 +30,25 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Netick.NetworkString32.RawValue
+  commentId: F:Netick.NetworkString32.RawValue
+  id: RawValue
+  parent: Netick.NetworkString32
+  langs:
+  - csharp
+  - vb
+  name: RawValue
+  nameWithType: NetworkString32.RawValue
+  fullName: Netick.NetworkString32.RawValue
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public FixedSize32<ushort> RawValue
+    return:
+      type: Netick.FixedSize32{System.UInt16}
+    content.vb: Public RawValue As FixedSize32(Of UShort)
 - uid: Netick.NetworkString32.#ctor(System.String)
   commentId: M:Netick.NetworkString32.#ctor(System.String)
   id: '#ctor(System.String)'
@@ -52,6 +73,27 @@ items:
   nameWithType.vb: NetworkString32.New(String)
   fullName.vb: Netick.NetworkString32.New(String)
   name.vb: New(String)
+- uid: Netick.NetworkString32.LoadIntoStringBuilder(System.Text.StringBuilder)
+  commentId: M:Netick.NetworkString32.LoadIntoStringBuilder(System.Text.StringBuilder)
+  id: LoadIntoStringBuilder(System.Text.StringBuilder)
+  parent: Netick.NetworkString32
+  langs:
+  - csharp
+  - vb
+  name: LoadIntoStringBuilder(StringBuilder)
+  nameWithType: NetworkString32.LoadIntoStringBuilder(StringBuilder)
+  fullName: Netick.NetworkString32.LoadIntoStringBuilder(System.Text.StringBuilder)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void LoadIntoStringBuilder(StringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: System.Text.StringBuilder
+    content.vb: Public Sub LoadIntoStringBuilder(stringBuilder As StringBuilder)
+  overload: Netick.NetworkString32.LoadIntoStringBuilder*
 - uid: Netick.NetworkString32.ToString
   commentId: M:Netick.NetworkString32.ToString
   id: ToString
@@ -329,6 +371,69 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Netick.FixedSize32{System.UInt16}
+  commentId: T:Netick.FixedSize32{System.UInt16}
+  parent: Netick
+  definition: Netick.FixedSize32`1
+  href: Netick.FixedSize32-1.html
+  name: FixedSize32<ushort>
+  nameWithType: FixedSize32<ushort>
+  fullName: Netick.FixedSize32<ushort>
+  nameWithType.vb: FixedSize32(Of UShort)
+  fullName.vb: Netick.FixedSize32(Of UShort)
+  name.vb: FixedSize32(Of UShort)
+  spec.csharp:
+  - uid: Netick.FixedSize32`1
+    name: FixedSize32
+    isExternal: true
+    href: Netick.FixedSize32-1.html
+  - name: <
+  - uid: System.UInt16
+    name: ushort
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint16
+  - name: '>'
+  spec.vb:
+  - uid: Netick.FixedSize32`1
+    name: FixedSize32
+    isExternal: true
+    href: Netick.FixedSize32-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.UInt16
+    name: UShort
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint16
+  - name: )
+- uid: Netick.FixedSize32`1
+  commentId: T:Netick.FixedSize32`1
+  isExternal: true
+  href: Netick.FixedSize32-1.html
+  name: FixedSize32<T>
+  nameWithType: FixedSize32<T>
+  fullName: Netick.FixedSize32<T>
+  nameWithType.vb: FixedSize32(Of T)
+  fullName.vb: Netick.FixedSize32(Of T)
+  name.vb: FixedSize32(Of T)
+  spec.csharp:
+  - uid: Netick.FixedSize32`1
+    name: FixedSize32
+    isExternal: true
+    href: Netick.FixedSize32-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.FixedSize32`1
+    name: FixedSize32
+    isExternal: true
+    href: Netick.FixedSize32-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick.NetworkString32.#ctor*
   commentId: Overload:Netick.NetworkString32.#ctor
   isExternal: true
@@ -350,6 +455,48 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: Netick.NetworkString32.LoadIntoStringBuilder*
+  commentId: Overload:Netick.NetworkString32.LoadIntoStringBuilder
+  isExternal: true
+  href: Netick.NetworkString32.html#Netick_NetworkString32_LoadIntoStringBuilder_System_Text_StringBuilder_
+  name: LoadIntoStringBuilder
+  nameWithType: NetworkString32.LoadIntoStringBuilder
+  fullName: Netick.NetworkString32.LoadIntoStringBuilder
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
   parent: System.ValueType

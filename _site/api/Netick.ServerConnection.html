@@ -136,22 +136,28 @@
       <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_RTT">NetworkConnection.RTT</a>
     </div>
     <div>
+      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_SendData_System_Byte_System_Byte__System_Int32_Netick_TransportDeliveryMethod_">NetworkConnection.SendData(byte, byte*, int, TransportDeliveryMethod)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_SendData_System_Byte_System_Byte___System_Int32_Netick_TransportDeliveryMethod_">NetworkConnection.SendData(byte, byte[], int, TransportDeliveryMethod)</a>
+    </div>
+    <div>
       <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_Id">NetworkConnection.Id</a>
     </div>
     <div>
-      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_SendEntities">NetworkConnection.SendEntities</a>
+      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_ReplicateEntities">NetworkConnection.ReplicateEntities</a>
     </div>
     <div>
       <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_EndPoint">NetworkConnection.EndPoint</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_TransportConnection">NetworkConnection.TransportConnection</a>
     </div>
     <div>
       <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_BytesIn">NetworkConnection.BytesIn</a>
     </div>
     <div>
       <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_BytesOut">NetworkConnection.BytesOut</a>
-    </div>
-    <div>
-      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_TransportConnection">NetworkConnection.TransportConnection</a>
     </div>
     <div>
       <a class="xref" href="Netick.NetworkPlayer.html#Netick_NetworkPlayer_Engine">NetworkPlayer.Engine</a>
@@ -214,8 +220,8 @@
 
   <a id="Netick_ServerConnection__ctor_" data-uid="Netick.ServerConnection.#ctor*"></a>
 
-  <h3 id="Netick_ServerConnection__ctor_System_Int32_Netick_TransportConnection_Netick_NetickEngine_" data-uid="Netick.ServerConnection.#ctor(System.Int32,Netick.TransportConnection,Netick.NetickEngine)">
-  ServerConnection(int, TransportConnection, NetickEngine)
+  <h3 id="Netick_ServerConnection__ctor_System_Int16_Netick_TransportConnection_Netick_NetickEngine_" data-uid="Netick.ServerConnection.#ctor(System.Int16,Netick.TransportConnection,Netick.NetickEngine)">
+  ServerConnection(short, TransportConnection, NetickEngine)
   
   </h3>
 
@@ -223,12 +229,12 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ServerConnection(int clientIndex, TransportConnection netPeer, NetickEngine engine)</code></pre>
+    <pre><code class="lang-csharp hljs">public ServerConnection(short clientIndex, TransportConnection netPeer, NetickEngine engine)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>clientIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>clientIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
     <dd></dd>
     <dt><code>netPeer</code> <a class="xref" href="Netick.TransportConnection.html">TransportConnection</a></dt>
     <dd></dd>
@@ -296,7 +302,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HashSet&lt;InterestManagementGroup&gt; InterestGroups { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;InterestManagementGroup&gt; InterestGroups { get; }</code></pre>
   </div>
 
 
@@ -305,7 +311,7 @@
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="Netick.InterestManagementGroup.html">InterestManagementGroup</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Netick.InterestManagementGroup.html">InterestManagementGroup</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -318,37 +324,6 @@
 
   <h2 class="section" id="methods">Methods
 </h2>
-
-
-  <a id="Netick_ServerConnection_OnAck_" data-uid="Netick.ServerConnection.OnAck*"></a>
-
-  <h3 id="Netick_ServerConnection_OnAck_Netick_Tick_" data-uid="Netick.ServerConnection.OnAck(Netick.Tick)">
-  OnAck(Tick)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void OnAck(Tick snapTick)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>snapTick</code> <a class="xref" href="Netick.Tick.html">Tick</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
 
 
   <a id="Netick_ServerConnection_ProcessAck_" data-uid="Netick.ServerConnection.ProcessAck*"></a>
