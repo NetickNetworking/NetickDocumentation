@@ -56,16 +56,16 @@ public class MyBehaviour : NetworkBehaviour
         // Called every frame. Executed before NetworkFixedUpdate.
     }
 
-    public override void NetworkRender()
-    {
-        // Called every frame. Executed after NetworkUpdate and NetworkFixedUpdate.
-        // IMPORTANT NOTE: properties (which can be interpolated) marked with [Smooth] attribute will return interpolated values when accessed in this method.
-    }
-
     public override void NetworkFixedUpdate()
     {
         // Called every fixed-time network step. Any changes to the networked state should happen here.
         // Check out the chapter named "Writing Client-Side Prediction code" to learn more about this method.
+    }
+
+    public override void NetworkRender()
+    {
+        // Called every frame. Executed after NetworkUpdate and NetworkFixedUpdate.
+        // IMPORTANT NOTE: properties (which can be interpolated) marked with [Smooth] attribute will return interpolated values when accessed in this method.
     }
 }
 ```

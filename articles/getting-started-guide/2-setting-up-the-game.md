@@ -51,7 +51,7 @@ Then assign the `Transport` field of Game Starter.
 
 ## Setting Up the Scene
 ### Floor
-Let's create a 3D Cube with a scale of `(15, -1.5, 15)` and name it "Floor".
+Let's create a 3D Cube named "Floor" with a scale of `(15, 1, 15)` and a position of `(0, -1.5, 0)`.
 
 <figure><img src="../../images/getting-started/102-floor.png" alt=""><figcaption></figcaption></figure>
 

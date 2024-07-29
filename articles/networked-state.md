@@ -83,26 +83,40 @@ IntFixedArray = IntFixedArray.Set(index, value);
 In addition to `NetworkArray<T>`, Netick also has alternatives to C# collections that are fully synced, predicted, and interpolated.
 
 - `NetworkLinkedList<T>`
+- `NetworkDictionary<TKey,TValue>`
+- `NetworkHashSet<T>`
+- `NetworkUnorderedList<T>`
 - `NetworkStack<T>`
 - `NetworkQueue<T>`
+
+In terms of bandwidth usage, the most expensive collection is `NetworkDictionary`, while the cheapest is `NetworkUnorderedList` (excluding `NetworkArray`). The order from the most expensive to the cheapest is: `NetworkDictionary` > `NetworkLinkedList` > `NetworkHashSet` > `NetworkQueue` > `NetworkStack` > `NetworkUnorderedList`. However, note that this only relates to the bandwidth usage when adding/removing elements, as all collections (or any networked variable) use no bandwidth or CPU time when it's idle and not changing.
 
 ### Usage examples:
 
 ```csharp
-[Networked(size: 5)]
-public readonly NetworkLinkedList<int>  MyNetworkedList  = new NetworkLinkedList<int>(5);
+[Networked(size: 5)] 
+public readonly NetworkDictionary<int, int>  MyNetworkDictionary    = new NetworkDictionary<int, int>(5);
 
 [Networked(size: 5)]
-public readonly NetworkQueue<int>       MyNetworkedQueue = new NetworkQueue<int>(5);
+public readonly NetworkHashSet<int>          MyNetworkHashSet       = new NetworkHashSet<int>(5);
 
 [Networked(size: 5)]
-public readonly NetworkStack<int>       MyNetworkedStack = new NetworkStack<int>(5);
+public readonly NetworkLinkedList<int>       MyNetworkLinkedList    = new NetworkLinkedList<int>(5);
+
+[Networked(size: 5)]
+public readonly NetworkUnorderedList<int>    MyNetworkUnorderedList = new NetworkUnorderedList<int>(5);
+
+[Networked(size: 5)]
+public readonly NetworkStack<int>            MyNetworkedStack       = new NetworkStack<int>(5);
+
+[Networked(size: 5)]
+public readonly NetworkQueue<int>            MyNetworkedQueue       = new NetworkQueue<int>(5);
 ```
 
 Removing and adding elements is the same as with C# collections.
 
 > [!Note]
-> The `size` that you pass to `[Networked]` and the constructor represents the fixed capacity of the collection. The collections don't support resizing as all network state sizes are set in compile time.
+> The `size` that you pass to `[Networked]` and the constructor represents the fixed capacity of the collection. The collections don't support resizing as all network state sizes are set at compile time.
 
 ## Network Structs
 
