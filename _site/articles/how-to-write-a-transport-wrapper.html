@@ -117,7 +117,7 @@
 </code></pre>
 <p>The <code>Send</code> method is called by Netick when it wants to send a packet to this connection. <code>Transport</code> represents the UnityTransport transport class which we will talk about in a bit. <code>Connection</code> represents the UnityTransport connection that corresponds to this <code>NetickUnityTransportConnection</code> type that we will pass into Netick.</p>
 <h3 id="defining-the-end-point-wrapper">Defining the End Point Wrapper</h3>
-<p>Let's also add a define an end point wrapper over UnityTransport <code>NetworkEndPoint</code>, and a extension class to do the conversion:</p>
+<p>Let's also define an end point wrapper over UnityTransport <code>NetworkEndPoint</code>, and a extension class to do the conversion:</p>
 <pre><code class="lang-csharp">public static class NetickUnityTransportExt                          
 { 
     public static NetickUnityTransportEndPoint ToNetickEndPoint(this NetworkEndpoint networkEndpoint) =&gt; new NetickUnityTransportEndPoint(networkEndpoint); 
@@ -146,7 +146,7 @@ public unsafe class NetickUnityTransport : NetworkTransport
 
 }
 </code></pre>
-<p>Let's add a few fields which we will be important in the functionality of the transport.</p>
+<p>Let's add a few fields which will be important in the functionality of the transport.</p>
 <pre><code class="lang-csharp">  private NetworkDriver                                                                            _driver;
 
   private Dictionary&lt;Unity.Networking.Transport.NetworkConnection, NetickUnityTransportConnection&gt; _connectedPeers        = new();
@@ -156,7 +156,7 @@ public unsafe class NetickUnityTransport : NetworkTransport
   private NativeList&lt;Unity.Networking.Transport.NetworkConnection&gt;                                 _connections;
 
 </code></pre>
-<p><code>_driver</code> represents an instance of a UnityTransport manager. <code>_connectedPeers</code> contains the a dictionary that maps between the UnityTransport connection type, and the transport wrapper connection type. <code>_freeConnections</code> is a pool for free connections that we can use. <code>_serverConnection</code> is only relevant when the transport is started as a client, it represents the UnityTransport connection to the server. And <code>_connections</code> is the buffer that is used by UnityTransport for the connections.</p>
+<p><code>_driver</code> represents an instance of a UnityTransport manager. <code>_connectedPeers</code> contains the a dictionary that maps between the UnityTransport connection type, and the transport wrapper connection type. <code>_freeConnections</code> is a pool for free connections that we will use. <code>_serverConnection</code> is only relevant when the transport is started as a client, it represents the UnityTransport connection to the server. And <code>_connections</code> is the buffer that is used by UnityTransport for the connections.</p>
 <pre><code class="lang-csharp">  private BitBuffer                                                                                _bitBuffer; 
   private byte*                                                                                    _bytesBuffer;
   private int                                                                                      _bytesBufferSize         = 2048;

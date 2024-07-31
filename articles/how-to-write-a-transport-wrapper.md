@@ -43,7 +43,7 @@ The `Send` method is called by Netick when it wants to send a packet to this con
 
 ### Defining the End Point Wrapper
 
-Let's also add a define an end point wrapper over UnityTransport `NetworkEndPoint`, and a extension class to do the conversion:
+Let's also define an end point wrapper over UnityTransport `NetworkEndPoint`, and a extension class to do the conversion:
 
 ```csharp
 public static class NetickUnityTransportExt                          
@@ -80,7 +80,7 @@ public unsafe class NetickUnityTransportConnection : TransportConnection
 }
 ```
 
-Let's add a few fields which we will be important in the functionality of the transport.
+Let's add a few fields which will be important in the functionality of the transport.
 
 ```csharp
   private NetworkDriver                                                                            _driver;
@@ -93,7 +93,7 @@ Let's add a few fields which we will be important in the functionality of the tr
 
 ```
 
-`_driver` represents an instance of a UnityTransport manager. `_connectedPeers` contains the a dictionary that maps between the UnityTransport connection type, and the transport wrapper connection type. `_freeConnections` is a pool for free connections that we can use. `_serverConnection` is only relevant when the transport is started as a client, it represents the UnityTransport connection to the server. And `_connections` is the buffer that is used by UnityTransport for the connections.
+`_driver` represents an instance of a UnityTransport manager. `_connectedPeers` contains the a dictionary that maps between the UnityTransport connection type, and the transport wrapper connection type. `_freeConnections` is a pool for free connections that we will use. `_serverConnection` is only relevant when the transport is started as a client, it represents the UnityTransport connection to the server. And `_connections` is the buffer that is used by UnityTransport for the connections.
 
 
 ```csharp
