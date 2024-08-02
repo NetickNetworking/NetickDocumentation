@@ -109,3 +109,52 @@ There are two methods you can override to run code when Input Source has changed
 
 1. `OnInputSourceChanged`: called on the Input Source and server when the Input Source changes.
 2. `OnInputSourceLeft`: called on the owner (server) when the Input Source client has left the game.
+
+## Framerate Lower than FPS
+
+When the framerate is lower than tickrate, there will be more ticks than frames. Therefore, two or more ticks need to use the same input for one frame. Not handling this can cause the player character to move slower during very low FPS. 
+
+There are two ways to handle this issue:
+
+
+### Enabling `Input Reuse On Low FPS` in Netick Settings
+
+Enabling this option would automatically let Netick reuse/duplicate the same input of one frame to one or more ticks. You can also know if the input fetched is a duplicated input or not as follows:
+
+```csharp
+public override void NetworkFixedUpdate()
+{
+    if (FetchInput(out MyInput input, out bool isDuplicated))
+    {
+        if (!isDuplicated)
+        {
+            // do stuff when this input is not a duplicate.
+        }
+    }
+}
+```
+
+
+
+### Networking the last fetched input
+
+Or you can handle this yourself, by networking the last fetched input.
+
+```csharp
+
+[Networked(relevancy: Relevancy.InputSource)]
+private FirstPersonInput LastInput { get; set; }
+
+public override void NetworkFixedUpdate()
+{
+    if (FetchInput(out MyInput input))
+    {
+        LastInput = input;
+    }
+
+    if (IsPredicted) // returns true on the client (if this object is predicted), and on the server.
+    {
+        // do movement stuff using LastInput.
+    }
+}
+```

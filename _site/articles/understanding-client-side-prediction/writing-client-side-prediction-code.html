@@ -168,6 +168,41 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 <li><code>OnInputSourceChanged</code>: called on the Input Source and server when the Input Source changes.</li>
 <li><code>OnInputSourceLeft</code>: called on the owner (server) when the Input Source client has left the game.</li>
 </ol>
+<h2 id="framerate-lower-than-fps">Framerate Lower than FPS</h2>
+<p>When the framerate is lower than tickrate, there will be more ticks than frames. Therefore, two or more ticks need to use the same input for one frame. Not handling this can cause the player character to move slower during very low FPS.</p>
+<p>There are two ways to handle this issue:</p>
+<h3 id="enabling-input-reuse-on-low-fps-in-netick-settings">Enabling <code>Input Reuse On Low FPS</code> in Netick Settings</h3>
+<p>Enabling this option would automatically let Netick reuse/duplicate the same input of one frame to one or more ticks. You can also know if the input fetched is a duplicated input or not as follows:</p>
+<pre><code class="lang-csharp">public override void NetworkFixedUpdate()
+{
+    if (FetchInput(out MyInput input, out bool isDuplicated))
+    {
+        if (!isDuplicated)
+        {
+            // do stuff when this input is not a duplicate.
+        }
+    }
+}
+</code></pre>
+<h3 id="networking-the-last-fetched-input">Networking the last fetched input</h3>
+<p>Or you can handle this yourself, by networking the last fetched input.</p>
+<pre><code class="lang-csharp">
+[Networked(relevancy: Relevancy.InputSource)]
+private FirstPersonInput LastInput { get; set; }
+
+public override void NetworkFixedUpdate()
+{
+    if (FetchInput(out MyInput input))
+    {
+        LastInput = input;
+    }
+
+    if (IsPredicted) // returns true on the client (if this object is predicted), and on the server.
+    {
+        // do movement stuff using LastInput.
+    }
+}
+</code></pre>
 
 </article>
 
