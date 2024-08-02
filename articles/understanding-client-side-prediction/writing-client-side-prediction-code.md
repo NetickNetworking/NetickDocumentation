@@ -110,7 +110,7 @@ There are two methods you can override to run code when Input Source has changed
 1. `OnInputSourceChanged`: called on the Input Source and server when the Input Source changes.
 2. `OnInputSourceLeft`: called on the owner (server) when the Input Source client has left the game.
 
-## Framerate Lower than FPS
+## Framerate Lower than Tickrate
 
 When the framerate is lower than tickrate, there will be more ticks than frames. Therefore, two or more ticks need to use the same input for one frame. Not handling this can cause the player character to move slower during very low FPS. 
 
