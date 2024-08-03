@@ -89,7 +89,7 @@ In addition to `NetworkArray<T>`, Netick also has alternatives to C# collections
 - `NetworkStack<T>`
 - `NetworkQueue<T>`
 
-In terms of bandwidth usage, the most expensive collection is `NetworkDictionary`, while the cheapest is `NetworkUnorderedList` (excluding `NetworkArray`). The order from the most expensive to the cheapest is: `NetworkDictionary` > `NetworkLinkedList` > `NetworkHashSet` > `NetworkQueue` > `NetworkStack` > `NetworkUnorderedList`. However, note that this only relates to the bandwidth usage when adding/removing elements, as all collections (or any networked variable) use no bandwidth or CPU time when it's idle and not changing.
+In terms of bandwidth usage, the most expensive collection is `NetworkDictionary`, while the cheapest is `NetworkUnorderedList` (excluding `NetworkArray`). The order from the most expensive to the cheapest is: `NetworkDictionary` > `NetworkLinkedList` > `NetworkHashSet` > `NetworkQueue` > `NetworkStack` > `NetworkUnorderedList`. However, note that this only relates to the bandwidth usage when adding/removing elements, as all collections (or any networked variable) use no bandwidth or CPU time when they're idle and not changing.
 
 ### Usage examples:
 
