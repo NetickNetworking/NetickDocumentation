@@ -185,7 +185,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 }
 </code></pre>
 <h3 id="networking-the-last-fetched-input">Networking the last fetched input</h3>
-<p>Or you can handle this yourself, by networking the last fetched input.</p>
+<p>Or you can handle this yourself, by storing and networking the last fetched input:</p>
 <pre><code class="lang-csharp">
 [Networked(relevancy: Relevancy.InputSource)]
 private FirstPersonInput LastInput { get; set; }

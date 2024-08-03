@@ -138,7 +138,7 @@ public override void NetworkFixedUpdate()
 
 ### Networking the last fetched input
 
-Or you can handle this yourself, by networking the last fetched input.
+Or you can handle this yourself, by storing and networking the last fetched input:
 
 ```csharp
 
