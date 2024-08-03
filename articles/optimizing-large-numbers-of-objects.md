@@ -13,3 +13,25 @@ External Simulation refers to objects that never simulate or change themselves, 
 Netick makes this very simple. To make an object externally simulated, disable `Add to Network Loop` on its NetworkObject. It will no longer be simulated each tick, but it will still be synced, and its `NetworkStart` and `NetworkDestroy` methods invoked. The object will have no CPU cost almost at all, you can have 1000 objects and shouldn't see a difference in CPU performance, excluding the rendering cost which is irrelevant.
 
 It's important to note that you should stop using the built-in components such as `NetworkTransform` on these objects since these components assume the object is internally simulated. Instead, you would write simple scripts that react to networked properties using `[OnChanged]` callbacks to handle them.
+
+## Example
+
+This is an example of a script that is used to synchronize the position of an object that will only be simulated externally. By a script on the player object, for instance.
+
+```cs
+using UnityEngine;
+using Netick;
+using Netick.Unity;
+
+public class CustomPosSyncer : NetworkBehaviour
+{
+  [Networked]
+  public Vector3 Position { get; set; }
+
+  [OnChanged(nameof(Position))]
+  void OnPositionChanged(OnChangedData dat)
+  {
+    transform.position = Position;
+  }
+}
+```
