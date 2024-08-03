@@ -58,6 +58,14 @@
 
 ## [Interest Management](interest-management.md)
 
+# Misc
+
+## [Sending Large Amounts of Data](sending-large-amounts-of-data.md) 
+
+## [Networked Procedural Generation](networked-procedural-generation.md)
+
+## [Coming from Netick 1](coming-from-netick-1.md)
+
 # Built-in Components
 
 ## [Network Transform](built-in-components/networktransform.md)
@@ -67,12 +75,6 @@
 ## [Network Rigidbody2D](built-in-components/networkrigidbody2d.md)
 
 ## [Network Animator](built-in-components/networkanimator.md)
-
-# Misc
-
-## [Networked Procedural Generation](networked-procedural-generation.md)
-
-## [Coming from Netick 1](coming-from-netick-1.md)
 
 # Samples
 
