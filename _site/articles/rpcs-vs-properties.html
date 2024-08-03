@@ -86,12 +86,11 @@
 <h1 id="rpcs-vs-properties">RPCs vs Properties</h1>
 
 <p>RPCs can be used to replicate non-critical (often visual/cosmetic) events. In contrast, Network Properties are used to replicate critical gameplay state.</p>
-<p>Network Properties are best when you have a variable that is constantly changing and whose exact value matters for the duration of the game, because properties will replicate to everyone.</p>
+<p>Network Properties are best when you have a variable that is constantly changing and whose exact value matters for the duration of the game, because properties will replicate to everyone regardless of whether they joined the game in the middle or the start of it.</p>
 <p><strong>Example: a health property.</strong></p>
-<p>On the other hand, RPCs are only relevant at the time of their execution, meaning anyone joining after that will never know anything about any RPCs before it.</p>
+<p>On the other hand, RPCs are only relevant at the time of their execution, meaning any client joining after the call will never receive anything about any RPCs before its time of joining.</p>
 <p><strong>Example: a damage effect event.</strong></p>
-<p>If an event happens infrequently and is merely visual (doesn’t affect gameplay, for example, a sound effect event) you can use an RPC for it.</p>
-<p>However, you can, and should, avoid using RPCs even for events, and that’s by using a <a href="change-callback.html">change callback</a> using <code>[OnChanged]</code> attribute.</p>
+<p>If an event happens infrequently and is merely visual (doesn’t affect gameplay, for example, a sound effect event) you can use an RPC for it. However, you can, and should, avoid using RPCs even for such events, and that’s by using a <a href="change-callback.html">change callback</a> using <code>[OnChanged]</code> attribute. Ideally, RPCs should only be used for setting up things in the server by the client (client-&gt;server RPC), or sending chat messages.</p>
 <h2 id="avoiding-using-rpcs">Avoiding using RPCs</h2>
 <p>It's highly recommended to avoid using RPCs, and only use them when necessary. Especially server-&gt;client RPCs, if possible, they should be completely avoided. And client-&gt;server RPCs should only be used for sending a player's name or setting up things or similar actions.</p>
 <ul>

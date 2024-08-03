@@ -147,3 +147,17 @@ private void OnMyNetworkStackChanged(OnChangedData onChangedData)
 
 > [!WARNING]
 > Be careful when using these methods on `OnChangedData`, since they are unsafe and can cause a crash if you go outside array range or use an incorrect type.
+
+## Invoke Behavior of `[OnChanged]` Callbacks
+
+* When you change a variable in the server or in the client (on a predicted object), the `[OnChanged]` method will be invoked from the setter of the networked variable, therefore it's immediately invoked when changing the variable.
+
+* In the client, when the client receives data for a networked variable that was changed in the server, the client will also invoke the callback, but only if the value is different to its current value or when there was a misprediction. A misprediction means the value of the variable before rollback is not equal to the value after rollback and resimulation. Read the [article](understanding-client-side-prediction/understanding-client-side-prediction.md) on Client-Side Prediction to learn more.
+
+* If the server changes a variable multiple times, but then back to the original value before all of this, the client will not invoke callback, because to the client that value never changed, but to the server it did but it eventually went back to the same value at the start of the tick.
+
+## Invoking [OnChanged] Callbacks During Rollback & Resimulation
+
+Read the [article](understanding-client-side-prediction/understanding-client-side-prediction.md) on Client-Side Prediction before reading this section.
+
+By default, Netick will not invoke `[OnChanged]` callbacks when the client rolls back to the latest received server state, neither during resimulation stage of prediction. This is usually the desired behaviour because you only want the callback to fire when the value is changed for the first ever (usually in the client, on predicted objects). However, sometimes you want the `[OnChanged]` callback to always be in sync with the value of the networked variable and have it also get invoked during rollback and during resimulation. This is easily possible by simply passing true to `invokeDuringResimulation` optional parameter of `[OnChanged]`.

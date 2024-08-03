@@ -4,6 +4,9 @@ RPCs are method calls on Network Behaviors that are replicated across the networ
 
 An important use of RPCs is to set up the game and send configuration messages. Use reliable RPCs for things like that.
 
+> [!Note]
+> While other solutions are heavily dependent on RPCs, Netick is designed to make usage of RPCs very minimal (less than 3 RPCs in the entire game), read the article on [RPCs vs Properties](rpcs-vs-properties.md) for more.
+
 An RPC example:
 
 ```csharp
@@ -18,7 +21,7 @@ You use the [<xref:Netick.Rpc>] attribute to mark a method as an RPC.
 
 ## Static RPCs
 
-Static RPCs must have their first parameter as a `NetickEngine` type. Which can be used to access the `NetworkSandbox` instance if needed. 
+Static RPCs are RPCs not attached to a specific instance of a network behavior. Static RPCs must have their first parameter as a `NetickEngine` type. Which can be used to access the `NetworkSandbox` instance if needed. 
 
 ```csharp
 [Rpc]

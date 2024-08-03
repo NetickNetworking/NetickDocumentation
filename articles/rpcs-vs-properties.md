@@ -2,17 +2,15 @@
 
 RPCs can be used to replicate non-critical (often visual/cosmetic) events. In contrast, Network Properties are used to replicate critical gameplay state.
 
-Network Properties are best when you have a variable that is constantly changing and whose exact value matters for the duration of the game, because properties will replicate to everyone.
+Network Properties are best when you have a variable that is constantly changing and whose exact value matters for the duration of the game, because properties will replicate to everyone regardless of whether they joined the game in the middle or the start of it.
 
 **Example: a health property.**
 
-On the other hand, RPCs are only relevant at the time of their execution, meaning anyone joining after that will never know anything about any RPCs before it.
+On the other hand, RPCs are only relevant at the time of their execution, meaning any client joining after the call will never receive anything about any RPCs before its time of joining.
 
 **Example: a damage effect event.**
 
-If an event happens infrequently and is merely visual (doesn’t affect gameplay, for example, a sound effect event) you can use an RPC for it.
-
-However, you can, and should, avoid using RPCs even for events, and that’s by using a [change callback](change-callback.md) using `[OnChanged]` attribute.
+If an event happens infrequently and is merely visual (doesn’t affect gameplay, for example, a sound effect event) you can use an RPC for it. However, you can, and should, avoid using RPCs even for such events, and that’s by using a [change callback](change-callback.md) using `[OnChanged]` attribute. Ideally, RPCs should only be used for setting up things in the server by the client (client->server RPC), or sending chat messages.
 
 ## Avoiding using RPCs
 
