@@ -1,4 +1,12 @@
-# Understanding Client-Side Prediction
+# Understanding Client-Side Prediction (CSP)
+
+## Tick-based Networking
+Before talking about Client-Side Prediction, it's important to first understand tick-based networking. 
+
+Simply put, because each client could be running at a very different framerate from each other (and from the server), the only way to keep all of them in sync is by running the networked game logic at a fixed rate called the tickrate. Therefore, all clients and the server run at this fixed tickrate. The tickrate functions similarly to the fixed simulation rate of the physics engine in Unity, for instance. Unity runs the physics at a fixed rate for accurate and stable physics simulation, we use a fixed tickrate for accurate and proper network synchronization.
+
+
+## Client-Side Prediction (CSP)
 
 In the Client-Server model, to be able to change the state (values of properties/arrays) of a network object, that change must be authoritatively done on the server. This is to ensure a secure and cheat-free gameplay experience, because ultimately the client’s executable can be tampered with or modified. **Only the server can ever change the true state of network variables.** What the client does to affect changes to the networked state is send inputs which are later executed/simulated by the server to produce the desired state which is sent back to the client/s.
 
