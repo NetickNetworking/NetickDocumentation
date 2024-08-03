@@ -54,6 +54,8 @@
 
 ## [Interpolation](interpolation.md)
 
+## [Optimizing Large Numbers of Objects](optimizing-large-numbers-of-objects.md)
+
 ## [Lag Compensation](lag-compensation.md)
 
 ## [Interest Management](interest-management.md)

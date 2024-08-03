@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Optimizing Large Numbers of Objects | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Optimizing Large Numbers of Objects | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
+            Netick Docs | v2
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="optimizing-large-numbers-of-objects">Optimizing Large Numbers of Objects</h1>
+
+<p>Usually networked objects in a video game are simulated in one of two ways:</p>
+<h2 id="internal-simulation">Internal Simulation</h2>
+<p>Internal Simulation refers to objects which are simulated and changed from within. Objects such as these include the character of the player. It also include objects such as vehicles, all sorts of physics objects, and game management objects. Any object that is self-controlled and needs to run each tick is within this category.</p>
+<h2 id="external-simulation">External Simulation</h2>
+<p>External Simulation refers to objects that never simulate or change themselves, instead they are controlled from the outside. There are many such examples of these objects: doors, pickups, trees, buildings, etc. All these objects are altered from an external object that belongs to the first category (Internal Simulation). These objects don't need to run themselves or have <code>NetworkFixedUpdate</code>, <code>NetworkUpdate</code>, or <code>NetworkRender</code> run on them each tick/frame. Therefore we should simply exclude them from the network loop, meaning all of their network loop methods (<code>NetworkFixedUpdate</code>, <code>NetworkUpdate</code>, <code>NetworkRender</code>, etc) will not be invoked. This will save a lot of performance, potentially making some types of games possible when they wouldn't be.</p>
+<p>Netick makes this very simple. To make an object externally simulated, disable <code>Add to Network Loop</code> on its NetworkObject. It will no longer be simulated each tick, but it will still be synced, and its <code>NetworkStart</code> and <code>NetworkDestroy</code> methods invoked. The object will have no CPU cost almost at all, you can have 1000 objects and shouldn't see a difference in CPU performance, excluding the rendering cost which is irrelevant.</p>
+<p>It's important to note that you should stop using the built-in components such as <code>NetworkTransform</code> on these objects since these components assume the object is internally simulated. Instead, you would write simple scripts that react to networked properties using <code>[OnChanged]</code> callbacks to handle them.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
