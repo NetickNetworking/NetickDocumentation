@@ -112,7 +112,7 @@ There are two methods you can override to run code when Input Source has changed
 
 ## Framerate Lower than Tickrate
 
-When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks need to use the same input for one frame. Not handling this can cause the player character to move slower during very low FPS. 
+When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks need to use the same input of one frame. Not handling this can cause the player character to move slower during very low FPS. 
 
 There are two ways to handle this issue:
 
