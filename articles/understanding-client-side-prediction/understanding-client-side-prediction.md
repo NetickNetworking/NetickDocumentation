@@ -5,6 +5,7 @@ Before talking about Client-Side Prediction, it's important to first understand 
 
 Simply put, because each client could be running at a very different framerate from each other (and from the server), the only way to keep all of them in sync is by running the networked game logic at a fixed rate called the tickrate. Therefore, all clients and the server run at this fixed tickrate. The tickrate functions similarly to the fixed simulation rate of the physics engine in Unity, for instance. Unity runs the physics at a fixed rate for accurate and stable physics simulation, we use a fixed tickrate for accurate and proper network synchronization.
 
+Each fixed-time step executed is called a tick, which represents a point in time in the network loop.
 
 ## Client-Side Prediction (CSP)
 
