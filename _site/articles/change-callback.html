@@ -199,6 +199,30 @@ private void OnMyNetworkStackChanged(OnChangedData onChangedData)
 <h5>Warning</h5>
 <p>Be careful when using these methods on <code>OnChangedData</code>, since they are unsafe and can cause a crash if you go outside array range or use an incorrect type.</p>
 </div>
+<h2 id="finding-removed-and-added-items-to-collections">Finding Removed and Added Items to Collections</h2>
+<p>Using the previous snapshot (version) of the collection, we are able to compare the current collection against the previous snapshot to find the items that were added and the items that were removed.</p>
+<h3 id="example">Example:</h3>
+<p>This example uses a <code>NetworkDictionary</code> but the same applies to other collections.</p>
+<pre><code class="lang-cs">
+ [Networked(size: 10)]
+ public NetworkDictionary&lt;int, Vector3&gt; NetworkDictionaryExample = new NetworkDictionary&lt;int, Vector3&gt;(10);
+
+ [OnChanged(nameof(NetworkDictionaryExample))]
+ void OnNetworkDictionaryExampleChanged(OnChangedData dat)
+ {
+   var previous = dat.GetPreviousNetworkDictionary(NetworkDictionaryExample);
+
+   // finding the newly added items
+   foreach (var item in NetworkDictionaryExample)
+     if (!previous.ContainsKey(item.Key)) // does not exist in the previous version of the collection, meaning it's a new item.
+       Debug.Log($&quot;{item} was added!&quot;);
+
+   // finding the newly removed items
+   foreach (var item in previous)
+     if (!NetworkDictionaryExample.ContainsKey(item.Key)) // if the current version of the collection does not have the item, it means it was removed.
+       Debug.Log($&quot;{item} was removed!&quot;);
+ }
+</code></pre>
 <h2 id="invoke-behavior-of-onchanged-callbacks">Invoke Behavior of <code>[OnChanged]</code> Callbacks</h2>
 <ul>
 <li><p>When you change a variable in the server or in the client (on a predicted object), the <code>[OnChanged]</code> method will be invoked from the setter of the networked variable, therefore it's immediately invoked when changing the variable.</p>
