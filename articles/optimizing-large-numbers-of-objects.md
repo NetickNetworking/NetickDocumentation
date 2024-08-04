@@ -4,7 +4,7 @@ Usually networked objects in a video game are simulated in one of two ways:
 
 
 ## Internal Simulation
-Internal Simulation refers to objects which are simulated and changed from within. Objects such as these include the character of the player. It also include objects such as vehicles, all sorts of physics objects, and game management objects. Any object that is self-controlled and needs to run each tick is within this category.
+Internal Simulation refers to objects which are simulated and changed from within. Objects such as these include the character of the player. They also include objects such as vehicles, all sorts of physics objects, and game management objects. Any object that is self-controlled and needs to run each tick is within this category.
 
 
 ## External Simulation
