@@ -6,7 +6,7 @@ Every networked variable can be predicted and interpolated too. Allowing you to 
 
 ## Network Properties
 
-A network property is a C# property which is replicated across the network. For a property to be networked, the attribute [<xref:Netick.Unity.Networked>] must be added to it. 
+A network property is a C# property which is replicated across the network. For a property to be networked, the attribute [<xref:Netick.Networked>] must be added to it. 
 
 Examples of networked properties:
 
