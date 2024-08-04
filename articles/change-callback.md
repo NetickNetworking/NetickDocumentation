@@ -154,7 +154,7 @@ private void OnMyNetworkStackChanged(OnChangedData onChangedData)
 
 * In the client, when the client receives data for a networked variable that was changed in the server, the client will also invoke the callback, but only if the value is different to its current value or when there was a misprediction. A misprediction means the value of the variable before rollback is not equal to the value after rollback and resimulation. Read the [article](understanding-client-side-prediction/understanding-client-side-prediction.md) on Client-Side Prediction to learn more.
 
-* If the server changes a variable multiple times, but then back to the original value before all of this, the client will not invoke callback, because to the client that value never changed, but to the server it did but it eventually went back to the same value at the start of the tick.
+* If the server changes a variable multiple times, but then back to the original value before all of this, the client will not invoke the callback, because to the client that networked variable never changed, but to the server it did but it eventually went back to the same value at the start of the tick, there it's important to understand that in this case the callback is invoked multiple times in the server but not once in the client.
 
 ## Invoking [OnChanged] Callbacks During Rollback & Resimulation
 
