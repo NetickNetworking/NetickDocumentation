@@ -185,7 +185,7 @@ This example uses a `NetworkDictionary` but the same applies to other collection
 
 * In the client, when the client receives data for a networked variable that was changed in the server, the client will also invoke the callback, but only if the received value is different from the current value or when there was a misprediction. A misprediction means the value of the variable before rollback is not equal to the value after rollback and resimulation. Read the [article](understanding-client-side-prediction/understanding-client-side-prediction.md) on Client-Side Prediction to learn more.
 
-* If the server changes a variable multiple times, but then back to the original value before all of this, the client will not invoke the callback, because to the client that networked variable never changed, but to the server it did but it eventually went back to the same value at the start of the tick. Therefore it's important to realize that in this case the callback is invoked multiple times in the server but not never in the client.
+* If the server changes a variable multiple times, but then back to the original value before all of this, the client will not invoke the callback, because to the client that networked variable never changed, but to the server it did but it eventually went back to the same value at the start of the tick. Therefore it's important to realize that in this case the callback is invoked multiple times in the server but never in the client.
 
 ## Invoking [OnChanged] Callbacks During Rollback & Resimulation
 
