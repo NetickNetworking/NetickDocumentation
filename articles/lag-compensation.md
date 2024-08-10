@@ -19,6 +19,8 @@ Watch this video for a visual explanation:
 
 ## Lag Compensation in Netick
 
+To use Lag Compensation in your project, you first need to enable it in Netick Settings. Go to `Netick Settings -> Lag Compensation` and turn on `Enable`.
+
 ### **Setting up your character for Lag Compensation**
 
 You have to add a HitShape component (commonly known as a hitbox) on every part of your character which can move. And in the root of your character, you have to add a `HitShape Container` component which will register all child HitShapes.
