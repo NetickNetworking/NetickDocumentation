@@ -54,6 +54,7 @@ Notes on how to make your project sandbox-safe:
 
 - Use `Sandbox.Log`, `Sandbox.LogWarning`, and `Sandbox.LogError` instead of Unity equivalents. These will include the name of the sandbox at the start of the log message.
 
+- Use `Sandbox.FindObjectOfType`, `Sandbox.FindObjectsOfType`, `Sandbox.FindGameObjectWithTag`, and `Sandbox.FindGameObjectsWithTag` instead of Unity equivalents. The Netick methods respect the running sandboxes, and only try to find objects in the Sandbox's scene.
 
 Some useful properties on `NetworkSandbox` for working with multiple sandboxes:
 ```cs
