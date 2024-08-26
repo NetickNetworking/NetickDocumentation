@@ -72,7 +72,7 @@ public override void NetworkFixedUpdate()
 > `Sandbox.GetInput` and `Sandbox.SetInput` are used to read and set the user inputs into the input struct. While `FetchInput` is used to actually use the input struct in the simulation.
 
 > [!NOTE]
-> Make sure to clamp inputs to prevent attempts to alter inputs to have big magnitudes leading to speedhacks.
+> Make sure to clamp inputs to prevent malicious attempts to alter inputs to have big magnitudes leading to speedhacks. Inputs are the only thing the client has authority over.
 
 
 FetchInput tries to fetch an input for the state/tick being simulated/resimulated. It only returns true if either:
