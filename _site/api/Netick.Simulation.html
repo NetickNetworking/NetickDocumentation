@@ -338,8 +338,8 @@
 
   <a id="Netick_Simulation_FetchInputLocal_" data-uid="Netick.Simulation.FetchInputLocal*"></a>
 
-  <h3 id="Netick_Simulation_FetchInputLocal__1___0__System_Int32_" data-uid="Netick.Simulation.FetchInputLocal``1(``0@,System.Int32)">
-  FetchInputLocal&lt;T&gt;(out T, int)
+  <h3 id="Netick_Simulation_FetchInputLocal__1___0__System_Boolean__System_Int32_" data-uid="Netick.Simulation.FetchInputLocal``1(``0@,System.Boolean@,System.Int32)">
+  FetchInputLocal&lt;T&gt;(out T, ref bool, int)
   
   </h3>
 
@@ -347,12 +347,14 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool FetchInputLocal&lt;T&gt;(out T input, int localPlayerIndex) where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public bool FetchInputLocal&lt;T&gt;(out T input, ref bool isDuplicated, int localPlayerIndex) where T : unmanaged</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>input</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>isDuplicated</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
     <dt><code>localPlayerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
@@ -369,6 +371,42 @@
     <dt><code>T</code></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_GetEntityByWorldIndex_" data-uid="Netick.Simulation.GetEntityByWorldIndex*"></a>
+
+  <h3 id="Netick_Simulation_GetEntityByWorldIndex_System_Int32_" data-uid="Netick.Simulation.GetEntityByWorldIndex(System.Int32)">
+  GetEntityByWorldIndex(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Entity GetEntityByWorldIndex(int worldIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>worldIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
 
 
 

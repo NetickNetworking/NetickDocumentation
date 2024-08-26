@@ -5,19 +5,14 @@ items:
   id: FloatStats
   parent: Netick
   children:
-  - Netick.FloatStats.#ctor(System.Int32,System.Single,System.Boolean)
+  - Netick.FloatStats.#ctor(System.Int32)
   - Netick.FloatStats.Average
-  - Netick.FloatStats.Data
-  - Netick.FloatStats.GetData
-  - Netick.FloatStats.IsHealthy
   - Netick.FloatStats.Latest
   - Netick.FloatStats.Max
   - Netick.FloatStats.Min
   - Netick.FloatStats.Reset
   - Netick.FloatStats.StdDeviation
-  - Netick.FloatStats.StdDeviation2
   - Netick.FloatStats.Update(System.Single)
-  - Netick.FloatStats.WarningThreshold
   langs:
   - csharp
   - vb
@@ -41,74 +36,30 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Netick.FloatStats.GetData
-  commentId: M:Netick.FloatStats.GetData
-  id: GetData
+- uid: Netick.FloatStats.#ctor(System.Int32)
+  commentId: M:Netick.FloatStats.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
   parent: Netick.FloatStats
   langs:
   - csharp
   - vb
-  name: GetData()
-  nameWithType: FloatStats.GetData()
-  fullName: Netick.FloatStats.GetData()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public CircularList<float> GetData()
-    return:
-      type: Netick.CircularList{System.Single}
-    content.vb: Public Function GetData() As CircularList(Of Single)
-  overload: Netick.FloatStats.GetData*
-- uid: Netick.FloatStats.IsHealthy
-  commentId: M:Netick.FloatStats.IsHealthy
-  id: IsHealthy
-  parent: Netick.FloatStats
-  langs:
-  - csharp
-  - vb
-  name: IsHealthy()
-  nameWithType: FloatStats.IsHealthy()
-  fullName: Netick.FloatStats.IsHealthy()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool IsHealthy()
-    return:
-      type: System.Boolean
-    content.vb: Public Function IsHealthy() As Boolean
-  overload: Netick.FloatStats.IsHealthy*
-- uid: Netick.FloatStats.#ctor(System.Int32,System.Single,System.Boolean)
-  commentId: M:Netick.FloatStats.#ctor(System.Int32,System.Single,System.Boolean)
-  id: '#ctor(System.Int32,System.Single,System.Boolean)'
-  parent: Netick.FloatStats
-  langs:
-  - csharp
-  - vb
-  name: FloatStats(int, float, bool)
-  nameWithType: FloatStats.FloatStats(int, float, bool)
-  fullName: Netick.FloatStats.FloatStats(int, float, bool)
+  name: FloatStats(int)
+  nameWithType: FloatStats.FloatStats(int)
+  fullName: Netick.FloatStats.FloatStats(int)
   type: Constructor
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public FloatStats(int windowSize = 128, float warningThreshold = 3.4028235E+38, bool lowIsBetter = true)
+    content: public FloatStats(int windowSize = 128)
     parameters:
     - id: windowSize
       type: System.Int32
-    - id: warningThreshold
-      type: System.Single
-    - id: lowIsBetter
-      type: System.Boolean
-    content.vb: Public Sub New(windowSize As Integer = 128, warningThreshold As Single = 3.4028235E+38, lowIsBetter As Boolean = True)
+    content.vb: Public Sub New(windowSize As Integer = 128)
   overload: Netick.FloatStats.#ctor*
-  nameWithType.vb: FloatStats.New(Integer, Single, Boolean)
-  fullName.vb: Netick.FloatStats.New(Integer, Single, Boolean)
-  name.vb: New(Integer, Single, Boolean)
+  nameWithType.vb: FloatStats.New(Integer)
+  fullName.vb: Netick.FloatStats.New(Integer)
+  name.vb: New(Integer)
 - uid: Netick.FloatStats.Update(System.Single)
   commentId: M:Netick.FloatStats.Update(System.Single)
   id: Update(System.Single)
@@ -256,69 +207,6 @@ items:
       type: System.Single
     content.vb: Public ReadOnly Property StdDeviation As Single
   overload: Netick.FloatStats.StdDeviation*
-- uid: Netick.FloatStats.StdDeviation2
-  commentId: P:Netick.FloatStats.StdDeviation2
-  id: StdDeviation2
-  parent: Netick.FloatStats
-  langs:
-  - csharp
-  - vb
-  name: StdDeviation2
-  nameWithType: FloatStats.StdDeviation2
-  fullName: Netick.FloatStats.StdDeviation2
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public float StdDeviation2 { get; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public ReadOnly Property StdDeviation2 As Single
-  overload: Netick.FloatStats.StdDeviation2*
-- uid: Netick.FloatStats.WarningThreshold
-  commentId: P:Netick.FloatStats.WarningThreshold
-  id: WarningThreshold
-  parent: Netick.FloatStats
-  langs:
-  - csharp
-  - vb
-  name: WarningThreshold
-  nameWithType: FloatStats.WarningThreshold
-  fullName: Netick.FloatStats.WarningThreshold
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public float WarningThreshold { get; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public ReadOnly Property WarningThreshold As Single
-  overload: Netick.FloatStats.WarningThreshold*
-- uid: Netick.FloatStats.Data
-  commentId: P:Netick.FloatStats.Data
-  id: Data
-  parent: Netick.FloatStats
-  langs:
-  - csharp
-  - vb
-  name: Data
-  nameWithType: FloatStats.Data
-  fullName: Netick.FloatStats.Data
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public CircularList<float> Data { get; }
-    parameters: []
-    return:
-      type: Netick.CircularList{System.Single}
-    content.vb: Public ReadOnly Property Data As CircularList(Of Single)
-  overload: Netick.FloatStats.Data*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -564,98 +452,10 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Netick.FloatStats.GetData*
-  commentId: Overload:Netick.FloatStats.GetData
-  isExternal: true
-  href: Netick.FloatStats.html#Netick_FloatStats_GetData
-  name: GetData
-  nameWithType: FloatStats.GetData
-  fullName: Netick.FloatStats.GetData
-- uid: Netick.CircularList{System.Single}
-  commentId: T:Netick.CircularList{System.Single}
-  parent: Netick
-  definition: Netick.CircularList`1
-  href: Netick.CircularList-1.html
-  name: CircularList<float>
-  nameWithType: CircularList<float>
-  fullName: Netick.CircularList<float>
-  nameWithType.vb: CircularList(Of Single)
-  fullName.vb: Netick.CircularList(Of Single)
-  name.vb: CircularList(Of Single)
-  spec.csharp:
-  - uid: Netick.CircularList`1
-    name: CircularList
-    isExternal: true
-    href: Netick.CircularList-1.html
-  - name: <
-  - uid: System.Single
-    name: float
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: '>'
-  spec.vb:
-  - uid: Netick.CircularList`1
-    name: CircularList
-    isExternal: true
-    href: Netick.CircularList-1.html
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Single
-    name: Single
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: )
-- uid: Netick.CircularList`1
-  commentId: T:Netick.CircularList`1
-  isExternal: true
-  href: Netick.CircularList-1.html
-  name: CircularList<T>
-  nameWithType: CircularList<T>
-  fullName: Netick.CircularList<T>
-  nameWithType.vb: CircularList(Of T)
-  fullName.vb: Netick.CircularList(Of T)
-  name.vb: CircularList(Of T)
-  spec.csharp:
-  - uid: Netick.CircularList`1
-    name: CircularList
-    isExternal: true
-    href: Netick.CircularList-1.html
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: Netick.CircularList`1
-    name: CircularList
-    isExternal: true
-    href: Netick.CircularList-1.html
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: Netick.FloatStats.IsHealthy*
-  commentId: Overload:Netick.FloatStats.IsHealthy
-  isExternal: true
-  href: Netick.FloatStats.html#Netick_FloatStats_IsHealthy
-  name: IsHealthy
-  nameWithType: FloatStats.IsHealthy
-  fullName: Netick.FloatStats.IsHealthy
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: Netick.FloatStats.#ctor*
   commentId: Overload:Netick.FloatStats.#ctor
   isExternal: true
-  href: Netick.FloatStats.html#Netick_FloatStats__ctor_System_Int32_System_Single_System_Boolean_
+  href: Netick.FloatStats.html#Netick_FloatStats__ctor_System_Int32_
   name: FloatStats
   nameWithType: FloatStats.FloatStats
   fullName: Netick.FloatStats.FloatStats
@@ -673,6 +473,13 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: Netick.FloatStats.Update*
+  commentId: Overload:Netick.FloatStats.Update
+  isExternal: true
+  href: Netick.FloatStats.html#Netick_FloatStats_Update_System_Single_
+  name: Update
+  nameWithType: FloatStats.Update
+  fullName: Netick.FloatStats.Update
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -684,13 +491,6 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
-- uid: Netick.FloatStats.Update*
-  commentId: Overload:Netick.FloatStats.Update
-  isExternal: true
-  href: Netick.FloatStats.html#Netick_FloatStats_Update_System_Single_
-  name: Update
-  nameWithType: FloatStats.Update
-  fullName: Netick.FloatStats.Update
 - uid: Netick.FloatStats.Reset*
   commentId: Overload:Netick.FloatStats.Reset
   isExternal: true
@@ -733,24 +533,3 @@ references:
   name: StdDeviation
   nameWithType: FloatStats.StdDeviation
   fullName: Netick.FloatStats.StdDeviation
-- uid: Netick.FloatStats.StdDeviation2*
-  commentId: Overload:Netick.FloatStats.StdDeviation2
-  isExternal: true
-  href: Netick.FloatStats.html#Netick_FloatStats_StdDeviation2
-  name: StdDeviation2
-  nameWithType: FloatStats.StdDeviation2
-  fullName: Netick.FloatStats.StdDeviation2
-- uid: Netick.FloatStats.WarningThreshold*
-  commentId: Overload:Netick.FloatStats.WarningThreshold
-  isExternal: true
-  href: Netick.FloatStats.html#Netick_FloatStats_WarningThreshold
-  name: WarningThreshold
-  nameWithType: FloatStats.WarningThreshold
-  fullName: Netick.FloatStats.WarningThreshold
-- uid: Netick.FloatStats.Data*
-  commentId: Overload:Netick.FloatStats.Data
-  isExternal: true
-  href: Netick.FloatStats.html#Netick_FloatStats_Data
-  name: Data
-  nameWithType: FloatStats.Data
-  fullName: Netick.FloatStats.Data

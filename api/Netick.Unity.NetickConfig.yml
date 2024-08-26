@@ -15,6 +15,7 @@ items:
   - Netick.Unity.NetickConfig.EnableLagCompensation
   - Netick.Unity.NetickConfig.EnableLogging
   - Netick.Unity.NetickConfig.GetMaxPlayers
+  - Netick.Unity.NetickConfig.InputReuseAtLowFPS
   - Netick.Unity.NetickConfig.InvokeRenderInHeadless
   - Netick.Unity.NetickConfig.InvokeUpdate
   - Netick.Unity.NetickConfig.LagCompensationDebug
@@ -512,7 +513,7 @@ items:
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Max number of ticks the client is allowed to predict.")]
+      [Tooltip("Max number of ticks the client is allowed to predict. Default: 64")]
 
       [Range(16, 512)]
 
@@ -520,7 +521,7 @@ items:
     return:
       type: System.Int32
     content.vb: >-
-      <Tooltip("Max number of ticks the client is allowed to predict.")>
+      <Tooltip("Max number of ticks the client is allowed to predict. Default: 64")>
 
       <Range(16, 512)>
 
@@ -530,7 +531,7 @@ items:
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: Max number of ticks the client is allowed to predict.
+      value: 'Max number of ticks the client is allowed to predict. Default: 64'
   - type: UnityEngine.RangeAttribute
     ctor: UnityEngine.RangeAttribute.#ctor(System.Single,System.Single)
     arguments:
@@ -634,7 +635,7 @@ items:
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Enable this if you want to be able to have client-side prediction over Rigidbody objects. \n\nIt's recommended to keep this disabled if you don't have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick.")]
+      [Tooltip("Enable this if you want to be able to have client-side prediction over Rigidbody objects. \n\nIt's recommended to keep this disabled if you don't have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick. Default: false")]
 
       [SerializeField]
 
@@ -644,7 +645,7 @@ items:
     return:
       type: System.Boolean
     content.vb: >-
-      <Tooltip("Enable this if you want to be able to have client-side prediction over Rigidbody objects. " & vbLf & vbLf & "It's recommended to keep this disabled if you don't have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick.")>
+      <Tooltip("Enable this if you want to be able to have client-side prediction over Rigidbody objects. " & vbLf & vbLf & "It's recommended to keep this disabled if you don't have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick. Default: false")>
 
       <SerializeField>
 
@@ -660,7 +661,7 @@ items:
         Enable this if you want to be able to have client-side prediction over Rigidbody objects. 
 
 
-        It's recommended to keep this disabled if you don't have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick.
+        It's recommended to keep this disabled if you don't have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick. Default: false
   - type: UnityEngine.SerializeField
     ctor: UnityEngine.SerializeField.#ctor
     arguments: []
@@ -716,13 +717,13 @@ items:
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.")]
+      [Tooltip("Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds. Default: false")]
 
       public bool InvokeRenderInHeadless
     return:
       type: System.Boolean
     content.vb: >-
-      <Tooltip("Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.")>
+      <Tooltip("Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds. Default: false")>
 
       Public InvokeRenderInHeadless As Boolean
   attributes:
@@ -730,7 +731,7 @@ items:
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.
+      value: "Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds. Default: false"
 - uid: Netick.Unity.NetickConfig.InvokeUpdate
   commentId: F:Netick.Unity.NetickConfig.InvokeUpdate
   id: InvokeUpdate
@@ -747,13 +748,13 @@ items:
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects.")]
+      [Tooltip("Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects. Default: true")]
 
       public bool InvokeUpdate
     return:
       type: System.Boolean
     content.vb: >-
-      <Tooltip("Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects.")>
+      <Tooltip("Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects. Default: true")>
 
       Public InvokeUpdate As Boolean
   attributes:
@@ -761,7 +762,7 @@ items:
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects.
+      value: "Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects. Default: true"
 - uid: Netick.Unity.NetickConfig.RenderInvokeOrder
   commentId: F:Netick.Unity.NetickConfig.RenderInvokeOrder
   id: RenderInvokeOrder
@@ -809,7 +810,7 @@ items:
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Max number of additive scenes you can have loaded at once.")]
+      [Tooltip("Max number of additive scenes you can have loaded at once. Default: 4")]
 
       [SerializeField]
 
@@ -817,7 +818,7 @@ items:
     return:
       type: System.Int32
     content.vb: >-
-      <Tooltip("Max number of additive scenes you can have loaded at once.")>
+      <Tooltip("Max number of additive scenes you can have loaded at once. Default: 4")>
 
       <SerializeField>
 
@@ -827,7 +828,45 @@ items:
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: Max number of additive scenes you can have loaded at once.
+      value: 'Max number of additive scenes you can have loaded at once. Default: 4'
+  - type: UnityEngine.SerializeField
+    ctor: UnityEngine.SerializeField.#ctor
+    arguments: []
+- uid: Netick.Unity.NetickConfig.InputReuseAtLowFPS
+  commentId: F:Netick.Unity.NetickConfig.InputReuseAtLowFPS
+  id: InputReuseAtLowFPS
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: InputReuseAtLowFPS
+  nameWithType: NetickConfig.InputReuseAtLowFPS
+  fullName: Netick.Unity.NetickConfig.InputReuseAtLowFPS
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [Tooltip("When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks must use the same input of one frame. Enabling this option will make this happen automatically. Default: false")]
+
+      [SerializeField]
+
+      public bool InputReuseAtLowFPS
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Tooltip("When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks must use the same input of one frame. Enabling this option will make this happen automatically. Default: false")>
+
+      <SerializeField>
+
+      Public InputReuseAtLowFPS As Boolean
+  attributes:
+  - type: UnityEngine.TooltipAttribute
+    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: 'When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks must use the same input of one frame. Enabling this option will make this happen automatically. Default: false'
   - type: UnityEngine.SerializeField
     ctor: UnityEngine.SerializeField.#ctor
     arguments: []
@@ -847,13 +886,13 @@ items:
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Disable this before doing a production build because you don't want Netick to log to the console.")]
+      [Tooltip("Disable this before doing a production build because you don't want Netick to log to the console. Default: false")]
 
       public bool EnableLogging
     return:
       type: System.Boolean
     content.vb: >-
-      <Tooltip("Disable this before doing a production build because you don't want Netick to log to the console.")>
+      <Tooltip("Disable this before doing a production build because you don't want Netick to log to the console. Default: false")>
 
       Public EnableLogging As Boolean
   attributes:
@@ -861,7 +900,7 @@ items:
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: Disable this before doing a production build because you don't want Netick to log to the console.
+      value: "Disable this before doing a production build because you don't want Netick to log to the console. Default: false"
 - uid: Netick.Unity.NetickConfig.ServerSimulatedLossOut
   commentId: F:Netick.Unity.NetickConfig.ServerSimulatedLossOut
   id: ServerSimulatedLossOut
@@ -878,7 +917,7 @@ items:
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Simulated server outward packet loss.")]
+      [Tooltip("Simulated server outward packet loss. Default: 0")]
 
       [HideInInspector]
 
@@ -886,7 +925,7 @@ items:
     return:
       type: System.Single
     content.vb: >-
-      <Tooltip("Simulated server outward packet loss.")>
+      <Tooltip("Simulated server outward packet loss. Default: 0")>
 
       <HideInInspector>
 
@@ -896,7 +935,7 @@ items:
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: Simulated server outward packet loss.
+      value: 'Simulated server outward packet loss. Default: 0'
   - type: UnityEngine.HideInInspector
     ctor: UnityEngine.HideInInspector.#ctor
     arguments: []
@@ -916,7 +955,7 @@ items:
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Simulated client outward packet loss.")]
+      [Tooltip("Simulated client outward packet loss. Default: 0")]
 
       [HideInInspector]
 
@@ -924,7 +963,7 @@ items:
     return:
       type: System.Single
     content.vb: >-
-      <Tooltip("Simulated client outward packet loss.")>
+      <Tooltip("Simulated client outward packet loss. Default: 0")>
 
       <HideInInspector>
 
@@ -934,7 +973,7 @@ items:
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: Simulated client outward packet loss.
+      value: 'Simulated client outward packet loss. Default: 0'
   - type: UnityEngine.HideInInspector
     ctor: UnityEngine.HideInInspector.#ctor
     arguments: []
@@ -954,7 +993,7 @@ items:
   namespace: Netick.Unity
   syntax:
     content: >-
-      [Tooltip("Enable this if you want to use the Lag Compensation module.")]
+      [Tooltip("Enable this if you want to use the Lag Compensation module. Default: false")]
 
       [HideInInspector]
 
@@ -962,7 +1001,7 @@ items:
     return:
       type: System.Boolean
     content.vb: >-
-      <Tooltip("Enable this if you want to use the Lag Compensation module.")>
+      <Tooltip("Enable this if you want to use the Lag Compensation module. Default: false")>
 
       <HideInInspector>
 
@@ -972,7 +1011,7 @@ items:
     ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
     arguments:
     - type: System.String
-      value: Enable this if you want to use the Lag Compensation module.
+      value: 'Enable this if you want to use the Lag Compensation module. Default: false'
   - type: UnityEngine.HideInInspector
     ctor: UnityEngine.HideInInspector.#ctor
     arguments: []

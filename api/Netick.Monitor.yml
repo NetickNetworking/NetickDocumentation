@@ -16,6 +16,7 @@ items:
   - Netick.Monitor.RenderProfiler
   - Netick.Monitor.ReplicatorProfiler
   - Netick.Monitor.Resimulations
+  - Netick.Monitor.ServerTickTime
   - Netick.Monitor.TickTimeProfiler
   - Netick.Monitor.WriteProfiler
   langs:
@@ -253,6 +254,27 @@ items:
       type: Netick.FloatStats
     content.vb: Public ReadOnly Property FPS As FloatStats
   overload: Netick.Monitor.FPS*
+- uid: Netick.Monitor.ServerTickTime
+  commentId: P:Netick.Monitor.ServerTickTime
+  id: ServerTickTime
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: ServerTickTime
+  nameWithType: Monitor.ServerTickTime
+  fullName: Netick.Monitor.ServerTickTime
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public FloatStats ServerTickTime { get; }
+    parameters: []
+    return:
+      type: Netick.FloatStats
+    content.vb: Public ReadOnly Property ServerTickTime As FloatStats
+  overload: Netick.Monitor.ServerTickTime*
 - uid: Netick.Monitor.RTT
   commentId: P:Netick.Monitor.RTT
   id: RTT
@@ -549,6 +571,13 @@ references:
   name: FloatStats
   nameWithType: FloatStats
   fullName: Netick.FloatStats
+- uid: Netick.Monitor.ServerTickTime*
+  commentId: Overload:Netick.Monitor.ServerTickTime
+  isExternal: true
+  href: Netick.Monitor.html#Netick_Monitor_ServerTickTime
+  name: ServerTickTime
+  nameWithType: Monitor.ServerTickTime
+  fullName: Netick.Monitor.ServerTickTime
 - uid: Netick.Monitor.RTT*
   commentId: Overload:Netick.Monitor.RTT
   isExternal: true

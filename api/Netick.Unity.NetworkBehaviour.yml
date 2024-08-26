@@ -8,6 +8,7 @@ items:
   - Netick.Unity.NetworkBehaviour.#ctor
   - Netick.Unity.NetworkBehaviour.BehaviourId
   - Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  - Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)
   - Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
   - Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
   - Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
@@ -58,8 +59,8 @@ items:
   - Netick.Unity.NetickBaseBehaviour
   - Netick.Unity.NetickBehaviour
   derivedClasses:
+  - Netick.Unity.NetickCoreComponent
   - Netick.Unity.NetworkAnimator
-  - Netick.Unity.NetworkSceneManager
   - Netick.Unity.NetworkTransform
   implements:
   - Netick.INetickNetworkScript
@@ -301,7 +302,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Fetchs a network input for this tick. Returns false if no input source is currently providing inputs to this Object, or when input loss occurs (in case of a remote input source).
+  summary: Fetches a network input for this tick. Returns false if no input source is currently providing inputs to this Object, or when input loss occurs (in case of a remote input source).
   example: []
   syntax:
     content: 'public bool FetchInput<T>(out T input, int index = 0) where T : unmanaged'
@@ -319,6 +320,40 @@ items:
   nameWithType.vb: NetworkBehaviour.FetchInput(Of T)(T, Integer)
   fullName.vb: Netick.Unity.NetworkBehaviour.FetchInput(Of T)(T, Integer)
   name.vb: FetchInput(Of T)(T, Integer)
+- uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)
+  commentId: M:Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)
+  id: FetchInput``1(``0@,System.Boolean@,System.Int32)
+  parent: Netick.Unity.NetworkBehaviour
+  langs:
+  - csharp
+  - vb
+  name: FetchInput<T>(out T, out bool, int)
+  nameWithType: NetworkBehaviour.FetchInput<T>(out T, out bool, int)
+  fullName: Netick.Unity.NetworkBehaviour.FetchInput<T>(out T, out bool, int)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Fetches a network input for this tick. Returns false if no input source is currently providing inputs to this Object, or when input loss occurs (in case of a remote input source).
+  example: []
+  syntax:
+    content: 'public bool FetchInput<T>(out T input, out bool isDuplicated, int index = 0) where T : unmanaged'
+    parameters:
+    - id: input
+      type: '{T}'
+    - id: isDuplicated
+      type: System.Boolean
+    - id: index
+      type: System.Int32
+    typeParameters:
+    - id: T
+    return:
+      type: System.Boolean
+    content.vb: Public Function FetchInput(Of T As Structure)(input As T, isDuplicated As Boolean, index As Integer = 0) As Boolean
+  overload: Netick.Unity.NetworkBehaviour.FetchInput*
+  nameWithType.vb: NetworkBehaviour.FetchInput(Of T)(T, Boolean, Integer)
+  fullName.vb: Netick.Unity.NetworkBehaviour.FetchInput(Of T)(T, Boolean, Integer)
+  name.vb: FetchInput(Of T)(T, Boolean, Integer)
 - uid: Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
   commentId: M:Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
   id: FindInterpolator(System.String)

@@ -1,30 +1,31 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Netick.NetcodeProfiler
-  commentId: T:Netick.NetcodeProfiler
-  id: NetcodeProfiler
+- uid: Netick.DataAccumulator
+  commentId: T:Netick.DataAccumulator
+  id: DataAccumulator
   parent: Netick
   children:
-  - Netick.NetcodeProfiler.#ctor(System.String)
-  - Netick.NetcodeProfiler.Begin
-  - Netick.NetcodeProfiler.End
-  - Netick.NetcodeProfiler.GetStats
-  - Netick.NetcodeProfiler.Name
-  - Netick.NetcodeProfiler.Stats
-  - Netick.NetcodeProfiler.Update(System.Single)
+  - Netick.DataAccumulator.#ctor(System.Int32)
+  - Netick.DataAccumulator.Add(System.Int32)
+  - Netick.DataAccumulator.Add(System.Single)
+  - Netick.DataAccumulator.Avg
+  - Netick.DataAccumulator.Latest
+  - Netick.DataAccumulator.Reset
+  - Netick.DataAccumulator.Stop
+  - Netick.DataAccumulator.Update(System.Single)
   langs:
   - csharp
   - vb
-  name: NetcodeProfiler
-  nameWithType: NetcodeProfiler
-  fullName: Netick.NetcodeProfiler
+  name: DataAccumulator
+  nameWithType: DataAccumulator
+  fullName: Netick.DataAccumulator
   type: Class
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public sealed class NetcodeProfiler
-    content.vb: Public NotInheritable Class NetcodeProfiler
+    content: public sealed class DataAccumulator
+    content.vb: Public NotInheritable Class DataAccumulator
   inheritance:
   - System.Object
   inheritedMembers:
@@ -34,148 +35,180 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Netick.NetcodeProfiler.Stats
-  commentId: F:Netick.NetcodeProfiler.Stats
-  id: Stats
-  parent: Netick.NetcodeProfiler
+- uid: Netick.DataAccumulator.#ctor(System.Int32)
+  commentId: M:Netick.DataAccumulator.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Netick.DataAccumulator
   langs:
   - csharp
   - vb
-  name: Stats
-  nameWithType: NetcodeProfiler.Stats
-  fullName: Netick.NetcodeProfiler.Stats
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly FloatStats Stats
-    return:
-      type: Netick.FloatStats
-    content.vb: Public ReadOnly Stats As FloatStats
-- uid: Netick.NetcodeProfiler.Name
-  commentId: F:Netick.NetcodeProfiler.Name
-  id: Name
-  parent: Netick.NetcodeProfiler
-  langs:
-  - csharp
-  - vb
-  name: Name
-  nameWithType: NetcodeProfiler.Name
-  fullName: Netick.NetcodeProfiler.Name
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly string Name
-    return:
-      type: System.String
-    content.vb: Public ReadOnly Name As String
-- uid: Netick.NetcodeProfiler.#ctor(System.String)
-  commentId: M:Netick.NetcodeProfiler.#ctor(System.String)
-  id: '#ctor(System.String)'
-  parent: Netick.NetcodeProfiler
-  langs:
-  - csharp
-  - vb
-  name: NetcodeProfiler(string)
-  nameWithType: NetcodeProfiler.NetcodeProfiler(string)
-  fullName: Netick.NetcodeProfiler.NetcodeProfiler(string)
+  name: DataAccumulator(int)
+  nameWithType: DataAccumulator.DataAccumulator(int)
+  fullName: Netick.DataAccumulator.DataAccumulator(int)
   type: Constructor
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public NetcodeProfiler(string name)
+    content: public DataAccumulator(int windowSize)
     parameters:
-    - id: name
-      type: System.String
-    content.vb: Public Sub New(name As String)
-  overload: Netick.NetcodeProfiler.#ctor*
-  nameWithType.vb: NetcodeProfiler.New(String)
-  fullName.vb: Netick.NetcodeProfiler.New(String)
-  name.vb: New(String)
-- uid: Netick.NetcodeProfiler.Update(System.Single)
-  commentId: M:Netick.NetcodeProfiler.Update(System.Single)
+    - id: windowSize
+      type: System.Int32
+    content.vb: Public Sub New(windowSize As Integer)
+  overload: Netick.DataAccumulator.#ctor*
+  nameWithType.vb: DataAccumulator.New(Integer)
+  fullName.vb: Netick.DataAccumulator.New(Integer)
+  name.vb: New(Integer)
+- uid: Netick.DataAccumulator.Add(System.Int32)
+  commentId: M:Netick.DataAccumulator.Add(System.Int32)
+  id: Add(System.Int32)
+  parent: Netick.DataAccumulator
+  langs:
+  - csharp
+  - vb
+  name: Add(int)
+  nameWithType: DataAccumulator.Add(int)
+  fullName: Netick.DataAccumulator.Add(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Add(int amount)
+    parameters:
+    - id: amount
+      type: System.Int32
+    content.vb: Public Sub Add(amount As Integer)
+  overload: Netick.DataAccumulator.Add*
+  nameWithType.vb: DataAccumulator.Add(Integer)
+  fullName.vb: Netick.DataAccumulator.Add(Integer)
+  name.vb: Add(Integer)
+- uid: Netick.DataAccumulator.Add(System.Single)
+  commentId: M:Netick.DataAccumulator.Add(System.Single)
+  id: Add(System.Single)
+  parent: Netick.DataAccumulator
+  langs:
+  - csharp
+  - vb
+  name: Add(float)
+  nameWithType: DataAccumulator.Add(float)
+  fullName: Netick.DataAccumulator.Add(float)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Add(float amount)
+    parameters:
+    - id: amount
+      type: System.Single
+    content.vb: Public Sub Add(amount As Single)
+  overload: Netick.DataAccumulator.Add*
+  nameWithType.vb: DataAccumulator.Add(Single)
+  fullName.vb: Netick.DataAccumulator.Add(Single)
+  name.vb: Add(Single)
+- uid: Netick.DataAccumulator.Update(System.Single)
+  commentId: M:Netick.DataAccumulator.Update(System.Single)
   id: Update(System.Single)
-  parent: Netick.NetcodeProfiler
+  parent: Netick.DataAccumulator
   langs:
   - csharp
   - vb
   name: Update(float)
-  nameWithType: NetcodeProfiler.Update(float)
-  fullName: Netick.NetcodeProfiler.Update(float)
+  nameWithType: DataAccumulator.Update(float)
+  fullName: Netick.DataAccumulator.Update(float)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void Update(float v)
+    content: public void Update(float delta)
     parameters:
-    - id: v
+    - id: delta
       type: System.Single
-    content.vb: Public Sub Update(v As Single)
-  overload: Netick.NetcodeProfiler.Update*
-  nameWithType.vb: NetcodeProfiler.Update(Single)
-  fullName.vb: Netick.NetcodeProfiler.Update(Single)
+    content.vb: Public Sub Update(delta As Single)
+  overload: Netick.DataAccumulator.Update*
+  nameWithType.vb: DataAccumulator.Update(Single)
+  fullName.vb: Netick.DataAccumulator.Update(Single)
   name.vb: Update(Single)
-- uid: Netick.NetcodeProfiler.Begin
-  commentId: M:Netick.NetcodeProfiler.Begin
-  id: Begin
-  parent: Netick.NetcodeProfiler
+- uid: Netick.DataAccumulator.Stop
+  commentId: M:Netick.DataAccumulator.Stop
+  id: Stop
+  parent: Netick.DataAccumulator
   langs:
   - csharp
   - vb
-  name: Begin()
-  nameWithType: NetcodeProfiler.Begin()
-  fullName: Netick.NetcodeProfiler.Begin()
+  name: Stop()
+  nameWithType: DataAccumulator.Stop()
+  fullName: Netick.DataAccumulator.Stop()
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void Begin()
-    content.vb: Public Sub Begin()
-  overload: Netick.NetcodeProfiler.Begin*
-- uid: Netick.NetcodeProfiler.End
-  commentId: M:Netick.NetcodeProfiler.End
-  id: End
-  parent: Netick.NetcodeProfiler
+    content: public void Stop()
+    content.vb: Public Sub [Stop]()
+  overload: Netick.DataAccumulator.Stop*
+- uid: Netick.DataAccumulator.Reset
+  commentId: M:Netick.DataAccumulator.Reset
+  id: Reset
+  parent: Netick.DataAccumulator
   langs:
   - csharp
   - vb
-  name: End()
-  nameWithType: NetcodeProfiler.End()
-  fullName: Netick.NetcodeProfiler.End()
+  name: Reset()
+  nameWithType: DataAccumulator.Reset()
+  fullName: Netick.DataAccumulator.Reset()
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void End()
-    content.vb: Public Sub [End]()
-  overload: Netick.NetcodeProfiler.End*
-- uid: Netick.NetcodeProfiler.GetStats
-  commentId: M:Netick.NetcodeProfiler.GetStats
-  id: GetStats
-  parent: Netick.NetcodeProfiler
+    content: public void Reset()
+    content.vb: Public Sub Reset()
+  overload: Netick.DataAccumulator.Reset*
+- uid: Netick.DataAccumulator.Avg
+  commentId: P:Netick.DataAccumulator.Avg
+  id: Avg
+  parent: Netick.DataAccumulator
   langs:
   - csharp
   - vb
-  name: GetStats()
-  nameWithType: NetcodeProfiler.GetStats()
-  fullName: Netick.NetcodeProfiler.GetStats()
-  type: Method
+  name: Avg
+  nameWithType: DataAccumulator.Avg
+  fullName: Netick.DataAccumulator.Avg
+  type: Property
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public string GetStats()
+    content: public float Avg { get; }
+    parameters: []
     return:
-      type: System.String
-    content.vb: Public Function GetStats() As String
-  overload: Netick.NetcodeProfiler.GetStats*
+      type: System.Single
+    content.vb: Public ReadOnly Property Avg As Single
+  overload: Netick.DataAccumulator.Avg*
+- uid: Netick.DataAccumulator.Latest
+  commentId: P:Netick.DataAccumulator.Latest
+  id: Latest
+  parent: Netick.DataAccumulator
+  langs:
+  - csharp
+  - vb
+  name: Latest
+  nameWithType: DataAccumulator.Latest
+  fullName: Netick.DataAccumulator.Latest
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float Latest { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property Latest As Single
+  overload: Netick.DataAccumulator.Latest*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -397,42 +430,34 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Netick.FloatStats
-  commentId: T:Netick.FloatStats
-  parent: Netick
+- uid: Netick.DataAccumulator.#ctor*
+  commentId: Overload:Netick.DataAccumulator.#ctor
   isExternal: true
-  href: Netick.FloatStats.html
-  name: FloatStats
-  nameWithType: FloatStats
-  fullName: Netick.FloatStats
-- uid: System.String
-  commentId: T:System.String
+  href: Netick.DataAccumulator.html#Netick_DataAccumulator__ctor_System_Int32_
+  name: DataAccumulator
+  nameWithType: DataAccumulator.DataAccumulator
+  fullName: Netick.DataAccumulator.DataAccumulator
+  nameWithType.vb: DataAccumulator.New
+  fullName.vb: Netick.DataAccumulator.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: Netick.NetcodeProfiler.#ctor*
-  commentId: Overload:Netick.NetcodeProfiler.#ctor
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.DataAccumulator.Add*
+  commentId: Overload:Netick.DataAccumulator.Add
   isExternal: true
-  href: Netick.NetcodeProfiler.html#Netick_NetcodeProfiler__ctor_System_String_
-  name: NetcodeProfiler
-  nameWithType: NetcodeProfiler.NetcodeProfiler
-  fullName: Netick.NetcodeProfiler.NetcodeProfiler
-  nameWithType.vb: NetcodeProfiler.New
-  fullName.vb: Netick.NetcodeProfiler.New
-  name.vb: New
-- uid: Netick.NetcodeProfiler.Update*
-  commentId: Overload:Netick.NetcodeProfiler.Update
-  isExternal: true
-  href: Netick.NetcodeProfiler.html#Netick_NetcodeProfiler_Update_System_Single_
-  name: Update
-  nameWithType: NetcodeProfiler.Update
-  fullName: Netick.NetcodeProfiler.Update
+  href: Netick.DataAccumulator.html#Netick_DataAccumulator_Add_System_Int32_
+  name: Add
+  nameWithType: DataAccumulator.Add
+  fullName: Netick.DataAccumulator.Add
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -444,24 +469,38 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
-- uid: Netick.NetcodeProfiler.Begin*
-  commentId: Overload:Netick.NetcodeProfiler.Begin
+- uid: Netick.DataAccumulator.Update*
+  commentId: Overload:Netick.DataAccumulator.Update
   isExternal: true
-  href: Netick.NetcodeProfiler.html#Netick_NetcodeProfiler_Begin
-  name: Begin
-  nameWithType: NetcodeProfiler.Begin
-  fullName: Netick.NetcodeProfiler.Begin
-- uid: Netick.NetcodeProfiler.End*
-  commentId: Overload:Netick.NetcodeProfiler.End
+  href: Netick.DataAccumulator.html#Netick_DataAccumulator_Update_System_Single_
+  name: Update
+  nameWithType: DataAccumulator.Update
+  fullName: Netick.DataAccumulator.Update
+- uid: Netick.DataAccumulator.Stop*
+  commentId: Overload:Netick.DataAccumulator.Stop
   isExternal: true
-  href: Netick.NetcodeProfiler.html#Netick_NetcodeProfiler_End
-  name: End
-  nameWithType: NetcodeProfiler.End
-  fullName: Netick.NetcodeProfiler.End
-- uid: Netick.NetcodeProfiler.GetStats*
-  commentId: Overload:Netick.NetcodeProfiler.GetStats
+  href: Netick.DataAccumulator.html#Netick_DataAccumulator_Stop
+  name: Stop
+  nameWithType: DataAccumulator.Stop
+  fullName: Netick.DataAccumulator.Stop
+- uid: Netick.DataAccumulator.Reset*
+  commentId: Overload:Netick.DataAccumulator.Reset
   isExternal: true
-  href: Netick.NetcodeProfiler.html#Netick_NetcodeProfiler_GetStats
-  name: GetStats
-  nameWithType: NetcodeProfiler.GetStats
-  fullName: Netick.NetcodeProfiler.GetStats
+  href: Netick.DataAccumulator.html#Netick_DataAccumulator_Reset
+  name: Reset
+  nameWithType: DataAccumulator.Reset
+  fullName: Netick.DataAccumulator.Reset
+- uid: Netick.DataAccumulator.Avg*
+  commentId: Overload:Netick.DataAccumulator.Avg
+  isExternal: true
+  href: Netick.DataAccumulator.html#Netick_DataAccumulator_Avg
+  name: Avg
+  nameWithType: DataAccumulator.Avg
+  fullName: Netick.DataAccumulator.Avg
+- uid: Netick.DataAccumulator.Latest*
+  commentId: Overload:Netick.DataAccumulator.Latest
+  isExternal: true
+  href: Netick.DataAccumulator.html#Netick_DataAccumulator_Latest
+  name: Latest
+  nameWithType: DataAccumulator.Latest
+  fullName: Netick.DataAccumulator.Latest

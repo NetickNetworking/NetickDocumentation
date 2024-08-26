@@ -46,7 +46,6 @@ items:
   inheritedMembers:
   - Netick.NetworkDictionary.OffsetToElements
   - Netick.NetworkDictionary.HeaderMetaSizeWords
-  - Netick.NetworkDictionary.GetEntrySizeWords(System.Int32,System.Int32)
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetHashCode
@@ -138,6 +137,26 @@ items:
   - Netick.INetworkCollection.InternalReset
   nameWithType.vb: NetworkDictionary(Of TKey, TValue).InternalReset()
   fullName.vb: Netick.NetworkDictionary(Of TKey, TValue).InternalReset()
+- uid: Netick.NetworkDictionary`2.Clear
+  commentId: M:Netick.NetworkDictionary`2.Clear
+  id: Clear
+  parent: Netick.NetworkDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: NetworkDictionary<TKey, TValue>.Clear()
+  fullName: Netick.NetworkDictionary<TKey, TValue>.Clear()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: Netick.NetworkDictionary`2.Clear*
+  nameWithType.vb: NetworkDictionary(Of TKey, TValue).Clear()
+  fullName.vb: Netick.NetworkDictionary(Of TKey, TValue).Clear()
 - uid: Netick.NetworkDictionary`2.Add(`0,`1)
   commentId: M:Netick.NetworkDictionary`2.Add(`0,`1)
   id: Add(`0,`1)
@@ -190,26 +209,6 @@ items:
   overload: Netick.NetworkDictionary`2.Remove*
   nameWithType.vb: NetworkDictionary(Of TKey, TValue).Remove(TKey)
   fullName.vb: Netick.NetworkDictionary(Of TKey, TValue).Remove(TKey)
-- uid: Netick.NetworkDictionary`2.Clear
-  commentId: M:Netick.NetworkDictionary`2.Clear
-  id: Clear
-  parent: Netick.NetworkDictionary`2
-  langs:
-  - csharp
-  - vb
-  name: Clear()
-  nameWithType: NetworkDictionary<TKey, TValue>.Clear()
-  fullName: Netick.NetworkDictionary<TKey, TValue>.Clear()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void Clear()
-    content.vb: Public Sub Clear()
-  overload: Netick.NetworkDictionary`2.Clear*
-  nameWithType.vb: NetworkDictionary(Of TKey, TValue).Clear()
-  fullName.vb: Netick.NetworkDictionary(Of TKey, TValue).Clear()
 - uid: Netick.NetworkDictionary`2.TryGetValue(`0,`1@)
   commentId: M:Netick.NetworkDictionary`2.TryGetValue(`0,`1@)
   id: TryGetValue(`0,`1@)
@@ -531,51 +530,6 @@ references:
   name: HeaderMetaSizeWords
   nameWithType: NetworkDictionary.HeaderMetaSizeWords
   fullName: Netick.NetworkDictionary.HeaderMetaSizeWords
-- uid: Netick.NetworkDictionary.GetEntrySizeWords(System.Int32,System.Int32)
-  commentId: M:Netick.NetworkDictionary.GetEntrySizeWords(System.Int32,System.Int32)
-  parent: Netick.NetworkDictionary
-  isExternal: true
-  href: Netick.NetworkDictionary.html#Netick_NetworkDictionary_GetEntrySizeWords_System_Int32_System_Int32_
-  name: GetEntrySizeWords(int, int)
-  nameWithType: NetworkDictionary.GetEntrySizeWords(int, int)
-  fullName: Netick.NetworkDictionary.GetEntrySizeWords(int, int)
-  nameWithType.vb: NetworkDictionary.GetEntrySizeWords(Integer, Integer)
-  fullName.vb: Netick.NetworkDictionary.GetEntrySizeWords(Integer, Integer)
-  name.vb: GetEntrySizeWords(Integer, Integer)
-  spec.csharp:
-  - uid: Netick.NetworkDictionary.GetEntrySizeWords(System.Int32,System.Int32)
-    name: GetEntrySizeWords
-    isExternal: true
-    href: Netick.NetworkDictionary.html#Netick_NetworkDictionary_GetEntrySizeWords_System_Int32_System_Int32_
-  - name: (
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-  spec.vb:
-  - uid: Netick.NetworkDictionary.GetEntrySizeWords(System.Int32,System.Int32)
-    name: GetEntrySizeWords
-    isExternal: true
-    href: Netick.NetworkDictionary.html#Netick_NetworkDictionary_GetEntrySizeWords_System_Int32_System_Int32_
-  - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -1124,6 +1078,15 @@ references:
     href: Netick.INetworkCollection.html#Netick_INetworkCollection_InternalReset
   - name: (
   - name: )
+- uid: Netick.NetworkDictionary`2.Clear*
+  commentId: Overload:Netick.NetworkDictionary`2.Clear
+  isExternal: true
+  href: Netick.NetworkDictionary-2.html#Netick_NetworkDictionary_2_Clear
+  name: Clear
+  nameWithType: NetworkDictionary<TKey, TValue>.Clear
+  fullName: Netick.NetworkDictionary<TKey, TValue>.Clear
+  nameWithType.vb: NetworkDictionary(Of TKey, TValue).Clear
+  fullName.vb: Netick.NetworkDictionary(Of TKey, TValue).Clear
 - uid: Netick.NetworkDictionary`2.Add*
   commentId: Overload:Netick.NetworkDictionary`2.Add
   isExternal: true
@@ -1173,15 +1136,6 @@ references:
   fullName: Netick.NetworkDictionary<TKey, TValue>.Remove
   nameWithType.vb: NetworkDictionary(Of TKey, TValue).Remove
   fullName.vb: Netick.NetworkDictionary(Of TKey, TValue).Remove
-- uid: Netick.NetworkDictionary`2.Clear*
-  commentId: Overload:Netick.NetworkDictionary`2.Clear
-  isExternal: true
-  href: Netick.NetworkDictionary-2.html#Netick_NetworkDictionary_2_Clear
-  name: Clear
-  nameWithType: NetworkDictionary<TKey, TValue>.Clear
-  fullName: Netick.NetworkDictionary<TKey, TValue>.Clear
-  nameWithType.vb: NetworkDictionary(Of TKey, TValue).Clear
-  fullName.vb: Netick.NetworkDictionary(Of TKey, TValue).Clear
 - uid: Netick.NetworkDictionary`2.TryGetValue*
   commentId: Overload:Netick.NetworkDictionary`2.TryGetValue
   isExternal: true

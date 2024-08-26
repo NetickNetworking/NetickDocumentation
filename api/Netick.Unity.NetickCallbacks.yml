@@ -7,7 +7,6 @@ items:
   children:
   - Netick.Unity.NetickCallbacks.OnClientConnected
   - Netick.Unity.NetickCallbacks.OnClientDisconnected
-  - Netick.Unity.NetickCallbacks.OnClientSceneLoaded
   - Netick.Unity.NetickCallbacks.OnConnectFailed
   - Netick.Unity.NetickCallbacks.OnConnectRequest
   - Netick.Unity.NetickCallbacks.OnConnectedToServer
@@ -264,37 +263,6 @@ items:
     arguments:
     - type: System.String
       value: This event will be removed. Use OnSceneLoadDone instead.
-- uid: Netick.Unity.NetickCallbacks.OnClientSceneLoaded
-  commentId: E:Netick.Unity.NetickCallbacks.OnClientSceneLoaded
-  id: OnClientSceneLoaded
-  parent: Netick.Unity.NetickCallbacks
-  langs:
-  - csharp
-  - vb
-  name: OnClientSceneLoaded
-  nameWithType: NetickCallbacks.OnClientSceneLoaded
-  fullName: Netick.Unity.NetickCallbacks.OnClientSceneLoaded
-  type: Event
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: >-
-      [Obsolete("This event will be removed. No alternative will be provided. Use an client->server RPC for the same functionality.")]
-
-      public event OnClientSceneLoadedDelegate OnClientSceneLoaded
-    return:
-      type: Netick.Unity.OnClientSceneLoadedDelegate
-    content.vb: >-
-      <Obsolete("This event will be removed. No alternative will be provided. Use an client->server RPC for the same functionality.")>
-
-      Public Event OnClientSceneLoaded As OnClientSceneLoadedDelegate
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: This event will be removed. No alternative will be provided. Use an client->server RPC for the same functionality.
 - uid: Netick.Unity.NetickCallbacks.OnSceneOperationBegan
   commentId: E:Netick.Unity.NetickCallbacks.OnSceneOperationBegan
   id: OnSceneOperationBegan
@@ -867,14 +835,6 @@ references:
   name: OnSceneLoadStartedDelegate
   nameWithType: OnSceneLoadStartedDelegate
   fullName: Netick.Unity.OnSceneLoadStartedDelegate
-- uid: Netick.Unity.OnClientSceneLoadedDelegate
-  commentId: T:Netick.Unity.OnClientSceneLoadedDelegate
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.OnClientSceneLoadedDelegate.html
-  name: OnClientSceneLoadedDelegate
-  nameWithType: OnClientSceneLoadedDelegate
-  fullName: Netick.Unity.OnClientSceneLoadedDelegate
 - uid: Netick.Unity.OnSceneOperationDelegate
   commentId: T:Netick.Unity.OnSceneOperationDelegate
   parent: Netick.Unity

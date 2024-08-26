@@ -9,12 +9,14 @@ items:
   - Netick.NetickConfigData.AllocatorStateBlockSize
   - Netick.NetickConfigData.AoICellSize
   - Netick.NetickConfigData.AoIWorldSize
+  - Netick.NetickConfigData.BurstBuffering
   - Netick.NetickConfigData.EnableInterestManagement
   - Netick.NetickConfigData.EnableLagCompensation
   - Netick.NetickConfigData.EnableLagCompensationDebug
   - Netick.NetickConfigData.EnableLogging
   - Netick.NetickConfigData.EnableSimulationCulling
   - Netick.NetickConfigData.EnableSpatialPrioritization
+  - Netick.NetickConfigData.InputReuseAtLowFPS
   - Netick.NetickConfigData.InterestGroupCount
   - Netick.NetickConfigData.InvokeNetworkUpdate
   - Netick.NetickConfigData.KickClientForBadRpc
@@ -125,6 +127,25 @@ items:
     return:
       type: System.Int32
     content.vb: Public MaxObjects As Integer
+- uid: Netick.NetickConfigData.InputReuseAtLowFPS
+  commentId: F:Netick.NetickConfigData.InputReuseAtLowFPS
+  id: InputReuseAtLowFPS
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: InputReuseAtLowFPS
+  nameWithType: NetickConfigData.InputReuseAtLowFPS
+  fullName: Netick.NetickConfigData.InputReuseAtLowFPS
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool InputReuseAtLowFPS
+    return:
+      type: System.Boolean
+    content.vb: Public InputReuseAtLowFPS As Boolean
 - uid: Netick.NetickConfigData.MaxPredictedTicks
   commentId: F:Netick.NetickConfigData.MaxPredictedTicks
   id: MaxPredictedTicks
@@ -353,6 +374,25 @@ items:
     return:
       type: System.Boolean
     content.vb: Public InvokeNetworkUpdate As Boolean
+- uid: Netick.NetickConfigData.BurstBuffering
+  commentId: F:Netick.NetickConfigData.BurstBuffering
+  id: BurstBuffering
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: BurstBuffering
+  nameWithType: NetickConfigData.BurstBuffering
+  fullName: Netick.NetickConfigData.BurstBuffering
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool BurstBuffering
+    return:
+      type: System.Boolean
+    content.vb: Public BurstBuffering As Boolean
 - uid: Netick.NetickConfigData.AoIWorldSize
   commentId: F:Netick.NetickConfigData.AoIWorldSize
   id: AoIWorldSize

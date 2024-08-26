@@ -7,13 +7,11 @@ items:
   children:
   - Netick.Entity.AdaptiveRemoteInterpolation
   - Netick.Entity.BehsHash
-  - Netick.Entity.Dirtify(System.Int32*,System.Int32)
-  - Netick.Entity.Dirtify(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
   - Netick.Entity.Engine
   - Netick.Entity.Finalize
   - Netick.Entity.GameEngineIntoNetcode
   - Netick.Entity.GetStateSizeWords(Netick.INetickNetworkScript[])
-  - Netick.Entity.GridDirtify(System.Int32,Netick.Entity,System.Int32)
+  - Netick.Entity.GridMarkAltered(System.Int32,Netick.Entity,System.Int32)
   - Netick.Entity.InputSource
   - Netick.Entity.InputSourcePlayerId
   - Netick.Entity.InstanceCounter
@@ -27,6 +25,7 @@ items:
   - Netick.Entity.IsPredicted
   - Netick.Entity.IsProxy
   - Netick.Entity.IsResimulating
+  - Netick.Entity.MarkAltered(System.Int32*,System.Int32)
   - Netick.Entity.Move(System.Numerics.Vector3)
   - Netick.Entity.NetcodeIntoGameEngine
   - Netick.Entity.NetworkId
@@ -34,6 +33,7 @@ items:
   - Netick.Entity.PoolIndex
   - Netick.Entity.Position
   - Netick.Entity.S
+  - Netick.Entity.SetData(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
   - Netick.Entity.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
   - Netick.Entity.StateOffsetBytes
   - Netick.Entity.StatePtr
@@ -592,22 +592,22 @@ items:
   nameWithType.vb: ''
   fullName.vb: ''
   name.vb: ''
-- uid: Netick.Entity.Dirtify(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
-  commentId: M:Netick.Entity.Dirtify(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
-  id: Dirtify(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+- uid: Netick.Entity.SetData(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  commentId: M:Netick.Entity.SetData(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  id: SetData(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
   parent: Netick.Entity
   langs:
   - csharp
   - vb
-  name: Dirtify(int*, int*, int, int, int)
-  nameWithType: Entity.Dirtify(int*, int*, int, int, int)
-  fullName: Netick.Entity.Dirtify(int*, int*, int, int, int)
+  name: SetData(int*, int*, int, int, int)
+  nameWithType: Entity.SetData(int*, int*, int, int, int)
+  fullName: Netick.Entity.SetData(int*, int*, int, int, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void Dirtify(int* newValue, int* p, int size, int hasOnChanged, int isInputSourceOnly)
+    content: public void SetData(int* newValue, int* p, int size, int hasOnChanged, int isInputSourceOnly)
     parameters:
     - id: newValue
       type: System.Int32*
@@ -619,27 +619,27 @@ items:
       type: System.Int32
     - id: isInputSourceOnly
       type: System.Int32
-    content.vb: Public Sub Dirtify(newValue As Integer*, p As Integer*, size As Integer, hasOnChanged As Integer, isInputSourceOnly As Integer)
-  overload: Netick.Entity.Dirtify*
-  nameWithType.vb: Entity.Dirtify(Integer*, Integer*, Integer, Integer, Integer)
-  fullName.vb: Netick.Entity.Dirtify(Integer*, Integer*, Integer, Integer, Integer)
-  name.vb: Dirtify(Integer*, Integer*, Integer, Integer, Integer)
-- uid: Netick.Entity.Dirtify(System.Int32*,System.Int32)
-  commentId: M:Netick.Entity.Dirtify(System.Int32*,System.Int32)
-  id: Dirtify(System.Int32*,System.Int32)
+    content.vb: Public Sub SetData(newValue As Integer*, p As Integer*, size As Integer, hasOnChanged As Integer, isInputSourceOnly As Integer)
+  overload: Netick.Entity.SetData*
+  nameWithType.vb: Entity.SetData(Integer*, Integer*, Integer, Integer, Integer)
+  fullName.vb: Netick.Entity.SetData(Integer*, Integer*, Integer, Integer, Integer)
+  name.vb: SetData(Integer*, Integer*, Integer, Integer, Integer)
+- uid: Netick.Entity.MarkAltered(System.Int32*,System.Int32)
+  commentId: M:Netick.Entity.MarkAltered(System.Int32*,System.Int32)
+  id: MarkAltered(System.Int32*,System.Int32)
   parent: Netick.Entity
   langs:
   - csharp
   - vb
-  name: Dirtify(int*, int)
-  nameWithType: Entity.Dirtify(int*, int)
-  fullName: Netick.Entity.Dirtify(int*, int)
+  name: MarkAltered(int*, int)
+  nameWithType: Entity.MarkAltered(int*, int)
+  fullName: Netick.Entity.MarkAltered(int*, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool Dirtify(int* p, int isInputSourceOnly = 0)
+    content: public bool MarkAltered(int* p, int isInputSourceOnly = 0)
     parameters:
     - id: p
       type: System.Int32*
@@ -647,27 +647,27 @@ items:
       type: System.Int32
     return:
       type: System.Boolean
-    content.vb: Public Function Dirtify(p As Integer*, isInputSourceOnly As Integer = 0) As Boolean
-  overload: Netick.Entity.Dirtify*
-  nameWithType.vb: Entity.Dirtify(Integer*, Integer)
-  fullName.vb: Netick.Entity.Dirtify(Integer*, Integer)
-  name.vb: Dirtify(Integer*, Integer)
-- uid: Netick.Entity.GridDirtify(System.Int32,Netick.Entity,System.Int32)
-  commentId: M:Netick.Entity.GridDirtify(System.Int32,Netick.Entity,System.Int32)
-  id: GridDirtify(System.Int32,Netick.Entity,System.Int32)
+    content.vb: Public Function MarkAltered(p As Integer*, isInputSourceOnly As Integer = 0) As Boolean
+  overload: Netick.Entity.MarkAltered*
+  nameWithType.vb: Entity.MarkAltered(Integer*, Integer)
+  fullName.vb: Netick.Entity.MarkAltered(Integer*, Integer)
+  name.vb: MarkAltered(Integer*, Integer)
+- uid: Netick.Entity.GridMarkAltered(System.Int32,Netick.Entity,System.Int32)
+  commentId: M:Netick.Entity.GridMarkAltered(System.Int32,Netick.Entity,System.Int32)
+  id: GridMarkAltered(System.Int32,Netick.Entity,System.Int32)
   parent: Netick.Entity
   langs:
   - csharp
   - vb
-  name: GridDirtify(int, Entity, int)
-  nameWithType: Entity.GridDirtify(int, Entity, int)
-  fullName: Netick.Entity.GridDirtify(int, Netick.Entity, int)
+  name: GridMarkAltered(int, Entity, int)
+  nameWithType: Entity.GridMarkAltered(int, Entity, int)
+  fullName: Netick.Entity.GridMarkAltered(int, Netick.Entity, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool GridDirtify(int index, Entity entity, int isInputSourceOnly = 0)
+    content: public bool GridMarkAltered(int index, Entity entity, int isInputSourceOnly = 0)
     parameters:
     - id: index
       type: System.Int32
@@ -677,11 +677,11 @@ items:
       type: System.Int32
     return:
       type: System.Boolean
-    content.vb: Public Function GridDirtify(index As Integer, entity As Entity, isInputSourceOnly As Integer = 0) As Boolean
-  overload: Netick.Entity.GridDirtify*
-  nameWithType.vb: Entity.GridDirtify(Integer, Entity, Integer)
-  fullName.vb: Netick.Entity.GridDirtify(Integer, Netick.Entity, Integer)
-  name.vb: GridDirtify(Integer, Entity, Integer)
+    content.vb: Public Function GridMarkAltered(index As Integer, entity As Entity, isInputSourceOnly As Integer = 0) As Boolean
+  overload: Netick.Entity.GridMarkAltered*
+  nameWithType.vb: Entity.GridMarkAltered(Integer, Entity, Integer)
+  fullName.vb: Netick.Entity.GridMarkAltered(Integer, Netick.Entity, Integer)
+  name.vb: GridMarkAltered(Integer, Entity, Integer)
 - uid: Netick.Entity.IsInputSource
   commentId: P:Netick.Entity.IsInputSource
   id: IsInputSource
@@ -1372,20 +1372,27 @@ references:
     name: Entity
     isExternal: true
     href: Netick.Entity.html#Netick_Entity_Finalize
-- uid: Netick.Entity.Dirtify*
-  commentId: Overload:Netick.Entity.Dirtify
+- uid: Netick.Entity.SetData*
+  commentId: Overload:Netick.Entity.SetData
   isExternal: true
-  href: Netick.Entity.html#Netick_Entity_Dirtify_System_Int32__System_Int32__System_Int32_System_Int32_System_Int32_
-  name: Dirtify
-  nameWithType: Entity.Dirtify
-  fullName: Netick.Entity.Dirtify
-- uid: Netick.Entity.GridDirtify*
-  commentId: Overload:Netick.Entity.GridDirtify
+  href: Netick.Entity.html#Netick_Entity_SetData_System_Int32__System_Int32__System_Int32_System_Int32_System_Int32_
+  name: SetData
+  nameWithType: Entity.SetData
+  fullName: Netick.Entity.SetData
+- uid: Netick.Entity.MarkAltered*
+  commentId: Overload:Netick.Entity.MarkAltered
   isExternal: true
-  href: Netick.Entity.html#Netick_Entity_GridDirtify_System_Int32_Netick_Entity_System_Int32_
-  name: GridDirtify
-  nameWithType: Entity.GridDirtify
-  fullName: Netick.Entity.GridDirtify
+  href: Netick.Entity.html#Netick_Entity_MarkAltered_System_Int32__System_Int32_
+  name: MarkAltered
+  nameWithType: Entity.MarkAltered
+  fullName: Netick.Entity.MarkAltered
+- uid: Netick.Entity.GridMarkAltered*
+  commentId: Overload:Netick.Entity.GridMarkAltered
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_GridMarkAltered_System_Int32_Netick_Entity_System_Int32_
+  name: GridMarkAltered
+  nameWithType: Entity.GridMarkAltered
+  fullName: Netick.Entity.GridMarkAltered
 - uid: Netick.Entity
   commentId: T:Netick.Entity
   parent: Netick

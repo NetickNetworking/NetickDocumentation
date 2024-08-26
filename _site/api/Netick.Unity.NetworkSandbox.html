@@ -894,6 +894,38 @@
 
 
 
+  <a id="Netick_Unity_NetworkSandbox_InPacketLoss_" data-uid="Netick.Unity.NetworkSandbox.InPacketLoss*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_InPacketLoss" data-uid="Netick.Unity.NetworkSandbox.InPacketLoss">
+  InPacketLoss
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Estimation of incoming packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float InPacketLoss { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_InputEnabled_" data-uid="Netick.Unity.NetworkSandbox.InputEnabled*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_InputEnabled" data-uid="Netick.Unity.NetworkSandbox.InputEnabled">
@@ -1405,8 +1437,7 @@
   
   </h3>
 
-  <div class="markdown level1 summary"><p>A list containing all simulated/registered network objects [<a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a>] currently.</p>
-<p>Note: to get a network object by id, use: <a class="xref" href="Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_TryGetObject_System_Int32_Netick_Unity_NetworkObject__">TryGetObject(int, out NetworkObject)</a> </p>
+  <div class="markdown level1 summary"><p>A dictionary containing all simulated/registered network objects [<a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a>] currently.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1444,6 +1475,38 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public float OutKBps { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_OutPacketLoss_" data-uid="Netick.Unity.NetworkSandbox.OutPacketLoss*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_OutPacketLoss" data-uid="Netick.Unity.NetworkSandbox.OutPacketLoss">
+  OutPacketLoss
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Estimation of outgoing packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float OutPacketLoss { get; }</code></pre>
   </div>
 
 
@@ -2252,7 +2315,7 @@
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Destroys a network object. Only call this on the server or on the client for spawn-predicted objects which have -1 Ids.</p>
+  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i> Destroys a network object.</p>
 <p>Note: never call this on a child <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a> of the original prefab, only the root of the prefab.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -2683,7 +2746,8 @@
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets a specific input for the next tick.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -2904,7 +2968,7 @@
   </h3>
 
   <div class="markdown level1 summary"><p>Instantiates a prefab. This must be called instead of <span class="xref">UnityEngine.Object.Instantiate(UnityEngine.Object)</span> or its variations.</p>
-<p>Note: this must be called only for non-networked prefabs. If you want to instantiate a network prefab, use NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer) instead.</p>
+<p>Note: this must be called only for non-networked prefabs. If you want to instantiate a network prefab, use <a class="xref" href="Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_">NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer)</a> instead.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -3247,20 +3311,20 @@
 
   <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_Netick_SpawnPredictionKey_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer,Netick.SpawnPredictionKey)">
-  NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer, SpawnPredictionKey)
+  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)">
+  NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Instantiates a network prefab.</p>
-<p>Commonly, this should only be called on the server, since only the server can instantiate network prefabs. However, the client can also call this to spawn-predict a prefab by providing a spawn key which must be the same on the server and client when this method is called. Read the docs to learn more about how to use spawn-prediction.</p>
+  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i> Instantiates a network prefab.</p>
+<p>This must only be called on the server, since only the server can instantiate network prefabs.</p>
 <p>Note: make sure the prefab has been registered. </p> 
 <p>Note: the specified input source will be given to every <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a> child of this prefab.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, Quaternion rotation, NetworkPlayer inputSource = null, SpawnPredictionKey predictedSpawnKey = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, Quaternion rotation, NetworkPlayer inputSource = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3277,8 +3341,6 @@
     <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
     <dd><p>Input source of the instantiated object.</p>
 </dd>
-    <dt><code>predictedSpawnKey</code> <a class="xref" href="Netick.SpawnPredictionKey.html">SpawnPredictionKey</a></dt>
-    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -3299,8 +3361,8 @@
 
   <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate__1___0_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_Netick_SpawnPredictionKey_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer,Netick.SpawnPredictionKey)">
-  NetworkInstantiate&lt;T&gt;(T, Vector3, Quaternion, NetworkPlayer, SpawnPredictionKey)
+  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate__1___0_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)">
+  NetworkInstantiate&lt;T&gt;(T, Vector3, Quaternion, NetworkPlayer)
   
   </h3>
 
@@ -3308,7 +3370,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T NetworkInstantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation, NetworkPlayer inputSource = null, SpawnPredictionKey predictedSpawnKey = default) where T : MonoBehaviour</code></pre>
+    <pre><code class="lang-csharp hljs">public T NetworkInstantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation, NetworkPlayer inputSource = null) where T : MonoBehaviour</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3320,8 +3382,6 @@
     <dt><code>rotation</code> <span class="xref">Quaternion</span></dt>
     <dd></dd>
     <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
-    <dd></dd>
-    <dt><code>predictedSpawnKey</code> <a class="xref" href="Netick.SpawnPredictionKey.html">SpawnPredictionKey</a></dt>
     <dd></dd>
   </dl>
 
@@ -3482,7 +3542,8 @@
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets a specific input for the next tick.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

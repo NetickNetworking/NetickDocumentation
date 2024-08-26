@@ -10,8 +10,11 @@ items:
   - Netick.NetworkConnection.EndPoint
   - Netick.NetworkConnection.Finalize
   - Netick.NetworkConnection.Id
+  - Netick.NetworkConnection.InPacketLoss
+  - Netick.NetworkConnection.InPacketLossBurst
   - Netick.NetworkConnection.LocalUserData
   - Netick.NetworkConnection.MaxOutgoingDataPerTickInBytes
+  - Netick.NetworkConnection.OutPacketLoss
   - Netick.NetworkConnection.RTT
   - Netick.NetworkConnection.RemoteUserData
   - Netick.NetworkConnection.ReplicateEntities
@@ -319,11 +322,11 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public Accumulator BytesIn { get; }
+    content: public DataAccumulator BytesIn { get; }
     parameters: []
     return:
-      type: Netick.Accumulator
-    content.vb: Public ReadOnly Property BytesIn As Accumulator
+      type: Netick.DataAccumulator
+    content.vb: Public ReadOnly Property BytesIn As DataAccumulator
   overload: Netick.NetworkConnection.BytesIn*
 - uid: Netick.NetworkConnection.BytesOut
   commentId: P:Netick.NetworkConnection.BytesOut
@@ -340,12 +343,81 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public Accumulator BytesOut { get; }
+    content: public DataAccumulator BytesOut { get; }
     parameters: []
     return:
-      type: Netick.Accumulator
-    content.vb: Public ReadOnly Property BytesOut As Accumulator
+      type: Netick.DataAccumulator
+    content.vb: Public ReadOnly Property BytesOut As DataAccumulator
   overload: Netick.NetworkConnection.BytesOut*
+- uid: Netick.NetworkConnection.InPacketLossBurst
+  commentId: P:Netick.NetworkConnection.InPacketLossBurst
+  id: InPacketLossBurst
+  parent: Netick.NetworkConnection
+  langs:
+  - csharp
+  - vb
+  name: InPacketLossBurst
+  nameWithType: NetworkConnection.InPacketLossBurst
+  fullName: Netick.NetworkConnection.InPacketLossBurst
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: The longest inward packet loss burst (more than 2 packets lost in a row) in the last 10 seconds.
+  example: []
+  syntax:
+    content: public int InPacketLossBurst { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property InPacketLossBurst As Integer
+  overload: Netick.NetworkConnection.InPacketLossBurst*
+- uid: Netick.NetworkConnection.InPacketLoss
+  commentId: P:Netick.NetworkConnection.InPacketLoss
+  id: InPacketLoss
+  parent: Netick.NetworkConnection
+  langs:
+  - csharp
+  - vb
+  name: InPacketLoss
+  nameWithType: NetworkConnection.InPacketLoss
+  fullName: Netick.NetworkConnection.InPacketLoss
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Estimation of incoming packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
+  example: []
+  syntax:
+    content: public float InPacketLoss { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property InPacketLoss As Single
+  overload: Netick.NetworkConnection.InPacketLoss*
+- uid: Netick.NetworkConnection.OutPacketLoss
+  commentId: P:Netick.NetworkConnection.OutPacketLoss
+  id: OutPacketLoss
+  parent: Netick.NetworkConnection
+  langs:
+  - csharp
+  - vb
+  name: OutPacketLoss
+  nameWithType: NetworkConnection.OutPacketLoss
+  fullName: Netick.NetworkConnection.OutPacketLoss
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Estimation of outgoing packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
+  example: []
+  syntax:
+    content: public float OutPacketLoss { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property OutPacketLoss As Single
+  overload: Netick.NetworkConnection.OutPacketLoss*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -990,14 +1062,14 @@ references:
   name: BytesIn
   nameWithType: NetworkConnection.BytesIn
   fullName: Netick.NetworkConnection.BytesIn
-- uid: Netick.Accumulator
-  commentId: T:Netick.Accumulator
+- uid: Netick.DataAccumulator
+  commentId: T:Netick.DataAccumulator
   parent: Netick
   isExternal: true
-  href: Netick.Accumulator.html
-  name: Accumulator
-  nameWithType: Accumulator
-  fullName: Netick.Accumulator
+  href: Netick.DataAccumulator.html
+  name: DataAccumulator
+  nameWithType: DataAccumulator
+  fullName: Netick.DataAccumulator
 - uid: Netick.NetworkConnection.BytesOut*
   commentId: Overload:Netick.NetworkConnection.BytesOut
   isExternal: true
@@ -1005,3 +1077,35 @@ references:
   name: BytesOut
   nameWithType: NetworkConnection.BytesOut
   fullName: Netick.NetworkConnection.BytesOut
+- uid: Netick.NetworkConnection.InPacketLossBurst*
+  commentId: Overload:Netick.NetworkConnection.InPacketLossBurst
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_InPacketLossBurst
+  name: InPacketLossBurst
+  nameWithType: NetworkConnection.InPacketLossBurst
+  fullName: Netick.NetworkConnection.InPacketLossBurst
+- uid: Netick.NetworkConnection.InPacketLoss*
+  commentId: Overload:Netick.NetworkConnection.InPacketLoss
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_InPacketLoss
+  name: InPacketLoss
+  nameWithType: NetworkConnection.InPacketLoss
+  fullName: Netick.NetworkConnection.InPacketLoss
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Netick.NetworkConnection.OutPacketLoss*
+  commentId: Overload:Netick.NetworkConnection.OutPacketLoss
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_OutPacketLoss
+  name: OutPacketLoss
+  nameWithType: NetworkConnection.OutPacketLoss
+  fullName: Netick.NetworkConnection.OutPacketLoss

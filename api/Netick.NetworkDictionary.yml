@@ -6,7 +6,6 @@ items:
   parent: Netick
   children:
   - Netick.NetworkDictionary.#ctor
-  - Netick.NetworkDictionary.GetEntrySizeWords(System.Int32,System.Int32)
   - Netick.NetworkDictionary.HeaderMetaSizeWords
   - Netick.NetworkDictionary.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32,System.Int32)
   - Netick.NetworkDictionary.InternalReset
@@ -130,34 +129,6 @@ items:
   overload: Netick.NetworkDictionary.InternalReset*
   implements:
   - Netick.INetworkCollection.InternalReset
-- uid: Netick.NetworkDictionary.GetEntrySizeWords(System.Int32,System.Int32)
-  commentId: M:Netick.NetworkDictionary.GetEntrySizeWords(System.Int32,System.Int32)
-  id: GetEntrySizeWords(System.Int32,System.Int32)
-  parent: Netick.NetworkDictionary
-  langs:
-  - csharp
-  - vb
-  name: GetEntrySizeWords(int, int)
-  nameWithType: NetworkDictionary.GetEntrySizeWords(int, int)
-  fullName: Netick.NetworkDictionary.GetEntrySizeWords(int, int)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public static int GetEntrySizeWords(int keyWordSize, int valueWordSize)
-    parameters:
-    - id: keyWordSize
-      type: System.Int32
-    - id: valueWordSize
-      type: System.Int32
-    return:
-      type: System.Int32
-    content.vb: Public Shared Function GetEntrySizeWords(keyWordSize As Integer, valueWordSize As Integer) As Integer
-  overload: Netick.NetworkDictionary.GetEntrySizeWords*
-  nameWithType.vb: NetworkDictionary.GetEntrySizeWords(Integer, Integer)
-  fullName.vb: Netick.NetworkDictionary.GetEntrySizeWords(Integer, Integer)
-  name.vb: GetEntrySizeWords(Integer, Integer)
 - uid: Netick.NetworkDictionary.#ctor
   commentId: M:Netick.NetworkDictionary.#ctor
   id: '#ctor'
@@ -579,13 +550,6 @@ references:
     href: Netick.INetworkCollection.html#Netick_INetworkCollection_InternalReset
   - name: (
   - name: )
-- uid: Netick.NetworkDictionary.GetEntrySizeWords*
-  commentId: Overload:Netick.NetworkDictionary.GetEntrySizeWords
-  isExternal: true
-  href: Netick.NetworkDictionary.html#Netick_NetworkDictionary_GetEntrySizeWords_System_Int32_System_Int32_
-  name: GetEntrySizeWords
-  nameWithType: NetworkDictionary.GetEntrySizeWords
-  fullName: Netick.NetworkDictionary.GetEntrySizeWords
 - uid: Netick.NetworkDictionary.#ctor*
   commentId: Overload:Netick.NetworkDictionary.#ctor
   isExternal: true

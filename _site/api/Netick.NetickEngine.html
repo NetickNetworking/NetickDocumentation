@@ -621,6 +621,38 @@
 
 
 
+  <a id="Netick_NetickEngine_InPacketLoss_" data-uid="Netick.NetickEngine.InPacketLoss*"></a>
+
+  <h3 id="Netick_NetickEngine_InPacketLoss" data-uid="Netick.NetickEngine.InPacketLoss">
+  InPacketLoss
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Estimation of incoming packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float InPacketLoss { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_NetickEngine_InputEnabled_" data-uid="Netick.NetickEngine.InputEnabled*"></a>
 
   <h3 id="Netick_NetickEngine_InputEnabled" data-uid="Netick.NetickEngine.InputEnabled">
@@ -1257,6 +1289,38 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public float OutKBps { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_OutPacketLoss_" data-uid="Netick.NetickEngine.OutPacketLoss*"></a>
+
+  <h3 id="Netick_NetickEngine_OutPacketLoss" data-uid="Netick.NetickEngine.OutPacketLoss">
+  OutPacketLoss
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Estimation of outgoing packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float OutPacketLoss { get; }</code></pre>
   </div>
 
 
@@ -2029,8 +2093,8 @@
 
   <a id="Netick_NetickEngine_ClientAddEntity_" data-uid="Netick.NetickEngine.ClientAddEntity*"></a>
 
-  <h3 id="Netick_NetickEngine_ClientAddEntity_Netick_INetickEntity_System_Int32_Netick_NetworkPlayer_System_Boolean_Netick_NetickEntityMeta_" data-uid="Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)">
-  ClientAddEntity(INetickEntity, int, NetworkPlayer, bool, NetickEntityMeta)
+  <h3 id="Netick_NetickEngine_ClientAddEntity_Netick_INetickEntity_System_Int32_System_Int32_Netick_NetworkPlayer_System_Boolean_Netick_NetickEntityMeta_" data-uid="Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)">
+  ClientAddEntity(INetickEntity, int, int, NetworkPlayer, bool, NetickEntityMeta)
   
   </h3>
 
@@ -2038,7 +2102,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ClientAddEntity(INetickEntity entity, int id, NetworkPlayer player, bool wasUnliked, NetickEntityMeta meta)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ClientAddEntity(INetickEntity entity, int id, int worldIndex, NetworkPlayer player, bool wasUnliked, NetickEntityMeta meta)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2046,6 +2110,8 @@
     <dt><code>entity</code> <a class="xref" href="Netick.INetickEntity.html">INetickEntity</a></dt>
     <dd></dd>
     <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>worldIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>player</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
     <dd></dd>
@@ -2332,8 +2398,8 @@
 
   <a id="Netick_NetickEngine_FetchInput_" data-uid="Netick.NetickEngine.FetchInput*"></a>
 
-  <h3 id="Netick_NetickEngine_FetchInput__1___0__Netick_Entity_System_Int32_" data-uid="Netick.NetickEngine.FetchInput``1(``0@,Netick.Entity,System.Int32)">
-  FetchInput&lt;T&gt;(out T, Entity, int)
+  <h3 id="Netick_NetickEngine_FetchInput__1___0__System_Boolean__Netick_Entity_System_Int32_" data-uid="Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)">
+  FetchInput&lt;T&gt;(out T, ref bool, Entity, int)
   
   </h3>
 
@@ -2341,12 +2407,14 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool FetchInput&lt;T&gt;(out T input, Entity entity, int localPlayerIndex) where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public bool FetchInput&lt;T&gt;(out T input, ref bool isDuplicated, Entity entity, int localPlayerIndex) where T : unmanaged</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>input</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>isDuplicated</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
     <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
     <dd></dd>

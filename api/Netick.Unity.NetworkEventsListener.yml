@@ -8,7 +8,6 @@ items:
   - Netick.Unity.NetworkEventsListener.#ctor
   - Netick.Unity.NetworkEventsListener.OnClientConnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   - Netick.Unity.NetworkEventsListener.OnClientDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
-  - Netick.Unity.NetworkEventsListener.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   - Netick.Unity.NetworkEventsListener.OnConnectFailed(Netick.Unity.NetworkSandbox,Netick.ConnectionFailedReason)
   - Netick.Unity.NetworkEventsListener.OnConnectRequest(Netick.Unity.NetworkSandbox,Netick.NetworkConnectionRequest)
   - Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
@@ -444,45 +443,6 @@ items:
     arguments:
     - type: System.String
       value: This method will be removed. Use OnSceneLoadDone instead.
-- uid: Netick.Unity.NetworkEventsListener.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
-  commentId: M:Netick.Unity.NetworkEventsListener.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
-  id: OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
-  parent: Netick.Unity.NetworkEventsListener
-  langs:
-  - csharp
-  - vb
-  name: OnClientSceneLoaded(NetworkSandbox, NetworkConnection)
-  nameWithType: NetworkEventsListener.OnClientSceneLoaded(NetworkSandbox, NetworkConnection)
-  fullName: Netick.Unity.NetworkEventsListener.OnClientSceneLoaded(Netick.Unity.NetworkSandbox, Netick.NetworkConnection)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: Called on the server when a specific client finished loading the scene.
-  example: []
-  syntax:
-    content: >-
-      [Obsolete("This method will be removed. No alternative will be provided. Use an client->server RPC for the same functionality.")]
-
-      public virtual void OnClientSceneLoaded(NetworkSandbox sandbox, NetworkConnection client)
-    parameters:
-    - id: sandbox
-      type: Netick.Unity.NetworkSandbox
-      description: ''
-    - id: client
-      type: Netick.NetworkConnection
-      description: ''
-    content.vb: >-
-      <Obsolete("This method will be removed. No alternative will be provided. Use an client->server RPC for the same functionality.")>
-
-      Public Overridable Sub OnClientSceneLoaded(sandbox As NetworkSandbox, client As NetworkConnection)
-  overload: Netick.Unity.NetworkEventsListener.OnClientSceneLoaded*
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: This method will be removed. No alternative will be provided. Use an client->server RPC for the same functionality.
 - uid: Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   commentId: M:Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   id: OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
@@ -5448,13 +5408,13 @@ references:
   name: OnSceneLoadStarted
   nameWithType: NetworkEventsListener.OnSceneLoadStarted
   fullName: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted
-- uid: Netick.Unity.NetworkEventsListener.OnClientSceneLoaded*
-  commentId: Overload:Netick.Unity.NetworkEventsListener.OnClientSceneLoaded
+- uid: Netick.Unity.NetworkEventsListener.OnConnectedToServer*
+  commentId: Overload:Netick.Unity.NetworkEventsListener.OnConnectedToServer
   isExternal: true
-  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientSceneLoaded_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
-  name: OnClientSceneLoaded
-  nameWithType: NetworkEventsListener.OnClientSceneLoaded
-  fullName: Netick.Unity.NetworkEventsListener.OnClientSceneLoaded
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnConnectedToServer_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
+  name: OnConnectedToServer
+  nameWithType: NetworkEventsListener.OnConnectedToServer
+  fullName: Netick.Unity.NetworkEventsListener.OnConnectedToServer
 - uid: Netick.NetworkConnection
   commentId: T:Netick.NetworkConnection
   parent: Netick
@@ -5463,13 +5423,6 @@ references:
   name: NetworkConnection
   nameWithType: NetworkConnection
   fullName: Netick.NetworkConnection
-- uid: Netick.Unity.NetworkEventsListener.OnConnectedToServer*
-  commentId: Overload:Netick.Unity.NetworkEventsListener.OnConnectedToServer
-  isExternal: true
-  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnConnectedToServer_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
-  name: OnConnectedToServer
-  nameWithType: NetworkEventsListener.OnConnectedToServer
-  fullName: Netick.Unity.NetworkEventsListener.OnConnectedToServer
 - uid: Netick.Unity.NetworkEventsListener.OnDisconnectedFromServer*
   commentId: Overload:Netick.Unity.NetworkEventsListener.OnDisconnectedFromServer
   isExternal: true

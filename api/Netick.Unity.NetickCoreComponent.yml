@@ -17,8 +17,8 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: 'public class NetickCoreComponent : NetickBehaviour, INetickScript'
-    content.vb: Public Class NetickCoreComponent Inherits NetickBehaviour Implements INetickScript
+    content: 'public class NetickCoreComponent : NetworkBehaviour, INetickNetworkScript, INetickScript'
+    content.vb: Public Class NetickCoreComponent Inherits NetworkBehaviour Implements INetickNetworkScript, INetickScript
   inheritance:
   - System.Object
   - UnityEngine.Object
@@ -27,11 +27,45 @@ items:
   - UnityEngine.MonoBehaviour
   - Netick.Unity.NetickBaseBehaviour
   - Netick.Unity.NetickBehaviour
+  - Netick.Unity.NetworkBehaviour
   derivedClasses:
+  - Netick.Unity.NetworkSceneManager
   - Netick.Unity.PhysicsSimulationStep
   implements:
+  - Netick.INetickNetworkScript
   - Netick.INetickScript
   inheritedMembers:
+  - Netick.Unity.NetworkBehaviour.S
+  - Netick.Unity.NetworkBehaviour.GetRef``1
+  - Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  - Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+  - Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Int32)
+  - Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Boolean@,System.Int32)
+  - Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
+  - Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
+  - Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
+  - Netick.Unity.NetworkBehaviour.OnBecameInterested
+  - Netick.Unity.NetworkBehaviour.OnBecameUninterested
+  - Netick.Unity.NetworkBehaviour.OnInputSourceChanged(Netick.NetworkPlayer)
+  - Netick.Unity.NetworkBehaviour.OnInputSourceLeft
+  - Netick.Unity.NetworkBehaviour.OnSpawnPredictionSucceeded
+  - Netick.Unity.NetworkBehaviour.NetworkAwake
+  - Netick.Unity.NetworkBehaviour.NetworkReset
+  - Netick.Unity.NetworkBehaviour.InternalInit
+  - Netick.Unity.NetworkBehaviour.InternalReset
+  - Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
+  - Netick.Unity.NetworkBehaviour.BehaviourId
+  - Netick.Unity.NetworkBehaviour.Id
+  - Netick.Unity.NetworkBehaviour.IsClient
+  - Netick.Unity.NetworkBehaviour.IsServer
+  - Netick.Unity.NetworkBehaviour.IsOwner
+  - Netick.Unity.NetworkBehaviour.IsInputSource
+  - Netick.Unity.NetworkBehaviour.IsProxy
+  - Netick.Unity.NetworkBehaviour.IsResimulating
+  - Netick.Unity.NetworkBehaviour.IsPredicted
+  - Netick.Unity.NetworkBehaviour.InputSource
+  - Netick.Unity.NetworkBehaviour.InputSourcePlayerId
+  - Netick.Unity.NetworkBehaviour.StateSize
   - Netick.Unity.NetickBehaviour.NetworkStart
   - Netick.Unity.NetickBehaviour.NetworkDestroy
   - Netick.Unity.NetickBehaviour.NetworkUpdate
@@ -263,6 +297,22 @@ references:
   name: NetickBehaviour
   nameWithType: NetickBehaviour
   fullName: Netick.Unity.NetickBehaviour
+- uid: Netick.Unity.NetworkBehaviour
+  commentId: T:Netick.Unity.NetworkBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html
+  name: NetworkBehaviour
+  nameWithType: NetworkBehaviour
+  fullName: Netick.Unity.NetworkBehaviour
+- uid: Netick.INetickNetworkScript
+  commentId: T:Netick.INetickNetworkScript
+  parent: Netick
+  isExternal: true
+  href: Netick.INetickNetworkScript.html
+  name: INetickNetworkScript
+  nameWithType: INetickNetworkScript
+  fullName: Netick.INetickNetworkScript
 - uid: Netick.INetickScript
   commentId: T:Netick.INetickScript
   parent: Netick
@@ -271,6 +321,628 @@ references:
   name: INetickScript
   nameWithType: INetickScript
   fullName: Netick.INetickScript
+- uid: Netick.Unity.NetworkBehaviour.S
+  commentId: F:Netick.Unity.NetworkBehaviour.S
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_S
+  name: S
+  nameWithType: NetworkBehaviour.S
+  fullName: Netick.Unity.NetworkBehaviour.S
+- uid: Netick.Unity.NetworkBehaviour.GetRef``1
+  commentId: M:Netick.Unity.NetworkBehaviour.GetRef``1
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GetRef__1
+  name: GetRef<T>()
+  nameWithType: NetworkBehaviour.GetRef<T>()
+  fullName: Netick.Unity.NetworkBehaviour.GetRef<T>()
+  nameWithType.vb: NetworkBehaviour.GetRef(Of T)()
+  fullName.vb: Netick.Unity.NetworkBehaviour.GetRef(Of T)()
+  name.vb: GetRef(Of T)()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.GetRef``1
+    name: GetRef
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GetRef__1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.GetRef``1
+    name: GetRef
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GetRef__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  commentId: M:Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__
+  name: CopyStateTo(byte*)
+  nameWithType: NetworkBehaviour.CopyStateTo(byte*)
+  fullName: Netick.Unity.NetworkBehaviour.CopyStateTo(byte*)
+  nameWithType.vb: NetworkBehaviour.CopyStateTo(Byte*)
+  fullName.vb: Netick.Unity.NetworkBehaviour.CopyStateTo(Byte*)
+  name.vb: CopyStateTo(Byte*)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+    name: CopyStateTo
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.CopyStateTo(System.Byte*)
+    name: CopyStateTo
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+  commentId: M:Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__
+  name: SetStateFrom(byte*)
+  nameWithType: NetworkBehaviour.SetStateFrom(byte*)
+  fullName: Netick.Unity.NetworkBehaviour.SetStateFrom(byte*)
+  nameWithType.vb: NetworkBehaviour.SetStateFrom(Byte*)
+  fullName.vb: Netick.Unity.NetworkBehaviour.SetStateFrom(Byte*)
+  name.vb: SetStateFrom(Byte*)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+    name: SetStateFrom
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.SetStateFrom(System.Byte*)
+    name: SetStateFrom
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Int32)
+  commentId: M:Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
+  parent: Netick.Unity.NetworkBehaviour
+  definition: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_
+  name: FetchInput<T>(out T, int)
+  nameWithType: NetworkBehaviour.FetchInput<T>(out T, int)
+  fullName: Netick.Unity.NetworkBehaviour.FetchInput<T>(out T, int)
+  nameWithType.vb: NetworkBehaviour.FetchInput(Of T)(T, Integer)
+  fullName.vb: Netick.Unity.NetworkBehaviour.FetchInput(Of T)(T, Integer)
+  name.vb: FetchInput(Of T)(T, Integer)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
+    name: FetchInput
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: out
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
+    name: FetchInput
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Boolean@,System.Int32)
+  commentId: M:Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)
+  parent: Netick.Unity.NetworkBehaviour
+  definition: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Boolean__System_Int32_
+  name: FetchInput<T>(out T, out bool, int)
+  nameWithType: NetworkBehaviour.FetchInput<T>(out T, out bool, int)
+  fullName: Netick.Unity.NetworkBehaviour.FetchInput<T>(out T, out bool, int)
+  nameWithType.vb: NetworkBehaviour.FetchInput(Of T)(T, Boolean, Integer)
+  fullName.vb: Netick.Unity.NetworkBehaviour.FetchInput(Of T)(T, Boolean, Integer)
+  name.vb: FetchInput(Of T)(T, Boolean, Integer)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)
+    name: FetchInput
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Boolean__System_Int32_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: out
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)
+    name: FetchInput
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Boolean__System_Int32_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
+  commentId: M:Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FindInterpolator_System_String_
+  name: FindInterpolator(string)
+  nameWithType: NetworkBehaviour.FindInterpolator(string)
+  fullName: Netick.Unity.NetworkBehaviour.FindInterpolator(string)
+  nameWithType.vb: NetworkBehaviour.FindInterpolator(String)
+  fullName.vb: Netick.Unity.NetworkBehaviour.FindInterpolator(String)
+  name.vb: FindInterpolator(String)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
+    name: FindInterpolator
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FindInterpolator_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
+    name: FindInterpolator
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FindInterpolator_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
+  commentId: M:Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GameEngineIntoNetcode
+  name: GameEngineIntoNetcode()
+  nameWithType: NetworkBehaviour.GameEngineIntoNetcode()
+  fullName: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
+    name: GameEngineIntoNetcode
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GameEngineIntoNetcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.GameEngineIntoNetcode
+    name: GameEngineIntoNetcode
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GameEngineIntoNetcode
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
+  commentId: M:Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetcodeIntoGameEngine
+  name: NetcodeIntoGameEngine()
+  nameWithType: NetworkBehaviour.NetcodeIntoGameEngine()
+  fullName: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
+    name: NetcodeIntoGameEngine
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetcodeIntoGameEngine
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.NetcodeIntoGameEngine
+    name: NetcodeIntoGameEngine
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetcodeIntoGameEngine
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
+  commentId: M:Netick.Unity.NetworkBehaviour.OnBecameInterested
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
+  name: OnBecameInterested()
+  nameWithType: NetworkBehaviour.OnBecameInterested()
+  fullName: Netick.Unity.NetworkBehaviour.OnBecameInterested()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
+    name: OnBecameInterested
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
+    name: OnBecameInterested
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.OnBecameUninterested
+  commentId: M:Netick.Unity.NetworkBehaviour.OnBecameUninterested
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameUninterested
+  name: OnBecameUninterested()
+  nameWithType: NetworkBehaviour.OnBecameUninterested()
+  fullName: Netick.Unity.NetworkBehaviour.OnBecameUninterested()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.OnBecameUninterested
+    name: OnBecameUninterested
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameUninterested
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.OnBecameUninterested
+    name: OnBecameUninterested
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameUninterested
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.OnInputSourceChanged(Netick.NetworkPlayer)
+  commentId: M:Netick.Unity.NetworkBehaviour.OnInputSourceChanged(Netick.NetworkPlayer)
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnInputSourceChanged_Netick_NetworkPlayer_
+  name: OnInputSourceChanged(NetworkPlayer)
+  nameWithType: NetworkBehaviour.OnInputSourceChanged(NetworkPlayer)
+  fullName: Netick.Unity.NetworkBehaviour.OnInputSourceChanged(Netick.NetworkPlayer)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.OnInputSourceChanged(Netick.NetworkPlayer)
+    name: OnInputSourceChanged
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnInputSourceChanged_Netick_NetworkPlayer_
+  - name: (
+  - uid: Netick.NetworkPlayer
+    name: NetworkPlayer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.OnInputSourceChanged(Netick.NetworkPlayer)
+    name: OnInputSourceChanged
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnInputSourceChanged_Netick_NetworkPlayer_
+  - name: (
+  - uid: Netick.NetworkPlayer
+    name: NetworkPlayer
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.OnInputSourceLeft
+  commentId: M:Netick.Unity.NetworkBehaviour.OnInputSourceLeft
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnInputSourceLeft
+  name: OnInputSourceLeft()
+  nameWithType: NetworkBehaviour.OnInputSourceLeft()
+  fullName: Netick.Unity.NetworkBehaviour.OnInputSourceLeft()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.OnInputSourceLeft
+    name: OnInputSourceLeft
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnInputSourceLeft
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.OnInputSourceLeft
+    name: OnInputSourceLeft
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnInputSourceLeft
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.OnSpawnPredictionSucceeded
+  commentId: M:Netick.Unity.NetworkBehaviour.OnSpawnPredictionSucceeded
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnSpawnPredictionSucceeded
+  name: OnSpawnPredictionSucceeded()
+  nameWithType: NetworkBehaviour.OnSpawnPredictionSucceeded()
+  fullName: Netick.Unity.NetworkBehaviour.OnSpawnPredictionSucceeded()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.OnSpawnPredictionSucceeded
+    name: OnSpawnPredictionSucceeded
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnSpawnPredictionSucceeded
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.OnSpawnPredictionSucceeded
+    name: OnSpawnPredictionSucceeded
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnSpawnPredictionSucceeded
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.NetworkAwake
+  commentId: M:Netick.Unity.NetworkBehaviour.NetworkAwake
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
+  name: NetworkAwake()
+  nameWithType: NetworkBehaviour.NetworkAwake()
+  fullName: Netick.Unity.NetworkBehaviour.NetworkAwake()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.NetworkAwake
+    name: NetworkAwake
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.NetworkAwake
+    name: NetworkAwake
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkAwake
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.NetworkReset
+  commentId: M:Netick.Unity.NetworkBehaviour.NetworkReset
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset
+  name: NetworkReset()
+  nameWithType: NetworkBehaviour.NetworkReset()
+  fullName: Netick.Unity.NetworkBehaviour.NetworkReset()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.NetworkReset
+    name: NetworkReset
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.NetworkReset
+    name: NetworkReset
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.InternalInit
+  commentId: M:Netick.Unity.NetworkBehaviour.InternalInit
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit
+  name: InternalInit()
+  nameWithType: NetworkBehaviour.InternalInit()
+  fullName: Netick.Unity.NetworkBehaviour.InternalInit()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.InternalInit
+    name: InternalInit
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.InternalInit
+    name: InternalInit
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.InternalReset
+  commentId: M:Netick.Unity.NetworkBehaviour.InternalReset
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalReset
+  name: InternalReset()
+  nameWithType: NetworkBehaviour.InternalReset()
+  fullName: Netick.Unity.NetworkBehaviour.InternalReset()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.InternalReset
+    name: InternalReset
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalReset
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.InternalReset
+    name: InternalReset
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalReset
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
+  commentId: M:Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalGetStateSizeWords
+  name: InternalGetStateSizeWords()
+  nameWithType: NetworkBehaviour.InternalGetStateSizeWords()
+  fullName: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
+    name: InternalGetStateSizeWords
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalGetStateSizeWords
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.InternalGetStateSizeWords
+    name: InternalGetStateSizeWords
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalGetStateSizeWords
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.BehaviourId
+  commentId: P:Netick.Unity.NetworkBehaviour.BehaviourId
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_BehaviourId
+  name: BehaviourId
+  nameWithType: NetworkBehaviour.BehaviourId
+  fullName: Netick.Unity.NetworkBehaviour.BehaviourId
+- uid: Netick.Unity.NetworkBehaviour.Id
+  commentId: P:Netick.Unity.NetworkBehaviour.Id
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_Id
+  name: Id
+  nameWithType: NetworkBehaviour.Id
+  fullName: Netick.Unity.NetworkBehaviour.Id
+- uid: Netick.Unity.NetworkBehaviour.IsClient
+  commentId: P:Netick.Unity.NetworkBehaviour.IsClient
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsClient
+  name: IsClient
+  nameWithType: NetworkBehaviour.IsClient
+  fullName: Netick.Unity.NetworkBehaviour.IsClient
+- uid: Netick.Unity.NetworkBehaviour.IsServer
+  commentId: P:Netick.Unity.NetworkBehaviour.IsServer
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsServer
+  name: IsServer
+  nameWithType: NetworkBehaviour.IsServer
+  fullName: Netick.Unity.NetworkBehaviour.IsServer
+- uid: Netick.Unity.NetworkBehaviour.IsOwner
+  commentId: P:Netick.Unity.NetworkBehaviour.IsOwner
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsOwner
+  name: IsOwner
+  nameWithType: NetworkBehaviour.IsOwner
+  fullName: Netick.Unity.NetworkBehaviour.IsOwner
+- uid: Netick.Unity.NetworkBehaviour.IsInputSource
+  commentId: P:Netick.Unity.NetworkBehaviour.IsInputSource
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsInputSource
+  name: IsInputSource
+  nameWithType: NetworkBehaviour.IsInputSource
+  fullName: Netick.Unity.NetworkBehaviour.IsInputSource
+- uid: Netick.Unity.NetworkBehaviour.IsProxy
+  commentId: P:Netick.Unity.NetworkBehaviour.IsProxy
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsProxy
+  name: IsProxy
+  nameWithType: NetworkBehaviour.IsProxy
+  fullName: Netick.Unity.NetworkBehaviour.IsProxy
+- uid: Netick.Unity.NetworkBehaviour.IsResimulating
+  commentId: P:Netick.Unity.NetworkBehaviour.IsResimulating
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsResimulating
+  name: IsResimulating
+  nameWithType: NetworkBehaviour.IsResimulating
+  fullName: Netick.Unity.NetworkBehaviour.IsResimulating
+- uid: Netick.Unity.NetworkBehaviour.IsPredicted
+  commentId: P:Netick.Unity.NetworkBehaviour.IsPredicted
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsPredicted
+  name: IsPredicted
+  nameWithType: NetworkBehaviour.IsPredicted
+  fullName: Netick.Unity.NetworkBehaviour.IsPredicted
+- uid: Netick.Unity.NetworkBehaviour.InputSource
+  commentId: P:Netick.Unity.NetworkBehaviour.InputSource
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSource
+  name: InputSource
+  nameWithType: NetworkBehaviour.InputSource
+  fullName: Netick.Unity.NetworkBehaviour.InputSource
+- uid: Netick.Unity.NetworkBehaviour.InputSourcePlayerId
+  commentId: P:Netick.Unity.NetworkBehaviour.InputSourcePlayerId
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSourcePlayerId
+  name: InputSourcePlayerId
+  nameWithType: NetworkBehaviour.InputSourcePlayerId
+  fullName: Netick.Unity.NetworkBehaviour.InputSourcePlayerId
+- uid: Netick.Unity.NetworkBehaviour.StateSize
+  commentId: P:Netick.Unity.NetworkBehaviour.StateSize
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_StateSize
+  name: StateSize
+  nameWithType: NetworkBehaviour.StateSize
+  fullName: Netick.Unity.NetworkBehaviour.StateSize
 - uid: Netick.Unity.NetickBehaviour.NetworkStart
   commentId: M:Netick.Unity.NetickBehaviour.NetworkStart
   parent: Netick.Unity.NetickBehaviour
@@ -4349,6 +5021,116 @@ references:
   name: Netick
   nameWithType: Netick
   fullName: Netick
+- uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
+  commentId: M:Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_
+  name: FetchInput<T>(out T, int)
+  nameWithType: NetworkBehaviour.FetchInput<T>(out T, int)
+  fullName: Netick.Unity.NetworkBehaviour.FetchInput<T>(out T, int)
+  nameWithType.vb: NetworkBehaviour.FetchInput(Of T)(T, Integer)
+  fullName.vb: Netick.Unity.NetworkBehaviour.FetchInput(Of T)(T, Integer)
+  name.vb: FetchInput(Of T)(T, Integer)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
+    name: FetchInput
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: out
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)
+    name: FetchInput
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)
+  commentId: M:Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Boolean__System_Int32_
+  name: FetchInput<T>(out T, out bool, int)
+  nameWithType: NetworkBehaviour.FetchInput<T>(out T, out bool, int)
+  fullName: Netick.Unity.NetworkBehaviour.FetchInput<T>(out T, out bool, int)
+  nameWithType.vb: NetworkBehaviour.FetchInput(Of T)(T, Boolean, Integer)
+  fullName.vb: Netick.Unity.NetworkBehaviour.FetchInput(Of T)(T, Boolean, Integer)
+  name.vb: FetchInput(Of T)(T, Boolean, Integer)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)
+    name: FetchInput
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Boolean__System_Int32_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: out
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)
+    name: FetchInput
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Boolean__System_Int32_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
 - uid: UnityEngine.Component.TryGetComponent``1(``0@)
   commentId: M:UnityEngine.Component.TryGetComponent``1(``0@)
   isExternal: true

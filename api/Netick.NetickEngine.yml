@@ -9,7 +9,7 @@ items:
   - Netick.NetickEngine.AttachBehaviour(Netick.INetickScript)
   - Netick.NetickEngine.AuthoritativeTick
   - Netick.NetickEngine.Client
-  - Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)
+  - Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)
   - Netick.NetickEngine.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
   - Netick.NetickEngine.ClientSimulation
   - Netick.NetickEngine.ClientSimulationCallbacks
@@ -26,7 +26,7 @@ items:
   - Netick.NetickEngine.DisconnectFromServer
   - Netick.NetickEngine.DisconnectHost
   - Netick.NetickEngine.Entities
-  - Netick.NetickEngine.FetchInput``1(``0@,Netick.Entity,System.Int32)
+  - Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
   - Netick.NetickEngine.Finalize
   - Netick.NetickEngine.FixedDeltaTime
   - Netick.NetickEngine.GetBehaviourOrder(System.Type)
@@ -34,6 +34,7 @@ items:
   - Netick.NetickEngine.GetEntityUserMeta(Netick.Entity)
   - Netick.NetickEngine.GetInput``1(System.Int32)
   - Netick.NetickEngine.InKBps
+  - Netick.NetickEngine.InPacketLoss
   - Netick.NetickEngine.InputEnabled
   - Netick.NetickEngine.InterestManagement
   - Netick.NetickEngine.InterpolationDelay
@@ -58,6 +59,7 @@ items:
   - Netick.NetickEngine.OnTickEnd
   - Netick.NetickEngine.OnTickStart
   - Netick.NetickEngine.OutKBps
+  - Netick.NetickEngine.OutPacketLoss
   - Netick.NetickEngine.Port
   - Netick.NetickEngine.PostNetworkFixedUpdate
   - Netick.NetickEngine.PostResimulation
@@ -171,25 +173,27 @@ items:
     return:
       type: System.Single
     content.vb: Public SimulatedLossIn As Single
-- uid: Netick.NetickEngine.FetchInput``1(``0@,Netick.Entity,System.Int32)
-  commentId: M:Netick.NetickEngine.FetchInput``1(``0@,Netick.Entity,System.Int32)
-  id: FetchInput``1(``0@,Netick.Entity,System.Int32)
+- uid: Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
+  commentId: M:Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
+  id: FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
   parent: Netick.NetickEngine
   langs:
   - csharp
   - vb
-  name: FetchInput<T>(out T, Entity, int)
-  nameWithType: NetickEngine.FetchInput<T>(out T, Entity, int)
-  fullName: Netick.NetickEngine.FetchInput<T>(out T, Netick.Entity, int)
+  name: FetchInput<T>(out T, ref bool, Entity, int)
+  nameWithType: NetickEngine.FetchInput<T>(out T, ref bool, Entity, int)
+  fullName: Netick.NetickEngine.FetchInput<T>(out T, ref bool, Netick.Entity, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: 'public bool FetchInput<T>(out T input, Entity entity, int localPlayerIndex) where T : unmanaged'
+    content: 'public bool FetchInput<T>(out T input, ref bool isDuplicated, Entity entity, int localPlayerIndex) where T : unmanaged'
     parameters:
     - id: input
       type: '{T}'
+    - id: isDuplicated
+      type: System.Boolean
     - id: entity
       type: Netick.Entity
     - id: localPlayerIndex
@@ -198,11 +202,11 @@ items:
     - id: T
     return:
       type: System.Boolean
-    content.vb: Public Function FetchInput(Of T As Structure)(input As T, entity As Entity, localPlayerIndex As Integer) As Boolean
+    content.vb: Public Function FetchInput(Of T As Structure)(input As T, isDuplicated As Boolean, entity As Entity, localPlayerIndex As Integer) As Boolean
   overload: Netick.NetickEngine.FetchInput*
-  nameWithType.vb: NetickEngine.FetchInput(Of T)(T, Entity, Integer)
-  fullName.vb: Netick.NetickEngine.FetchInput(Of T)(T, Netick.Entity, Integer)
-  name.vb: FetchInput(Of T)(T, Entity, Integer)
+  nameWithType.vb: NetickEngine.FetchInput(Of T)(T, Boolean, Entity, Integer)
+  fullName.vb: Netick.NetickEngine.FetchInput(Of T)(T, Boolean, Netick.Entity, Integer)
+  name.vb: FetchInput(Of T)(T, Boolean, Entity, Integer)
 - uid: Netick.NetickEngine.GetInput``1(System.Int32)
   commentId: M:Netick.NetickEngine.GetInput``1(System.Int32)
   id: GetInput``1(System.Int32)
@@ -684,26 +688,28 @@ items:
   nameWithType.vb: NetickEngine.ClientAddUnlinkedEntity(Entity, Integer, Integer)
   fullName.vb: Netick.NetickEngine.ClientAddUnlinkedEntity(Netick.Entity, Integer, Integer)
   name.vb: ClientAddUnlinkedEntity(Entity, Integer, Integer)
-- uid: Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)
-  commentId: M:Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)
-  id: ClientAddEntity(Netick.INetickEntity,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)
+- uid: Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)
+  commentId: M:Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)
+  id: ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)
   parent: Netick.NetickEngine
   langs:
   - csharp
   - vb
-  name: ClientAddEntity(INetickEntity, int, NetworkPlayer, bool, NetickEntityMeta)
-  nameWithType: NetickEngine.ClientAddEntity(INetickEntity, int, NetworkPlayer, bool, NetickEntityMeta)
-  fullName: Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity, int, Netick.NetworkPlayer, bool, Netick.NetickEntityMeta)
+  name: ClientAddEntity(INetickEntity, int, int, NetworkPlayer, bool, NetickEntityMeta)
+  nameWithType: NetickEngine.ClientAddEntity(INetickEntity, int, int, NetworkPlayer, bool, NetickEntityMeta)
+  fullName: Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity, int, int, Netick.NetworkPlayer, bool, Netick.NetickEntityMeta)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void ClientAddEntity(INetickEntity entity, int id, NetworkPlayer player, bool wasUnliked, NetickEntityMeta meta)
+    content: public void ClientAddEntity(INetickEntity entity, int id, int worldIndex, NetworkPlayer player, bool wasUnliked, NetickEntityMeta meta)
     parameters:
     - id: entity
       type: Netick.INetickEntity
     - id: id
+      type: System.Int32
+    - id: worldIndex
       type: System.Int32
     - id: player
       type: Netick.NetworkPlayer
@@ -711,11 +717,11 @@ items:
       type: System.Boolean
     - id: meta
       type: Netick.NetickEntityMeta
-    content.vb: Public Sub ClientAddEntity(entity As INetickEntity, id As Integer, player As NetworkPlayer, wasUnliked As Boolean, meta As NetickEntityMeta)
+    content.vb: Public Sub ClientAddEntity(entity As INetickEntity, id As Integer, worldIndex As Integer, player As NetworkPlayer, wasUnliked As Boolean, meta As NetickEntityMeta)
   overload: Netick.NetickEngine.ClientAddEntity*
-  nameWithType.vb: NetickEngine.ClientAddEntity(INetickEntity, Integer, NetworkPlayer, Boolean, NetickEntityMeta)
-  fullName.vb: Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity, Integer, Netick.NetworkPlayer, Boolean, Netick.NetickEntityMeta)
-  name.vb: ClientAddEntity(INetickEntity, Integer, NetworkPlayer, Boolean, NetickEntityMeta)
+  nameWithType.vb: NetickEngine.ClientAddEntity(INetickEntity, Integer, Integer, NetworkPlayer, Boolean, NetickEntityMeta)
+  fullName.vb: Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity, Integer, Integer, Netick.NetworkPlayer, Boolean, Netick.NetickEntityMeta)
+  name.vb: ClientAddEntity(INetickEntity, Integer, Integer, NetworkPlayer, Boolean, NetickEntityMeta)
 - uid: Netick.NetickEngine.ServerAddEntity(Netick.NetworkPlayer,Netick.INetickEntity)
   commentId: M:Netick.NetickEngine.ServerAddEntity(Netick.NetworkPlayer,Netick.INetickEntity)
   id: ServerAddEntity(Netick.NetworkPlayer,Netick.INetickEntity)
@@ -1470,6 +1476,52 @@ items:
       type: System.Single
     content.vb: Public ReadOnly Property OutKBps As Single
   overload: Netick.NetickEngine.OutKBps*
+- uid: Netick.NetickEngine.InPacketLoss
+  commentId: P:Netick.NetickEngine.InPacketLoss
+  id: InPacketLoss
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: InPacketLoss
+  nameWithType: NetickEngine.InPacketLoss
+  fullName: Netick.NetickEngine.InPacketLoss
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: <i><b>[Client Only]</b></i> Estimation of incoming packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
+  example: []
+  syntax:
+    content: public float InPacketLoss { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property InPacketLoss As Single
+  overload: Netick.NetickEngine.InPacketLoss*
+- uid: Netick.NetickEngine.OutPacketLoss
+  commentId: P:Netick.NetickEngine.OutPacketLoss
+  id: OutPacketLoss
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: OutPacketLoss
+  nameWithType: NetickEngine.OutPacketLoss
+  fullName: Netick.NetickEngine.OutPacketLoss
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: <i><b>[Client Only]</b></i> Estimation of outgoing packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
+  example: []
+  syntax:
+    content: public float OutPacketLoss { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property OutPacketLoss As Single
+  overload: Netick.NetickEngine.OutPacketLoss*
 - uid: Netick.NetickEngine.InterpolationDelay
   commentId: P:Netick.NetickEngine.InterpolationDelay
   id: InterpolationDelay
@@ -2397,7 +2449,7 @@ references:
 - uid: Netick.NetickEngine.FetchInput*
   commentId: Overload:Netick.NetickEngine.FetchInput
   isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_FetchInput__1___0__Netick_Entity_System_Int32_
+  href: Netick.NetickEngine.html#Netick_NetickEngine_FetchInput__1___0__System_Boolean__Netick_Entity_System_Int32_
   name: FetchInput
   nameWithType: NetickEngine.FetchInput
   fullName: Netick.NetickEngine.FetchInput
@@ -2407,6 +2459,17 @@ references:
   name: T
   nameWithType: T
   fullName: T
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: Netick.Entity
   commentId: T:Netick.Entity
   parent: Netick
@@ -2426,17 +2489,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: T
   name: T
   nameWithType: T
@@ -2712,7 +2764,7 @@ references:
 - uid: Netick.NetickEngine.ClientAddEntity*
   commentId: Overload:Netick.NetickEngine.ClientAddEntity
   isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_ClientAddEntity_Netick_INetickEntity_System_Int32_Netick_NetworkPlayer_System_Boolean_Netick_NetickEntityMeta_
+  href: Netick.NetickEngine.html#Netick_NetickEngine_ClientAddEntity_Netick_INetickEntity_System_Int32_System_Int32_Netick_NetworkPlayer_System_Boolean_Netick_NetickEntityMeta_
   name: ClientAddEntity
   nameWithType: NetickEngine.ClientAddEntity
   fullName: Netick.NetickEngine.ClientAddEntity
@@ -3365,6 +3417,20 @@ references:
   name: OutKBps
   nameWithType: NetickEngine.OutKBps
   fullName: Netick.NetickEngine.OutKBps
+- uid: Netick.NetickEngine.InPacketLoss*
+  commentId: Overload:Netick.NetickEngine.InPacketLoss
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_InPacketLoss
+  name: InPacketLoss
+  nameWithType: NetickEngine.InPacketLoss
+  fullName: Netick.NetickEngine.InPacketLoss
+- uid: Netick.NetickEngine.OutPacketLoss*
+  commentId: Overload:Netick.NetickEngine.OutPacketLoss
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_OutPacketLoss
+  name: OutPacketLoss
+  nameWithType: NetickEngine.OutPacketLoss
+  fullName: Netick.NetickEngine.OutPacketLoss
 - uid: Netick.NetickEngine.InterpolationDelay*
   commentId: Overload:Netick.NetickEngine.InterpolationDelay
   isExternal: true

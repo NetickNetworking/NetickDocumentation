@@ -5,7 +5,7 @@ items:
   id: ClientConnection
   parent: Netick
   children:
-  - Netick.ClientConnection.#ctor(System.Int16,Netick.TransportConnection,Netick.NetickEngine)
+  - Netick.ClientConnection.#ctor(System.Int16,Netick.NetickEngine)
   langs:
   - csharp
   - vb
@@ -36,6 +36,9 @@ items:
   - Netick.NetworkConnection.TransportConnection
   - Netick.NetworkConnection.BytesIn
   - Netick.NetworkConnection.BytesOut
+  - Netick.NetworkConnection.InPacketLossBurst
+  - Netick.NetworkConnection.InPacketLoss
+  - Netick.NetworkConnection.OutPacketLoss
   - Netick.NetworkPlayer.Engine
   - Netick.NetworkPlayer.AddInterestGroup(System.Int32)
   - Netick.NetworkPlayer.AddInterestGroup(Netick.InterestManagementGroup)
@@ -52,34 +55,32 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Netick.ClientConnection.#ctor(System.Int16,Netick.TransportConnection,Netick.NetickEngine)
-  commentId: M:Netick.ClientConnection.#ctor(System.Int16,Netick.TransportConnection,Netick.NetickEngine)
-  id: '#ctor(System.Int16,Netick.TransportConnection,Netick.NetickEngine)'
+- uid: Netick.ClientConnection.#ctor(System.Int16,Netick.NetickEngine)
+  commentId: M:Netick.ClientConnection.#ctor(System.Int16,Netick.NetickEngine)
+  id: '#ctor(System.Int16,Netick.NetickEngine)'
   parent: Netick.ClientConnection
   langs:
   - csharp
   - vb
-  name: ClientConnection(short, TransportConnection, NetickEngine)
-  nameWithType: ClientConnection.ClientConnection(short, TransportConnection, NetickEngine)
-  fullName: Netick.ClientConnection.ClientConnection(short, Netick.TransportConnection, Netick.NetickEngine)
+  name: ClientConnection(short, NetickEngine)
+  nameWithType: ClientConnection.ClientConnection(short, NetickEngine)
+  fullName: Netick.ClientConnection.ClientConnection(short, Netick.NetickEngine)
   type: Constructor
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public ClientConnection(short clientIndex, TransportConnection peer, NetickEngine engine)
+    content: public ClientConnection(short clientIndex, NetickEngine engine)
     parameters:
     - id: clientIndex
       type: System.Int16
-    - id: peer
-      type: Netick.TransportConnection
     - id: engine
       type: Netick.NetickEngine
-    content.vb: Public Sub New(clientIndex As Short, peer As TransportConnection, engine As NetickEngine)
+    content.vb: Public Sub New(clientIndex As Short, engine As NetickEngine)
   overload: Netick.ClientConnection.#ctor*
-  nameWithType.vb: ClientConnection.New(Short, TransportConnection, NetickEngine)
-  fullName.vb: Netick.ClientConnection.New(Short, Netick.TransportConnection, Netick.NetickEngine)
-  name.vb: New(Short, TransportConnection, NetickEngine)
+  nameWithType.vb: ClientConnection.New(Short, NetickEngine)
+  fullName.vb: Netick.ClientConnection.New(Short, Netick.NetickEngine)
+  name.vb: New(Short, NetickEngine)
 references:
 - uid: Netick
   commentId: N:Netick
@@ -339,6 +340,30 @@ references:
   name: BytesOut
   nameWithType: NetworkConnection.BytesOut
   fullName: Netick.NetworkConnection.BytesOut
+- uid: Netick.NetworkConnection.InPacketLossBurst
+  commentId: P:Netick.NetworkConnection.InPacketLossBurst
+  parent: Netick.NetworkConnection
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_InPacketLossBurst
+  name: InPacketLossBurst
+  nameWithType: NetworkConnection.InPacketLossBurst
+  fullName: Netick.NetworkConnection.InPacketLossBurst
+- uid: Netick.NetworkConnection.InPacketLoss
+  commentId: P:Netick.NetworkConnection.InPacketLoss
+  parent: Netick.NetworkConnection
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_InPacketLoss
+  name: InPacketLoss
+  nameWithType: NetworkConnection.InPacketLoss
+  fullName: Netick.NetworkConnection.InPacketLoss
+- uid: Netick.NetworkConnection.OutPacketLoss
+  commentId: P:Netick.NetworkConnection.OutPacketLoss
+  parent: Netick.NetworkConnection
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_OutPacketLoss
+  name: OutPacketLoss
+  nameWithType: NetworkConnection.OutPacketLoss
+  fullName: Netick.NetworkConnection.OutPacketLoss
 - uid: Netick.NetworkPlayer.Engine
   commentId: F:Netick.NetworkPlayer.Engine
   parent: Netick.NetworkPlayer
@@ -693,7 +718,7 @@ references:
 - uid: Netick.ClientConnection.#ctor*
   commentId: Overload:Netick.ClientConnection.#ctor
   isExternal: true
-  href: Netick.ClientConnection.html#Netick_ClientConnection__ctor_System_Int16_Netick_TransportConnection_Netick_NetickEngine_
+  href: Netick.ClientConnection.html#Netick_ClientConnection__ctor_System_Int16_Netick_NetickEngine_
   name: ClientConnection
   nameWithType: ClientConnection.ClientConnection
   fullName: Netick.ClientConnection.ClientConnection
@@ -711,14 +736,6 @@ references:
   nameWithType.vb: Short
   fullName.vb: Short
   name.vb: Short
-- uid: Netick.TransportConnection
-  commentId: T:Netick.TransportConnection
-  parent: Netick
-  isExternal: true
-  href: Netick.TransportConnection.html
-  name: TransportConnection
-  nameWithType: TransportConnection
-  fullName: Netick.TransportConnection
 - uid: Netick.NetickEngine
   commentId: T:Netick.NetickEngine
   parent: Netick

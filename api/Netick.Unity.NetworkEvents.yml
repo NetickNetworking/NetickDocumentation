@@ -8,7 +8,6 @@ items:
   - Netick.Unity.NetworkEvents.#ctor
   - Netick.Unity.NetworkEvents.OnClientConnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   - Netick.Unity.NetworkEvents.OnClientDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
-  - Netick.Unity.NetworkEvents.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   - Netick.Unity.NetworkEvents.OnConnectFailed(Netick.Unity.NetworkSandbox,Netick.ConnectionFailedReason)
   - Netick.Unity.NetworkEvents.OnConnectRequest(Netick.Unity.NetworkSandbox,Netick.NetworkConnectionRequest)
   - Netick.Unity.NetworkEvents.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
@@ -24,7 +23,6 @@ items:
   - Netick.Unity.NetworkEvents.OnStartup(Netick.Unity.NetworkSandbox)
   - Netick.Unity.NetworkEvents.onClientConnected
   - Netick.Unity.NetworkEvents.onClientDisconnected
-  - Netick.Unity.NetworkEvents.onClientSceneLoaded
   - Netick.Unity.NetworkEvents.onConnectFailedEvent
   - Netick.Unity.NetworkEvents.onConnectRequest
   - Netick.Unity.NetworkEvents.onConnectedToServer
@@ -52,9 +50,13 @@ items:
     content: >-
       [AddComponentMenu("Netick/Network Events")]
 
+      [Obsolete("This component will be removed in the future.")]
+
       public class NetworkEvents : NetworkEventsListener
     content.vb: >-
       <AddComponentMenu("Netick/Network Events")>
+
+      <Obsolete("This component will be removed in the future.")>
 
       Public Class NetworkEvents Inherits NetworkEventsListener
   inheritance:
@@ -196,6 +198,11 @@ items:
     arguments:
     - type: System.String
       value: Netick/Network Events
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This component will be removed in the future.
 - uid: Netick.Unity.NetworkEvents.onConnectRequest
   commentId: F:Netick.Unity.NetworkEvents.onConnectRequest
   id: onConnectRequest
@@ -329,25 +336,6 @@ items:
     return:
       type: Netick.Unity.NetworkEvents.OnSceneLoadStartedEvent
     content.vb: Public onSceneLoadStarted As NetworkEvents.OnSceneLoadStartedEvent
-- uid: Netick.Unity.NetworkEvents.onClientSceneLoaded
-  commentId: F:Netick.Unity.NetworkEvents.onClientSceneLoaded
-  id: onClientSceneLoaded
-  parent: Netick.Unity.NetworkEvents
-  langs:
-  - csharp
-  - vb
-  name: onClientSceneLoaded
-  nameWithType: NetworkEvents.onClientSceneLoaded
-  fullName: Netick.Unity.NetworkEvents.onClientSceneLoaded
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public NetworkEvents.OnClientSceneLoadeddEvent onClientSceneLoaded
-    return:
-      type: Netick.Unity.NetworkEvents.OnClientSceneLoadeddEvent
-    content.vb: Public onClientSceneLoaded As NetworkEvents.OnClientSceneLoadeddEvent
 - uid: Netick.Unity.NetworkEvents.onClientConnected
   commentId: F:Netick.Unity.NetworkEvents.onClientConnected
   id: onClientConnected
@@ -681,34 +669,6 @@ items:
     content.vb: Public Overrides Sub OnSceneLoadStarted(sandbox As NetworkSandbox)
   overridden: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
   overload: Netick.Unity.NetworkEvents.OnSceneLoadStarted*
-- uid: Netick.Unity.NetworkEvents.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
-  commentId: M:Netick.Unity.NetworkEvents.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
-  id: OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
-  parent: Netick.Unity.NetworkEvents
-  langs:
-  - csharp
-  - vb
-  name: OnClientSceneLoaded(NetworkSandbox, NetworkConnection)
-  nameWithType: NetworkEvents.OnClientSceneLoaded(NetworkSandbox, NetworkConnection)
-  fullName: Netick.Unity.NetworkEvents.OnClientSceneLoaded(Netick.Unity.NetworkSandbox, Netick.NetworkConnection)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: Called on the server when a specific client finished loading the scene.
-  example: []
-  syntax:
-    content: public override void OnClientSceneLoaded(NetworkSandbox sandbox, NetworkConnection client)
-    parameters:
-    - id: sandbox
-      type: Netick.Unity.NetworkSandbox
-      description: ''
-    - id: client
-      type: Netick.NetworkConnection
-      description: ''
-    content.vb: Public Overrides Sub OnClientSceneLoaded(sandbox As NetworkSandbox, client As NetworkConnection)
-  overridden: Netick.Unity.NetworkEventsListener.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
-  overload: Netick.Unity.NetworkEvents.OnClientSceneLoaded*
 - uid: Netick.Unity.NetworkEvents.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   commentId: M:Netick.Unity.NetworkEvents.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   id: OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
@@ -5975,34 +5935,6 @@ references:
     name: OnSceneLoadStartedEvent
     isExternal: true
     href: Netick.Unity.NetworkEvents.OnSceneLoadStartedEvent.html
-- uid: Netick.Unity.NetworkEvents.OnClientSceneLoadeddEvent
-  commentId: T:Netick.Unity.NetworkEvents.OnClientSceneLoadeddEvent
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.NetworkEvents.html
-  name: NetworkEvents.OnClientSceneLoadeddEvent
-  nameWithType: NetworkEvents.OnClientSceneLoadeddEvent
-  fullName: Netick.Unity.NetworkEvents.OnClientSceneLoadeddEvent
-  spec.csharp:
-  - uid: Netick.Unity.NetworkEvents
-    name: NetworkEvents
-    isExternal: true
-    href: Netick.Unity.NetworkEvents.html
-  - name: .
-  - uid: Netick.Unity.NetworkEvents.OnClientSceneLoadeddEvent
-    name: OnClientSceneLoadeddEvent
-    isExternal: true
-    href: Netick.Unity.NetworkEvents.OnClientSceneLoadeddEvent.html
-  spec.vb:
-  - uid: Netick.Unity.NetworkEvents
-    name: NetworkEvents
-    isExternal: true
-    href: Netick.Unity.NetworkEvents.html
-  - name: .
-  - uid: Netick.Unity.NetworkEvents.OnClientSceneLoadeddEvent
-    name: OnClientSceneLoadeddEvent
-    isExternal: true
-    href: Netick.Unity.NetworkEvents.OnClientSceneLoadeddEvent.html
 - uid: Netick.Unity.NetworkEvents.OnClientConnectedEvent
   commentId: T:Netick.Unity.NetworkEvents.OnClientConnectedEvent
   parent: Netick.Unity
@@ -6537,61 +6469,6 @@ references:
   name: OnSceneLoadStarted
   nameWithType: NetworkEvents.OnSceneLoadStarted
   fullName: Netick.Unity.NetworkEvents.OnSceneLoadStarted
-- uid: Netick.Unity.NetworkEventsListener.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
-  commentId: M:Netick.Unity.NetworkEventsListener.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
-  parent: Netick.Unity.NetworkEventsListener
-  isExternal: true
-  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientSceneLoaded_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
-  name: OnClientSceneLoaded(NetworkSandbox, NetworkConnection)
-  nameWithType: NetworkEventsListener.OnClientSceneLoaded(NetworkSandbox, NetworkConnection)
-  fullName: Netick.Unity.NetworkEventsListener.OnClientSceneLoaded(Netick.Unity.NetworkSandbox, Netick.NetworkConnection)
-  spec.csharp:
-  - uid: Netick.Unity.NetworkEventsListener.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
-    name: OnClientSceneLoaded
-    isExternal: true
-    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientSceneLoaded_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
-  - name: (
-  - uid: Netick.Unity.NetworkSandbox
-    name: NetworkSandbox
-    isExternal: true
-    href: Netick.Unity.NetworkSandbox.html
-  - name: ','
-  - name: " "
-  - uid: Netick.NetworkConnection
-    name: NetworkConnection
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetworkEventsListener.OnClientSceneLoaded(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
-    name: OnClientSceneLoaded
-    isExternal: true
-    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientSceneLoaded_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
-  - name: (
-  - uid: Netick.Unity.NetworkSandbox
-    name: NetworkSandbox
-    isExternal: true
-    href: Netick.Unity.NetworkSandbox.html
-  - name: ','
-  - name: " "
-  - uid: Netick.NetworkConnection
-    name: NetworkConnection
-    isExternal: true
-  - name: )
-- uid: Netick.Unity.NetworkEvents.OnClientSceneLoaded*
-  commentId: Overload:Netick.Unity.NetworkEvents.OnClientSceneLoaded
-  isExternal: true
-  href: Netick.Unity.NetworkEvents.html#Netick_Unity_NetworkEvents_OnClientSceneLoaded_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
-  name: OnClientSceneLoaded
-  nameWithType: NetworkEvents.OnClientSceneLoaded
-  fullName: Netick.Unity.NetworkEvents.OnClientSceneLoaded
-- uid: Netick.NetworkConnection
-  commentId: T:Netick.NetworkConnection
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkConnection.html
-  name: NetworkConnection
-  nameWithType: NetworkConnection
-  fullName: Netick.NetworkConnection
 - uid: Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   commentId: M:Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   parent: Netick.Unity.NetworkEventsListener
@@ -6639,6 +6516,14 @@ references:
   name: OnConnectedToServer
   nameWithType: NetworkEvents.OnConnectedToServer
   fullName: Netick.Unity.NetworkEvents.OnConnectedToServer
+- uid: Netick.NetworkConnection
+  commentId: T:Netick.NetworkConnection
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkConnection.html
+  name: NetworkConnection
+  nameWithType: NetworkConnection
+  fullName: Netick.NetworkConnection
 - uid: Netick.Unity.NetworkEventsListener.OnDisconnectedFromServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
   commentId: M:Netick.Unity.NetworkEventsListener.OnDisconnectedFromServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
   parent: Netick.Unity.NetworkEventsListener

@@ -431,7 +431,7 @@ public int ClientDivisor</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Simulated client outward packet loss.&quot;)]
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Simulated client outward packet loss. Default: 0&quot;)]
 [HideInInspector]
 public float ClientSimulatedLossOut</code></pre>
   </div>
@@ -526,7 +526,7 @@ public bool EnableInterestManagement</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Enable this if you want to use the Lag Compensation module.&quot;)]
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Enable this if you want to use the Lag Compensation module. Default: false&quot;)]
 [HideInInspector]
 public bool EnableLagCompensation</code></pre>
   </div>
@@ -558,8 +558,40 @@ public bool EnableLagCompensation</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Disable this before doing a production build because you don&#39;t want Netick to log to the console.&quot;)]
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Disable this before doing a production build because you don&#39;t want Netick to log to the console. Default: false&quot;)]
 public bool EnableLogging</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetickConfig_InputReuseAtLowFPS" data-uid="Netick.Unity.NetickConfig.InputReuseAtLowFPS">
+  InputReuseAtLowFPS
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks must use the same input of one frame. Enabling this option will make this happen automatically. Default: false&quot;)]
+[SerializeField]
+public bool InputReuseAtLowFPS</code></pre>
   </div>
 
 
@@ -589,7 +621,7 @@ public bool EnableLogging</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Don&#39;t enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds.&quot;)]
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Don&#39;t enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds. Default: false&quot;)]
 public bool InvokeRenderInHeadless</code></pre>
   </div>
 
@@ -620,7 +652,7 @@ public bool InvokeRenderInHeadless</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Don&#39;t enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects.&quot;)]
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Don&#39;t enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects. Default: true&quot;)]
 public bool InvokeUpdate</code></pre>
   </div>
 
@@ -682,7 +714,7 @@ public bool LagCompensationDebug</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Max number of additive scenes you can have loaded at once.&quot;)]
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Max number of additive scenes you can have loaded at once. Default: 4&quot;)]
 [SerializeField]
 public int MaxAdditiveScenes</code></pre>
   </div>
@@ -779,7 +811,7 @@ public int MaxPlayers</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Max number of ticks the client is allowed to predict.&quot;)]
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Max number of ticks the client is allowed to predict. Default: 64&quot;)]
 [Range(16, 512)]
 public int MaxPredictedTicks</code></pre>
   </div>
@@ -876,7 +908,7 @@ public int MetaAllocatorBlockSize</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Enable this if you want to be able to have client-side prediction over Rigidbody objects. \n\nIt&#39;s recommended to keep this disabled if you don&#39;t have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick.&quot;)]
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Enable this if you want to be able to have client-side prediction over Rigidbody objects. \n\nIt&#39;s recommended to keep this disabled if you don&#39;t have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick. Default: false&quot;)]
 [SerializeField]
 [FormerlySerializedAs(&quot;PredictedClientPhysics&quot;)]
 public bool PhysicsPrediction</code></pre>
@@ -1096,7 +1128,7 @@ public int ServerDivisor</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Simulated server outward packet loss.&quot;)]
+    <pre><code class="lang-csharp hljs">[Tooltip(&quot;Simulated server outward packet loss. Default: 0&quot;)]
 [HideInInspector]
 public float ServerSimulatedLossOut</code></pre>
   </div>

@@ -133,8 +133,8 @@
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
+      <div><a class="xref" href="Netick.Unity.NetickCoreComponent.html">NetickCoreComponent</a></div>
       <div><a class="xref" href="Netick.Unity.NetworkAnimator.html">NetworkAnimator</a></div>
-      <div><a class="xref" href="Netick.Unity.NetworkSceneManager.html">NetworkSceneManager</a></div>
       <div><a class="xref" href="Netick.Unity.NetworkTransform.html">NetworkTransform</a></div>
     </dd>
   </dl>
@@ -1020,12 +1020,58 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
 
   <a id="Netick_Unity_NetworkBehaviour_FetchInput_" data-uid="Netick.Unity.NetworkBehaviour.FetchInput*"></a>
 
+  <h3 id="Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Boolean__System_Int32_" data-uid="Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Boolean@,System.Int32)">
+  FetchInput&lt;T&gt;(out T, out bool, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fetches a network input for this tick. Returns false if no input source is currently providing inputs to this Object, or when input loss occurs (in case of a remote input source).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FetchInput&lt;T&gt;(out T input, out bool isDuplicated, int index = 0) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>isDuplicated</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkBehaviour_FetchInput_" data-uid="Netick.Unity.NetworkBehaviour.FetchInput*"></a>
+
   <h3 id="Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_" data-uid="Netick.Unity.NetworkBehaviour.FetchInput``1(``0@,System.Int32)">
   FetchInput&lt;T&gt;(out T, int)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Fetchs a network input for this tick. Returns false if no input source is currently providing inputs to this Object, or when input loss occurs (in case of a remote input source).</p>
+  <div class="markdown level1 summary"><p>Fetches a network input for this tick. Returns false if no input source is currently providing inputs to this Object, or when input loss occurs (in case of a remote input source).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

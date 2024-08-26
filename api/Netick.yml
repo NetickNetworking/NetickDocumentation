@@ -4,13 +4,11 @@ items:
   commentId: N:Netick
   id: Netick
   children:
-  - Netick.Accumulator
   - Netick.AdaptiveRemoteInterpolation
   - Netick.AoIQuery
   - Netick.BadPacketException
   - Netick.BitBuffer
   - Netick.BroadPhaseFilter
-  - Netick.CircularList`1
   - Netick.Client
   - Netick.ClientConnection
   - Netick.ClientData
@@ -20,6 +18,7 @@ items:
   - Netick.ConnectionFailedReason
   - Netick.ConsoleLogger
   - Netick.CustomizableSocketTransport
+  - Netick.DataAccumulator
   - Netick.DefaultAllocator
   - Netick.DoubleStats
   - Netick.Entity
@@ -160,14 +159,6 @@ items:
   assemblies:
   - Netick
 references:
-- uid: Netick.Accumulator
-  commentId: T:Netick.Accumulator
-  parent: Netick
-  isExternal: true
-  href: Netick.Accumulator.html
-  name: Accumulator
-  nameWithType: Accumulator
-  fullName: Netick.Accumulator
 - uid: Netick.NetickTransportConnection
   commentId: T:Netick.NetickTransportConnection
   isExternal: true
@@ -310,6 +301,14 @@ references:
   name: ExecutionListLL
   nameWithType: ExecutionListLL
   fullName: Netick.ExecutionListLL
+- uid: Netick.DataAccumulator
+  commentId: T:Netick.DataAccumulator
+  parent: Netick
+  isExternal: true
+  href: Netick.DataAccumulator.html
+  name: DataAccumulator
+  nameWithType: DataAccumulator
+  fullName: Netick.DataAccumulator
 - uid: Netick.NetickConfigData
   commentId: T:Netick.NetickConfigData
   parent: Netick
@@ -1582,34 +1581,6 @@ references:
   name: FloatStats
   nameWithType: FloatStats
   fullName: Netick.FloatStats
-- uid: Netick.CircularList`1
-  commentId: T:Netick.CircularList`1
-  isExternal: true
-  href: Netick.CircularList-1.html
-  name: CircularList<T>
-  nameWithType: CircularList<T>
-  fullName: Netick.CircularList<T>
-  nameWithType.vb: CircularList(Of T)
-  fullName.vb: Netick.CircularList(Of T)
-  name.vb: CircularList(Of T)
-  spec.csharp:
-  - uid: Netick.CircularList`1
-    name: CircularList
-    isExternal: true
-    href: Netick.CircularList-1.html
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: Netick.CircularList`1
-    name: CircularList
-    isExternal: true
-    href: Netick.CircularList-1.html
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
 - uid: Netick.NetworkUnorderedListSnapshot`1
   commentId: T:Netick.NetworkUnorderedListSnapshot`1
   isExternal: true
@@ -1796,7 +1767,6 @@ references:
   fullName: Netick.ExecuteBeforeAttribute
 - uid: Netick.ExecutionList
   commentId: T:Netick.ExecutionList
-  parent: Netick
   isExternal: true
   href: Netick.ExecutionList.html
   name: ExecutionList

@@ -7,12 +7,11 @@ items:
   children:
   - Netick.IGameEngine.GetConnectionMetaSizeWords
   - Netick.IGameEngine.GetEntityMetaSizeWords
-  - Netick.IGameEngine.GetPredictionInterestList
   - Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
-  - Netick.IGameEngine.OnClientConnected
-  - Netick.IGameEngine.OnClientDisconnected(Netick.TransportDisconnectReason)
   - Netick.IGameEngine.OnConnectFailed(Netick.ConnectionFailedReason)
   - Netick.IGameEngine.OnConnectRequest(Netick.NetworkConnectionRequest)
+  - Netick.IGameEngine.OnConnectedToServer
+  - Netick.IGameEngine.OnDisconnectedFromServer(Netick.TransportDisconnectReason)
   - Netick.IGameEngine.OnEntityDespawned(Netick.Entity)
   - Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity,System.Boolean)
   - Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)
@@ -21,9 +20,6 @@ items:
   - Netick.IGameEngine.OnEntitySpawned(Netick.Entity)
   - Netick.IGameEngine.OnInputRead
   - Netick.IGameEngine.OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
-  - Netick.IGameEngine.OnNetworkFixedUpdate
-  - Netick.IGameEngine.OnNetworkRender
-  - Netick.IGameEngine.OnNetworkUpdate
   - Netick.IGameEngine.OnPacketReceived(Netick.NetworkConnection)
   - Netick.IGameEngine.OnPeerConnected(Netick.NetworkConnection)
   - Netick.IGameEngine.OnPeerDisconnected(Netick.NetworkConnection,Netick.TransportDisconnectReason)
@@ -46,26 +42,6 @@ items:
   syntax:
     content: public interface IGameEngine
     content.vb: Public Interface IGameEngine
-- uid: Netick.IGameEngine.GetPredictionInterestList
-  commentId: M:Netick.IGameEngine.GetPredictionInterestList
-  id: GetPredictionInterestList
-  parent: Netick.IGameEngine
-  langs:
-  - csharp
-  - vb
-  name: GetPredictionInterestList()
-  nameWithType: IGameEngine.GetPredictionInterestList()
-  fullName: Netick.IGameEngine.GetPredictionInterestList()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: ExecutionList GetPredictionInterestList()
-    return:
-      type: Netick.ExecutionList
-    content.vb: Function GetPredictionInterestList() As ExecutionList
-  overload: Netick.IGameEngine.GetPredictionInterestList*
 - uid: Netick.IGameEngine.SyncTransformsToPhysics
   commentId: M:Netick.IGameEngine.SyncTransformsToPhysics
   id: SyncTransformsToPhysics
@@ -409,60 +385,6 @@ items:
     content: void OnInputRead()
     content.vb: Sub OnInputRead()
   overload: Netick.IGameEngine.OnInputRead*
-- uid: Netick.IGameEngine.OnNetworkUpdate
-  commentId: M:Netick.IGameEngine.OnNetworkUpdate
-  id: OnNetworkUpdate
-  parent: Netick.IGameEngine
-  langs:
-  - csharp
-  - vb
-  name: OnNetworkUpdate()
-  nameWithType: IGameEngine.OnNetworkUpdate()
-  fullName: Netick.IGameEngine.OnNetworkUpdate()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: void OnNetworkUpdate()
-    content.vb: Sub OnNetworkUpdate()
-  overload: Netick.IGameEngine.OnNetworkUpdate*
-- uid: Netick.IGameEngine.OnNetworkRender
-  commentId: M:Netick.IGameEngine.OnNetworkRender
-  id: OnNetworkRender
-  parent: Netick.IGameEngine
-  langs:
-  - csharp
-  - vb
-  name: OnNetworkRender()
-  nameWithType: IGameEngine.OnNetworkRender()
-  fullName: Netick.IGameEngine.OnNetworkRender()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: void OnNetworkRender()
-    content.vb: Sub OnNetworkRender()
-  overload: Netick.IGameEngine.OnNetworkRender*
-- uid: Netick.IGameEngine.OnNetworkFixedUpdate
-  commentId: M:Netick.IGameEngine.OnNetworkFixedUpdate
-  id: OnNetworkFixedUpdate
-  parent: Netick.IGameEngine
-  langs:
-  - csharp
-  - vb
-  name: OnNetworkFixedUpdate()
-  nameWithType: IGameEngine.OnNetworkFixedUpdate()
-  fullName: Netick.IGameEngine.OnNetworkFixedUpdate()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: void OnNetworkFixedUpdate()
-    content.vb: Sub OnNetworkFixedUpdate()
-  overload: Netick.IGameEngine.OnNetworkFixedUpdate*
 - uid: Netick.IGameEngine.OnConnectRequest(Netick.NetworkConnectionRequest)
   commentId: M:Netick.IGameEngine.OnConnectRequest(Netick.NetworkConnectionRequest)
   id: OnConnectRequest(Netick.NetworkConnectionRequest)
@@ -549,45 +471,45 @@ items:
       type: Netick.TransportDisconnectReason
     content.vb: Sub OnPeerDisconnected(connection As NetworkConnection, transportDisconnectReason As TransportDisconnectReason)
   overload: Netick.IGameEngine.OnPeerDisconnected*
-- uid: Netick.IGameEngine.OnClientConnected
-  commentId: M:Netick.IGameEngine.OnClientConnected
-  id: OnClientConnected
+- uid: Netick.IGameEngine.OnConnectedToServer
+  commentId: M:Netick.IGameEngine.OnConnectedToServer
+  id: OnConnectedToServer
   parent: Netick.IGameEngine
   langs:
   - csharp
   - vb
-  name: OnClientConnected()
-  nameWithType: IGameEngine.OnClientConnected()
-  fullName: Netick.IGameEngine.OnClientConnected()
+  name: OnConnectedToServer()
+  nameWithType: IGameEngine.OnConnectedToServer()
+  fullName: Netick.IGameEngine.OnConnectedToServer()
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: void OnClientConnected()
-    content.vb: Sub OnClientConnected()
-  overload: Netick.IGameEngine.OnClientConnected*
-- uid: Netick.IGameEngine.OnClientDisconnected(Netick.TransportDisconnectReason)
-  commentId: M:Netick.IGameEngine.OnClientDisconnected(Netick.TransportDisconnectReason)
-  id: OnClientDisconnected(Netick.TransportDisconnectReason)
+    content: void OnConnectedToServer()
+    content.vb: Sub OnConnectedToServer()
+  overload: Netick.IGameEngine.OnConnectedToServer*
+- uid: Netick.IGameEngine.OnDisconnectedFromServer(Netick.TransportDisconnectReason)
+  commentId: M:Netick.IGameEngine.OnDisconnectedFromServer(Netick.TransportDisconnectReason)
+  id: OnDisconnectedFromServer(Netick.TransportDisconnectReason)
   parent: Netick.IGameEngine
   langs:
   - csharp
   - vb
-  name: OnClientDisconnected(TransportDisconnectReason)
-  nameWithType: IGameEngine.OnClientDisconnected(TransportDisconnectReason)
-  fullName: Netick.IGameEngine.OnClientDisconnected(Netick.TransportDisconnectReason)
+  name: OnDisconnectedFromServer(TransportDisconnectReason)
+  nameWithType: IGameEngine.OnDisconnectedFromServer(TransportDisconnectReason)
+  fullName: Netick.IGameEngine.OnDisconnectedFromServer(Netick.TransportDisconnectReason)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: void OnClientDisconnected(TransportDisconnectReason transportDisconnectReason)
+    content: void OnDisconnectedFromServer(TransportDisconnectReason transportDisconnectReason)
     parameters:
     - id: transportDisconnectReason
       type: Netick.TransportDisconnectReason
-    content.vb: Sub OnClientDisconnected(transportDisconnectReason As TransportDisconnectReason)
-  overload: Netick.IGameEngine.OnClientDisconnected*
+    content.vb: Sub OnDisconnectedFromServer(transportDisconnectReason As TransportDisconnectReason)
+  overload: Netick.IGameEngine.OnDisconnectedFromServer*
 - uid: Netick.IGameEngine.OnPlayerConnected(Netick.NetworkPlayer)
   commentId: M:Netick.IGameEngine.OnPlayerConnected(Netick.NetworkPlayer)
   id: OnPlayerConnected(Netick.NetworkPlayer)
@@ -696,21 +618,6 @@ references:
   name: Netick
   nameWithType: Netick
   fullName: Netick
-- uid: Netick.IGameEngine.GetPredictionInterestList*
-  commentId: Overload:Netick.IGameEngine.GetPredictionInterestList
-  isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_GetPredictionInterestList
-  name: GetPredictionInterestList
-  nameWithType: IGameEngine.GetPredictionInterestList
-  fullName: Netick.IGameEngine.GetPredictionInterestList
-- uid: Netick.ExecutionList
-  commentId: T:Netick.ExecutionList
-  parent: Netick
-  isExternal: true
-  href: Netick.ExecutionList.html
-  name: ExecutionList
-  nameWithType: ExecutionList
-  fullName: Netick.ExecutionList
 - uid: Netick.IGameEngine.SyncTransformsToPhysics*
   commentId: Overload:Netick.IGameEngine.SyncTransformsToPhysics
   isExternal: true
@@ -883,27 +790,6 @@ references:
   name: OnInputRead
   nameWithType: IGameEngine.OnInputRead
   fullName: Netick.IGameEngine.OnInputRead
-- uid: Netick.IGameEngine.OnNetworkUpdate*
-  commentId: Overload:Netick.IGameEngine.OnNetworkUpdate
-  isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnNetworkUpdate
-  name: OnNetworkUpdate
-  nameWithType: IGameEngine.OnNetworkUpdate
-  fullName: Netick.IGameEngine.OnNetworkUpdate
-- uid: Netick.IGameEngine.OnNetworkRender*
-  commentId: Overload:Netick.IGameEngine.OnNetworkRender
-  isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnNetworkRender
-  name: OnNetworkRender
-  nameWithType: IGameEngine.OnNetworkRender
-  fullName: Netick.IGameEngine.OnNetworkRender
-- uid: Netick.IGameEngine.OnNetworkFixedUpdate*
-  commentId: Overload:Netick.IGameEngine.OnNetworkFixedUpdate
-  isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnNetworkFixedUpdate
-  name: OnNetworkFixedUpdate
-  nameWithType: IGameEngine.OnNetworkFixedUpdate
-  fullName: Netick.IGameEngine.OnNetworkFixedUpdate
 - uid: Netick.IGameEngine.OnConnectRequest*
   commentId: Overload:Netick.IGameEngine.OnConnectRequest
   isExternal: true
@@ -956,20 +842,20 @@ references:
   name: TransportDisconnectReason
   nameWithType: TransportDisconnectReason
   fullName: Netick.TransportDisconnectReason
-- uid: Netick.IGameEngine.OnClientConnected*
-  commentId: Overload:Netick.IGameEngine.OnClientConnected
+- uid: Netick.IGameEngine.OnConnectedToServer*
+  commentId: Overload:Netick.IGameEngine.OnConnectedToServer
   isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnClientConnected
-  name: OnClientConnected
-  nameWithType: IGameEngine.OnClientConnected
-  fullName: Netick.IGameEngine.OnClientConnected
-- uid: Netick.IGameEngine.OnClientDisconnected*
-  commentId: Overload:Netick.IGameEngine.OnClientDisconnected
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnConnectedToServer
+  name: OnConnectedToServer
+  nameWithType: IGameEngine.OnConnectedToServer
+  fullName: Netick.IGameEngine.OnConnectedToServer
+- uid: Netick.IGameEngine.OnDisconnectedFromServer*
+  commentId: Overload:Netick.IGameEngine.OnDisconnectedFromServer
   isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnClientDisconnected_Netick_TransportDisconnectReason_
-  name: OnClientDisconnected
-  nameWithType: IGameEngine.OnClientDisconnected
-  fullName: Netick.IGameEngine.OnClientDisconnected
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnDisconnectedFromServer_Netick_TransportDisconnectReason_
+  name: OnDisconnectedFromServer
+  nameWithType: IGameEngine.OnDisconnectedFromServer
+  fullName: Netick.IGameEngine.OnDisconnectedFromServer
 - uid: Netick.IGameEngine.OnPlayerConnected*
   commentId: Overload:Netick.IGameEngine.OnPlayerConnected
   isExternal: true
