@@ -36,6 +36,9 @@ public NetworkString32  Name     {get; set;}
 > [!WARNING]
 > If you are intending on building your game using `IL2CPP`, you must use `NetworkBool` instead of `bool`.
 
+> [!Note]
+> Don't use types with sizes lower than 4 bytes such as `byte` or `short`, instead simply use `int`. Netick already compresses everything to only the required bits of the current value of a variable. So if an `int` variable current value is `5`, it will only be serialized as a few bits, not anywhere near 4 bytes (the byte size of `int`).
+
 ## Network Arrays
 
 Network arrays are just like regular C# arrays, but their syntax is a bit different. They are defined using the <xref:Netick.Unity.NetworkArray`1> generic class.

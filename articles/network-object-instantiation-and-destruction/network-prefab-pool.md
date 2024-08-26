@@ -29,11 +29,13 @@ Although you still need to reset your objects. However, Netick automatically res
 
 #### Resetting Prefab Instances
 
-To reset your object, override `NetworkReset` on your class inheriting from `NetworkBehaviour`:
+You can simply use `NetworkStart` to reset your prefab instances.
+
+<!-- To reset your object, override `NetworkReset` on your class inheriting from `NetworkBehaviour`:
 
 ```csharp
 public override void NetworkReset()
 {
      // reset all non-networked state which need to be reset so that your object is ready to be used again
 }
-```
+``` -->

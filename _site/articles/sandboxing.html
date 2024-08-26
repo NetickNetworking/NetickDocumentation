@@ -132,12 +132,15 @@
 <li><p>Use <code>Sandbox.FindObjectOfType</code>, <code>Sandbox.FindObjectsOfType</code>, <code>Sandbox.FindGameObjectWithTag</code>, and <code>Sandbox.FindGameObjectsWithTag</code> instead of Unity equivalents. The Netick methods respect the running sandboxes, and only try to find objects in the Sandbox's scene.</p>
 </li>
 </ul>
-<p>Some useful properties on <code>NetworkSandbox</code> for working with multiple sandboxes:</p>
+<p>Some useful properties and events for working with multiple sandboxes:</p>
 <pre><code class="lang-cs">// is the sandbox visible
 Sandbox.IsVisible 
 
 // is input enabled for the sandbox
 Sandbox.InputEnabled 
+
+// invoked when a sandbox visibility state (shown/hidden) changes.
+Sandbox.Events.OnVisibilityChanged
 </code></pre>
 
 </article>

@@ -116,6 +116,10 @@ public NetworkString32  Name     {get; set;}
 <h5>Warning</h5>
 <p>If you are intending on building your game using <code>IL2CPP</code>, you must use <code>NetworkBool</code> instead of <code>bool</code>.</p>
 </div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Don't use types with sizes lower than 4 bytes such as <code>byte</code> or <code>short</code>, instead simply use <code>int</code>. Netick already compresses everything to only the required bits of the current value of a variable. So if an <code>int</code> variable current value is <code>5</code>, it will only be serialized as a few bits, not anywhere near 4 bytes (the byte size of <code>int</code>).</p>
+</div>
 <h2 id="network-arrays">Network Arrays</h2>
 <p>Network arrays are just like regular C# arrays, but their syntax is a bit different. They are defined using the <a class="xref" href="../api/Netick.Unity.NetworkArray-1.html">NetworkArray&lt;T&gt;</a> generic class.</p>
 <p>Example of a network array:</p>

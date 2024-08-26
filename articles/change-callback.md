@@ -187,7 +187,7 @@ This example uses a `NetworkDictionary` but the same applies to other collection
 
 * If the server changes a variable multiple times, but then back to the original value before all of this, the client will not invoke the callback, because to the client that networked variable never changed, but to the server it did but it eventually went back to the same value at the start of the tick. Therefore it's important to realize that in this case the callback is invoked multiple times in the server but never in the client.
 
-## Invoking [OnChanged] Callbacks During Rollback & Resimulation
+## Invoking `[OnChanged]` Callbacks During Rollback & Resimulation
 
 Read the [article](understanding-client-side-prediction/understanding-client-side-prediction.md) on Client-Side Prediction before reading this section.
 

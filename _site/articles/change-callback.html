@@ -232,7 +232,7 @@ private void OnMyNetworkStackChanged(OnChangedData onChangedData)
 <li><p>If the server changes a variable multiple times, but then back to the original value before all of this, the client will not invoke the callback, because to the client that networked variable never changed, but to the server it did but it eventually went back to the same value at the start of the tick. Therefore it's important to realize that in this case the callback is invoked multiple times in the server but never in the client.</p>
 </li>
 </ul>
-<h2 id="invoking-onchanged-callbacks-during-rollback--resimulation">Invoking [OnChanged] Callbacks During Rollback &amp; Resimulation</h2>
+<h2 id="invoking-onchanged-callbacks-during-rollback--resimulation">Invoking <code>[OnChanged]</code> Callbacks During Rollback &amp; Resimulation</h2>
 <p>Read the <a href="understanding-client-side-prediction/understanding-client-side-prediction.html">article</a> on Client-Side Prediction before reading this section.</p>
 <p>By default, Netick will not invoke <code>[OnChanged]</code> callbacks when the client rolls back to the latest received server state, and neither during the resimulation stage of prediction. This is usually the desired behaviour because you only want the callback to fire when the value is changed for the first time (usually in the client, on predicted objects). However, sometimes you want the <code>[OnChanged]</code> callback to always be in sync with the value of the networked variable and have it also get invoked during rollback and during resimulation. This is easily possible by simply passing true to <code>invokeDuringResimulation</code> optional parameter of <code>[OnChanged]</code>.</p>
 

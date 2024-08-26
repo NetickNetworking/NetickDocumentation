@@ -56,11 +56,14 @@ Notes on how to make your project sandbox-safe:
 
 - Use `Sandbox.FindObjectOfType`, `Sandbox.FindObjectsOfType`, `Sandbox.FindGameObjectWithTag`, and `Sandbox.FindGameObjectsWithTag` instead of Unity equivalents. The Netick methods respect the running sandboxes, and only try to find objects in the Sandbox's scene.
 
-Some useful properties on `NetworkSandbox` for working with multiple sandboxes:
+Some useful properties and events for working with multiple sandboxes:
 ```cs
 // is the sandbox visible
 Sandbox.IsVisible 
 
 // is input enabled for the sandbox
 Sandbox.InputEnabled 
+
+// invoked when a sandbox visibility state (shown/hidden) changes.
+Sandbox.Events.OnVisibilityChanged
 ```
