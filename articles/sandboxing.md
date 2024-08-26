@@ -48,7 +48,7 @@ Notes on how to make your project sandbox-safe:
 
 - Use `Sandbox.Physics.Raycast` instead of `Physics.Raycast` when wanting to perform a raycast, same thing goes for other physics queries too. Using `Sandbox.Physics.Raycast` lets you query against the physics scene associated with this sandbox. Since `Physics.Raycast` simply uses the main Unity physics scene that is created when starting Unity, which is not sandbox-safe since it would raycast against objects in the first sandbox only (the sandbox that has the main Unity physics scene associated with it).
 
-- When you want to disable a component on a GameObject, use `SetEnabled` instead of `enabled`. This method respects the running sandboxes so when a hidden sandbox enables a mesh renderer, for instance, it will not be visible because that sandbox is hidden.
+- When you want to disable a render/audio component on a GameObject, use `SetEnabled` instead of `enabled`. This method respects the running sandboxes so when a hidden sandbox enables a mesh renderer, for instance, it will not be visible because that sandbox is hidden.
 
 - When you want to instantiate a non-networked GameObject, use `Sandbox.Instantiate` instead of `GameObject.Instantiate`. `Sandbox.Instantiate` respects the running sandboxes, so when a hidden sandbox instantiates a new GameObject, it will not be visible because that sandbox is hidden.
 

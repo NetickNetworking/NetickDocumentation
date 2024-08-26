@@ -91,8 +91,8 @@
 <p>To define a new input, create a struct that implements <code>INetworkInput</code> interface:</p>
 <pre><code class="lang-csharp">public struct MyInput : INetworkInput
 {
-    public NetworkBool ShootInput;
-    public float       MoveDirX, MoveDirY;
+   public Vector2     Movement;
+   public NetworkBool Shoot;
 }
 </code></pre>
 <h3 id="network-input-constraints">Network Input Constraints:</h3>
@@ -106,11 +106,9 @@
 Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour</code>:</p>
 <pre><code class="lang-csharp">public override void NetworkUpdate()
 {
-    var input = Sandbox.GetInput&lt;MyInput&gt;();
-
-    input.MoveDirX = Input.GetAxis(&quot;Horizontal&quot;);
-    input.MoveDirY = Input.GetAxis(&quot;Vertical&quot;);
-
+    var input       = Sandbox.GetInput&lt;MyInput&gt;();
+    input.Movement += new Vector2(Mathf.Clamp(Input.GetAxis(&quot;Horizontal&quot;), -1f, 1f), Mathf.Clamp(Input.GetAxis(&quot;Vertical&quot;), -1f, 1f));
+    input.Boost    |= Input.GetMouseButton(0);
     Sandbox.SetInput(input);
 }
 </code></pre>
@@ -122,8 +120,11 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
     if (FetchInput(out MyInput input))
     {
         // movement
-        var movement = transform.TransformVector(new Vector3(input.MoveDirX, 0, input.MoveDirY)) * Speed;
-        movement.y   = 0;
+        var movement = transform.TransformVector(new Vector3(input.Movement.x, 0, input.Movement.y)) * Speed;
+
+        // clamp movement input
+        movement = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), 0,  Mathf.Clamp(input.Movement.y, -1f, 1f)) * Speed;
+
   	    _CC.Move(movement * Time.fixedDeltaTime);
 	    // shooting
         if (input.ShootInput == true &amp;&amp; !IsResimulating)
@@ -142,6 +143,10 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 <div class="WARNING">
 <h5>Warning</h5>
 <p><code>Sandbox.GetInput</code> and <code>Sandbox.SetInput</code> are used to read and set the user inputs into the input struct. While <code>FetchInput</code> is used to actually use the input struct in the simulation.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Make sure to clamp inputs to prevent attempts to alter inputs to have big magnitudes leading to speedhacks.</p>
 </div>
 <p>FetchInput tries to fetch an input for the state/tick being simulated/resimulated. It only returns true if either:</p>
 <ol>

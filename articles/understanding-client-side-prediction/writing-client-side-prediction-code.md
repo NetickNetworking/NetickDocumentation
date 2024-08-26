@@ -11,8 +11,8 @@ To define a new input, create a struct that implements `INetworkInput` interface
 ```csharp
 public struct MyInput : INetworkInput
 {
-    public NetworkBool ShootInput;
-    public float       MoveDirX, MoveDirY;
+   public Vector2     Movement;
+   public NetworkBool Shoot;
 }
 ```
 
@@ -29,11 +29,9 @@ Then, you can set it inside `NetworkUpdate` on `NetworkBehaviour`:
 ```csharp
 public override void NetworkUpdate()
 {
-    var input = Sandbox.GetInput<MyInput>();
-
-    input.MoveDirX = Input.GetAxis("Horizontal");
-    input.MoveDirY = Input.GetAxis("Vertical");
-
+    var input       = Sandbox.GetInput<MyInput>();
+    input.Movement += new Vector2(Mathf.Clamp(Input.GetAxis("Horizontal"), -1f, 1f), Mathf.Clamp(Input.GetAxis("Vertical"), -1f, 1f));
+    input.Boost    |= Input.GetMouseButton(0);
     Sandbox.SetInput(input);
 }
 ```
@@ -50,8 +48,11 @@ public override void NetworkFixedUpdate()
     if (FetchInput(out MyInput input))
     {
         // movement
-        var movement = transform.TransformVector(new Vector3(input.MoveDirX, 0, input.MoveDirY)) * Speed;
-        movement.y   = 0;
+        var movement = transform.TransformVector(new Vector3(input.Movement.x, 0, input.Movement.y)) * Speed;
+
+        // clamp movement input
+        movement = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), 0,  Mathf.Clamp(input.Movement.y, -1f, 1f)) * Speed;
+
   	    _CC.Move(movement * Time.fixedDeltaTime);
 	    // shooting
         if (input.ShootInput == true && !IsResimulating)
@@ -69,6 +70,10 @@ public override void NetworkFixedUpdate()
 
 > [!WARNING]
 > `Sandbox.GetInput` and `Sandbox.SetInput` are used to read and set the user inputs into the input struct. While `FetchInput` is used to actually use the input struct in the simulation.
+
+> [!NOTE]
+> Make sure to clamp inputs to prevent attempts to alter inputs to have big magnitudes leading to speedhacks.
+
 
 FetchInput tries to fetch an input for the state/tick being simulated/resimulated. It only returns true if either:
 

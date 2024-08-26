@@ -22,7 +22,7 @@ The <xref:Netick.Unity.NetworkBehaviour> class is your old friend `MonoBehaviour
 - [NetworkStart](xref:Netick.Unity.NetickBehaviour#Netick_Unity_NetickBehaviour_NetworkStart)
 - [NetworkDestroy](xref:Netick.Unity.NetickBehaviour#Netick_Unity_NetickBehaviour_NetworkDestroy)
 - [NetworkFixedUpdate](xref:Netick.Unity.NetickBehaviour#Netick_Unity_NetickBehaviour_NetworkFixedUpdate)
-- [NetworkUpdate](xref:Netick.Unity.NetickBehaviour#Netick_Unity_NetickBehaviour_NetworkUpdatet)
+- [NetworkUpdate](xref:Netick.Unity.NetickBehaviour#Netick_Unity_NetickBehaviour_NetworkUpdate)
 - [NetworkRender](xref:Netick.Unity.NetickBehaviour#Netick_Unity_NetickBehaviour_NetworkRender)
 
 Example:
