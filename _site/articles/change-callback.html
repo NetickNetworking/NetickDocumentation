@@ -119,7 +119,7 @@ private void OnArrayExampleChanged(OnChangedData onChangedData)
 }
 </code></pre>
 <h2 id="for-collections">For Collections</h2>
-<h3 id="networklinkedlist">NetworkLinkedList<t></t></h3>
+<h3 id="networklinkedlist">NetworkLinkedList</h3>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked(size: 32)]
 public readonly NetworkLinkedList&lt;int&gt; MyNetworkLinkedList = new NetworkArray&lt;int&gt;(32);
@@ -131,7 +131,7 @@ private void OnMyNetworkLinkedListChanged(OnChangedData onChangedData)
   var previous = onChangedData.GetPreviousNetworkLinkedList(MyNetworkLinkedList);
 }
 </code></pre>
-<h3 id="networkdictionarytkeytvalue">NetworkDictionary&lt;TKey,TValue&gt;</h3>
+<h3 id="networkdictionary">NetworkDictionary</h3>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked(size: 5)] 
 public readonly NetworkDictionary&lt;int, int&gt;  MyNetworkDictionary    = new NetworkDictionary&lt;int, int&gt;(5);
@@ -143,7 +143,7 @@ private void OnMyNetworkDictionaryChanged(OnChangedData onChangedData)
   var previous = onChangedData.GetPreviousNetworkDictionary(MyNetworkDictionary);
 }
 </code></pre>
-<h3 id="networkhashset">NetworkHashSet<t></t></h3>
+<h3 id="networkhashset">NetworkHashSet</h3>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked(size: 5)] 
 public readonly NetworkHashSet&lt;int&gt;  MyNetworkHashSet    = new NetworkHashSet&lt;int&gt;(5);
@@ -155,7 +155,7 @@ private void OnMyNetworkHashSetChanged(OnChangedData onChangedData)
   var previous = onChangedData.GetPreviousNetworkHashSet(MyNetworkHashSet);
 }
 </code></pre>
-<h3 id="networkunorderedlist">NetworkUnorderedList<t></t></h3>
+<h3 id="networkunorderedlist">NetworkUnorderedList</h3>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked(size: 5)] 
 public readonly NetworkUnorderedList&lt;int&gt;  MyNetworkUnorderedList    = new NetworkUnorderedList&lt;int&gt;(5);
@@ -167,7 +167,7 @@ private void OnMyNetworkUnorderedListChanged(OnChangedData onChangedData)
   var previous = onChangedData.GetPreviousNetworkUnorderedList(MyNetworkUnorderedList);
 }
 </code></pre>
-<h3 id="networkqueue">NetworkQueue<t></t></h3>
+<h3 id="networkqueue">NetworkQueue</h3>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked(size: 5)]
 public readonly NetworkQueue&lt;int&gt; MyNetworkQueue = new NetworkQueue&lt;int&gt;(5);
@@ -179,7 +179,7 @@ private void OnMyNetworkQueueChanged(OnChangedData onChangedData)
   var previous = onChangedData.GetPreviousNetworkQueue(MyNetworkQueue);
 }
 </code></pre>
-<h3 id="networkstack">NetworkStack<t></t></h3>
+<h3 id="networkstack">NetworkStack</h3>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked(size: 5)]
 public readonly NetworkStack&lt;int&gt; MyNetworkStack = new NetworkStack&lt;int&gt;(5);

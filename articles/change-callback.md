@@ -45,7 +45,7 @@ private void OnArrayExampleChanged(OnChangedData onChangedData)
 ## For Collections
 
 
-### NetworkLinkedList<T>
+### NetworkLinkedList
 
 Example:
 
@@ -61,7 +61,7 @@ private void OnMyNetworkLinkedListChanged(OnChangedData onChangedData)
 }
 ```
 
-### NetworkDictionary<TKey,TValue>
+### NetworkDictionary
 
 Example:
 
@@ -77,7 +77,7 @@ private void OnMyNetworkDictionaryChanged(OnChangedData onChangedData)
 }
 ```
 
-### NetworkHashSet<T>
+### NetworkHashSet
 
 Example:
 
@@ -93,7 +93,7 @@ private void OnMyNetworkHashSetChanged(OnChangedData onChangedData)
 }
 ```
 
-### NetworkUnorderedList<T>
+### NetworkUnorderedList
 
 Example:
 
@@ -110,7 +110,7 @@ private void OnMyNetworkUnorderedListChanged(OnChangedData onChangedData)
 ```
 
 
-### NetworkQueue<T>
+### NetworkQueue
 
 Example:
 
@@ -126,7 +126,7 @@ private void OnMyNetworkQueueChanged(OnChangedData onChangedData)
 }
 ```
 
-### NetworkStack<T>
+### NetworkStack
 
 Example:
 
