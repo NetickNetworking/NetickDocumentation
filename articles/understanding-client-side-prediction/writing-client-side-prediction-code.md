@@ -23,7 +23,7 @@ public struct MyInput : INetworkInput
 
 ## Setting Inputs 
 
-To set the fields of an input, you first need to acquire the input struct of the current tick, using `Sandbox.GetInput`.\
+To set the fields of an input, you first need to acquire the input struct of the current tick, using `Sandbox.GetInput`.
 Then, you can set it inside `NetworkUpdate` on `NetworkBehaviour`:
 
 ```csharp
@@ -51,9 +51,9 @@ public override void NetworkFixedUpdate()
         var movement = transform.TransformVector(new Vector3(input.Movement.x, 0, input.Movement.y)) * Speed;
 
         // clamp movement input
-        movement = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), 0,  Mathf.Clamp(input.Movement.y, -1f, 1f)) * Speed;
+        movement     = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), 0,  Mathf.Clamp(input.Movement.y, -1f, 1f)) * Speed;
+        _CC.Move(movement * Time.fixedDeltaTime);
 
-  	    _CC.Move(movement * Time.fixedDeltaTime);
 	    // shooting
         if (input.ShootInput == true && !IsResimulating)
             Shot();
@@ -75,7 +75,7 @@ public override void NetworkFixedUpdate()
 > Make sure to clamp inputs to prevent malicious attempts to alter inputs to have big magnitudes leading to speedhacks. Inputs are the only thing the client has authority over.
 
 
-FetchInput tries to fetch an input for the state/tick being simulated/resimulated. It only returns true if either:
+`FetchInput` tries to fetch an input for the state/tick being simulated/resimulated. It only returns true if either:
 
 1. We are providing inputs to this object – meaning we are the Input Source of the object.
 2. We are the owner (the server) of this object – receiving inputs from the client who’s the Input Source. And only if we have an input for the current tick being simulated. If not, it would return false. Usually, that happens due to packet loss.

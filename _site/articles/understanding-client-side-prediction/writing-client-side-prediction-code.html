@@ -102,7 +102,7 @@
 <li>Must not have <code>string</code> as a field. Instead, you can use <code>NetworkString</code> variants.</li>
 </ul>
 <h2 id="setting-inputs">Setting Inputs</h2>
-<p>To set the fields of an input, you first need to acquire the input struct of the current tick, using <code>Sandbox.GetInput</code>.<br>
+<p>To set the fields of an input, you first need to acquire the input struct of the current tick, using <code>Sandbox.GetInput</code>.
 Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour</code>:</p>
 <pre><code class="lang-csharp">public override void NetworkUpdate()
 {
@@ -123,9 +123,9 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
         var movement = transform.TransformVector(new Vector3(input.Movement.x, 0, input.Movement.y)) * Speed;
 
         // clamp movement input
-        movement = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), 0,  Mathf.Clamp(input.Movement.y, -1f, 1f)) * Speed;
+        movement     = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), 0,  Mathf.Clamp(input.Movement.y, -1f, 1f)) * Speed;
+        _CC.Move(movement * Time.fixedDeltaTime);
 
-  	    _CC.Move(movement * Time.fixedDeltaTime);
 	    // shooting
         if (input.ShootInput == true &amp;&amp; !IsResimulating)
             Shot();
@@ -148,7 +148,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 <h5>Note</h5>
 <p>Make sure to clamp inputs to prevent malicious attempts to alter inputs to have big magnitudes leading to speedhacks. Inputs are the only thing the client has authority over.</p>
 </div>
-<p>FetchInput tries to fetch an input for the state/tick being simulated/resimulated. It only returns true if either:</p>
+<p><code>FetchInput</code> tries to fetch an input for the state/tick being simulated/resimulated. It only returns true if either:</p>
 <ol>
 <li>We are providing inputs to this object – meaning we are the Input Source of the object.</li>
 <li>We are the owner (the server) of this object – receiving inputs from the client who’s the Input Source. And only if we have an input for the current tick being simulated. If not, it would return false. Usually, that happens due to packet loss.</li>
