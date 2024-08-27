@@ -209,8 +209,8 @@ Usage Example:
     }
 ```
 
-> [!WARNING]
-> Under the hood, these structs use ids which are `NetworkObject.Id` and `NetworkBehaviour.BehaviourId`, and since ids are recycled between objects, it's possible for a `NetworkObjectRef` and `NetworkBehaviourRef<T>` to refer to incorrect objects if they are not cleared properly when those objects are destroyed.
+<!-- > [!WARNING]
+> Under the hood, these structs use ids which are `NetworkObject.Id` and `NetworkBehaviour.BehaviourId`, and since ids are recycled between objects, it's possible for a `NetworkObjectRef` and `NetworkBehaviourRef<T>` to refer to incorrect objects if they are not cleared properly when those objects are destroyed. -->
 
 ## Replication Relevancy
 

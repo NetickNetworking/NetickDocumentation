@@ -259,10 +259,8 @@ public MyStruct MyStructProperty {get; set;}
         }
     }
 </code></pre>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>Under the hood, these structs use ids which are <code>NetworkObject.Id</code> and <code>NetworkBehaviour.BehaviourId</code>, and since ids are recycled between objects, it's possible for a <code>NetworkObjectRef</code> and <code>NetworkBehaviourRef&lt;T&gt;</code> to refer to incorrect objects if they are not cleared properly when those objects are destroyed.</p>
-</div>
+<!-- > [!WARNING]
+> Under the hood, these structs use ids which are `NetworkObject.Id` and `NetworkBehaviour.BehaviourId`, and since ids are recycled between objects, it's possible for a `NetworkObjectRef` and `NetworkBehaviourRef<T>` to refer to incorrect objects if they are not cleared properly when those objects are destroyed. -->
 <h2 id="replication-relevancy">Replication Relevancy</h2>
 <p>You can choose to replicate a property only to the Input Source client of the object. This is done using the optional parameter <code>relevancy</code> of [<a class="xref" href="../api/Netick.Networked.html">Networked</a>].</p>
 <p>Example:</p>
