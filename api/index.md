@@ -8,4 +8,4 @@ Main Classes:
 - [Network Sandbox](Netick.Unity.NetworkSandbox.html)
 - [Network Object](Netick.Unity.NetworkObject.html)
 - [Network Behaviour](Netick.Unity.NetworkBehaviour.html)
-- [Network Transport](Netick.Unity.NetworkTransport.html)
+- [Network Transport](Netick.NetworkTransport.html)
