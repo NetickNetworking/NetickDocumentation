@@ -204,7 +204,7 @@ Usage Example:
         public void ExampleOfUsingTheRef()
         {
             // getting the behaviour from the ref
-            var playerController = MyPlayer.GetBehaviour<PlayerController>(Sandbox); // or TryGetBehaviour
+            var playerController = MyPlayer.GetBehaviour(Sandbox); // or TryGetBehaviour
         }
     }
 ```
