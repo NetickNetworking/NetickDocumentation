@@ -15,9 +15,9 @@ Since there are 5 frames between two ticks, the values at each frame would be:
 
 ## Interpolation of Network Transform
 
-For moving objects, this is important to deal with. Every <xref:Netick.NetworkTransform> has a slot for a Render transform, which is basically the smoothed/interpolated mesh of the object, while the parent would be the simulated/non-interpolated object.
+For moving objects, this is important to deal with. Every <xref:Netick.Unity.NetworkTransform> has a slot for a Render transform, which is basically the smoothed/interpolated mesh of the object, while the parent would be the simulated/non-interpolated object.
 
-So, you must break your moving objects into a parent (which has the <xref:Netick.NetworkTransform>), and a child which is the interpolated object, and has the mesh/s. Then you specify that child in the NetworkTransform RenderTransform property in the inspector. Check the samples if you are confused.
+So, you must break your moving objects into a parent (which has the <xref:Netick.Unity.NetworkTransform>), and a child which is the interpolated object, and has the mesh/s. Then you specify that child in the NetworkTransform RenderTransform property in the inspector. Check the samples if you are confused.
 
 
 ## Interpolation Source
@@ -43,7 +43,7 @@ public Vector3 Movement {get; set;}
 
 ## Automatic Interpolation
 
-To access the interpolated value, by referencing the property in [NetworkRender](xref:Netick.NetickBehaviour#Netick_NetickBehaviour_NetworkStart), you automatically get interpolated values:
+To access the interpolated value, by referencing the property in [NetworkRender](xref:Netick.Unity.NetickBehaviour#Netick_Unity_NetickBehaviour_NetworkRender), you automatically get interpolated values:
 
 ```csharp
 public override NetworkRender()
@@ -125,7 +125,7 @@ private MyType LerpMyType(MyType from, MyType to, float alpha)
 ```
 
 > [!NOTE]
-> You should cache the result to `FindInterpolator` on [NetworkStart](xref:Netick.NetickBehaviour#Netick_NetickBehaviour_NetworkStart), instead of calling it repeatedly every frame (NetworkRender is called every frame), since it might be a bit slow.
+> You should cache the result to `FindInterpolator` on [NetworkStart](xref:Netick.Unity.NetickBehaviour#Netick_Unity_NetickBehaviour_NetworkStart), instead of calling it repeatedly every frame (NetworkRender is called every frame), since it might be a bit slow.
 
 
 <!-- #### Teleportation for Manual Interpolation

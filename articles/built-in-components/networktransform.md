@@ -1,6 +1,6 @@
 # Network Transform
 
-Network Transform is a built-in component to network the `Transform` component. It syncs the position and rotation of the `Transform`.
+<xref:Netick.Unity.NetworkTransform> is a built-in component to network the `Transform` component. It syncs the position and rotation of the `Transform`.
 
 ## Settings:
 

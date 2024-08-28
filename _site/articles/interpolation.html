@@ -97,8 +97,8 @@ Since there are 5 frames between two ticks, the values at each frame would be:</
 <li>Frame 5: 3 — End of tick 6, beginning of tick 7</li>
 </ul>
 <h2 id="interpolation-of-network-transform">Interpolation of Network Transform</h2>
-<p>For moving objects, this is important to deal with. Every <a class="xref" href="../api/Netick.NetworkTransform.html">NetworkTransform</a> has a slot for a Render transform, which is basically the smoothed/interpolated mesh of the object, while the parent would be the simulated/non-interpolated object.</p>
-<p>So, you must break your moving objects into a parent (which has the <a class="xref" href="../api/Netick.NetworkTransform.html">NetworkTransform</a>), and a child which is the interpolated object, and has the mesh/s. Then you specify that child in the NetworkTransform RenderTransform property in the inspector. Check the samples if you are confused.</p>
+<p>For moving objects, this is important to deal with. Every <a class="xref" href="../api/Netick.Unity.NetworkTransform.html">NetworkTransform</a> has a slot for a Render transform, which is basically the smoothed/interpolated mesh of the object, while the parent would be the simulated/non-interpolated object.</p>
+<p>So, you must break your moving objects into a parent (which has the <a class="xref" href="../api/Netick.Unity.NetworkTransform.html">NetworkTransform</a>), and a child which is the interpolated object, and has the mesh/s. Then you specify that child in the NetworkTransform RenderTransform property in the inspector. Check the samples if you are confused.</p>
 <h2 id="interpolation-source">Interpolation Source</h2>
 <p>The source of interpolation data can be of two options:</p>
 <ul>
@@ -117,7 +117,7 @@ Since there are 5 frames between two ticks, the values at each frame would be:</
 public Vector3 Movement {get; set;}
 </code></pre>
 <h2 id="automatic-interpolation">Automatic Interpolation</h2>
-<p>To access the interpolated value, by referencing the property in <a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkRender</a>, you automatically get interpolated values:</p>
+<p>To access the interpolated value, by referencing the property in <a class="xref" href="../api/Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender">NetworkRender</a>, you automatically get interpolated values:</p>
 <pre><code class="lang-csharp">public override NetworkRender()
 {
     var interpolatedValue = Movement;
@@ -190,7 +190,7 @@ private MyType LerpMyType(MyType from, MyType to, float alpha)
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>You should cache the result to <code>FindInterpolator</code> on <a class="xref" href="../api/Netick.NetickBehaviour.html#Netick_NetickBehaviour_NetworkStart">NetworkStart</a>, instead of calling it repeatedly every frame (NetworkRender is called every frame), since it might be a bit slow.</p>
+<p>You should cache the result to <code>FindInterpolator</code> on <a class="xref" href="../api/Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart">NetworkStart</a>, instead of calling it repeatedly every frame (NetworkRender is called every frame), since it might be a bit slow.</p>
 </div>
 <!-- #### Teleportation for Manual Interpolation
 

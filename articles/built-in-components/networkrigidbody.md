@@ -1,6 +1,6 @@
 # Network Rigidbody
 
-Network Rigidbody is a built-in component to network the `Rigidbody` component. It syncs the position and rotation of the `Rigidbody`, in addition the physical state.
+<xref:Netick.Unity.NetworkRigidbody> is a built-in component to network the `Rigidbody` component. It syncs the position and rotation of the `Rigidbody`, in addition the physical state.
 
 ## Settings:
 

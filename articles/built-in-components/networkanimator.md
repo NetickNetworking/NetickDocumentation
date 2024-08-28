@@ -1,6 +1,6 @@
 # Network Animator
 
-Network Animator is a built-in component to network the `Animator` component. It syncs Animator parameters, and optionally the layer state and weights.
+<xref:Netick.Unity.NetworkAnimator> is a built-in component to network the `Animator` component. It syncs Animator parameters, and optionally the layer state and weights.
 
 ## Settings:
 
