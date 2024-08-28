@@ -108,7 +108,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 {
     var input       = Sandbox.GetInput&lt;MyInput&gt;();
     input.Movement += new Vector2(Mathf.Clamp(Input.GetAxis(&quot;Horizontal&quot;), -1f, 1f), Mathf.Clamp(Input.GetAxis(&quot;Vertical&quot;), -1f, 1f));
-    input.Boost    |= Input.GetMouseButton(0);
+    input.Shoot    |= Input.GetMouseButton(0);
     Sandbox.SetInput(input);
 }
 </code></pre>
@@ -120,11 +120,11 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
     if (FetchInput(out MyInput input))
     {
         // movement
-        var movement = transform.TransformVector(new Vector3(input.Movement.x, 0, input.Movement.y)) * Speed;
+        var movementInputs = transform.TransformVector(new Vector3(input.Movement.x, 0, input.Movement.y)) * Speed;
 
-        // clamp movement input
-        movement     = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), 0,  Mathf.Clamp(input.Movement.y, -1f, 1f)) * Speed;
-        _CC.Move(movement * Time.fixedDeltaTime);
+        // clamp movement inputs
+        movementInputs     = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), 0,  Mathf.Clamp(input.Movement.y, -1f, 1f)) * Speed;
+        _CC.Move(movementInputs * Time.fixedDeltaTime);
 
 	    // shooting
         if (input.ShootInput == true &amp;&amp; !IsResimulating)
@@ -189,11 +189,11 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
     }
 }
 </code></pre>
-<h3 id="networking-the-last-fetched-input">Networking the last fetched input</h3>
+<h3 id="networking-the-last-fetched-input">Networking the Last Fetched Input</h3>
 <p>Or you can handle this yourself, by storing and networking the last fetched input:</p>
 <pre><code class="lang-csharp">
 [Networked(relevancy: Relevancy.InputSource)]
-private FirstPersonInput LastInput { get; set; }
+private MyInput LastInput { get; set; }
 
 public override void NetworkFixedUpdate()
 {

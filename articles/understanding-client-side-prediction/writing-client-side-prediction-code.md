@@ -31,7 +31,7 @@ public override void NetworkUpdate()
 {
     var input       = Sandbox.GetInput<MyInput>();
     input.Movement += new Vector2(Mathf.Clamp(Input.GetAxis("Horizontal"), -1f, 1f), Mathf.Clamp(Input.GetAxis("Vertical"), -1f, 1f));
-    input.Boost    |= Input.GetMouseButton(0);
+    input.Shoot    |= Input.GetMouseButton(0);
     Sandbox.SetInput(input);
 }
 ```
@@ -48,11 +48,11 @@ public override void NetworkFixedUpdate()
     if (FetchInput(out MyInput input))
     {
         // movement
-        var movement = transform.TransformVector(new Vector3(input.Movement.x, 0, input.Movement.y)) * Speed;
+        var movementInputs = transform.TransformVector(new Vector3(input.Movement.x, 0, input.Movement.y)) * Speed;
 
-        // clamp movement input
-        movement     = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), 0,  Mathf.Clamp(input.Movement.y, -1f, 1f)) * Speed;
-        _CC.Move(movement * Time.fixedDeltaTime);
+        // clamp movement inputs
+        movementInputs     = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), 0,  Mathf.Clamp(input.Movement.y, -1f, 1f)) * Speed;
+        _CC.Move(movementInputs * Time.fixedDeltaTime);
 
 	    // shooting
         if (input.ShootInput == true && !IsResimulating)
@@ -141,14 +141,14 @@ public override void NetworkFixedUpdate()
 
 
 
-### Networking the last fetched input
+### Networking the Last Fetched Input
 
 Or you can handle this yourself, by storing and networking the last fetched input:
 
 ```csharp
 
 [Networked(relevancy: Relevancy.InputSource)]
-private FirstPersonInput LastInput { get; set; }
+private MyInput LastInput { get; set; }
 
 public override void NetworkFixedUpdate()
 {
