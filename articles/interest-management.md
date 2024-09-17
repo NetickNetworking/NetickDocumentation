@@ -16,7 +16,7 @@ Interest Management is also useful as an anti-cheat measure. For instance, you c
 
 Broad Phase Filtering is done using a group. An interest management group is a list of network objects that are processed together. Every network object has an option to choose the broad phase filter source, it can be one of three options:
 
-- `None`: no filtering, the object is replicated to everyone.
+- `Global`: no filtering, the object is replicated to everyone.
 - `Area of Interest`: only when a client's Area of Interest intersects this object's group cell it will be replicated.
 - `Custom`: using an explicitly assigned custom group through code, with an index. Only clients who explicitly choose to be interested in this group will receive updates to the object.
 

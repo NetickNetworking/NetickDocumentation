@@ -20,6 +20,6 @@
 
 ## ENet 
 * Protocol: UDP
-* Platforms: All
+* Platforms: All, except WebGL
 * Download: https://github.com/Molth/NetickENetTransport
 * Maintainer: community
