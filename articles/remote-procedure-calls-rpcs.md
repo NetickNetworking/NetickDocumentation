@@ -5,7 +5,7 @@ RPCs are method calls on Network Behaviors that are replicated across the networ
 An important use of RPCs is to set up the game and send configuration messages. Use reliable RPCs for things like that.
 
 > [!Note]
-> While other solutions are heavily dependent on RPCs, Netick is designed to make usage of RPCs very minimal (less than 3 RPCs in the entire game), read the article on [RPCs vs Properties](rpcs-vs-properties.md) for more.
+> While other solutions are heavily dependent on RPCs, Netick is designed to make usage of RPCs very minimal (less than 3 RPCs in the entire game). RPCs teach bad practices and produce [spaghetti code](https://en.wikipedia.org/wiki/Spaghetti_code). Read the article on [RPCs vs Properties](rpcs-vs-properties.md) for more.
 
 An RPC example:
 
