@@ -43,6 +43,10 @@ The hierarchy should be as follows:
                 > Character Bone (with HitShape) 
 ```
 
+> [!WARNING]
+> Make sure to enable Lag Compensation in Netick Settings.
+
+
 ### **Performing a Lag-Compensated Raycast in Unity**
 
 ```csharp

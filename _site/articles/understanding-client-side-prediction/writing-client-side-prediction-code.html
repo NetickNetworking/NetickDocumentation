@@ -89,9 +89,11 @@
 <p>Network Input describes what the player wants to do, which will be used to simulate the state of objects they want to control. This ensures that the client can’t directly change the state – the change happens by executing the input, which, even if tampered with, won’t be game-breaking.</p>
 <h2 id="defining-inputs">Defining Inputs</h2>
 <p>To define a new input, create a struct that implements <code>INetworkInput</code> interface:</p>
-<pre><code class="lang-csharp">public struct MyInput : INetworkInput
+<pre><code class="lang-csharp">[Networked]
+public struct MyInput : INetworkInput
 {
-   public Vector2     Movement;
+   [Networked] // adding [Networked] to a struct field and making it a property allows Netick to provide extra compression to it.
+   public Vector2     Movement { get; set;}
    public NetworkBool Shoot;
 }
 </code></pre>

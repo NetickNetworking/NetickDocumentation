@@ -9,9 +9,11 @@ Network Input describes what the player wants to do, which will be used to simul
 To define a new input, create a struct that implements `INetworkInput` interface:
 
 ```csharp
+[Networked]
 public struct MyInput : INetworkInput
 {
-   public Vector2     Movement;
+   [Networked] // adding [Networked] to a struct field and making it a property allows Netick to provide extra compression to it.
+   public Vector2     Movement { get; set;}
    public NetworkBool Shoot;
 }
 ```
