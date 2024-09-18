@@ -179,7 +179,7 @@ Usage Example:
     public class PlayerController : NetworkBehaviour
     {
         [Networked]
-        public NetworkObjectRef MyPlayer { get; set;} = new(null);
+        public NetworkObjectRef MyPlayer { get; set;} 
 
         public override void NetworkStart()
         {
@@ -203,7 +203,7 @@ Usage Example:
     public class PlayerController: NetworkBehaviour
     {
         [Networked]
-        public NetworkBehaviourRef<PlayerController> MyPlayer { get; set;} = new(null);
+        public NetworkBehaviourRef<PlayerController> MyPlayer { get; set;} 
 
         public override void NetworkStart()
         {
