@@ -188,25 +188,31 @@ public readonly NetworkQueue&lt;int&gt;            MyNetworkedQueue       = new 
 <h2 id="network-structs">Network Structs</h2>
 <p>Netick can synchronize any struct that does not contain class-based arrays or references. Which includes all C# primitive types and Unity/Godot/Flax primitive types.</p>
 <p>Example:</p>
-<pre><code class="lang-csharp">public struct MyNestedStruct
+<pre><code class="lang-csharp">[Networked]
+public struct MyNestedStruct
 {
     public int                      Int;
     public NetworkBool              Bool;
-    public float                    Float;
-    public double                   Double;
-    public Vector3                  Position;
-    public Quaternion               Rotation;
-    public Color                    Color;
+    [Networked]
+    public float                    Float    { get; set;}
+    [Networked]
+    public Vector3                  Position { get; set;} 
+    [Networked]
+    public Quaternion               Rotation { get; set;} 
+    [Networked]
+    public Color                    Color    { get; set;} 
     public NetworkString8           Name;
 }
 
+[Networked]
 public struct MyStruct
 {
     public MyNestedStruct           MyNestedStruct;
     public NetworkArrayStruct8&lt;int&gt; StructArray;
     public int                      Int;
     public NetworkBool              Bool;
-    public float                    Float;
+    [Networked]
+    public float                    Float    { get; set;}
     public double                   Double;
 }
 
@@ -216,6 +222,10 @@ public MyStruct MyStructProperty {get; set;}
 <div class="NOTE">
 <h5>Note</h5>
 <p><code>string</code> is not supported as a type that can be used inside a struct. Use <code>NetworkString</code> instead.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>[Networked] attribute on structs is optional. However, when adding it to a struct, it allows float-based members (such as <code>float</code> or <code>Vector</code>) of a struct (field members which also have [Networked] on them) to have extra compression on them.</p>
 </div>
 <h2 id="networking-references-to-networkobject-and-networkbehaviour">Networking References to <code>NetworkObject</code> and <code>NetworkBehaviour</code></h2>
 <p>Since you can't directly synchronize class references, we provide two helper structs that are used to synchronize a reference to <code>NetworkObject</code> and <code>NetworkBehaviour</code>:</p>

@@ -123,30 +123,36 @@ Removing and adding elements is the same as with C# collections.
 
 ## Network Structs
 
-Netick can synchronize any struct that does not contain class-based arrays or references. Which includes all C# primitive types and Unity/Godot/Flax primitive types.
+Netick can synchronize any struct that does not contain class-based arrays or references. Which includes all C# primitive types and Unity/Godot/Flax primitive types. 
 
 Example:
 
 ```csharp
+[Networked]
 public struct MyNestedStruct
 {
     public int                      Int;
     public NetworkBool              Bool;
-    public float                    Float;
-    public double                   Double;
-    public Vector3                  Position;
-    public Quaternion               Rotation;
-    public Color                    Color;
+    [Networked]
+    public float                    Float    { get; set;}
+    [Networked]
+    public Vector3                  Position { get; set;} 
+    [Networked]
+    public Quaternion               Rotation { get; set;} 
+    [Networked]
+    public Color                    Color    { get; set;} 
     public NetworkString8           Name;
 }
 
+[Networked]
 public struct MyStruct
 {
     public MyNestedStruct           MyNestedStruct;
     public NetworkArrayStruct8<int> StructArray;
     public int                      Int;
     public NetworkBool              Bool;
-    public float                    Float;
+    [Networked]
+    public float                    Float    { get; set;}
     public double                   Double;
 }
 
@@ -156,6 +162,10 @@ public MyStruct MyStructProperty {get; set;}
 
 > [!Note] 
 > `string` is not supported as a type that can be used inside a struct. Use `NetworkString` instead.
+
+> [!Note] 
+> [Networked] attribute on structs is optional. However, when adding it to a struct, it allows float-based members (such as `float` or `Vector`) of a struct (field members which also have [Networked] on them) to have extra compression on them.
+
 
 ## Networking References to `NetworkObject` and `NetworkBehaviour`
 
