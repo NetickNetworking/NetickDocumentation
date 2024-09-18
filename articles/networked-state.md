@@ -171,7 +171,7 @@ public MyStruct MyStructProperty {get; set;}
 
 Since you can't directly synchronize class references, we provide two helper structs that are used to synchronize a reference to `NetworkObject` and `NetworkBehaviour`:
 
-### NetworkObjectRef
+### `NetworkObjectRef`
 
 Usage Example:
 
@@ -195,7 +195,7 @@ Usage Example:
     }
 ```
 
-### NetworkBehaviourRef
+### `NetworkBehaviourRef`
 
 Usage Example:
 
