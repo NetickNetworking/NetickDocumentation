@@ -46,8 +46,8 @@ Network arrays are just like regular C# arrays, but their syntax is a bit differ
 Example of a network array:
 
 ```csharp
-[Networked(size: 32)]
-public readonly NetworkArray<int> IntArrayExample = new NetworkArray<int>(32) { 55, 66, 77 };
+[Networked(size: 5)]
+public readonly NetworkArray<int> IntArrayExample = new NetworkArray<int>(5) { 55, 66, 77 };
 ```
 
 > [!WARNING]

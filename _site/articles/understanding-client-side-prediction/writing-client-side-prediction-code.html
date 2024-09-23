@@ -175,6 +175,28 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 <li><code>OnInputSourceChanged</code>: called on the Input Source and server when the Input Source changes.</li>
 <li><code>OnInputSourceLeft</code>: called on the owner (server) when the Input Source client has left the game.</li>
 </ol>
+<h2 id="mindset-when-using-client-side-prediction">Mindset when using Client-Side Prediction</h2>
+<p>Other networking solution rely heavily on the usage of RPCs. However, Netick allows for a much more easier, robust, and safer approach that will make most RPCs obsolete.</p>
+<p>Let's take an example to understand this.</p>
+<p>Say you want to interact with an object in the game world. A pickup, let's say. Now, instead of sending an RPC to this pickup, which will use additional bandwidth, in addition to being easily cheat-able (by being vulnerable to malicious users who will send RPCs to pickups that are not even nearby), you can simply use an <code>Interact</code> input field to implement the logic for it.</p>
+<pre><code class="lang-cs">public override void NetworkFixedUpdate()
+{
+    if (FetchInput(out MyInput input))
+    {
+        // movement
+        ExecuteMovementLogic(input);
+        
+        if (input.Interact &amp;&amp; IsServer) // adding IsServer when you don't want the client to predict this action.
+        {
+          if (Raycast(..., out var objectToInteractWith)
+          {
+            // do things
+          }
+        }
+    }
+}
+</code></pre>
+<p>This way, you have full server-authority on what objects the client can interact with, and the code is very simple to read and debug. It's almost the exact same code you would use for a single-player game, excluding the input fetching logic.</p>
 <h2 id="framerate-lower-than-tickrate">Framerate Lower than Tickrate</h2>
 <p>When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks need to use the same input of one frame. Not handling this can cause the player character to move slower during very low FPS.</p>
 <p>There are two ways to handle this issue:</p>

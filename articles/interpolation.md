@@ -52,17 +52,16 @@ public override NetworkRender()
 }
 ```
 
-Interpolation is implemented by Netick on these types:
+Automatic Interpolation is implemented by Netick on these types:
 
-- Float
-- Double
-- Vector2
-- Vector3
-- Quaternion
-- Color
-- Int
-- Bool
-- NetworkBool
+- `Float`
+- `Double`
+- `Vector2`
+- `Vector3`
+- `Quaternion`
+- `Color`
+- `Int`
+- `NetworkBool`
 
 > [!WARNING]
 > Currently this is only supported in Unity. Use Manual Interpolation in other engines.

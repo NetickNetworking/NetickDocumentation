@@ -117,6 +117,36 @@ There are two methods you can override to run code when Input Source has changed
 1. `OnInputSourceChanged`: called on the Input Source and server when the Input Source changes.
 2. `OnInputSourceLeft`: called on the owner (server) when the Input Source client has left the game.
 
+
+## Mindset when using Client-Side Prediction
+
+Other networking solution rely heavily on the usage of RPCs. However, Netick allows for a much more easier, robust, and safer approach that will make most RPCs obsolete.
+
+Let's take an example to understand this.
+
+Say you want to interact with an object in the game world. A pickup, let's say. Now, instead of sending an RPC to this pickup, which will use additional bandwidth, in addition to being easily cheat-able (by being vulnerable to malicious users who will send RPCs to pickups that are not even nearby), you can simply use an `Interact` input field to implement the logic for it.
+
+```cs
+public override void NetworkFixedUpdate()
+{
+    if (FetchInput(out MyInput input))
+    {
+        // movement
+        ExecuteMovementLogic(input);
+        
+        if (input.Interact && IsServer) // adding IsServer when you don't want the client to predict this action.
+        {
+          if (Raycast(..., out var objectToInteractWith)
+          {
+            // do things
+          }
+        }
+    }
+}
+```
+
+This way, you have full server-authority on what objects the client can interact with, and the code is very simple to read and debug. It's almost the exact same code you would use for a single-player game, excluding the input fetching logic.
+
 ## Framerate Lower than Tickrate
 
 When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks need to use the same input of one frame. Not handling this can cause the player character to move slower during very low FPS. 
@@ -165,3 +195,4 @@ public override void NetworkFixedUpdate()
     }
 }
 ```
+
