@@ -32,7 +32,7 @@ In the right-side figure, we see that all cars are aligned with each other, whic
 
 Now, let's see what the game looks like if we didn't predict remote/proxy objects. Let's look at the left-side figure above. What we see here is that, now, only our local car is in the predicted position. Other cars are, to us, delayed. The gray ghost shapes show where the cars should be, if they were to be predicted. The difference in position here is the amount of positional discrepancy between the local/predicted timeline against the remote timeline, which is proportional to RTT/latency.
 
-So, the conclusion here is that neither approach is perfect. Not predicting remote objects will result in delayed collisions. Predicting them will result in mis-predictions.
+So, the conclusion here is that neither approach is perfect. Not predicting remote objects will result in delayed collisions. Predicting them will result in mis-predictions. This is the reality of game-networking, there is not one-size-fit-all solution. You choose the lesser evil.
 
 But, for this game, the better approach is to predict remote objects. Therefore, it's a matter of choosing which approach works better for a particular game.
 
