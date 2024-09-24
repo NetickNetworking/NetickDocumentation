@@ -57,6 +57,8 @@ However, this is not all. To be able to predict the input of other players, we n
 
 That's all there is to it. `FetchInput` only returns true on the Input Source itself, and the server. So, by simply defining a network property to store the input in, we are able to sync the input to everyone, including observing (proxies) players.
 
+Notice that we don't actually try to predict the input, we simply use the last input for prediction. Because predicting that the client pressed something it never did is a lot worse than simply assuming the client is still pressing the same buttons.
+
 Rocket Cars serves as an excellent example of how Proxy/Remote Prediction works.
 
 ## Prediction Error Correction Smoothing

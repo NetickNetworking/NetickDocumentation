@@ -122,6 +122,7 @@
   }
 </code></pre>
 <p>That's all there is to it. <code>FetchInput</code> only returns true on the Input Source itself, and the server. So, by simply defining a network property to store the input in, we are able to sync the input to everyone, including observing (proxies) players.</p>
+<p>Notice that we don't actually try to predict the input, we simply use the last input for prediction. Because predicting that the client pressed something it never did is a lot worse than simply assuming the client is still pressing the same buttons.</p>
 <p>Rocket Cars serves as an excellent example of how Proxy/Remote Prediction works.</p>
 <h2 id="prediction-error-correction-smoothing">Prediction Error Correction Smoothing</h2>
 <p>By default, correcting mis-predictions is instantaneous. This will cause the predicted remote objects to snap somewhere else when a player changes their movement direction suddenly. And as we said, the magnitude of mis-predictions is proportional to latency. Therefore, for a smooth visual experience. we must smooth out the prediction correction. Netick impalements a smooth correcter in <code>NetworkTransfrom</code>/<code>NetworkRigidbody</code>. By enabling it, it will smooth out the corrections over multiple frames. There are a few settings for it which will need to be fine-tuned to find what is best for your object.</p>
