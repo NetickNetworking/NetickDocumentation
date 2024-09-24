@@ -128,7 +128,7 @@ public readonly NetworkArray&lt;int&gt; IntArrayExample = new NetworkArray&lt;in
 </code></pre>
 <div class="WARNING">
 <h5>Warning</h5>
-<p><code>size</code> of <code>[Networked(size: 32)]</code> must be the same as the value that is passed to the array constructor <code>new NetworkArray&lt;int&gt;(32)</code></p>
+<p><code>size</code> of <code>[Networked(size: 32)]</code> must be the same as the value that is passed to the array constructor <code>new NetworkArray&lt;int&gt;(32)</code>.</p>
 </div>
 <h2 id="network-array-structs">Network Array Structs</h2>
 <p>Netick 2 introduces a new type of network array, network arrays that are completely value types - Network Array Structs. These are fixed-size struct arrays available only in 4 fixed sizes: 8, 16, 32, and 64.</p>
@@ -225,7 +225,7 @@ public MyStruct MyStructProperty {get; set;}
 </div>
 <div class="NOTE">
 <h5>Note</h5>
-<p>[Networked] attribute on structs is optional. However, when adding it to a struct, it allows float-based members (such as <code>float</code> or <code>Vector</code>) of a struct (field members which also have [Networked] on them) to have extra compression on them.</p>
+<p><code>[Networked]</code> attribute on structs is optional. However, when adding it to a struct, it allows float-based members (such as <code>float</code> or <code>Vector</code>) of a struct (field members which also have <code>[Networked]</code> on them) to have extra compression on them.</p>
 </div>
 <h2 id="networking-references-to-networkobject-and-networkbehaviour">Networking References to <code>NetworkObject</code> and <code>NetworkBehaviour</code></h2>
 <p>Since you can't directly synchronize class references, we provide two helper structs that are used to synchronize a reference to <code>NetworkObject</code> and <code>NetworkBehaviour</code>:</p>

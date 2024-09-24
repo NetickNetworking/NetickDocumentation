@@ -51,7 +51,7 @@ public readonly NetworkArray<int> IntArrayExample = new NetworkArray<int>(5) { 5
 ```
 
 > [!WARNING]
-> `size` of `[Networked(size: 32)]` must be the same as the value that is passed to the array constructor `new NetworkArray<int>(32)`
+> `size` of `[Networked(size: 32)]` must be the same as the value that is passed to the array constructor `new NetworkArray<int>(32)`.
 
 ## Network Array Structs
 
@@ -164,7 +164,7 @@ public MyStruct MyStructProperty {get; set;}
 > `string` is not supported as a type that can be used inside a struct. Use `NetworkString` instead.
 
 > [!Note] 
-> [Networked] attribute on structs is optional. However, when adding it to a struct, it allows float-based members (such as `float` or `Vector`) of a struct (field members which also have [Networked] on them) to have extra compression on them.
+> `[Networked]` attribute on structs is optional. However, when adding it to a struct, it allows float-based members (such as `float` or `Vector`) of a struct (field members which also have `[Networked]` on them) to have extra compression on them.
 
 
 ## Networking References to `NetworkObject` and `NetworkBehaviour`
