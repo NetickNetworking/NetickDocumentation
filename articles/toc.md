@@ -32,7 +32,7 @@
 
 ## [Writing Client-Side Prediction Code](understanding-client-side-prediction/writing-client-side-prediction-code.md)
 
-## [Prediction in-depth](prediction-in-depth.md)
+## [Prediction In-Depth](prediction-in-depth.md)
 
 ## [Network Object Instantiation and Destruction](network-object-instantiation-and-destruction/network-object-instantiation-and-destruction.md)
 

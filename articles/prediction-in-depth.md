@@ -1,10 +1,10 @@
-# Prediction in-depth
+# Prediction In-Depth
 
 Before diving in, let's do a recap on what prediction means.
 
-Prediction is the act of the client to predict what the game (the networked state of the game) looks like in the server, starting from the latest received server snapshot as a baseline. The client uses its local inputs that have yet to be acknowledged and processed by the server to simulate up to the time difference between it and the server, so that the client sees the same state as the server, at almost the same time. From the perspective of the client, prediction means predicting the future state of the server, since to the client, due to RTT, the server is in the future.
+Prediction is when the client tries to guess what the game (the networked state of the game) currently looks like in the server, starting from the latest received server world snapshot as a starting point. The client uses its local inputs (that have yet to be acknowledged and processed by the server) to simulate forward up to the latency (ping/RTT) between it and the server, so that the client sees the same state as the server, at almost the same time. Put differently, from the perspective of the client, prediction means predicting the future state of the server world.
 
-However, for many types of games, namely First Person Shooters, we only predict one or a few more objects, notably our own local player character.
+However, for many types of games, namely First Person Shooters, it's common to only predict one (and few more objects), notably the local player character.
 
 When we do this, our local player character object will live in the local (predicted) timeline. While remote objects (including remote players) will live in the remote timeline. What do we mean by these terms?
 
@@ -14,7 +14,7 @@ When we do this, our local player character object will live in the local (predi
 
 What we understand here is that there is a discrepancy. Some objects will be in the local timeline, and others will be in the remote timeline. The remote timeline is out-of-sync with the local timeline, which gets worse with ping. Even though this might seem bad, but that's how almost every First Person Shooter works. The local player in an FPS game is in the predicted timeline, while other players (remote players) are in the remote timeline. Why is that though? Why not put all objects in the predicted timeline for an FPS game?
 
-The problem with this is that, usually, the acceleration speeds of an FPS character are too fast that the prediction will always be wrong, and it results in a poor gameplay experience. You will see a player come out of a corner and suddenly disappear, due to mis-predictions.
+The problem with this is that, usually, the acceleration speeds of an FPS character are too fast that the prediction will always be wrong, and it results in a poor gameplay experience. You will see a player come out of a corner and suddenly disappear, due to mis-predictions. In addition, server-authoritative bullet hit-detection is tricky on predicted remote objects. Since, due to mis-predictions, missed shots will be common. In contrast, [lag-compensation](lag-compensation.md), which is a technique that only works with remote timelines, allows for perfect hit-detection.
 
 An important fact to emphasize is that it's impossible for the client to correctly predict the inputs of other clients. This is an obvious result of latency, we can't predict what other players are thinking. However, players usually don't drastically change their inputs from one moment to the other, which is a good thing.
 
@@ -30,11 +30,35 @@ Look at the previous image. In this scenario, we assume that each car starts mov
 
 In the right-side figure, we see that all cars are aligned with each other, which is what we expect if they started moving at the exact same time and at the exact same speed. Everything looks correct. This is because the clients are not changing their inputs, so the input prediction is correct. But this is usually not the case in practice. However, this shows that prediction will converge to the correct state if the clients are not changing their inputs too much.
 
-Now, let's see what the game looks like if we didn't predict remote/proxy objects. Let's look at the left-side figure above. What we see here is that, now, only our local car is in the predicted position. Other cars are, to us, delayed. The gray ghost shapes show where the cars should be, if they were to be predicted. The difference in position here is the amount of positional discrepancy between the local/predicted timeline against the remote timeline, which is proportional to RTT/latency.
+Now, let's see what the game looks like if we didn't predict remote/proxy objects. Let's look at the left-side figure above. What we see here is that, now, only our local car is in the predicted position. Other cars are, to us, delayed. They are out-of-sync with the local player car. The gray ghost shapes show where the cars should be, if they were to be predicted. The difference in position here is the amount of positional discrepancy between the local/predicted timeline against the remote timeline, which is proportional to RTT/latency.
 
-So, the conclusion here is that neither approach is perfect. Not predicting remote objects will result in delayed collisions. Predicting them will result in mis-predictions. This is the reality of game-networking, there is not one-size-fit-all solution. You choose the lesser evil.
+So, the conclusion here is that neither approach is perfect. Not predicting remote objects will result in delayed collisions. Predicting them will result in mis-predictions. This is the reality of game-networking, there is not a one-size-fit-all solution. You choose the lesser evil.
 
-But, for this game, the better approach is to predict remote objects. Therefore, it's a matter of choosing which approach works better for a particular game.
+The lesser evil for this game is to predict remote objects. Therefore, it's a matter of choosing which approach works better for a particular game.
+
+In conclusion, let's see the pros and cons of each approach:
+
+### Without Proxy/Remote Prediction
+
+#### Pros
+* Correct Snapshots: the state of remote objects is correct, since it's coming directly from the received server snapshots.
+* Hit-Detection Lag-Compensation: you can have perfect server-authoritative hit-detection for clients since what the clients see is what actually happened, without mis-predictions.
+* Low CPU Overhead: since you only simulate the local player, CPU performance will be better.
+
+#### Cons
+* Weak Player-to-Player Interactions: usually the best approach is to disable collision between players.
+* Desync with Local Timeline: the local player is out-of-sync with remote players.
+
+### With Proxy/Remote Prediction
+
+#### Pros
+* Good Player-to-Player Interactions: you can have smooth and responsive interactions between players, such as collisions. 
+* Simpler Code: by being able to simulate other objects and have them all in the same timeline, the coding experience will be closer to single-player development.
+* Same Timeline: all objects live in the same timeline, which is the local/predicted timeline. No desync between objects.
+
+#### Cons
+* Inability to do Lag-Compensation for Hit-Detection: you can't perform lag compensation on predicted objects. However, because all objects are in the same timeline, there is no need for lag compensation. But, due to mis-predictions, the clients hits will often miss. 
+* High CPU Overhead: predicting more objects will use more CPU time, and the cost of that increases with ping and tickrate.
 
 ## Predicting Remote/Proxy Objects
 
