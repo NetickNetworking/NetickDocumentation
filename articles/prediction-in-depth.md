@@ -12,7 +12,7 @@ When we do this, our local player character object will live in the local (predi
 
 - Local/Predicted Timeline: Local/Predicted Timeline refers to the timeline predicted objects in the client live in. The local timeline differs to the remote timeline by being ahead of the remote timeline by `RTT + additional buffering` (due to adaptation to non-ideal network conditions). 
 
-What we understand here is that there is a discrepancy. Some objects will be in the local timeline, and others will be in the remote timeline. The remote timeline is out-of-sync with the local timeline. Even though this might seem bad, but that's how almost every First Person Shooter works. The local player in an FPS game is in the predicted timeline, while other players (remote players) are in the remote timeline. Why is that though? Why not put all objects in the predicted timeline for an FPS game?
+What we understand here is that there is a discrepancy. Some objects will be in the local timeline, and others will be in the remote timeline. The remote timeline is out-of-sync with the local timeline, which gets worse with ping. Even though this might seem bad, but that's how almost every First Person Shooter works. The local player in an FPS game is in the predicted timeline, while other players (remote players) are in the remote timeline. Why is that though? Why not put all objects in the predicted timeline for an FPS game?
 
 The problem with this is that, usually, the acceleration speeds of an FPS character are too fast that the prediction will always be wrong, and it results in a poor gameplay experience. You will see a player come out of a corner and suddenly disappear, due to mis-predictions.
 
