@@ -22,7 +22,7 @@ But, does this mean remote prediction is bad? No. For many types of games, remot
 
 By default, Netick only predicts objects that the client is the Input Source of. To understand what it means to predict remote/proxy objects, let's explore an example.
 
-<figure><img src="../../images/proxy-prediction.png" alt="Client-Side Prediction"><figcaption></figcaption></figure>
+<figure><img src="../images/proxy-prediction.png" alt="Client-Side Prediction"><figcaption></figcaption></figure>
 
 In Rocket Cars, we not only predict the local car, but also the other (remote) cars and the ball. Now, let's see what that means, and also let's see what happens when we don't do that.
 
