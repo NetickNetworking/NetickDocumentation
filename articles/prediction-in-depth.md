@@ -74,8 +74,6 @@ However, this is not all. To be able to predict the input of other players, we n
     if (FetchInput(out GameInput input))
       LastInput          = input;
 
-    // clamp movement inputs
-    input.Movement       = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), Mathf.Clamp(input.Movement.y, -1f, 1f), Mathf.Clamp(input.Movement.z, -1f, 1f));
     SimulateVehicle(input);
   }
 ```
