@@ -68,7 +68,7 @@ Automatic Interpolation is implemented by Netick on these types:
 
 ## Manual Interpolation
 
-To manually interpolate a network property or network array, you can do that using the <xref:Netick.Interpolator> struct. You also have to pass false to [Smooth] to inform Netick we want to manually interpolate the property.
+To manually interpolate a network property or network array, you can do that using the <xref:Netick.Interpolator> struct. You also have to pass false to `[Smooth]` to inform Netick we want to manually interpolate the property.
 
 ### Interpolating Properties
 
