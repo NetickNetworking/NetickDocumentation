@@ -42,11 +42,11 @@ In conclusion, let's see the pros and cons of each approach:
 
 #### Pros
 * Accurate Snapshots: the states of remote objects are correct, since they come directly from the received server snapshots.
-* Lag Compensation: you can have perfect server-authoritative hit-detection using Lag Compensation for clients since what the clients see is what actually happened, without mispredictions.
+* Lag Compensation: you can have perfect server-authoritative hit-detection using lag compensation for clients since what the clients see is what actually happened, without mispredictions.
 * Low CPU Overhead: since you only simulate the local player, CPU performance will be better.
 
 #### Cons
-* Weak Player-to-Player Interactions: usually the best approach is to disable collision between players.
+* Weak Player-to-Player Interactions: usually the best approach is to disable collisions between players.
 * Desync with Local Timeline: the local player is out-of-sync with remote players.
 
 ### With Proxy/Remote Prediction
@@ -86,4 +86,4 @@ Rocket Cars serves as an excellent example of how Proxy/Remote Prediction works.
 
 ## Prediction Error Correction Smoothing
 
-By default, correcting mispredictions is instantaneous. This will cause the predicted remote objects to snap somewhere else when a player changes their movement direction suddenly. And as we said, the magnitude of mispredictions is proportional to latency. Therefore, for a smooth visual experience, we must smooth out the prediction correction. Netick implements a smooth correcter in `NetworkTransfrom`/`NetworkRigidbody`. By enabling it, it will smooth out the corrections over multiple frames. There are a few settings for it which will need to be fine-tuned to find what is best for your object.
+By default, correcting mispredictions is instantaneous. This will cause the predicted remote objects to snap somewhere else when a player changes their movement direction suddenly. And as we said, the magnitude of mispredictions is proportional to latency. Therefore, for a smooth visual experience, we must smooth out the prediction correction. Netick implements a smooth correcter in `NetworkTransfrom`/`NetworkRigidbody`. By enabling it, it will smooth out the corrections over multiple frames. There are a few settings for it which will need to be fine-tuned to find what is best for your object
