@@ -57,7 +57,7 @@ In conclusion, let's see the pros and cons of each approach:
 * Same Timeline: all objects live in the same timeline, which is the local/predicted timeline. No desync between objects.
 
 #### Cons
-* Mispredictions: the rendered state of predicted remote objects is not necessarily a state that actually happened in the server, due to mispredictions. One player can report seeing different things compared to other players, creating contradictory perspectives on what happened. Mispredictions get worse with higher-pings, so clients with very high-ping (+300) might have almost an unplayable experience.
+* Mispredictions: the rendered states of predicted remote objects are not necessarily states that actually happened in the server, due to mispredictions. One player can report seeing different things compared to other players, creating contradictory perspectives on what happened. Mispredictions get worse with higher-pings, so clients with very high-ping (+300) might have almost an unplayable experience.
 * No Lag-Compensation: you can't perform lag compensation on predicted objects. However, because all objects are in the same timeline, there is no need for lag compensation. But, due to mispredictions, the clients hits will often miss. 
 * High CPU Overhead: predicting more objects will use more CPU time, and the cost of that increases with ping and tickrate.
 
