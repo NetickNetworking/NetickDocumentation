@@ -117,15 +117,15 @@
 </ul>
 <h4 id="cons">Cons</h4>
 <ul>
-<li>Weak Player-to-Player Interactions: usually the best approach is to disable collision between players.</li>
-<li>Desync with Local Timeline: the local player is out-of-sync with remote players.</li>
+<li>Weak Player-to-Player Interactions: usually the best approach is to disable collisions between players.</li>
+<li>Multiple Timelines: the local player is out-of-sync with remote players, due to being in the Local Timeline, while they are in the Remote Timeline.</li>
 </ul>
 <h3 id="with-proxyremote-prediction">With Proxy/Remote Prediction</h3>
 <h4 id="pros-1">Pros</h4>
 <ul>
 <li>Good Player-to-Player Interactions: you can have smooth and responsive interactions between players, such as collisions.</li>
+<li>Single Timeline: all objects live in the same timeline, which is the local/predicted timeline. No desync between objects.</li>
 <li>Simpler Code: by being able to simulate other objects and have them all in the same timeline, the coding experience will be closer to single-player development.</li>
-<li>Same Timeline: all objects live in the same timeline, which is the local/predicted timeline. No desync between objects.</li>
 </ul>
 <h4 id="cons-1">Cons</h4>
 <ul>

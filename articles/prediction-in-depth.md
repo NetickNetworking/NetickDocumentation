@@ -47,14 +47,14 @@ In conclusion, let's see the pros and cons of each approach:
 
 #### Cons
 * Weak Player-to-Player Interactions: usually the best approach is to disable collisions between players.
-* Desync with Local Timeline: the local player is out-of-sync with remote players.
+* Multiple Timelines: the local player is out-of-sync with remote players, due to being in the Local Timeline, while they are in the Remote Timeline.
 
 ### With Proxy/Remote Prediction
 
 #### Pros
 * Good Player-to-Player Interactions: you can have smooth and responsive interactions between players, such as collisions. 
+* Single Timeline: all objects live in the same timeline, which is the local/predicted timeline. No desync between objects.
 * Simpler Code: by being able to simulate other objects and have them all in the same timeline, the coding experience will be closer to single-player development.
-* Same Timeline: all objects live in the same timeline, which is the local/predicted timeline. No desync between objects.
 
 #### Cons
 * Mispredictions: the rendered states of predicted remote objects are not necessarily states that actually happened in the server, due to mispredictions. One player can report seeing different things compared to other players, creating contradictory perspectives on what happened. Mispredictions get worse with higher pings, so clients with very high pings (+300) might have almost an unplayable experience.
@@ -86,4 +86,4 @@ Rocket Cars serves as an excellent example of how Proxy/Remote Prediction works.
 
 ## Prediction Error Correction Smoothing
 
-By default, correcting mispredictions is instantaneous. This will cause the predicted remote objects to snap somewhere else when a player changes their movement direction suddenly. And as we said, the magnitude of mispredictions is proportional to latency. Therefore, for a smooth visual experience, we must smooth out the prediction correction. Netick implements a smooth correcter in `NetworkTransfrom`/`NetworkRigidbody`. By enabling it, it will smooth out the corrections over multiple frames. There are a few settings for it which will need to be fine-tuned to find what is best for your object
+By default, correcting mispredictions is instantaneous. This will cause the predicted remote objects to snap somewhere else when a player changes their movement direction suddenly. And as we said, the magnitude of mispredictions is proportional to latency. Therefore, for a smooth visual experience, we must smooth out the prediction correction. Netick implements a smooth correcter in `NetworkTransfrom`/`NetworkRigidbody`. By enabling it, it will smooth out the corrections over multiple frames. There are a few settings for it which will need to be fine-tuned to find what is best for your object.
