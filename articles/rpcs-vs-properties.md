@@ -64,8 +64,8 @@ public void ApplyDamage(NetworkObjectRef AttackerPlayer, int damageAmount)
     
     DamageIndicatorsSources[_hitIncrementor % DamageIndicatorsSources.Length] = new DamageIndicatorData()
     {
-        DamagerId   = AttackerPlayer,
-        Incrementor = _hitIncrementor // we included the incrementor variable as part of the struct to force the OnChanged callback to fire again if the same attacker player was assigned.
+        DamagerPlayer = AttackerPlayer,
+        Incrementor   = _hitIncrementor // we included the incrementor variable as part of the struct to force the OnChanged callback to fire again if the same attacker player was assigned.
     };
 
     _hitIncrementor++;
