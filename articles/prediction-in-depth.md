@@ -41,7 +41,7 @@ In conclusion, let's see the pros and cons of each approach:
 ### Without Proxy/Remote Prediction
 
 #### Pros
-* Accurate Snapshots: the state of remote objects is correct, since it's coming directly from the received server snapshots.
+* Accurate Snapshots: the states of remote objects are correct, since they come directly from the received server snapshots.
 * Lag-Compensation: you can have perfect server-authoritative hit-detection for clients since what the clients see is what actually happened, without mispredictions.
 * Low CPU Overhead: since you only simulate the local player, CPU performance will be better.
 
