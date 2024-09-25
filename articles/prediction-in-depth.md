@@ -42,7 +42,7 @@ In conclusion, let's see the pros and cons of each approach:
 
 #### Pros
 * Accurate Snapshots: the states of remote objects are correct, since they come directly from the received server snapshots.
-* Lag-Compensation: you can have perfect server-authoritative hit-detection for clients since what the clients see is what actually happened, without mispredictions.
+* Lag Compensation: you can have perfect server-authoritative hit-detection using Lag Compensation for clients since what the clients see is what actually happened, without mispredictions.
 * Low CPU Overhead: since you only simulate the local player, CPU performance will be better.
 
 #### Cons
@@ -58,7 +58,7 @@ In conclusion, let's see the pros and cons of each approach:
 
 #### Cons
 * Mispredictions: the rendered states of predicted remote objects are not necessarily states that actually happened in the server, due to mispredictions. One player can report seeing different things compared to other players, creating contradictory perspectives on what happened. Mispredictions get worse with higher pings, so clients with very high pings (+300) might have almost an unplayable experience.
-* No Lag-Compensation: you can't perform lag compensation on predicted objects. However, because all objects are in the same timeline, there is no need for lag compensation. But, due to mispredictions, the client hits will often miss. 
+* No Lag Compensation: you can't perform lag compensation on predicted objects. However, because all objects are in the same timeline, there is no need for lag compensation. But, due to mispredictions, the client hits will often miss. 
 * High CPU Overhead: predicting more objects will use more CPU time, and the cost of that increases with ping and tickrate.
 
 ## Predicting Remote/Proxy Objects
