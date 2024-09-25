@@ -38,7 +38,7 @@ This example showcases how we can use circular buffers to synchronize hit indica
 ```cs
 public struct DamageIndicatorData
 {
-    public NetworkObjectRef DamagerPlayer;
+    public NetworkObjectRef AttackerPlayer;
     public int              Incrementor;
 }
 
@@ -64,8 +64,8 @@ public void ApplyDamage(NetworkObjectRef AttackerPlayer, int damageAmount)
     
     DamageIndicatorsSources[_hitIncrementor % DamageIndicatorsSources.Length] = new DamageIndicatorData()
     {
-        DamagerPlayer = AttackerPlayer,
-        Incrementor   = _hitIncrementor // we included the incrementor variable as part of the struct to force the OnChanged callback to fire again if the same attacker player was assigned.
+        AttackerPlayer = AttackerPlayer,
+        Incrementor    = _hitIncrementor // we included the incrementor variable as part of the struct to force the OnChanged callback to fire again if the same attacker player was assigned.
     };
 
     _hitIncrementor++;

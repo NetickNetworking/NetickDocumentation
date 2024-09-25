@@ -111,7 +111,7 @@
 <p>This example showcases how we can use circular buffers to synchronize hit indicators, usually seen in FPS games. Hit indicators are rotating arrows around the middle of the screen that point to the locations of where you were last being damaged from.</p>
 <pre><code class="lang-cs">public struct DamageIndicatorData
 {
-    public NetworkObjectRef DamagerPlayer;
+    public NetworkObjectRef AttackerPlayer;
     public int              Incrementor;
 }
 
@@ -137,8 +137,8 @@ public void ApplyDamage(NetworkObjectRef AttackerPlayer, int damageAmount)
     
     DamageIndicatorsSources[_hitIncrementor % DamageIndicatorsSources.Length] = new DamageIndicatorData()
     {
-        DamagerPlayer = AttackerPlayer,
-        Incrementor   = _hitIncrementor // we included the incrementor variable as part of the struct to force the OnChanged callback to fire again if the same attacker player was assigned.
+        AttackerPlayer = AttackerPlayer,
+        Incrementor    = _hitIncrementor // we included the incrementor variable as part of the struct to force the OnChanged callback to fire again if the same attacker player was assigned.
     };
 
     _hitIncrementor++;
