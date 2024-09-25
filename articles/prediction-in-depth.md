@@ -1,20 +1,20 @@
 # Prediction In-Depth
 
-Let's get this started by doing a recap on what prediction means.
+Let's start this by doing a recap on what prediction means.
 
 Prediction is when the client tries to guess what the game (the networked state of the game) currently looks like in the server, starting from the latest received server world snapshot as a starting point. The client uses its local inputs (that have yet to be acknowledged and processed by the server) to simulate forward up to the latency (ping/RTT) between it and the server, so that the client sees the same state as the server, at almost the same time. Put differently, from the perspective of the client, prediction means predicting the future state of the server world.
 
-However, for many types of games, namely First Person Shooters, it's common to only predict one (and few more objects) object, notably the local player character.
+However, for many types of games, namely First Person Shooters, it's common to only predict one (and few more) objects, notably the local player character.
 
 When we do this, our local player character object will live in the local (predicted) timeline. While remote objects (including remote players) will live in the remote timeline. What do we mean by these terms?
 
-- Remote Timeline: Remote Timeline refers to the delayed (by half RTT) timeline we see proxy objects in the client. A proxy object is any object that the client is not providing inputs to (not an Input Source of), and is fully controlled by the server, and the client merely observes the incoming server state snapshots for it. Because the server data is delayed, what we see for these objects is delayed by `half RTT + interpolation delay`.
+- Remote Timeline: Remote Timeline refers to the old or delayed timeline we see proxy objects in the client. It's delayed because of ping/latency, incoming data from the server takes a bit of time to arrive. A proxy object is any object that the client is not providing inputs to (not an Input Source of), and the client merely observes the incoming server state snapshots for it. Because the server data is delayed/old (due to latency), what we see for these objects is delayed by `half RTT + interpolation delay`.
 
-- Local/Predicted Timeline: Local/Predicted Timeline refers to the timeline predicted objects in the client live in. The local timeline differs to the remote timeline by being ahead of the remote timeline by `RTT + additional buffering` (due to adaptation to non-ideal network conditions). 
+- Local/Predicted Timeline: Local/Predicted Timeline refers to the timeline predicted objects in the client live in. The local timeline differs to the remote timeline by being ahead of the remote timeline by `RTT + additional buffering (due to adaptation to non-ideal network conditions)`. 
 
-What we understand here is that there is a discrepancy. Some objects will be in the local timeline, and others will be in the remote timeline. The remote timeline is out-of-sync with the local timeline, which gets worse with ping. Even though this might seem bad, but that's how almost every First Person Shooter works. The local player in an FPS game is in the predicted timeline, while other players (remote players) are in the remote timeline. Why is that though? Why not put all objects in the predicted timeline for an FPS game?
+Therefore, there is a discrepancy between the two timelines. Some objects will be in the local timeline, and others will be in the remote timeline. The remote timeline is out-of-sync with the local timeline, which gets worse with ping. Even though this might seem bad, but that's how almost every First Person Shooter works. The local player in an FPS game is in the predicted timeline, while other players (remote players) are in the remote timeline. Why is that though? Why not put all objects in the predicted timeline for an FPS game?
 
-The problem with this is that, usually, the acceleration speeds of an FPS character are too fast that the prediction will always be wrong, and it results in a poor gameplay experience. You will see a player come out of a corner and suddenly disappear, due to mis-predictions. In addition, server-authoritative bullet hit-detection is tricky on predicted remote objects. Since, due to mis-predictions, missed shots will be common. In contrast, [lag-compensation](lag-compensation.md), which is a technique that only works with the remote timeline, allows for perfect hit-detection.
+The problem with this is that, usually, the acceleration rate of an FPS character is so fast that the prediction will always be wrong, and it results in a poor gameplay experience. You will see a player come out of a corner and suddenly disappear, due to mispredictions. In addition, server-authoritative bullet hit-detection is tricky on predicted remote objects. Since, due to mispredictions, missed shots will be common. In contrast, [lag-compensation](lag-compensation.md), which is a technique that only works with the remote timeline, allows for perfect hit-detection.
 
 An important fact to emphasize is that it's impossible for the client to accurately predict the inputs of other clients. However, players usually don't drastically change their inputs from one moment to the other, which is a good thing.
 
@@ -32,7 +32,7 @@ In the right-side figure, we see that all cars are aligned with each other, whic
 
 Now, let's see what the game looks like if we didn't predict remote/proxy objects. Let's look at the left-side figure above. What we see here is that, now, only our local car is in the predicted position. Other cars are, to us, delayed. They are out-of-sync with the local player car. The gray ghost shapes show where the cars should be, if they were to be predicted. The difference in position here is the amount of positional discrepancy between the local/predicted timeline against the remote timeline, which is proportional to RTT/latency.
 
-So, the conclusion here is that neither approach is perfect. Not predicting remote objects will result in delayed collisions. Predicting them will result in mis-predictions. This is the reality of game-networking, there is not a one-size-fit-all solution. You choose the lesser evil.
+So, the conclusion here is that neither approach is perfect. Not predicting remote objects will result in delayed collisions. Predicting them will result in mispredictions. This is the reality of game-networking, there is not a one-size-fit-all solution. You choose the lesser evil.
 
 The lesser evil for this game is to predict remote objects. Therefore, it's a matter of choosing which approach works better for a particular game.
 
@@ -41,8 +41,8 @@ In conclusion, let's see the pros and cons of each approach:
 ### Without Proxy/Remote Prediction
 
 #### Pros
-* Correct Snapshots: the state of remote objects is correct, since it's coming directly from the received server snapshots.
-* Hit-Detection Lag-Compensation: you can have perfect server-authoritative hit-detection for clients since what the clients see is what actually happened, without mis-predictions.
+* Accurate Snapshots: the state of remote objects is correct, since it's coming directly from the received server snapshots.
+* Lag-Compensation: you can have perfect server-authoritative hit-detection for clients since what the clients see is what actually happened, without mispredictions.
 * Low CPU Overhead: since you only simulate the local player, CPU performance will be better.
 
 #### Cons
@@ -57,7 +57,8 @@ In conclusion, let's see the pros and cons of each approach:
 * Same Timeline: all objects live in the same timeline, which is the local/predicted timeline. No desync between objects.
 
 #### Cons
-* Inability to do Lag-Compensation for Hit-Detection: you can't perform lag compensation on predicted objects. However, because all objects are in the same timeline, there is no need for lag compensation. But, due to mis-predictions, the clients hits will often miss. 
+* Mispredictions: the rendered state of predicted remote objects is not necessarily a state that actually happened in the server, due to mispredictions. One player can report seeing different things compared to other players, creating contradictory perspectives on what happened. Mispredictions get worse with higher-pings, so clients with very high-ping (+300) might have almost an unplayable experience.
+* No Lag-Compensation: you can't perform lag compensation on predicted objects. However, because all objects are in the same timeline, there is no need for lag compensation. But, due to mispredictions, the clients hits will often miss. 
 * High CPU Overhead: predicting more objects will use more CPU time, and the cost of that increases with ping and tickrate.
 
 ## Predicting Remote/Proxy Objects
@@ -87,4 +88,4 @@ Rocket Cars serves as an excellent example of how Proxy/Remote Prediction works.
 
 ## Prediction Error Correction Smoothing
 
-By default, correcting mis-predictions is instantaneous. This will cause the predicted remote objects to snap somewhere else when a player changes their movement direction suddenly. And as we said, the magnitude of mis-predictions is proportional to latency. Therefore, for a smooth visual experience, we must smooth out the prediction correction. Netick implements a smooth correcter in `NetworkTransfrom`/`NetworkRigidbody`. By enabling it, it will smooth out the corrections over multiple frames. There are a few settings for it which will need to be fine-tuned to find what is best for your object.
+By default, correcting mispredictions is instantaneous. This will cause the predicted remote objects to snap somewhere else when a player changes their movement direction suddenly. And as we said, the magnitude of mispredictions is proportional to latency. Therefore, for a smooth visual experience, we must smooth out the prediction correction. Netick implements a smooth correcter in `NetworkTransfrom`/`NetworkRigidbody`. By enabling it, it will smooth out the corrections over multiple frames. There are a few settings for it which will need to be fine-tuned to find what is best for your object.
