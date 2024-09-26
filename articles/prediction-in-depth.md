@@ -2,7 +2,7 @@
 
 Let's start this by doing a recap on what prediction means.
 
-Prediction is when the client tries to guess what the game (the networked state of the game) currently looks like in the server, starting from the latest received server world snapshot as a starting point. The client uses its local inputs (that have yet to be acknowledged and processed by the server) to simulate forward up to the latency (ping/RTT) between it and the server, so that the client sees the same state as the server, at almost the same time. Put differently, from the perspective of the client, prediction means predicting the future state of the server world.
+Prediction is when the client tries to guess what the game (the networked state of the game) looks like in the server, starting from the latest received server world snapshot as a starting point. The client uses its local inputs (that have yet to be acknowledged and processed by the server) to simulate forward up to the latency (ping/RTT) between it and the server. Put differently, from the perspective of the client, prediction means predicting the future state of the server world.
 
 However, for many types of games, namely First Person Shooters, it's common to only predict one (and few more) objects, notably the local player character.
 
