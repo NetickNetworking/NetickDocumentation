@@ -15,7 +15,7 @@ This is obviously not practical due to internet latency (round-trip time), as th
 
 <figure><img src="../../images/tick.png" alt="Client-Side Prediction"><figcaption></figcaption></figure>
 
-Client-Side Prediction basically means that the client, instead of waiting for the server to simulate its inputs and send the resultant states to it, the client executes them locally (in other words, predicts their outcome), and when the resultant state comes in, it applies that state (called rollback) and resimulate all saved inputs that are targeted to ticks that are newer than that received state tick. All this happens in one tick, instantly.
+Client-Side Prediction basically means that the client, instead of waiting for the server to simulate its inputs and send the resultant states to it, the client executes them locally (in other words, predicts their outcome), and when the resultant state comes in, it applies that state (rolls back to the old server state) and resimulate all saved inputs that are targeted to ticks that are newer than that received state tick. All this happens in one tick, instantly.
 
 This ensures that the server still has the final say on the authority of the game (because, eventually, the client will overwrite its local state with whatever the server says), but at the same time allows the client to locally predict their input outcome and enjoy a lag-free experience.
 
