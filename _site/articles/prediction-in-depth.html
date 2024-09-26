@@ -142,7 +142,7 @@
     if (FetchInput(out GameInput input))
       LastInput          = input;
 
-    SimulateVehicle(input);
+    SimulateVehicle(LastInput);
   }
 </code></pre>
 <p>That's all there is to it. <code>FetchInput</code> only returns true on the Input Source itself, and the server. So, by simply defining a network property to store the input in, we are able to sync the input to everyone, including observing (proxies) players.</p>

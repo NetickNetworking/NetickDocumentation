@@ -74,7 +74,7 @@ However, this is not all. To be able to predict the input of other players, we n
     if (FetchInput(out GameInput input))
       LastInput          = input;
 
-    SimulateVehicle(input);
+    SimulateVehicle(LastInput);
   }
 ```
 
