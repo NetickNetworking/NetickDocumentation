@@ -121,11 +121,11 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 {
     if (FetchInput(out MyInput input))
     {
+        // clamp movement inputs
+        input.Movement     = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), Mathf.Clamp(input.Movement.y, -1f, 1f));
+
         // movement
         var movementInputs = transform.TransformVector(new Vector3(input.Movement.x, 0, input.Movement.y)) * Speed;
-
-        // clamp movement inputs
-        movementInputs     = new Vector3(Mathf.Clamp(input.Movement.x, -1f, 1f), 0,  Mathf.Clamp(input.Movement.y, -1f, 1f)) * Speed;
         _CC.Move(movementInputs * Time.fixedDeltaTime);
 
 	    // shooting
