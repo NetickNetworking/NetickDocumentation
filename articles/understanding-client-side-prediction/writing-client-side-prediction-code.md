@@ -88,7 +88,7 @@ public override void NetworkFixedUpdate()
 
 Here, we see three types of actions:
 
-1. **Predicted**: used for things like movement. It's the default case.
+1. **Predicted**: used for actions like movement. It's the default case.
 
 2. **Non-Predicted**: used for actions that are best left unpredicted. We use riding a vehicle as an example. Even though this action can be predicted, it's usually not, to avoid conflicts where multiple players predict that they entered the vehicle as a driver only for it to be mispredicted because another player did the action first, which can be very frustrating and look bad. This is accomplished by making the code only runs in the server using `IsServer`.
 
