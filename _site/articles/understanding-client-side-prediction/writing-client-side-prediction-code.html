@@ -158,7 +158,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 <ol>
 <li><p><strong>Predicted</strong>: used for actions like movement. It's the default case.</p>
 </li>
-<li><p><strong>Non-Predicted</strong>: used for actions that are best left unpredicted. We use riding a vehicle as an example. Even though this action can be predicted, it's usually not, to avoid conflicts where multiple players predict that they entered the vehicle as a driver only for it to be mispredicted because another player did the action first, which can be very frustrating and look bad. This is accomplished by making the code only runs in the server using <code>IsServer</code>.</p>
+<li><p><strong>Non-Predicted</strong>: used for actions that are best left unpredicted. Let's use riding a vehicle as an example. Even though this action can be predicted, it's usually not, to avoid conflicts where multiple players predict that they entered the vehicle as a driver only for it to be mispredicted because another player did the action first, which can be very frustrating and look bad. This is accomplished by making the code only runs in the server using <code>IsServer</code>.</p>
 </li>
 <li><p><strong>Predicted but not resimulated</strong>: used for actions that must only happen during the first time ever when a tick is executed, and not during its resimulations. Usually you use this for things like shooting, to avoid the sound effect to play more than once or the visual effects to spawn multiple times.</p>
 </li>
