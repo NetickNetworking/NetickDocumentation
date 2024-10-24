@@ -25,7 +25,7 @@ It's highly recommended to avoid using RPCs, and only use them when necessary. E
 [OnChanged callbacks](change-callback.md) are very powerful. Their use-cases are endless. For a couple examples:
 
 - A jump counter network property to sync jump audio. Increment it every time you jump, resulting in a callback that you can use to play jump audio.
-- A health network property to sync death event. Check if the previous value is higher than the current value, and the current value has turned to 0. This means the player has dead, and you can use the callback to create effects or play audio.
+- A health network property to sync death event. Check if the previous value is higher than the current value, and the current value has turned to 0. This means the player has died, and you can use the callback to create effects or play audio.
 
 ## Circular Buffers
 

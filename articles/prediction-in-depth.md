@@ -87,3 +87,38 @@ Rocket Cars serves as an excellent example of how Proxy/Remote Prediction works.
 ## Prediction Error Correction Smoothing
 
 By default, correcting mispredictions is instantaneous. This will cause the predicted remote objects to snap somewhere else when a player changes their movement direction suddenly. And as we said, the magnitude of mispredictions is proportional to latency. Therefore, for a smooth visual experience, we must smooth out the prediction correction. Netick implements a smooth correcter in `NetworkTransfrom`/`NetworkRigidbody`. By enabling it, it will smooth out the corrections over multiple frames. There are a few settings for it which will need to be fine-tuned to find what is best for your object.
+
+## Input Delay
+
+A powerful technique to reduce mispredictions on remote objects is to to delay the inputs of everyone by a specific amount/ticks. This will make the game almost perfectly synced without mispredictions for players with pings roughly below the input delay. 
+
+Example:
+
+```cs
+public float                                 InputDelay         = 150; // in milliseconds
+public const int                             InputQueueCapacity = 6;
+[Networked(size: InputQueueCapacity)]
+public readonly NetworkQueue<MyInput>        InputQueue        = new(InputQueueCapacity);
+[Networked] 
+public MyInput                               LastInput         { get; private set; }
+
+public override void NetworkFixedUpdate()
+{
+  if (FetchInput(out MyInput i))
+  {
+    if (InputQueue.Count == InputQueueCapacity)
+       InputQueue.Dequeue();
+     InputQueue.Enqueue(i);
+   }
+
+  int inputDelayInTicks = (int)Mathf.Round((InputDelay / 1000f) / Sandbox.FixedDeltaTime);
+
+  if (InputQueue.Count > 0 && (Sandbox.Tick - InputQueue.Peek().Tick >= inputDelayInTicks))
+     LastInput = InputQueue.Dequeue();
+
+  // logic
+  Move(LastInput);
+}
+```
+
+Note that we've added a field called `Tick` to the input struct, which we assign it the value of `Sandbox.Tick` when setting the input struct fields.

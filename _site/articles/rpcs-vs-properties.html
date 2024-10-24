@@ -103,7 +103,7 @@
 <p><a href="change-callback.html">OnChanged callbacks</a> are very powerful. Their use-cases are endless. For a couple examples:</p>
 <ul>
 <li>A jump counter network property to sync jump audio. Increment it every time you jump, resulting in a callback that you can use to play jump audio.</li>
-<li>A health network property to sync death event. Check if the previous value is higher than the current value, and the current value has turned to 0. This means the player has dead, and you can use the callback to create effects or play audio.</li>
+<li>A health network property to sync death event. Check if the previous value is higher than the current value, and the current value has turned to 0. This means the player has died, and you can use the callback to create effects or play audio.</li>
 </ul>
 <h2 id="circular-buffers">Circular Buffers</h2>
 <p>One of the easiest ways to avoid many types of RPCs is to use <a href="https://en.wikipedia.org/wiki/Circular_buffer">Circular Buffers</a>. A circular buffer is a <code>NetworkArray</code> that you update in a circular/ring fashion. When you reach the end of the array, you start over at the beginning of the array - this is accomplished by using the modulo operator when indexing the array, using an incrementing value. Using this, you can synchronize many short-lived things such as projectiles, hit indicators, and more.</p>

@@ -63,6 +63,37 @@ public override void NetworkFixedUpdate()
 }
 ```
 
+To solidify your understanding, here's another more abstracted example:
+
+```cs
+public override void NetworkFixedUpdate()
+{
+    if (FetchInput(out MyInput input))
+    {
+        // predicted action (movement).
+        Move(input);
+
+        // non-predicted action (interacting with a world object like a vehicle or a pickup).
+        if (IsServer)
+            if (input.Interact)
+                TryToInteract();
+        
+        // predicted action, but not resimulated (shooting).
+        if (!IsResimulating)
+            if (input.ShootInput)
+                Shot();
+    }
+}
+```
+
+Here, we see three types of actions:
+
+1. **Predicted**: used for things like movement. It's the default case.
+
+2. **Non-Predicted**: used for actions that are best left unpredicted. We use riding a vehicle as an example. Even though this action can be predicted, it's usually not, to avoid conflicts where multiple players predict that they entered the vehicle as a driver only for it to be mispredicted because another player did the action first, which can be very frustrating and look bad. This is accomplished by making the code only runs in the server using `IsServer`.
+
+3. **Predicted but not resimulated**: used for actions that must only happen during the first time ever when a tick is executed, and not during its resimulations. Usually you use this for things like shooting, to avoid the sound effect to play more than once or the visual effects to spawn multiple times.
+
 
 > [!NOTE]
 > Everything that is modified around `FetchInput`, and also affects the networked state, must be networked using `[Networked]`. For example, if you have a variable that is changing over time which can affect the speed of the player, it must be networked.
@@ -118,7 +149,7 @@ There are two methods you can override to run code when Input Source has changed
 2. `OnInputSourceLeft`: called on the owner (server) when the Input Source client has left the game.
 
 
-## Mindset when using Client-Side Prediction
+## RPCs vs Inputs for Client->Server Actions
 
 Other networking solution rely heavily on the usage of RPCs. However, Netick allows for a much more easier, robust, and safer approach that will make most RPCs obsolete.
 

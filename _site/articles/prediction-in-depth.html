@@ -150,6 +150,35 @@
 <p>Rocket Cars serves as an excellent example of how Proxy/Remote Prediction works.</p>
 <h2 id="prediction-error-correction-smoothing">Prediction Error Correction Smoothing</h2>
 <p>By default, correcting mispredictions is instantaneous. This will cause the predicted remote objects to snap somewhere else when a player changes their movement direction suddenly. And as we said, the magnitude of mispredictions is proportional to latency. Therefore, for a smooth visual experience, we must smooth out the prediction correction. Netick implements a smooth correcter in <code>NetworkTransfrom</code>/<code>NetworkRigidbody</code>. By enabling it, it will smooth out the corrections over multiple frames. There are a few settings for it which will need to be fine-tuned to find what is best for your object.</p>
+<h2 id="input-delay">Input Delay</h2>
+<p>A powerful technique to reduce mispredictions on remote objects is to to delay the inputs of everyone by a specific amount/ticks. This will make the game almost perfectly synced without mispredictions for players with pings roughly below the input delay.</p>
+<p>Example:</p>
+<pre><code class="lang-cs">public float                                 InputDelay         = 150; // in milliseconds
+public const int                             InputQueueCapacity = 6;
+[Networked(size: InputQueueCapacity)]
+public readonly NetworkQueue&lt;MyInput&gt;        InputQueue        = new(InputQueueCapacity);
+[Networked] 
+public MyInput                               LastInput         { get; private set; }
+
+public override void NetworkFixedUpdate()
+{
+  if (FetchInput(out MyInput i))
+  {
+    if (InputQueue.Count == InputQueueCapacity)
+       InputQueue.Dequeue();
+     InputQueue.Enqueue(i);
+   }
+
+  int inputDelayInTicks = (int)Mathf.Round((InputDelay / 1000f) / Sandbox.FixedDeltaTime);
+
+  if (InputQueue.Count &gt; 0 &amp;&amp; (Sandbox.Tick - InputQueue.Peek().Tick &gt;= inputDelayInTicks))
+     LastInput = InputQueue.Dequeue();
+
+  // logic
+  Move(LastInput);
+}
+</code></pre>
+<p>Note that we've added a field called <code>Tick</code> to the input struct, which we assign it the value of <code>Sandbox.Tick</code> when setting the input struct fields.</p>
 
 </article>
 

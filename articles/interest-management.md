@@ -2,7 +2,7 @@
 
 ## Understanding Interest Management
 
-When you have a game with a big world and a high player count, it becomes more and more expensive to replicate every object in the game to every connected client. It's an O(N<sup>2</sup>) problem, meaning the bandwidth sent from the server scales quadratically with the number of players connected. Interest Management mitigates this problem by filtering objects that are of no interest to the client. Usually, this is done using Area of Interest, which is the area around the player. The client will only receive objects existing in this area. Interest management is often used in battle-royal scale games
+When you have a game with a big world and a high player count, it becomes more and more expensive to replicate every object in the game to every connected client. It's an O(N<sup>2</sup>) problem, meaning the bandwidth sent from the server scales quadratically with the number of players connected. Interest Management mitigates this problem by filtering objects that are of no interest to the client. Usually, this is done using Area of Interest, which is the area around the player. The client will only receive objects existing in this area. Interest management is often used in battle-royale scale games
 
 Interest Management is also useful as an anti-cheat measure. For instance, you can replicate team-specific objects to only players of the same team, using a Custom interest group, which we will learn about in this article.
 
