@@ -95,7 +95,7 @@ A powerful technique to reduce mispredictions on remote objects is to to delay t
 Example:
 
 ```cs
-public float                                 InputDelay         = 150; // in milliseconds
+public float                                 InputDelay         = 100; // in milliseconds
 public const int                             InputQueueCapacity = 6;
 [Networked(size: InputQueueCapacity)]
 public readonly NetworkQueue<MyInput>        InputQueue        = new(InputQueueCapacity);

@@ -153,7 +153,7 @@
 <h2 id="input-delay">Input Delay</h2>
 <p>A powerful technique to reduce mispredictions on remote objects is to to delay the inputs of everyone by a specific amount/ticks. This will make the game almost perfectly synced without mispredictions for players with pings roughly below the input delay.</p>
 <p>Example:</p>
-<pre><code class="lang-cs">public float                                 InputDelay         = 150; // in milliseconds
+<pre><code class="lang-cs">public float                                 InputDelay         = 100; // in milliseconds
 public const int                             InputQueueCapacity = 6;
 [Networked(size: InputQueueCapacity)]
 public readonly NetworkQueue&lt;MyInput&gt;        InputQueue        = new(InputQueueCapacity);
