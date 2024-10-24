@@ -242,25 +242,6 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
     }
 }
 </code></pre>
-<h3 id="networking-the-last-fetched-input">Networking the Last Fetched Input</h3>
-<p>Or you can handle this yourself, by storing and networking the last fetched input:</p>
-<pre><code class="lang-csharp">
-[Networked(relevancy: Relevancy.InputSource)]
-private MyInput LastInput { get; set; }
-
-public override void NetworkFixedUpdate()
-{
-    if (FetchInput(out MyInput input))
-    {
-        LastInput = input;
-    }
-
-    if (IsPredicted) // returns true on the client (if this object is predicted), and on the server.
-    {
-        // do movement stuff using LastInput.
-    }
-}
-</code></pre>
 
 </article>
 

@@ -201,29 +201,3 @@ public override void NetworkFixedUpdate()
     }
 }
 ```
-
-
-
-### Networking the Last Fetched Input
-
-Or you can handle this yourself, by storing and networking the last fetched input:
-
-```csharp
-
-[Networked(relevancy: Relevancy.InputSource)]
-private MyInput LastInput { get; set; }
-
-public override void NetworkFixedUpdate()
-{
-    if (FetchInput(out MyInput input))
-    {
-        LastInput = input;
-    }
-
-    if (IsPredicted) // returns true on the client (if this object is predicted), and on the server.
-    {
-        // do movement stuff using LastInput.
-    }
-}
-```
-
