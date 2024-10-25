@@ -182,9 +182,6 @@ This way, you have full server-authority on what objects the client can interact
 
 When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks need to use the same input of one frame. Not handling this can cause the player character to move slower during very low FPS. 
 
-There are two ways to handle this issue:
-
-
 ### Enabling `Input Reuse At Low FPS` in Netick Settings
 
 Enabling this option would automatically let Netick reuse/duplicate the same input of one frame to one or more ticks. You can also know if the input fetched is a duplicated input or not as follows:
