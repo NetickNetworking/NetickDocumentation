@@ -18,8 +18,9 @@
 * Download: https://github.com/Milk-Drinker01/Netick2-Facepunch-Transport
 * Maintainer: community
 
-## ENet 
-* Protocol: UDP
-* Platforms: All, except WebGL
-* Download: https://github.com/Molth/NetickENetTransport
+## Multiplex Transport:
+Allows you to use more than one transport together.
+
+* Download: https://github.com/StinkySteak/NetickMultiplexTransport
 * Maintainer: community
+
