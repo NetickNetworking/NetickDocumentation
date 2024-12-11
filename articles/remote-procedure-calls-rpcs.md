@@ -36,7 +36,7 @@ MyStaticRpc(Sandbox.Engine, 56);
 ```
 
 > [!WARNING]
-> RPCs are not called on restimulated ticks.
+> RPCs are not called on resimulated ticks.
 > [!WARNING]
 > By default all RPCs are unreliable.
 
