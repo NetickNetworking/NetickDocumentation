@@ -15,7 +15,7 @@ In this tutorial, we are going to use an RPC (Remote Procedure Call) to set our 
 
 <figure><img src="../../images/getting-started/105-canvas.png" alt=""><figcaption></figcaption></figure>
 
-6. In your text component, change font size to `128`, give it black color, and middle & center alignment. Make sure your text now is in the center.
+6. In your text component, change font size to `128`, and middle & center alignment. Make sure your text now is in the center.
 
 <figure><img src="../../images/getting-started/105-tmp.png" alt=""><figcaption></figcaption></figure>
 
