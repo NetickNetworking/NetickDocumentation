@@ -53,7 +53,7 @@ Example:
 [Networked(size: 32)]
 public readonly NetworkLinkedList<int> MyNetworkLinkedList = new NetworkArray<int>(32);
 
-[OnChanged(nameof(ListExample))]
+[OnChanged(nameof(MyNetworkLinkedList))]
 private void OnMyNetworkLinkedListChanged(OnChangedData onChangedData)
 {
   // getting a snapshot of the previous state of the collection

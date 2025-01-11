@@ -126,7 +126,7 @@
 </code></pre>
 <h3 id="using-sandboxevents">Using <code>Sandbox.Events</code></h3>
 <p>Or you can manually subscribe/unsubscribe on a <code>NetworkBehaviour</code>.</p>
-<pre><code class="lang-cs">public override void NetworkStart()
+<pre><code class="lang-cs">public override void NetworkAwake()
 {
   Sandbox.Events.OnSceneOperationBegan += OnSceneOperationBegan;
   Sandbox.Events.OnSceneOperationDone  += OnSceneOperationDone;

@@ -59,7 +59,7 @@ public override void OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneO
 Or you can manually subscribe/unsubscribe on a `NetworkBehaviour`.
 
 ```cs
-public override void NetworkStart()
+public override void NetworkAwake()
 {
   Sandbox.Events.OnSceneOperationBegan += OnSceneOperationBegan;
   Sandbox.Events.OnSceneOperationDone  += OnSceneOperationDone;
