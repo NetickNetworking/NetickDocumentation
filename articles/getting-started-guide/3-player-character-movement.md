@@ -83,21 +83,20 @@ In a single-player game, we use `Time.deltaTime` to move our player to make it f
 
 [Learn More About Writing Client-Side Prediction Code](../understanding-client-side-prediction/writing-client-side-prediction-code.md)
 
-## Network Rigidbody
-Adding `NetworkRigidbody` allows us to sync the position, rotation and physics of our character.
+## Network Transform
+Adding `NetworkTransform` allows us to sync the position, rotation of our character.
 
-1. Add `NetworkRigidbody` component to our player character prefab.
-2. Toggle on `Freeze Rotation` on all Axis (X, Y, Z).
+- Add `NetworkTransform` component to our player character prefab.
 
-[Learn More About NetworkRigidbody](../built-in-components/networkrigidbody.md)
+[Learn More About NetworkTransform](../built-in-components/networktransform.md)
 
 ### Gameplay & Visual Seperation
-In the `NetworkRigidbody` component, there is a `Render Transform` field which asks for a `Transform`.
+In the `NetworkTransform` component, there is a `Render Transform` field which asks for a `Transform`.
 Because Netick is a tick-based netcode, it means movement will happen at a fixed rate which is lower than your FPS. Which will cause unsmooth movement. To fix this, we use interpolation which lets us give smoothed position and rotation to our player character visual.
 
 1. Create a child on the player and name it "Visual".
 2. Delete & Move the `Capsule (Mesh Filter)` and `Mesh Renderer` component to Visual.
-3. Assign Visual to `Render Transform` of `NetworkRigidbody` .
+3. Assign Visual to `Render Transform` of `NetworkTransform` .
 
 [Learn More About Interpolation](../interpolation.md)
 

@@ -51,8 +51,8 @@ Then assign the `Transport` field of Game Starter.
 
 ## Setting Up the Scene
 ### Floor
-Let's create a 3D Cube named "Floor" with a scale of `(15, 1, 15)` and a position of `(0, -1.5, 0)`.
-
+- Let's create a 3D Cube named "Floor" with a scale of `(15, 1, 15)` and a position of `(0, -1.5, 0)`.
+- Create and assign a black material into it for visibility
 <figure><img src="../../images/getting-started/102-floor.png" alt=""><figcaption></figcaption></figure>
 
 ### Camera
@@ -85,6 +85,7 @@ Let's create our player character:
 1. Right click on the hierarchy and select `3D Object > Capsule`.
 2. Add `NetworkObject` component.
 3. Rename it to `PlayerCharacter`.
+4. Remove the Capsule Collider from the Capsule we just created (we won't use physics in this tutorial)
 
 Adding `NetworkObject` to a GameObject will give it an identity across the network, so that it's synced. 
 
@@ -107,7 +108,12 @@ public class GameplayManager : NetworkEventsListener
 
     public override void OnPlayerConnected(NetworkSandbox sandbox, Netick.NetworkPlayer player)
     {
-        sandbox.NetworkInstantiate(PlayerPrefab.gameObject, Vector3.zero, Quaternion.identity, player);
+        // Random Spawn Position (to not make them overlap)
+        Vector3 spawnPosition = new Vector3();
+        spawnPosition.x = Random.Range(-5f, 5f);
+        spawnPosition.z = Random.Range(-5f, 5f);
+
+        sandbox.NetworkInstantiate(PlayerPrefab.gameObject, spawnPosition, Quaternion.identity, player);
     }
 }
 ```
