@@ -151,20 +151,19 @@ public class GameplayManager : NetworkEventsListener
 <p>Do not confuse <code>Sandbox.FixedDeltaTime</code> with <code>Sandbox.DeltaTime</code> (equal to Unity's <code>Time.deltaTime</code>).</p>
 </div>
 <p><a href="../understanding-client-side-prediction/writing-client-side-prediction-code.html">Learn More About Writing Client-Side Prediction Code</a></p>
-<h2 id="network-rigidbody">Network Rigidbody</h2>
-<p>Adding <code>NetworkRigidbody</code> allows us to sync the position, rotation and physics of our character.</p>
-<ol>
-<li>Add <code>NetworkRigidbody</code> component to our player character prefab.</li>
-<li>Toggle on <code>Freeze Rotation</code> on all Axis (X, Y, Z).</li>
-</ol>
-<p><a href="../built-in-components/networkrigidbody.html">Learn More About NetworkRigidbody</a></p>
+<h2 id="network-transform">Network Transform</h2>
+<p>Adding <code>NetworkTransform</code> allows us to sync the position, rotation of our character.</p>
+<ul>
+<li>Add <code>NetworkTransform</code> component to our player character prefab.</li>
+</ul>
+<p><a href="../built-in-components/networktransform.html">Learn More About NetworkTransform</a></p>
 <h3 id="gameplay--visual-seperation">Gameplay &amp; Visual Seperation</h3>
-<p>In the <code>NetworkRigidbody</code> component, there is a <code>Render Transform</code> field which asks for a <code>Transform</code>.
+<p>In the <code>NetworkTransform</code> component, there is a <code>Render Transform</code> field which asks for a <code>Transform</code>.
 Because Netick is a tick-based netcode, it means movement will happen at a fixed rate which is lower than your FPS. Which will cause unsmooth movement. To fix this, we use interpolation which lets us give smoothed position and rotation to our player character visual.</p>
 <ol>
 <li>Create a child on the player and name it &quot;Visual&quot;.</li>
 <li>Delete &amp; Move the <code>Capsule (Mesh Filter)</code> and <code>Mesh Renderer</code> component to Visual.</li>
-<li>Assign Visual to <code>Render Transform</code> of <code>NetworkRigidbody</code> .</li>
+<li>Assign Visual to <code>Render Transform</code> of <code>NetworkTransform</code> .</li>
 </ol>
 <p><a href="../interpolation.html">Learn More About Interpolation</a></p>
 <p>Here's what our player character object looks like now:</p>
