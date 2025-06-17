@@ -15,11 +15,11 @@ It's true that RPCs can be used to send small amount of data, but they shouldn't
     // there are two variations of SendData, one that takes a pointer and one that takes a byte array. We are using the byte array version here.
 
     // sending to the server (in the client)
-    Sandbox.ConnectedServer.SendData(MyDataId , bytes, bytes.Length, TransportDeliveryMethod.Unreliable);
+    Sandbox.ConnectedServer.SendData(MyDataId , bytes, bytes.Length, TransportDeliveryMethod.Reliable);
 
     // sending to a certain player (in the server)
     NetworkConnection playerConn = someObject.InputSource as NetworkConnection;
-    playerConn.SendData(5, bytes, bytes.Length, TransportDeliveryMethod.Unreliable);
+    playerConn.SendData(5, bytes, bytes.Length, TransportDeliveryMethod.Reliable);
   }
 
   // called by subscribing it to Sandbox.Events.OnDataReceived

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -97,11 +97,11 @@
     // there are two variations of SendData, one that takes a pointer and one that takes a byte array. We are using the byte array version here.
 
     // sending to the server (in the client)
-    Sandbox.ConnectedServer.SendData(MyDataId , bytes, bytes.Length, TransportDeliveryMethod.Unreliable);
+    Sandbox.ConnectedServer.SendData(MyDataId , bytes, bytes.Length, TransportDeliveryMethod.Reliable);
 
     // sending to a certain player (in the server)
     NetworkConnection playerConn = someObject.InputSource as NetworkConnection;
-    playerConn.SendData(5, bytes, bytes.Length, TransportDeliveryMethod.Unreliable);
+    playerConn.SendData(5, bytes, bytes.Length, TransportDeliveryMethod.Reliable);
   }
 
   // called by subscribing it to Sandbox.Events.OnDataReceived

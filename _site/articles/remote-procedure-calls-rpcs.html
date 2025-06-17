@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -85,11 +85,15 @@
         <article data-uid="">
 <h1 id="remote-procedure-calls-rpcs">Remote Procedure Calls (RPCs)</h1>
 
-<p>RPCs are method calls on Network Behaviors that are replicated across the network. They can be used for events or to transfer data.</p>
+<p>RPCs are method calls on Network Behaviors that are replicated across the network. They can be used for syncing events or to transfer small amounts of data.</p>
 <p>An important use of RPCs is to set up the game and send configuration messages. Use reliable RPCs for things like that.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>While other solutions are heavily dependent on RPCs, Netick is designed to make usage of RPCs very minimal (less than 3 RPCs in the entire game). RPCs teach bad practices and produce <a href="https://en.wikipedia.org/wiki/Spaghetti_code">spaghetti code</a>. Read the article on <a href="rpcs-vs-properties.html">RPCs vs Properties</a> for more.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>RPCs are not suitable for sending large amounts of data (e.g., over 500 bytes) or transferring files. For those use cases, refer to this <a href="sending-large-amounts-of-data.html">article</a>.</p>
 </div>
 <p>An RPC example:</p>
 <pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.InputSource, isReliable: true, localInvoke: false)]

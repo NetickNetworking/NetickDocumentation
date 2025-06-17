@@ -1,11 +1,14 @@
 # Remote Procedure Calls (RPCs)
 
-RPCs are method calls on Network Behaviors that are replicated across the network. They can be used for events or to transfer data.
+RPCs are method calls on Network Behaviors that are replicated across the network. They can be used for syncing events or to transfer small amounts of data.
 
 An important use of RPCs is to set up the game and send configuration messages. Use reliable RPCs for things like that.
 
 > [!Note]
 > While other solutions are heavily dependent on RPCs, Netick is designed to make usage of RPCs very minimal (less than 3 RPCs in the entire game). RPCs teach bad practices and produce [spaghetti code](https://en.wikipedia.org/wiki/Spaghetti_code). Read the article on [RPCs vs Properties](rpcs-vs-properties.md) for more.
+
+> [!Warning]
+> RPCs are not suitable for sending large amounts of data (e.g., over 500 bytes) or transferring files. For those use cases, refer to this [article](sending-large-amounts-of-data.md).
 
 An RPC example:
 
