@@ -97,23 +97,23 @@ In terms of bandwidth usage, the most expensive collection is `NetworkDictionary
 ### Usage examples:
 
 ```csharp
-[Networked(size: 5)] 
-public readonly NetworkDictionary<int, int>  MyNetworkDictionary    = new NetworkDictionary<int, int>(5);
+[Networked(size: 16)] 
+public readonly NetworkDictionary<int, int>  MyNetworkDictionary    = (16);
 
-[Networked(size: 5)]
-public readonly NetworkHashSet<int>          MyNetworkHashSet       = new NetworkHashSet<int>(5);
+[Networked(size: 16)]
+public readonly NetworkHashSet<int>          MyNetworkHashSet       = (16);
 
-[Networked(size: 5)]
-public readonly NetworkLinkedList<int>       MyNetworkLinkedList    = new NetworkLinkedList<int>(5);
+[Networked(size: 16)]
+public readonly NetworkLinkedList<int>       MyNetworkLinkedList    = (16);
 
-[Networked(size: 5)]
-public readonly NetworkUnorderedList<int>    MyNetworkUnorderedList = new NetworkUnorderedList<int>(5);
+[Networked(size: 16)]
+public readonly NetworkUnorderedList<int>    MyNetworkUnorderedList = (16);
 
-[Networked(size: 5)]
-public readonly NetworkStack<int>            MyNetworkedStack       = new NetworkStack<int>(5);
+[Networked(size: 16)]
+public readonly NetworkStack<int>            MyNetworkedStack       = (16);
 
-[Networked(size: 5)]
-public readonly NetworkQueue<int>            MyNetworkedQueue       = new NetworkQueue<int>(5);
+[Networked(size: 16)]
+public readonly NetworkQueue<int>            MyNetworkedQueue       = (16);
 ```
 
 Removing and adding elements is the same as with C# collections.

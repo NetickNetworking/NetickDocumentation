@@ -162,23 +162,23 @@ public NetworkArrayStruct8&lt;NetworkArrayStruct8&lt;int&gt;&gt; ArrayOfArrays {
 </ul>
 <p>In terms of bandwidth usage, the most expensive collection is <code>NetworkDictionary</code>, while the cheapest is <code>NetworkUnorderedList</code> (excluding <code>NetworkArray</code>). The order from the most expensive to the cheapest is: <code>NetworkDictionary</code> &gt; <code>NetworkLinkedList</code> &gt; <code>NetworkHashSet</code> &gt; <code>NetworkQueue</code> &gt; <code>NetworkStack</code> &gt; <code>NetworkUnorderedList</code>. However, note that this only relates to the bandwidth usage when adding/removing elements, as all collections (or any networked variable) use no bandwidth or CPU time when they're idle and not changing.</p>
 <h3 id="usage-examples">Usage examples:</h3>
-<pre><code class="lang-csharp">[Networked(size: 5)] 
-public readonly NetworkDictionary&lt;int, int&gt;  MyNetworkDictionary    = new NetworkDictionary&lt;int, int&gt;(5);
+<pre><code class="lang-csharp">[Networked(size: 16)] 
+public readonly NetworkDictionary&lt;int, int&gt;  MyNetworkDictionary    = (16);
 
-[Networked(size: 5)]
-public readonly NetworkHashSet&lt;int&gt;          MyNetworkHashSet       = new NetworkHashSet&lt;int&gt;(5);
+[Networked(size: 16)]
+public readonly NetworkHashSet&lt;int&gt;          MyNetworkHashSet       = (16);
 
-[Networked(size: 5)]
-public readonly NetworkLinkedList&lt;int&gt;       MyNetworkLinkedList    = new NetworkLinkedList&lt;int&gt;(5);
+[Networked(size: 16)]
+public readonly NetworkLinkedList&lt;int&gt;       MyNetworkLinkedList    = (16);
 
-[Networked(size: 5)]
-public readonly NetworkUnorderedList&lt;int&gt;    MyNetworkUnorderedList = new NetworkUnorderedList&lt;int&gt;(5);
+[Networked(size: 16)]
+public readonly NetworkUnorderedList&lt;int&gt;    MyNetworkUnorderedList = (16);
 
-[Networked(size: 5)]
-public readonly NetworkStack&lt;int&gt;            MyNetworkedStack       = new NetworkStack&lt;int&gt;(5);
+[Networked(size: 16)]
+public readonly NetworkStack&lt;int&gt;            MyNetworkedStack       = (16);
 
-[Networked(size: 5)]
-public readonly NetworkQueue&lt;int&gt;            MyNetworkedQueue       = new NetworkQueue&lt;int&gt;(5);
+[Networked(size: 16)]
+public readonly NetworkQueue&lt;int&gt;            MyNetworkedQueue       = (16);
 </code></pre>
 <p>Removing and adding elements is the same as with C# collections.</p>
 <div class="NOTE">
