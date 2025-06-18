@@ -251,7 +251,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 <p>The start of a new tick.</p>
 <h4 id="b-rollback">B. Rollback</h4>
 <p>The client applies the latest received authoritative server state. <code>Sandbox.Tick</code> is changed into <code>Sandbox.AuthoritativeTick</code>. Prior to this, <code>Sandbox.Tick</code> matched <code>Sandbox.PredictedTick</code>.</p>
-<p>During this phase:</p>
+<p>During this step:</p>
 <ul>
 <li><code>NetcodeIntoGameEngine</code> of <code>NetworkBehaviour</code> is invoked on all predicted objects to integrate the networked state into Unity components (e.g., Transform).</li>
 <li>As a result, all predicted objects, in the interest list of the client, are reverted to a past state—this is the essence of rollback.</li>
@@ -275,27 +275,13 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 <ul>
 <li><code>NetworkFixedUpdate</code> is called for all objects (predicted and non-predicted).</li>
 <li><code>Sandbox.IsResimulating</code> is equal to false.</li>
-<li>Both <code>Sandbox.Tick</code>/<code>Sandbox.PredictedTick</code> are incremented by one.</li>
 </ul>
-<p>Following this:</p>
+<p>At the end of this step:</p>
 <ul>
-<li><code>GameEngineIntoNetcode</code> of <code>NetworkBehaviour</code> is invoked on all objects on the server, and only on predicted objects on the client.</li>
-<li>This ensures that the network state of components like <code>NetworkTransform</code> is updated to reflect the latest state of their corresponding Unity components (e.g., syncing <code>transform.position</code> and <code>transform.rotation</code> into the internal network variables of <code>NetworkTransform</code>).</li>
+<li><code>GameEngineIntoNetcode</code> of <code>NetworkBehaviour</code> is invoked on all objects on the server, and only on predicted objects on the client. This ensures that the network state of components like <code>NetworkTransform</code> is updated to reflect the latest state of their corresponding Unity components (e.g., syncing <code>transform.position</code> and <code>transform.rotation</code> into the internal network variables of <code>NetworkTransform</code>).</li>
+<li><code>Sandbox.Tick</code>/<code>Sandbox.PredictedTick</code> is incremented by one.</li>
 </ul>
-<p>Note: A predicted object refers to any object for which the local client is the input source, or any object configured with the Everyone prediction mode.</p>
-<!-- 
-
-- A: Start of Tick
-
-- B: Rollback: apply received server state. Setting `Sandbox.Tick` to equal `Sandbox.AuthoritativeTick`. Before this, `Sandbox.Tick` was equal to `Sandbox.PredictedTick`. During this step, `NetcodeIntoGameEngine` will be invoked on all predicted objects - to apply the networked state into Unity components (such as `transform`). After this step is done, all predicted objects (in our interest list) are now in a past state compared to what they were previously. That's what rollback means. Additionally, even non-predicted objects that were modified in the client will also be rolled back.
-
-- C: Resim: `NetworkFixedUpdate` will be called (only on predicted objects) as many times as `Sandbox.Resimulations`, to complete reconciliation. At the end of this step, `Sandbox.Tick` will be equal to `Sandbox.PredictedTick`. After this step is done, it's as if we went back to the state of the game at A, but with the added effect of reconciling with the server and correcting our potential mispredictions. For predicted objects, if no mispredictions occurred, it's as if nothing happened compared to A. But all non-predicted objects could be changed/moved due to receiving new states for them from the server.
-
-All of the previous steps are only relevant to the client. While what happens in the next step is the actual execution of a new tick - moving the simulation forward into a new state.
-
-- D: `NetworkFixedUpdate` (forward/new tick) will be called for all objects, predicted or not. At the end of this, `Sandbox.Tick`/`Sandbox.PredictedTick` will be incremented by one. At the end of this step, `GameEngineIntoNetcode` will be invoked on all objects in the server, and only predicted objects in the client. This ensures network components responsible for syncing Unity components, such as `NetworkTransform`, have their networked state updated to be equal to the state of their corresponding Unity components. For instance, the `transform` component state variables (`transform.position` and `transform.rotation`) are applied to the internal network variables of `NetworkTransform`, inside `GameEngineIntoNetcode` of `NetworkTransform`.
-
-Note: `predicted object` means any object we are the input source of, or an object with `Everyone` prediction mode. -->
+<p>Note: A predicted object refers to any object for which the local player is the Input Source, or any object configured with the Everyone prediction mode.</p>
 
 </article>
 
