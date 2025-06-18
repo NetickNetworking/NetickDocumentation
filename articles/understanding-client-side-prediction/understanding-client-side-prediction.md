@@ -1,35 +1,54 @@
 # Understanding Client-Side Prediction (CSP)
 
 ## Tick-based Networking
-Before talking about Client-Side Prediction, it's important to first understand tick-based networking. 
 
-Simply put, because each client could be running at a very different framerate from each other (and from the server), the only way to keep all of them in sync is by running the networked game logic at a fixed rate called the tickrate. Therefore, all clients and the server run at this fixed tickrate. The tickrate functions similarly to the fixed simulation rate of the physics engine in Unity, for instance. Unity runs the physics at a fixed rate for accurate and stable physics simulation, we use a fixed tickrate for accurate and proper network synchronization.
+Before diving into client-side prediction, it’s essential to first understand tick-based networking.
 
-Each fixed-time step executed is called a tick, which represents a point in time in the network loop. By being able to attribute actions to specific ticks, synchronizing a networked game becomes a lot simpler regardless of the various framerates each connected client runs at. 
+In a multiplayer environment, clients and the server may run at vastly different framerates. To ensure consistent and synchronized gameplay across all machines, networked game logic is executed at a fixed interval known as the tickrate. This fixed simulation rate—similar to Unity’s physics fixed timestep—ensures stable and proper behavior across the network.
+
+Each step of simulation at this interval is called a tick, representing a discrete moment in simulated time. By tying actions and updates to specific ticks, synchronizing a networked game becomes a lot simpler regardless of the various framerates each connected client runs at. 
 
 ## Client-Side Prediction (CSP)
 
-In the Client-Server model, to be able to change the state (values of properties/arrays) of a network object, that change must be authoritatively done on the server. This is to ensure a secure and cheat-free gameplay experience, because ultimately the client’s executable can be tampered with or modified. **Only the server can ever change the true state of network variables.** What the client does to affect changes to the networked state is send inputs which are later executed/simulated by the server to produce the desired state which is sent back to the client/s.
+In a client-server model, clients are not allowed to authoritatively modify the state of networked objects. Instead, the server alone owns the truth and is responsible for applying any changes. Because ultimately the client’s executable can be tampered with or modified. In other words, only the server can ever change the true state of network variables. What the client does to affect changes to the networked state is send inputs which are later simulated by the server to produce the desired state which is sent back to all clients.
 
-This is obviously not practical due to internet latency (round-trip time), as the latency increases, input delay increases. This will, without a doubt, lead to a very unpleasant and unresponsive gameplay experience. The solution to this is what’s commonly known as **Client-Side Prediction**.
+This model ensures security and fairness, as the server cannot be easily tampered with. However, it also introduces an issue: input delay. Due to internet latency (round-trip time), waiting for the server to simulate input leads to a sluggish and unresponsive experience.
+
+To solve this, modern multiplayer systems use Client-Side Prediction (CSP).
 
 <figure><img src="../../images/tick.png" alt="Client-Side Prediction"><figcaption></figcaption></figure>
 
-Client-Side Prediction basically means that the client, instead of waiting for the server to simulate its inputs and send the resultant states to it, the client executes them locally (in other words, predicts their outcome), and when the resultant state comes in, it applies that state (rolls back to the old server state) and resimulate all saved inputs that are targeted to ticks that are newer than that received state tick. All this happens in one tick, instantly.
+With CSP, instead of waiting for the server to simulate inputs, the client predicts the outcome locally by executing its inputs immediately. When the actual state from the server arrives:
 
-This ensures that the server still has the final say on the authority of the game (because, eventually, the client will overwrite its local state with whatever the server says), but at the same time allows the client to locally predict their input outcome and enjoy a lag-free experience.
+* The client rolls back to the last known server state.
+* It resimulates all stored inputs from that point forward.
 
-All simulation code must be done inside `NetworkFixedUpdate` on `NetworkBehavior`. This method is called every network tick to step forward the simulation. **On the server, this method is only called for new inputs.** While on the client, it can and will be called several times in one network tick to resimulate all saved inputs (up to the current predicted tick) when applying the incoming server state. See the previous figure to fully understand this.\
-\
-On what objects do resimulations happen?
+All of this happens within a single tick, ensuring a smooth and immediate experience for the player while still maintaining server authority.
 
-* Objects the client is the Input Source for.
-* Objects which has their Prediction Mode set to Everyone, instead of Input Source. Meaning not only the client who’s the Input Source predict them, but all other clients too.
+### Simulation Logic
 
-For other objects, it will only be called once for every network step/tick.\
-\
-**Don’t forget that the server only ever simulates new ticks, it never resimulates previous ticks/inputs. CSP is exclusive to clients. To the server, it’s just like it’s a single-player game.**
+All tick-based simulation must be implemented within `NetworkFixedUpdate` in a `NetworkBehavior`. This method is invoked every network tick to advance the simulation.
 
-For movement code, being aware of resimulations is unimportant. However, for things like shooting and other similar events, it’s vital to make sure that they only happen when the input is being simulated for the first time ever, otherwise, you would shoot several times for one bullet on the client, due to resimulations. This hazard is important to understand and deal with.
+* On the server, `NetworkFixedUpdate` is called once per new tick to process fresh inputs.
+* On the client, it may be called multiple times in a single tick to resimulate all inputs beyond the last confirmed server tick.
 
-Note that it’s usually impractical to predict everything the client does in the game, and it’s sometimes way easier to not let the client predict some stuff (due to the complexity that is associated with correcting some predictions), and wait for the server state. And for other things, simply making them client-authoritative saves a lot of headaches. You don’t have to make the game completely server-authoritative. _Only the bits which are vital to the game experience._
+#### Resimulation Targets
+
+Resimulation on the client only applies to:
+
+* Objects for which the client is the Input Source
+* Objects with `PredictionMode` set to `Everyone`, meaning all clients predict ulate them, not just the Input Source
+
+For all other objects, `NetworkFixedUpdate` is executed once per tick, with no resimulation.
+
+> [!NOTE]
+> The server never resimulates past ticks—it only processes new inputs for the current tick. CSP is strictly a client-side mechanism. From the server’s perspective, it’s akin to running a single-player game simulation.
+
+For basic movement, the side effects of resimulation are typically negligible. However, when handling actions like shooting, playing audio, or showing visual-only effects, it’s crucial to ensure these actions only occur the first time an input is simulated. Failing to do this can result in actions being triggered multiple times due to repeated resimulations.
+
+Note that it’s usually impractical to predict everything the client does in the game, and it’s simpler to:
+
+* Avoid predicting specific features entirely (e.g., entering a vehicle or buying a weapon), and wait for the server response
+* Make certain features client-authoritative, especially if mispredictions would be complex to reconcile
+
+You don’t need to make the entire game server-authoritative. Only enforce authority where it’s critical to gameplay integrity—such as competitive actions, player movement, or sensitive game state.
