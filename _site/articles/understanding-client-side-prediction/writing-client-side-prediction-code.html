@@ -189,7 +189,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 <p>For a client to be able to provide inputs to be used in an Object’s <code>NetworkFixedUpdate</code>, and hence take control of it, that client must be the Input Source of that object. Otherwise, <code>FetchInput</code> will return false. To check if you are the Input Source, use <code>IsInputSource</code>.</p>
 <p>The server can also be the Input Source of objects, although it won’t do any CSP, since it needs not to, after all, it’s the server.</p>
 <p>You can set the Input Source of an object when instantiating it:</p>
-<pre><code class="lang-csharp">sandbox.NetworkInstantiate(PlayerPrefab, spawnPos, Quaternion.identity, client);
+<pre><code class="lang-csharp">Sandbox.NetworkInstantiate(PlayerPrefab, spawnPos, Quaternion.identity, client);
 </code></pre>
 <h3 id="changing-the-input-source">Changing the Input Source</h3>
 <p>To set the Input Source of the object (must only be called on the server):</p>

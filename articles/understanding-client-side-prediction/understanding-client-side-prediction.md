@@ -37,7 +37,7 @@ All tick-based simulation must be implemented within `NetworkFixedUpdate` in a `
 Resimulation on the client only applies to:
 
 * Objects for which the client is the Input Source
-* Objects with `PredictionMode` set to `Everyone`, meaning all clients predict ulate them, not just the Input Source
+* Objects with `PredictionMode` set to `Everyone`, meaning all clients predict them, not just the Input Source
 
 For all other objects, `NetworkFixedUpdate` is executed once per tick, with no resimulation.
 

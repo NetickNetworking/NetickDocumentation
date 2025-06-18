@@ -124,7 +124,7 @@ The server can also be the Input Source of objects, although it won’t do any C
 You can set the Input Source of an object when instantiating it:
 
 ```csharp
-sandbox.NetworkInstantiate(PlayerPrefab, spawnPos, Quaternion.identity, client);
+Sandbox.NetworkInstantiate(PlayerPrefab, spawnPos, Quaternion.identity, client);
 ```
 
 ### Changing the Input Source
