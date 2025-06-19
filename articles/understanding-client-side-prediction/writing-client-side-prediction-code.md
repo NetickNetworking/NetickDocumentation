@@ -199,7 +199,7 @@ public override void NetworkFixedUpdate()
 }
 ```
 
-## Detailed look at what happens in a single tick
+## Detailed Breakdown of What Happens in a Single Tick
 
 > [!NOTE]
 > If you are new to Netick, you can ignore this section.
