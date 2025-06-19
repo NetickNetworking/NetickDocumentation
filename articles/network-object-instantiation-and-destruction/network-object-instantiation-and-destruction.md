@@ -5,7 +5,7 @@
 To Instantiate a network prefab:
 
 ```csharp
-sandbox.NetworkInstantiate(prefab, position, Quaternion.identity);
+Sandbox.NetworkInstantiate(prefab, position, Quaternion.identity);
 ```
 
 This must be called only in the server.
@@ -17,7 +17,7 @@ This must be called only in the server.
 To destroy a network object:
 
 ```csharp
-sandbox.Destroy(obj)
+Sandbox.Destroy(obj)
 ```
 This will destroy `obj` and all of its nested Network Objects. 
 
