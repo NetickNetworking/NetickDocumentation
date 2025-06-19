@@ -96,14 +96,8 @@
 </ul>
 <h2 id="teleportation">Teleportation</h2>
 <p>Since <code>Render Transform</code> is always interpolated between two ticks, when you instantly move your object into another position, interpolation would still be active on that object, which is undesirable. To fix this, when you want to instantly move the object and disable interpolation for that duration, you must use the <code>Teleport</code> method:</p>
-<h3 id="teleporting-position">Teleporting Position</h3>
-<pre><code class="lang-csharp">MyNetworkRigidbody2D.Teleport(newPosition);
-</code></pre>
-<h3 id="teleporting-rotation">Teleporting Rotation</h3>
-<pre><code class="lang-csharp">MyNetworkRigidbody2D.Teleport(newRotation);
-</code></pre>
-<h3 id="teleporting-position-and-rotation">Teleporting Position and Rotation</h3>
-<pre><code class="lang-csharp">MyNetworkRigidbody2D.Teleport(newPosition, newRotation);
+<p>Example:</p>
+<pre><code class="lang-csharp">MyNetworkTransform.Teleport(newPosition);
 </code></pre>
 
 </article>
