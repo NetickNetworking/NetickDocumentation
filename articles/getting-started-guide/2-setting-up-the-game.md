@@ -4,6 +4,9 @@
 There are a few methods we can use to start the game:
 
 ```cs
+// manually initialize Netick (also done automatically when `Network.StartAsHost`/`Network.StartAsClient`/`Network.StartAsServer` is called)
+Netick.Unity.Network.Init();
+
 // start the game as a server with a player
 Netick.Unity.Network.StartAsHost(...);
 
