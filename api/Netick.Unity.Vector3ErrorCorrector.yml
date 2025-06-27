@@ -5,13 +5,13 @@ items:
   id: Vector3ErrorCorrector
   parent: Netick.Unity
   children:
-  - Netick.Unity.Vector3ErrorCorrector.CurrentValue
-  - Netick.Unity.Vector3ErrorCorrector.Error
   - Netick.Unity.Vector3ErrorCorrector.Init(UnityEngine.Vector3)
   - Netick.Unity.Vector3ErrorCorrector.OnPostResimulation(UnityEngine.Vector3)
   - Netick.Unity.Vector3ErrorCorrector.OnPreRollback(UnityEngine.Vector3)
-  - Netick.Unity.Vector3ErrorCorrector.PreRollbackValue
-  - Netick.Unity.Vector3ErrorCorrector.Render(UnityEngine.Vector3,System.Single,System.Single,System.Single,System.Single,System.Single)
+  - Netick.Unity.Vector3ErrorCorrector.PosError
+  - Netick.Unity.Vector3ErrorCorrector.PosPreRollback
+  - Netick.Unity.Vector3ErrorCorrector.Render(UnityEngine.Vector3@,System.Single,System.Single,System.Single)
+  - Netick.Unity.Vector3ErrorCorrector.TeleportPositionErrorThreshold
   langs:
   - csharp
   - vb
@@ -29,66 +29,66 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Netick.Unity.Vector3ErrorCorrector.CurrentValue
-  commentId: F:Netick.Unity.Vector3ErrorCorrector.CurrentValue
-  id: CurrentValue
+- uid: Netick.Unity.Vector3ErrorCorrector.TeleportPositionErrorThreshold
+  commentId: F:Netick.Unity.Vector3ErrorCorrector.TeleportPositionErrorThreshold
+  id: TeleportPositionErrorThreshold
   parent: Netick.Unity.Vector3ErrorCorrector
   langs:
   - csharp
   - vb
-  name: CurrentValue
-  nameWithType: Vector3ErrorCorrector.CurrentValue
-  fullName: Netick.Unity.Vector3ErrorCorrector.CurrentValue
+  name: TeleportPositionErrorThreshold
+  nameWithType: Vector3ErrorCorrector.TeleportPositionErrorThreshold
+  fullName: Netick.Unity.Vector3ErrorCorrector.TeleportPositionErrorThreshold
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public Vector3 CurrentValue
-    return:
-      type: UnityEngine.Vector3
-    content.vb: Public CurrentValue As Vector3
-- uid: Netick.Unity.Vector3ErrorCorrector.PreRollbackValue
-  commentId: F:Netick.Unity.Vector3ErrorCorrector.PreRollbackValue
-  id: PreRollbackValue
-  parent: Netick.Unity.Vector3ErrorCorrector
-  langs:
-  - csharp
-  - vb
-  name: PreRollbackValue
-  nameWithType: Vector3ErrorCorrector.PreRollbackValue
-  fullName: Netick.Unity.Vector3ErrorCorrector.PreRollbackValue
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public Vector3 PreRollbackValue
-    return:
-      type: UnityEngine.Vector3
-    content.vb: Public PreRollbackValue As Vector3
-- uid: Netick.Unity.Vector3ErrorCorrector.Error
-  commentId: F:Netick.Unity.Vector3ErrorCorrector.Error
-  id: Error
-  parent: Netick.Unity.Vector3ErrorCorrector
-  langs:
-  - csharp
-  - vb
-  name: Error
-  nameWithType: Vector3ErrorCorrector.Error
-  fullName: Netick.Unity.Vector3ErrorCorrector.Error
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public float Error
+    content: public float TeleportPositionErrorThreshold
     return:
       type: System.Single
-    content.vb: Public [Error] As Single
+    content.vb: Public TeleportPositionErrorThreshold As Single
+- uid: Netick.Unity.Vector3ErrorCorrector.PosPreRollback
+  commentId: F:Netick.Unity.Vector3ErrorCorrector.PosPreRollback
+  id: PosPreRollback
+  parent: Netick.Unity.Vector3ErrorCorrector
+  langs:
+  - csharp
+  - vb
+  name: PosPreRollback
+  nameWithType: Vector3ErrorCorrector.PosPreRollback
+  fullName: Netick.Unity.Vector3ErrorCorrector.PosPreRollback
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public Vector3 PosPreRollback
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public PosPreRollback As Vector3
+- uid: Netick.Unity.Vector3ErrorCorrector.PosError
+  commentId: F:Netick.Unity.Vector3ErrorCorrector.PosError
+  id: PosError
+  parent: Netick.Unity.Vector3ErrorCorrector
+  langs:
+  - csharp
+  - vb
+  name: PosError
+  nameWithType: Vector3ErrorCorrector.PosError
+  fullName: Netick.Unity.Vector3ErrorCorrector.PosError
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public Vector3 PosError
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public PosError As Vector3
 - uid: Netick.Unity.Vector3ErrorCorrector.Init(UnityEngine.Vector3)
   commentId: M:Netick.Unity.Vector3ErrorCorrector.Init(UnityEngine.Vector3)
   id: Init(UnityEngine.Vector3)
@@ -104,11 +104,11 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public void Init(Vector3 val)
+    content: public void Init(Vector3 value)
     parameters:
-    - id: val
+    - id: value
       type: UnityEngine.Vector3
-    content.vb: Public Sub Init(val As Vector3)
+    content.vb: Public Sub Init(value As Vector3)
   overload: Netick.Unity.Vector3ErrorCorrector.Init*
 - uid: Netick.Unity.Vector3ErrorCorrector.OnPreRollback(UnityEngine.Vector3)
   commentId: M:Netick.Unity.Vector3ErrorCorrector.OnPreRollback(UnityEngine.Vector3)
@@ -125,11 +125,11 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public void OnPreRollback(Vector3 val)
+    content: public void OnPreRollback(Vector3 value)
     parameters:
-    - id: val
+    - id: value
       type: UnityEngine.Vector3
-    content.vb: Public Sub OnPreRollback(val As Vector3)
+    content.vb: Public Sub OnPreRollback(value As Vector3)
   overload: Netick.Unity.Vector3ErrorCorrector.OnPreRollback*
 - uid: Netick.Unity.Vector3ErrorCorrector.OnPostResimulation(UnityEngine.Vector3)
   commentId: M:Netick.Unity.Vector3ErrorCorrector.OnPostResimulation(UnityEngine.Vector3)
@@ -152,42 +152,36 @@ items:
       type: UnityEngine.Vector3
     content.vb: Public Sub OnPostResimulation(currentValue As Vector3)
   overload: Netick.Unity.Vector3ErrorCorrector.OnPostResimulation*
-- uid: Netick.Unity.Vector3ErrorCorrector.Render(UnityEngine.Vector3,System.Single,System.Single,System.Single,System.Single,System.Single)
-  commentId: M:Netick.Unity.Vector3ErrorCorrector.Render(UnityEngine.Vector3,System.Single,System.Single,System.Single,System.Single,System.Single)
-  id: Render(UnityEngine.Vector3,System.Single,System.Single,System.Single,System.Single,System.Single)
+- uid: Netick.Unity.Vector3ErrorCorrector.Render(UnityEngine.Vector3@,System.Single,System.Single,System.Single)
+  commentId: M:Netick.Unity.Vector3ErrorCorrector.Render(UnityEngine.Vector3@,System.Single,System.Single,System.Single)
+  id: Render(UnityEngine.Vector3@,System.Single,System.Single,System.Single)
   parent: Netick.Unity.Vector3ErrorCorrector
   langs:
   - csharp
   - vb
-  name: Render(Vector3, float, float, float, float, float)
-  nameWithType: Vector3ErrorCorrector.Render(Vector3, float, float, float, float, float)
-  fullName: Netick.Unity.Vector3ErrorCorrector.Render(UnityEngine.Vector3, float, float, float, float, float)
+  name: Render(ref Vector3, float, float, float)
+  nameWithType: Vector3ErrorCorrector.Render(ref Vector3, float, float, float)
+  fullName: Netick.Unity.Vector3ErrorCorrector.Render(ref UnityEngine.Vector3, float, float, float)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public Vector3 Render(Vector3 interpolatedValue, float correctionMultiplier, float interpolationMultiplier, float correctionMaxBlendAlpha, float teleportThreshold, float deltaTime)
+    content: public void Render(ref Vector3 interpolatedValue, float correctionMultiplier, float teleportThreshold, float deltaTime)
     parameters:
     - id: interpolatedValue
       type: UnityEngine.Vector3
     - id: correctionMultiplier
       type: System.Single
-    - id: interpolationMultiplier
-      type: System.Single
-    - id: correctionMaxBlendAlpha
-      type: System.Single
     - id: teleportThreshold
       type: System.Single
     - id: deltaTime
       type: System.Single
-    return:
-      type: UnityEngine.Vector3
-    content.vb: Public Function Render(interpolatedValue As Vector3, correctionMultiplier As Single, interpolationMultiplier As Single, correctionMaxBlendAlpha As Single, teleportThreshold As Single, deltaTime As Single) As Vector3
+    content.vb: Public Sub Render(interpolatedValue As Vector3, correctionMultiplier As Single, teleportThreshold As Single, deltaTime As Single)
   overload: Netick.Unity.Vector3ErrorCorrector.Render*
-  nameWithType.vb: Vector3ErrorCorrector.Render(Vector3, Single, Single, Single, Single, Single)
-  fullName.vb: Netick.Unity.Vector3ErrorCorrector.Render(UnityEngine.Vector3, Single, Single, Single, Single, Single)
-  name.vb: Render(Vector3, Single, Single, Single, Single, Single)
+  nameWithType.vb: Vector3ErrorCorrector.Render(Vector3, Single, Single, Single)
+  fullName.vb: Netick.Unity.Vector3ErrorCorrector.Render(UnityEngine.Vector3, Single, Single, Single)
+  name.vb: Render(Vector3, Single, Single, Single)
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -293,6 +287,30 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -337,30 +355,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -433,19 +427,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: UnityEngine.Vector3
-  commentId: T:UnityEngine.Vector3
-  parent: UnityEngine
-  isExternal: true
-  name: Vector3
-  nameWithType: Vector3
-  fullName: UnityEngine.Vector3
-- uid: UnityEngine
-  commentId: N:UnityEngine
-  isExternal: true
-  name: UnityEngine
-  nameWithType: UnityEngine
-  fullName: UnityEngine
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -457,6 +438,11 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
 - uid: Netick.Unity.Vector3ErrorCorrector.Init*
   commentId: Overload:Netick.Unity.Vector3ErrorCorrector.Init
   isExternal: true
@@ -481,7 +467,7 @@ references:
 - uid: Netick.Unity.Vector3ErrorCorrector.Render*
   commentId: Overload:Netick.Unity.Vector3ErrorCorrector.Render
   isExternal: true
-  href: Netick.Unity.Vector3ErrorCorrector.html#Netick_Unity_Vector3ErrorCorrector_Render_UnityEngine_Vector3_System_Single_System_Single_System_Single_System_Single_System_Single_
+  href: Netick.Unity.Vector3ErrorCorrector.html#Netick_Unity_Vector3ErrorCorrector_Render_UnityEngine_Vector3__System_Single_System_Single_System_Single_
   name: Render
   nameWithType: Vector3ErrorCorrector.Render
   fullName: Netick.Unity.Vector3ErrorCorrector.Render

@@ -5,13 +5,13 @@ items:
   id: QuaternionErrorCorrector
   parent: Netick.Unity
   children:
-  - Netick.Unity.QuaternionErrorCorrector.CurrentValue
-  - Netick.Unity.QuaternionErrorCorrector.Error
   - Netick.Unity.QuaternionErrorCorrector.Init(UnityEngine.Quaternion)
   - Netick.Unity.QuaternionErrorCorrector.OnPostResimulation(UnityEngine.Quaternion)
   - Netick.Unity.QuaternionErrorCorrector.OnPreRollback(UnityEngine.Quaternion)
-  - Netick.Unity.QuaternionErrorCorrector.PreRollbackValue
-  - Netick.Unity.QuaternionErrorCorrector.Render(UnityEngine.Quaternion,System.Single,System.Single,System.Single,System.Single,System.Single)
+  - Netick.Unity.QuaternionErrorCorrector.Render(UnityEngine.Quaternion,System.Single,System.Single,System.Single)
+  - Netick.Unity.QuaternionErrorCorrector.RotError
+  - Netick.Unity.QuaternionErrorCorrector.RotPreRollback
+  - Netick.Unity.QuaternionErrorCorrector.TeleportPositionErrorThreshold
   langs:
   - csharp
   - vb
@@ -29,66 +29,66 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Netick.Unity.QuaternionErrorCorrector.CurrentValue
-  commentId: F:Netick.Unity.QuaternionErrorCorrector.CurrentValue
-  id: CurrentValue
+- uid: Netick.Unity.QuaternionErrorCorrector.TeleportPositionErrorThreshold
+  commentId: F:Netick.Unity.QuaternionErrorCorrector.TeleportPositionErrorThreshold
+  id: TeleportPositionErrorThreshold
   parent: Netick.Unity.QuaternionErrorCorrector
   langs:
   - csharp
   - vb
-  name: CurrentValue
-  nameWithType: QuaternionErrorCorrector.CurrentValue
-  fullName: Netick.Unity.QuaternionErrorCorrector.CurrentValue
+  name: TeleportPositionErrorThreshold
+  nameWithType: QuaternionErrorCorrector.TeleportPositionErrorThreshold
+  fullName: Netick.Unity.QuaternionErrorCorrector.TeleportPositionErrorThreshold
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public Quaternion CurrentValue
-    return:
-      type: UnityEngine.Quaternion
-    content.vb: Public CurrentValue As Quaternion
-- uid: Netick.Unity.QuaternionErrorCorrector.PreRollbackValue
-  commentId: F:Netick.Unity.QuaternionErrorCorrector.PreRollbackValue
-  id: PreRollbackValue
-  parent: Netick.Unity.QuaternionErrorCorrector
-  langs:
-  - csharp
-  - vb
-  name: PreRollbackValue
-  nameWithType: QuaternionErrorCorrector.PreRollbackValue
-  fullName: Netick.Unity.QuaternionErrorCorrector.PreRollbackValue
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public Quaternion PreRollbackValue
-    return:
-      type: UnityEngine.Quaternion
-    content.vb: Public PreRollbackValue As Quaternion
-- uid: Netick.Unity.QuaternionErrorCorrector.Error
-  commentId: F:Netick.Unity.QuaternionErrorCorrector.Error
-  id: Error
-  parent: Netick.Unity.QuaternionErrorCorrector
-  langs:
-  - csharp
-  - vb
-  name: Error
-  nameWithType: QuaternionErrorCorrector.Error
-  fullName: Netick.Unity.QuaternionErrorCorrector.Error
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public float Error
+    content: public float TeleportPositionErrorThreshold
     return:
       type: System.Single
-    content.vb: Public [Error] As Single
+    content.vb: Public TeleportPositionErrorThreshold As Single
+- uid: Netick.Unity.QuaternionErrorCorrector.RotPreRollback
+  commentId: F:Netick.Unity.QuaternionErrorCorrector.RotPreRollback
+  id: RotPreRollback
+  parent: Netick.Unity.QuaternionErrorCorrector
+  langs:
+  - csharp
+  - vb
+  name: RotPreRollback
+  nameWithType: QuaternionErrorCorrector.RotPreRollback
+  fullName: Netick.Unity.QuaternionErrorCorrector.RotPreRollback
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public Quaternion RotPreRollback
+    return:
+      type: UnityEngine.Quaternion
+    content.vb: Public RotPreRollback As Quaternion
+- uid: Netick.Unity.QuaternionErrorCorrector.RotError
+  commentId: F:Netick.Unity.QuaternionErrorCorrector.RotError
+  id: RotError
+  parent: Netick.Unity.QuaternionErrorCorrector
+  langs:
+  - csharp
+  - vb
+  name: RotError
+  nameWithType: QuaternionErrorCorrector.RotError
+  fullName: Netick.Unity.QuaternionErrorCorrector.RotError
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public Quaternion RotError
+    return:
+      type: UnityEngine.Quaternion
+    content.vb: Public RotError As Quaternion
 - uid: Netick.Unity.QuaternionErrorCorrector.Init(UnityEngine.Quaternion)
   commentId: M:Netick.Unity.QuaternionErrorCorrector.Init(UnityEngine.Quaternion)
   id: Init(UnityEngine.Quaternion)
@@ -104,11 +104,11 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public void Init(Quaternion val)
+    content: public void Init(Quaternion value)
     parameters:
-    - id: val
+    - id: value
       type: UnityEngine.Quaternion
-    content.vb: Public Sub Init(val As Quaternion)
+    content.vb: Public Sub Init(value As Quaternion)
   overload: Netick.Unity.QuaternionErrorCorrector.Init*
 - uid: Netick.Unity.QuaternionErrorCorrector.OnPreRollback(UnityEngine.Quaternion)
   commentId: M:Netick.Unity.QuaternionErrorCorrector.OnPreRollback(UnityEngine.Quaternion)
@@ -125,11 +125,11 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public void OnPreRollback(Quaternion val)
+    content: public void OnPreRollback(Quaternion value)
     parameters:
-    - id: val
+    - id: value
       type: UnityEngine.Quaternion
-    content.vb: Public Sub OnPreRollback(val As Quaternion)
+    content.vb: Public Sub OnPreRollback(value As Quaternion)
   overload: Netick.Unity.QuaternionErrorCorrector.OnPreRollback*
 - uid: Netick.Unity.QuaternionErrorCorrector.OnPostResimulation(UnityEngine.Quaternion)
   commentId: M:Netick.Unity.QuaternionErrorCorrector.OnPostResimulation(UnityEngine.Quaternion)
@@ -152,42 +152,36 @@ items:
       type: UnityEngine.Quaternion
     content.vb: Public Sub OnPostResimulation(currentValue As Quaternion)
   overload: Netick.Unity.QuaternionErrorCorrector.OnPostResimulation*
-- uid: Netick.Unity.QuaternionErrorCorrector.Render(UnityEngine.Quaternion,System.Single,System.Single,System.Single,System.Single,System.Single)
-  commentId: M:Netick.Unity.QuaternionErrorCorrector.Render(UnityEngine.Quaternion,System.Single,System.Single,System.Single,System.Single,System.Single)
-  id: Render(UnityEngine.Quaternion,System.Single,System.Single,System.Single,System.Single,System.Single)
+- uid: Netick.Unity.QuaternionErrorCorrector.Render(UnityEngine.Quaternion,System.Single,System.Single,System.Single)
+  commentId: M:Netick.Unity.QuaternionErrorCorrector.Render(UnityEngine.Quaternion,System.Single,System.Single,System.Single)
+  id: Render(UnityEngine.Quaternion,System.Single,System.Single,System.Single)
   parent: Netick.Unity.QuaternionErrorCorrector
   langs:
   - csharp
   - vb
-  name: Render(Quaternion, float, float, float, float, float)
-  nameWithType: QuaternionErrorCorrector.Render(Quaternion, float, float, float, float, float)
-  fullName: Netick.Unity.QuaternionErrorCorrector.Render(UnityEngine.Quaternion, float, float, float, float, float)
+  name: Render(Quaternion, float, float, float)
+  nameWithType: QuaternionErrorCorrector.Render(Quaternion, float, float, float)
+  fullName: Netick.Unity.QuaternionErrorCorrector.Render(UnityEngine.Quaternion, float, float, float)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public Quaternion Render(Quaternion interpolatedValue, float correctionMultiplier, float interpolationMultiplier, float correctionMaxBlendAlpha, float teleportThreshold, float deltaTime)
+    content: public void Render(Quaternion interpolatedValue, float correctionMultiplier, float teleportThreshold, float deltaTime)
     parameters:
     - id: interpolatedValue
       type: UnityEngine.Quaternion
     - id: correctionMultiplier
       type: System.Single
-    - id: interpolationMultiplier
-      type: System.Single
-    - id: correctionMaxBlendAlpha
-      type: System.Single
     - id: teleportThreshold
       type: System.Single
     - id: deltaTime
       type: System.Single
-    return:
-      type: UnityEngine.Quaternion
-    content.vb: Public Function Render(interpolatedValue As Quaternion, correctionMultiplier As Single, interpolationMultiplier As Single, correctionMaxBlendAlpha As Single, teleportThreshold As Single, deltaTime As Single) As Quaternion
+    content.vb: Public Sub Render(interpolatedValue As Quaternion, correctionMultiplier As Single, teleportThreshold As Single, deltaTime As Single)
   overload: Netick.Unity.QuaternionErrorCorrector.Render*
-  nameWithType.vb: QuaternionErrorCorrector.Render(Quaternion, Single, Single, Single, Single, Single)
-  fullName.vb: Netick.Unity.QuaternionErrorCorrector.Render(UnityEngine.Quaternion, Single, Single, Single, Single, Single)
-  name.vb: Render(Quaternion, Single, Single, Single, Single, Single)
+  nameWithType.vb: QuaternionErrorCorrector.Render(Quaternion, Single, Single, Single)
+  fullName.vb: Netick.Unity.QuaternionErrorCorrector.Render(UnityEngine.Quaternion, Single, Single, Single)
+  name.vb: Render(Quaternion, Single, Single, Single)
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -293,6 +287,30 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -337,30 +355,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -433,19 +427,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: UnityEngine.Quaternion
-  commentId: T:UnityEngine.Quaternion
-  parent: UnityEngine
-  isExternal: true
-  name: Quaternion
-  nameWithType: Quaternion
-  fullName: UnityEngine.Quaternion
-- uid: UnityEngine
-  commentId: N:UnityEngine
-  isExternal: true
-  name: UnityEngine
-  nameWithType: UnityEngine
-  fullName: UnityEngine
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -457,6 +438,11 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: UnityEngine.Quaternion
+  isExternal: true
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: UnityEngine.Quaternion
 - uid: Netick.Unity.QuaternionErrorCorrector.Init*
   commentId: Overload:Netick.Unity.QuaternionErrorCorrector.Init
   isExternal: true
@@ -481,7 +467,7 @@ references:
 - uid: Netick.Unity.QuaternionErrorCorrector.Render*
   commentId: Overload:Netick.Unity.QuaternionErrorCorrector.Render
   isExternal: true
-  href: Netick.Unity.QuaternionErrorCorrector.html#Netick_Unity_QuaternionErrorCorrector_Render_UnityEngine_Quaternion_System_Single_System_Single_System_Single_System_Single_System_Single_
+  href: Netick.Unity.QuaternionErrorCorrector.html#Netick_Unity_QuaternionErrorCorrector_Render_UnityEngine_Quaternion_System_Single_System_Single_System_Single_
   name: Render
   nameWithType: QuaternionErrorCorrector.Render
   fullName: Netick.Unity.QuaternionErrorCorrector.Render

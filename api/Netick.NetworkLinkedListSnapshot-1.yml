@@ -7,6 +7,9 @@ items:
   children:
   - Netick.NetworkLinkedListSnapshot`1.Count
   - Netick.NetworkLinkedListSnapshot`1.GetEnumerator
+  - Netick.NetworkLinkedListSnapshot`1.GetNode(System.Int32)
+  - Netick.NetworkLinkedListSnapshot`1.Head
+  - Netick.NetworkLinkedListSnapshot`1.Tail
   langs:
   - csharp
   - vb
@@ -31,12 +34,38 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   nameWithType.vb: NetworkLinkedListSnapshot(Of T)
   fullName.vb: Netick.NetworkLinkedListSnapshot(Of T)
   name.vb: NetworkLinkedListSnapshot(Of T)
+- uid: Netick.NetworkLinkedListSnapshot`1.GetNode(System.Int32)
+  commentId: M:Netick.NetworkLinkedListSnapshot`1.GetNode(System.Int32)
+  id: GetNode(System.Int32)
+  parent: Netick.NetworkLinkedListSnapshot`1
+  langs:
+  - csharp
+  - vb
+  name: GetNode(int)
+  nameWithType: NetworkLinkedListSnapshot<T>.GetNode(int)
+  fullName: Netick.NetworkLinkedListSnapshot<T>.GetNode(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetworkLinkedListNode<T> GetNode(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: Netick.NetworkLinkedListNode{{T}}
+    content.vb: Public Function GetNode(index As Integer) As NetworkLinkedListNode(Of T)
+  overload: Netick.NetworkLinkedListSnapshot`1.GetNode*
+  nameWithType.vb: NetworkLinkedListSnapshot(Of T).GetNode(Integer)
+  fullName.vb: Netick.NetworkLinkedListSnapshot(Of T).GetNode(Integer)
+  name.vb: GetNode(Integer)
 - uid: Netick.NetworkLinkedListSnapshot`1.GetEnumerator
   commentId: M:Netick.NetworkLinkedListSnapshot`1.GetEnumerator
   id: GetEnumerator
@@ -85,6 +114,52 @@ items:
   overload: Netick.NetworkLinkedListSnapshot`1.Count*
   nameWithType.vb: NetworkLinkedListSnapshot(Of T).Count
   fullName.vb: Netick.NetworkLinkedListSnapshot(Of T).Count
+- uid: Netick.NetworkLinkedListSnapshot`1.Head
+  commentId: P:Netick.NetworkLinkedListSnapshot`1.Head
+  id: Head
+  parent: Netick.NetworkLinkedListSnapshot`1
+  langs:
+  - csharp
+  - vb
+  name: Head
+  nameWithType: NetworkLinkedListSnapshot<T>.Head
+  fullName: Netick.NetworkLinkedListSnapshot<T>.Head
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetworkLinkedListNode<T> Head { get; }
+    parameters: []
+    return:
+      type: Netick.NetworkLinkedListNode{{T}}
+    content.vb: Public ReadOnly Property Head As NetworkLinkedListNode(Of T)
+  overload: Netick.NetworkLinkedListSnapshot`1.Head*
+  nameWithType.vb: NetworkLinkedListSnapshot(Of T).Head
+  fullName.vb: Netick.NetworkLinkedListSnapshot(Of T).Head
+- uid: Netick.NetworkLinkedListSnapshot`1.Tail
+  commentId: P:Netick.NetworkLinkedListSnapshot`1.Tail
+  id: Tail
+  parent: Netick.NetworkLinkedListSnapshot`1
+  langs:
+  - csharp
+  - vb
+  name: Tail
+  nameWithType: NetworkLinkedListSnapshot<T>.Tail
+  fullName: Netick.NetworkLinkedListSnapshot<T>.Tail
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetworkLinkedListNode<T> Tail { get; }
+    parameters: []
+    return:
+      type: Netick.NetworkLinkedListNode{{T}}
+    content.vb: Public ReadOnly Property Tail As NetworkLinkedListNode(Of T)
+  overload: Netick.NetworkLinkedListSnapshot`1.Tail*
+  nameWithType.vb: NetworkLinkedListSnapshot(Of T).Tail
+  fullName.vb: Netick.NetworkLinkedListSnapshot(Of T).Tail
 references:
 - uid: Netick.NetworkLinkedList`1
   commentId: T:Netick.NetworkLinkedList`1
@@ -235,6 +310,30 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -279,30 +378,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -467,6 +542,83 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Netick.NetworkLinkedListSnapshot`1.GetNode*
+  commentId: Overload:Netick.NetworkLinkedListSnapshot`1.GetNode
+  isExternal: true
+  href: Netick.NetworkLinkedListSnapshot-1.html#Netick_NetworkLinkedListSnapshot_1_GetNode_System_Int32_
+  name: GetNode
+  nameWithType: NetworkLinkedListSnapshot<T>.GetNode
+  fullName: Netick.NetworkLinkedListSnapshot<T>.GetNode
+  nameWithType.vb: NetworkLinkedListSnapshot(Of T).GetNode
+  fullName.vb: Netick.NetworkLinkedListSnapshot(Of T).GetNode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.NetworkLinkedListNode{{T}}
+  commentId: T:Netick.NetworkLinkedListNode{`0}
+  parent: Netick
+  definition: Netick.NetworkLinkedListNode`1
+  href: Netick.NetworkLinkedListNode-1.html
+  name: NetworkLinkedListNode<T>
+  nameWithType: NetworkLinkedListNode<T>
+  fullName: Netick.NetworkLinkedListNode<T>
+  nameWithType.vb: NetworkLinkedListNode(Of T)
+  fullName.vb: Netick.NetworkLinkedListNode(Of T)
+  name.vb: NetworkLinkedListNode(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkLinkedListNode`1
+    name: NetworkLinkedListNode
+    isExternal: true
+    href: Netick.NetworkLinkedListNode-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkLinkedListNode`1
+    name: NetworkLinkedListNode
+    isExternal: true
+    href: Netick.NetworkLinkedListNode-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetworkLinkedListNode`1
+  commentId: T:Netick.NetworkLinkedListNode`1
+  isExternal: true
+  href: Netick.NetworkLinkedListNode-1.html
+  name: NetworkLinkedListNode<T>
+  nameWithType: NetworkLinkedListNode<T>
+  fullName: Netick.NetworkLinkedListNode<T>
+  nameWithType.vb: NetworkLinkedListNode(Of T)
+  fullName.vb: Netick.NetworkLinkedListNode(Of T)
+  name.vb: NetworkLinkedListNode(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkLinkedListNode`1
+    name: NetworkLinkedListNode
+    isExternal: true
+    href: Netick.NetworkLinkedListNode-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkLinkedListNode`1
+    name: NetworkLinkedListNode
+    isExternal: true
+    href: Netick.NetworkLinkedListNode-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick.NetworkLinkedListSnapshot`1.GetEnumerator*
   commentId: Overload:Netick.NetworkLinkedListSnapshot`1.GetEnumerator
   isExternal: true
@@ -589,14 +741,21 @@ references:
   fullName: Netick.NetworkLinkedListSnapshot<T>.Count
   nameWithType.vb: NetworkLinkedListSnapshot(Of T).Count
   fullName.vb: Netick.NetworkLinkedListSnapshot(Of T).Count
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
+- uid: Netick.NetworkLinkedListSnapshot`1.Head*
+  commentId: Overload:Netick.NetworkLinkedListSnapshot`1.Head
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
+  href: Netick.NetworkLinkedListSnapshot-1.html#Netick_NetworkLinkedListSnapshot_1_Head
+  name: Head
+  nameWithType: NetworkLinkedListSnapshot<T>.Head
+  fullName: Netick.NetworkLinkedListSnapshot<T>.Head
+  nameWithType.vb: NetworkLinkedListSnapshot(Of T).Head
+  fullName.vb: Netick.NetworkLinkedListSnapshot(Of T).Head
+- uid: Netick.NetworkLinkedListSnapshot`1.Tail*
+  commentId: Overload:Netick.NetworkLinkedListSnapshot`1.Tail
+  isExternal: true
+  href: Netick.NetworkLinkedListSnapshot-1.html#Netick_NetworkLinkedListSnapshot_1_Tail
+  name: Tail
+  nameWithType: NetworkLinkedListSnapshot<T>.Tail
+  fullName: Netick.NetworkLinkedListSnapshot<T>.Tail
+  nameWithType.vb: NetworkLinkedListSnapshot(Of T).Tail
+  fullName.vb: Netick.NetworkLinkedListSnapshot(Of T).Tail

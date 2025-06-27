@@ -10,13 +10,15 @@ items:
   - Netick.BitBuffer.AddBool(System.Boolean)
   - Netick.BitBuffer.AddByte(System.Byte)
   - Netick.BitBuffer.AddInt(System.Int32)
+  - Netick.BitBuffer.AddInt2(System.Int32)
   - Netick.BitBuffer.AddInt4(System.Int32)
   - Netick.BitBuffer.AddLong(System.Int64)
-  - Netick.BitBuffer.AddShort(System.Int16)
   - Netick.BitBuffer.AddUInt(System.UInt32)
+  - Netick.BitBuffer.AddUInt2(System.UInt32)
   - Netick.BitBuffer.AddUInt4(System.UInt32)
   - Netick.BitBuffer.AddULong(System.UInt64)
-  - Netick.BitBuffer.AddUShort(System.UInt16)
+  - Netick.BitBuffer.AlignReadPosToByte
+  - Netick.BitBuffer.AlignWritePosToByte
   - Netick.BitBuffer.Clear
   - Netick.BitBuffer.Finalize
   - Netick.BitBuffer.FlexAddUInt(System.UInt32,System.UInt32,System.UInt32,System.Int32)
@@ -29,22 +31,20 @@ items:
   - Netick.BitBuffer.PeekByte
   - Netick.BitBuffer.PeekInt
   - Netick.BitBuffer.PeekLong
-  - Netick.BitBuffer.PeekShort
   - Netick.BitBuffer.PeekUInt
   - Netick.BitBuffer.PeekULong
-  - Netick.BitBuffer.PeekUShort
   - Netick.BitBuffer.Read(System.Int32)
   - Netick.BitBuffer.ReadBool
   - Netick.BitBuffer.ReadByte
   - Netick.BitBuffer.ReadInt
+  - Netick.BitBuffer.ReadInt2
   - Netick.BitBuffer.ReadInt4
   - Netick.BitBuffer.ReadLong
   - Netick.BitBuffer.ReadPosition
-  - Netick.BitBuffer.ReadShort
   - Netick.BitBuffer.ReadUInt
+  - Netick.BitBuffer.ReadUInt2
   - Netick.BitBuffer.ReadUInt4
   - Netick.BitBuffer.ReadULong
-  - Netick.BitBuffer.ReadUShort
   - Netick.BitBuffer.SetFrom(System.Byte*,System.Int32,System.Int32)
   - Netick.BitBuffer.WritePos
   langs:
@@ -63,12 +63,12 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
+  - System.Object.GetHashCode
 - uid: Netick.BitBuffer.ReadPosition
   commentId: F:Netick.BitBuffer.ReadPosition
   id: ReadPosition
@@ -274,6 +274,42 @@ items:
   nameWithType.vb: BitBuffer.Insert(Integer, Integer, UInteger)
   fullName.vb: Netick.BitBuffer.Insert(Integer, Integer, UInteger)
   name.vb: Insert(Integer, Integer, UInteger)
+- uid: Netick.BitBuffer.AlignWritePosToByte
+  commentId: M:Netick.BitBuffer.AlignWritePosToByte
+  id: AlignWritePosToByte
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: AlignWritePosToByte()
+  nameWithType: BitBuffer.AlignWritePosToByte()
+  fullName: Netick.BitBuffer.AlignWritePosToByte()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AlignWritePosToByte()
+    content.vb: Public Sub AlignWritePosToByte()
+  overload: Netick.BitBuffer.AlignWritePosToByte*
+- uid: Netick.BitBuffer.AlignReadPosToByte
+  commentId: M:Netick.BitBuffer.AlignReadPosToByte
+  id: AlignReadPosToByte
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: AlignReadPosToByte()
+  nameWithType: BitBuffer.AlignReadPosToByte()
+  fullName: Netick.BitBuffer.AlignReadPosToByte()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AlignReadPosToByte()
+    content.vb: Public Sub AlignReadPosToByte()
+  overload: Netick.BitBuffer.AlignReadPosToByte*
 - uid: Netick.BitBuffer.Read(System.Int32)
   commentId: M:Netick.BitBuffer.Read(System.Int32)
   id: Read(System.Int32)
@@ -326,270 +362,6 @@ items:
   nameWithType.vb: BitBuffer.Peek(Integer)
   fullName.vb: Netick.BitBuffer.Peek(Integer)
   name.vb: Peek(Integer)
-- uid: Netick.BitBuffer.AddBool(System.Boolean)
-  commentId: M:Netick.BitBuffer.AddBool(System.Boolean)
-  id: AddBool(System.Boolean)
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: AddBool(bool)
-  nameWithType: BitBuffer.AddBool(bool)
-  fullName: Netick.BitBuffer.AddBool(bool)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public BitBuffer AddBool(bool value)
-    parameters:
-    - id: value
-      type: System.Boolean
-    return:
-      type: Netick.BitBuffer
-    content.vb: Public Function AddBool(value As Boolean) As BitBuffer
-  overload: Netick.BitBuffer.AddBool*
-  nameWithType.vb: BitBuffer.AddBool(Boolean)
-  fullName.vb: Netick.BitBuffer.AddBool(Boolean)
-  name.vb: AddBool(Boolean)
-- uid: Netick.BitBuffer.ReadBool
-  commentId: M:Netick.BitBuffer.ReadBool
-  id: ReadBool
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: ReadBool()
-  nameWithType: BitBuffer.ReadBool()
-  fullName: Netick.BitBuffer.ReadBool()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool ReadBool()
-    return:
-      type: System.Boolean
-    content.vb: Public Function ReadBool() As Boolean
-  overload: Netick.BitBuffer.ReadBool*
-- uid: Netick.BitBuffer.PeekBool
-  commentId: M:Netick.BitBuffer.PeekBool
-  id: PeekBool
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: PeekBool()
-  nameWithType: BitBuffer.PeekBool()
-  fullName: Netick.BitBuffer.PeekBool()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool PeekBool()
-    return:
-      type: System.Boolean
-    content.vb: Public Function PeekBool() As Boolean
-  overload: Netick.BitBuffer.PeekBool*
-- uid: Netick.BitBuffer.AddByte(System.Byte)
-  commentId: M:Netick.BitBuffer.AddByte(System.Byte)
-  id: AddByte(System.Byte)
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: AddByte(byte)
-  nameWithType: BitBuffer.AddByte(byte)
-  fullName: Netick.BitBuffer.AddByte(byte)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public BitBuffer AddByte(byte value)
-    parameters:
-    - id: value
-      type: System.Byte
-    return:
-      type: Netick.BitBuffer
-    content.vb: Public Function AddByte(value As Byte) As BitBuffer
-  overload: Netick.BitBuffer.AddByte*
-  nameWithType.vb: BitBuffer.AddByte(Byte)
-  fullName.vb: Netick.BitBuffer.AddByte(Byte)
-  name.vb: AddByte(Byte)
-- uid: Netick.BitBuffer.ReadByte
-  commentId: M:Netick.BitBuffer.ReadByte
-  id: ReadByte
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: ReadByte()
-  nameWithType: BitBuffer.ReadByte()
-  fullName: Netick.BitBuffer.ReadByte()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public byte ReadByte()
-    return:
-      type: System.Byte
-    content.vb: Public Function ReadByte() As Byte
-  overload: Netick.BitBuffer.ReadByte*
-- uid: Netick.BitBuffer.PeekByte
-  commentId: M:Netick.BitBuffer.PeekByte
-  id: PeekByte
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: PeekByte()
-  nameWithType: BitBuffer.PeekByte()
-  fullName: Netick.BitBuffer.PeekByte()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public byte PeekByte()
-    return:
-      type: System.Byte
-    content.vb: Public Function PeekByte() As Byte
-  overload: Netick.BitBuffer.PeekByte*
-- uid: Netick.BitBuffer.AddShort(System.Int16)
-  commentId: M:Netick.BitBuffer.AddShort(System.Int16)
-  id: AddShort(System.Int16)
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: AddShort(short)
-  nameWithType: BitBuffer.AddShort(short)
-  fullName: Netick.BitBuffer.AddShort(short)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public BitBuffer AddShort(short value)
-    parameters:
-    - id: value
-      type: System.Int16
-    return:
-      type: Netick.BitBuffer
-    content.vb: Public Function AddShort(value As Short) As BitBuffer
-  overload: Netick.BitBuffer.AddShort*
-  nameWithType.vb: BitBuffer.AddShort(Short)
-  fullName.vb: Netick.BitBuffer.AddShort(Short)
-  name.vb: AddShort(Short)
-- uid: Netick.BitBuffer.ReadShort
-  commentId: M:Netick.BitBuffer.ReadShort
-  id: ReadShort
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: ReadShort()
-  nameWithType: BitBuffer.ReadShort()
-  fullName: Netick.BitBuffer.ReadShort()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public short ReadShort()
-    return:
-      type: System.Int16
-    content.vb: Public Function ReadShort() As Short
-  overload: Netick.BitBuffer.ReadShort*
-- uid: Netick.BitBuffer.PeekShort
-  commentId: M:Netick.BitBuffer.PeekShort
-  id: PeekShort
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: PeekShort()
-  nameWithType: BitBuffer.PeekShort()
-  fullName: Netick.BitBuffer.PeekShort()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public short PeekShort()
-    return:
-      type: System.Int16
-    content.vb: Public Function PeekShort() As Short
-  overload: Netick.BitBuffer.PeekShort*
-- uid: Netick.BitBuffer.AddUShort(System.UInt16)
-  commentId: M:Netick.BitBuffer.AddUShort(System.UInt16)
-  id: AddUShort(System.UInt16)
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: AddUShort(ushort)
-  nameWithType: BitBuffer.AddUShort(ushort)
-  fullName: Netick.BitBuffer.AddUShort(ushort)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public BitBuffer AddUShort(ushort value)
-    parameters:
-    - id: value
-      type: System.UInt16
-    return:
-      type: Netick.BitBuffer
-    content.vb: Public Function AddUShort(value As UShort) As BitBuffer
-  overload: Netick.BitBuffer.AddUShort*
-  nameWithType.vb: BitBuffer.AddUShort(UShort)
-  fullName.vb: Netick.BitBuffer.AddUShort(UShort)
-  name.vb: AddUShort(UShort)
-- uid: Netick.BitBuffer.ReadUShort
-  commentId: M:Netick.BitBuffer.ReadUShort
-  id: ReadUShort
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: ReadUShort()
-  nameWithType: BitBuffer.ReadUShort()
-  fullName: Netick.BitBuffer.ReadUShort()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public ushort ReadUShort()
-    return:
-      type: System.UInt16
-    content.vb: Public Function ReadUShort() As UShort
-  overload: Netick.BitBuffer.ReadUShort*
-- uid: Netick.BitBuffer.PeekUShort
-  commentId: M:Netick.BitBuffer.PeekUShort
-  id: PeekUShort
-  parent: Netick.BitBuffer
-  langs:
-  - csharp
-  - vb
-  name: PeekUShort()
-  nameWithType: BitBuffer.PeekUShort()
-  fullName: Netick.BitBuffer.PeekUShort()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public ushort PeekUShort()
-    return:
-      type: System.UInt16
-    content.vb: Public Function PeekUShort() As UShort
-  overload: Netick.BitBuffer.PeekUShort*
 - uid: Netick.BitBuffer.AddInt(System.Int32)
   commentId: M:Netick.BitBuffer.AddInt(System.Int32)
   id: AddInt(System.Int32)
@@ -802,6 +574,94 @@ items:
       type: System.UInt32
     content.vb: Public Function ReadUInt4() As UInteger
   overload: Netick.BitBuffer.ReadUInt4*
+- uid: Netick.BitBuffer.AddInt2(System.Int32)
+  commentId: M:Netick.BitBuffer.AddInt2(System.Int32)
+  id: AddInt2(System.Int32)
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: AddInt2(int)
+  nameWithType: BitBuffer.AddInt2(int)
+  fullName: Netick.BitBuffer.AddInt2(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AddInt2(int value)
+    parameters:
+    - id: value
+      type: System.Int32
+    content.vb: Public Sub AddInt2(value As Integer)
+  overload: Netick.BitBuffer.AddInt2*
+  nameWithType.vb: BitBuffer.AddInt2(Integer)
+  fullName.vb: Netick.BitBuffer.AddInt2(Integer)
+  name.vb: AddInt2(Integer)
+- uid: Netick.BitBuffer.ReadInt2
+  commentId: M:Netick.BitBuffer.ReadInt2
+  id: ReadInt2
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: ReadInt2()
+  nameWithType: BitBuffer.ReadInt2()
+  fullName: Netick.BitBuffer.ReadInt2()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int ReadInt2()
+    return:
+      type: System.Int32
+    content.vb: Public Function ReadInt2() As Integer
+  overload: Netick.BitBuffer.ReadInt2*
+- uid: Netick.BitBuffer.AddUInt2(System.UInt32)
+  commentId: M:Netick.BitBuffer.AddUInt2(System.UInt32)
+  id: AddUInt2(System.UInt32)
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: AddUInt2(uint)
+  nameWithType: BitBuffer.AddUInt2(uint)
+  fullName: Netick.BitBuffer.AddUInt2(uint)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AddUInt2(uint value)
+    parameters:
+    - id: value
+      type: System.UInt32
+    content.vb: Public Sub AddUInt2(value As UInteger)
+  overload: Netick.BitBuffer.AddUInt2*
+  nameWithType.vb: BitBuffer.AddUInt2(UInteger)
+  fullName.vb: Netick.BitBuffer.AddUInt2(UInteger)
+  name.vb: AddUInt2(UInteger)
+- uid: Netick.BitBuffer.ReadUInt2
+  commentId: M:Netick.BitBuffer.ReadUInt2
+  id: ReadUInt2
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: ReadUInt2()
+  nameWithType: BitBuffer.ReadUInt2()
+  fullName: Netick.BitBuffer.ReadUInt2()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public uint ReadUInt2()
+    return:
+      type: System.UInt32
+    content.vb: Public Function ReadUInt2() As UInteger
+  overload: Netick.BitBuffer.ReadUInt2*
 - uid: Netick.BitBuffer.AddUInt(System.UInt32)
   commentId: M:Netick.BitBuffer.AddUInt(System.UInt32)
   id: AddUInt(System.UInt32)
@@ -998,6 +858,134 @@ items:
       type: System.UInt64
     content.vb: Public Function PeekULong() As ULong
   overload: Netick.BitBuffer.PeekULong*
+- uid: Netick.BitBuffer.AddBool(System.Boolean)
+  commentId: M:Netick.BitBuffer.AddBool(System.Boolean)
+  id: AddBool(System.Boolean)
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: AddBool(bool)
+  nameWithType: BitBuffer.AddBool(bool)
+  fullName: Netick.BitBuffer.AddBool(bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AddBool(bool value)
+    parameters:
+    - id: value
+      type: System.Boolean
+    content.vb: Public Sub AddBool(value As Boolean)
+  overload: Netick.BitBuffer.AddBool*
+  nameWithType.vb: BitBuffer.AddBool(Boolean)
+  fullName.vb: Netick.BitBuffer.AddBool(Boolean)
+  name.vb: AddBool(Boolean)
+- uid: Netick.BitBuffer.ReadBool
+  commentId: M:Netick.BitBuffer.ReadBool
+  id: ReadBool
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: ReadBool()
+  nameWithType: BitBuffer.ReadBool()
+  fullName: Netick.BitBuffer.ReadBool()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool ReadBool()
+    return:
+      type: System.Boolean
+    content.vb: Public Function ReadBool() As Boolean
+  overload: Netick.BitBuffer.ReadBool*
+- uid: Netick.BitBuffer.PeekBool
+  commentId: M:Netick.BitBuffer.PeekBool
+  id: PeekBool
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: PeekBool()
+  nameWithType: BitBuffer.PeekBool()
+  fullName: Netick.BitBuffer.PeekBool()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool PeekBool()
+    return:
+      type: System.Boolean
+    content.vb: Public Function PeekBool() As Boolean
+  overload: Netick.BitBuffer.PeekBool*
+- uid: Netick.BitBuffer.AddByte(System.Byte)
+  commentId: M:Netick.BitBuffer.AddByte(System.Byte)
+  id: AddByte(System.Byte)
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: AddByte(byte)
+  nameWithType: BitBuffer.AddByte(byte)
+  fullName: Netick.BitBuffer.AddByte(byte)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AddByte(byte value)
+    parameters:
+    - id: value
+      type: System.Byte
+    content.vb: Public Sub AddByte(value As Byte)
+  overload: Netick.BitBuffer.AddByte*
+  nameWithType.vb: BitBuffer.AddByte(Byte)
+  fullName.vb: Netick.BitBuffer.AddByte(Byte)
+  name.vb: AddByte(Byte)
+- uid: Netick.BitBuffer.ReadByte
+  commentId: M:Netick.BitBuffer.ReadByte
+  id: ReadByte
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: ReadByte()
+  nameWithType: BitBuffer.ReadByte()
+  fullName: Netick.BitBuffer.ReadByte()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public byte ReadByte()
+    return:
+      type: System.Byte
+    content.vb: Public Function ReadByte() As Byte
+  overload: Netick.BitBuffer.ReadByte*
+- uid: Netick.BitBuffer.PeekByte
+  commentId: M:Netick.BitBuffer.PeekByte
+  id: PeekByte
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: PeekByte()
+  nameWithType: BitBuffer.PeekByte()
+  fullName: Netick.BitBuffer.PeekByte()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public byte PeekByte()
+    return:
+      type: System.Byte
+    content.vb: Public Function PeekByte() As Byte
+  overload: Netick.BitBuffer.PeekByte*
 - uid: Netick.BitBuffer.IsFinished
   commentId: P:Netick.BitBuffer.IsFinished
   id: IsFinished
@@ -1038,6 +1026,54 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -1116,54 +1152,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -1209,28 +1197,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
   spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
 - uid: System
@@ -1352,6 +1340,20 @@ references:
   name: Insert
   nameWithType: BitBuffer.Insert
   fullName: Netick.BitBuffer.Insert
+- uid: Netick.BitBuffer.AlignWritePosToByte*
+  commentId: Overload:Netick.BitBuffer.AlignWritePosToByte
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_AlignWritePosToByte
+  name: AlignWritePosToByte
+  nameWithType: BitBuffer.AlignWritePosToByte
+  fullName: Netick.BitBuffer.AlignWritePosToByte
+- uid: Netick.BitBuffer.AlignReadPosToByte*
+  commentId: Overload:Netick.BitBuffer.AlignReadPosToByte
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_AlignReadPosToByte
+  name: AlignReadPosToByte
+  nameWithType: BitBuffer.AlignReadPosToByte
+  fullName: Netick.BitBuffer.AlignReadPosToByte
 - uid: Netick.BitBuffer.Read*
   commentId: Overload:Netick.BitBuffer.Read
   isExternal: true
@@ -1366,131 +1368,6 @@ references:
   name: Peek
   nameWithType: BitBuffer.Peek
   fullName: Netick.BitBuffer.Peek
-- uid: Netick.BitBuffer.AddBool*
-  commentId: Overload:Netick.BitBuffer.AddBool
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_AddBool_System_Boolean_
-  name: AddBool
-  nameWithType: BitBuffer.AddBool
-  fullName: Netick.BitBuffer.AddBool
-- uid: Netick.BitBuffer
-  commentId: T:Netick.BitBuffer
-  parent: Netick
-  isExternal: true
-  href: Netick.BitBuffer.html
-  name: BitBuffer
-  nameWithType: BitBuffer
-  fullName: Netick.BitBuffer
-- uid: Netick.BitBuffer.ReadBool*
-  commentId: Overload:Netick.BitBuffer.ReadBool
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_ReadBool
-  name: ReadBool
-  nameWithType: BitBuffer.ReadBool
-  fullName: Netick.BitBuffer.ReadBool
-- uid: Netick.BitBuffer.PeekBool*
-  commentId: Overload:Netick.BitBuffer.PeekBool
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_PeekBool
-  name: PeekBool
-  nameWithType: BitBuffer.PeekBool
-  fullName: Netick.BitBuffer.PeekBool
-- uid: Netick.BitBuffer.AddByte*
-  commentId: Overload:Netick.BitBuffer.AddByte
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_AddByte_System_Byte_
-  name: AddByte
-  nameWithType: BitBuffer.AddByte
-  fullName: Netick.BitBuffer.AddByte
-- uid: System.Byte
-  commentId: T:System.Byte
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.byte
-  name: byte
-  nameWithType: byte
-  fullName: byte
-  nameWithType.vb: Byte
-  fullName.vb: Byte
-  name.vb: Byte
-- uid: Netick.BitBuffer.ReadByte*
-  commentId: Overload:Netick.BitBuffer.ReadByte
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_ReadByte
-  name: ReadByte
-  nameWithType: BitBuffer.ReadByte
-  fullName: Netick.BitBuffer.ReadByte
-- uid: Netick.BitBuffer.PeekByte*
-  commentId: Overload:Netick.BitBuffer.PeekByte
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_PeekByte
-  name: PeekByte
-  nameWithType: BitBuffer.PeekByte
-  fullName: Netick.BitBuffer.PeekByte
-- uid: Netick.BitBuffer.AddShort*
-  commentId: Overload:Netick.BitBuffer.AddShort
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_AddShort_System_Int16_
-  name: AddShort
-  nameWithType: BitBuffer.AddShort
-  fullName: Netick.BitBuffer.AddShort
-- uid: System.Int16
-  commentId: T:System.Int16
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int16
-  name: short
-  nameWithType: short
-  fullName: short
-  nameWithType.vb: Short
-  fullName.vb: Short
-  name.vb: Short
-- uid: Netick.BitBuffer.ReadShort*
-  commentId: Overload:Netick.BitBuffer.ReadShort
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_ReadShort
-  name: ReadShort
-  nameWithType: BitBuffer.ReadShort
-  fullName: Netick.BitBuffer.ReadShort
-- uid: Netick.BitBuffer.PeekShort*
-  commentId: Overload:Netick.BitBuffer.PeekShort
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_PeekShort
-  name: PeekShort
-  nameWithType: BitBuffer.PeekShort
-  fullName: Netick.BitBuffer.PeekShort
-- uid: Netick.BitBuffer.AddUShort*
-  commentId: Overload:Netick.BitBuffer.AddUShort
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_AddUShort_System_UInt16_
-  name: AddUShort
-  nameWithType: BitBuffer.AddUShort
-  fullName: Netick.BitBuffer.AddUShort
-- uid: System.UInt16
-  commentId: T:System.UInt16
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.uint16
-  name: ushort
-  nameWithType: ushort
-  fullName: ushort
-  nameWithType.vb: UShort
-  fullName.vb: UShort
-  name.vb: UShort
-- uid: Netick.BitBuffer.ReadUShort*
-  commentId: Overload:Netick.BitBuffer.ReadUShort
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_ReadUShort
-  name: ReadUShort
-  nameWithType: BitBuffer.ReadUShort
-  fullName: Netick.BitBuffer.ReadUShort
-- uid: Netick.BitBuffer.PeekUShort*
-  commentId: Overload:Netick.BitBuffer.PeekUShort
-  isExternal: true
-  href: Netick.BitBuffer.html#Netick_BitBuffer_PeekUShort
-  name: PeekUShort
-  nameWithType: BitBuffer.PeekUShort
-  fullName: Netick.BitBuffer.PeekUShort
 - uid: Netick.BitBuffer.AddInt*
   commentId: Overload:Netick.BitBuffer.AddInt
   isExternal: true
@@ -1554,6 +1431,34 @@ references:
   name: ReadUInt4
   nameWithType: BitBuffer.ReadUInt4
   fullName: Netick.BitBuffer.ReadUInt4
+- uid: Netick.BitBuffer.AddInt2*
+  commentId: Overload:Netick.BitBuffer.AddInt2
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_AddInt2_System_Int32_
+  name: AddInt2
+  nameWithType: BitBuffer.AddInt2
+  fullName: Netick.BitBuffer.AddInt2
+- uid: Netick.BitBuffer.ReadInt2*
+  commentId: Overload:Netick.BitBuffer.ReadInt2
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_ReadInt2
+  name: ReadInt2
+  nameWithType: BitBuffer.ReadInt2
+  fullName: Netick.BitBuffer.ReadInt2
+- uid: Netick.BitBuffer.AddUInt2*
+  commentId: Overload:Netick.BitBuffer.AddUInt2
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_AddUInt2_System_UInt32_
+  name: AddUInt2
+  nameWithType: BitBuffer.AddUInt2
+  fullName: Netick.BitBuffer.AddUInt2
+- uid: Netick.BitBuffer.ReadUInt2*
+  commentId: Overload:Netick.BitBuffer.ReadUInt2
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_ReadUInt2
+  name: ReadUInt2
+  nameWithType: BitBuffer.ReadUInt2
+  fullName: Netick.BitBuffer.ReadUInt2
 - uid: Netick.BitBuffer.AddUInt*
   commentId: Overload:Netick.BitBuffer.AddUInt
   isExternal: true
@@ -1593,6 +1498,14 @@ references:
   nameWithType.vb: Long
   fullName.vb: Long
   name.vb: Long
+- uid: Netick.BitBuffer
+  commentId: T:Netick.BitBuffer
+  parent: Netick
+  isExternal: true
+  href: Netick.BitBuffer.html
+  name: BitBuffer
+  nameWithType: BitBuffer
+  fullName: Netick.BitBuffer
 - uid: Netick.BitBuffer.ReadLong*
   commentId: Overload:Netick.BitBuffer.ReadLong
   isExternal: true
@@ -1639,6 +1552,59 @@ references:
   name: PeekULong
   nameWithType: BitBuffer.PeekULong
   fullName: Netick.BitBuffer.PeekULong
+- uid: Netick.BitBuffer.AddBool*
+  commentId: Overload:Netick.BitBuffer.AddBool
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_AddBool_System_Boolean_
+  name: AddBool
+  nameWithType: BitBuffer.AddBool
+  fullName: Netick.BitBuffer.AddBool
+- uid: Netick.BitBuffer.ReadBool*
+  commentId: Overload:Netick.BitBuffer.ReadBool
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_ReadBool
+  name: ReadBool
+  nameWithType: BitBuffer.ReadBool
+  fullName: Netick.BitBuffer.ReadBool
+- uid: Netick.BitBuffer.PeekBool*
+  commentId: Overload:Netick.BitBuffer.PeekBool
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_PeekBool
+  name: PeekBool
+  nameWithType: BitBuffer.PeekBool
+  fullName: Netick.BitBuffer.PeekBool
+- uid: Netick.BitBuffer.AddByte*
+  commentId: Overload:Netick.BitBuffer.AddByte
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_AddByte_System_Byte_
+  name: AddByte
+  nameWithType: BitBuffer.AddByte
+  fullName: Netick.BitBuffer.AddByte
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: Netick.BitBuffer.ReadByte*
+  commentId: Overload:Netick.BitBuffer.ReadByte
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_ReadByte
+  name: ReadByte
+  nameWithType: BitBuffer.ReadByte
+  fullName: Netick.BitBuffer.ReadByte
+- uid: Netick.BitBuffer.PeekByte*
+  commentId: Overload:Netick.BitBuffer.PeekByte
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_PeekByte
+  name: PeekByte
+  nameWithType: BitBuffer.PeekByte
+  fullName: Netick.BitBuffer.PeekByte
 - uid: Netick.BitBuffer.IsFinished*
   commentId: Overload:Netick.BitBuffer.IsFinished
   isExternal: true

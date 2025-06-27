@@ -7,12 +7,13 @@ items:
   children:
   - Netick.INetickEntity.AddToNetworkLoop
   - Netick.INetickEntity.AllScripts
+  - Netick.INetickEntity.AoILayer
   - Netick.INetickEntity.BroadPhaseFilter
   - Netick.INetickEntity.Engine
   - Netick.INetickEntity.Entity
   - Netick.INetickEntity.Initialize(Netick.NetickEngine,Netick.Entity)
   - Netick.INetickEntity.NarrowPhaseFilter
-  - Netick.INetickEntity.NetworkRegister(System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
+  - Netick.INetickEntity.NetworkRegister
   - Netick.INetickEntity.NetworkScripts
   - Netick.INetickEntity.NetworkStart
   - Netick.INetickEntity.NetworkUnregister
@@ -46,7 +47,7 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Used to initialize the user entity and assign Engine and Entity
+  summary: Used to initialize the user entity and assign Engine and Entity.
   example: []
   syntax:
     content: void Initialize(NetickEngine netickEngine, Entity entity)
@@ -77,34 +78,24 @@ items:
     content: void NetworkStart()
     content.vb: Sub NetworkStart()
   overload: Netick.INetickEntity.NetworkStart*
-- uid: Netick.INetickEntity.NetworkRegister(System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
-  commentId: M:Netick.INetickEntity.NetworkRegister(System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
-  id: NetworkRegister(System.Int32,Netick.NetworkPlayer,Netick.SpawnPredictionKey)
+- uid: Netick.INetickEntity.NetworkRegister
+  commentId: M:Netick.INetickEntity.NetworkRegister
+  id: NetworkRegister
   parent: Netick.INetickEntity
   langs:
   - csharp
   - vb
-  name: NetworkRegister(int, NetworkPlayer, SpawnPredictionKey)
-  nameWithType: INetickEntity.NetworkRegister(int, NetworkPlayer, SpawnPredictionKey)
-  fullName: Netick.INetickEntity.NetworkRegister(int, Netick.NetworkPlayer, Netick.SpawnPredictionKey)
+  name: NetworkRegister()
+  nameWithType: INetickEntity.NetworkRegister()
+  fullName: Netick.INetickEntity.NetworkRegister()
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: void NetworkRegister(int id, NetworkPlayer user, SpawnPredictionKey spawnKey = default)
-    parameters:
-    - id: id
-      type: System.Int32
-    - id: user
-      type: Netick.NetworkPlayer
-    - id: spawnKey
-      type: Netick.SpawnPredictionKey
-    content.vb: Sub NetworkRegister(id As Integer, user As NetworkPlayer, spawnKey As SpawnPredictionKey = Nothing)
+    content: void NetworkRegister()
+    content.vb: Sub NetworkRegister()
   overload: Netick.INetickEntity.NetworkRegister*
-  nameWithType.vb: INetickEntity.NetworkRegister(Integer, NetworkPlayer, SpawnPredictionKey)
-  fullName.vb: Netick.INetickEntity.NetworkRegister(Integer, Netick.NetworkPlayer, Netick.SpawnPredictionKey)
-  name.vb: NetworkRegister(Integer, NetworkPlayer, SpawnPredictionKey)
 - uid: Netick.INetickEntity.NetworkUnregister
   commentId: M:Netick.INetickEntity.NetworkUnregister
   id: NetworkUnregister
@@ -186,111 +177,6 @@ items:
       type: System.Numerics.Vector3
     content.vb: ReadOnly Property WorldPosition As Vector3
   overload: Netick.INetickEntity.WorldPosition*
-- uid: Netick.INetickEntity.PredictionMode
-  commentId: P:Netick.INetickEntity.PredictionMode
-  id: PredictionMode
-  parent: Netick.INetickEntity
-  langs:
-  - csharp
-  - vb
-  name: PredictionMode
-  nameWithType: INetickEntity.PredictionMode
-  fullName: Netick.INetickEntity.PredictionMode
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: Relevancy PredictionMode { get; }
-    parameters: []
-    return:
-      type: Netick.Relevancy
-    content.vb: ReadOnly Property PredictionMode As Relevancy
-  overload: Netick.INetickEntity.PredictionMode*
-- uid: Netick.INetickEntity.UseSAP
-  commentId: P:Netick.INetickEntity.UseSAP
-  id: UseSAP
-  parent: Netick.INetickEntity
-  langs:
-  - csharp
-  - vb
-  name: UseSAP
-  nameWithType: INetickEntity.UseSAP
-  fullName: Netick.INetickEntity.UseSAP
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: bool UseSAP { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: ReadOnly Property UseSAP As Boolean
-  overload: Netick.INetickEntity.UseSAP*
-- uid: Netick.INetickEntity.AddToNetworkLoop
-  commentId: P:Netick.INetickEntity.AddToNetworkLoop
-  id: AddToNetworkLoop
-  parent: Netick.INetickEntity
-  langs:
-  - csharp
-  - vb
-  name: AddToNetworkLoop
-  nameWithType: INetickEntity.AddToNetworkLoop
-  fullName: Netick.INetickEntity.AddToNetworkLoop
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: bool AddToNetworkLoop { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: ReadOnly Property AddToNetworkLoop As Boolean
-  overload: Netick.INetickEntity.AddToNetworkLoop*
-- uid: Netick.INetickEntity.BroadPhaseFilter
-  commentId: P:Netick.INetickEntity.BroadPhaseFilter
-  id: BroadPhaseFilter
-  parent: Netick.INetickEntity
-  langs:
-  - csharp
-  - vb
-  name: BroadPhaseFilter
-  nameWithType: INetickEntity.BroadPhaseFilter
-  fullName: Netick.INetickEntity.BroadPhaseFilter
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: BroadPhaseFilter BroadPhaseFilter { get; }
-    parameters: []
-    return:
-      type: Netick.BroadPhaseFilter
-    content.vb: ReadOnly Property BroadPhaseFilter As BroadPhaseFilter
-  overload: Netick.INetickEntity.BroadPhaseFilter*
-- uid: Netick.INetickEntity.NarrowPhaseFilter
-  commentId: P:Netick.INetickEntity.NarrowPhaseFilter
-  id: NarrowPhaseFilter
-  parent: Netick.INetickEntity
-  langs:
-  - csharp
-  - vb
-  name: NarrowPhaseFilter
-  nameWithType: INetickEntity.NarrowPhaseFilter
-  fullName: Netick.INetickEntity.NarrowPhaseFilter
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: bool NarrowPhaseFilter { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: ReadOnly Property NarrowPhaseFilter As Boolean
-  overload: Netick.INetickEntity.NarrowPhaseFilter*
 - uid: Netick.INetickEntity.NetworkScripts
   commentId: P:Netick.INetickEntity.NetworkScripts
   id: NetworkScripts
@@ -333,6 +219,132 @@ items:
       type: Netick.INetickScript[]
     content.vb: ReadOnly Property AllScripts As INetickScript()
   overload: Netick.INetickEntity.AllScripts*
+- uid: Netick.INetickEntity.AoILayer
+  commentId: P:Netick.INetickEntity.AoILayer
+  id: AoILayer
+  parent: Netick.INetickEntity
+  langs:
+  - csharp
+  - vb
+  name: AoILayer
+  nameWithType: INetickEntity.AoILayer
+  fullName: Netick.INetickEntity.AoILayer
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: int AoILayer { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property AoILayer As Integer
+  overload: Netick.INetickEntity.AoILayer*
+- uid: Netick.INetickEntity.BroadPhaseFilter
+  commentId: P:Netick.INetickEntity.BroadPhaseFilter
+  id: BroadPhaseFilter
+  parent: Netick.INetickEntity
+  langs:
+  - csharp
+  - vb
+  name: BroadPhaseFilter
+  nameWithType: INetickEntity.BroadPhaseFilter
+  fullName: Netick.INetickEntity.BroadPhaseFilter
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: BroadPhaseFilter BroadPhaseFilter { get; }
+    parameters: []
+    return:
+      type: Netick.BroadPhaseFilter
+    content.vb: ReadOnly Property BroadPhaseFilter As BroadPhaseFilter
+  overload: Netick.INetickEntity.BroadPhaseFilter*
+- uid: Netick.INetickEntity.NarrowPhaseFilter
+  commentId: P:Netick.INetickEntity.NarrowPhaseFilter
+  id: NarrowPhaseFilter
+  parent: Netick.INetickEntity
+  langs:
+  - csharp
+  - vb
+  name: NarrowPhaseFilter
+  nameWithType: INetickEntity.NarrowPhaseFilter
+  fullName: Netick.INetickEntity.NarrowPhaseFilter
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: bool NarrowPhaseFilter { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property NarrowPhaseFilter As Boolean
+  overload: Netick.INetickEntity.NarrowPhaseFilter*
+- uid: Netick.INetickEntity.AddToNetworkLoop
+  commentId: P:Netick.INetickEntity.AddToNetworkLoop
+  id: AddToNetworkLoop
+  parent: Netick.INetickEntity
+  langs:
+  - csharp
+  - vb
+  name: AddToNetworkLoop
+  nameWithType: INetickEntity.AddToNetworkLoop
+  fullName: Netick.INetickEntity.AddToNetworkLoop
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: bool AddToNetworkLoop { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property AddToNetworkLoop As Boolean
+  overload: Netick.INetickEntity.AddToNetworkLoop*
+- uid: Netick.INetickEntity.PredictionMode
+  commentId: P:Netick.INetickEntity.PredictionMode
+  id: PredictionMode
+  parent: Netick.INetickEntity
+  langs:
+  - csharp
+  - vb
+  name: PredictionMode
+  nameWithType: INetickEntity.PredictionMode
+  fullName: Netick.INetickEntity.PredictionMode
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: Relevancy PredictionMode { get; }
+    parameters: []
+    return:
+      type: Netick.Relevancy
+    content.vb: ReadOnly Property PredictionMode As Relevancy
+  overload: Netick.INetickEntity.PredictionMode*
+- uid: Netick.INetickEntity.UseSAP
+  commentId: P:Netick.INetickEntity.UseSAP
+  id: UseSAP
+  parent: Netick.INetickEntity
+  langs:
+  - csharp
+  - vb
+  name: UseSAP
+  nameWithType: INetickEntity.UseSAP
+  fullName: Netick.INetickEntity.UseSAP
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: bool UseSAP { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property UseSAP As Boolean
+  overload: Netick.INetickEntity.UseSAP*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -374,44 +386,10 @@ references:
 - uid: Netick.INetickEntity.NetworkRegister*
   commentId: Overload:Netick.INetickEntity.NetworkRegister
   isExternal: true
-  href: Netick.INetickEntity.html#Netick_INetickEntity_NetworkRegister_System_Int32_Netick_NetworkPlayer_Netick_SpawnPredictionKey_
+  href: Netick.INetickEntity.html#Netick_INetickEntity_NetworkRegister
   name: NetworkRegister
   nameWithType: INetickEntity.NetworkRegister
   fullName: Netick.INetickEntity.NetworkRegister
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: Netick.NetworkPlayer
-  commentId: T:Netick.NetworkPlayer
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkPlayer.html
-  name: NetworkPlayer
-  nameWithType: NetworkPlayer
-  fullName: Netick.NetworkPlayer
-- uid: Netick.SpawnPredictionKey
-  commentId: T:Netick.SpawnPredictionKey
-  parent: Netick
-  isExternal: true
-  href: Netick.SpawnPredictionKey.html
-  name: SpawnPredictionKey
-  nameWithType: SpawnPredictionKey
-  fullName: Netick.SpawnPredictionKey
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Netick.INetickEntity.NetworkUnregister*
   commentId: Overload:Netick.INetickEntity.NetworkUnregister
   isExternal: true
@@ -475,68 +453,6 @@ references:
     name: Numerics
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.numerics
-- uid: Netick.INetickEntity.PredictionMode*
-  commentId: Overload:Netick.INetickEntity.PredictionMode
-  isExternal: true
-  href: Netick.INetickEntity.html#Netick_INetickEntity_PredictionMode
-  name: PredictionMode
-  nameWithType: INetickEntity.PredictionMode
-  fullName: Netick.INetickEntity.PredictionMode
-- uid: Netick.Relevancy
-  commentId: T:Netick.Relevancy
-  parent: Netick
-  isExternal: true
-  href: Netick.Relevancy.html
-  name: Relevancy
-  nameWithType: Relevancy
-  fullName: Netick.Relevancy
-- uid: Netick.INetickEntity.UseSAP*
-  commentId: Overload:Netick.INetickEntity.UseSAP
-  isExternal: true
-  href: Netick.INetickEntity.html#Netick_INetickEntity_UseSAP
-  name: UseSAP
-  nameWithType: INetickEntity.UseSAP
-  fullName: Netick.INetickEntity.UseSAP
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: Netick.INetickEntity.AddToNetworkLoop*
-  commentId: Overload:Netick.INetickEntity.AddToNetworkLoop
-  isExternal: true
-  href: Netick.INetickEntity.html#Netick_INetickEntity_AddToNetworkLoop
-  name: AddToNetworkLoop
-  nameWithType: INetickEntity.AddToNetworkLoop
-  fullName: Netick.INetickEntity.AddToNetworkLoop
-- uid: Netick.INetickEntity.BroadPhaseFilter*
-  commentId: Overload:Netick.INetickEntity.BroadPhaseFilter
-  isExternal: true
-  href: Netick.INetickEntity.html#Netick_INetickEntity_BroadPhaseFilter
-  name: BroadPhaseFilter
-  nameWithType: INetickEntity.BroadPhaseFilter
-  fullName: Netick.INetickEntity.BroadPhaseFilter
-- uid: Netick.BroadPhaseFilter
-  commentId: T:Netick.BroadPhaseFilter
-  parent: Netick
-  isExternal: true
-  href: Netick.BroadPhaseFilter.html
-  name: BroadPhaseFilter
-  nameWithType: BroadPhaseFilter
-  fullName: Netick.BroadPhaseFilter
-- uid: Netick.INetickEntity.NarrowPhaseFilter*
-  commentId: Overload:Netick.INetickEntity.NarrowPhaseFilter
-  isExternal: true
-  href: Netick.INetickEntity.html#Netick_INetickEntity_NarrowPhaseFilter
-  name: NarrowPhaseFilter
-  nameWithType: INetickEntity.NarrowPhaseFilter
-  fullName: Netick.INetickEntity.NarrowPhaseFilter
 - uid: Netick.INetickEntity.NetworkScripts*
   commentId: Overload:Netick.INetickEntity.NetworkScripts
   isExternal: true
@@ -597,3 +513,90 @@ references:
     href: Netick.INetickScript.html
   - name: (
   - name: )
+- uid: Netick.INetickEntity.AoILayer*
+  commentId: Overload:Netick.INetickEntity.AoILayer
+  isExternal: true
+  href: Netick.INetickEntity.html#Netick_INetickEntity_AoILayer
+  name: AoILayer
+  nameWithType: INetickEntity.AoILayer
+  fullName: Netick.INetickEntity.AoILayer
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.INetickEntity.BroadPhaseFilter*
+  commentId: Overload:Netick.INetickEntity.BroadPhaseFilter
+  isExternal: true
+  href: Netick.INetickEntity.html#Netick_INetickEntity_BroadPhaseFilter
+  name: BroadPhaseFilter
+  nameWithType: INetickEntity.BroadPhaseFilter
+  fullName: Netick.INetickEntity.BroadPhaseFilter
+- uid: Netick.BroadPhaseFilter
+  commentId: T:Netick.BroadPhaseFilter
+  parent: Netick
+  isExternal: true
+  href: Netick.BroadPhaseFilter.html
+  name: BroadPhaseFilter
+  nameWithType: BroadPhaseFilter
+  fullName: Netick.BroadPhaseFilter
+- uid: Netick.INetickEntity.NarrowPhaseFilter*
+  commentId: Overload:Netick.INetickEntity.NarrowPhaseFilter
+  isExternal: true
+  href: Netick.INetickEntity.html#Netick_INetickEntity_NarrowPhaseFilter
+  name: NarrowPhaseFilter
+  nameWithType: INetickEntity.NarrowPhaseFilter
+  fullName: Netick.INetickEntity.NarrowPhaseFilter
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Netick.INetickEntity.AddToNetworkLoop*
+  commentId: Overload:Netick.INetickEntity.AddToNetworkLoop
+  isExternal: true
+  href: Netick.INetickEntity.html#Netick_INetickEntity_AddToNetworkLoop
+  name: AddToNetworkLoop
+  nameWithType: INetickEntity.AddToNetworkLoop
+  fullName: Netick.INetickEntity.AddToNetworkLoop
+- uid: Netick.INetickEntity.PredictionMode*
+  commentId: Overload:Netick.INetickEntity.PredictionMode
+  isExternal: true
+  href: Netick.INetickEntity.html#Netick_INetickEntity_PredictionMode
+  name: PredictionMode
+  nameWithType: INetickEntity.PredictionMode
+  fullName: Netick.INetickEntity.PredictionMode
+- uid: Netick.Relevancy
+  commentId: T:Netick.Relevancy
+  parent: Netick
+  isExternal: true
+  href: Netick.Relevancy.html
+  name: Relevancy
+  nameWithType: Relevancy
+  fullName: Netick.Relevancy
+- uid: Netick.INetickEntity.UseSAP*
+  commentId: Overload:Netick.INetickEntity.UseSAP
+  isExternal: true
+  href: Netick.INetickEntity.html#Netick_INetickEntity_UseSAP
+  name: UseSAP
+  nameWithType: INetickEntity.UseSAP
+  fullName: Netick.INetickEntity.UseSAP

@@ -106,8 +106,10 @@ public class GameplayManager : NetworkEventsListener
 {
     public NetworkObject PlayerPrefab;
 
-    public override void OnPlayerConnected(NetworkSandbox sandbox, Netick.NetworkPlayer player)
+    public override void OnPlayerJoined(NetworkSandbox sandbox, NetworkPlayerId player)
     {
+        if (sandbox.IsClient)
+            return;
         // Random Spawn Position (to not make them overlap)
         Vector3 spawnPosition = new Vector3();
         spawnPosition.x = Random.Range(-5f, 5f);
@@ -117,9 +119,6 @@ public class GameplayManager : NetworkEventsListener
     }
 }
 ```
-
-> [!Note]
-> Unity has old methods from the time when UNet was still around, sometimes providing incorrect signature information for `OnPlayerConnected` in your IDE, for instance. This issue is harmless and can be ignored.
 
 ## Testing
 

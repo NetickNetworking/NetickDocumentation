@@ -5,16 +5,12 @@ items:
   id: NetworkPlayer
   parent: Netick
   children:
-  - Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds)
+  - Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds,System.Int32)
   - Netick.NetworkPlayer.AddInterestGroup(Netick.InterestManagementGroup)
   - Netick.NetworkPlayer.AddInterestGroup(System.Int32)
-  - Netick.NetworkPlayer.Distance
   - Netick.NetworkPlayer.Engine
-  - Netick.NetworkPlayer.FieldOfViewAngle
   - Netick.NetworkPlayer.PlayerId
   - Netick.NetworkPlayer.PlayerObject
-  - Netick.NetworkPlayer.Position
-  - Netick.NetworkPlayer.ViewDirection
   langs:
   - csharp
   - vb
@@ -25,7 +21,7 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Represents a network player, which can be either a local player (representing this sandbox) or a remote connection (representing a connected client)).
+  summary: Represents a network player, which can be either a local player (representing this player) or a remote connection (representing a connected client)).
   example: []
   syntax:
     content: public abstract class NetworkPlayer
@@ -36,13 +32,13 @@ items:
   - Netick.NetworkConnection
   - Netick.NetworkPeer
   inheritedMembers:
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
 - uid: Netick.NetworkPlayer.Engine
   commentId: F:Netick.NetworkPlayer.Engine
   id: Engine
@@ -107,111 +103,32 @@ items:
       type: Netick.InterestManagementGroup
     content.vb: Public Sub AddInterestGroup(group As InterestManagementGroup)
   overload: Netick.NetworkPlayer.AddInterestGroup*
-- uid: Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds)
-  commentId: M:Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds)
-  id: AddInterestBoxArea(Netick.NetickBounds)
+- uid: Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds,System.Int32)
+  commentId: M:Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds,System.Int32)
+  id: AddInterestBoxArea(Netick.NetickBounds,System.Int32)
   parent: Netick.NetworkPlayer
   langs:
   - csharp
   - vb
-  name: AddInterestBoxArea(NetickBounds)
-  nameWithType: NetworkPlayer.AddInterestBoxArea(NetickBounds)
-  fullName: Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds)
+  name: AddInterestBoxArea(NetickBounds, int)
+  nameWithType: NetworkPlayer.AddInterestBoxArea(NetickBounds, int)
+  fullName: Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void AddInterestBoxArea(NetickBounds box)
+    content: public void AddInterestBoxArea(NetickBounds box, int layerIndex = 0)
     parameters:
     - id: box
       type: Netick.NetickBounds
-    content.vb: Public Sub AddInterestBoxArea(box As NetickBounds)
+    - id: layerIndex
+      type: System.Int32
+    content.vb: Public Sub AddInterestBoxArea(box As NetickBounds, layerIndex As Integer = 0)
   overload: Netick.NetworkPlayer.AddInterestBoxArea*
-- uid: Netick.NetworkPlayer.Position
-  commentId: P:Netick.NetworkPlayer.Position
-  id: Position
-  parent: Netick.NetworkPlayer
-  langs:
-  - csharp
-  - vb
-  name: Position
-  nameWithType: NetworkPlayer.Position
-  fullName: Netick.NetworkPlayer.Position
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public Vector3 Position { get; set; }
-    parameters: []
-    return:
-      type: System.Numerics.Vector3
-    content.vb: Public Property Position As Vector3
-  overload: Netick.NetworkPlayer.Position*
-- uid: Netick.NetworkPlayer.ViewDirection
-  commentId: P:Netick.NetworkPlayer.ViewDirection
-  id: ViewDirection
-  parent: Netick.NetworkPlayer
-  langs:
-  - csharp
-  - vb
-  name: ViewDirection
-  nameWithType: NetworkPlayer.ViewDirection
-  fullName: Netick.NetworkPlayer.ViewDirection
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public Vector3 ViewDirection { get; set; }
-    parameters: []
-    return:
-      type: System.Numerics.Vector3
-    content.vb: Public Property ViewDirection As Vector3
-  overload: Netick.NetworkPlayer.ViewDirection*
-- uid: Netick.NetworkPlayer.Distance
-  commentId: P:Netick.NetworkPlayer.Distance
-  id: Distance
-  parent: Netick.NetworkPlayer
-  langs:
-  - csharp
-  - vb
-  name: Distance
-  nameWithType: NetworkPlayer.Distance
-  fullName: Netick.NetworkPlayer.Distance
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public float Distance { get; set; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public Property Distance As Single
-  overload: Netick.NetworkPlayer.Distance*
-- uid: Netick.NetworkPlayer.FieldOfViewAngle
-  commentId: P:Netick.NetworkPlayer.FieldOfViewAngle
-  id: FieldOfViewAngle
-  parent: Netick.NetworkPlayer
-  langs:
-  - csharp
-  - vb
-  name: FieldOfViewAngle
-  nameWithType: NetworkPlayer.FieldOfViewAngle
-  fullName: Netick.NetworkPlayer.FieldOfViewAngle
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public float FieldOfViewAngle { get; set; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public Property FieldOfViewAngle As Single
-  overload: Netick.NetworkPlayer.FieldOfViewAngle*
+  nameWithType.vb: NetworkPlayer.AddInterestBoxArea(NetickBounds, Integer)
+  fullName.vb: Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds, Integer)
+  name.vb: AddInterestBoxArea(NetickBounds, Integer)
 - uid: Netick.NetworkPlayer.PlayerId
   commentId: P:Netick.NetworkPlayer.PlayerId
   id: PlayerId
@@ -234,11 +151,11 @@ items:
     <p>Note: the server player always has Id 0.</p>
   example: []
   syntax:
-    content: public int PlayerId { get; }
+    content: public NetworkPlayerId PlayerId { get; }
     parameters: []
     return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property PlayerId As Integer
+      type: Netick.NetworkPlayerId
+    content.vb: Public ReadOnly Property PlayerId As NetworkPlayerId
   overload: Netick.NetworkPlayer.PlayerId*
 - uid: Netick.NetworkPlayer.PlayerObject
   commentId: P:Netick.NetworkPlayer.PlayerObject
@@ -254,15 +171,27 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Use this to associate an object with this player.
+  summary: Use this to associate an object with this player. This is a local variable that is not synced.
   example: []
   syntax:
-    content: public object PlayerObject { get; set; }
+    content: >-
+      [Obsolete("This will be removed in the future.")]
+
+      public object PlayerObject { get; set; }
     parameters: []
     return:
       type: System.Object
-    content.vb: Public Property PlayerObject As Object
+    content.vb: >-
+      <Obsolete("This will be removed in the future.")>
+
+      Public Property PlayerObject As Object
   overload: Netick.NetworkPlayer.PlayerObject*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This will be removed in the future.
 references:
 - uid: Netick
   commentId: N:Netick
@@ -282,6 +211,78 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -360,78 +361,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -477,28 +406,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
   spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
 - uid: System
@@ -545,7 +474,7 @@ references:
 - uid: Netick.NetworkPlayer.AddInterestBoxArea*
   commentId: Overload:Netick.NetworkPlayer.AddInterestBoxArea
   isExternal: true
-  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_AddInterestBoxArea_Netick_NetickBounds_
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_AddInterestBoxArea_Netick_NetickBounds_System_Int32_
   name: AddInterestBoxArea
   nameWithType: NetworkPlayer.AddInterestBoxArea
   fullName: Netick.NetworkPlayer.AddInterestBoxArea
@@ -557,80 +486,6 @@ references:
   name: NetickBounds
   nameWithType: NetickBounds
   fullName: Netick.NetickBounds
-- uid: Netick.NetworkPlayer.Position*
-  commentId: Overload:Netick.NetworkPlayer.Position
-  isExternal: true
-  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_Position
-  name: Position
-  nameWithType: NetworkPlayer.Position
-  fullName: Netick.NetworkPlayer.Position
-- uid: System.Numerics.Vector3
-  commentId: T:System.Numerics.Vector3
-  parent: System.Numerics
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.numerics.vector3
-  name: Vector3
-  nameWithType: Vector3
-  fullName: System.Numerics.Vector3
-- uid: System.Numerics
-  commentId: N:System.Numerics
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Numerics
-  nameWithType: System.Numerics
-  fullName: System.Numerics
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Numerics
-    name: Numerics
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.numerics
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Numerics
-    name: Numerics
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.numerics
-- uid: Netick.NetworkPlayer.ViewDirection*
-  commentId: Overload:Netick.NetworkPlayer.ViewDirection
-  isExternal: true
-  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_ViewDirection
-  name: ViewDirection
-  nameWithType: NetworkPlayer.ViewDirection
-  fullName: Netick.NetworkPlayer.ViewDirection
-- uid: Netick.NetworkPlayer.Distance*
-  commentId: Overload:Netick.NetworkPlayer.Distance
-  isExternal: true
-  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_Distance
-  name: Distance
-  nameWithType: NetworkPlayer.Distance
-  fullName: Netick.NetworkPlayer.Distance
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
-- uid: Netick.NetworkPlayer.FieldOfViewAngle*
-  commentId: Overload:Netick.NetworkPlayer.FieldOfViewAngle
-  isExternal: true
-  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_FieldOfViewAngle
-  name: FieldOfViewAngle
-  nameWithType: NetworkPlayer.FieldOfViewAngle
-  fullName: Netick.NetworkPlayer.FieldOfViewAngle
 - uid: Netick.NetworkPlayer.PlayerId*
   commentId: Overload:Netick.NetworkPlayer.PlayerId
   isExternal: true
@@ -638,6 +493,14 @@ references:
   name: PlayerId
   nameWithType: NetworkPlayer.PlayerId
   fullName: Netick.NetworkPlayer.PlayerId
+- uid: Netick.NetworkPlayerId
+  commentId: T:Netick.NetworkPlayerId
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayerId.html
+  name: NetworkPlayerId
+  nameWithType: NetworkPlayerId
+  fullName: Netick.NetworkPlayerId
 - uid: Netick.NetworkPlayer.PlayerObject*
   commentId: Overload:Netick.NetworkPlayer.PlayerObject
   isExternal: true

@@ -26,19 +26,23 @@ items:
   implements:
   - Netick.IEndPoint
   inheritedMembers:
-  - System.Net.IPEndPoint.MaxPort
   - System.Net.IPEndPoint.MinPort
+  - System.Net.IPEndPoint.MaxPort
+  - System.Net.IPEndPoint.TryParse(System.String,System.Net.IPEndPoint@)
+  - System.Net.IPEndPoint.TryParse(System.ReadOnlySpan{System.Char},System.Net.IPEndPoint@)
+  - System.Net.IPEndPoint.Parse(System.String)
+  - System.Net.IPEndPoint.Parse(System.ReadOnlySpan{System.Char})
+  - System.Net.IPEndPoint.ToString
+  - System.Net.IPEndPoint.Serialize
   - System.Net.IPEndPoint.Create(System.Net.SocketAddress)
   - System.Net.IPEndPoint.Equals(System.Object)
   - System.Net.IPEndPoint.GetHashCode
-  - System.Net.IPEndPoint.Serialize
-  - System.Net.IPEndPoint.ToString
-  - System.Net.IPEndPoint.Address
   - System.Net.IPEndPoint.AddressFamily
+  - System.Net.IPEndPoint.Address
   - System.Net.IPEndPoint.Port
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   extensionMethods:
   - System.Net.IPEndPoint.Netick.IPEndPointExt.ToNetickEndPoint
@@ -111,14 +115,6 @@ references:
   name: IEndPoint
   nameWithType: IEndPoint
   fullName: Netick.IEndPoint
-- uid: System.Net.IPEndPoint.MaxPort
-  commentId: F:System.Net.IPEndPoint.MaxPort
-  parent: System.Net.IPEndPoint
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.maxport
-  name: MaxPort
-  nameWithType: IPEndPoint.MaxPort
-  fullName: System.Net.IPEndPoint.MaxPort
 - uid: System.Net.IPEndPoint.MinPort
   commentId: F:System.Net.IPEndPoint.MinPort
   parent: System.Net.IPEndPoint
@@ -127,6 +123,246 @@ references:
   name: MinPort
   nameWithType: IPEndPoint.MinPort
   fullName: System.Net.IPEndPoint.MinPort
+- uid: System.Net.IPEndPoint.MaxPort
+  commentId: F:System.Net.IPEndPoint.MaxPort
+  parent: System.Net.IPEndPoint
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.maxport
+  name: MaxPort
+  nameWithType: IPEndPoint.MaxPort
+  fullName: System.Net.IPEndPoint.MaxPort
+- uid: System.Net.IPEndPoint.TryParse(System.String,System.Net.IPEndPoint@)
+  commentId: M:System.Net.IPEndPoint.TryParse(System.String,System.Net.IPEndPoint@)
+  parent: System.Net.IPEndPoint
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tryparse#system-net-ipendpoint-tryparse(system-string-system-net-ipendpoint@)
+  name: TryParse(string, out IPEndPoint)
+  nameWithType: IPEndPoint.TryParse(string, out IPEndPoint)
+  fullName: System.Net.IPEndPoint.TryParse(string, out System.Net.IPEndPoint)
+  nameWithType.vb: IPEndPoint.TryParse(String, IPEndPoint)
+  fullName.vb: System.Net.IPEndPoint.TryParse(String, System.Net.IPEndPoint)
+  name.vb: TryParse(String, IPEndPoint)
+  spec.csharp:
+  - uid: System.Net.IPEndPoint.TryParse(System.String,System.Net.IPEndPoint@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tryparse#system-net-ipendpoint-tryparse(system-string-system-net-ipendpoint@)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  - name: )
+  spec.vb:
+  - uid: System.Net.IPEndPoint.TryParse(System.String,System.Net.IPEndPoint@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tryparse#system-net-ipendpoint-tryparse(system-string-system-net-ipendpoint@)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  - name: )
+- uid: System.Net.IPEndPoint.TryParse(System.ReadOnlySpan{System.Char},System.Net.IPEndPoint@)
+  commentId: M:System.Net.IPEndPoint.TryParse(System.ReadOnlySpan{System.Char},System.Net.IPEndPoint@)
+  parent: System.Net.IPEndPoint
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tryparse#system-net-ipendpoint-tryparse(system-readonlyspan((system-char))-system-net-ipendpoint@)
+  name: TryParse(ReadOnlySpan<char>, out IPEndPoint)
+  nameWithType: IPEndPoint.TryParse(ReadOnlySpan<char>, out IPEndPoint)
+  fullName: System.Net.IPEndPoint.TryParse(System.ReadOnlySpan<char>, out System.Net.IPEndPoint)
+  nameWithType.vb: IPEndPoint.TryParse(ReadOnlySpan(Of Char), IPEndPoint)
+  fullName.vb: System.Net.IPEndPoint.TryParse(System.ReadOnlySpan(Of Char), System.Net.IPEndPoint)
+  name.vb: TryParse(ReadOnlySpan(Of Char), IPEndPoint)
+  spec.csharp:
+  - uid: System.Net.IPEndPoint.TryParse(System.ReadOnlySpan{System.Char},System.Net.IPEndPoint@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tryparse#system-net-ipendpoint-tryparse(system-readonlyspan((system-char))-system-net-ipendpoint@)
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Char
+    name: char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: '>'
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  - name: )
+  spec.vb:
+  - uid: System.Net.IPEndPoint.TryParse(System.ReadOnlySpan{System.Char},System.Net.IPEndPoint@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tryparse#system-net-ipendpoint-tryparse(system-readonlyspan((system-char))-system-net-ipendpoint@)
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Char
+    name: Char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Net.IPEndPoint
+    name: IPEndPoint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
+  - name: )
+- uid: System.Net.IPEndPoint.Parse(System.String)
+  commentId: M:System.Net.IPEndPoint.Parse(System.String)
+  parent: System.Net.IPEndPoint
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.parse#system-net-ipendpoint-parse(system-string)
+  name: Parse(string)
+  nameWithType: IPEndPoint.Parse(string)
+  fullName: System.Net.IPEndPoint.Parse(string)
+  nameWithType.vb: IPEndPoint.Parse(String)
+  fullName.vb: System.Net.IPEndPoint.Parse(String)
+  name.vb: Parse(String)
+  spec.csharp:
+  - uid: System.Net.IPEndPoint.Parse(System.String)
+    name: Parse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.parse#system-net-ipendpoint-parse(system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.Net.IPEndPoint.Parse(System.String)
+    name: Parse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.parse#system-net-ipendpoint-parse(system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Net.IPEndPoint.Parse(System.ReadOnlySpan{System.Char})
+  commentId: M:System.Net.IPEndPoint.Parse(System.ReadOnlySpan{System.Char})
+  parent: System.Net.IPEndPoint
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.parse#system-net-ipendpoint-parse(system-readonlyspan((system-char)))
+  name: Parse(ReadOnlySpan<char>)
+  nameWithType: IPEndPoint.Parse(ReadOnlySpan<char>)
+  fullName: System.Net.IPEndPoint.Parse(System.ReadOnlySpan<char>)
+  nameWithType.vb: IPEndPoint.Parse(ReadOnlySpan(Of Char))
+  fullName.vb: System.Net.IPEndPoint.Parse(System.ReadOnlySpan(Of Char))
+  name.vb: Parse(ReadOnlySpan(Of Char))
+  spec.csharp:
+  - uid: System.Net.IPEndPoint.Parse(System.ReadOnlySpan{System.Char})
+    name: Parse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.parse#system-net-ipendpoint-parse(system-readonlyspan((system-char)))
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Char
+    name: char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: System.Net.IPEndPoint.Parse(System.ReadOnlySpan{System.Char})
+    name: Parse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.parse#system-net-ipendpoint-parse(system-readonlyspan((system-char)))
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Char
+    name: Char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: )
+  - name: )
+- uid: System.Net.IPEndPoint.ToString
+  commentId: M:System.Net.IPEndPoint.ToString
+  parent: System.Net.IPEndPoint
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tostring
+  name: ToString()
+  nameWithType: IPEndPoint.ToString()
+  fullName: System.Net.IPEndPoint.ToString()
+  spec.csharp:
+  - uid: System.Net.IPEndPoint.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Net.IPEndPoint.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tostring
+  - name: (
+  - name: )
+- uid: System.Net.IPEndPoint.Serialize
+  commentId: M:System.Net.IPEndPoint.Serialize
+  parent: System.Net.IPEndPoint
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.serialize
+  name: Serialize()
+  nameWithType: IPEndPoint.Serialize()
+  fullName: System.Net.IPEndPoint.Serialize()
+  spec.csharp:
+  - uid: System.Net.IPEndPoint.Serialize
+    name: Serialize
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.serialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Net.IPEndPoint.Serialize
+    name: Serialize
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.serialize
+  - name: (
+  - name: )
 - uid: System.Net.IPEndPoint.Create(System.Net.SocketAddress)
   commentId: M:System.Net.IPEndPoint.Create(System.Net.SocketAddress)
   parent: System.Net.IPEndPoint
@@ -212,58 +448,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.gethashcode
   - name: (
   - name: )
-- uid: System.Net.IPEndPoint.Serialize
-  commentId: M:System.Net.IPEndPoint.Serialize
-  parent: System.Net.IPEndPoint
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.serialize
-  name: Serialize()
-  nameWithType: IPEndPoint.Serialize()
-  fullName: System.Net.IPEndPoint.Serialize()
-  spec.csharp:
-  - uid: System.Net.IPEndPoint.Serialize
-    name: Serialize
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.serialize
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Net.IPEndPoint.Serialize
-    name: Serialize
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.serialize
-  - name: (
-  - name: )
-- uid: System.Net.IPEndPoint.ToString
-  commentId: M:System.Net.IPEndPoint.ToString
-  parent: System.Net.IPEndPoint
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tostring
-  name: ToString()
-  nameWithType: IPEndPoint.ToString()
-  fullName: System.Net.IPEndPoint.ToString()
-  spec.csharp:
-  - uid: System.Net.IPEndPoint.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Net.IPEndPoint.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.tostring
-  - name: (
-  - name: )
-- uid: System.Net.IPEndPoint.Address
-  commentId: P:System.Net.IPEndPoint.Address
-  parent: System.Net.IPEndPoint
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.address
-  name: Address
-  nameWithType: IPEndPoint.Address
-  fullName: System.Net.IPEndPoint.Address
 - uid: System.Net.IPEndPoint.AddressFamily
   commentId: P:System.Net.IPEndPoint.AddressFamily
   parent: System.Net.IPEndPoint
@@ -272,6 +456,14 @@ references:
   name: AddressFamily
   nameWithType: IPEndPoint.AddressFamily
   fullName: System.Net.IPEndPoint.AddressFamily
+- uid: System.Net.IPEndPoint.Address
+  commentId: P:System.Net.IPEndPoint.Address
+  parent: System.Net.IPEndPoint
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint.address
+  name: Address
+  nameWithType: IPEndPoint.Address
+  fullName: System.Net.IPEndPoint.Address
 - uid: System.Net.IPEndPoint.Port
   commentId: P:System.Net.IPEndPoint.Port
   parent: System.Net.IPEndPoint
@@ -280,51 +472,6 @@ references:
   name: Port
   nameWithType: IPEndPoint.Port
   fullName: System.Net.IPEndPoint.Port
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -372,6 +519,51 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)

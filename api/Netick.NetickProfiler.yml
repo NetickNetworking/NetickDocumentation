@@ -5,12 +5,13 @@ items:
   id: NetickProfiler
   parent: Netick
   children:
-  - Netick.NetickProfiler.#ctor
-  - Netick.NetickProfiler.BytesPerPacketIn
-  - Netick.NetickProfiler.BytesPerPacketOut
-  - Netick.NetickProfiler.FPS
-  - Netick.NetickProfiler.RTT
-  - Netick.NetickProfiler.Resimulations
+  - Netick.NetickProfiler.#ctor(System.String)
+  - Netick.NetickProfiler.Begin
+  - Netick.NetickProfiler.End
+  - Netick.NetickProfiler.Name
+  - Netick.NetickProfiler.OnEnded
+  - Netick.NetickProfiler.OnStarted
+  - Netick.NetickProfiler.Time
   langs:
   - csharp
   - vb
@@ -27,138 +28,150 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
-- uid: Netick.NetickProfiler.#ctor
-  commentId: M:Netick.NetickProfiler.#ctor
-  id: '#ctor'
+  - System.Object.GetHashCode
+- uid: Netick.NetickProfiler.Name
+  commentId: F:Netick.NetickProfiler.Name
+  id: Name
   parent: Netick.NetickProfiler
   langs:
   - csharp
   - vb
-  name: NetickProfiler()
-  nameWithType: NetickProfiler.NetickProfiler()
-  fullName: Netick.NetickProfiler.NetickProfiler()
+  name: Name
+  nameWithType: NetickProfiler.Name
+  fullName: Netick.NetickProfiler.Name
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly string Name
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Name As String
+- uid: Netick.NetickProfiler.OnStarted
+  commentId: F:Netick.NetickProfiler.OnStarted
+  id: OnStarted
+  parent: Netick.NetickProfiler
+  langs:
+  - csharp
+  - vb
+  name: OnStarted
+  nameWithType: NetickProfiler.OnStarted
+  fullName: Netick.NetickProfiler.OnStarted
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Action OnStarted
+    return:
+      type: System.Action
+    content.vb: Public OnStarted As Action
+- uid: Netick.NetickProfiler.OnEnded
+  commentId: F:Netick.NetickProfiler.OnEnded
+  id: OnEnded
+  parent: Netick.NetickProfiler
+  langs:
+  - csharp
+  - vb
+  name: OnEnded
+  nameWithType: NetickProfiler.OnEnded
+  fullName: Netick.NetickProfiler.OnEnded
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Action OnEnded
+    return:
+      type: System.Action
+    content.vb: Public OnEnded As Action
+- uid: Netick.NetickProfiler.#ctor(System.String)
+  commentId: M:Netick.NetickProfiler.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Netick.NetickProfiler
+  langs:
+  - csharp
+  - vb
+  name: NetickProfiler(string)
+  nameWithType: NetickProfiler.NetickProfiler(string)
+  fullName: Netick.NetickProfiler.NetickProfiler(string)
   type: Constructor
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public NetickProfiler()
-    content.vb: Public Sub New()
+    content: public NetickProfiler(string name)
+    parameters:
+    - id: name
+      type: System.String
+    content.vb: Public Sub New(name As String)
   overload: Netick.NetickProfiler.#ctor*
-  nameWithType.vb: NetickProfiler.New()
-  fullName.vb: Netick.NetickProfiler.New()
-  name.vb: New()
-- uid: Netick.NetickProfiler.FPS
-  commentId: P:Netick.NetickProfiler.FPS
-  id: FPS
+  nameWithType.vb: NetickProfiler.New(String)
+  fullName.vb: Netick.NetickProfiler.New(String)
+  name.vb: New(String)
+- uid: Netick.NetickProfiler.Begin
+  commentId: M:Netick.NetickProfiler.Begin
+  id: Begin
   parent: Netick.NetickProfiler
   langs:
   - csharp
   - vb
-  name: FPS
-  nameWithType: NetickProfiler.FPS
-  fullName: Netick.NetickProfiler.FPS
+  name: Begin()
+  nameWithType: NetickProfiler.Begin()
+  fullName: Netick.NetickProfiler.Begin()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Begin()
+    content.vb: Public Sub Begin()
+  overload: Netick.NetickProfiler.Begin*
+- uid: Netick.NetickProfiler.End
+  commentId: M:Netick.NetickProfiler.End
+  id: End
+  parent: Netick.NetickProfiler
+  langs:
+  - csharp
+  - vb
+  name: End()
+  nameWithType: NetickProfiler.End()
+  fullName: Netick.NetickProfiler.End()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void End()
+    content.vb: Public Sub [End]()
+  overload: Netick.NetickProfiler.End*
+- uid: Netick.NetickProfiler.Time
+  commentId: P:Netick.NetickProfiler.Time
+  id: Time
+  parent: Netick.NetickProfiler
+  langs:
+  - csharp
+  - vb
+  name: Time
+  nameWithType: NetickProfiler.Time
+  fullName: Netick.NetickProfiler.Time
   type: Property
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public FloatStats FPS { get; }
+    content: public float Time { get; }
     parameters: []
     return:
-      type: Netick.FloatStats
-    content.vb: Public ReadOnly Property FPS As FloatStats
-  overload: Netick.NetickProfiler.FPS*
-- uid: Netick.NetickProfiler.RTT
-  commentId: P:Netick.NetickProfiler.RTT
-  id: RTT
-  parent: Netick.NetickProfiler
-  langs:
-  - csharp
-  - vb
-  name: RTT
-  nameWithType: NetickProfiler.RTT
-  fullName: Netick.NetickProfiler.RTT
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public FloatStats RTT { get; }
-    parameters: []
-    return:
-      type: Netick.FloatStats
-    content.vb: Public ReadOnly Property RTT As FloatStats
-  overload: Netick.NetickProfiler.RTT*
-- uid: Netick.NetickProfiler.Resimulations
-  commentId: P:Netick.NetickProfiler.Resimulations
-  id: Resimulations
-  parent: Netick.NetickProfiler
-  langs:
-  - csharp
-  - vb
-  name: Resimulations
-  nameWithType: NetickProfiler.Resimulations
-  fullName: Netick.NetickProfiler.Resimulations
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public FloatStats Resimulations { get; }
-    parameters: []
-    return:
-      type: Netick.FloatStats
-    content.vb: Public ReadOnly Property Resimulations As FloatStats
-  overload: Netick.NetickProfiler.Resimulations*
-- uid: Netick.NetickProfiler.BytesPerPacketIn
-  commentId: P:Netick.NetickProfiler.BytesPerPacketIn
-  id: BytesPerPacketIn
-  parent: Netick.NetickProfiler
-  langs:
-  - csharp
-  - vb
-  name: BytesPerPacketIn
-  nameWithType: NetickProfiler.BytesPerPacketIn
-  fullName: Netick.NetickProfiler.BytesPerPacketIn
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public FloatStats BytesPerPacketIn { get; }
-    parameters: []
-    return:
-      type: Netick.FloatStats
-    content.vb: Public ReadOnly Property BytesPerPacketIn As FloatStats
-  overload: Netick.NetickProfiler.BytesPerPacketIn*
-- uid: Netick.NetickProfiler.BytesPerPacketOut
-  commentId: P:Netick.NetickProfiler.BytesPerPacketOut
-  id: BytesPerPacketOut
-  parent: Netick.NetickProfiler
-  langs:
-  - csharp
-  - vb
-  name: BytesPerPacketOut
-  nameWithType: NetickProfiler.BytesPerPacketOut
-  fullName: Netick.NetickProfiler.BytesPerPacketOut
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public FloatStats BytesPerPacketOut { get; }
-    parameters: []
-    return:
-      type: Netick.FloatStats
-    content.vb: Public ReadOnly Property BytesPerPacketOut As FloatStats
-  overload: Netick.NetickProfiler.BytesPerPacketOut*
+      type: System.Single
+    content.vb: Public ReadOnly Property Time As Single
+  overload: Netick.NetickProfiler.Time*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -178,6 +191,54 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -256,54 +317,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -349,28 +362,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
   spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
 - uid: System
@@ -380,56 +393,64 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
 - uid: Netick.NetickProfiler.#ctor*
   commentId: Overload:Netick.NetickProfiler.#ctor
   isExternal: true
-  href: Netick.NetickProfiler.html#Netick_NetickProfiler__ctor
+  href: Netick.NetickProfiler.html#Netick_NetickProfiler__ctor_System_String_
   name: NetickProfiler
   nameWithType: NetickProfiler.NetickProfiler
   fullName: Netick.NetickProfiler.NetickProfiler
   nameWithType.vb: NetickProfiler.New
   fullName.vb: Netick.NetickProfiler.New
   name.vb: New
-- uid: Netick.NetickProfiler.FPS*
-  commentId: Overload:Netick.NetickProfiler.FPS
+- uid: Netick.NetickProfiler.Begin*
+  commentId: Overload:Netick.NetickProfiler.Begin
   isExternal: true
-  href: Netick.NetickProfiler.html#Netick_NetickProfiler_FPS
-  name: FPS
-  nameWithType: NetickProfiler.FPS
-  fullName: Netick.NetickProfiler.FPS
-- uid: Netick.FloatStats
-  commentId: T:Netick.FloatStats
-  parent: Netick
+  href: Netick.NetickProfiler.html#Netick_NetickProfiler_Begin
+  name: Begin
+  nameWithType: NetickProfiler.Begin
+  fullName: Netick.NetickProfiler.Begin
+- uid: Netick.NetickProfiler.End*
+  commentId: Overload:Netick.NetickProfiler.End
   isExternal: true
-  href: Netick.FloatStats.html
-  name: FloatStats
-  nameWithType: FloatStats
-  fullName: Netick.FloatStats
-- uid: Netick.NetickProfiler.RTT*
-  commentId: Overload:Netick.NetickProfiler.RTT
+  href: Netick.NetickProfiler.html#Netick_NetickProfiler_End
+  name: End
+  nameWithType: NetickProfiler.End
+  fullName: Netick.NetickProfiler.End
+- uid: Netick.NetickProfiler.Time*
+  commentId: Overload:Netick.NetickProfiler.Time
   isExternal: true
-  href: Netick.NetickProfiler.html#Netick_NetickProfiler_RTT
-  name: RTT
-  nameWithType: NetickProfiler.RTT
-  fullName: Netick.NetickProfiler.RTT
-- uid: Netick.NetickProfiler.Resimulations*
-  commentId: Overload:Netick.NetickProfiler.Resimulations
+  href: Netick.NetickProfiler.html#Netick_NetickProfiler_Time
+  name: Time
+  nameWithType: NetickProfiler.Time
+  fullName: Netick.NetickProfiler.Time
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
   isExternal: true
-  href: Netick.NetickProfiler.html#Netick_NetickProfiler_Resimulations
-  name: Resimulations
-  nameWithType: NetickProfiler.Resimulations
-  fullName: Netick.NetickProfiler.Resimulations
-- uid: Netick.NetickProfiler.BytesPerPacketIn*
-  commentId: Overload:Netick.NetickProfiler.BytesPerPacketIn
-  isExternal: true
-  href: Netick.NetickProfiler.html#Netick_NetickProfiler_BytesPerPacketIn
-  name: BytesPerPacketIn
-  nameWithType: NetickProfiler.BytesPerPacketIn
-  fullName: Netick.NetickProfiler.BytesPerPacketIn
-- uid: Netick.NetickProfiler.BytesPerPacketOut*
-  commentId: Overload:Netick.NetickProfiler.BytesPerPacketOut
-  isExternal: true
-  href: Netick.NetickProfiler.html#Netick_NetickProfiler_BytesPerPacketOut
-  name: BytesPerPacketOut
-  nameWithType: NetickProfiler.BytesPerPacketOut
-  fullName: Netick.NetickProfiler.BytesPerPacketOut
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single

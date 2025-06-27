@@ -12,7 +12,6 @@ items:
   - Netick.NetworkTimer.GetRemainingTime(Netick.NetickEngine,System.Boolean)
   - Netick.NetworkTimer.IsRunning(Netick.NetickEngine,System.Boolean)
   - Netick.NetworkTimer.IsStopped(Netick.NetickEngine,System.Boolean)
-  - Netick.NetworkTimer.RestartTimer(System.Single,Netick.NetickEngine,System.Boolean)
   - Netick.NetworkTimer.StartTimer(System.Single,Netick.NetickEngine,System.Boolean)
   - Netick.NetworkTimer.TargetTick
   - Netick.NetworkTimer.ToString
@@ -32,8 +31,8 @@ items:
   implements:
   - System.IEquatable{Netick.NetworkTimer}
   inheritedMembers:
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: Netick.NetworkTimer.GetRemainingTime(Netick.NetickEngine,System.Boolean)
   commentId: M:Netick.NetworkTimer.GetRemainingTime(Netick.NetickEngine,System.Boolean)
@@ -147,36 +146,6 @@ items:
   nameWithType.vb: NetworkTimer.IsRunning(NetickEngine, Boolean)
   fullName.vb: Netick.NetworkTimer.IsRunning(Netick.NetickEngine, Boolean)
   name.vb: IsRunning(NetickEngine, Boolean)
-- uid: Netick.NetworkTimer.RestartTimer(System.Single,Netick.NetickEngine,System.Boolean)
-  commentId: M:Netick.NetworkTimer.RestartTimer(System.Single,Netick.NetickEngine,System.Boolean)
-  id: RestartTimer(System.Single,Netick.NetickEngine,System.Boolean)
-  parent: Netick.NetworkTimer
-  langs:
-  - csharp
-  - vb
-  name: RestartTimer(float, NetickEngine, bool)
-  nameWithType: NetworkTimer.RestartTimer(float, NetickEngine, bool)
-  fullName: Netick.NetworkTimer.RestartTimer(float, Netick.NetickEngine, bool)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public static NetworkTimer RestartTimer(float time, NetickEngine engine, bool usePredictedTiming = false)
-    parameters:
-    - id: time
-      type: System.Single
-    - id: engine
-      type: Netick.NetickEngine
-    - id: usePredictedTiming
-      type: System.Boolean
-    return:
-      type: Netick.NetworkTimer
-    content.vb: Public Shared Function RestartTimer(time As Single, engine As NetickEngine, usePredictedTiming As Boolean = False) As NetworkTimer
-  overload: Netick.NetworkTimer.RestartTimer*
-  nameWithType.vb: NetworkTimer.RestartTimer(Single, NetickEngine, Boolean)
-  fullName.vb: Netick.NetworkTimer.RestartTimer(Single, Netick.NetickEngine, Boolean)
-  name.vb: RestartTimer(Single, NetickEngine, Boolean)
 - uid: Netick.NetworkTimer.StartTimer(System.Single,Netick.NetickEngine,System.Boolean)
   commentId: M:Netick.NetworkTimer.StartTimer(System.Single,Netick.NetickEngine,System.Boolean)
   id: StartTimer(System.Single,Netick.NetickEngine,System.Boolean)
@@ -369,6 +338,30 @@ references:
     isExternal: true
     href: Netick.NetworkTimer.html
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -413,30 +406,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -587,13 +556,13 @@ references:
   name: IsRunning
   nameWithType: NetworkTimer.IsRunning
   fullName: Netick.NetworkTimer.IsRunning
-- uid: Netick.NetworkTimer.RestartTimer*
-  commentId: Overload:Netick.NetworkTimer.RestartTimer
+- uid: Netick.NetworkTimer.StartTimer*
+  commentId: Overload:Netick.NetworkTimer.StartTimer
   isExternal: true
-  href: Netick.NetworkTimer.html#Netick_NetworkTimer_RestartTimer_System_Single_Netick_NetickEngine_System_Boolean_
-  name: RestartTimer
-  nameWithType: NetworkTimer.RestartTimer
-  fullName: Netick.NetworkTimer.RestartTimer
+  href: Netick.NetworkTimer.html#Netick_NetworkTimer_StartTimer_System_Single_Netick_NetickEngine_System_Boolean_
+  name: StartTimer
+  nameWithType: NetworkTimer.StartTimer
+  fullName: Netick.NetworkTimer.StartTimer
 - uid: Netick.NetworkTimer
   commentId: T:Netick.NetworkTimer
   parent: Netick
@@ -602,13 +571,6 @@ references:
   name: NetworkTimer
   nameWithType: NetworkTimer
   fullName: Netick.NetworkTimer
-- uid: Netick.NetworkTimer.StartTimer*
-  commentId: Overload:Netick.NetworkTimer.StartTimer
-  isExternal: true
-  href: Netick.NetworkTimer.html#Netick_NetworkTimer_StartTimer_System_Single_Netick_NetickEngine_System_Boolean_
-  name: StartTimer
-  nameWithType: NetworkTimer.StartTimer
-  fullName: Netick.NetworkTimer.StartTimer
 - uid: System.ValueType.GetHashCode
   commentId: M:System.ValueType.GetHashCode
   parent: System.ValueType

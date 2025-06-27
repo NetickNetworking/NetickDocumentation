@@ -1,0 +1,1313 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Unity.NetworkSceneHandler
+  commentId: T:Netick.Unity.NetworkSceneHandler
+  id: NetworkSceneHandler
+  parent: Netick.Unity
+  children:
+  - Netick.Unity.NetworkSceneHandler.#ctor
+  - Netick.Unity.NetworkSceneHandler.CustomScenesCount
+  - Netick.Unity.NetworkSceneHandler.LoadBuildSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
+  - Netick.Unity.NetworkSceneHandler.LoadCustomSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters,System.String@)
+  - Netick.Unity.NetworkSceneHandler.UnloadBuildSceneAsync(UnityEngine.SceneManagement.Scene)
+  - Netick.Unity.NetworkSceneHandler.UnloadCustomSceneAsync(UnityEngine.SceneManagement.Scene)
+  langs:
+  - csharp
+  - vb
+  name: NetworkSceneHandler
+  nameWithType: NetworkSceneHandler
+  fullName: Netick.Unity.NetworkSceneHandler
+  type: Class
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: 'public abstract class NetworkSceneHandler : NetworkEventsListener'
+    content.vb: Public MustInherit Class NetworkSceneHandler Inherits NetworkEventsListener
+  inheritance:
+  - System.Object
+  - Netick.Unity.NetickBaseBehaviour
+  - Netick.Unity.NetworkEventsListener
+  derivedClasses:
+  - Netick.Unity.DefaultSceneHandler
+  inheritedMembers:
+  - Netick.Unity.NetworkEventsListener.OnConnectRequest(Netick.Unity.NetworkSandbox,Netick.NetworkConnectionRequest)
+  - Netick.Unity.NetworkEventsListener.OnConnectFailed(Netick.Unity.NetworkSandbox,Netick.ConnectionFailedReason)
+  - Netick.Unity.NetworkEventsListener.OnInput(Netick.Unity.NetworkSandbox)
+  - Netick.Unity.NetworkEventsListener.OnStartup(Netick.Unity.NetworkSandbox)
+  - Netick.Unity.NetworkEventsListener.OnShutdown(Netick.Unity.NetworkSandbox)
+  - Netick.Unity.NetworkEventsListener.OnVisibilityChanged(Netick.Unity.NetworkSandbox)
+  - Netick.Unity.NetworkEventsListener.OnSceneOperationBegan(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)
+  - Netick.Unity.NetworkEventsListener.OnSceneOperationDone(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)
+  - Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
+  - Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
+  - Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
+  - Netick.Unity.NetworkEventsListener.OnDisconnectedFromServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  - Netick.Unity.NetworkEventsListener.OnPlayerJoined(Netick.Unity.NetworkSandbox,Netick.NetworkPlayerId)
+  - Netick.Unity.NetworkEventsListener.OnPlayerLeft(Netick.Unity.NetworkSandbox,Netick.NetworkPlayerId)
+  - Netick.Unity.NetworkEventsListener.OnClientConnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
+  - Netick.Unity.NetworkEventsListener.OnClientDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  - Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)
+  - Netick.Unity.NetworkEventsListener.OnPlayerDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  - Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
+  - Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
+  - Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
+  - Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
+  - Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  - Netick.Unity.NetworkEventsListener.UnlinkFromNetick
+  - Netick.Unity.NetworkEventsListener.Sandbox
+- uid: Netick.Unity.NetworkSceneHandler.LoadCustomSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters,System.String@)
+  commentId: M:Netick.Unity.NetworkSceneHandler.LoadCustomSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters,System.String@)
+  id: LoadCustomSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters,System.String@)
+  parent: Netick.Unity.NetworkSceneHandler
+  langs:
+  - csharp
+  - vb
+  name: LoadCustomSceneAsync(int, LoadSceneParameters, out string)
+  nameWithType: NetworkSceneHandler.LoadCustomSceneAsync(int, LoadSceneParameters, out string)
+  fullName: Netick.Unity.NetworkSceneHandler.LoadCustomSceneAsync(int, UnityEngine.SceneManagement.LoadSceneParameters, out string)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: protected abstract ISceneOperation LoadCustomSceneAsync(int index, LoadSceneParameters loadSceneParameters, out string sceneName)
+    parameters:
+    - id: index
+      type: System.Int32
+    - id: loadSceneParameters
+      type: UnityEngine.SceneManagement.LoadSceneParameters
+    - id: sceneName
+      type: System.String
+    return:
+      type: Netick.Unity.ISceneOperation
+    content.vb: Protected MustOverride Function LoadCustomSceneAsync(index As Integer, loadSceneParameters As LoadSceneParameters, sceneName As String) As ISceneOperation
+  overload: Netick.Unity.NetworkSceneHandler.LoadCustomSceneAsync*
+  nameWithType.vb: NetworkSceneHandler.LoadCustomSceneAsync(Integer, LoadSceneParameters, String)
+  fullName.vb: Netick.Unity.NetworkSceneHandler.LoadCustomSceneAsync(Integer, UnityEngine.SceneManagement.LoadSceneParameters, String)
+  name.vb: LoadCustomSceneAsync(Integer, LoadSceneParameters, String)
+- uid: Netick.Unity.NetworkSceneHandler.UnloadCustomSceneAsync(UnityEngine.SceneManagement.Scene)
+  commentId: M:Netick.Unity.NetworkSceneHandler.UnloadCustomSceneAsync(UnityEngine.SceneManagement.Scene)
+  id: UnloadCustomSceneAsync(UnityEngine.SceneManagement.Scene)
+  parent: Netick.Unity.NetworkSceneHandler
+  langs:
+  - csharp
+  - vb
+  name: UnloadCustomSceneAsync(Scene)
+  nameWithType: NetworkSceneHandler.UnloadCustomSceneAsync(Scene)
+  fullName: Netick.Unity.NetworkSceneHandler.UnloadCustomSceneAsync(UnityEngine.SceneManagement.Scene)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: protected abstract ISceneOperation UnloadCustomSceneAsync(Scene scene)
+    parameters:
+    - id: scene
+      type: UnityEngine.SceneManagement.Scene
+    return:
+      type: Netick.Unity.ISceneOperation
+    content.vb: Protected MustOverride Function UnloadCustomSceneAsync(scene As Scene) As ISceneOperation
+  overload: Netick.Unity.NetworkSceneHandler.UnloadCustomSceneAsync*
+- uid: Netick.Unity.NetworkSceneHandler.LoadBuildSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
+  commentId: M:Netick.Unity.NetworkSceneHandler.LoadBuildSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
+  id: LoadBuildSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
+  parent: Netick.Unity.NetworkSceneHandler
+  langs:
+  - csharp
+  - vb
+  name: LoadBuildSceneAsync(int, LoadSceneParameters)
+  nameWithType: NetworkSceneHandler.LoadBuildSceneAsync(int, LoadSceneParameters)
+  fullName: Netick.Unity.NetworkSceneHandler.LoadBuildSceneAsync(int, UnityEngine.SceneManagement.LoadSceneParameters)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: protected virtual ISceneOperation LoadBuildSceneAsync(int buildIndex, LoadSceneParameters loadSceneParameters)
+    parameters:
+    - id: buildIndex
+      type: System.Int32
+    - id: loadSceneParameters
+      type: UnityEngine.SceneManagement.LoadSceneParameters
+    return:
+      type: Netick.Unity.ISceneOperation
+    content.vb: Protected Overridable Function LoadBuildSceneAsync(buildIndex As Integer, loadSceneParameters As LoadSceneParameters) As ISceneOperation
+  overload: Netick.Unity.NetworkSceneHandler.LoadBuildSceneAsync*
+  nameWithType.vb: NetworkSceneHandler.LoadBuildSceneAsync(Integer, LoadSceneParameters)
+  fullName.vb: Netick.Unity.NetworkSceneHandler.LoadBuildSceneAsync(Integer, UnityEngine.SceneManagement.LoadSceneParameters)
+  name.vb: LoadBuildSceneAsync(Integer, LoadSceneParameters)
+- uid: Netick.Unity.NetworkSceneHandler.UnloadBuildSceneAsync(UnityEngine.SceneManagement.Scene)
+  commentId: M:Netick.Unity.NetworkSceneHandler.UnloadBuildSceneAsync(UnityEngine.SceneManagement.Scene)
+  id: UnloadBuildSceneAsync(UnityEngine.SceneManagement.Scene)
+  parent: Netick.Unity.NetworkSceneHandler
+  langs:
+  - csharp
+  - vb
+  name: UnloadBuildSceneAsync(Scene)
+  nameWithType: NetworkSceneHandler.UnloadBuildSceneAsync(Scene)
+  fullName: Netick.Unity.NetworkSceneHandler.UnloadBuildSceneAsync(UnityEngine.SceneManagement.Scene)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: protected virtual ISceneOperation UnloadBuildSceneAsync(Scene scene)
+    parameters:
+    - id: scene
+      type: UnityEngine.SceneManagement.Scene
+    return:
+      type: Netick.Unity.ISceneOperation
+    content.vb: Protected Overridable Function UnloadBuildSceneAsync(scene As Scene) As ISceneOperation
+  overload: Netick.Unity.NetworkSceneHandler.UnloadBuildSceneAsync*
+- uid: Netick.Unity.NetworkSceneHandler.#ctor
+  commentId: M:Netick.Unity.NetworkSceneHandler.#ctor
+  id: '#ctor'
+  parent: Netick.Unity.NetworkSceneHandler
+  langs:
+  - csharp
+  - vb
+  name: NetworkSceneHandler()
+  nameWithType: NetworkSceneHandler.NetworkSceneHandler()
+  fullName: Netick.Unity.NetworkSceneHandler.NetworkSceneHandler()
+  type: Constructor
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: protected NetworkSceneHandler()
+    content.vb: Protected Sub New()
+  overload: Netick.Unity.NetworkSceneHandler.#ctor*
+  nameWithType.vb: NetworkSceneHandler.New()
+  fullName.vb: Netick.Unity.NetworkSceneHandler.New()
+  name.vb: New()
+- uid: Netick.Unity.NetworkSceneHandler.CustomScenesCount
+  commentId: P:Netick.Unity.NetworkSceneHandler.CustomScenesCount
+  id: CustomScenesCount
+  parent: Netick.Unity.NetworkSceneHandler
+  langs:
+  - csharp
+  - vb
+  name: CustomScenesCount
+  nameWithType: NetworkSceneHandler.CustomScenesCount
+  fullName: Netick.Unity.NetworkSceneHandler.CustomScenesCount
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public abstract int CustomScenesCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public MustOverride ReadOnly Property CustomScenesCount As Integer
+  overload: Netick.Unity.NetworkSceneHandler.CustomScenesCount*
+references:
+- uid: Netick.Unity
+  commentId: N:Netick.Unity
+  isExternal: true
+  href: Netick.html
+  name: Netick.Unity
+  nameWithType: Netick.Unity
+  fullName: Netick.Unity
+  spec.csharp:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+  spec.vb:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Netick.Unity.NetickBaseBehaviour
+  commentId: T:Netick.Unity.NetickBaseBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetickBaseBehaviour.html
+  name: NetickBaseBehaviour
+  nameWithType: NetickBaseBehaviour
+  fullName: Netick.Unity.NetickBaseBehaviour
+- uid: Netick.Unity.NetworkEventsListener
+  commentId: T:Netick.Unity.NetworkEventsListener
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html
+  name: NetworkEventsListener
+  nameWithType: NetworkEventsListener
+  fullName: Netick.Unity.NetworkEventsListener
+- uid: Netick.Unity.NetworkEventsListener.OnConnectRequest(Netick.Unity.NetworkSandbox,Netick.NetworkConnectionRequest)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnConnectRequest(Netick.Unity.NetworkSandbox,Netick.NetworkConnectionRequest)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnConnectRequest_Netick_Unity_NetworkSandbox_Netick_NetworkConnectionRequest_
+  name: OnConnectRequest(NetworkSandbox, NetworkConnectionRequest)
+  nameWithType: NetworkEventsListener.OnConnectRequest(NetworkSandbox, NetworkConnectionRequest)
+  fullName: Netick.Unity.NetworkEventsListener.OnConnectRequest(Netick.Unity.NetworkSandbox, Netick.NetworkConnectionRequest)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnConnectRequest(Netick.Unity.NetworkSandbox,Netick.NetworkConnectionRequest)
+    name: OnConnectRequest
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnConnectRequest_Netick_Unity_NetworkSandbox_Netick_NetworkConnectionRequest_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnectionRequest
+    name: NetworkConnectionRequest
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnConnectRequest(Netick.Unity.NetworkSandbox,Netick.NetworkConnectionRequest)
+    name: OnConnectRequest
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnConnectRequest_Netick_Unity_NetworkSandbox_Netick_NetworkConnectionRequest_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnectionRequest
+    name: NetworkConnectionRequest
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnConnectFailed(Netick.Unity.NetworkSandbox,Netick.ConnectionFailedReason)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnConnectFailed(Netick.Unity.NetworkSandbox,Netick.ConnectionFailedReason)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnConnectFailed_Netick_Unity_NetworkSandbox_Netick_ConnectionFailedReason_
+  name: OnConnectFailed(NetworkSandbox, ConnectionFailedReason)
+  nameWithType: NetworkEventsListener.OnConnectFailed(NetworkSandbox, ConnectionFailedReason)
+  fullName: Netick.Unity.NetworkEventsListener.OnConnectFailed(Netick.Unity.NetworkSandbox, Netick.ConnectionFailedReason)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnConnectFailed(Netick.Unity.NetworkSandbox,Netick.ConnectionFailedReason)
+    name: OnConnectFailed
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnConnectFailed_Netick_Unity_NetworkSandbox_Netick_ConnectionFailedReason_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.ConnectionFailedReason
+    name: ConnectionFailedReason
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnConnectFailed(Netick.Unity.NetworkSandbox,Netick.ConnectionFailedReason)
+    name: OnConnectFailed
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnConnectFailed_Netick_Unity_NetworkSandbox_Netick_ConnectionFailedReason_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.ConnectionFailedReason
+    name: ConnectionFailedReason
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnInput(Netick.Unity.NetworkSandbox)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnInput(Netick.Unity.NetworkSandbox)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnInput_Netick_Unity_NetworkSandbox_
+  name: OnInput(NetworkSandbox)
+  nameWithType: NetworkEventsListener.OnInput(NetworkSandbox)
+  fullName: Netick.Unity.NetworkEventsListener.OnInput(Netick.Unity.NetworkSandbox)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnInput(Netick.Unity.NetworkSandbox)
+    name: OnInput
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnInput_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnInput(Netick.Unity.NetworkSandbox)
+    name: OnInput
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnInput_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnStartup(Netick.Unity.NetworkSandbox)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnStartup(Netick.Unity.NetworkSandbox)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnStartup_Netick_Unity_NetworkSandbox_
+  name: OnStartup(NetworkSandbox)
+  nameWithType: NetworkEventsListener.OnStartup(NetworkSandbox)
+  fullName: Netick.Unity.NetworkEventsListener.OnStartup(Netick.Unity.NetworkSandbox)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnStartup(Netick.Unity.NetworkSandbox)
+    name: OnStartup
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnStartup_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnStartup(Netick.Unity.NetworkSandbox)
+    name: OnStartup
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnStartup_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnShutdown(Netick.Unity.NetworkSandbox)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnShutdown(Netick.Unity.NetworkSandbox)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnShutdown_Netick_Unity_NetworkSandbox_
+  name: OnShutdown(NetworkSandbox)
+  nameWithType: NetworkEventsListener.OnShutdown(NetworkSandbox)
+  fullName: Netick.Unity.NetworkEventsListener.OnShutdown(Netick.Unity.NetworkSandbox)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnShutdown(Netick.Unity.NetworkSandbox)
+    name: OnShutdown
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnShutdown_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnShutdown(Netick.Unity.NetworkSandbox)
+    name: OnShutdown
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnShutdown_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnVisibilityChanged(Netick.Unity.NetworkSandbox)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnVisibilityChanged(Netick.Unity.NetworkSandbox)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnVisibilityChanged_Netick_Unity_NetworkSandbox_
+  name: OnVisibilityChanged(NetworkSandbox)
+  nameWithType: NetworkEventsListener.OnVisibilityChanged(NetworkSandbox)
+  fullName: Netick.Unity.NetworkEventsListener.OnVisibilityChanged(Netick.Unity.NetworkSandbox)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnVisibilityChanged(Netick.Unity.NetworkSandbox)
+    name: OnVisibilityChanged
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnVisibilityChanged_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnVisibilityChanged(Netick.Unity.NetworkSandbox)
+    name: OnVisibilityChanged
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnVisibilityChanged_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnSceneOperationBegan(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnSceneOperationBegan(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneOperationBegan_Netick_Unity_NetworkSandbox_Netick_Unity_NetworkSceneOperation_
+  name: OnSceneOperationBegan(NetworkSandbox, NetworkSceneOperation)
+  nameWithType: NetworkEventsListener.OnSceneOperationBegan(NetworkSandbox, NetworkSceneOperation)
+  fullName: Netick.Unity.NetworkEventsListener.OnSceneOperationBegan(Netick.Unity.NetworkSandbox, Netick.Unity.NetworkSceneOperation)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnSceneOperationBegan(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)
+    name: OnSceneOperationBegan
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneOperationBegan_Netick_Unity_NetworkSandbox_Netick_Unity_NetworkSceneOperation_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.Unity.NetworkSceneOperation
+    name: NetworkSceneOperation
+    isExternal: true
+    href: Netick.Unity.NetworkSceneOperation.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnSceneOperationBegan(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)
+    name: OnSceneOperationBegan
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneOperationBegan_Netick_Unity_NetworkSandbox_Netick_Unity_NetworkSceneOperation_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.Unity.NetworkSceneOperation
+    name: NetworkSceneOperation
+    isExternal: true
+    href: Netick.Unity.NetworkSceneOperation.html
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnSceneOperationDone(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnSceneOperationDone(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneOperationDone_Netick_Unity_NetworkSandbox_Netick_Unity_NetworkSceneOperation_
+  name: OnSceneOperationDone(NetworkSandbox, NetworkSceneOperation)
+  nameWithType: NetworkEventsListener.OnSceneOperationDone(NetworkSandbox, NetworkSceneOperation)
+  fullName: Netick.Unity.NetworkEventsListener.OnSceneOperationDone(Netick.Unity.NetworkSandbox, Netick.Unity.NetworkSceneOperation)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnSceneOperationDone(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)
+    name: OnSceneOperationDone
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneOperationDone_Netick_Unity_NetworkSandbox_Netick_Unity_NetworkSceneOperation_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.Unity.NetworkSceneOperation
+    name: NetworkSceneOperation
+    isExternal: true
+    href: Netick.Unity.NetworkSceneOperation.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnSceneOperationDone(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkSceneOperation)
+    name: OnSceneOperationDone
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneOperationDone_Netick_Unity_NetworkSandbox_Netick_Unity_NetworkSceneOperation_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.Unity.NetworkSceneOperation
+    name: NetworkSceneOperation
+    isExternal: true
+    href: Netick.Unity.NetworkSceneOperation.html
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneLoaded_Netick_Unity_NetworkSandbox_
+  name: OnSceneLoaded(NetworkSandbox)
+  nameWithType: NetworkEventsListener.OnSceneLoaded(NetworkSandbox)
+  fullName: Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
+    name: OnSceneLoaded
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneLoaded_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
+    name: OnSceneLoaded
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneLoaded_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneLoadStarted_Netick_Unity_NetworkSandbox_
+  name: OnSceneLoadStarted(NetworkSandbox)
+  nameWithType: NetworkEventsListener.OnSceneLoadStarted(NetworkSandbox)
+  fullName: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
+    name: OnSceneLoadStarted
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneLoadStarted_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
+    name: OnSceneLoadStarted
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneLoadStarted_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnConnectedToServer_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
+  name: OnConnectedToServer(NetworkSandbox, NetworkConnection)
+  nameWithType: NetworkEventsListener.OnConnectedToServer(NetworkSandbox, NetworkConnection)
+  fullName: Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox, Netick.NetworkConnection)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
+    name: OnConnectedToServer
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnConnectedToServer_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnection
+    name: NetworkConnection
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
+    name: OnConnectedToServer
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnConnectedToServer_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnection
+    name: NetworkConnection
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnDisconnectedFromServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnDisconnectedFromServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnDisconnectedFromServer_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_
+  name: OnDisconnectedFromServer(NetworkSandbox, NetworkConnection, TransportDisconnectReason)
+  nameWithType: NetworkEventsListener.OnDisconnectedFromServer(NetworkSandbox, NetworkConnection, TransportDisconnectReason)
+  fullName: Netick.Unity.NetworkEventsListener.OnDisconnectedFromServer(Netick.Unity.NetworkSandbox, Netick.NetworkConnection, Netick.TransportDisconnectReason)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnDisconnectedFromServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+    name: OnDisconnectedFromServer
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnDisconnectedFromServer_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnection
+    name: NetworkConnection
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDisconnectReason
+    name: TransportDisconnectReason
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnDisconnectedFromServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+    name: OnDisconnectedFromServer
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnDisconnectedFromServer_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnection
+    name: NetworkConnection
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDisconnectReason
+    name: TransportDisconnectReason
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnPlayerJoined(Netick.Unity.NetworkSandbox,Netick.NetworkPlayerId)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnPlayerJoined(Netick.Unity.NetworkSandbox,Netick.NetworkPlayerId)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerJoined_Netick_Unity_NetworkSandbox_Netick_NetworkPlayerId_
+  name: OnPlayerJoined(NetworkSandbox, NetworkPlayerId)
+  nameWithType: NetworkEventsListener.OnPlayerJoined(NetworkSandbox, NetworkPlayerId)
+  fullName: Netick.Unity.NetworkEventsListener.OnPlayerJoined(Netick.Unity.NetworkSandbox, Netick.NetworkPlayerId)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnPlayerJoined(Netick.Unity.NetworkSandbox,Netick.NetworkPlayerId)
+    name: OnPlayerJoined
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerJoined_Netick_Unity_NetworkSandbox_Netick_NetworkPlayerId_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkPlayerId
+    name: NetworkPlayerId
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnPlayerJoined(Netick.Unity.NetworkSandbox,Netick.NetworkPlayerId)
+    name: OnPlayerJoined
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerJoined_Netick_Unity_NetworkSandbox_Netick_NetworkPlayerId_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkPlayerId
+    name: NetworkPlayerId
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnPlayerLeft(Netick.Unity.NetworkSandbox,Netick.NetworkPlayerId)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnPlayerLeft(Netick.Unity.NetworkSandbox,Netick.NetworkPlayerId)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerLeft_Netick_Unity_NetworkSandbox_Netick_NetworkPlayerId_
+  name: OnPlayerLeft(NetworkSandbox, NetworkPlayerId)
+  nameWithType: NetworkEventsListener.OnPlayerLeft(NetworkSandbox, NetworkPlayerId)
+  fullName: Netick.Unity.NetworkEventsListener.OnPlayerLeft(Netick.Unity.NetworkSandbox, Netick.NetworkPlayerId)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnPlayerLeft(Netick.Unity.NetworkSandbox,Netick.NetworkPlayerId)
+    name: OnPlayerLeft
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerLeft_Netick_Unity_NetworkSandbox_Netick_NetworkPlayerId_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkPlayerId
+    name: NetworkPlayerId
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnPlayerLeft(Netick.Unity.NetworkSandbox,Netick.NetworkPlayerId)
+    name: OnPlayerLeft
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerLeft_Netick_Unity_NetworkSandbox_Netick_NetworkPlayerId_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkPlayerId
+    name: NetworkPlayerId
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnClientConnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnClientConnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientConnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
+  name: OnClientConnected(NetworkSandbox, NetworkConnection)
+  nameWithType: NetworkEventsListener.OnClientConnected(NetworkSandbox, NetworkConnection)
+  fullName: Netick.Unity.NetworkEventsListener.OnClientConnected(Netick.Unity.NetworkSandbox, Netick.NetworkConnection)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnClientConnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
+    name: OnClientConnected
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientConnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnection
+    name: NetworkConnection
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnClientConnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
+    name: OnClientConnected
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientConnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnection
+    name: NetworkConnection
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnClientDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnClientDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_
+  name: OnClientDisconnected(NetworkSandbox, NetworkConnection, TransportDisconnectReason)
+  nameWithType: NetworkEventsListener.OnClientDisconnected(NetworkSandbox, NetworkConnection, TransportDisconnectReason)
+  fullName: Netick.Unity.NetworkEventsListener.OnClientDisconnected(Netick.Unity.NetworkSandbox, Netick.NetworkConnection, Netick.TransportDisconnectReason)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnClientDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+    name: OnClientDisconnected
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnection
+    name: NetworkConnection
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDisconnectReason
+    name: TransportDisconnectReason
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnClientDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
+    name: OnClientDisconnected
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnection
+    name: NetworkConnection
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDisconnectReason
+    name: TransportDisconnectReason
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerConnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_
+  name: OnPlayerConnected(NetworkSandbox, NetworkPlayer)
+  nameWithType: NetworkEventsListener.OnPlayerConnected(NetworkSandbox, NetworkPlayer)
+  fullName: Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox, Netick.NetworkPlayer)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)
+    name: OnPlayerConnected
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerConnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkPlayer
+    name: NetworkPlayer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)
+    name: OnPlayerConnected
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerConnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkPlayer
+    name: NetworkPlayer
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnPlayerDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_Netick_TransportDisconnectReason_
+  name: OnPlayerDisconnected(NetworkSandbox, NetworkPlayer, TransportDisconnectReason)
+  nameWithType: NetworkEventsListener.OnPlayerDisconnected(NetworkSandbox, NetworkPlayer, TransportDisconnectReason)
+  fullName: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected(Netick.Unity.NetworkSandbox, Netick.NetworkPlayer, Netick.TransportDisconnectReason)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+    name: OnPlayerDisconnected
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_Netick_TransportDisconnectReason_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkPlayer
+    name: NetworkPlayer
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDisconnectReason
+    name: TransportDisconnectReason
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+    name: OnPlayerDisconnected
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_Netick_TransportDisconnectReason_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkPlayer
+    name: NetworkPlayer
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDisconnectReason
+    name: TransportDisconnectReason
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnObjectCreated_Netick_Unity_NetworkObject_
+  name: OnObjectCreated(NetworkObject)
+  nameWithType: NetworkEventsListener.OnObjectCreated(NetworkObject)
+  fullName: Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
+    name: OnObjectCreated
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnObjectCreated_Netick_Unity_NetworkObject_
+  - name: (
+  - uid: Netick.Unity.NetworkObject
+    name: NetworkObject
+    isExternal: true
+    href: Netick.Unity.NetworkObject.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
+    name: OnObjectCreated
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnObjectCreated_Netick_Unity_NetworkObject_
+  - name: (
+  - uid: Netick.Unity.NetworkObject
+    name: NetworkObject
+    isExternal: true
+    href: Netick.Unity.NetworkObject.html
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnObjectDestroyed_Netick_Unity_NetworkObject_
+  name: OnObjectDestroyed(NetworkObject)
+  nameWithType: NetworkEventsListener.OnObjectDestroyed(NetworkObject)
+  fullName: Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
+    name: OnObjectDestroyed
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnObjectDestroyed_Netick_Unity_NetworkObject_
+  - name: (
+  - uid: Netick.Unity.NetworkObject
+    name: NetworkObject
+    isExternal: true
+    href: Netick.Unity.NetworkObject.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
+    name: OnObjectDestroyed
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnObjectDestroyed_Netick_Unity_NetworkObject_
+  - name: (
+  - uid: Netick.Unity.NetworkObject
+    name: NetworkObject
+    isExternal: true
+    href: Netick.Unity.NetworkObject.html
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
+  commentId: M:Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnMatchListUpdate_Netick_Unity_NetworkSandbox_System_Collections_Generic_List_Netick_Session__
+  name: OnMatchListUpdate(NetworkSandbox, List<Session>)
+  nameWithType: NetworkEventsListener.OnMatchListUpdate(NetworkSandbox, List<Session>)
+  fullName: Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox, System.Collections.Generic.List<Netick.Session>)
+  nameWithType.vb: NetworkEventsListener.OnMatchListUpdate(NetworkSandbox, List(Of Session))
+  fullName.vb: Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox, System.Collections.Generic.List(Of Netick.Session))
+  name.vb: OnMatchListUpdate(NetworkSandbox, List(Of Session))
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
+    name: OnMatchListUpdate
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnMatchListUpdate_Netick_Unity_NetworkSandbox_System_Collections_Generic_List_Netick_Session__
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.Session
+    name: Session
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
+    name: OnMatchListUpdate
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnMatchListUpdate_Netick_Unity_NetworkSandbox_System_Collections_Generic_List_Netick_Session__
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Session
+    name: Session
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnMatchCreated_Netick_Unity_NetworkSandbox_
+  name: OnMatchCreated(NetworkSandbox)
+  nameWithType: NetworkEventsListener.OnMatchCreated(NetworkSandbox)
+  fullName: Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
+    name: OnMatchCreated
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnMatchCreated_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
+    name: OnMatchCreated
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnMatchCreated_Netick_Unity_NetworkSandbox_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnDataReceived_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_System_Byte_System_Byte__System_Int32_Netick_TransportDeliveryMethod_
+  name: OnDataReceived(NetworkSandbox, NetworkConnection, byte, byte*, int, TransportDeliveryMethod)
+  nameWithType: NetworkEventsListener.OnDataReceived(NetworkSandbox, NetworkConnection, byte, byte*, int, TransportDeliveryMethod)
+  fullName: Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox, Netick.NetworkConnection, byte, byte*, int, Netick.TransportDeliveryMethod)
+  nameWithType.vb: NetworkEventsListener.OnDataReceived(NetworkSandbox, NetworkConnection, Byte, Byte*, Integer, TransportDeliveryMethod)
+  fullName.vb: Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox, Netick.NetworkConnection, Byte, Byte*, Integer, Netick.TransportDeliveryMethod)
+  name.vb: OnDataReceived(NetworkSandbox, NetworkConnection, Byte, Byte*, Integer, TransportDeliveryMethod)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+    name: OnDataReceived
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnDataReceived_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_System_Byte_System_Byte__System_Int32_Netick_TransportDeliveryMethod_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnection
+    name: NetworkConnection
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDeliveryMethod
+    name: TransportDeliveryMethod
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+    name: OnDataReceived
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnDataReceived_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_System_Byte_System_Byte__System_Int32_Netick_TransportDeliveryMethod_
+  - name: (
+  - uid: Netick.Unity.NetworkSandbox
+    name: NetworkSandbox
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkConnection
+    name: NetworkConnection
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: ','
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDeliveryMethod
+    name: TransportDeliveryMethod
+    isExternal: true
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.UnlinkFromNetick
+  commentId: M:Netick.Unity.NetworkEventsListener.UnlinkFromNetick
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_UnlinkFromNetick
+  name: UnlinkFromNetick()
+  nameWithType: NetworkEventsListener.UnlinkFromNetick()
+  fullName: Netick.Unity.NetworkEventsListener.UnlinkFromNetick()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkEventsListener.UnlinkFromNetick
+    name: UnlinkFromNetick
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_UnlinkFromNetick
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkEventsListener.UnlinkFromNetick
+    name: UnlinkFromNetick
+    isExternal: true
+    href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_UnlinkFromNetick
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkEventsListener.Sandbox
+  commentId: P:Netick.Unity.NetworkEventsListener.Sandbox
+  parent: Netick.Unity.NetworkEventsListener
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_Sandbox
+  name: Sandbox
+  nameWithType: NetworkEventsListener.Sandbox
+  fullName: Netick.Unity.NetworkEventsListener.Sandbox
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.Unity.NetworkSceneHandler.LoadCustomSceneAsync*
+  commentId: Overload:Netick.Unity.NetworkSceneHandler.LoadCustomSceneAsync
+  isExternal: true
+  href: Netick.Unity.NetworkSceneHandler.html#Netick_Unity_NetworkSceneHandler_LoadCustomSceneAsync_System_Int32_UnityEngine_SceneManagement_LoadSceneParameters_System_String__
+  name: LoadCustomSceneAsync
+  nameWithType: NetworkSceneHandler.LoadCustomSceneAsync
+  fullName: Netick.Unity.NetworkSceneHandler.LoadCustomSceneAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: UnityEngine.SceneManagement.LoadSceneParameters
+  isExternal: true
+  name: LoadSceneParameters
+  nameWithType: LoadSceneParameters
+  fullName: UnityEngine.SceneManagement.LoadSceneParameters
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Netick.Unity.ISceneOperation
+  commentId: T:Netick.Unity.ISceneOperation
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.ISceneOperation.html
+  name: ISceneOperation
+  nameWithType: ISceneOperation
+  fullName: Netick.Unity.ISceneOperation
+- uid: Netick.Unity.NetworkSceneHandler.UnloadCustomSceneAsync*
+  commentId: Overload:Netick.Unity.NetworkSceneHandler.UnloadCustomSceneAsync
+  isExternal: true
+  href: Netick.Unity.NetworkSceneHandler.html#Netick_Unity_NetworkSceneHandler_UnloadCustomSceneAsync_UnityEngine_SceneManagement_Scene_
+  name: UnloadCustomSceneAsync
+  nameWithType: NetworkSceneHandler.UnloadCustomSceneAsync
+  fullName: Netick.Unity.NetworkSceneHandler.UnloadCustomSceneAsync
+- uid: UnityEngine.SceneManagement.Scene
+  isExternal: true
+  name: Scene
+  nameWithType: Scene
+  fullName: UnityEngine.SceneManagement.Scene
+- uid: Netick.Unity.NetworkSceneHandler.LoadBuildSceneAsync*
+  commentId: Overload:Netick.Unity.NetworkSceneHandler.LoadBuildSceneAsync
+  isExternal: true
+  href: Netick.Unity.NetworkSceneHandler.html#Netick_Unity_NetworkSceneHandler_LoadBuildSceneAsync_System_Int32_UnityEngine_SceneManagement_LoadSceneParameters_
+  name: LoadBuildSceneAsync
+  nameWithType: NetworkSceneHandler.LoadBuildSceneAsync
+  fullName: Netick.Unity.NetworkSceneHandler.LoadBuildSceneAsync
+- uid: Netick.Unity.NetworkSceneHandler.UnloadBuildSceneAsync*
+  commentId: Overload:Netick.Unity.NetworkSceneHandler.UnloadBuildSceneAsync
+  isExternal: true
+  href: Netick.Unity.NetworkSceneHandler.html#Netick_Unity_NetworkSceneHandler_UnloadBuildSceneAsync_UnityEngine_SceneManagement_Scene_
+  name: UnloadBuildSceneAsync
+  nameWithType: NetworkSceneHandler.UnloadBuildSceneAsync
+  fullName: Netick.Unity.NetworkSceneHandler.UnloadBuildSceneAsync
+- uid: Netick.Unity.NetworkSceneHandler.#ctor*
+  commentId: Overload:Netick.Unity.NetworkSceneHandler.#ctor
+  isExternal: true
+  href: Netick.Unity.NetworkSceneHandler.html#Netick_Unity_NetworkSceneHandler__ctor
+  name: NetworkSceneHandler
+  nameWithType: NetworkSceneHandler.NetworkSceneHandler
+  fullName: Netick.Unity.NetworkSceneHandler.NetworkSceneHandler
+  nameWithType.vb: NetworkSceneHandler.New
+  fullName.vb: Netick.Unity.NetworkSceneHandler.New
+  name.vb: New
+- uid: Netick.Unity.NetworkSceneHandler.CustomScenesCount*
+  commentId: Overload:Netick.Unity.NetworkSceneHandler.CustomScenesCount
+  isExternal: true
+  href: Netick.Unity.NetworkSceneHandler.html#Netick_Unity_NetworkSceneHandler_CustomScenesCount
+  name: CustomScenesCount
+  nameWithType: NetworkSceneHandler.CustomScenesCount
+  fullName: Netick.Unity.NetworkSceneHandler.CustomScenesCount

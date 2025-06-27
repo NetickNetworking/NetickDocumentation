@@ -17,25 +17,25 @@ items:
   namespace: Netick
   syntax:
     content: >-
-      [Networked(4, Relevancy.Everyone, 0.001)]
+      [Networked(4, Relevancy.Everyone, 0.001, false)]
 
       public struct FixedSize4<T> where T : unmanaged
     typeParameters:
     - id: T
     content.vb: >-
-      <Networked(4, Relevancy.Everyone, 0.001)>
+      <Networked(4, Relevancy.Everyone, 0.001, False)>
 
       Public Structure FixedSize4(Of T As Structure)
   inheritedMembers:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   attributes:
   - type: Netick.Networked
-    ctor: Netick.Networked.#ctor(System.Int32,Netick.Relevancy,System.Single)
+    ctor: Netick.Networked.#ctor(System.Int32,Netick.Relevancy,System.Single,System.Boolean)
     arguments:
     - type: System.Int32
       value: 4
@@ -43,6 +43,8 @@ items:
       value: 1
     - type: System.Single
       value: 0.001
+    - type: System.Boolean
+      value: false
   nameWithType.vb: FixedSize4(Of T)
   fullName.vb: Netick.FixedSize4(Of T)
   name.vb: FixedSize4(Of T)
@@ -131,6 +133,30 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -175,30 +201,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)

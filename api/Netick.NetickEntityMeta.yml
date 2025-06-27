@@ -5,10 +5,10 @@ items:
   id: NetickEntityMeta
   parent: Netick
   children:
+  - Netick.NetickEntityMeta.GroupIndex
   - Netick.NetickEntityMeta.Id
   - Netick.NetickEntityMeta.InputSourceId
   - Netick.NetickEntityMeta.InstanceCounter
-  - Netick.NetickEntityMeta.InterestIndex
   - Netick.NetickEntityMeta.IsDestroyed
   - Netick.NetickEntityMeta.StateSizeWords
   langs:
@@ -28,8 +28,8 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: Netick.NetickEntityMeta.StateSizeWords
   commentId: F:Netick.NetickEntityMeta.StateSizeWords
@@ -88,25 +88,25 @@ items:
     return:
       type: System.Int32
     content.vb: Public InstanceCounter As Integer
-- uid: Netick.NetickEntityMeta.InterestIndex
-  commentId: F:Netick.NetickEntityMeta.InterestIndex
-  id: InterestIndex
+- uid: Netick.NetickEntityMeta.GroupIndex
+  commentId: F:Netick.NetickEntityMeta.GroupIndex
+  id: GroupIndex
   parent: Netick.NetickEntityMeta
   langs:
   - csharp
   - vb
-  name: InterestIndex
-  nameWithType: NetickEntityMeta.InterestIndex
-  fullName: Netick.NetickEntityMeta.InterestIndex
+  name: GroupIndex
+  nameWithType: NetickEntityMeta.GroupIndex
+  fullName: Netick.NetickEntityMeta.GroupIndex
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public int InterestIndex
+    content: public int GroupIndex
     return:
       type: System.Int32
-    content.vb: Public InterestIndex As Integer
+    content.vb: Public GroupIndex As Integer
 - uid: Netick.NetickEntityMeta.Id
   commentId: F:Netick.NetickEntityMeta.Id
   id: Id
@@ -232,6 +232,30 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -276,30 +300,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)

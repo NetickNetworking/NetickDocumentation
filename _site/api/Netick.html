@@ -97,6 +97,10 @@ Classes
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Netick.AreaOfInterestLayer.html">AreaOfInterestLayer</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Netick.BadPacketException.html">BadPacketException</a></dt>
       <dd></dd>
     </dl>
@@ -215,10 +219,6 @@ Classes
       <dd></dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Netick.NetcodeProfiler.html">NetcodeProfiler</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetickAllocator.html">NetickAllocator</a></dt>
       <dd></dd>
     </dl>
@@ -239,6 +239,10 @@ Classes
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetickTransport.html">NetickTransport</a></dt>
       <dd></dd>
     </dl>
@@ -252,10 +256,6 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetickUtils.html">NetickUtils</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Netick.NetworkBoolExt.html">NetworkBoolExt</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
@@ -303,7 +303,7 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
-      <dd><p>Represents a network player, which can be either a local player (representing this sandbox) or a remote connection (representing a connected client)).</p>
+      <dd><p>Represents a network player, which can be either a local player (representing this player) or a remote connection (representing a connected client)).</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -369,7 +369,7 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Rpc.html">Rpc</a></dt>
-      <dd><p>Use this attribute on any method you want to make an RPC. Should have the return type of void, and not be static.</p>
+      <dd><p>Use this attribute on any method you want to make an RPC. Should have the return type of void.</p>
 <p> * Use the parameter "source" to specify who is allowed to send this RPC.</p>
 <p> * Use the parameter "target" to specify who is allowed to receive and execute this RPC.</p>
 <p> * Use the parameter "isReliable" to specify if this Rpc should be reliable or not, meaning it won't be lost (due to packet loss).</p>
@@ -420,6 +420,10 @@ Structs
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Netick.EntityStateRef.html">EntityStateRef</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Netick.FixedSize128-1.html">FixedSize128&lt;T&gt;</a></dt>
       <dd></dd>
     </dl>
@@ -453,7 +457,7 @@ Structs
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Interpolator.html">Interpolator</a></dt>
-      <dd><p>A struct that is used to obtain interpolation data for a network property.</p>
+      <dd><p>A struct that is used to obtain interpolation data for a network variable.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -470,10 +474,6 @@ Structs
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetickEntityMeta.html">NetickEntityMeta</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Netick.NetickVector2Int.html">NetickVector2Int</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
@@ -502,7 +502,8 @@ Structs
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkBool.html">NetworkBool</a></dt>
-      <dd></dd>
+      <dd><p>Always use NetworkBool instead of bool, for networked properties and RPC parameters.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkDictionarySnapshot-2.html">NetworkDictionarySnapshot&lt;TKey, TValue&gt;</a></dt>
@@ -515,8 +516,17 @@ Structs
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetworkLinkedListNode-1.html">NetworkLinkedListNode&lt;T&gt;</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Netick.NetworkLinkedListSnapshot-1.html">NetworkLinkedListSnapshot&lt;T&gt;</a></dt>
       <dd><p>A snapshot of the state of a <a class="xref" href="Netick.NetworkLinkedList-1.html">NetworkLinkedList&lt;T&gt;</a> collection. Note this must not be used outside the scope of an OnChanged call or a NetworkRender call.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+      <dd><p>Represents an networked struct identifier for a <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -579,10 +589,6 @@ Structs
       <dd></dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Netick.SpawnPredictionKey.html">SpawnPredictionKey</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
       <dt><a class="xref" href="Netick.Tick.html">Tick</a></dt>
       <dd></dd>
     </dl>
@@ -619,7 +625,7 @@ Interfaces
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.INetickNetworkScript.html">INetickNetworkScript</a></dt>
-      <dd><p>A network scripts which can have networked properties and rpcs.</p>
+      <dd><p>A script which can have networked properties and rpcs.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -729,7 +735,7 @@ Delegates
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

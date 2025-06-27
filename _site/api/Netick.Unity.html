@@ -93,7 +93,11 @@
 Classes
 </h3>
     <dl class="jumplist">
-      <dt><a class="xref" href="Netick.Unity.ComponentExtensions.html">ComponentExtensions</a></dt>
+      <dt><a class="xref" href="Netick.Unity.BuildSceneOperation.html">BuildSceneOperation</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.Unity.DefaultSceneHandler.html">DefaultSceneHandler</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
@@ -119,10 +123,6 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.NetickCoreComponent.html">NetickCoreComponent</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="Netick.Unity.NetickUnityExt.html">NetickUnityExt</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
@@ -226,10 +226,6 @@ Classes
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Netick.Unity.NetworkPlayerExtensions.html">NetworkPlayerExtensions</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.NetworkRigidbody.html">NetworkRigidbody</a></dt>
       <dd><p>This component is used to replicate the position and rotation of an object. Therefore, it’s the same as the Network Transform, the difference is that Network Rigidbody must be used if you want to have client-side prediction over PhysX objects since it replicates several other properties necessary for correct prediction.</p>
 </dd>
@@ -241,6 +237,11 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
+      <dd><p>NetworkSandbox represents a networked game instance in Netick. It encapsulates the entire simulation state for that instance.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.Unity.NetworkSceneHandler.html">NetworkSceneHandler</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
@@ -248,12 +249,9 @@ Classes
       <dd></dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="Netick.Unity.NetworkTimerExt.html">NetworkTimerExt</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.NetworkTransform.html">NetworkTransform</a></dt>
-      <dd></dd>
+      <dd><p>This component is used to replicate the position and rotation of an object.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.NetworkTransportProvider.html">NetworkTransportProvider</a></dt>
@@ -269,7 +267,7 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.SingleInstanceEnforcer.html">SingleInstanceEnforcer</a></dt>
-      <dd><p>Add this component to a GameObject to ensure only a single instance of it will exist at the same time, across all sandboxes.</p>
+      <dd><p>AddEntity this component to a GameObject to ensure only a single instance of it will exist at the same time, across all sandboxes.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -287,6 +285,10 @@ Classes
     <h3 id="structs">
 Structs
 </h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.Unity.BehaviourStateRef.html">BehaviourStateRef</a></dt>
+      <dd></dd>
+    </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.LaunchData.html">LaunchData</a></dt>
       <dd></dd>
@@ -312,6 +314,10 @@ Structs
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Netick.Unity.SandboxLaunchData.html">SandboxLaunchData</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.TransformErrorCorrector.html">TransformErrorCorrector</a></dt>
       <dd></dd>
     </dl>
@@ -324,6 +330,14 @@ Interfaces
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.IPhysicsComponent.html">IPhysicsComponent</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.Unity.ISceneId.html">ISceneId</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.Unity.ISceneOperation.html">ISceneOperation</a></dt>
       <dd></dd>
     </dl>
     <h3 id="enums">
@@ -413,6 +427,14 @@ Delegates
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Netick.Unity.OnPlayerJoinedDelegate.html">OnPlayerJoinedDelegate</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.Unity.OnPlayerLeftDelegate.html">OnPlayerLeftDelegate</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.OnSceneLoadStartedDelegate.html">OnSceneLoadStartedDelegate</a></dt>
       <dd></dd>
     </dl>
@@ -456,7 +478,7 @@ Delegates
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

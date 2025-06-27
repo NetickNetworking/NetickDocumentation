@@ -6,12 +6,10 @@ items:
   parent: Netick
   children:
   - Netick.INetickNetworkScript.Entity
-  - Netick.INetickNetworkScript.GameEngineIntoNetcode
   - Netick.INetickNetworkScript.Index
   - Netick.INetickNetworkScript.InternalGetStateSizeWords
   - Netick.INetickNetworkScript.InternalInit
   - Netick.INetickNetworkScript.InternalReset
-  - Netick.INetickNetworkScript.NetcodeIntoGameEngine
   - Netick.INetickNetworkScript.NetworkAwake
   - Netick.INetickNetworkScript.NetworkReset
   - Netick.INetickNetworkScript.OnBecameInterested
@@ -30,7 +28,7 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: A network scripts which can have networked properties and rpcs.
+  summary: A script which can have networked properties and rpcs.
   example: []
   syntax:
     content: 'public interface INetickNetworkScript : INetickScript'
@@ -42,8 +40,8 @@ items:
   - Netick.INetickScript.NetworkUpdate
   - Netick.INetickScript.NetworkFixedUpdate
   - Netick.INetickScript.NetworkRender
-  - Netick.INetickScript.OnBecameSimulated
-  - Netick.INetickScript.OnBecameUnsimulated
+  - Netick.INetickScript.NetcodeIntoGameEngine
+  - Netick.INetickScript.GameEngineIntoNetcode
   - Netick.INetickScript.Engine
 - uid: Netick.INetickNetworkScript.InternalGetStateSizeWords
   commentId: M:Netick.INetickNetworkScript.InternalGetStateSizeWords
@@ -137,42 +135,6 @@ items:
     content: void NetworkAwake()
     content.vb: Sub NetworkAwake()
   overload: Netick.INetickNetworkScript.NetworkAwake*
-- uid: Netick.INetickNetworkScript.NetcodeIntoGameEngine
-  commentId: M:Netick.INetickNetworkScript.NetcodeIntoGameEngine
-  id: NetcodeIntoGameEngine
-  parent: Netick.INetickNetworkScript
-  langs:
-  - csharp
-  - vb
-  name: NetcodeIntoGameEngine()
-  nameWithType: INetickNetworkScript.NetcodeIntoGameEngine()
-  fullName: Netick.INetickNetworkScript.NetcodeIntoGameEngine()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: void NetcodeIntoGameEngine()
-    content.vb: Sub NetcodeIntoGameEngine()
-  overload: Netick.INetickNetworkScript.NetcodeIntoGameEngine*
-- uid: Netick.INetickNetworkScript.GameEngineIntoNetcode
-  commentId: M:Netick.INetickNetworkScript.GameEngineIntoNetcode
-  id: GameEngineIntoNetcode
-  parent: Netick.INetickNetworkScript
-  langs:
-  - csharp
-  - vb
-  name: GameEngineIntoNetcode()
-  nameWithType: INetickNetworkScript.GameEngineIntoNetcode()
-  fullName: Netick.INetickNetworkScript.GameEngineIntoNetcode()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: void GameEngineIntoNetcode()
-    content.vb: Sub GameEngineIntoNetcode()
-  overload: Netick.INetickNetworkScript.GameEngineIntoNetcode*
 - uid: Netick.INetickNetworkScript.OnInputSourceLeft
   commentId: M:Netick.INetickNetworkScript.OnInputSourceLeft
   id: OnInputSourceLeft
@@ -248,27 +210,6 @@ items:
     content: void OnBecameUninterested()
     content.vb: Sub OnBecameUninterested()
   overload: Netick.INetickNetworkScript.OnBecameUninterested*
-- uid: Netick.INetickNetworkScript.State
-  commentId: P:Netick.INetickNetworkScript.State
-  id: State
-  parent: Netick.INetickNetworkScript
-  langs:
-  - csharp
-  - vb
-  name: State
-  nameWithType: INetickNetworkScript.State
-  fullName: Netick.INetickNetworkScript.State
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: int* State { get; }
-    parameters: []
-    return:
-      type: System.Int32*
-    content.vb: ReadOnly Property State As Integer*
-  overload: Netick.INetickNetworkScript.State*
 - uid: Netick.INetickNetworkScript.Entity
   commentId: P:Netick.INetickNetworkScript.Entity
   id: Entity
@@ -290,6 +231,27 @@ items:
       type: Netick.Entity
     content.vb: ReadOnly Property Entity As Entity
   overload: Netick.INetickNetworkScript.Entity*
+- uid: Netick.INetickNetworkScript.State
+  commentId: P:Netick.INetickNetworkScript.State
+  id: State
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: INetickNetworkScript.State
+  fullName: Netick.INetickNetworkScript.State
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: int* State { get; }
+    parameters: []
+    return:
+      type: System.Int32*
+    content.vb: ReadOnly Property State As Integer*
+  overload: Netick.INetickNetworkScript.State*
 - uid: Netick.INetickNetworkScript.Index
   commentId: P:Netick.INetickNetworkScript.Index
   id: Index
@@ -480,48 +442,48 @@ references:
     href: Netick.INetickScript.html#Netick_INetickScript_NetworkRender
   - name: (
   - name: )
-- uid: Netick.INetickScript.OnBecameSimulated
-  commentId: M:Netick.INetickScript.OnBecameSimulated
+- uid: Netick.INetickScript.NetcodeIntoGameEngine
+  commentId: M:Netick.INetickScript.NetcodeIntoGameEngine
   parent: Netick.INetickScript
   isExternal: true
-  href: Netick.INetickScript.html#Netick_INetickScript_OnBecameSimulated
-  name: OnBecameSimulated()
-  nameWithType: INetickScript.OnBecameSimulated()
-  fullName: Netick.INetickScript.OnBecameSimulated()
+  href: Netick.INetickScript.html#Netick_INetickScript_NetcodeIntoGameEngine
+  name: NetcodeIntoGameEngine()
+  nameWithType: INetickScript.NetcodeIntoGameEngine()
+  fullName: Netick.INetickScript.NetcodeIntoGameEngine()
   spec.csharp:
-  - uid: Netick.INetickScript.OnBecameSimulated
-    name: OnBecameSimulated
+  - uid: Netick.INetickScript.NetcodeIntoGameEngine
+    name: NetcodeIntoGameEngine
     isExternal: true
-    href: Netick.INetickScript.html#Netick_INetickScript_OnBecameSimulated
+    href: Netick.INetickScript.html#Netick_INetickScript_NetcodeIntoGameEngine
   - name: (
   - name: )
   spec.vb:
-  - uid: Netick.INetickScript.OnBecameSimulated
-    name: OnBecameSimulated
+  - uid: Netick.INetickScript.NetcodeIntoGameEngine
+    name: NetcodeIntoGameEngine
     isExternal: true
-    href: Netick.INetickScript.html#Netick_INetickScript_OnBecameSimulated
+    href: Netick.INetickScript.html#Netick_INetickScript_NetcodeIntoGameEngine
   - name: (
   - name: )
-- uid: Netick.INetickScript.OnBecameUnsimulated
-  commentId: M:Netick.INetickScript.OnBecameUnsimulated
+- uid: Netick.INetickScript.GameEngineIntoNetcode
+  commentId: M:Netick.INetickScript.GameEngineIntoNetcode
   parent: Netick.INetickScript
   isExternal: true
-  href: Netick.INetickScript.html#Netick_INetickScript_OnBecameUnsimulated
-  name: OnBecameUnsimulated()
-  nameWithType: INetickScript.OnBecameUnsimulated()
-  fullName: Netick.INetickScript.OnBecameUnsimulated()
+  href: Netick.INetickScript.html#Netick_INetickScript_GameEngineIntoNetcode
+  name: GameEngineIntoNetcode()
+  nameWithType: INetickScript.GameEngineIntoNetcode()
+  fullName: Netick.INetickScript.GameEngineIntoNetcode()
   spec.csharp:
-  - uid: Netick.INetickScript.OnBecameUnsimulated
-    name: OnBecameUnsimulated
+  - uid: Netick.INetickScript.GameEngineIntoNetcode
+    name: GameEngineIntoNetcode
     isExternal: true
-    href: Netick.INetickScript.html#Netick_INetickScript_OnBecameUnsimulated
+    href: Netick.INetickScript.html#Netick_INetickScript_GameEngineIntoNetcode
   - name: (
   - name: )
   spec.vb:
-  - uid: Netick.INetickScript.OnBecameUnsimulated
-    name: OnBecameUnsimulated
+  - uid: Netick.INetickScript.GameEngineIntoNetcode
+    name: GameEngineIntoNetcode
     isExternal: true
-    href: Netick.INetickScript.html#Netick_INetickScript_OnBecameUnsimulated
+    href: Netick.INetickScript.html#Netick_INetickScript_GameEngineIntoNetcode
   - name: (
   - name: )
 - uid: Netick.INetickScript.Engine
@@ -593,20 +555,6 @@ references:
   name: NetworkAwake
   nameWithType: INetickNetworkScript.NetworkAwake
   fullName: Netick.INetickNetworkScript.NetworkAwake
-- uid: Netick.INetickNetworkScript.NetcodeIntoGameEngine*
-  commentId: Overload:Netick.INetickNetworkScript.NetcodeIntoGameEngine
-  isExternal: true
-  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_NetcodeIntoGameEngine
-  name: NetcodeIntoGameEngine
-  nameWithType: INetickNetworkScript.NetcodeIntoGameEngine
-  fullName: Netick.INetickNetworkScript.NetcodeIntoGameEngine
-- uid: Netick.INetickNetworkScript.GameEngineIntoNetcode*
-  commentId: Overload:Netick.INetickNetworkScript.GameEngineIntoNetcode
-  isExternal: true
-  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_GameEngineIntoNetcode
-  name: GameEngineIntoNetcode
-  nameWithType: INetickNetworkScript.GameEngineIntoNetcode
-  fullName: Netick.INetickNetworkScript.GameEngineIntoNetcode
 - uid: Netick.INetickNetworkScript.OnInputSourceLeft*
   commentId: Overload:Netick.INetickNetworkScript.OnInputSourceLeft
   isExternal: true
@@ -643,6 +591,21 @@ references:
   name: OnBecameUninterested
   nameWithType: INetickNetworkScript.OnBecameUninterested
   fullName: Netick.INetickNetworkScript.OnBecameUninterested
+- uid: Netick.INetickNetworkScript.Entity*
+  commentId: Overload:Netick.INetickNetworkScript.Entity
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_Entity
+  name: Entity
+  nameWithType: INetickNetworkScript.Entity
+  fullName: Netick.INetickNetworkScript.Entity
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
 - uid: Netick.INetickNetworkScript.State*
   commentId: Overload:Netick.INetickNetworkScript.State
   isExternal: true
@@ -671,21 +634,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: '*'
-- uid: Netick.INetickNetworkScript.Entity*
-  commentId: Overload:Netick.INetickNetworkScript.Entity
-  isExternal: true
-  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_Entity
-  name: Entity
-  nameWithType: INetickNetworkScript.Entity
-  fullName: Netick.INetickNetworkScript.Entity
-- uid: Netick.Entity
-  commentId: T:Netick.Entity
-  parent: Netick
-  isExternal: true
-  href: Netick.Entity.html
-  name: Entity
-  nameWithType: Entity
-  fullName: Netick.Entity
 - uid: Netick.INetickNetworkScript.Index*
   commentId: Overload:Netick.INetickNetworkScript.Index
   isExternal: true

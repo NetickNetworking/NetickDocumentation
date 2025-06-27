@@ -125,25 +125,25 @@ Class TransportConnection
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
   </dd></dl>
 
@@ -286,7 +286,7 @@ Class TransportConnection
   <a id="Netick_TransportConnection_Send_" data-uid="Netick.TransportConnection.Send*"></a>
 
   <h3 id="Netick_TransportConnection_Send_System_IntPtr_System_Int32_" data-uid="Netick.TransportConnection.Send(System.IntPtr,System.Int32)">
-  Send(IntPtr, int)
+  Send(nint, int)
   
   </h3>
 
@@ -294,12 +294,12 @@ Class TransportConnection
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void Send(IntPtr ptr, int length)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract void Send(nint ptr, int length)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
     <dd></dd>
     <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
@@ -319,7 +319,7 @@ Class TransportConnection
   <a id="Netick_TransportConnection_SendUserData_" data-uid="Netick.TransportConnection.SendUserData*"></a>
 
   <h3 id="Netick_TransportConnection_SendUserData_System_IntPtr_System_Int32_Netick_TransportDeliveryMethod_" data-uid="Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)">
-  SendUserData(IntPtr, int, TransportDeliveryMethod)
+  SendUserData(nint, int, TransportDeliveryMethod)
   
   </h3>
 
@@ -327,12 +327,12 @@ Class TransportConnection
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void SendUserData(IntPtr ptr, int length, TransportDeliveryMethod transportDeliveryMethod)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void SendUserData(nint ptr, int length, TransportDeliveryMethod transportDeliveryMethod)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
     <dd></dd>
     <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
@@ -370,7 +370,7 @@ Class TransportConnection
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

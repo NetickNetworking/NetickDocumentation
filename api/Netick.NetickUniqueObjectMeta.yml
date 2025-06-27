@@ -6,7 +6,6 @@ items:
   parent: Netick
   children:
   - Netick.NetickUniqueObjectMeta.#ctor
-  - Netick.NetickUniqueObjectMeta.BehaviourToOffset
   - Netick.NetickUniqueObjectMeta.Hash
   - Netick.NetickUniqueObjectMeta.PropertyElementsToPropertyStartIndex
   - Netick.NetickUniqueObjectMeta.PropertyNameToSmoothMetaData
@@ -26,12 +25,12 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
+  - System.Object.GetHashCode
 - uid: Netick.NetickUniqueObjectMeta.Hash
   commentId: F:Netick.NetickUniqueObjectMeta.Hash
   id: Hash
@@ -66,29 +65,10 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public Dictionary<int, OnChangedMethod> PropertyElementsToPropertyStartIndex
+    content: public OnChangedMethod[] PropertyElementsToPropertyStartIndex
     return:
-      type: System.Collections.Generic.Dictionary{System.Int32,Netick.OnChangedMethod}
-    content.vb: Public PropertyElementsToPropertyStartIndex As Dictionary(Of Integer, OnChangedMethod)
-- uid: Netick.NetickUniqueObjectMeta.BehaviourToOffset
-  commentId: F:Netick.NetickUniqueObjectMeta.BehaviourToOffset
-  id: BehaviourToOffset
-  parent: Netick.NetickUniqueObjectMeta
-  langs:
-  - csharp
-  - vb
-  name: BehaviourToOffset
-  nameWithType: NetickUniqueObjectMeta.BehaviourToOffset
-  fullName: Netick.NetickUniqueObjectMeta.BehaviourToOffset
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public List<int> BehaviourToOffset
-    return:
-      type: System.Collections.Generic.List{System.Int32}
-    content.vb: Public BehaviourToOffset As List(Of Integer)
+      type: Netick.OnChangedMethod[]
+    content.vb: Public PropertyElementsToPropertyStartIndex As OnChangedMethod()
 - uid: Netick.NetickUniqueObjectMeta.PropertyNameToSmoothMetaData
   commentId: F:Netick.NetickUniqueObjectMeta.PropertyNameToSmoothMetaData
   id: PropertyNameToSmoothMetaData
@@ -148,6 +128,54 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -226,54 +254,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -319,28 +299,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
   spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
 - uid: System
@@ -361,33 +341,56 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: System.Collections.Generic.Dictionary{System.Int32,Netick.OnChangedMethod}
-  commentId: T:System.Collections.Generic.Dictionary{System.Int32,Netick.OnChangedMethod}
+- uid: Netick.OnChangedMethod[]
+  isExternal: true
+  href: Netick.OnChangedMethod.html
+  name: OnChangedMethod[]
+  nameWithType: OnChangedMethod[]
+  fullName: Netick.OnChangedMethod[]
+  nameWithType.vb: OnChangedMethod()
+  fullName.vb: Netick.OnChangedMethod()
+  name.vb: OnChangedMethod()
+  spec.csharp:
+  - uid: Netick.OnChangedMethod
+    name: OnChangedMethod
+    isExternal: true
+    href: Netick.OnChangedMethod.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Netick.OnChangedMethod
+    name: OnChangedMethod
+    isExternal: true
+    href: Netick.OnChangedMethod.html
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.Dictionary{System.String,Netick.SmoothMetaData}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,Netick.SmoothMetaData}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.Dictionary`2
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  name: Dictionary<int, OnChangedMethod>
-  nameWithType: Dictionary<int, OnChangedMethod>
-  fullName: System.Collections.Generic.Dictionary<int, Netick.OnChangedMethod>
-  nameWithType.vb: Dictionary(Of Integer, OnChangedMethod)
-  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, Netick.OnChangedMethod)
-  name.vb: Dictionary(Of Integer, OnChangedMethod)
+  name: Dictionary<string, SmoothMetaData>
+  nameWithType: Dictionary<string, SmoothMetaData>
+  fullName: System.Collections.Generic.Dictionary<string, Netick.SmoothMetaData>
+  nameWithType.vb: Dictionary(Of String, SmoothMetaData)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, Netick.SmoothMetaData)
+  name.vb: Dictionary(Of String, SmoothMetaData)
   spec.csharp:
   - uid: System.Collections.Generic.Dictionary`2
     name: Dictionary
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
   - name: <
-  - uid: System.Int32
-    name: int
+  - uid: System.String
+    name: string
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: ','
   - name: " "
-  - uid: Netick.OnChangedMethod
-    name: OnChangedMethod
+  - uid: Netick.SmoothMetaData
+    name: SmoothMetaData
     isExternal: true
-    href: Netick.OnChangedMethod.html
+    href: Netick.SmoothMetaData.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.Dictionary`2
@@ -397,16 +400,16 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.Int32
-    name: Integer
+  - uid: System.String
+    name: String
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: ','
   - name: " "
-  - uid: Netick.OnChangedMethod
-    name: OnChangedMethod
+  - uid: Netick.SmoothMetaData
+    name: SmoothMetaData
     isExternal: true
-    href: Netick.OnChangedMethod.html
+    href: Netick.SmoothMetaData.html
   - name: )
 - uid: System.Collections.Generic.Dictionary`2
   commentId: T:System.Collections.Generic.Dictionary`2
@@ -479,116 +482,6 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: System.Collections.Generic.List{System.Int32}
-  commentId: T:System.Collections.Generic.List{System.Int32}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<int>
-  nameWithType: List<int>
-  fullName: System.Collections.Generic.List<int>
-  nameWithType.vb: List(Of Integer)
-  fullName.vb: System.Collections.Generic.List(Of Integer)
-  name.vb: List(Of Integer)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: System.Collections.Generic.Dictionary{System.String,Netick.SmoothMetaData}
-  commentId: T:System.Collections.Generic.Dictionary{System.String,Netick.SmoothMetaData}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.Dictionary`2
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  name: Dictionary<string, SmoothMetaData>
-  nameWithType: Dictionary<string, SmoothMetaData>
-  fullName: System.Collections.Generic.Dictionary<string, Netick.SmoothMetaData>
-  nameWithType.vb: Dictionary(Of String, SmoothMetaData)
-  fullName.vb: System.Collections.Generic.Dictionary(Of String, Netick.SmoothMetaData)
-  name.vb: Dictionary(Of String, SmoothMetaData)
-  spec.csharp:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: Netick.SmoothMetaData
-    name: SmoothMetaData
-    isExternal: true
-    href: Netick.SmoothMetaData.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: Netick.SmoothMetaData
-    name: SmoothMetaData
-    isExternal: true
-    href: Netick.SmoothMetaData.html
-  - name: )
 - uid: Netick.NetickUniqueObjectMeta.#ctor*
   commentId: Overload:Netick.NetickUniqueObjectMeta.#ctor
   isExternal: true

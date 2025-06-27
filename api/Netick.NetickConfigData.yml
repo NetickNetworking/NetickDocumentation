@@ -5,32 +5,38 @@ items:
   id: NetickConfigData
   parent: Netick
   children:
-  - Netick.NetickConfigData.AllocatorMetaBlockSize
-  - Netick.NetickConfigData.AllocatorStateBlockSize
-  - Netick.NetickConfigData.AoICellSize
+  - Netick.NetickConfigData.AccurateLocalInterpolation
+  - Netick.NetickConfigData.AggressivePreAllocation
+  - Netick.NetickConfigData.AoICellSizes
+  - Netick.NetickConfigData.AoILayerCount
   - Netick.NetickConfigData.AoIWorldSize
   - Netick.NetickConfigData.BurstBuffering
+  - Netick.NetickConfigData.CustomInterestGroupCount
   - Netick.NetickConfigData.EnableInterestManagement
   - Netick.NetickConfigData.EnableLagCompensation
   - Netick.NetickConfigData.EnableLagCompensationDebug
   - Netick.NetickConfigData.EnableLogging
-  - Netick.NetickConfigData.EnableSimulationCulling
+  - Netick.NetickConfigData.EnableMultithreading
+  - Netick.NetickConfigData.EnableNarrowphaseFilterting
+  - Netick.NetickConfigData.EnableProfiling
   - Netick.NetickConfigData.EnableSpatialPrioritization
+  - Netick.NetickConfigData.ExtraInterpolationDelay
+  - Netick.NetickConfigData.FastSerialization
   - Netick.NetickConfigData.InputReuseAtLowFPS
-  - Netick.NetickConfigData.InterestGroupCount
   - Netick.NetickConfigData.InvokeNetworkUpdate
+  - Netick.NetickConfigData.IsARM32Bit
   - Netick.NetickConfigData.KickClientForBadRpc
+  - Netick.NetickConfigData.MaxAllowedTimestep
   - Netick.NetickConfigData.MaxDataPerConnectionPerTickInBytes
-  - Netick.NetickConfigData.MaxInterpolationBufferCount
+  - Netick.NetickConfigData.MaxInterpolationSnapshots
   - Netick.NetickConfigData.MaxObjects
   - Netick.NetickConfigData.MaxPlayers
   - Netick.NetickConfigData.MaxPredictedTicks
-  - Netick.NetickConfigData.SavedSnapshotsCount
+  - Netick.NetickConfigData.MaxSnapshots
+  - Netick.NetickConfigData.MetaAllocatorBlockSize
   - Netick.NetickConfigData.ServerDivisor
+  - Netick.NetickConfigData.StateAllocatorBlockSize
   - Netick.NetickConfigData.TickRate
-  - Netick.NetickConfigData.TransportReceiveBufferSize
-  - Netick.NetickConfigData.TransportSendBufferSize
-  - Netick.NetickConfigData.TransportTimeout
   langs:
   - csharp
   - vb
@@ -48,9 +54,85 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Netick.NetickConfigData.StateAllocatorBlockSize
+  commentId: F:Netick.NetickConfigData.StateAllocatorBlockSize
+  id: StateAllocatorBlockSize
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: StateAllocatorBlockSize
+  nameWithType: NetickConfigData.StateAllocatorBlockSize
+  fullName: Netick.NetickConfigData.StateAllocatorBlockSize
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int StateAllocatorBlockSize
+    return:
+      type: System.Int32
+    content.vb: Public StateAllocatorBlockSize As Integer
+- uid: Netick.NetickConfigData.MetaAllocatorBlockSize
+  commentId: F:Netick.NetickConfigData.MetaAllocatorBlockSize
+  id: MetaAllocatorBlockSize
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: MetaAllocatorBlockSize
+  nameWithType: NetickConfigData.MetaAllocatorBlockSize
+  fullName: Netick.NetickConfigData.MetaAllocatorBlockSize
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int MetaAllocatorBlockSize
+    return:
+      type: System.Int32
+    content.vb: Public MetaAllocatorBlockSize As Integer
+- uid: Netick.NetickConfigData.MaxDataPerConnectionPerTickInBytes
+  commentId: F:Netick.NetickConfigData.MaxDataPerConnectionPerTickInBytes
+  id: MaxDataPerConnectionPerTickInBytes
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: MaxDataPerConnectionPerTickInBytes
+  nameWithType: NetickConfigData.MaxDataPerConnectionPerTickInBytes
+  fullName: Netick.NetickConfigData.MaxDataPerConnectionPerTickInBytes
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int MaxDataPerConnectionPerTickInBytes
+    return:
+      type: System.Int32
+    content.vb: Public MaxDataPerConnectionPerTickInBytes As Integer
+- uid: Netick.NetickConfigData.AggressivePreAllocation
+  commentId: F:Netick.NetickConfigData.AggressivePreAllocation
+  id: AggressivePreAllocation
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: AggressivePreAllocation
+  nameWithType: NetickConfigData.AggressivePreAllocation
+  fullName: Netick.NetickConfigData.AggressivePreAllocation
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool AggressivePreAllocation
+    return:
+      type: System.Boolean
+    content.vb: Public AggressivePreAllocation As Boolean
 - uid: Netick.NetickConfigData.TickRate
   commentId: F:Netick.NetickConfigData.TickRate
   id: TickRate
@@ -89,6 +171,25 @@ items:
     return:
       type: System.Int32
     content.vb: Public ServerDivisor As Integer
+- uid: Netick.NetickConfigData.MaxAllowedTimestep
+  commentId: F:Netick.NetickConfigData.MaxAllowedTimestep
+  id: MaxAllowedTimestep
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: MaxAllowedTimestep
+  nameWithType: NetickConfigData.MaxAllowedTimestep
+  fullName: Netick.NetickConfigData.MaxAllowedTimestep
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float MaxAllowedTimestep
+    return:
+      type: System.Single
+    content.vb: Public MaxAllowedTimestep As Single
 - uid: Netick.NetickConfigData.MaxPlayers
   commentId: F:Netick.NetickConfigData.MaxPlayers
   id: MaxPlayers
@@ -127,25 +228,25 @@ items:
     return:
       type: System.Int32
     content.vb: Public MaxObjects As Integer
-- uid: Netick.NetickConfigData.InputReuseAtLowFPS
-  commentId: F:Netick.NetickConfigData.InputReuseAtLowFPS
-  id: InputReuseAtLowFPS
+- uid: Netick.NetickConfigData.MaxSnapshots
+  commentId: F:Netick.NetickConfigData.MaxSnapshots
+  id: MaxSnapshots
   parent: Netick.NetickConfigData
   langs:
   - csharp
   - vb
-  name: InputReuseAtLowFPS
-  nameWithType: NetickConfigData.InputReuseAtLowFPS
-  fullName: Netick.NetickConfigData.InputReuseAtLowFPS
+  name: MaxSnapshots
+  nameWithType: NetickConfigData.MaxSnapshots
+  fullName: Netick.NetickConfigData.MaxSnapshots
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool InputReuseAtLowFPS
+    content: public int MaxSnapshots
     return:
-      type: System.Boolean
-    content.vb: Public InputReuseAtLowFPS As Boolean
+      type: System.Int32
+    content.vb: Public MaxSnapshots As Integer
 - uid: Netick.NetickConfigData.MaxPredictedTicks
   commentId: F:Netick.NetickConfigData.MaxPredictedTicks
   id: MaxPredictedTicks
@@ -165,63 +266,367 @@ items:
     return:
       type: System.Int32
     content.vb: Public MaxPredictedTicks As Integer
-- uid: Netick.NetickConfigData.MaxInterpolationBufferCount
-  commentId: F:Netick.NetickConfigData.MaxInterpolationBufferCount
-  id: MaxInterpolationBufferCount
+- uid: Netick.NetickConfigData.MaxInterpolationSnapshots
+  commentId: F:Netick.NetickConfigData.MaxInterpolationSnapshots
+  id: MaxInterpolationSnapshots
   parent: Netick.NetickConfigData
   langs:
   - csharp
   - vb
-  name: MaxInterpolationBufferCount
-  nameWithType: NetickConfigData.MaxInterpolationBufferCount
-  fullName: Netick.NetickConfigData.MaxInterpolationBufferCount
+  name: MaxInterpolationSnapshots
+  nameWithType: NetickConfigData.MaxInterpolationSnapshots
+  fullName: Netick.NetickConfigData.MaxInterpolationSnapshots
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public int MaxInterpolationBufferCount
+    content: public int MaxInterpolationSnapshots
     return:
       type: System.Int32
-    content.vb: Public MaxInterpolationBufferCount As Integer
-- uid: Netick.NetickConfigData.SavedSnapshotsCount
-  commentId: F:Netick.NetickConfigData.SavedSnapshotsCount
-  id: SavedSnapshotsCount
+    content.vb: Public MaxInterpolationSnapshots As Integer
+- uid: Netick.NetickConfigData.ExtraInterpolationDelay
+  commentId: F:Netick.NetickConfigData.ExtraInterpolationDelay
+  id: ExtraInterpolationDelay
   parent: Netick.NetickConfigData
   langs:
   - csharp
   - vb
-  name: SavedSnapshotsCount
-  nameWithType: NetickConfigData.SavedSnapshotsCount
-  fullName: Netick.NetickConfigData.SavedSnapshotsCount
+  name: ExtraInterpolationDelay
+  nameWithType: NetickConfigData.ExtraInterpolationDelay
+  fullName: Netick.NetickConfigData.ExtraInterpolationDelay
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public int SavedSnapshotsCount
+    content: public float ExtraInterpolationDelay
     return:
-      type: System.Int32
-    content.vb: Public SavedSnapshotsCount As Integer
-- uid: Netick.NetickConfigData.MaxDataPerConnectionPerTickInBytes
-  commentId: F:Netick.NetickConfigData.MaxDataPerConnectionPerTickInBytes
-  id: MaxDataPerConnectionPerTickInBytes
+      type: System.Single
+    content.vb: Public ExtraInterpolationDelay As Single
+- uid: Netick.NetickConfigData.AccurateLocalInterpolation
+  commentId: F:Netick.NetickConfigData.AccurateLocalInterpolation
+  id: AccurateLocalInterpolation
   parent: Netick.NetickConfigData
   langs:
   - csharp
   - vb
-  name: MaxDataPerConnectionPerTickInBytes
-  nameWithType: NetickConfigData.MaxDataPerConnectionPerTickInBytes
-  fullName: Netick.NetickConfigData.MaxDataPerConnectionPerTickInBytes
+  name: AccurateLocalInterpolation
+  nameWithType: NetickConfigData.AccurateLocalInterpolation
+  fullName: Netick.NetickConfigData.AccurateLocalInterpolation
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public int MaxDataPerConnectionPerTickInBytes
+    content: public bool AccurateLocalInterpolation
+    return:
+      type: System.Boolean
+    content.vb: Public AccurateLocalInterpolation As Boolean
+- uid: Netick.NetickConfigData.EnableLagCompensation
+  commentId: F:Netick.NetickConfigData.EnableLagCompensation
+  id: EnableLagCompensation
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: EnableLagCompensation
+  nameWithType: NetickConfigData.EnableLagCompensation
+  fullName: Netick.NetickConfigData.EnableLagCompensation
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool EnableLagCompensation
+    return:
+      type: System.Boolean
+    content.vb: Public EnableLagCompensation As Boolean
+- uid: Netick.NetickConfigData.EnableInterestManagement
+  commentId: F:Netick.NetickConfigData.EnableInterestManagement
+  id: EnableInterestManagement
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: EnableInterestManagement
+  nameWithType: NetickConfigData.EnableInterestManagement
+  fullName: Netick.NetickConfigData.EnableInterestManagement
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool EnableInterestManagement
+    return:
+      type: System.Boolean
+    content.vb: Public EnableInterestManagement As Boolean
+- uid: Netick.NetickConfigData.EnableNarrowphaseFilterting
+  commentId: F:Netick.NetickConfigData.EnableNarrowphaseFilterting
+  id: EnableNarrowphaseFilterting
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: EnableNarrowphaseFilterting
+  nameWithType: NetickConfigData.EnableNarrowphaseFilterting
+  fullName: Netick.NetickConfigData.EnableNarrowphaseFilterting
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool EnableNarrowphaseFilterting
+    return:
+      type: System.Boolean
+    content.vb: Public EnableNarrowphaseFilterting As Boolean
+- uid: Netick.NetickConfigData.EnableSpatialPrioritization
+  commentId: F:Netick.NetickConfigData.EnableSpatialPrioritization
+  id: EnableSpatialPrioritization
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: EnableSpatialPrioritization
+  nameWithType: NetickConfigData.EnableSpatialPrioritization
+  fullName: Netick.NetickConfigData.EnableSpatialPrioritization
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool EnableSpatialPrioritization
+    return:
+      type: System.Boolean
+    content.vb: Public EnableSpatialPrioritization As Boolean
+- uid: Netick.NetickConfigData.EnableMultithreading
+  commentId: F:Netick.NetickConfigData.EnableMultithreading
+  id: EnableMultithreading
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: EnableMultithreading
+  nameWithType: NetickConfigData.EnableMultithreading
+  fullName: Netick.NetickConfigData.EnableMultithreading
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool EnableMultithreading
+    return:
+      type: System.Boolean
+    content.vb: Public EnableMultithreading As Boolean
+- uid: Netick.NetickConfigData.AoIWorldSize
+  commentId: F:Netick.NetickConfigData.AoIWorldSize
+  id: AoIWorldSize
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: AoIWorldSize
+  nameWithType: NetickConfigData.AoIWorldSize
+  fullName: Netick.NetickConfigData.AoIWorldSize
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Vector3 AoIWorldSize
+    return:
+      type: System.Numerics.Vector3
+    content.vb: Public AoIWorldSize As Vector3
+- uid: Netick.NetickConfigData.AoILayerCount
+  commentId: F:Netick.NetickConfigData.AoILayerCount
+  id: AoILayerCount
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: AoILayerCount
+  nameWithType: NetickConfigData.AoILayerCount
+  fullName: Netick.NetickConfigData.AoILayerCount
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int AoILayerCount
     return:
       type: System.Int32
-    content.vb: Public MaxDataPerConnectionPerTickInBytes As Integer
+    content.vb: Public AoILayerCount As Integer
+- uid: Netick.NetickConfigData.AoICellSizes
+  commentId: F:Netick.NetickConfigData.AoICellSizes
+  id: AoICellSizes
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: AoICellSizes
+  nameWithType: NetickConfigData.AoICellSizes
+  fullName: Netick.NetickConfigData.AoICellSizes
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float* AoICellSizes
+    return:
+      type: System.Single*
+    content.vb: Public AoICellSizes As Single*
+- uid: Netick.NetickConfigData.CustomInterestGroupCount
+  commentId: F:Netick.NetickConfigData.CustomInterestGroupCount
+  id: CustomInterestGroupCount
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: CustomInterestGroupCount
+  nameWithType: NetickConfigData.CustomInterestGroupCount
+  fullName: Netick.NetickConfigData.CustomInterestGroupCount
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int CustomInterestGroupCount
+    return:
+      type: System.Int32
+    content.vb: Public CustomInterestGroupCount As Integer
+- uid: Netick.NetickConfigData.InputReuseAtLowFPS
+  commentId: F:Netick.NetickConfigData.InputReuseAtLowFPS
+  id: InputReuseAtLowFPS
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: InputReuseAtLowFPS
+  nameWithType: NetickConfigData.InputReuseAtLowFPS
+  fullName: Netick.NetickConfigData.InputReuseAtLowFPS
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool InputReuseAtLowFPS
+    return:
+      type: System.Boolean
+    content.vb: Public InputReuseAtLowFPS As Boolean
+- uid: Netick.NetickConfigData.BurstBuffering
+  commentId: F:Netick.NetickConfigData.BurstBuffering
+  id: BurstBuffering
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: BurstBuffering
+  nameWithType: NetickConfigData.BurstBuffering
+  fullName: Netick.NetickConfigData.BurstBuffering
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool BurstBuffering
+    return:
+      type: System.Boolean
+    content.vb: Public BurstBuffering As Boolean
+- uid: Netick.NetickConfigData.InvokeNetworkUpdate
+  commentId: F:Netick.NetickConfigData.InvokeNetworkUpdate
+  id: InvokeNetworkUpdate
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: InvokeNetworkUpdate
+  nameWithType: NetickConfigData.InvokeNetworkUpdate
+  fullName: Netick.NetickConfigData.InvokeNetworkUpdate
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool InvokeNetworkUpdate
+    return:
+      type: System.Boolean
+    content.vb: Public InvokeNetworkUpdate As Boolean
+- uid: Netick.NetickConfigData.KickClientForBadRpc
+  commentId: F:Netick.NetickConfigData.KickClientForBadRpc
+  id: KickClientForBadRpc
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: KickClientForBadRpc
+  nameWithType: NetickConfigData.KickClientForBadRpc
+  fullName: Netick.NetickConfigData.KickClientForBadRpc
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool KickClientForBadRpc
+    return:
+      type: System.Boolean
+    content.vb: Public KickClientForBadRpc As Boolean
+- uid: Netick.NetickConfigData.FastSerialization
+  commentId: F:Netick.NetickConfigData.FastSerialization
+  id: FastSerialization
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: FastSerialization
+  nameWithType: NetickConfigData.FastSerialization
+  fullName: Netick.NetickConfigData.FastSerialization
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool FastSerialization
+    return:
+      type: System.Boolean
+    content.vb: Public FastSerialization As Boolean
+- uid: Netick.NetickConfigData.IsARM32Bit
+  commentId: F:Netick.NetickConfigData.IsARM32Bit
+  id: IsARM32Bit
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: IsARM32Bit
+  nameWithType: NetickConfigData.IsARM32Bit
+  fullName: Netick.NetickConfigData.IsARM32Bit
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsARM32Bit
+    return:
+      type: System.Boolean
+    content.vb: Public IsARM32Bit As Boolean
+- uid: Netick.NetickConfigData.EnableProfiling
+  commentId: F:Netick.NetickConfigData.EnableProfiling
+  id: EnableProfiling
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: EnableProfiling
+  nameWithType: NetickConfigData.EnableProfiling
+  fullName: Netick.NetickConfigData.EnableProfiling
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool EnableProfiling
+    return:
+      type: System.Boolean
+    content.vb: Public EnableProfiling As Boolean
 - uid: Netick.NetickConfigData.EnableLogging
   commentId: F:Netick.NetickConfigData.EnableLogging
   id: EnableLogging
@@ -260,291 +665,6 @@ items:
     return:
       type: System.Boolean
     content.vb: Public EnableLagCompensationDebug As Boolean
-- uid: Netick.NetickConfigData.KickClientForBadRpc
-  commentId: F:Netick.NetickConfigData.KickClientForBadRpc
-  id: KickClientForBadRpc
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: KickClientForBadRpc
-  nameWithType: NetickConfigData.KickClientForBadRpc
-  fullName: Netick.NetickConfigData.KickClientForBadRpc
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool KickClientForBadRpc
-    return:
-      type: System.Boolean
-    content.vb: Public KickClientForBadRpc As Boolean
-- uid: Netick.NetickConfigData.EnableLagCompensation
-  commentId: F:Netick.NetickConfigData.EnableLagCompensation
-  id: EnableLagCompensation
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: EnableLagCompensation
-  nameWithType: NetickConfigData.EnableLagCompensation
-  fullName: Netick.NetickConfigData.EnableLagCompensation
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool EnableLagCompensation
-    return:
-      type: System.Boolean
-    content.vb: Public EnableLagCompensation As Boolean
-- uid: Netick.NetickConfigData.EnableSpatialPrioritization
-  commentId: F:Netick.NetickConfigData.EnableSpatialPrioritization
-  id: EnableSpatialPrioritization
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: EnableSpatialPrioritization
-  nameWithType: NetickConfigData.EnableSpatialPrioritization
-  fullName: Netick.NetickConfigData.EnableSpatialPrioritization
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool EnableSpatialPrioritization
-    return:
-      type: System.Boolean
-    content.vb: Public EnableSpatialPrioritization As Boolean
-- uid: Netick.NetickConfigData.EnableInterestManagement
-  commentId: F:Netick.NetickConfigData.EnableInterestManagement
-  id: EnableInterestManagement
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: EnableInterestManagement
-  nameWithType: NetickConfigData.EnableInterestManagement
-  fullName: Netick.NetickConfigData.EnableInterestManagement
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool EnableInterestManagement
-    return:
-      type: System.Boolean
-    content.vb: Public EnableInterestManagement As Boolean
-- uid: Netick.NetickConfigData.EnableSimulationCulling
-  commentId: F:Netick.NetickConfigData.EnableSimulationCulling
-  id: EnableSimulationCulling
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: EnableSimulationCulling
-  nameWithType: NetickConfigData.EnableSimulationCulling
-  fullName: Netick.NetickConfigData.EnableSimulationCulling
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool EnableSimulationCulling
-    return:
-      type: System.Boolean
-    content.vb: Public EnableSimulationCulling As Boolean
-- uid: Netick.NetickConfigData.InvokeNetworkUpdate
-  commentId: F:Netick.NetickConfigData.InvokeNetworkUpdate
-  id: InvokeNetworkUpdate
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: InvokeNetworkUpdate
-  nameWithType: NetickConfigData.InvokeNetworkUpdate
-  fullName: Netick.NetickConfigData.InvokeNetworkUpdate
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool InvokeNetworkUpdate
-    return:
-      type: System.Boolean
-    content.vb: Public InvokeNetworkUpdate As Boolean
-- uid: Netick.NetickConfigData.BurstBuffering
-  commentId: F:Netick.NetickConfigData.BurstBuffering
-  id: BurstBuffering
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: BurstBuffering
-  nameWithType: NetickConfigData.BurstBuffering
-  fullName: Netick.NetickConfigData.BurstBuffering
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool BurstBuffering
-    return:
-      type: System.Boolean
-    content.vb: Public BurstBuffering As Boolean
-- uid: Netick.NetickConfigData.AoIWorldSize
-  commentId: F:Netick.NetickConfigData.AoIWorldSize
-  id: AoIWorldSize
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: AoIWorldSize
-  nameWithType: NetickConfigData.AoIWorldSize
-  fullName: Netick.NetickConfigData.AoIWorldSize
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public Vector3 AoIWorldSize
-    return:
-      type: System.Numerics.Vector3
-    content.vb: Public AoIWorldSize As Vector3
-- uid: Netick.NetickConfigData.AoICellSize
-  commentId: F:Netick.NetickConfigData.AoICellSize
-  id: AoICellSize
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: AoICellSize
-  nameWithType: NetickConfigData.AoICellSize
-  fullName: Netick.NetickConfigData.AoICellSize
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public float AoICellSize
-    return:
-      type: System.Single
-    content.vb: Public AoICellSize As Single
-- uid: Netick.NetickConfigData.InterestGroupCount
-  commentId: F:Netick.NetickConfigData.InterestGroupCount
-  id: InterestGroupCount
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: InterestGroupCount
-  nameWithType: NetickConfigData.InterestGroupCount
-  fullName: Netick.NetickConfigData.InterestGroupCount
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int InterestGroupCount
-    return:
-      type: System.Int32
-    content.vb: Public InterestGroupCount As Integer
-- uid: Netick.NetickConfigData.AllocatorStateBlockSize
-  commentId: F:Netick.NetickConfigData.AllocatorStateBlockSize
-  id: AllocatorStateBlockSize
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: AllocatorStateBlockSize
-  nameWithType: NetickConfigData.AllocatorStateBlockSize
-  fullName: Netick.NetickConfigData.AllocatorStateBlockSize
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int AllocatorStateBlockSize
-    return:
-      type: System.Int32
-    content.vb: Public AllocatorStateBlockSize As Integer
-- uid: Netick.NetickConfigData.AllocatorMetaBlockSize
-  commentId: F:Netick.NetickConfigData.AllocatorMetaBlockSize
-  id: AllocatorMetaBlockSize
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: AllocatorMetaBlockSize
-  nameWithType: NetickConfigData.AllocatorMetaBlockSize
-  fullName: Netick.NetickConfigData.AllocatorMetaBlockSize
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int AllocatorMetaBlockSize
-    return:
-      type: System.Int32
-    content.vb: Public AllocatorMetaBlockSize As Integer
-- uid: Netick.NetickConfigData.TransportReceiveBufferSize
-  commentId: F:Netick.NetickConfigData.TransportReceiveBufferSize
-  id: TransportReceiveBufferSize
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: TransportReceiveBufferSize
-  nameWithType: NetickConfigData.TransportReceiveBufferSize
-  fullName: Netick.NetickConfigData.TransportReceiveBufferSize
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int TransportReceiveBufferSize
-    return:
-      type: System.Int32
-    content.vb: Public TransportReceiveBufferSize As Integer
-- uid: Netick.NetickConfigData.TransportSendBufferSize
-  commentId: F:Netick.NetickConfigData.TransportSendBufferSize
-  id: TransportSendBufferSize
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: TransportSendBufferSize
-  nameWithType: NetickConfigData.TransportSendBufferSize
-  fullName: Netick.NetickConfigData.TransportSendBufferSize
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int TransportSendBufferSize
-    return:
-      type: System.Int32
-    content.vb: Public TransportSendBufferSize As Integer
-- uid: Netick.NetickConfigData.TransportTimeout
-  commentId: F:Netick.NetickConfigData.TransportTimeout
-  id: TransportTimeout
-  parent: Netick.NetickConfigData
-  langs:
-  - csharp
-  - vb
-  name: TransportTimeout
-  nameWithType: NetickConfigData.TransportTimeout
-  fullName: Netick.NetickConfigData.TransportTimeout
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int TransportTimeout
-    return:
-      type: System.Int32
-    content.vb: Public TransportTimeout As Integer
 references:
 - uid: Netick
   commentId: N:Netick
@@ -630,6 +750,30 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -674,30 +818,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -770,17 +890,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -803,6 +912,17 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
 - uid: System.Numerics.Vector3
   commentId: T:System.Numerics.Vector3
   parent: System.Numerics
@@ -838,3 +958,24 @@ references:
     name: Numerics
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.numerics
+- uid: System.Single*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float*
+  nameWithType: float*
+  fullName: float*
+  nameWithType.vb: Single*
+  fullName.vb: Single*
+  name.vb: Single*
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '*'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '*'

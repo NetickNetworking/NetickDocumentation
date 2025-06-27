@@ -6,20 +6,30 @@ items:
   parent: Netick.Unity
   children:
   - Netick.Unity.NetickConfig.#ctor
-  - Netick.Unity.NetickConfig.Assemblies
-  - Netick.Unity.NetickConfig.CellSize
-  - Netick.Unity.NetickConfig.ClientDivisor
-  - Netick.Unity.NetickConfig.ClientSimulatedLossOut
+  - Netick.Unity.NetickConfig.AccurateLocalInterpolation
+  - Netick.Unity.NetickConfig.AggressivePreAllocation
+  - Netick.Unity.NetickConfig.AoILayer0CellSize
+  - Netick.Unity.NetickConfig.AoILayer1CellSize
+  - Netick.Unity.NetickConfig.AoILayer2CellSize
+  - Netick.Unity.NetickConfig.AoILayer3CellSize
+  - Netick.Unity.NetickConfig.AoILayer4CellSize
+  - Netick.Unity.NetickConfig.AoILayerCount
   - Netick.Unity.NetickConfig.CustomGroupCount
   - Netick.Unity.NetickConfig.EnableInterestManagement
   - Netick.Unity.NetickConfig.EnableLagCompensation
   - Netick.Unity.NetickConfig.EnableLogging
-  - Netick.Unity.NetickConfig.GetMaxPlayers
+  - Netick.Unity.NetickConfig.EnableMultithreading
+  - Netick.Unity.NetickConfig.EnableNarrowphaseFiltering
+  - Netick.Unity.NetickConfig.EnableProfiling
+  - Netick.Unity.NetickConfig.ExtraInterpolationDelay
+  - Netick.Unity.NetickConfig.FastSerialization
+  - Netick.Unity.NetickConfig.IncludeInactiveObjects
   - Netick.Unity.NetickConfig.InputReuseAtLowFPS
   - Netick.Unity.NetickConfig.InvokeRenderInHeadless
   - Netick.Unity.NetickConfig.InvokeUpdate
   - Netick.Unity.NetickConfig.LagCompensationDebug
   - Netick.Unity.NetickConfig.MaxAdditiveScenes
+  - Netick.Unity.NetickConfig.MaxAllowedTimestep
   - Netick.Unity.NetickConfig.MaxObjects
   - Netick.Unity.NetickConfig.MaxPlayers
   - Netick.Unity.NetickConfig.MaxPredictedTicks
@@ -27,17 +37,13 @@ items:
   - Netick.Unity.NetickConfig.MetaAllocatorBlockSize
   - Netick.Unity.NetickConfig.PhysicsPrediction
   - Netick.Unity.NetickConfig.PhysicsType
-  - Netick.Unity.NetickConfig.ReceiveBufferSize
+  - Netick.Unity.NetickConfig.Prefabs
   - Netick.Unity.NetickConfig.RenderInvokeOrder
   - Netick.Unity.NetickConfig.RenderWorldGrid
-  - Netick.Unity.NetickConfig.SendBufferSize
+  - Netick.Unity.NetickConfig.RenderedLayer
   - Netick.Unity.NetickConfig.ServerDivisor
-  - Netick.Unity.NetickConfig.ServerSimulatedLossOut
-  - Netick.Unity.NetickConfig.SimulationCulling
   - Netick.Unity.NetickConfig.StateAllocatorBlockSize
   - Netick.Unity.NetickConfig.TickRate
-  - Netick.Unity.NetickConfig.Timeout
-  - Netick.Unity.NetickConfig.UseSceneSwitchThread
   - Netick.Unity.NetickConfig.WorldSize
   langs:
   - csharp
@@ -56,92 +62,25 @@ items:
     content.vb: Public Class NetickConfig Inherits ScriptableObject
   inheritance:
   - System.Object
-  - UnityEngine.Object
-  - UnityEngine.ScriptableObject
-  inheritedMembers:
-  - UnityEngine.ScriptableObject.SetDirty
-  - UnityEngine.ScriptableObject.CreateInstance(System.String)
-  - UnityEngine.ScriptableObject.CreateInstance(System.Type)
-  - UnityEngine.ScriptableObject.CreateInstance``1
-  - UnityEngine.Object.GetInstanceID
-  - UnityEngine.Object.GetHashCode
-  - UnityEngine.Object.Equals(System.Object)
-  - UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
-  - UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-  - UnityEngine.Object.Instantiate(UnityEngine.Object)
-  - UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Transform)
-  - UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Transform,System.Boolean)
-  - UnityEngine.Object.Instantiate``1({T})
-  - UnityEngine.Object.Instantiate``1({T},UnityEngine.Vector3,UnityEngine.Quaternion)
-  - UnityEngine.Object.Instantiate``1({T},UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-  - UnityEngine.Object.Instantiate``1({T},UnityEngine.Transform)
-  - UnityEngine.Object.Instantiate``1({T},UnityEngine.Transform,System.Boolean)
-  - UnityEngine.Object.Destroy(UnityEngine.Object,System.Single)
-  - UnityEngine.Object.Destroy(UnityEngine.Object)
-  - UnityEngine.Object.DestroyImmediate(UnityEngine.Object,System.Boolean)
-  - UnityEngine.Object.DestroyImmediate(UnityEngine.Object)
-  - UnityEngine.Object.FindObjectsOfType(System.Type)
-  - UnityEngine.Object.FindObjectsOfType(System.Type,System.Boolean)
-  - UnityEngine.Object.FindObjectsByType(System.Type,UnityEngine.FindObjectsSortMode)
-  - UnityEngine.Object.FindObjectsByType(System.Type,UnityEngine.FindObjectsInactive,UnityEngine.FindObjectsSortMode)
-  - UnityEngine.Object.DontDestroyOnLoad(UnityEngine.Object)
-  - UnityEngine.Object.DestroyObject(UnityEngine.Object,System.Single)
-  - UnityEngine.Object.DestroyObject(UnityEngine.Object)
-  - UnityEngine.Object.FindSceneObjectsOfType(System.Type)
-  - UnityEngine.Object.FindObjectsOfTypeIncludingAssets(System.Type)
-  - UnityEngine.Object.FindObjectsOfType``1
-  - UnityEngine.Object.FindObjectsByType``1(UnityEngine.FindObjectsSortMode)
-  - UnityEngine.Object.FindObjectsOfType``1(System.Boolean)
-  - UnityEngine.Object.FindObjectsByType``1(UnityEngine.FindObjectsInactive,UnityEngine.FindObjectsSortMode)
-  - UnityEngine.Object.FindObjectOfType``1
-  - UnityEngine.Object.FindObjectOfType``1(System.Boolean)
-  - UnityEngine.Object.FindFirstObjectByType``1
-  - UnityEngine.Object.FindAnyObjectByType``1
-  - UnityEngine.Object.FindFirstObjectByType``1(UnityEngine.FindObjectsInactive)
-  - UnityEngine.Object.FindAnyObjectByType``1(UnityEngine.FindObjectsInactive)
-  - UnityEngine.Object.FindObjectsOfTypeAll(System.Type)
-  - UnityEngine.Object.FindObjectOfType(System.Type)
-  - UnityEngine.Object.FindFirstObjectByType(System.Type)
-  - UnityEngine.Object.FindAnyObjectByType(System.Type)
-  - UnityEngine.Object.FindObjectOfType(System.Type,System.Boolean)
-  - UnityEngine.Object.FindFirstObjectByType(System.Type,UnityEngine.FindObjectsInactive)
-  - UnityEngine.Object.FindAnyObjectByType(System.Type,UnityEngine.FindObjectsInactive)
-  - UnityEngine.Object.ToString
-  - UnityEngine.Object.name
-  - UnityEngine.Object.hideFlags
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetType
-  - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Netick.Unity.NetickConfig.Assemblies
-  commentId: F:Netick.Unity.NetickConfig.Assemblies
-  id: Assemblies
+- uid: Netick.Unity.NetickConfig.Prefabs
+  commentId: F:Netick.Unity.NetickConfig.Prefabs
+  id: Prefabs
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: Assemblies
-  nameWithType: NetickConfig.Assemblies
-  fullName: Netick.Unity.NetickConfig.Assemblies
+  name: Prefabs
+  nameWithType: NetickConfig.Prefabs
+  fullName: Netick.Unity.NetickConfig.Prefabs
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [SerializeField]
-
-      public List<string> Assemblies
+    content: public List<NetworkObject> Prefabs
     return:
-      type: System.Collections.Generic.List{System.String}
-    content.vb: >-
-      <SerializeField>
-
-      Public Assemblies As List(Of String)
-  attributes:
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
+      type: System.Collections.Generic.List{Netick.Unity.NetworkObject}
+    content.vb: Public Prefabs As List(Of NetworkObject)
 - uid: Netick.Unity.NetickConfig.TickRate
   commentId: F:Netick.Unity.NetickConfig.TickRate
   id: TickRate
@@ -157,40 +96,29 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [HideInInspector]
-
-      [Range(2, 240)]
-
-      [Tooltip("Network simulation rate [ticks per second]. Overrides <b>Time.fixedDeltaTime</b> when starting Netick. Must not be changed at runtime. Default: 33")]
-
-      public float TickRate
+    content: public float TickRate
     return:
       type: System.Single
-    content.vb: >-
-      <HideInInspector>
-
-      <Range(2, 240)>
-
-      <Tooltip("Network simulation rate [ticks per second]. Overrides <b>Time.fixedDeltaTime</b> when starting Netick. Must not be changed at runtime. Default: 33")>
-
-      Public TickRate As Single
-  attributes:
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
-  - type: UnityEngine.RangeAttribute
-    ctor: UnityEngine.RangeAttribute.#ctor(System.Single,System.Single)
-    arguments:
-    - type: System.Single
-      value: 2
-    - type: System.Single
-      value: 240
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: 'Network simulation rate [ticks per second]. Overrides <b>Time.fixedDeltaTime</b> when starting Netick. Must not be changed at runtime. Default: 33'
+    content.vb: Public TickRate As Single
+- uid: Netick.Unity.NetickConfig.MaxAllowedTimestep
+  commentId: F:Netick.Unity.NetickConfig.MaxAllowedTimestep
+  id: MaxAllowedTimestep
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: MaxAllowedTimestep
+  nameWithType: NetickConfig.MaxAllowedTimestep
+  fullName: Netick.Unity.NetickConfig.MaxAllowedTimestep
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public float MaxAllowedTimestep
+    return:
+      type: System.Single
+    content.vb: Public MaxAllowedTimestep As Single
 - uid: Netick.Unity.NetickConfig.MaxPlayers
   commentId: F:Netick.Unity.NetickConfig.MaxPlayers
   id: MaxPlayers
@@ -206,40 +134,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Max number of players that can connect at one time to the server. Lower is always more performant, even if not that many clients are connected, so don't use an arbitrarily large number.")]
-
-      [SerializeField]
-
-      [Range(1, 16384)]
-
-      public int MaxPlayers
+    content: public int MaxPlayers
     return:
       type: System.Int32
-    content.vb: >-
-      <Tooltip("Max number of players that can connect at one time to the server. Lower is always more performant, even if not that many clients are connected, so don't use an arbitrarily large number.")>
-
-      <SerializeField>
-
-      <Range(1, 16384)>
-
-      Public MaxPlayers As Integer
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Max number of players that can connect at one time to the server. Lower is always more performant, even if not that many clients are connected, so don't use an arbitrarily large number.
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
-  - type: UnityEngine.RangeAttribute
-    ctor: UnityEngine.RangeAttribute.#ctor(System.Single,System.Single)
-    arguments:
-    - type: System.Single
-      value: 1
-    - type: System.Single
-      value: 16384
+    content.vb: Public MaxPlayers As Integer
 - uid: Netick.Unity.NetickConfig.MaxObjects
   commentId: F:Netick.Unity.NetickConfig.MaxObjects
   id: MaxObjects
@@ -255,29 +153,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Max number of network objects that can exist at one time in the game. This must not be exceeded at runtime, or Netick will shutdown.")]
-
-      [SerializeField]
-
-      public int MaxObjects
+    content: public int MaxObjects
     return:
       type: System.Int32
-    content.vb: >-
-      <Tooltip("Max number of network objects that can exist at one time in the game. This must not be exceeded at runtime, or Netick will shutdown.")>
-
-      <SerializeField>
-
-      Public MaxObjects As Integer
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Max number of network objects that can exist at one time in the game. This must not be exceeded at runtime, or Netick will shutdown.
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
+    content.vb: Public MaxObjects As Integer
 - uid: Netick.Unity.NetickConfig.MaxSendableDataSize
   commentId: F:Netick.Unity.NetickConfig.MaxSendableDataSize
   id: MaxSendableDataSize
@@ -293,29 +172,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Max data size [bytes] that can be sent to a peer in a single tick. Default: 50000 bytes")]
-
-      [SerializeField]
-
-      public int MaxSendableDataSize
+    content: public int MaxSendableDataSize
     return:
       type: System.Int32
-    content.vb: >-
-      <Tooltip("Max data size [bytes] that can be sent to a peer in a single tick. Default: 50000 bytes")>
-
-      <SerializeField>
-
-      Public MaxSendableDataSize As Integer
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: 'Max data size [bytes] that can be sent to a peer in a single tick. Default: 50000 bytes'
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
+    content.vb: Public MaxSendableDataSize As Integer
 - uid: Netick.Unity.NetickConfig.StateAllocatorBlockSize
   commentId: F:Netick.Unity.NetickConfig.StateAllocatorBlockSize
   id: StateAllocatorBlockSize
@@ -331,38 +191,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Default: 131072 bytes")]
-
-      [SerializeField]
-
-      [FormerlySerializedAs("AllocatorStateBlockSize")]
-
-      public int StateAllocatorBlockSize
+    content: public int StateAllocatorBlockSize
     return:
       type: System.Int32
-    content.vb: >-
-      <Tooltip("Default: 131072 bytes")>
-
-      <SerializeField>
-
-      <FormerlySerializedAs("AllocatorStateBlockSize")>
-
-      Public StateAllocatorBlockSize As Integer
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: 'Default: 131072 bytes'
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
-  - type: UnityEngine.Serialization.FormerlySerializedAsAttribute
-    ctor: UnityEngine.Serialization.FormerlySerializedAsAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: AllocatorStateBlockSize
+    content.vb: Public StateAllocatorBlockSize As Integer
 - uid: Netick.Unity.NetickConfig.MetaAllocatorBlockSize
   commentId: F:Netick.Unity.NetickConfig.MetaAllocatorBlockSize
   id: MetaAllocatorBlockSize
@@ -378,125 +210,29 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Default: 1048576 bytes")]
-
-      [SerializeField]
-
-      [FormerlySerializedAs("AllocatorMetaBlockSize")]
-
-      public int MetaAllocatorBlockSize
+    content: public int MetaAllocatorBlockSize
     return:
       type: System.Int32
-    content.vb: >-
-      <Tooltip("Default: 1048576 bytes")>
-
-      <SerializeField>
-
-      <FormerlySerializedAs("AllocatorMetaBlockSize")>
-
-      Public MetaAllocatorBlockSize As Integer
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: 'Default: 1048576 bytes'
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
-  - type: UnityEngine.Serialization.FormerlySerializedAsAttribute
-    ctor: UnityEngine.Serialization.FormerlySerializedAsAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: AllocatorMetaBlockSize
-- uid: Netick.Unity.NetickConfig.ReceiveBufferSize
-  commentId: F:Netick.Unity.NetickConfig.ReceiveBufferSize
-  id: ReceiveBufferSize
+    content.vb: Public MetaAllocatorBlockSize As Integer
+- uid: Netick.Unity.NetickConfig.AggressivePreAllocation
+  commentId: F:Netick.Unity.NetickConfig.AggressivePreAllocation
+  id: AggressivePreAllocation
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: ReceiveBufferSize
-  nameWithType: NetickConfig.ReceiveBufferSize
-  fullName: Netick.Unity.NetickConfig.ReceiveBufferSize
+  name: AggressivePreAllocation
+  nameWithType: NetickConfig.AggressivePreAllocation
+  fullName: Netick.Unity.NetickConfig.AggressivePreAllocation
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [SerializeField]
-
-      public int ReceiveBufferSize
+    content: public bool AggressivePreAllocation
     return:
-      type: System.Int32
-    content.vb: >-
-      <SerializeField>
-
-      Public ReceiveBufferSize As Integer
-  attributes:
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
-- uid: Netick.Unity.NetickConfig.SendBufferSize
-  commentId: F:Netick.Unity.NetickConfig.SendBufferSize
-  id: SendBufferSize
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: SendBufferSize
-  nameWithType: NetickConfig.SendBufferSize
-  fullName: Netick.Unity.NetickConfig.SendBufferSize
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: >-
-      [SerializeField]
-
-      public int SendBufferSize
-    return:
-      type: System.Int32
-    content.vb: >-
-      <SerializeField>
-
-      Public SendBufferSize As Integer
-  attributes:
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
-- uid: Netick.Unity.NetickConfig.Timeout
-  commentId: F:Netick.Unity.NetickConfig.Timeout
-  id: Timeout
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: Timeout
-  nameWithType: NetickConfig.Timeout
-  fullName: Netick.Unity.NetickConfig.Timeout
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: >-
-      [SerializeField]
-
-      public int Timeout
-    return:
-      type: System.Int32
-    content.vb: >-
-      <SerializeField>
-
-      Public Timeout As Integer
-  attributes:
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
+      type: System.Boolean
+    content.vb: Public AggressivePreAllocation As Boolean
 - uid: Netick.Unity.NetickConfig.MaxPredictedTicks
   commentId: F:Netick.Unity.NetickConfig.MaxPredictedTicks
   id: MaxPredictedTicks
@@ -512,33 +248,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Max number of ticks the client is allowed to predict. Default: 64")]
-
-      [Range(16, 512)]
-
-      public int MaxPredictedTicks
+    content: public int MaxPredictedTicks
     return:
       type: System.Int32
-    content.vb: >-
-      <Tooltip("Max number of ticks the client is allowed to predict. Default: 64")>
-
-      <Range(16, 512)>
-
-      Public MaxPredictedTicks As Integer
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: 'Max number of ticks the client is allowed to predict. Default: 64'
-  - type: UnityEngine.RangeAttribute
-    ctor: UnityEngine.RangeAttribute.#ctor(System.Single,System.Single)
-    arguments:
-    - type: System.Single
-      value: 16
-    - type: System.Single
-      value: 512
+    content.vb: Public MaxPredictedTicks As Integer
 - uid: Netick.Unity.NetickConfig.ServerDivisor
   commentId: F:Netick.Unity.NetickConfig.ServerDivisor
   id: ServerDivisor
@@ -554,71 +267,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Range(1, 5)]
-
-      [SerializeField]
-
-      public int ServerDivisor
+    content: public int ServerDivisor
     return:
       type: System.Int32
-    content.vb: >-
-      <Range(1, 5)>
-
-      <SerializeField>
-
-      Public ServerDivisor As Integer
-  attributes:
-  - type: UnityEngine.RangeAttribute
-    ctor: UnityEngine.RangeAttribute.#ctor(System.Single,System.Single)
-    arguments:
-    - type: System.Single
-      value: 1
-    - type: System.Single
-      value: 5
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
-- uid: Netick.Unity.NetickConfig.ClientDivisor
-  commentId: F:Netick.Unity.NetickConfig.ClientDivisor
-  id: ClientDivisor
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: ClientDivisor
-  nameWithType: NetickConfig.ClientDivisor
-  fullName: Netick.Unity.NetickConfig.ClientDivisor
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: >-
-      [Range(1, 5)]
-
-      [SerializeField]
-
-      public int ClientDivisor
-    return:
-      type: System.Int32
-    content.vb: >-
-      <Range(1, 5)>
-
-      <SerializeField>
-
-      Public ClientDivisor As Integer
-  attributes:
-  - type: UnityEngine.RangeAttribute
-    ctor: UnityEngine.RangeAttribute.#ctor(System.Single,System.Single)
-    arguments:
-    - type: System.Single
-      value: 1
-    - type: System.Single
-      value: 5
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
+    content.vb: Public ServerDivisor As Integer
 - uid: Netick.Unity.NetickConfig.PhysicsPrediction
   commentId: F:Netick.Unity.NetickConfig.PhysicsPrediction
   id: PhysicsPrediction
@@ -634,42 +286,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Enable this if you want to be able to have client-side prediction over Rigidbody objects. \n\nIt's recommended to keep this disabled if you don't have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick. Default: false")]
-
-      [SerializeField]
-
-      [FormerlySerializedAs("PredictedClientPhysics")]
-
-      public bool PhysicsPrediction
+    content: public bool PhysicsPrediction
     return:
       type: System.Boolean
-    content.vb: >-
-      <Tooltip("Enable this if you want to be able to have client-side prediction over Rigidbody objects. " & vbLf & vbLf & "It's recommended to keep this disabled if you don't have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick. Default: false")>
-
-      <SerializeField>
-
-      <FormerlySerializedAs("PredictedClientPhysics")>
-
-      Public PhysicsPrediction As Boolean
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: >-
-        Enable this if you want to be able to have client-side prediction over Rigidbody objects. 
-
-
-        It's recommended to keep this disabled if you don't have any predictable rigidbody objects in your game, because it comes at a performance hit due to calling the physics system Simulate method several times per tick. Default: false
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
-  - type: UnityEngine.Serialization.FormerlySerializedAsAttribute
-    ctor: UnityEngine.Serialization.FormerlySerializedAsAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: PredictedClientPhysics
+    content.vb: Public PhysicsPrediction As Boolean
 - uid: Netick.Unity.NetickConfig.PhysicsType
   commentId: F:Netick.Unity.NetickConfig.PhysicsType
   id: PhysicsType
@@ -685,22 +305,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Type of the physics scene. If you choose None, Netick will not step the simulation. If you want to use Box2D physics (Rigidbody 2D) select Physics 2D. Or if you want to use NVIDIA PhysX (Rigidbody), select 3D Physics.")]
-
-      public PhysicsType PhysicsType
+    content: public PhysicsType PhysicsType
     return:
       type: Netick.Unity.PhysicsType
-    content.vb: >-
-      <Tooltip("Type of the physics scene. If you choose None, Netick will not step the simulation. If you want to use Box2D physics (Rigidbody 2D) select Physics 2D. Or if you want to use NVIDIA PhysX (Rigidbody), select 3D Physics.")>
-
-      Public PhysicsType As PhysicsType
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Type of the physics scene. If you choose None, Netick will not step the simulation. If you want to use Box2D physics (Rigidbody 2D) select Physics 2D. Or if you want to use NVIDIA PhysX (Rigidbody), select 3D Physics.
+    content.vb: Public PhysicsType As PhysicsType
 - uid: Netick.Unity.NetickConfig.InvokeRenderInHeadless
   commentId: F:Netick.Unity.NetickConfig.InvokeRenderInHeadless
   id: InvokeRenderInHeadless
@@ -716,22 +324,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds. Default: false")]
-
-      public bool InvokeRenderInHeadless
+    content: public bool InvokeRenderInHeadless
     return:
       type: System.Boolean
-    content.vb: >-
-      <Tooltip("Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds. Default: false")>
-
-      Public InvokeRenderInHeadless As Boolean
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: "Don't enable this if you want Netick to not invoke Network Render (and thus not calculate interpolation) callbacks in headless builds. Default: false"
+    content.vb: Public InvokeRenderInHeadless As Boolean
 - uid: Netick.Unity.NetickConfig.InvokeUpdate
   commentId: F:Netick.Unity.NetickConfig.InvokeUpdate
   id: InvokeUpdate
@@ -747,22 +343,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects. Default: true")]
-
-      public bool InvokeUpdate
+    content: public bool InvokeUpdate
     return:
       type: System.Boolean
-    content.vb: >-
-      <Tooltip("Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects. Default: true")>
-
-      Public InvokeUpdate As Boolean
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: "Don't enable this if you want Netick to not invoke Network Update. This can help with performance if you intend to have thousands of network objects. Default: true"
+    content.vb: Public InvokeUpdate As Boolean
 - uid: Netick.Unity.NetickConfig.RenderInvokeOrder
   commentId: F:Netick.Unity.NetickConfig.RenderInvokeOrder
   id: RenderInvokeOrder
@@ -778,22 +362,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Choose the place where Network Render will be invoked. Update means it will be invoked after all Netick NetworkUpdate callbacks, but before any of Unity LateUpdate callbacks. LateUpdate means it will be invoked after all Unity Update callbacks and all Netick NetworkUpdate callbacks. ")]
-
-      public NetworkRenderInvokeOrder RenderInvokeOrder
+    content: public NetworkRenderInvokeOrder RenderInvokeOrder
     return:
       type: Netick.Unity.NetworkRenderInvokeOrder
-    content.vb: >-
-      <Tooltip("Choose the place where Network Render will be invoked. Update means it will be invoked after all Netick NetworkUpdate callbacks, but before any of Unity LateUpdate callbacks. LateUpdate means it will be invoked after all Unity Update callbacks and all Netick NetworkUpdate callbacks. ")>
-
-      Public RenderInvokeOrder As NetworkRenderInvokeOrder
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: 'Choose the place where Network Render will be invoked. Update means it will be invoked after all Netick NetworkUpdate callbacks, but before any of Unity LateUpdate callbacks. LateUpdate means it will be invoked after all Unity Update callbacks and all Netick NetworkUpdate callbacks. '
+    content.vb: Public RenderInvokeOrder As NetworkRenderInvokeOrder
 - uid: Netick.Unity.NetickConfig.MaxAdditiveScenes
   commentId: F:Netick.Unity.NetickConfig.MaxAdditiveScenes
   id: MaxAdditiveScenes
@@ -809,29 +381,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Max number of additive scenes you can have loaded at once. Default: 4")]
-
-      [SerializeField]
-
-      public int MaxAdditiveScenes
+    content: public int MaxAdditiveScenes
     return:
       type: System.Int32
-    content.vb: >-
-      <Tooltip("Max number of additive scenes you can have loaded at once. Default: 4")>
-
-      <SerializeField>
-
-      Public MaxAdditiveScenes As Integer
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: 'Max number of additive scenes you can have loaded at once. Default: 4'
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
+    content.vb: Public MaxAdditiveScenes As Integer
 - uid: Netick.Unity.NetickConfig.InputReuseAtLowFPS
   commentId: F:Netick.Unity.NetickConfig.InputReuseAtLowFPS
   id: InputReuseAtLowFPS
@@ -847,29 +400,67 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks must use the same input of one frame. Enabling this option will make this happen automatically. Default: false")]
-
-      [SerializeField]
-
-      public bool InputReuseAtLowFPS
+    content: public bool InputReuseAtLowFPS
     return:
       type: System.Boolean
-    content.vb: >-
-      <Tooltip("When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks must use the same input of one frame. Enabling this option will make this happen automatically. Default: false")>
-
-      <SerializeField>
-
-      Public InputReuseAtLowFPS As Boolean
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: 'When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks must use the same input of one frame. Enabling this option will make this happen automatically. Default: false'
-  - type: UnityEngine.SerializeField
-    ctor: UnityEngine.SerializeField.#ctor
-    arguments: []
+    content.vb: Public InputReuseAtLowFPS As Boolean
+- uid: Netick.Unity.NetickConfig.ExtraInterpolationDelay
+  commentId: F:Netick.Unity.NetickConfig.ExtraInterpolationDelay
+  id: ExtraInterpolationDelay
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: ExtraInterpolationDelay
+  nameWithType: NetickConfig.ExtraInterpolationDelay
+  fullName: Netick.Unity.NetickConfig.ExtraInterpolationDelay
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public float ExtraInterpolationDelay
+    return:
+      type: System.Single
+    content.vb: Public ExtraInterpolationDelay As Single
+- uid: Netick.Unity.NetickConfig.AccurateLocalInterpolation
+  commentId: F:Netick.Unity.NetickConfig.AccurateLocalInterpolation
+  id: AccurateLocalInterpolation
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: AccurateLocalInterpolation
+  nameWithType: NetickConfig.AccurateLocalInterpolation
+  fullName: Netick.Unity.NetickConfig.AccurateLocalInterpolation
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool AccurateLocalInterpolation
+    return:
+      type: System.Boolean
+    content.vb: Public AccurateLocalInterpolation As Boolean
+- uid: Netick.Unity.NetickConfig.EnableMultithreading
+  commentId: F:Netick.Unity.NetickConfig.EnableMultithreading
+  id: EnableMultithreading
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: EnableMultithreading
+  nameWithType: NetickConfig.EnableMultithreading
+  fullName: Netick.Unity.NetickConfig.EnableMultithreading
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool EnableMultithreading
+    return:
+      type: System.Boolean
+    content.vb: Public EnableMultithreading As Boolean
 - uid: Netick.Unity.NetickConfig.EnableLogging
   commentId: F:Netick.Unity.NetickConfig.EnableLogging
   id: EnableLogging
@@ -885,98 +476,29 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Disable this before doing a production build because you don't want Netick to log to the console. Default: false")]
-
-      public bool EnableLogging
+    content: public bool EnableLogging
     return:
       type: System.Boolean
-    content.vb: >-
-      <Tooltip("Disable this before doing a production build because you don't want Netick to log to the console. Default: false")>
-
-      Public EnableLogging As Boolean
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: "Disable this before doing a production build because you don't want Netick to log to the console. Default: false"
-- uid: Netick.Unity.NetickConfig.ServerSimulatedLossOut
-  commentId: F:Netick.Unity.NetickConfig.ServerSimulatedLossOut
-  id: ServerSimulatedLossOut
+    content.vb: Public EnableLogging As Boolean
+- uid: Netick.Unity.NetickConfig.EnableProfiling
+  commentId: F:Netick.Unity.NetickConfig.EnableProfiling
+  id: EnableProfiling
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: ServerSimulatedLossOut
-  nameWithType: NetickConfig.ServerSimulatedLossOut
-  fullName: Netick.Unity.NetickConfig.ServerSimulatedLossOut
+  name: EnableProfiling
+  nameWithType: NetickConfig.EnableProfiling
+  fullName: Netick.Unity.NetickConfig.EnableProfiling
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Simulated server outward packet loss. Default: 0")]
-
-      [HideInInspector]
-
-      public float ServerSimulatedLossOut
+    content: public bool EnableProfiling
     return:
-      type: System.Single
-    content.vb: >-
-      <Tooltip("Simulated server outward packet loss. Default: 0")>
-
-      <HideInInspector>
-
-      Public ServerSimulatedLossOut As Single
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: 'Simulated server outward packet loss. Default: 0'
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
-- uid: Netick.Unity.NetickConfig.ClientSimulatedLossOut
-  commentId: F:Netick.Unity.NetickConfig.ClientSimulatedLossOut
-  id: ClientSimulatedLossOut
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: ClientSimulatedLossOut
-  nameWithType: NetickConfig.ClientSimulatedLossOut
-  fullName: Netick.Unity.NetickConfig.ClientSimulatedLossOut
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: >-
-      [Tooltip("Simulated client outward packet loss. Default: 0")]
-
-      [HideInInspector]
-
-      public float ClientSimulatedLossOut
-    return:
-      type: System.Single
-    content.vb: >-
-      <Tooltip("Simulated client outward packet loss. Default: 0")>
-
-      <HideInInspector>
-
-      Public ClientSimulatedLossOut As Single
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: 'Simulated client outward packet loss. Default: 0'
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
+      type: System.Boolean
+    content.vb: Public EnableProfiling As Boolean
 - uid: Netick.Unity.NetickConfig.EnableLagCompensation
   commentId: F:Netick.Unity.NetickConfig.EnableLagCompensation
   id: EnableLagCompensation
@@ -992,29 +514,29 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Enable this if you want to use the Lag Compensation module. Default: false")]
-
-      [HideInInspector]
-
-      public bool EnableLagCompensation
+    content: public bool EnableLagCompensation
     return:
       type: System.Boolean
-    content.vb: >-
-      <Tooltip("Enable this if you want to use the Lag Compensation module. Default: false")>
-
-      <HideInInspector>
-
-      Public EnableLagCompensation As Boolean
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: 'Enable this if you want to use the Lag Compensation module. Default: false'
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
+    content.vb: Public EnableLagCompensation As Boolean
+- uid: Netick.Unity.NetickConfig.FastSerialization
+  commentId: F:Netick.Unity.NetickConfig.FastSerialization
+  id: FastSerialization
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: FastSerialization
+  nameWithType: NetickConfig.FastSerialization
+  fullName: Netick.Unity.NetickConfig.FastSerialization
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool FastSerialization
+    return:
+      type: System.Boolean
+    content.vb: Public FastSerialization As Boolean
 - uid: Netick.Unity.NetickConfig.EnableInterestManagement
   commentId: F:Netick.Unity.NetickConfig.EnableInterestManagement
   id: EnableInterestManagement
@@ -1030,20 +552,29 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [HideInInspector]
-
-      public bool EnableInterestManagement
+    content: public bool EnableInterestManagement
     return:
       type: System.Boolean
-    content.vb: >-
-      <HideInInspector>
-
-      Public EnableInterestManagement As Boolean
-  attributes:
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
+    content.vb: Public EnableInterestManagement As Boolean
+- uid: Netick.Unity.NetickConfig.EnableNarrowphaseFiltering
+  commentId: F:Netick.Unity.NetickConfig.EnableNarrowphaseFiltering
+  id: EnableNarrowphaseFiltering
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: EnableNarrowphaseFiltering
+  nameWithType: NetickConfig.EnableNarrowphaseFiltering
+  fullName: Netick.Unity.NetickConfig.EnableNarrowphaseFiltering
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool EnableNarrowphaseFiltering
+    return:
+      type: System.Boolean
+    content.vb: Public EnableNarrowphaseFiltering As Boolean
 - uid: Netick.Unity.NetickConfig.CustomGroupCount
   commentId: F:Netick.Unity.NetickConfig.CustomGroupCount
   id: CustomGroupCount
@@ -1059,89 +590,29 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [HideInInspector]
-
-      [Tooltip("Count of custom interest groups.")]
-
-      public int CustomGroupCount
+    content: public int CustomGroupCount
     return:
       type: System.Int32
-    content.vb: >-
-      <HideInInspector>
-
-      <Tooltip("Count of custom interest groups.")>
-
-      Public CustomGroupCount As Integer
-  attributes:
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Count of custom interest groups.
-- uid: Netick.Unity.NetickConfig.SimulationCulling
-  commentId: F:Netick.Unity.NetickConfig.SimulationCulling
-  id: SimulationCulling
+    content.vb: Public CustomGroupCount As Integer
+- uid: Netick.Unity.NetickConfig.AoILayerCount
+  commentId: F:Netick.Unity.NetickConfig.AoILayerCount
+  id: AoILayerCount
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: SimulationCulling
-  nameWithType: NetickConfig.SimulationCulling
-  fullName: Netick.Unity.NetickConfig.SimulationCulling
+  name: AoILayerCount
+  nameWithType: NetickConfig.AoILayerCount
+  fullName: Netick.Unity.NetickConfig.AoILayerCount
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Tooltip("Enable this if you want objects that no client is interested in to be culled from being simulated, meaning their Netick callbacks won't be invoked.")]
-
-      public bool SimulationCulling
-    return:
-      type: System.Boolean
-    content.vb: >-
-      <Tooltip("Enable this if you want objects that no client is interested in to be culled from being simulated, meaning their Netick callbacks won't be invoked.")>
-
-      Public SimulationCulling As Boolean
-  attributes:
-  - type: UnityEngine.TooltipAttribute
-    ctor: UnityEngine.TooltipAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: Enable this if you want objects that no client is interested in to be culled from being simulated, meaning their Netick callbacks won't be invoked.
-- uid: Netick.Unity.NetickConfig.CellSize
-  commentId: F:Netick.Unity.NetickConfig.CellSize
-  id: CellSize
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: CellSize
-  nameWithType: NetickConfig.CellSize
-  fullName: Netick.Unity.NetickConfig.CellSize
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: >-
-      [HideInInspector]
-
-      public int CellSize
+    content: public int AoILayerCount
     return:
       type: System.Int32
-    content.vb: >-
-      <HideInInspector>
-
-      Public CellSize As Integer
-  attributes:
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
+    content.vb: Public AoILayerCount As Integer
 - uid: Netick.Unity.NetickConfig.WorldSize
   commentId: F:Netick.Unity.NetickConfig.WorldSize
   id: WorldSize
@@ -1157,20 +628,124 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [HideInInspector]
-
-      public Vector3 WorldSize
+    content: public Vector3 WorldSize
     return:
       type: UnityEngine.Vector3
-    content.vb: >-
-      <HideInInspector>
-
-      Public WorldSize As Vector3
-  attributes:
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
+    content.vb: Public WorldSize As Vector3
+- uid: Netick.Unity.NetickConfig.IncludeInactiveObjects
+  commentId: F:Netick.Unity.NetickConfig.IncludeInactiveObjects
+  id: IncludeInactiveObjects
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: IncludeInactiveObjects
+  nameWithType: NetickConfig.IncludeInactiveObjects
+  fullName: Netick.Unity.NetickConfig.IncludeInactiveObjects
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool IncludeInactiveObjects
+    return:
+      type: System.Boolean
+    content.vb: Public IncludeInactiveObjects As Boolean
+- uid: Netick.Unity.NetickConfig.AoILayer0CellSize
+  commentId: F:Netick.Unity.NetickConfig.AoILayer0CellSize
+  id: AoILayer0CellSize
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: AoILayer0CellSize
+  nameWithType: NetickConfig.AoILayer0CellSize
+  fullName: Netick.Unity.NetickConfig.AoILayer0CellSize
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public int AoILayer0CellSize
+    return:
+      type: System.Int32
+    content.vb: Public AoILayer0CellSize As Integer
+- uid: Netick.Unity.NetickConfig.AoILayer1CellSize
+  commentId: F:Netick.Unity.NetickConfig.AoILayer1CellSize
+  id: AoILayer1CellSize
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: AoILayer1CellSize
+  nameWithType: NetickConfig.AoILayer1CellSize
+  fullName: Netick.Unity.NetickConfig.AoILayer1CellSize
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public int AoILayer1CellSize
+    return:
+      type: System.Int32
+    content.vb: Public AoILayer1CellSize As Integer
+- uid: Netick.Unity.NetickConfig.AoILayer2CellSize
+  commentId: F:Netick.Unity.NetickConfig.AoILayer2CellSize
+  id: AoILayer2CellSize
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: AoILayer2CellSize
+  nameWithType: NetickConfig.AoILayer2CellSize
+  fullName: Netick.Unity.NetickConfig.AoILayer2CellSize
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public int AoILayer2CellSize
+    return:
+      type: System.Int32
+    content.vb: Public AoILayer2CellSize As Integer
+- uid: Netick.Unity.NetickConfig.AoILayer3CellSize
+  commentId: F:Netick.Unity.NetickConfig.AoILayer3CellSize
+  id: AoILayer3CellSize
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: AoILayer3CellSize
+  nameWithType: NetickConfig.AoILayer3CellSize
+  fullName: Netick.Unity.NetickConfig.AoILayer3CellSize
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public int AoILayer3CellSize
+    return:
+      type: System.Int32
+    content.vb: Public AoILayer3CellSize As Integer
+- uid: Netick.Unity.NetickConfig.AoILayer4CellSize
+  commentId: F:Netick.Unity.NetickConfig.AoILayer4CellSize
+  id: AoILayer4CellSize
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: AoILayer4CellSize
+  nameWithType: NetickConfig.AoILayer4CellSize
+  fullName: Netick.Unity.NetickConfig.AoILayer4CellSize
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public int AoILayer4CellSize
+    return:
+      type: System.Int32
+    content.vb: Public AoILayer4CellSize As Integer
 - uid: Netick.Unity.NetickConfig.RenderWorldGrid
   commentId: F:Netick.Unity.NetickConfig.RenderWorldGrid
   id: RenderWorldGrid
@@ -1186,49 +761,29 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [HideInInspector]
-
-      public bool RenderWorldGrid
+    content: public bool RenderWorldGrid
     return:
       type: System.Boolean
-    content.vb: >-
-      <HideInInspector>
-
-      Public RenderWorldGrid As Boolean
-  attributes:
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
-- uid: Netick.Unity.NetickConfig.UseSceneSwitchThread
-  commentId: F:Netick.Unity.NetickConfig.UseSceneSwitchThread
-  id: UseSceneSwitchThread
+    content.vb: Public RenderWorldGrid As Boolean
+- uid: Netick.Unity.NetickConfig.RenderedLayer
+  commentId: F:Netick.Unity.NetickConfig.RenderedLayer
+  id: RenderedLayer
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: UseSceneSwitchThread
-  nameWithType: NetickConfig.UseSceneSwitchThread
-  fullName: Netick.Unity.NetickConfig.UseSceneSwitchThread
+  name: RenderedLayer
+  nameWithType: NetickConfig.RenderedLayer
+  fullName: Netick.Unity.NetickConfig.RenderedLayer
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [HideInInspector]
-
-      public bool UseSceneSwitchThread
+    content: public int RenderedLayer
     return:
-      type: System.Boolean
-    content.vb: >-
-      <HideInInspector>
-
-      Public UseSceneSwitchThread As Boolean
-  attributes:
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
+      type: System.Int32
+    content.vb: Public RenderedLayer As Integer
 - uid: Netick.Unity.NetickConfig.LagCompensationDebug
   commentId: F:Netick.Unity.NetickConfig.LagCompensationDebug
   id: LagCompensationDebug
@@ -1244,20 +799,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [HideInInspector]
-
-      public bool LagCompensationDebug
+    content: public bool LagCompensationDebug
     return:
       type: System.Boolean
-    content.vb: >-
-      <HideInInspector>
-
-      Public LagCompensationDebug As Boolean
-  attributes:
-  - type: UnityEngine.HideInInspector
-    ctor: UnityEngine.HideInInspector.#ctor
-    arguments: []
+    content.vb: Public LagCompensationDebug As Boolean
 - uid: Netick.Unity.NetickConfig.#ctor
   commentId: M:Netick.Unity.NetickConfig.#ctor
   id: '#ctor'
@@ -1279,27 +824,6 @@ items:
   nameWithType.vb: NetickConfig.New()
   fullName.vb: Netick.Unity.NetickConfig.New()
   name.vb: New()
-- uid: Netick.Unity.NetickConfig.GetMaxPlayers
-  commentId: P:Netick.Unity.NetickConfig.GetMaxPlayers
-  id: GetMaxPlayers
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: GetMaxPlayers
-  nameWithType: NetickConfig.GetMaxPlayers
-  fullName: Netick.Unity.NetickConfig.GetMaxPlayers
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public int GetMaxPlayers { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property GetMaxPlayers As Integer
-  overload: Netick.Unity.NetickConfig.GetMaxPlayers*
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -1339,1841 +863,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: UnityEngine.Object
-  commentId: T:UnityEngine.Object
-  parent: UnityEngine
-  isExternal: true
-  name: Object
-  nameWithType: Object
-  fullName: UnityEngine.Object
-- uid: UnityEngine.ScriptableObject
-  commentId: T:UnityEngine.ScriptableObject
-  parent: UnityEngine
-  isExternal: true
-  name: ScriptableObject
-  nameWithType: ScriptableObject
-  fullName: UnityEngine.ScriptableObject
-- uid: UnityEngine.ScriptableObject.SetDirty
-  commentId: M:UnityEngine.ScriptableObject.SetDirty
-  parent: UnityEngine.ScriptableObject
-  isExternal: true
-  name: SetDirty()
-  nameWithType: ScriptableObject.SetDirty()
-  fullName: UnityEngine.ScriptableObject.SetDirty()
-  spec.csharp:
-  - uid: UnityEngine.ScriptableObject.SetDirty
-    name: SetDirty
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.ScriptableObject.SetDirty
-    name: SetDirty
-    isExternal: true
-  - name: (
-  - name: )
-- uid: UnityEngine.ScriptableObject.CreateInstance(System.String)
-  commentId: M:UnityEngine.ScriptableObject.CreateInstance(System.String)
-  parent: UnityEngine.ScriptableObject
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: CreateInstance(string)
-  nameWithType: ScriptableObject.CreateInstance(string)
-  fullName: UnityEngine.ScriptableObject.CreateInstance(string)
-  nameWithType.vb: ScriptableObject.CreateInstance(String)
-  fullName.vb: UnityEngine.ScriptableObject.CreateInstance(String)
-  name.vb: CreateInstance(String)
-  spec.csharp:
-  - uid: UnityEngine.ScriptableObject.CreateInstance(System.String)
-    name: CreateInstance
-    isExternal: true
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.ScriptableObject.CreateInstance(System.String)
-    name: CreateInstance
-    isExternal: true
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-- uid: UnityEngine.ScriptableObject.CreateInstance(System.Type)
-  commentId: M:UnityEngine.ScriptableObject.CreateInstance(System.Type)
-  parent: UnityEngine.ScriptableObject
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: CreateInstance(Type)
-  nameWithType: ScriptableObject.CreateInstance(Type)
-  fullName: UnityEngine.ScriptableObject.CreateInstance(System.Type)
-  spec.csharp:
-  - uid: UnityEngine.ScriptableObject.CreateInstance(System.Type)
-    name: CreateInstance
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.ScriptableObject.CreateInstance(System.Type)
-    name: CreateInstance
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-- uid: UnityEngine.ScriptableObject.CreateInstance``1
-  commentId: M:UnityEngine.ScriptableObject.CreateInstance``1
-  parent: UnityEngine.ScriptableObject
-  isExternal: true
-  name: CreateInstance<T>()
-  nameWithType: ScriptableObject.CreateInstance<T>()
-  fullName: UnityEngine.ScriptableObject.CreateInstance<T>()
-  nameWithType.vb: ScriptableObject.CreateInstance(Of T)()
-  fullName.vb: UnityEngine.ScriptableObject.CreateInstance(Of T)()
-  name.vb: CreateInstance(Of T)()
-  spec.csharp:
-  - uid: UnityEngine.ScriptableObject.CreateInstance``1
-    name: CreateInstance
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.ScriptableObject.CreateInstance``1
-    name: CreateInstance
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: )
-- uid: UnityEngine.Object.GetInstanceID
-  commentId: M:UnityEngine.Object.GetInstanceID
-  parent: UnityEngine.Object
-  isExternal: true
-  name: GetInstanceID()
-  nameWithType: Object.GetInstanceID()
-  fullName: UnityEngine.Object.GetInstanceID()
-  spec.csharp:
-  - uid: UnityEngine.Object.GetInstanceID
-    name: GetInstanceID
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.GetInstanceID
-    name: GetInstanceID
-    isExternal: true
-  - name: (
-  - name: )
-- uid: UnityEngine.Object.GetHashCode
-  commentId: M:UnityEngine.Object.GetHashCode
-  parent: UnityEngine.Object
-  isExternal: true
-  name: GetHashCode()
-  nameWithType: Object.GetHashCode()
-  fullName: UnityEngine.Object.GetHashCode()
-  spec.csharp:
-  - uid: UnityEngine.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-  - name: (
-  - name: )
-- uid: UnityEngine.Object.Equals(System.Object)
-  commentId: M:UnityEngine.Object.Equals(System.Object)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object
-  name: Equals(object)
-  nameWithType: Object.Equals(object)
-  fullName: UnityEngine.Object.Equals(object)
-  nameWithType.vb: Object.Equals(Object)
-  fullName.vb: UnityEngine.Object.Equals(Object)
-  name.vb: Equals(Object)
-  spec.csharp:
-  - uid: UnityEngine.Object.Equals(System.Object)
-    name: Equals
-    isExternal: true
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Equals(System.Object)
-    name: Equals
-    isExternal: true
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
-  commentId: M:UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: Instantiate(Object, Vector3, Quaternion)
-  nameWithType: Object.Instantiate(Object, Vector3, Quaternion)
-  fullName: UnityEngine.Object.Instantiate(UnityEngine.Object, UnityEngine.Vector3, UnityEngine.Quaternion)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-  commentId: M:UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: Instantiate(Object, Vector3, Quaternion, Transform)
-  nameWithType: Object.Instantiate(Object, Vector3, Quaternion, Transform)
-  fullName: UnityEngine.Object.Instantiate(UnityEngine.Object, UnityEngine.Vector3, UnityEngine.Quaternion, UnityEngine.Transform)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.Instantiate(UnityEngine.Object)
-  commentId: M:UnityEngine.Object.Instantiate(UnityEngine.Object)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: Instantiate(Object)
-  nameWithType: Object.Instantiate(Object)
-  fullName: UnityEngine.Object.Instantiate(UnityEngine.Object)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate(UnityEngine.Object)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate(UnityEngine.Object)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Transform)
-  commentId: M:UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Transform)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: Instantiate(Object, Transform)
-  nameWithType: Object.Instantiate(Object, Transform)
-  fullName: UnityEngine.Object.Instantiate(UnityEngine.Object, UnityEngine.Transform)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Transform,System.Boolean)
-  commentId: M:UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Transform,System.Boolean)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: Instantiate(Object, Transform, bool)
-  nameWithType: Object.Instantiate(Object, Transform, bool)
-  fullName: UnityEngine.Object.Instantiate(UnityEngine.Object, UnityEngine.Transform, bool)
-  nameWithType.vb: Object.Instantiate(Object, Transform, Boolean)
-  fullName.vb: UnityEngine.Object.Instantiate(UnityEngine.Object, UnityEngine.Transform, Boolean)
-  name.vb: Instantiate(Object, Transform, Boolean)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Transform,System.Boolean)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate(UnityEngine.Object,UnityEngine.Transform,System.Boolean)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: UnityEngine.Object.Instantiate``1({T})
-  commentId: M:UnityEngine.Object.Instantiate``1(``0)
-  parent: UnityEngine.Object
-  definition: UnityEngine.Object.Instantiate``1(``0)
-  name: Instantiate<T>(T)
-  nameWithType: Object.Instantiate<T>(T)
-  fullName: UnityEngine.Object.Instantiate<T>(T)
-  nameWithType.vb: Object.Instantiate(Of T)(T)
-  fullName.vb: UnityEngine.Object.Instantiate(Of T)(T)
-  name.vb: Instantiate(Of T)(T)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate``1(``0)
-    name: Instantiate
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate``1(``0)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: )
-- uid: UnityEngine.Object.Instantiate``1({T},UnityEngine.Vector3,UnityEngine.Quaternion)
-  commentId: M:UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
-  parent: UnityEngine.Object
-  definition: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
-  name: Instantiate<T>(T, Vector3, Quaternion)
-  nameWithType: Object.Instantiate<T>(T, Vector3, Quaternion)
-  fullName: UnityEngine.Object.Instantiate<T>(T, UnityEngine.Vector3, UnityEngine.Quaternion)
-  nameWithType.vb: Object.Instantiate(Of T)(T, Vector3, Quaternion)
-  fullName.vb: UnityEngine.Object.Instantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion)
-  name.vb: Instantiate(Of T)(T, Vector3, Quaternion)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
-    name: Instantiate
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.Instantiate``1({T},UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-  commentId: M:UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-  parent: UnityEngine.Object
-  definition: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-  name: Instantiate<T>(T, Vector3, Quaternion, Transform)
-  nameWithType: Object.Instantiate<T>(T, Vector3, Quaternion, Transform)
-  fullName: UnityEngine.Object.Instantiate<T>(T, UnityEngine.Vector3, UnityEngine.Quaternion, UnityEngine.Transform)
-  nameWithType.vb: Object.Instantiate(Of T)(T, Vector3, Quaternion, Transform)
-  fullName.vb: UnityEngine.Object.Instantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion, UnityEngine.Transform)
-  name.vb: Instantiate(Of T)(T, Vector3, Quaternion, Transform)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.Instantiate``1({T},UnityEngine.Transform)
-  commentId: M:UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform)
-  parent: UnityEngine.Object
-  definition: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform)
-  name: Instantiate<T>(T, Transform)
-  nameWithType: Object.Instantiate<T>(T, Transform)
-  fullName: UnityEngine.Object.Instantiate<T>(T, UnityEngine.Transform)
-  nameWithType.vb: Object.Instantiate(Of T)(T, Transform)
-  fullName.vb: UnityEngine.Object.Instantiate(Of T)(T, UnityEngine.Transform)
-  name.vb: Instantiate(Of T)(T, Transform)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.Instantiate``1({T},UnityEngine.Transform,System.Boolean)
-  commentId: M:UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform,System.Boolean)
-  parent: UnityEngine.Object
-  definition: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform,System.Boolean)
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: Instantiate<T>(T, Transform, bool)
-  nameWithType: Object.Instantiate<T>(T, Transform, bool)
-  fullName: UnityEngine.Object.Instantiate<T>(T, UnityEngine.Transform, bool)
-  nameWithType.vb: Object.Instantiate(Of T)(T, Transform, Boolean)
-  fullName.vb: UnityEngine.Object.Instantiate(Of T)(T, UnityEngine.Transform, Boolean)
-  name.vb: Instantiate(Of T)(T, Transform, Boolean)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform,System.Boolean)
-    name: Instantiate
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform,System.Boolean)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: UnityEngine.Object.Destroy(UnityEngine.Object,System.Single)
-  commentId: M:UnityEngine.Object.Destroy(UnityEngine.Object,System.Single)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: Destroy(Object, float)
-  nameWithType: Object.Destroy(Object, float)
-  fullName: UnityEngine.Object.Destroy(UnityEngine.Object, float)
-  nameWithType.vb: Object.Destroy(Object, Single)
-  fullName.vb: UnityEngine.Object.Destroy(UnityEngine.Object, Single)
-  name.vb: Destroy(Object, Single)
-  spec.csharp:
-  - uid: UnityEngine.Object.Destroy(UnityEngine.Object,System.Single)
-    name: Destroy
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Single
-    name: float
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Destroy(UnityEngine.Object,System.Single)
-    name: Destroy
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Single
-    name: Single
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: )
-- uid: UnityEngine.Object.Destroy(UnityEngine.Object)
-  commentId: M:UnityEngine.Object.Destroy(UnityEngine.Object)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: Destroy(Object)
-  nameWithType: Object.Destroy(Object)
-  fullName: UnityEngine.Object.Destroy(UnityEngine.Object)
-  spec.csharp:
-  - uid: UnityEngine.Object.Destroy(UnityEngine.Object)
-    name: Destroy
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Destroy(UnityEngine.Object)
-    name: Destroy
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.DestroyImmediate(UnityEngine.Object,System.Boolean)
-  commentId: M:UnityEngine.Object.DestroyImmediate(UnityEngine.Object,System.Boolean)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: DestroyImmediate(Object, bool)
-  nameWithType: Object.DestroyImmediate(Object, bool)
-  fullName: UnityEngine.Object.DestroyImmediate(UnityEngine.Object, bool)
-  nameWithType.vb: Object.DestroyImmediate(Object, Boolean)
-  fullName.vb: UnityEngine.Object.DestroyImmediate(UnityEngine.Object, Boolean)
-  name.vb: DestroyImmediate(Object, Boolean)
-  spec.csharp:
-  - uid: UnityEngine.Object.DestroyImmediate(UnityEngine.Object,System.Boolean)
-    name: DestroyImmediate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.DestroyImmediate(UnityEngine.Object,System.Boolean)
-    name: DestroyImmediate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: UnityEngine.Object.DestroyImmediate(UnityEngine.Object)
-  commentId: M:UnityEngine.Object.DestroyImmediate(UnityEngine.Object)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: DestroyImmediate(Object)
-  nameWithType: Object.DestroyImmediate(Object)
-  fullName: UnityEngine.Object.DestroyImmediate(UnityEngine.Object)
-  spec.csharp:
-  - uid: UnityEngine.Object.DestroyImmediate(UnityEngine.Object)
-    name: DestroyImmediate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.DestroyImmediate(UnityEngine.Object)
-    name: DestroyImmediate
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.FindObjectsOfType(System.Type)
-  commentId: M:UnityEngine.Object.FindObjectsOfType(System.Type)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindObjectsOfType(Type)
-  nameWithType: Object.FindObjectsOfType(Type)
-  fullName: UnityEngine.Object.FindObjectsOfType(System.Type)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectsOfType(System.Type)
-    name: FindObjectsOfType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectsOfType(System.Type)
-    name: FindObjectsOfType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-- uid: UnityEngine.Object.FindObjectsOfType(System.Type,System.Boolean)
-  commentId: M:UnityEngine.Object.FindObjectsOfType(System.Type,System.Boolean)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindObjectsOfType(Type, bool)
-  nameWithType: Object.FindObjectsOfType(Type, bool)
-  fullName: UnityEngine.Object.FindObjectsOfType(System.Type, bool)
-  nameWithType.vb: Object.FindObjectsOfType(Type, Boolean)
-  fullName.vb: UnityEngine.Object.FindObjectsOfType(System.Type, Boolean)
-  name.vb: FindObjectsOfType(Type, Boolean)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectsOfType(System.Type,System.Boolean)
-    name: FindObjectsOfType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectsOfType(System.Type,System.Boolean)
-    name: FindObjectsOfType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: UnityEngine.Object.FindObjectsByType(System.Type,UnityEngine.FindObjectsSortMode)
-  commentId: M:UnityEngine.Object.FindObjectsByType(System.Type,UnityEngine.FindObjectsSortMode)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindObjectsByType(Type, FindObjectsSortMode)
-  nameWithType: Object.FindObjectsByType(Type, FindObjectsSortMode)
-  fullName: UnityEngine.Object.FindObjectsByType(System.Type, UnityEngine.FindObjectsSortMode)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectsByType(System.Type,UnityEngine.FindObjectsSortMode)
-    name: FindObjectsByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsSortMode
-    name: FindObjectsSortMode
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectsByType(System.Type,UnityEngine.FindObjectsSortMode)
-    name: FindObjectsByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsSortMode
-    name: FindObjectsSortMode
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.FindObjectsByType(System.Type,UnityEngine.FindObjectsInactive,UnityEngine.FindObjectsSortMode)
-  commentId: M:UnityEngine.Object.FindObjectsByType(System.Type,UnityEngine.FindObjectsInactive,UnityEngine.FindObjectsSortMode)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)
-  nameWithType: Object.FindObjectsByType(Type, FindObjectsInactive, FindObjectsSortMode)
-  fullName: UnityEngine.Object.FindObjectsByType(System.Type, UnityEngine.FindObjectsInactive, UnityEngine.FindObjectsSortMode)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectsByType(System.Type,UnityEngine.FindObjectsInactive,UnityEngine.FindObjectsSortMode)
-    name: FindObjectsByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsSortMode
-    name: FindObjectsSortMode
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectsByType(System.Type,UnityEngine.FindObjectsInactive,UnityEngine.FindObjectsSortMode)
-    name: FindObjectsByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsSortMode
-    name: FindObjectsSortMode
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.DontDestroyOnLoad(UnityEngine.Object)
-  commentId: M:UnityEngine.Object.DontDestroyOnLoad(UnityEngine.Object)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: DontDestroyOnLoad(Object)
-  nameWithType: Object.DontDestroyOnLoad(Object)
-  fullName: UnityEngine.Object.DontDestroyOnLoad(UnityEngine.Object)
-  spec.csharp:
-  - uid: UnityEngine.Object.DontDestroyOnLoad(UnityEngine.Object)
-    name: DontDestroyOnLoad
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.DontDestroyOnLoad(UnityEngine.Object)
-    name: DontDestroyOnLoad
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.DestroyObject(UnityEngine.Object,System.Single)
-  commentId: M:UnityEngine.Object.DestroyObject(UnityEngine.Object,System.Single)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: DestroyObject(Object, float)
-  nameWithType: Object.DestroyObject(Object, float)
-  fullName: UnityEngine.Object.DestroyObject(UnityEngine.Object, float)
-  nameWithType.vb: Object.DestroyObject(Object, Single)
-  fullName.vb: UnityEngine.Object.DestroyObject(UnityEngine.Object, Single)
-  name.vb: DestroyObject(Object, Single)
-  spec.csharp:
-  - uid: UnityEngine.Object.DestroyObject(UnityEngine.Object,System.Single)
-    name: DestroyObject
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Single
-    name: float
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.DestroyObject(UnityEngine.Object,System.Single)
-    name: DestroyObject
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Single
-    name: Single
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: )
-- uid: UnityEngine.Object.DestroyObject(UnityEngine.Object)
-  commentId: M:UnityEngine.Object.DestroyObject(UnityEngine.Object)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: DestroyObject(Object)
-  nameWithType: Object.DestroyObject(Object)
-  fullName: UnityEngine.Object.DestroyObject(UnityEngine.Object)
-  spec.csharp:
-  - uid: UnityEngine.Object.DestroyObject(UnityEngine.Object)
-    name: DestroyObject
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.DestroyObject(UnityEngine.Object)
-    name: DestroyObject
-    isExternal: true
-  - name: (
-  - uid: UnityEngine.Object
-    name: Object
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.FindSceneObjectsOfType(System.Type)
-  commentId: M:UnityEngine.Object.FindSceneObjectsOfType(System.Type)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindSceneObjectsOfType(Type)
-  nameWithType: Object.FindSceneObjectsOfType(Type)
-  fullName: UnityEngine.Object.FindSceneObjectsOfType(System.Type)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindSceneObjectsOfType(System.Type)
-    name: FindSceneObjectsOfType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindSceneObjectsOfType(System.Type)
-    name: FindSceneObjectsOfType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-- uid: UnityEngine.Object.FindObjectsOfTypeIncludingAssets(System.Type)
-  commentId: M:UnityEngine.Object.FindObjectsOfTypeIncludingAssets(System.Type)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindObjectsOfTypeIncludingAssets(Type)
-  nameWithType: Object.FindObjectsOfTypeIncludingAssets(Type)
-  fullName: UnityEngine.Object.FindObjectsOfTypeIncludingAssets(System.Type)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectsOfTypeIncludingAssets(System.Type)
-    name: FindObjectsOfTypeIncludingAssets
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectsOfTypeIncludingAssets(System.Type)
-    name: FindObjectsOfTypeIncludingAssets
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-- uid: UnityEngine.Object.FindObjectsOfType``1
-  commentId: M:UnityEngine.Object.FindObjectsOfType``1
-  parent: UnityEngine.Object
-  isExternal: true
-  name: FindObjectsOfType<T>()
-  nameWithType: Object.FindObjectsOfType<T>()
-  fullName: UnityEngine.Object.FindObjectsOfType<T>()
-  nameWithType.vb: Object.FindObjectsOfType(Of T)()
-  fullName.vb: UnityEngine.Object.FindObjectsOfType(Of T)()
-  name.vb: FindObjectsOfType(Of T)()
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectsOfType``1
-    name: FindObjectsOfType
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectsOfType``1
-    name: FindObjectsOfType
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: )
-- uid: UnityEngine.Object.FindObjectsByType``1(UnityEngine.FindObjectsSortMode)
-  commentId: M:UnityEngine.Object.FindObjectsByType``1(UnityEngine.FindObjectsSortMode)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: FindObjectsByType<T>(FindObjectsSortMode)
-  nameWithType: Object.FindObjectsByType<T>(FindObjectsSortMode)
-  fullName: UnityEngine.Object.FindObjectsByType<T>(UnityEngine.FindObjectsSortMode)
-  nameWithType.vb: Object.FindObjectsByType(Of T)(FindObjectsSortMode)
-  fullName.vb: UnityEngine.Object.FindObjectsByType(Of T)(UnityEngine.FindObjectsSortMode)
-  name.vb: FindObjectsByType(Of T)(FindObjectsSortMode)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectsByType``1(UnityEngine.FindObjectsSortMode)
-    name: FindObjectsByType
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - uid: UnityEngine.FindObjectsSortMode
-    name: FindObjectsSortMode
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectsByType``1(UnityEngine.FindObjectsSortMode)
-    name: FindObjectsByType
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - uid: UnityEngine.FindObjectsSortMode
-    name: FindObjectsSortMode
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.FindObjectsOfType``1(System.Boolean)
-  commentId: M:UnityEngine.Object.FindObjectsOfType``1(System.Boolean)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: FindObjectsOfType<T>(bool)
-  nameWithType: Object.FindObjectsOfType<T>(bool)
-  fullName: UnityEngine.Object.FindObjectsOfType<T>(bool)
-  nameWithType.vb: Object.FindObjectsOfType(Of T)(Boolean)
-  fullName.vb: UnityEngine.Object.FindObjectsOfType(Of T)(Boolean)
-  name.vb: FindObjectsOfType(Of T)(Boolean)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectsOfType``1(System.Boolean)
-    name: FindObjectsOfType
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectsOfType``1(System.Boolean)
-    name: FindObjectsOfType
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: UnityEngine.Object.FindObjectsByType``1(UnityEngine.FindObjectsInactive,UnityEngine.FindObjectsSortMode)
-  commentId: M:UnityEngine.Object.FindObjectsByType``1(UnityEngine.FindObjectsInactive,UnityEngine.FindObjectsSortMode)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: FindObjectsByType<T>(FindObjectsInactive, FindObjectsSortMode)
-  nameWithType: Object.FindObjectsByType<T>(FindObjectsInactive, FindObjectsSortMode)
-  fullName: UnityEngine.Object.FindObjectsByType<T>(UnityEngine.FindObjectsInactive, UnityEngine.FindObjectsSortMode)
-  nameWithType.vb: Object.FindObjectsByType(Of T)(FindObjectsInactive, FindObjectsSortMode)
-  fullName.vb: UnityEngine.Object.FindObjectsByType(Of T)(UnityEngine.FindObjectsInactive, UnityEngine.FindObjectsSortMode)
-  name.vb: FindObjectsByType(Of T)(FindObjectsInactive, FindObjectsSortMode)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectsByType``1(UnityEngine.FindObjectsInactive,UnityEngine.FindObjectsSortMode)
-    name: FindObjectsByType
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsSortMode
-    name: FindObjectsSortMode
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectsByType``1(UnityEngine.FindObjectsInactive,UnityEngine.FindObjectsSortMode)
-    name: FindObjectsByType
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsSortMode
-    name: FindObjectsSortMode
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.FindObjectOfType``1
-  commentId: M:UnityEngine.Object.FindObjectOfType``1
-  parent: UnityEngine.Object
-  isExternal: true
-  name: FindObjectOfType<T>()
-  nameWithType: Object.FindObjectOfType<T>()
-  fullName: UnityEngine.Object.FindObjectOfType<T>()
-  nameWithType.vb: Object.FindObjectOfType(Of T)()
-  fullName.vb: UnityEngine.Object.FindObjectOfType(Of T)()
-  name.vb: FindObjectOfType(Of T)()
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectOfType``1
-    name: FindObjectOfType
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectOfType``1
-    name: FindObjectOfType
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: )
-- uid: UnityEngine.Object.FindObjectOfType``1(System.Boolean)
-  commentId: M:UnityEngine.Object.FindObjectOfType``1(System.Boolean)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: FindObjectOfType<T>(bool)
-  nameWithType: Object.FindObjectOfType<T>(bool)
-  fullName: UnityEngine.Object.FindObjectOfType<T>(bool)
-  nameWithType.vb: Object.FindObjectOfType(Of T)(Boolean)
-  fullName.vb: UnityEngine.Object.FindObjectOfType(Of T)(Boolean)
-  name.vb: FindObjectOfType(Of T)(Boolean)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectOfType``1(System.Boolean)
-    name: FindObjectOfType
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectOfType``1(System.Boolean)
-    name: FindObjectOfType
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: UnityEngine.Object.FindFirstObjectByType``1
-  commentId: M:UnityEngine.Object.FindFirstObjectByType``1
-  parent: UnityEngine.Object
-  isExternal: true
-  name: FindFirstObjectByType<T>()
-  nameWithType: Object.FindFirstObjectByType<T>()
-  fullName: UnityEngine.Object.FindFirstObjectByType<T>()
-  nameWithType.vb: Object.FindFirstObjectByType(Of T)()
-  fullName.vb: UnityEngine.Object.FindFirstObjectByType(Of T)()
-  name.vb: FindFirstObjectByType(Of T)()
-  spec.csharp:
-  - uid: UnityEngine.Object.FindFirstObjectByType``1
-    name: FindFirstObjectByType
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindFirstObjectByType``1
-    name: FindFirstObjectByType
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: )
-- uid: UnityEngine.Object.FindAnyObjectByType``1
-  commentId: M:UnityEngine.Object.FindAnyObjectByType``1
-  parent: UnityEngine.Object
-  isExternal: true
-  name: FindAnyObjectByType<T>()
-  nameWithType: Object.FindAnyObjectByType<T>()
-  fullName: UnityEngine.Object.FindAnyObjectByType<T>()
-  nameWithType.vb: Object.FindAnyObjectByType(Of T)()
-  fullName.vb: UnityEngine.Object.FindAnyObjectByType(Of T)()
-  name.vb: FindAnyObjectByType(Of T)()
-  spec.csharp:
-  - uid: UnityEngine.Object.FindAnyObjectByType``1
-    name: FindAnyObjectByType
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindAnyObjectByType``1
-    name: FindAnyObjectByType
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: )
-- uid: UnityEngine.Object.FindFirstObjectByType``1(UnityEngine.FindObjectsInactive)
-  commentId: M:UnityEngine.Object.FindFirstObjectByType``1(UnityEngine.FindObjectsInactive)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: FindFirstObjectByType<T>(FindObjectsInactive)
-  nameWithType: Object.FindFirstObjectByType<T>(FindObjectsInactive)
-  fullName: UnityEngine.Object.FindFirstObjectByType<T>(UnityEngine.FindObjectsInactive)
-  nameWithType.vb: Object.FindFirstObjectByType(Of T)(FindObjectsInactive)
-  fullName.vb: UnityEngine.Object.FindFirstObjectByType(Of T)(UnityEngine.FindObjectsInactive)
-  name.vb: FindFirstObjectByType(Of T)(FindObjectsInactive)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindFirstObjectByType``1(UnityEngine.FindObjectsInactive)
-    name: FindFirstObjectByType
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindFirstObjectByType``1(UnityEngine.FindObjectsInactive)
-    name: FindFirstObjectByType
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.FindAnyObjectByType``1(UnityEngine.FindObjectsInactive)
-  commentId: M:UnityEngine.Object.FindAnyObjectByType``1(UnityEngine.FindObjectsInactive)
-  parent: UnityEngine.Object
-  isExternal: true
-  name: FindAnyObjectByType<T>(FindObjectsInactive)
-  nameWithType: Object.FindAnyObjectByType<T>(FindObjectsInactive)
-  fullName: UnityEngine.Object.FindAnyObjectByType<T>(UnityEngine.FindObjectsInactive)
-  nameWithType.vb: Object.FindAnyObjectByType(Of T)(FindObjectsInactive)
-  fullName.vb: UnityEngine.Object.FindAnyObjectByType(Of T)(UnityEngine.FindObjectsInactive)
-  name.vb: FindAnyObjectByType(Of T)(FindObjectsInactive)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindAnyObjectByType``1(UnityEngine.FindObjectsInactive)
-    name: FindAnyObjectByType
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindAnyObjectByType``1(UnityEngine.FindObjectsInactive)
-    name: FindAnyObjectByType
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.FindObjectsOfTypeAll(System.Type)
-  commentId: M:UnityEngine.Object.FindObjectsOfTypeAll(System.Type)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindObjectsOfTypeAll(Type)
-  nameWithType: Object.FindObjectsOfTypeAll(Type)
-  fullName: UnityEngine.Object.FindObjectsOfTypeAll(System.Type)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectsOfTypeAll(System.Type)
-    name: FindObjectsOfTypeAll
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectsOfTypeAll(System.Type)
-    name: FindObjectsOfTypeAll
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-- uid: UnityEngine.Object.FindObjectOfType(System.Type)
-  commentId: M:UnityEngine.Object.FindObjectOfType(System.Type)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindObjectOfType(Type)
-  nameWithType: Object.FindObjectOfType(Type)
-  fullName: UnityEngine.Object.FindObjectOfType(System.Type)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectOfType(System.Type)
-    name: FindObjectOfType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectOfType(System.Type)
-    name: FindObjectOfType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-- uid: UnityEngine.Object.FindFirstObjectByType(System.Type)
-  commentId: M:UnityEngine.Object.FindFirstObjectByType(System.Type)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindFirstObjectByType(Type)
-  nameWithType: Object.FindFirstObjectByType(Type)
-  fullName: UnityEngine.Object.FindFirstObjectByType(System.Type)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindFirstObjectByType(System.Type)
-    name: FindFirstObjectByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindFirstObjectByType(System.Type)
-    name: FindFirstObjectByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-- uid: UnityEngine.Object.FindAnyObjectByType(System.Type)
-  commentId: M:UnityEngine.Object.FindAnyObjectByType(System.Type)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindAnyObjectByType(Type)
-  nameWithType: Object.FindAnyObjectByType(Type)
-  fullName: UnityEngine.Object.FindAnyObjectByType(System.Type)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindAnyObjectByType(System.Type)
-    name: FindAnyObjectByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindAnyObjectByType(System.Type)
-    name: FindAnyObjectByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: )
-- uid: UnityEngine.Object.FindObjectOfType(System.Type,System.Boolean)
-  commentId: M:UnityEngine.Object.FindObjectOfType(System.Type,System.Boolean)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindObjectOfType(Type, bool)
-  nameWithType: Object.FindObjectOfType(Type, bool)
-  fullName: UnityEngine.Object.FindObjectOfType(System.Type, bool)
-  nameWithType.vb: Object.FindObjectOfType(Type, Boolean)
-  fullName.vb: UnityEngine.Object.FindObjectOfType(System.Type, Boolean)
-  name.vb: FindObjectOfType(Type, Boolean)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindObjectOfType(System.Type,System.Boolean)
-    name: FindObjectOfType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindObjectOfType(System.Type,System.Boolean)
-    name: FindObjectOfType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: UnityEngine.Object.FindFirstObjectByType(System.Type,UnityEngine.FindObjectsInactive)
-  commentId: M:UnityEngine.Object.FindFirstObjectByType(System.Type,UnityEngine.FindObjectsInactive)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindFirstObjectByType(Type, FindObjectsInactive)
-  nameWithType: Object.FindFirstObjectByType(Type, FindObjectsInactive)
-  fullName: UnityEngine.Object.FindFirstObjectByType(System.Type, UnityEngine.FindObjectsInactive)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindFirstObjectByType(System.Type,UnityEngine.FindObjectsInactive)
-    name: FindFirstObjectByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindFirstObjectByType(System.Type,UnityEngine.FindObjectsInactive)
-    name: FindFirstObjectByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.FindAnyObjectByType(System.Type,UnityEngine.FindObjectsInactive)
-  commentId: M:UnityEngine.Object.FindAnyObjectByType(System.Type,UnityEngine.FindObjectsInactive)
-  parent: UnityEngine.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: FindAnyObjectByType(Type, FindObjectsInactive)
-  nameWithType: Object.FindAnyObjectByType(Type, FindObjectsInactive)
-  fullName: UnityEngine.Object.FindAnyObjectByType(System.Type, UnityEngine.FindObjectsInactive)
-  spec.csharp:
-  - uid: UnityEngine.Object.FindAnyObjectByType(System.Type,UnityEngine.FindObjectsInactive)
-    name: FindAnyObjectByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.FindAnyObjectByType(System.Type,UnityEngine.FindObjectsInactive)
-    name: FindAnyObjectByType
-    isExternal: true
-  - name: (
-  - uid: System.Type
-    name: Type
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.type
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.FindObjectsInactive
-    name: FindObjectsInactive
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.ToString
-  commentId: M:UnityEngine.Object.ToString
-  parent: UnityEngine.Object
-  isExternal: true
-  name: ToString()
-  nameWithType: Object.ToString()
-  fullName: UnityEngine.Object.ToString()
-  spec.csharp:
-  - uid: UnityEngine.Object.ToString
-    name: ToString
-    isExternal: true
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.ToString
-    name: ToString
-    isExternal: true
-  - name: (
-  - name: )
-- uid: UnityEngine.Object.name
-  commentId: P:UnityEngine.Object.name
-  parent: UnityEngine.Object
-  isExternal: true
-  name: name
-  nameWithType: Object.name
-  fullName: UnityEngine.Object.name
-- uid: UnityEngine.Object.hideFlags
-  commentId: P:UnityEngine.Object.hideFlags
-  parent: UnityEngine.Object
-  isExternal: true
-  name: hideFlags
-  nameWithType: Object.hideFlags
-  fullName: UnityEngine.Object.hideFlags
-- uid: System.Object.Equals(System.Object,System.Object)
-  commentId: M:System.Object.Equals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  name: Equals(object, object)
-  nameWithType: object.Equals(object, object)
-  fullName: object.Equals(object, object)
-  nameWithType.vb: Object.Equals(Object, Object)
-  fullName.vb: Object.Equals(Object, Object)
-  name.vb: Equals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.Equals(System.Object,System.Object)
-    name: Equals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ReferenceEquals(System.Object,System.Object)
-  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  name: ReferenceEquals(object, object)
-  nameWithType: object.ReferenceEquals(object, object)
-  fullName: object.ReferenceEquals(object, object)
-  nameWithType.vb: Object.ReferenceEquals(Object, Object)
-  fullName.vb: Object.ReferenceEquals(Object, Object)
-  name.vb: ReferenceEquals(Object, Object)
-  spec.csharp:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-  spec.vb:
-  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
-    name: ReferenceEquals
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
-  - name: (
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: ','
-  - name: " "
-  - uid: System.Object
-    name: Object
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -3181,271 +870,27 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: UnityEngine
-  commentId: N:UnityEngine
-  isExternal: true
-  name: UnityEngine
-  nameWithType: UnityEngine
-  fullName: UnityEngine
-- uid: UnityEngine.Object.Instantiate``1(``0)
-  commentId: M:UnityEngine.Object.Instantiate``1(``0)
-  isExternal: true
-  name: Instantiate<T>(T)
-  nameWithType: Object.Instantiate<T>(T)
-  fullName: UnityEngine.Object.Instantiate<T>(T)
-  nameWithType.vb: Object.Instantiate(Of T)(T)
-  fullName.vb: UnityEngine.Object.Instantiate(Of T)(T)
-  name.vb: Instantiate(Of T)(T)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate``1(``0)
-    name: Instantiate
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate``1(``0)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: )
-- uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
-  commentId: M:UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
-  isExternal: true
-  name: Instantiate<T>(T, Vector3, Quaternion)
-  nameWithType: Object.Instantiate<T>(T, Vector3, Quaternion)
-  fullName: UnityEngine.Object.Instantiate<T>(T, UnityEngine.Vector3, UnityEngine.Quaternion)
-  nameWithType.vb: Object.Instantiate(Of T)(T, Vector3, Quaternion)
-  fullName.vb: UnityEngine.Object.Instantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion)
-  name.vb: Instantiate(Of T)(T, Vector3, Quaternion)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
-    name: Instantiate
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-  commentId: M:UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-  isExternal: true
-  name: Instantiate<T>(T, Vector3, Quaternion, Transform)
-  nameWithType: Object.Instantiate<T>(T, Vector3, Quaternion, Transform)
-  fullName: UnityEngine.Object.Instantiate<T>(T, UnityEngine.Vector3, UnityEngine.Quaternion, UnityEngine.Transform)
-  nameWithType.vb: Object.Instantiate(Of T)(T, Vector3, Quaternion, Transform)
-  fullName.vb: UnityEngine.Object.Instantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion, UnityEngine.Transform)
-  name.vb: Instantiate(Of T)(T, Vector3, Quaternion, Transform)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Quaternion
-    name: Quaternion
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform)
-  commentId: M:UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform)
-  isExternal: true
-  name: Instantiate<T>(T, Transform)
-  nameWithType: Object.Instantiate<T>(T, Transform)
-  fullName: UnityEngine.Object.Instantiate<T>(T, UnityEngine.Transform)
-  nameWithType.vb: Object.Instantiate(Of T)(T, Transform)
-  fullName.vb: UnityEngine.Object.Instantiate(Of T)(T, UnityEngine.Transform)
-  name.vb: Instantiate(Of T)(T, Transform)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: )
-- uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform,System.Boolean)
-  commentId: M:UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform,System.Boolean)
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: Instantiate<T>(T, Transform, bool)
-  nameWithType: Object.Instantiate<T>(T, Transform, bool)
-  fullName: UnityEngine.Object.Instantiate<T>(T, UnityEngine.Transform, bool)
-  nameWithType.vb: Object.Instantiate(Of T)(T, Transform, Boolean)
-  fullName.vb: UnityEngine.Object.Instantiate(Of T)(T, UnityEngine.Transform, Boolean)
-  name.vb: Instantiate(Of T)(T, Transform, Boolean)
-  spec.csharp:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform,System.Boolean)
-    name: Instantiate
-    isExternal: true
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: UnityEngine.Object.Instantiate``1(``0,UnityEngine.Transform,System.Boolean)
-    name: Instantiate
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - name: T
-  - name: ','
-  - name: " "
-  - uid: UnityEngine.Transform
-    name: Transform
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: System.Collections.Generic.List{System.String}
-  commentId: T:System.Collections.Generic.List{System.String}
+- uid: System.Collections.Generic.List{Netick.Unity.NetworkObject}
+  commentId: T:System.Collections.Generic.List{Netick.Unity.NetworkObject}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<string>
-  nameWithType: List<string>
-  fullName: System.Collections.Generic.List<string>
-  nameWithType.vb: List(Of String)
-  fullName.vb: System.Collections.Generic.List(Of String)
-  name.vb: List(Of String)
+  name: List<NetworkObject>
+  nameWithType: List<NetworkObject>
+  fullName: System.Collections.Generic.List<Netick.Unity.NetworkObject>
+  nameWithType.vb: List(Of NetworkObject)
+  fullName.vb: System.Collections.Generic.List(Of Netick.Unity.NetworkObject)
+  name.vb: List(Of NetworkObject)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: System.String
-    name: string
+  - uid: Netick.Unity.NetworkObject
+    name: NetworkObject
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
+    href: Netick.Unity.NetworkObject.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -3455,10 +900,10 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.String
-    name: String
+  - uid: Netick.Unity.NetworkObject
+    name: NetworkObject
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
+    href: Netick.Unity.NetworkObject.html
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
@@ -3575,8 +1020,6 @@ references:
   nameWithType: NetworkRenderInvokeOrder
   fullName: Netick.Unity.NetworkRenderInvokeOrder
 - uid: UnityEngine.Vector3
-  commentId: T:UnityEngine.Vector3
-  parent: UnityEngine
   isExternal: true
   name: Vector3
   nameWithType: Vector3
@@ -3591,10 +1034,3 @@ references:
   nameWithType.vb: NetickConfig.New
   fullName.vb: Netick.Unity.NetickConfig.New
   name.vb: New
-- uid: Netick.Unity.NetickConfig.GetMaxPlayers*
-  commentId: Overload:Netick.Unity.NetickConfig.GetMaxPlayers
-  isExternal: true
-  href: Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_GetMaxPlayers
-  name: GetMaxPlayers
-  nameWithType: NetickConfig.GetMaxPlayers
-  fullName: Netick.Unity.NetickConfig.GetMaxPlayers

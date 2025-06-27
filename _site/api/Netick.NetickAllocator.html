@@ -119,22 +119,22 @@ Class NetickAllocator
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
   </dd></dl>
 
@@ -148,8 +148,8 @@ Class NetickAllocator
 
 
 
-  <h3 id="Netick_NetickAllocator_Pools" data-uid="Netick.NetickAllocator.Pools">
-  Pools
+  <h3 id="Netick_NetickAllocator_Blocks" data-uid="Netick.NetickAllocator.Blocks">
+  Blocks
   
   </h3>
 
@@ -157,7 +157,7 @@ Class NetickAllocator
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;NetickAllocator.MemoryPool&gt; Pools</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;NetickAllocator.MemoryPool&gt; Blocks</code></pre>
   </div>
 
 
@@ -342,8 +342,8 @@ Class NetickAllocator
 
   <a id="Netick_NetickAllocator_SafeMalloc_" data-uid="Netick.NetickAllocator.SafeMalloc*"></a>
 
-  <h3 id="Netick_NetickAllocator_SafeMalloc_System_UInt64_System_Int32__System_Int64__" data-uid="Netick.NetickAllocator.SafeMalloc(System.UInt64,System.Int32@,System.Int64@)">
-  SafeMalloc(ulong, out int, out long)
+  <h3 id="Netick_NetickAllocator_SafeMalloc_System_UInt64_System_Int32__System_Int64__System_Boolean_" data-uid="Netick.NetickAllocator.SafeMalloc(System.UInt64,System.Int32@,System.Int64@,System.Boolean)">
+  SafeMalloc(ulong, out int, out long, bool)
   
   </h3>
 
@@ -351,7 +351,7 @@ Class NetickAllocator
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void* SafeMalloc(ulong size, out int poolIndex, out long offset)</code></pre>
+    <pre><code class="lang-csharp hljs">public void* SafeMalloc(ulong size, out int poolIndex, out long offset, bool clearMem)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -361,6 +361,8 @@ Class NetickAllocator
     <dt><code>poolIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+    <dt><code>clearMem</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -399,7 +401,7 @@ Class NetickAllocator
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

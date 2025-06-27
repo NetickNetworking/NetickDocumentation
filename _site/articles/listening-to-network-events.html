@@ -131,24 +131,14 @@
 <td>Client</td>
 </tr>
 <tr>
-<td>OnPlayerConnected(NetworkSandbox sandbox, Netick.NetworkPlayer client)</td>
-<td>Invoked when a specific player has connected. Called for the server, when started as a Host.</td>
-<td>Server</td>
+<td>OnPlayerJoined(NetworkSandbox sandbox, NetworkPlayerId player)</td>
+<td>Invoked when a specific player has joined the game.</td>
+<td>Client/Server</td>
 </tr>
 <tr>
-<td>OnPlayerDisconnected(NetworkSandbox sandbox, Netick.NetworkConnection client)</td>
-<td>Invoked when a specific player has disconnected. Invoked in host mode for the host player when Netick shuts down.</td>
-<td>Server</td>
-</tr>
-<tr>
-<td>OnClientConnected(NetworkSandbox sandbox, NetworkConnection client)</td>
-<td>Invoked when a specific client has connected.</td>
-<td>Server</td>
-</tr>
-<tr>
-<td>OnClientDisconnected(NetworkSandbox sandbox, NetworkConnection client)</td>
-<td>Invoked when a specific client has disconnected.</td>
-<td>Server</td>
+<td>OnPlayerLeft(NetworkSandbox sandbox, NetworkPlayerId player)</td>
+<td>Invoked when a specific player has left the game.</td>
+<td>Client/Server</td>
 </tr>
 <tr>
 <td>OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)</td>
@@ -177,15 +167,15 @@
 <p>And finally, you can use <code>Sandbox.Events</code> to directly subscribe/unsubscribe network events from any script, including network behaviours:</p>
 <pre><code class="lang-csharp">public override void NetworkStart()
 {
-  Sandbox.Events.OnPlayerConnected += OnPlayerConnected ;
+  Sandbox.Events.OnPlayerJoined += OnPlayerJoined ;
 }
 
 public override void NetworkDestroy()
 {
-  Sandbox.Events.OnPlayerConnected -= OnPlayerConnected ;
+  Sandbox.Events.OnPlayerJoined -= OnPlayerJoined ;
 }
 
-private void OnPlayerConnected (....)
+private void OnPlayerJoined (....)
 {
 }
 </code></pre>
@@ -210,7 +200,7 @@ private void OnPlayerConnected (....)
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

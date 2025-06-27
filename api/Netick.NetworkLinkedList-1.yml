@@ -7,12 +7,21 @@ items:
   children:
   - Netick.NetworkLinkedList`1.#ctor(System.Int32)
   - Netick.NetworkLinkedList`1.Add(`0)
+  - Netick.NetworkLinkedList`1.AddAfter(Netick.NetworkLinkedListNode{`0},`0,Netick.NetworkLinkedListNode{`0}@)
+  - Netick.NetworkLinkedList`1.AddBefore(Netick.NetworkLinkedListNode{`0},`0,Netick.NetworkLinkedListNode{`0}@)
+  - Netick.NetworkLinkedList`1.AddFirst(`0,Netick.NetworkLinkedListNode{`0}@)
+  - Netick.NetworkLinkedList`1.AddLast(`0,Netick.NetworkLinkedListNode{`0}@)
   - Netick.NetworkLinkedList`1.Clear
   - Netick.NetworkLinkedList`1.Count
   - Netick.NetworkLinkedList`1.GetEnumerator
+  - Netick.NetworkLinkedList`1.GetNode(System.Int32)
+  - Netick.NetworkLinkedList`1.Head
   - Netick.NetworkLinkedList`1.InternalInit(Netick.INetickNetworkScript,System.Int32*,System.Int32,System.Int32)
   - Netick.NetworkLinkedList`1.InternalReset
+  - Netick.NetworkLinkedList`1.Nodes
+  - Netick.NetworkLinkedList`1.Remove(Netick.NetworkLinkedListNode{`0})
   - Netick.NetworkLinkedList`1.Remove(`0)
+  - Netick.NetworkLinkedList`1.Tail
   langs:
   - csharp
   - vb
@@ -42,12 +51,12 @@ items:
   - Netick.NetworkLinkedList.ElementMetaSizeWords
   - Netick.NetworkLinkedList.HeaderMetaSizeWords
   - Netick.NetworkLinkedList.Capacity
+  - System.Object.GetType
+  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
+  - System.Object.GetHashCode
   nameWithType.vb: NetworkLinkedList(Of T)
   fullName.vb: Netick.NetworkLinkedList(Of T)
   name.vb: NetworkLinkedList(Of T)
@@ -109,6 +118,32 @@ items:
   nameWithType.vb: NetworkLinkedList(Of T).InternalInit(INetickNetworkScript, Integer*, Integer, Integer)
   fullName.vb: Netick.NetworkLinkedList(Of T).InternalInit(Netick.INetickNetworkScript, Integer*, Integer, Integer)
   name.vb: InternalInit(INetickNetworkScript, Integer*, Integer, Integer)
+- uid: Netick.NetworkLinkedList`1.GetNode(System.Int32)
+  commentId: M:Netick.NetworkLinkedList`1.GetNode(System.Int32)
+  id: GetNode(System.Int32)
+  parent: Netick.NetworkLinkedList`1
+  langs:
+  - csharp
+  - vb
+  name: GetNode(int)
+  nameWithType: NetworkLinkedList<T>.GetNode(int)
+  fullName: Netick.NetworkLinkedList<T>.GetNode(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetworkLinkedListNode<T> GetNode(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: Netick.NetworkLinkedListNode{{T}}
+    content.vb: Public Function GetNode(index As Integer) As NetworkLinkedListNode(Of T)
+  overload: Netick.NetworkLinkedList`1.GetNode*
+  nameWithType.vb: NetworkLinkedList(Of T).GetNode(Integer)
+  fullName.vb: Netick.NetworkLinkedList(Of T).GetNode(Integer)
+  name.vb: GetNode(Integer)
 - uid: Netick.NetworkLinkedList`1.Add(`0)
   commentId: M:Netick.NetworkLinkedList`1.Add(`0)
   id: Add(`0)
@@ -134,6 +169,122 @@ items:
   overload: Netick.NetworkLinkedList`1.Add*
   nameWithType.vb: NetworkLinkedList(Of T).Add(T)
   fullName.vb: Netick.NetworkLinkedList(Of T).Add(T)
+- uid: Netick.NetworkLinkedList`1.AddFirst(`0,Netick.NetworkLinkedListNode{`0}@)
+  commentId: M:Netick.NetworkLinkedList`1.AddFirst(`0,Netick.NetworkLinkedListNode{`0}@)
+  id: AddFirst(`0,Netick.NetworkLinkedListNode{`0}@)
+  parent: Netick.NetworkLinkedList`1
+  langs:
+  - csharp
+  - vb
+  name: AddFirst(T, out NetworkLinkedListNode<T>)
+  nameWithType: NetworkLinkedList<T>.AddFirst(T, out NetworkLinkedListNode<T>)
+  fullName: Netick.NetworkLinkedList<T>.AddFirst(T, out Netick.NetworkLinkedListNode<T>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool AddFirst(T item, out NetworkLinkedListNode<T> addedNode)
+    parameters:
+    - id: item
+      type: '{T}'
+    - id: addedNode
+      type: Netick.NetworkLinkedListNode{{T}}
+    return:
+      type: System.Boolean
+    content.vb: Public Function AddFirst(item As T, addedNode As NetworkLinkedListNode(Of T)) As Boolean
+  overload: Netick.NetworkLinkedList`1.AddFirst*
+  nameWithType.vb: NetworkLinkedList(Of T).AddFirst(T, NetworkLinkedListNode(Of T))
+  fullName.vb: Netick.NetworkLinkedList(Of T).AddFirst(T, Netick.NetworkLinkedListNode(Of T))
+  name.vb: AddFirst(T, NetworkLinkedListNode(Of T))
+- uid: Netick.NetworkLinkedList`1.AddLast(`0,Netick.NetworkLinkedListNode{`0}@)
+  commentId: M:Netick.NetworkLinkedList`1.AddLast(`0,Netick.NetworkLinkedListNode{`0}@)
+  id: AddLast(`0,Netick.NetworkLinkedListNode{`0}@)
+  parent: Netick.NetworkLinkedList`1
+  langs:
+  - csharp
+  - vb
+  name: AddLast(T, out NetworkLinkedListNode<T>)
+  nameWithType: NetworkLinkedList<T>.AddLast(T, out NetworkLinkedListNode<T>)
+  fullName: Netick.NetworkLinkedList<T>.AddLast(T, out Netick.NetworkLinkedListNode<T>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool AddLast(T item, out NetworkLinkedListNode<T> addedNode)
+    parameters:
+    - id: item
+      type: '{T}'
+    - id: addedNode
+      type: Netick.NetworkLinkedListNode{{T}}
+    return:
+      type: System.Boolean
+    content.vb: Public Function AddLast(item As T, addedNode As NetworkLinkedListNode(Of T)) As Boolean
+  overload: Netick.NetworkLinkedList`1.AddLast*
+  nameWithType.vb: NetworkLinkedList(Of T).AddLast(T, NetworkLinkedListNode(Of T))
+  fullName.vb: Netick.NetworkLinkedList(Of T).AddLast(T, Netick.NetworkLinkedListNode(Of T))
+  name.vb: AddLast(T, NetworkLinkedListNode(Of T))
+- uid: Netick.NetworkLinkedList`1.AddBefore(Netick.NetworkLinkedListNode{`0},`0,Netick.NetworkLinkedListNode{`0}@)
+  commentId: M:Netick.NetworkLinkedList`1.AddBefore(Netick.NetworkLinkedListNode{`0},`0,Netick.NetworkLinkedListNode{`0}@)
+  id: AddBefore(Netick.NetworkLinkedListNode{`0},`0,Netick.NetworkLinkedListNode{`0}@)
+  parent: Netick.NetworkLinkedList`1
+  langs:
+  - csharp
+  - vb
+  name: AddBefore(NetworkLinkedListNode<T>, T, out NetworkLinkedListNode<T>)
+  nameWithType: NetworkLinkedList<T>.AddBefore(NetworkLinkedListNode<T>, T, out NetworkLinkedListNode<T>)
+  fullName: Netick.NetworkLinkedList<T>.AddBefore(Netick.NetworkLinkedListNode<T>, T, out Netick.NetworkLinkedListNode<T>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool AddBefore(NetworkLinkedListNode<T> beforeThisNode, T item, out NetworkLinkedListNode<T> addedNode)
+    parameters:
+    - id: beforeThisNode
+      type: Netick.NetworkLinkedListNode{{T}}
+    - id: item
+      type: '{T}'
+    - id: addedNode
+      type: Netick.NetworkLinkedListNode{{T}}
+    return:
+      type: System.Boolean
+    content.vb: Public Function AddBefore(beforeThisNode As NetworkLinkedListNode(Of T), item As T, addedNode As NetworkLinkedListNode(Of T)) As Boolean
+  overload: Netick.NetworkLinkedList`1.AddBefore*
+  nameWithType.vb: NetworkLinkedList(Of T).AddBefore(NetworkLinkedListNode(Of T), T, NetworkLinkedListNode(Of T))
+  fullName.vb: Netick.NetworkLinkedList(Of T).AddBefore(Netick.NetworkLinkedListNode(Of T), T, Netick.NetworkLinkedListNode(Of T))
+  name.vb: AddBefore(NetworkLinkedListNode(Of T), T, NetworkLinkedListNode(Of T))
+- uid: Netick.NetworkLinkedList`1.AddAfter(Netick.NetworkLinkedListNode{`0},`0,Netick.NetworkLinkedListNode{`0}@)
+  commentId: M:Netick.NetworkLinkedList`1.AddAfter(Netick.NetworkLinkedListNode{`0},`0,Netick.NetworkLinkedListNode{`0}@)
+  id: AddAfter(Netick.NetworkLinkedListNode{`0},`0,Netick.NetworkLinkedListNode{`0}@)
+  parent: Netick.NetworkLinkedList`1
+  langs:
+  - csharp
+  - vb
+  name: AddAfter(NetworkLinkedListNode<T>, T, out NetworkLinkedListNode<T>)
+  nameWithType: NetworkLinkedList<T>.AddAfter(NetworkLinkedListNode<T>, T, out NetworkLinkedListNode<T>)
+  fullName: Netick.NetworkLinkedList<T>.AddAfter(Netick.NetworkLinkedListNode<T>, T, out Netick.NetworkLinkedListNode<T>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool AddAfter(NetworkLinkedListNode<T> afterThisNode, T item, out NetworkLinkedListNode<T> addedNode)
+    parameters:
+    - id: afterThisNode
+      type: Netick.NetworkLinkedListNode{{T}}
+    - id: item
+      type: '{T}'
+    - id: addedNode
+      type: Netick.NetworkLinkedListNode{{T}}
+    return:
+      type: System.Boolean
+    content.vb: Public Function AddAfter(afterThisNode As NetworkLinkedListNode(Of T), item As T, addedNode As NetworkLinkedListNode(Of T)) As Boolean
+  overload: Netick.NetworkLinkedList`1.AddAfter*
+  nameWithType.vb: NetworkLinkedList(Of T).AddAfter(NetworkLinkedListNode(Of T), T, NetworkLinkedListNode(Of T))
+  fullName.vb: Netick.NetworkLinkedList(Of T).AddAfter(Netick.NetworkLinkedListNode(Of T), T, Netick.NetworkLinkedListNode(Of T))
+  name.vb: AddAfter(NetworkLinkedListNode(Of T), T, NetworkLinkedListNode(Of T))
 - uid: Netick.NetworkLinkedList`1.Remove(`0)
   commentId: M:Netick.NetworkLinkedList`1.Remove(`0)
   id: Remove(`0)
@@ -159,6 +310,32 @@ items:
   overload: Netick.NetworkLinkedList`1.Remove*
   nameWithType.vb: NetworkLinkedList(Of T).Remove(T)
   fullName.vb: Netick.NetworkLinkedList(Of T).Remove(T)
+- uid: Netick.NetworkLinkedList`1.Remove(Netick.NetworkLinkedListNode{`0})
+  commentId: M:Netick.NetworkLinkedList`1.Remove(Netick.NetworkLinkedListNode{`0})
+  id: Remove(Netick.NetworkLinkedListNode{`0})
+  parent: Netick.NetworkLinkedList`1
+  langs:
+  - csharp
+  - vb
+  name: Remove(NetworkLinkedListNode<T>)
+  nameWithType: NetworkLinkedList<T>.Remove(NetworkLinkedListNode<T>)
+  fullName: Netick.NetworkLinkedList<T>.Remove(Netick.NetworkLinkedListNode<T>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool Remove(NetworkLinkedListNode<T> node)
+    parameters:
+    - id: node
+      type: Netick.NetworkLinkedListNode{{T}}
+    return:
+      type: System.Boolean
+    content.vb: Public Function Remove(node As NetworkLinkedListNode(Of T)) As Boolean
+  overload: Netick.NetworkLinkedList`1.Remove*
+  nameWithType.vb: NetworkLinkedList(Of T).Remove(NetworkLinkedListNode(Of T))
+  fullName.vb: Netick.NetworkLinkedList(Of T).Remove(Netick.NetworkLinkedListNode(Of T))
+  name.vb: Remove(NetworkLinkedListNode(Of T))
 - uid: Netick.NetworkLinkedList`1.Clear
   commentId: M:Netick.NetworkLinkedList`1.Clear
   id: Clear
@@ -228,6 +405,52 @@ items:
   - System.Collections.Generic.IEnumerable{{T}}.GetEnumerator
   nameWithType.vb: NetworkLinkedList(Of T).GetEnumerator()
   fullName.vb: Netick.NetworkLinkedList(Of T).GetEnumerator()
+- uid: Netick.NetworkLinkedList`1.Head
+  commentId: P:Netick.NetworkLinkedList`1.Head
+  id: Head
+  parent: Netick.NetworkLinkedList`1
+  langs:
+  - csharp
+  - vb
+  name: Head
+  nameWithType: NetworkLinkedList<T>.Head
+  fullName: Netick.NetworkLinkedList<T>.Head
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetworkLinkedListNode<T> Head { get; }
+    parameters: []
+    return:
+      type: Netick.NetworkLinkedListNode{{T}}
+    content.vb: Public ReadOnly Property Head As NetworkLinkedListNode(Of T)
+  overload: Netick.NetworkLinkedList`1.Head*
+  nameWithType.vb: NetworkLinkedList(Of T).Head
+  fullName.vb: Netick.NetworkLinkedList(Of T).Head
+- uid: Netick.NetworkLinkedList`1.Tail
+  commentId: P:Netick.NetworkLinkedList`1.Tail
+  id: Tail
+  parent: Netick.NetworkLinkedList`1
+  langs:
+  - csharp
+  - vb
+  name: Tail
+  nameWithType: NetworkLinkedList<T>.Tail
+  fullName: Netick.NetworkLinkedList<T>.Tail
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetworkLinkedListNode<T> Tail { get; }
+    parameters: []
+    return:
+      type: Netick.NetworkLinkedListNode{{T}}
+    content.vb: Public ReadOnly Property Tail As NetworkLinkedListNode(Of T)
+  overload: Netick.NetworkLinkedList`1.Tail*
+  nameWithType.vb: NetworkLinkedList(Of T).Tail
+  fullName.vb: Netick.NetworkLinkedList(Of T).Tail
 - uid: Netick.NetworkLinkedList`1.Count
   commentId: P:Netick.NetworkLinkedList`1.Count
   id: Count
@@ -251,6 +474,29 @@ items:
   overload: Netick.NetworkLinkedList`1.Count*
   nameWithType.vb: NetworkLinkedList(Of T).Count
   fullName.vb: Netick.NetworkLinkedList(Of T).Count
+- uid: Netick.NetworkLinkedList`1.Nodes
+  commentId: P:Netick.NetworkLinkedList`1.Nodes
+  id: Nodes
+  parent: Netick.NetworkLinkedList`1
+  langs:
+  - csharp
+  - vb
+  name: Nodes
+  nameWithType: NetworkLinkedList<T>.Nodes
+  fullName: Netick.NetworkLinkedList<T>.Nodes
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public IEnumerable<NetworkLinkedListNode<T>> Nodes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{Netick.NetworkLinkedListNode{{T}}}
+    content.vb: Public ReadOnly Property Nodes As IEnumerable(Of NetworkLinkedListNode(Of T))
+  overload: Netick.NetworkLinkedList`1.Nodes*
+  nameWithType.vb: NetworkLinkedList(Of T).Nodes
+  fullName.vb: Netick.NetworkLinkedList(Of T).Nodes
 references:
 - uid: Netick
   commentId: N:Netick
@@ -355,6 +601,54 @@ references:
   name: Capacity
   nameWithType: NetworkLinkedList.Capacity
   fullName: Netick.NetworkLinkedList.Capacity
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -433,54 +727,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -526,28 +772,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
   spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
 - uid: System
@@ -850,6 +1096,72 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: '*'
+- uid: Netick.NetworkLinkedList`1.GetNode*
+  commentId: Overload:Netick.NetworkLinkedList`1.GetNode
+  isExternal: true
+  href: Netick.NetworkLinkedList-1.html#Netick_NetworkLinkedList_1_GetNode_System_Int32_
+  name: GetNode
+  nameWithType: NetworkLinkedList<T>.GetNode
+  fullName: Netick.NetworkLinkedList<T>.GetNode
+  nameWithType.vb: NetworkLinkedList(Of T).GetNode
+  fullName.vb: Netick.NetworkLinkedList(Of T).GetNode
+- uid: Netick.NetworkLinkedListNode{{T}}
+  commentId: T:Netick.NetworkLinkedListNode{`0}
+  parent: Netick
+  definition: Netick.NetworkLinkedListNode`1
+  href: Netick.NetworkLinkedListNode-1.html
+  name: NetworkLinkedListNode<T>
+  nameWithType: NetworkLinkedListNode<T>
+  fullName: Netick.NetworkLinkedListNode<T>
+  nameWithType.vb: NetworkLinkedListNode(Of T)
+  fullName.vb: Netick.NetworkLinkedListNode(Of T)
+  name.vb: NetworkLinkedListNode(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkLinkedListNode`1
+    name: NetworkLinkedListNode
+    isExternal: true
+    href: Netick.NetworkLinkedListNode-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkLinkedListNode`1
+    name: NetworkLinkedListNode
+    isExternal: true
+    href: Netick.NetworkLinkedListNode-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetworkLinkedListNode`1
+  commentId: T:Netick.NetworkLinkedListNode`1
+  isExternal: true
+  href: Netick.NetworkLinkedListNode-1.html
+  name: NetworkLinkedListNode<T>
+  nameWithType: NetworkLinkedListNode<T>
+  fullName: Netick.NetworkLinkedListNode<T>
+  nameWithType.vb: NetworkLinkedListNode(Of T)
+  fullName.vb: Netick.NetworkLinkedListNode(Of T)
+  name.vb: NetworkLinkedListNode(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkLinkedListNode`1
+    name: NetworkLinkedListNode
+    isExternal: true
+    href: Netick.NetworkLinkedListNode-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkLinkedListNode`1
+    name: NetworkLinkedListNode
+    isExternal: true
+    href: Netick.NetworkLinkedListNode-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick.NetworkLinkedList`1.Add*
   commentId: Overload:Netick.NetworkLinkedList`1.Add
   isExternal: true
@@ -880,6 +1192,42 @@ references:
   name: T
   nameWithType: T
   fullName: T
+- uid: Netick.NetworkLinkedList`1.AddFirst*
+  commentId: Overload:Netick.NetworkLinkedList`1.AddFirst
+  isExternal: true
+  href: Netick.NetworkLinkedList-1.html#Netick_NetworkLinkedList_1_AddFirst__0_Netick_NetworkLinkedListNode__0___
+  name: AddFirst
+  nameWithType: NetworkLinkedList<T>.AddFirst
+  fullName: Netick.NetworkLinkedList<T>.AddFirst
+  nameWithType.vb: NetworkLinkedList(Of T).AddFirst
+  fullName.vb: Netick.NetworkLinkedList(Of T).AddFirst
+- uid: Netick.NetworkLinkedList`1.AddLast*
+  commentId: Overload:Netick.NetworkLinkedList`1.AddLast
+  isExternal: true
+  href: Netick.NetworkLinkedList-1.html#Netick_NetworkLinkedList_1_AddLast__0_Netick_NetworkLinkedListNode__0___
+  name: AddLast
+  nameWithType: NetworkLinkedList<T>.AddLast
+  fullName: Netick.NetworkLinkedList<T>.AddLast
+  nameWithType.vb: NetworkLinkedList(Of T).AddLast
+  fullName.vb: Netick.NetworkLinkedList(Of T).AddLast
+- uid: Netick.NetworkLinkedList`1.AddBefore*
+  commentId: Overload:Netick.NetworkLinkedList`1.AddBefore
+  isExternal: true
+  href: Netick.NetworkLinkedList-1.html#Netick_NetworkLinkedList_1_AddBefore_Netick_NetworkLinkedListNode__0___0_Netick_NetworkLinkedListNode__0___
+  name: AddBefore
+  nameWithType: NetworkLinkedList<T>.AddBefore
+  fullName: Netick.NetworkLinkedList<T>.AddBefore
+  nameWithType.vb: NetworkLinkedList(Of T).AddBefore
+  fullName.vb: Netick.NetworkLinkedList(Of T).AddBefore
+- uid: Netick.NetworkLinkedList`1.AddAfter*
+  commentId: Overload:Netick.NetworkLinkedList`1.AddAfter
+  isExternal: true
+  href: Netick.NetworkLinkedList-1.html#Netick_NetworkLinkedList_1_AddAfter_Netick_NetworkLinkedListNode__0___0_Netick_NetworkLinkedListNode__0___
+  name: AddAfter
+  nameWithType: NetworkLinkedList<T>.AddAfter
+  fullName: Netick.NetworkLinkedList<T>.AddAfter
+  nameWithType.vb: NetworkLinkedList(Of T).AddAfter
+  fullName.vb: Netick.NetworkLinkedList(Of T).AddAfter
 - uid: Netick.NetworkLinkedList`1.Remove*
   commentId: Overload:Netick.NetworkLinkedList`1.Remove
   isExternal: true
@@ -1064,6 +1412,24 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: Netick.NetworkLinkedList`1.Head*
+  commentId: Overload:Netick.NetworkLinkedList`1.Head
+  isExternal: true
+  href: Netick.NetworkLinkedList-1.html#Netick_NetworkLinkedList_1_Head
+  name: Head
+  nameWithType: NetworkLinkedList<T>.Head
+  fullName: Netick.NetworkLinkedList<T>.Head
+  nameWithType.vb: NetworkLinkedList(Of T).Head
+  fullName.vb: Netick.NetworkLinkedList(Of T).Head
+- uid: Netick.NetworkLinkedList`1.Tail*
+  commentId: Overload:Netick.NetworkLinkedList`1.Tail
+  isExternal: true
+  href: Netick.NetworkLinkedList-1.html#Netick_NetworkLinkedList_1_Tail
+  name: Tail
+  nameWithType: NetworkLinkedList<T>.Tail
+  fullName: Netick.NetworkLinkedList<T>.Tail
+  nameWithType.vb: NetworkLinkedList(Of T).Tail
+  fullName.vb: Netick.NetworkLinkedList(Of T).Tail
 - uid: Netick.NetworkLinkedList`1.Count*
   commentId: Overload:Netick.NetworkLinkedList`1.Count
   isExternal: true
@@ -1073,3 +1439,55 @@ references:
   fullName: Netick.NetworkLinkedList<T>.Count
   nameWithType.vb: NetworkLinkedList(Of T).Count
   fullName.vb: Netick.NetworkLinkedList(Of T).Count
+- uid: Netick.NetworkLinkedList`1.Nodes*
+  commentId: Overload:Netick.NetworkLinkedList`1.Nodes
+  isExternal: true
+  href: Netick.NetworkLinkedList-1.html#Netick_NetworkLinkedList_1_Nodes
+  name: Nodes
+  nameWithType: NetworkLinkedList<T>.Nodes
+  fullName: Netick.NetworkLinkedList<T>.Nodes
+  nameWithType.vb: NetworkLinkedList(Of T).Nodes
+  fullName.vb: Netick.NetworkLinkedList(Of T).Nodes
+- uid: System.Collections.Generic.IEnumerable{Netick.NetworkLinkedListNode{{T}}}
+  commentId: T:System.Collections.Generic.IEnumerable{Netick.NetworkLinkedListNode{`0}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<NetworkLinkedListNode<T>>
+  nameWithType: IEnumerable<NetworkLinkedListNode<T>>
+  fullName: System.Collections.Generic.IEnumerable<Netick.NetworkLinkedListNode<T>>
+  nameWithType.vb: IEnumerable(Of NetworkLinkedListNode(Of T))
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Netick.NetworkLinkedListNode(Of T))
+  name.vb: IEnumerable(Of NetworkLinkedListNode(Of T))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Netick.NetworkLinkedListNode`1
+    name: NetworkLinkedListNode
+    isExternal: true
+    href: Netick.NetworkLinkedListNode-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.NetworkLinkedListNode`1
+    name: NetworkLinkedListNode
+    isExternal: true
+    href: Netick.NetworkLinkedListNode-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )

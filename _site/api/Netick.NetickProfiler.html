@@ -119,22 +119,22 @@ Class NetickProfiler
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
   </dd></dl>
 
@@ -149,8 +149,8 @@ Class NetickProfiler
 
   <a id="Netick_NetickProfiler__ctor_" data-uid="Netick.NetickProfiler.#ctor*"></a>
 
-  <h3 id="Netick_NetickProfiler__ctor" data-uid="Netick.NetickProfiler.#ctor">
-  NetickProfiler()
+  <h3 id="Netick_NetickProfiler__ctor_System_String_" data-uid="Netick.NetickProfiler.#ctor(System.String)">
+  NetickProfiler(string)
   
   </h3>
 
@@ -158,12 +158,111 @@ Class NetickProfiler
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetickProfiler()</code></pre>
+    <pre><code class="lang-csharp hljs">public NetickProfiler(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Netick_NetickProfiler_Name" data-uid="Netick.NetickProfiler.Name">
+  Name
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string Name</code></pre>
   </div>
 
 
 
 
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_NetickProfiler_OnEnded" data-uid="Netick.NetickProfiler.OnEnded">
+  OnEnded
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action OnEnded</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_NetickProfiler_OnStarted" data-uid="Netick.NetickProfiler.OnStarted">
+  OnStarted
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action OnStarted</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -177,10 +276,10 @@ Class NetickProfiler
 </h2>
 
 
-  <a id="Netick_NetickProfiler_BytesPerPacketIn_" data-uid="Netick.NetickProfiler.BytesPerPacketIn*"></a>
+  <a id="Netick_NetickProfiler_Time_" data-uid="Netick.NetickProfiler.Time*"></a>
 
-  <h3 id="Netick_NetickProfiler_BytesPerPacketIn" data-uid="Netick.NetickProfiler.BytesPerPacketIn">
-  BytesPerPacketIn
+  <h3 id="Netick_NetickProfiler_Time" data-uid="Netick.NetickProfiler.Time">
+  Time
   
   </h3>
 
@@ -188,7 +287,7 @@ Class NetickProfiler
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FloatStats BytesPerPacketIn { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public float Time { get; }</code></pre>
   </div>
 
 
@@ -197,7 +296,7 @@ Class NetickProfiler
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
 
@@ -208,10 +307,14 @@ Class NetickProfiler
 
 
 
-  <a id="Netick_NetickProfiler_BytesPerPacketOut_" data-uid="Netick.NetickProfiler.BytesPerPacketOut*"></a>
+  <h2 class="section" id="methods">Methods
+</h2>
 
-  <h3 id="Netick_NetickProfiler_BytesPerPacketOut" data-uid="Netick.NetickProfiler.BytesPerPacketOut">
-  BytesPerPacketOut
+
+  <a id="Netick_NetickProfiler_Begin_" data-uid="Netick.NetickProfiler.Begin*"></a>
+
+  <h3 id="Netick_NetickProfiler_Begin" data-uid="Netick.NetickProfiler.Begin">
+  Begin()
   
   </h3>
 
@@ -219,18 +322,13 @@ Class NetickProfiler
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FloatStats BytesPerPacketOut { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public void Begin()</code></pre>
   </div>
 
 
 
 
 
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
-    <dd></dd>
-  </dl>
 
 
 
@@ -239,10 +337,10 @@ Class NetickProfiler
 
 
 
-  <a id="Netick_NetickProfiler_FPS_" data-uid="Netick.NetickProfiler.FPS*"></a>
+  <a id="Netick_NetickProfiler_End_" data-uid="Netick.NetickProfiler.End*"></a>
 
-  <h3 id="Netick_NetickProfiler_FPS" data-uid="Netick.NetickProfiler.FPS">
-  FPS
+  <h3 id="Netick_NetickProfiler_End" data-uid="Netick.NetickProfiler.End">
+  End()
   
   </h3>
 
@@ -250,80 +348,13 @@ Class NetickProfiler
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FloatStats FPS { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public void End()</code></pre>
   </div>
 
 
 
 
 
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_NetickProfiler_RTT_" data-uid="Netick.NetickProfiler.RTT*"></a>
-
-  <h3 id="Netick_NetickProfiler_RTT" data-uid="Netick.NetickProfiler.RTT">
-  RTT
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FloatStats RTT { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_NetickProfiler_Resimulations_" data-uid="Netick.NetickProfiler.Resimulations*"></a>
-
-  <h3 id="Netick_NetickProfiler_Resimulations" data-uid="Netick.NetickProfiler.Resimulations">
-  Resimulations
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FloatStats Resimulations { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
-    <dd></dd>
-  </dl>
 
 
 
@@ -351,7 +382,7 @@ Class NetickProfiler
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

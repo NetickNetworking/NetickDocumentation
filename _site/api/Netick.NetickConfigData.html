@@ -121,10 +121,10 @@ Struct NetickConfigData
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
@@ -141,8 +141,8 @@ Struct NetickConfigData
 
 
 
-  <h3 id="Netick_NetickConfigData_AllocatorMetaBlockSize" data-uid="Netick.NetickConfigData.AllocatorMetaBlockSize">
-  AllocatorMetaBlockSize
+  <h3 id="Netick_NetickConfigData_AccurateLocalInterpolation" data-uid="Netick.NetickConfigData.AccurateLocalInterpolation">
+  AccurateLocalInterpolation
   
   </h3>
 
@@ -150,7 +150,7 @@ Struct NetickConfigData
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int AllocatorMetaBlockSize</code></pre>
+    <pre><code class="lang-csharp hljs">public bool AccurateLocalInterpolation</code></pre>
   </div>
 
 
@@ -158,7 +158,7 @@ Struct NetickConfigData
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -171,8 +171,8 @@ Struct NetickConfigData
 
 
 
-  <h3 id="Netick_NetickConfigData_AllocatorStateBlockSize" data-uid="Netick.NetickConfigData.AllocatorStateBlockSize">
-  AllocatorStateBlockSize
+  <h3 id="Netick_NetickConfigData_AggressivePreAllocation" data-uid="Netick.NetickConfigData.AggressivePreAllocation">
+  AggressivePreAllocation
   
   </h3>
 
@@ -180,7 +180,7 @@ Struct NetickConfigData
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int AllocatorStateBlockSize</code></pre>
+    <pre><code class="lang-csharp hljs">public bool AggressivePreAllocation</code></pre>
   </div>
 
 
@@ -188,7 +188,7 @@ Struct NetickConfigData
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -201,8 +201,8 @@ Struct NetickConfigData
 
 
 
-  <h3 id="Netick_NetickConfigData_AoICellSize" data-uid="Netick.NetickConfigData.AoICellSize">
-  AoICellSize
+  <h3 id="Netick_NetickConfigData_AoICellSizes" data-uid="Netick.NetickConfigData.AoICellSizes">
+  AoICellSizes
   
   </h3>
 
@@ -210,7 +210,7 @@ Struct NetickConfigData
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float AoICellSize</code></pre>
+    <pre><code class="lang-csharp hljs">public float* AoICellSizes</code></pre>
   </div>
 
 
@@ -218,7 +218,37 @@ Struct NetickConfigData
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_NetickConfigData_AoILayerCount" data-uid="Netick.NetickConfigData.AoILayerCount">
+  AoILayerCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AoILayerCount</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -279,6 +309,36 @@ Struct NetickConfigData
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_NetickConfigData_CustomInterestGroupCount" data-uid="Netick.NetickConfigData.CustomInterestGroupCount">
+  CustomInterestGroupCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CustomInterestGroupCount</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -411,8 +471,8 @@ Struct NetickConfigData
 
 
 
-  <h3 id="Netick_NetickConfigData_EnableSimulationCulling" data-uid="Netick.NetickConfigData.EnableSimulationCulling">
-  EnableSimulationCulling
+  <h3 id="Netick_NetickConfigData_EnableMultithreading" data-uid="Netick.NetickConfigData.EnableMultithreading">
+  EnableMultithreading
   
   </h3>
 
@@ -420,7 +480,67 @@ Struct NetickConfigData
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool EnableSimulationCulling</code></pre>
+    <pre><code class="lang-csharp hljs">public bool EnableMultithreading</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_NetickConfigData_EnableNarrowphaseFilterting" data-uid="Netick.NetickConfigData.EnableNarrowphaseFilterting">
+  EnableNarrowphaseFilterting
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EnableNarrowphaseFilterting</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_NetickConfigData_EnableProfiling" data-uid="Netick.NetickConfigData.EnableProfiling">
+  EnableProfiling
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EnableProfiling</code></pre>
   </div>
 
 
@@ -471,6 +591,66 @@ Struct NetickConfigData
 
 
 
+  <h3 id="Netick_NetickConfigData_ExtraInterpolationDelay" data-uid="Netick.NetickConfigData.ExtraInterpolationDelay">
+  ExtraInterpolationDelay
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ExtraInterpolationDelay</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_NetickConfigData_FastSerialization" data-uid="Netick.NetickConfigData.FastSerialization">
+  FastSerialization
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FastSerialization</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="Netick_NetickConfigData_InputReuseAtLowFPS" data-uid="Netick.NetickConfigData.InputReuseAtLowFPS">
   InputReuseAtLowFPS
   
@@ -501,8 +681,8 @@ Struct NetickConfigData
 
 
 
-  <h3 id="Netick_NetickConfigData_InterestGroupCount" data-uid="Netick.NetickConfigData.InterestGroupCount">
-  InterestGroupCount
+  <h3 id="Netick_NetickConfigData_InvokeNetworkUpdate" data-uid="Netick.NetickConfigData.InvokeNetworkUpdate">
+  InvokeNetworkUpdate
   
   </h3>
 
@@ -510,7 +690,7 @@ Struct NetickConfigData
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int InterestGroupCount</code></pre>
+    <pre><code class="lang-csharp hljs">public bool InvokeNetworkUpdate</code></pre>
   </div>
 
 
@@ -518,7 +698,7 @@ Struct NetickConfigData
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -531,8 +711,8 @@ Struct NetickConfigData
 
 
 
-  <h3 id="Netick_NetickConfigData_InvokeNetworkUpdate" data-uid="Netick.NetickConfigData.InvokeNetworkUpdate">
-  InvokeNetworkUpdate
+  <h3 id="Netick_NetickConfigData_IsARM32Bit" data-uid="Netick.NetickConfigData.IsARM32Bit">
+  IsARM32Bit
   
   </h3>
 
@@ -540,7 +720,7 @@ Struct NetickConfigData
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool InvokeNetworkUpdate</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsARM32Bit</code></pre>
   </div>
 
 
@@ -591,6 +771,36 @@ Struct NetickConfigData
 
 
 
+  <h3 id="Netick_NetickConfigData_MaxAllowedTimestep" data-uid="Netick.NetickConfigData.MaxAllowedTimestep">
+  MaxAllowedTimestep
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MaxAllowedTimestep</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="Netick_NetickConfigData_MaxDataPerConnectionPerTickInBytes" data-uid="Netick.NetickConfigData.MaxDataPerConnectionPerTickInBytes">
   MaxDataPerConnectionPerTickInBytes
   
@@ -621,8 +831,8 @@ Struct NetickConfigData
 
 
 
-  <h3 id="Netick_NetickConfigData_MaxInterpolationBufferCount" data-uid="Netick.NetickConfigData.MaxInterpolationBufferCount">
-  MaxInterpolationBufferCount
+  <h3 id="Netick_NetickConfigData_MaxInterpolationSnapshots" data-uid="Netick.NetickConfigData.MaxInterpolationSnapshots">
+  MaxInterpolationSnapshots
   
   </h3>
 
@@ -630,7 +840,7 @@ Struct NetickConfigData
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int MaxInterpolationBufferCount</code></pre>
+    <pre><code class="lang-csharp hljs">public int MaxInterpolationSnapshots</code></pre>
   </div>
 
 
@@ -741,8 +951,8 @@ Struct NetickConfigData
 
 
 
-  <h3 id="Netick_NetickConfigData_SavedSnapshotsCount" data-uid="Netick.NetickConfigData.SavedSnapshotsCount">
-  SavedSnapshotsCount
+  <h3 id="Netick_NetickConfigData_MaxSnapshots" data-uid="Netick.NetickConfigData.MaxSnapshots">
+  MaxSnapshots
   
   </h3>
 
@@ -750,7 +960,37 @@ Struct NetickConfigData
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int SavedSnapshotsCount</code></pre>
+    <pre><code class="lang-csharp hljs">public int MaxSnapshots</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_NetickConfigData_MetaAllocatorBlockSize" data-uid="Netick.NetickConfigData.MetaAllocatorBlockSize">
+  MetaAllocatorBlockSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MetaAllocatorBlockSize</code></pre>
   </div>
 
 
@@ -801,6 +1041,36 @@ Struct NetickConfigData
 
 
 
+  <h3 id="Netick_NetickConfigData_StateAllocatorBlockSize" data-uid="Netick.NetickConfigData.StateAllocatorBlockSize">
+  StateAllocatorBlockSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int StateAllocatorBlockSize</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="Netick_NetickConfigData_TickRate" data-uid="Netick.NetickConfigData.TickRate">
   TickRate
   
@@ -831,96 +1101,6 @@ Struct NetickConfigData
 
 
 
-  <h3 id="Netick_NetickConfigData_TransportReceiveBufferSize" data-uid="Netick.NetickConfigData.TransportReceiveBufferSize">
-  TransportReceiveBufferSize
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int TransportReceiveBufferSize</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Netick_NetickConfigData_TransportSendBufferSize" data-uid="Netick.NetickConfigData.TransportSendBufferSize">
-  TransportSendBufferSize
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int TransportSendBufferSize</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Netick_NetickConfigData_TransportTimeout" data-uid="Netick.NetickConfigData.TransportTimeout">
-  TransportTimeout
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int TransportTimeout</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
 </article>
 
         <div class="contribution d-print-none">
@@ -939,7 +1119,7 @@ Struct NetickConfigData
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

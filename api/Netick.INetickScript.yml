@@ -7,15 +7,15 @@ items:
   children:
   - Netick.INetickScript.Engine
   - Netick.INetickScript.Entity
+  - Netick.INetickScript.GameEngineIntoNetcode
   - Netick.INetickScript.Index
   - Netick.INetickScript.Initialize(Netick.NetickEngine)
+  - Netick.INetickScript.NetcodeIntoGameEngine
   - Netick.INetickScript.NetworkDestroy
   - Netick.INetickScript.NetworkFixedUpdate
   - Netick.INetickScript.NetworkRender
   - Netick.INetickScript.NetworkStart
   - Netick.INetickScript.NetworkUpdate
-  - Netick.INetickScript.OnBecameSimulated
-  - Netick.INetickScript.OnBecameUnsimulated
   langs:
   - csharp
   - vb
@@ -132,7 +132,7 @@ items:
   summary: >-
     Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.
 
-    <p>On the client, if you are the Input Source or if this Entity.PredictionMode is set to None, it will be called several times in one update/tick during resimulations. To check for resimulations, use [<xref href="Netick.Entity.IsResimulating" data-throw-if-not-resolved="false"></xref>].</p>
+    <p>On the client, if you are the Input Source or if this Entity.PredictionMode is set to Global, it will be called several times in one update/tick during resimulations. To check for resimulations, use [<xref href="Netick.Entity.IsResimulating" data-throw-if-not-resolved="false"></xref>].</p>
   example: []
   syntax:
     content: void NetworkFixedUpdate()
@@ -158,42 +158,42 @@ items:
     content: void NetworkRender()
     content.vb: Sub NetworkRender()
   overload: Netick.INetickScript.NetworkRender*
-- uid: Netick.INetickScript.OnBecameSimulated
-  commentId: M:Netick.INetickScript.OnBecameSimulated
-  id: OnBecameSimulated
+- uid: Netick.INetickScript.NetcodeIntoGameEngine
+  commentId: M:Netick.INetickScript.NetcodeIntoGameEngine
+  id: NetcodeIntoGameEngine
   parent: Netick.INetickScript
   langs:
   - csharp
   - vb
-  name: OnBecameSimulated()
-  nameWithType: INetickScript.OnBecameSimulated()
-  fullName: Netick.INetickScript.OnBecameSimulated()
+  name: NetcodeIntoGameEngine()
+  nameWithType: INetickScript.NetcodeIntoGameEngine()
+  fullName: Netick.INetickScript.NetcodeIntoGameEngine()
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: void OnBecameSimulated()
-    content.vb: Sub OnBecameSimulated()
-  overload: Netick.INetickScript.OnBecameSimulated*
-- uid: Netick.INetickScript.OnBecameUnsimulated
-  commentId: M:Netick.INetickScript.OnBecameUnsimulated
-  id: OnBecameUnsimulated
+    content: void NetcodeIntoGameEngine()
+    content.vb: Sub NetcodeIntoGameEngine()
+  overload: Netick.INetickScript.NetcodeIntoGameEngine*
+- uid: Netick.INetickScript.GameEngineIntoNetcode
+  commentId: M:Netick.INetickScript.GameEngineIntoNetcode
+  id: GameEngineIntoNetcode
   parent: Netick.INetickScript
   langs:
   - csharp
   - vb
-  name: OnBecameUnsimulated()
-  nameWithType: INetickScript.OnBecameUnsimulated()
-  fullName: Netick.INetickScript.OnBecameUnsimulated()
+  name: GameEngineIntoNetcode()
+  nameWithType: INetickScript.GameEngineIntoNetcode()
+  fullName: Netick.INetickScript.GameEngineIntoNetcode()
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: void OnBecameUnsimulated()
-    content.vb: Sub OnBecameUnsimulated()
-  overload: Netick.INetickScript.OnBecameUnsimulated*
+    content: void GameEngineIntoNetcode()
+    content.vb: Sub GameEngineIntoNetcode()
+  overload: Netick.INetickScript.GameEngineIntoNetcode*
 - uid: Netick.INetickScript.Index
   commentId: P:Netick.INetickScript.Index
   id: Index
@@ -322,20 +322,20 @@ references:
   name: NetworkRender
   nameWithType: INetickScript.NetworkRender
   fullName: Netick.INetickScript.NetworkRender
-- uid: Netick.INetickScript.OnBecameSimulated*
-  commentId: Overload:Netick.INetickScript.OnBecameSimulated
+- uid: Netick.INetickScript.NetcodeIntoGameEngine*
+  commentId: Overload:Netick.INetickScript.NetcodeIntoGameEngine
   isExternal: true
-  href: Netick.INetickScript.html#Netick_INetickScript_OnBecameSimulated
-  name: OnBecameSimulated
-  nameWithType: INetickScript.OnBecameSimulated
-  fullName: Netick.INetickScript.OnBecameSimulated
-- uid: Netick.INetickScript.OnBecameUnsimulated*
-  commentId: Overload:Netick.INetickScript.OnBecameUnsimulated
+  href: Netick.INetickScript.html#Netick_INetickScript_NetcodeIntoGameEngine
+  name: NetcodeIntoGameEngine
+  nameWithType: INetickScript.NetcodeIntoGameEngine
+  fullName: Netick.INetickScript.NetcodeIntoGameEngine
+- uid: Netick.INetickScript.GameEngineIntoNetcode*
+  commentId: Overload:Netick.INetickScript.GameEngineIntoNetcode
   isExternal: true
-  href: Netick.INetickScript.html#Netick_INetickScript_OnBecameUnsimulated
-  name: OnBecameUnsimulated
-  nameWithType: INetickScript.OnBecameUnsimulated
-  fullName: Netick.INetickScript.OnBecameUnsimulated
+  href: Netick.INetickScript.html#Netick_INetickScript_GameEngineIntoNetcode
+  name: GameEngineIntoNetcode
+  nameWithType: INetickScript.GameEngineIntoNetcode
+  fullName: Netick.INetickScript.GameEngineIntoNetcode
 - uid: Netick.INetickScript.Index*
   commentId: Overload:Netick.INetickScript.Index
   isExternal: true

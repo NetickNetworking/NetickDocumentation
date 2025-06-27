@@ -16,6 +16,7 @@ items:
   - Netick.OnChangedData.GetPreviousNetworkLinkedList``1(Netick.NetworkLinkedList{``0})
   - Netick.OnChangedData.GetPreviousNetworkQueue``1(Netick.NetworkQueue{``0})
   - Netick.OnChangedData.GetPreviousNetworkStack``1(Netick.NetworkStack{``0})
+  - Netick.OnChangedData.GetPreviousNetworkUnorderedList``1(Netick.NetworkUnorderedList{``0})
   - Netick.OnChangedData.GetPreviousValueAsPointer
   - Netick.OnChangedData.GetPreviousValue``1
   - Netick.OnChangedData.InvokedForMisprediction
@@ -36,8 +37,8 @@ items:
   - System.IEquatable{Netick.OnChangedData}
   inheritedMembers:
   - System.ValueType.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: Netick.OnChangedData.GetPreviousNetworkDictionary``2(Netick.NetworkDictionary{``0,``1})
   commentId: M:Netick.OnChangedData.GetPreviousNetworkDictionary``2(Netick.NetworkDictionary{``0,``1})
@@ -133,6 +134,37 @@ items:
   nameWithType.vb: OnChangedData.GetPreviousNetworkLinkedList(Of T)(NetworkLinkedList(Of T))
   fullName.vb: Netick.OnChangedData.GetPreviousNetworkLinkedList(Of T)(Netick.NetworkLinkedList(Of T))
   name.vb: GetPreviousNetworkLinkedList(Of T)(NetworkLinkedList(Of T))
+- uid: Netick.OnChangedData.GetPreviousNetworkUnorderedList``1(Netick.NetworkUnorderedList{``0})
+  commentId: M:Netick.OnChangedData.GetPreviousNetworkUnorderedList``1(Netick.NetworkUnorderedList{``0})
+  id: GetPreviousNetworkUnorderedList``1(Netick.NetworkUnorderedList{``0})
+  parent: Netick.OnChangedData
+  langs:
+  - csharp
+  - vb
+  name: GetPreviousNetworkUnorderedList<T>(NetworkUnorderedList<T>)
+  nameWithType: OnChangedData.GetPreviousNetworkUnorderedList<T>(NetworkUnorderedList<T>)
+  fullName: Netick.OnChangedData.GetPreviousNetworkUnorderedList<T>(Netick.NetworkUnorderedList<T>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Gets a snapshot of the previous state of a NetworkUnorderedList collection.
+  example: []
+  syntax:
+    content: 'public NetworkUnorderedListSnapshot<T> GetPreviousNetworkUnorderedList<T>(NetworkUnorderedList<T> collection) where T : unmanaged'
+    parameters:
+    - id: collection
+      type: Netick.NetworkUnorderedList{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: Netick.NetworkUnorderedListSnapshot{{T}}
+      description: ''
+    content.vb: Public Function GetPreviousNetworkUnorderedList(Of T As Structure)(collection As NetworkUnorderedList(Of T)) As NetworkUnorderedListSnapshot(Of T)
+  overload: Netick.OnChangedData.GetPreviousNetworkUnorderedList*
+  nameWithType.vb: OnChangedData.GetPreviousNetworkUnorderedList(Of T)(NetworkUnorderedList(Of T))
+  fullName.vb: Netick.OnChangedData.GetPreviousNetworkUnorderedList(Of T)(Netick.NetworkUnorderedList(Of T))
+  name.vb: GetPreviousNetworkUnorderedList(Of T)(NetworkUnorderedList(Of T))
 - uid: Netick.OnChangedData.GetPreviousNetworkQueue``1(Netick.NetworkQueue{``0})
   commentId: M:Netick.OnChangedData.GetPreviousNetworkQueue``1(Netick.NetworkQueue{``0})
   id: GetPreviousNetworkQueue``1(Netick.NetworkQueue{``0})
@@ -497,6 +529,30 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -541,30 +597,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -1047,6 +1079,127 @@ references:
     name: NetworkLinkedListSnapshot
     isExternal: true
     href: Netick.NetworkLinkedListSnapshot-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.OnChangedData.GetPreviousNetworkUnorderedList*
+  commentId: Overload:Netick.OnChangedData.GetPreviousNetworkUnorderedList
+  isExternal: true
+  href: Netick.OnChangedData.html#Netick_OnChangedData_GetPreviousNetworkUnorderedList__1_Netick_NetworkUnorderedList___0__
+  name: GetPreviousNetworkUnorderedList
+  nameWithType: OnChangedData.GetPreviousNetworkUnorderedList
+  fullName: Netick.OnChangedData.GetPreviousNetworkUnorderedList
+- uid: Netick.NetworkUnorderedList{{T}}
+  commentId: T:Netick.NetworkUnorderedList{``0}
+  parent: Netick
+  definition: Netick.NetworkUnorderedList`1
+  href: Netick.NetworkUnorderedList-1.html
+  name: NetworkUnorderedList<T>
+  nameWithType: NetworkUnorderedList<T>
+  fullName: Netick.NetworkUnorderedList<T>
+  nameWithType.vb: NetworkUnorderedList(Of T)
+  fullName.vb: Netick.NetworkUnorderedList(Of T)
+  name.vb: NetworkUnorderedList(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkUnorderedList`1
+    name: NetworkUnorderedList
+    isExternal: true
+    href: Netick.NetworkUnorderedList-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkUnorderedList`1
+    name: NetworkUnorderedList
+    isExternal: true
+    href: Netick.NetworkUnorderedList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetworkUnorderedListSnapshot{{T}}
+  commentId: T:Netick.NetworkUnorderedListSnapshot{``0}
+  parent: Netick
+  definition: Netick.NetworkUnorderedListSnapshot`1
+  href: Netick.NetworkUnorderedListSnapshot-1.html
+  name: NetworkUnorderedListSnapshot<T>
+  nameWithType: NetworkUnorderedListSnapshot<T>
+  fullName: Netick.NetworkUnorderedListSnapshot<T>
+  nameWithType.vb: NetworkUnorderedListSnapshot(Of T)
+  fullName.vb: Netick.NetworkUnorderedListSnapshot(Of T)
+  name.vb: NetworkUnorderedListSnapshot(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkUnorderedListSnapshot`1
+    name: NetworkUnorderedListSnapshot
+    isExternal: true
+    href: Netick.NetworkUnorderedListSnapshot-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkUnorderedListSnapshot`1
+    name: NetworkUnorderedListSnapshot
+    isExternal: true
+    href: Netick.NetworkUnorderedListSnapshot-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetworkUnorderedList`1
+  commentId: T:Netick.NetworkUnorderedList`1
+  isExternal: true
+  href: Netick.NetworkUnorderedList-1.html
+  name: NetworkUnorderedList<T>
+  nameWithType: NetworkUnorderedList<T>
+  fullName: Netick.NetworkUnorderedList<T>
+  nameWithType.vb: NetworkUnorderedList(Of T)
+  fullName.vb: Netick.NetworkUnorderedList(Of T)
+  name.vb: NetworkUnorderedList(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkUnorderedList`1
+    name: NetworkUnorderedList
+    isExternal: true
+    href: Netick.NetworkUnorderedList-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkUnorderedList`1
+    name: NetworkUnorderedList
+    isExternal: true
+    href: Netick.NetworkUnorderedList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetworkUnorderedListSnapshot`1
+  commentId: T:Netick.NetworkUnorderedListSnapshot`1
+  isExternal: true
+  href: Netick.NetworkUnorderedListSnapshot-1.html
+  name: NetworkUnorderedListSnapshot<T>
+  nameWithType: NetworkUnorderedListSnapshot<T>
+  fullName: Netick.NetworkUnorderedListSnapshot<T>
+  nameWithType.vb: NetworkUnorderedListSnapshot(Of T)
+  fullName.vb: Netick.NetworkUnorderedListSnapshot(Of T)
+  name.vb: NetworkUnorderedListSnapshot(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkUnorderedListSnapshot`1
+    name: NetworkUnorderedListSnapshot
+    isExternal: true
+    href: Netick.NetworkUnorderedListSnapshot-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkUnorderedListSnapshot`1
+    name: NetworkUnorderedListSnapshot
+    isExternal: true
+    href: Netick.NetworkUnorderedListSnapshot-1.html
   - name: (
   - name: Of
   - name: " "

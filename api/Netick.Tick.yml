@@ -17,6 +17,8 @@ items:
   - Netick.Tick.op_Equality(Netick.Tick,Netick.Tick)
   - Netick.Tick.op_GreaterThan(Netick.Tick,Netick.Tick)
   - Netick.Tick.op_GreaterThanOrEqual(Netick.Tick,Netick.Tick)
+  - Netick.Tick.op_Implicit(Netick.Tick)~System.Int32
+  - Netick.Tick.op_Implicit(System.Int32)~Netick.Tick
   - Netick.Tick.op_Increment(Netick.Tick)
   - Netick.Tick.op_Inequality(Netick.Tick,Netick.Tick)
   - Netick.Tick.op_LessThan(Netick.Tick,Netick.Tick)
@@ -40,8 +42,8 @@ items:
   implements:
   - System.IEquatable{Netick.Tick}
   inheritedMembers:
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: Netick.Tick.TickValue
   commentId: F:Netick.Tick.TickValue
@@ -411,6 +413,58 @@ items:
   nameWithType.vb: Tick.<>(Tick, Tick)
   fullName.vb: Netick.Tick.<>(Netick.Tick, Netick.Tick)
   name.vb: <>(Tick, Tick)
+- uid: Netick.Tick.op_Implicit(System.Int32)~Netick.Tick
+  commentId: M:Netick.Tick.op_Implicit(System.Int32)~Netick.Tick
+  id: op_Implicit(System.Int32)~Netick.Tick
+  parent: Netick.Tick
+  langs:
+  - csharp
+  - vb
+  name: implicit operator Tick(int)
+  nameWithType: Tick.implicit operator Tick(int)
+  fullName: Netick.Tick.implicit operator Netick.Tick(int)
+  type: Operator
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static implicit operator Tick(int val)
+    parameters:
+    - id: val
+      type: System.Int32
+    return:
+      type: Netick.Tick
+    content.vb: Public Shared Widening Operator CType(val As Integer) As Tick
+  overload: Netick.Tick.op_Implicit*
+  nameWithType.vb: Tick.CType(Integer)
+  fullName.vb: Netick.Tick.CType(Integer)
+  name.vb: CType(Integer)
+- uid: Netick.Tick.op_Implicit(Netick.Tick)~System.Int32
+  commentId: M:Netick.Tick.op_Implicit(Netick.Tick)~System.Int32
+  id: op_Implicit(Netick.Tick)~System.Int32
+  parent: Netick.Tick
+  langs:
+  - csharp
+  - vb
+  name: implicit operator int(Tick)
+  nameWithType: Tick.implicit operator int(Tick)
+  fullName: Netick.Tick.implicit operator int(Netick.Tick)
+  type: Operator
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static implicit operator int(Tick val)
+    parameters:
+    - id: val
+      type: Netick.Tick
+    return:
+      type: System.Int32
+    content.vb: Public Shared Widening Operator CType(val As Tick) As Integer
+  overload: Netick.Tick.op_Implicit*
+  nameWithType.vb: Tick.CType(Tick)
+  fullName.vb: Netick.Tick.CType(Netick.Tick)
+  name.vb: CType(Tick)
 - uid: Netick.Tick.GetHashCode
   commentId: M:Netick.Tick.GetHashCode
   id: GetHashCode
@@ -573,6 +627,30 @@ references:
     isExternal: true
     href: Netick.Tick.html
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -617,30 +695,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -943,6 +997,18 @@ references:
     name: '!='
     isExternal: true
     href: Netick.Tick.html#Netick_Tick_op_Inequality_Netick_Tick_Netick_Tick_
+- uid: Netick.Tick.op_Implicit*
+  commentId: Overload:Netick.Tick.op_Implicit
+  name: implicit operator
+  nameWithType: Tick.implicit operator
+  fullName: Netick.Tick.implicit operator
+  nameWithType.vb: Tick.CType
+  fullName.vb: Netick.Tick.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
 - uid: System.ValueType.GetHashCode
   commentId: M:System.ValueType.GetHashCode
   parent: System.ValueType

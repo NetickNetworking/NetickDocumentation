@@ -11,10 +11,8 @@ Netick has several useful callbacks you can use:
 | OnConnectFailed(NetworkSandbox sandbox, ConnectionFailedReason reason)                                                          | Invoked when the connection to the server was refused, or simply failed.                                          | Client        |
 | OnConnectedToServer(NetworkSandbox sandbox, NetworkConnection server)                                                           | Invoked when the connection to the server has succeeded.                                                          | Client        |
 | OnDisconnectedFromServer(NetworkSandbox sandbox, NetworkConnection server, TransportDisconnectReason transportDisconnectReason) | Invoked when connection to the server ended, or when a network error caused the disconnection.                    | Client        |
-| OnPlayerConnected(NetworkSandbox sandbox, Netick.NetworkPlayer client)                                                          | Invoked when a specific player has connected. Called for the server, when started as a Host.                      | Server        |
-| OnPlayerDisconnected(NetworkSandbox sandbox, Netick.NetworkConnection client)                                                   | Invoked when a specific player has disconnected. Invoked in host mode for the host player when Netick shuts down. | Server        |
-| OnClientConnected(NetworkSandbox sandbox, NetworkConnection client)                                                             | Invoked when a specific client has connected.                                                                     | Server        |
-| OnClientDisconnected(NetworkSandbox sandbox, NetworkConnection client)                                                          | Invoked when a specific client has disconnected.                                                                  | Server        |
+| OnPlayerJoined(NetworkSandbox sandbox, NetworkPlayerId player)                                                                  | Invoked when a specific player has joined the game.                                                               | Client/Server |
+| OnPlayerLeft(NetworkSandbox sandbox, NetworkPlayerId player)                                                                    | Invoked when a specific player has left the game.                                                                 | Client/Server |
 | OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)                                             | Invoked when a scene operation has began.                                                                         | Client/Server |
 | OnSceneOperationDone(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)                                              | Invoked when a scene operation has finished.                                                                      | Client/Server |
 | OnObjectCreated(NetworkObject obj)                                                                                              | Invoked when a network object has been created/initialized.                                                       | Client/Server |
@@ -29,15 +27,15 @@ And finally, you can use `Sandbox.Events` to directly subscribe/unsubscribe netw
 ```csharp
 public override void NetworkStart()
 {
-  Sandbox.Events.OnPlayerConnected += OnPlayerConnected ;
+  Sandbox.Events.OnPlayerJoined += OnPlayerJoined ;
 }
 
 public override void NetworkDestroy()
 {
-  Sandbox.Events.OnPlayerConnected -= OnPlayerConnected ;
+  Sandbox.Events.OnPlayerJoined -= OnPlayerJoined ;
 }
 
-private void OnPlayerConnected (....)
+private void OnPlayerJoined (....)
 {
 }
 ```

@@ -119,22 +119,22 @@ Class NetickEngine
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
   </dd></dl>
 
@@ -408,7 +408,8 @@ Class NetickEngine
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ServerConnection&gt; ConnectedClients { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This will be removed in the future, please use Players instead.&quot;)]
+public IReadOnlyList&lt;ServerConnection&gt; ConnectedClients { get; }</code></pre>
   </div>
 
 
@@ -441,7 +442,8 @@ Class NetickEngine
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This will be removed in the future, please use Players instead.&quot;)]
+public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   </div>
 
 
@@ -625,7 +627,7 @@ Class NetickEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Estimation of incoming packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.</p>
+  <div class="markdown level1 summary"><p><code><b>[Client Only]</b></code> Estimation of incoming packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -719,7 +721,7 @@ Class NetickEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Interpolation delay in seconds.</p>
+  <div class="markdown level1 summary"><p><code><b>[Client Only]</b></code> Interpolation delay in seconds.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -782,12 +784,43 @@ Class NetickEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Returns true if this client is currently connected to a server.</p>
+  <div class="markdown level1 summary"><p><code><b>[Client Only]</b></code> Returns true if this client is currently connected to a server.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsConnected { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_IsFirstNetworkFixedUpdateCall_" data-uid="Netick.NetickEngine.IsFirstNetworkFixedUpdateCall*"></a>
+
+  <h3 id="Netick_NetickEngine_IsFirstNetworkFixedUpdateCall" data-uid="Netick.NetickEngine.IsFirstNetworkFixedUpdateCall">
+  IsFirstNetworkFixedUpdateCall
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsFirstNetworkFixedUpdateCall { get; }</code></pre>
   </div>
 
 
@@ -850,6 +883,37 @@ Class NetickEngine
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsInvokingNetworkRender { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_IsLastNetworkFixedUpdateCall_" data-uid="Netick.NetickEngine.IsLastNetworkFixedUpdateCall*"></a>
+
+  <h3 id="Netick_NetickEngine_IsLastNetworkFixedUpdateCall" data-uid="Netick.NetickEngine.IsLastNetworkFixedUpdateCall">
+  IsLastNetworkFixedUpdateCall
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsLastNetworkFixedUpdateCall { get; }</code></pre>
   </div>
 
 
@@ -1312,7 +1376,7 @@ Class NetickEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Estimation of outgoing packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.</p>
+  <div class="markdown level1 summary"><p><code><b>[Client Only]</b></code> Estimation of outgoing packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1327,6 +1391,37 @@ Class NetickEngine
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_Players_" data-uid="Netick.NetickEngine.Players*"></a>
+
+  <h3 id="Netick_NetickEngine_Players" data-uid="Netick.NetickEngine.Players">
+  Players
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;NetworkPlayerId&gt; Players { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -1380,6 +1475,68 @@ Class NetickEngine
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Action PostNetworkFixedUpdate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_PostNetworkRender_" data-uid="Netick.NetickEngine.PostNetworkRender*"></a>
+
+  <h3 id="Netick_NetickEngine_PostNetworkRender" data-uid="Netick.NetickEngine.PostNetworkRender">
+  PostNetworkRender
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action PostNetworkRender { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_PostNetworkUpdate_" data-uid="Netick.NetickEngine.PostNetworkUpdate*"></a>
+
+  <h3 id="Netick_NetickEngine_PostNetworkUpdate" data-uid="Netick.NetickEngine.PostNetworkUpdate">
+  PostNetworkUpdate
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action PostNetworkUpdate { get; set; }</code></pre>
   </div>
 
 
@@ -1461,37 +1618,6 @@ Class NetickEngine
 
 
 
-  <a id="Netick_NetickEngine_PreClientResimulation_" data-uid="Netick.NetickEngine.PreClientResimulation*"></a>
-
-  <h3 id="Netick_NetickEngine_PreClientResimulation" data-uid="Netick.NetickEngine.PreClientResimulation">
-  PreClientResimulation
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action PreClientResimulation { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="Netick_NetickEngine_PreNetworkFixedUpdate_" data-uid="Netick.NetickEngine.PreNetworkFixedUpdate*"></a>
 
   <h3 id="Netick_NetickEngine_PreNetworkFixedUpdate" data-uid="Netick.NetickEngine.PreNetworkFixedUpdate">
@@ -1523,10 +1649,10 @@ Class NetickEngine
 
 
 
-  <a id="Netick_NetickEngine_PreResimulation_" data-uid="Netick.NetickEngine.PreResimulation*"></a>
+  <a id="Netick_NetickEngine_PreNetworkRender_" data-uid="Netick.NetickEngine.PreNetworkRender*"></a>
 
-  <h3 id="Netick_NetickEngine_PreResimulation" data-uid="Netick.NetickEngine.PreResimulation">
-  PreResimulation
+  <h3 id="Netick_NetickEngine_PreNetworkRender" data-uid="Netick.NetickEngine.PreNetworkRender">
+  PreNetworkRender
   
   </h3>
 
@@ -1534,7 +1660,38 @@ Class NetickEngine
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action PreResimulation { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Action PreNetworkRender { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_PreNetworkUpdate_" data-uid="Netick.NetickEngine.PreNetworkUpdate*"></a>
+
+  <h3 id="Netick_NetickEngine_PreNetworkUpdate" data-uid="Netick.NetickEngine.PreNetworkUpdate">
+  PreNetworkUpdate
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action PreNetworkUpdate { get; set; }</code></pre>
   </div>
 
 
@@ -1623,7 +1780,7 @@ Class NetickEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> The round-trip time (RTT) of the client in seconds.</p>
+  <div class="markdown level1 summary"><p><code><b>[Client Only]</b></code> The round-trip time (RTT) of the client in seconds.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1717,7 +1874,7 @@ Class NetickEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.ipendpoint">IPEndPoint</a> of the server you are connected to. Returns null if you are not connected to any server, or if you are the server.</p>
+  <div class="markdown level1 summary"><p><code><b>[Client Only]</b></code> The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.ipendpoint">IPEndPoint</a> of the server you are connected to. Returns null if you are not connected to any server, or if you are the server.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2058,22 +2215,24 @@ Class NetickEngine
 
   <a id="Netick_NetickEngine_AttachBehaviour_" data-uid="Netick.NetickEngine.AttachBehaviour*"></a>
 
-  <h3 id="Netick_NetickEngine_AttachBehaviour_Netick_INetickScript_" data-uid="Netick.NetickEngine.AttachBehaviour(Netick.INetickScript)">
-  AttachBehaviour(INetickScript)
+  <h3 id="Netick_NetickEngine_AttachBehaviour_Netick_INetickScript_System_Boolean_" data-uid="Netick.NetickEngine.AttachBehaviour(Netick.INetickScript,System.Boolean)">
+  AttachBehaviour(INetickScript, bool)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Attachs a <a class="xref" href="Netick.INetickScript.html">INetickScript</a> to the simulation.</p>
+  <div class="markdown level1 summary"><p>Attaches a <a class="xref" href="Netick.INetickScript.html">INetickScript</a> to the simulation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AttachBehaviour(INetickScript behaviour)</code></pre>
+    <pre><code class="lang-csharp hljs">public void AttachBehaviour(INetickScript behaviour, bool addToResimulationLoop = true)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>behaviour</code> <a class="xref" href="Netick.INetickScript.html">INetickScript</a></dt>
+    <dd></dd>
+    <dt><code>addToResimulationLoop</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -2090,8 +2249,8 @@ Class NetickEngine
 
   <a id="Netick_NetickEngine_ClientAddEntity_" data-uid="Netick.NetickEngine.ClientAddEntity*"></a>
 
-  <h3 id="Netick_NetickEngine_ClientAddEntity_Netick_INetickEntity_System_Int32_System_Int32_Netick_NetworkPlayer_System_Boolean_Netick_NetickEntityMeta_" data-uid="Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,Netick.NetworkPlayer,System.Boolean,Netick.NetickEntityMeta)">
-  ClientAddEntity(INetickEntity, int, int, NetworkPlayer, bool, NetickEntityMeta)
+  <h3 id="Netick_NetickEngine_ClientAddEntity_Netick_INetickEntity_System_Int32_System_Int32_System_Boolean_Netick_NetickEntityMeta_" data-uid="Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,System.Boolean,Netick.NetickEntityMeta)">
+  ClientAddEntity(INetickEntity, int, int, bool, NetickEntityMeta)
   
   </h3>
 
@@ -2099,7 +2258,7 @@ Class NetickEngine
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ClientAddEntity(INetickEntity entity, int id, int worldIndex, NetworkPlayer player, bool wasUnliked, NetickEntityMeta meta)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ClientAddEntity(INetickEntity entity, int id, int worldIndex, bool wasUnliked, NetickEntityMeta meta)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2109,8 +2268,6 @@ Class NetickEngine
     <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>worldIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>player</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
     <dd></dd>
     <dt><code>wasUnliked</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
@@ -2201,6 +2358,134 @@ Class NetickEngine
 
 
 
+  <a id="Netick_NetickEngine_ConnectHost_" data-uid="Netick.NetickEngine.ConnectHost*"></a>
+
+  <h3 id="Netick_NetickEngine_ConnectHost" data-uid="Netick.NetickEngine.ConnectHost">
+  ConnectHost()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConnectHost()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_ContainsPlayer_" data-uid="Netick.NetickEngine.ContainsPlayer*"></a>
+
+  <h3 id="Netick_NetickEngine_ContainsPlayer_Netick_NetworkPlayerId_" data-uid="Netick.NetickEngine.ContainsPlayer(Netick.NetworkPlayerId)">
+  ContainsPlayer(NetworkPlayerId)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsPlayer(NetworkPlayerId playerId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>playerId</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_CopyWorldStateTo_" data-uid="Netick.NetickEngine.CopyWorldStateTo*"></a>
+
+  <h3 id="Netick_NetickEngine_CopyWorldStateTo_System_Int32_System_Byte__" data-uid="Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte*)">
+  CopyWorldStateTo(int, byte*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyWorldStateTo(int blockIndex, byte* target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>blockIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_CopyWorldStateTo_" data-uid="Netick.NetickEngine.CopyWorldStateTo*"></a>
+
+  <h3 id="Netick_NetickEngine_CopyWorldStateTo_System_Int32_System_Byte___" data-uid="Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte[])">
+  CopyWorldStateTo(int, byte[])
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyWorldStateTo(int blockIndex, byte[] target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>blockIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_NetickEngine_CreateAndLinkEntityLocal_" data-uid="Netick.NetickEngine.CreateAndLinkEntityLocal*"></a>
 
   <h3 id="Netick_NetickEngine_CreateAndLinkEntityLocal_Netick_INetickEntity_" data-uid="Netick.NetickEngine.CreateAndLinkEntityLocal(Netick.INetickEntity)">
@@ -2273,38 +2558,6 @@ Class NetickEngine
 
 
 
-  <a id="Netick_NetickEngine_DeattachBehaviour_" data-uid="Netick.NetickEngine.DeattachBehaviour*"></a>
-
-  <h3 id="Netick_NetickEngine_DeattachBehaviour_Netick_INetickScript_" data-uid="Netick.NetickEngine.DeattachBehaviour(Netick.INetickScript)">
-  DeattachBehaviour(INetickScript)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Deattachs a <a class="xref" href="Netick.INetickScript.html">INetickScript</a> from the simulation.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void DeattachBehaviour(INetickScript behaviour)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>behaviour</code> <a class="xref" href="Netick.INetickScript.html">INetickScript</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="Netick_NetickEngine_DestroyEntity_" data-uid="Netick.NetickEngine.DestroyEntity*"></a>
 
   <h3 id="Netick_NetickEngine_DestroyEntity_Netick_Entity_System_Boolean_System_Boolean_" data-uid="Netick.NetickEngine.DestroyEntity(Netick.Entity,System.Boolean,System.Boolean)">
@@ -2340,6 +2593,38 @@ Class NetickEngine
 
 
 
+  <a id="Netick_NetickEngine_DetachBehaviour_" data-uid="Netick.NetickEngine.DetachBehaviour*"></a>
+
+  <h3 id="Netick_NetickEngine_DetachBehaviour_Netick_INetickScript_" data-uid="Netick.NetickEngine.DetachBehaviour(Netick.INetickScript)">
+  DetachBehaviour(INetickScript)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Detaches a <a class="xref" href="Netick.INetickScript.html">INetickScript</a> from the simulation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DetachBehaviour(INetickScript behaviour)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>behaviour</code> <a class="xref" href="Netick.INetickScript.html">INetickScript</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_NetickEngine_DisconnectFromServer_" data-uid="Netick.NetickEngine.DisconnectFromServer*"></a>
 
   <h3 id="Netick_NetickEngine_DisconnectFromServer" data-uid="Netick.NetickEngine.DisconnectFromServer">
@@ -2347,7 +2632,7 @@ Class NetickEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Disconnects this client from the server.</p>
+  <div class="markdown level1 summary"><p><code><b>[Client Only]</b></code> Disconnects this client from the server.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2430,32 +2715,6 @@ Class NetickEngine
     <dt><code>T</code></dt>
     <dd></dd>
   </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_NetickEngine_Finalize_" data-uid="Netick.NetickEngine.Finalize*"></a>
-
-  <h3 id="Netick_NetickEngine_Finalize" data-uid="Netick.NetickEngine.Finalize">
-  ~NetickEngine()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~NetickEngine()</code></pre>
-  </div>
-
-
-
 
 
 
@@ -2615,10 +2874,10 @@ Class NetickEngine
 
 
 
-  <a id="Netick_NetickEngine_InvokeOnPlayerConnectedForHost_" data-uid="Netick.NetickEngine.InvokeOnPlayerConnectedForHost*"></a>
+  <a id="Netick_NetickEngine_GetPlayerById_" data-uid="Netick.NetickEngine.GetPlayerById*"></a>
 
-  <h3 id="Netick_NetickEngine_InvokeOnPlayerConnectedForHost" data-uid="Netick.NetickEngine.InvokeOnPlayerConnectedForHost">
-  InvokeOnPlayerConnectedForHost()
+  <h3 id="Netick_NetickEngine_GetPlayerById_Netick_NetworkPlayerId_" data-uid="Netick.NetickEngine.GetPlayerById(Netick.NetworkPlayerId)">
+  GetPlayerById(NetworkPlayerId)
   
   </h3>
 
@@ -2626,10 +2885,150 @@ Class NetickEngine
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void InvokeOnPlayerConnectedForHost()</code></pre>
+    <pre><code class="lang-csharp hljs">public NetworkPlayer GetPlayerById(NetworkPlayerId playerId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>playerId</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_GetPlayerEntity_" data-uid="Netick.NetickEngine.GetPlayerEntity*"></a>
+
+  <h3 id="Netick_NetickEngine_GetPlayerEntity_Netick_NetworkPlayerId_" data-uid="Netick.NetickEngine.GetPlayerEntity(Netick.NetworkPlayerId)">
+  GetPlayerEntity(NetworkPlayerId)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Entity GetPlayerEntity(NetworkPlayerId playerId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>playerId</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_GetWorldStateBlockCount_" data-uid="Netick.NetickEngine.GetWorldStateBlockCount*"></a>
+
+  <h3 id="Netick_NetickEngine_GetWorldStateBlockCount" data-uid="Netick.NetickEngine.GetWorldStateBlockCount">
+  GetWorldStateBlockCount()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetWorldStateBlockCount()</code></pre>
   </div>
 
 
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_GetWorldStateBlockSize_" data-uid="Netick.NetickEngine.GetWorldStateBlockSize*"></a>
+
+  <h3 id="Netick_NetickEngine_GetWorldStateBlockSize" data-uid="Netick.NetickEngine.GetWorldStateBlockSize">
+  GetWorldStateBlockSize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long GetWorldStateBlockSize()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_GetWorldStateTotalSize_" data-uid="Netick.NetickEngine.GetWorldStateTotalSize*"></a>
+
+  <h3 id="Netick_NetickEngine_GetWorldStateTotalSize" data-uid="Netick.NetickEngine.GetWorldStateTotalSize">
+  GetWorldStateTotalSize()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the size of the entirety of the game's networked state snapshot size, in bytes. This includes the sizes of all allocated blocks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long GetWorldStateTotalSize()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -2765,8 +3164,8 @@ Class NetickEngine
 
   <a id="Netick_NetickEngine_ServerAddEntity_" data-uid="Netick.NetickEngine.ServerAddEntity*"></a>
 
-  <h3 id="Netick_NetickEngine_ServerAddEntity_Netick_NetworkPlayer_Netick_INetickEntity_" data-uid="Netick.NetickEngine.ServerAddEntity(Netick.NetworkPlayer,Netick.INetickEntity)">
-  ServerAddEntity(NetworkPlayer, INetickEntity)
+  <h3 id="Netick_NetickEngine_ServerAddEntity_Netick_INetickEntity_Netick_NetworkPlayer_System_Boolean_" data-uid="Netick.NetickEngine.ServerAddEntity(Netick.INetickEntity,Netick.NetworkPlayer,System.Boolean)">
+  ServerAddEntity(INetickEntity, NetworkPlayer, bool)
   
   </h3>
 
@@ -2774,45 +3173,16 @@ Class NetickEngine
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ServerAddEntity(NetworkPlayer inputSource, INetickEntity obj)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ServerAddEntity(INetickEntity obj, NetworkPlayer inputSource, bool invokeAwake)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
-    <dd></dd>
     <dt><code>obj</code> <a class="xref" href="Netick.INetickEntity.html">INetickEntity</a></dt>
     <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_NetickEngine_SetEntityMetaDirty_" data-uid="Netick.NetickEngine.SetEntityMetaDirty*"></a>
-
-  <h3 id="Netick_NetickEngine_SetEntityMetaDirty_Netick_Entity_" data-uid="Netick.NetickEngine.SetEntityMetaDirty(Netick.Entity)">
-  SetEntityMetaDirty(Entity)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetEntityMetaDirty(Entity entity)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+    <dt><code>invokeAwake</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -2898,6 +3268,39 @@ Class NetickEngine
 
 
 
+  <a id="Netick_NetickEngine_SetPlayerEntity_" data-uid="Netick.NetickEngine.SetPlayerEntity*"></a>
+
+  <h3 id="Netick_NetickEngine_SetPlayerEntity_Netick_NetworkPlayerId_Netick_Entity_" data-uid="Netick.NetickEngine.SetPlayerEntity(Netick.NetworkPlayerId,Netick.Entity)">
+  SetPlayerEntity(NetworkPlayerId, Entity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPlayerEntity(NetworkPlayerId playerId, Entity entity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>playerId</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
+    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_NetickEngine_Shutdown_" data-uid="Netick.NetickEngine.Shutdown*"></a>
 
   <h3 id="Netick_NetickEngine_Shutdown" data-uid="Netick.NetickEngine.Shutdown">
@@ -2926,8 +3329,8 @@ Class NetickEngine
 
   <a id="Netick_NetickEngine_Start_" data-uid="Netick.NetickEngine.Start*"></a>
 
-  <h3 id="Netick_NetickEngine_Start_System_String_System_Int32_Netick_NetickStartMode_Netick_IGameEngine_Netick_NetickConfigData_Netick_NetworkTransport_Netick_ReflectionData_Netick_INetickLogger_Netick_IMemoryAllocator_" data-uid="Netick.NetickEngine.Start(System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator)">
-  Start(string, int, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator)
+  <h3 id="Netick_NetickEngine_Start_System_String_System_Int32_Netick_NetickStartMode_Netick_IGameEngine_Netick_NetickConfigData_Netick_NetworkTransport_Netick_ReflectionData_Netick_INetickLogger_Netick_IMemoryAllocator_System_Int32_" data-uid="Netick.NetickEngine.Start(System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)">
+  Start(string, int, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, int)
   
   </h3>
 
@@ -2935,7 +3338,7 @@ Class NetickEngine
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Start(string name, int serverPort, NetickStartMode startMode, IGameEngine gameEngine, NetickConfigData config, NetworkTransport transport, ReflectionData reflectionData, INetickLogger logger, IMemoryAllocator allocator)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Start(string name, int serverPort, NetickStartMode startMode, IGameEngine gameEngine, NetickConfigData config, NetworkTransport transport, ReflectionData reflectionData, INetickLogger logger, IMemoryAllocator allocator, int numberOfThreads)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2958,6 +3361,8 @@ Class NetickEngine
     <dd></dd>
     <dt><code>allocator</code> <a class="xref" href="Netick.IMemoryAllocator.html">IMemoryAllocator</a></dt>
     <dd></dd>
+    <dt><code>numberOfThreads</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
   </dl>
 
 
@@ -2978,7 +3383,7 @@ Class NetickEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Update Netick's logic.</p>
+  <div class="markdown level1 summary"><p>Updates Netick logic.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -3024,7 +3429,7 @@ Class NetickEngine
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

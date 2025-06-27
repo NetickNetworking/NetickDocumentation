@@ -5,15 +5,15 @@ items:
   id: TransformErrorCorrector
   parent: Netick.Unity
   children:
-  - Netick.Unity.TransformErrorCorrector.Error
   - Netick.Unity.TransformErrorCorrector.Init(UnityEngine.Vector3,UnityEngine.Quaternion)
-  - Netick.Unity.TransformErrorCorrector.OnPostResimulation(UnityEngine.Vector3,UnityEngine.Quaternion,System.Boolean,System.Boolean)
+  - Netick.Unity.TransformErrorCorrector.OnPostResimulation(UnityEngine.Vector3,UnityEngine.Quaternion)
   - Netick.Unity.TransformErrorCorrector.OnPreRollback(UnityEngine.Vector3,UnityEngine.Quaternion)
-  - Netick.Unity.TransformErrorCorrector.PosCurrentValue
-  - Netick.Unity.TransformErrorCorrector.PosPreRollbackValue
-  - Netick.Unity.TransformErrorCorrector.Render(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Single,System.Single,System.Single,System.Single)
-  - Netick.Unity.TransformErrorCorrector.RotCurrentValue
-  - Netick.Unity.TransformErrorCorrector.RotPreRollbackValue
+  - Netick.Unity.TransformErrorCorrector.PosError
+  - Netick.Unity.TransformErrorCorrector.PosPreRollback
+  - Netick.Unity.TransformErrorCorrector.Render(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Single,System.Single)
+  - Netick.Unity.TransformErrorCorrector.RotError
+  - Netick.Unity.TransformErrorCorrector.RotPreRollback
+  - Netick.Unity.TransformErrorCorrector.TeleportPositionErrorThreshold
   langs:
   - csharp
   - vb
@@ -31,104 +31,104 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Netick.Unity.TransformErrorCorrector.PosCurrentValue
-  commentId: F:Netick.Unity.TransformErrorCorrector.PosCurrentValue
-  id: PosCurrentValue
+- uid: Netick.Unity.TransformErrorCorrector.TeleportPositionErrorThreshold
+  commentId: F:Netick.Unity.TransformErrorCorrector.TeleportPositionErrorThreshold
+  id: TeleportPositionErrorThreshold
   parent: Netick.Unity.TransformErrorCorrector
   langs:
   - csharp
   - vb
-  name: PosCurrentValue
-  nameWithType: TransformErrorCorrector.PosCurrentValue
-  fullName: Netick.Unity.TransformErrorCorrector.PosCurrentValue
+  name: TeleportPositionErrorThreshold
+  nameWithType: TransformErrorCorrector.TeleportPositionErrorThreshold
+  fullName: Netick.Unity.TransformErrorCorrector.TeleportPositionErrorThreshold
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public Vector3 PosCurrentValue
-    return:
-      type: UnityEngine.Vector3
-    content.vb: Public PosCurrentValue As Vector3
-- uid: Netick.Unity.TransformErrorCorrector.PosPreRollbackValue
-  commentId: F:Netick.Unity.TransformErrorCorrector.PosPreRollbackValue
-  id: PosPreRollbackValue
-  parent: Netick.Unity.TransformErrorCorrector
-  langs:
-  - csharp
-  - vb
-  name: PosPreRollbackValue
-  nameWithType: TransformErrorCorrector.PosPreRollbackValue
-  fullName: Netick.Unity.TransformErrorCorrector.PosPreRollbackValue
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public Vector3 PosPreRollbackValue
-    return:
-      type: UnityEngine.Vector3
-    content.vb: Public PosPreRollbackValue As Vector3
-- uid: Netick.Unity.TransformErrorCorrector.RotCurrentValue
-  commentId: F:Netick.Unity.TransformErrorCorrector.RotCurrentValue
-  id: RotCurrentValue
-  parent: Netick.Unity.TransformErrorCorrector
-  langs:
-  - csharp
-  - vb
-  name: RotCurrentValue
-  nameWithType: TransformErrorCorrector.RotCurrentValue
-  fullName: Netick.Unity.TransformErrorCorrector.RotCurrentValue
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public Quaternion RotCurrentValue
-    return:
-      type: UnityEngine.Quaternion
-    content.vb: Public RotCurrentValue As Quaternion
-- uid: Netick.Unity.TransformErrorCorrector.RotPreRollbackValue
-  commentId: F:Netick.Unity.TransformErrorCorrector.RotPreRollbackValue
-  id: RotPreRollbackValue
-  parent: Netick.Unity.TransformErrorCorrector
-  langs:
-  - csharp
-  - vb
-  name: RotPreRollbackValue
-  nameWithType: TransformErrorCorrector.RotPreRollbackValue
-  fullName: Netick.Unity.TransformErrorCorrector.RotPreRollbackValue
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public Quaternion RotPreRollbackValue
-    return:
-      type: UnityEngine.Quaternion
-    content.vb: Public RotPreRollbackValue As Quaternion
-- uid: Netick.Unity.TransformErrorCorrector.Error
-  commentId: F:Netick.Unity.TransformErrorCorrector.Error
-  id: Error
-  parent: Netick.Unity.TransformErrorCorrector
-  langs:
-  - csharp
-  - vb
-  name: Error
-  nameWithType: TransformErrorCorrector.Error
-  fullName: Netick.Unity.TransformErrorCorrector.Error
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public float Error
+    content: public float TeleportPositionErrorThreshold
     return:
       type: System.Single
-    content.vb: Public [Error] As Single
+    content.vb: Public TeleportPositionErrorThreshold As Single
+- uid: Netick.Unity.TransformErrorCorrector.PosPreRollback
+  commentId: F:Netick.Unity.TransformErrorCorrector.PosPreRollback
+  id: PosPreRollback
+  parent: Netick.Unity.TransformErrorCorrector
+  langs:
+  - csharp
+  - vb
+  name: PosPreRollback
+  nameWithType: TransformErrorCorrector.PosPreRollback
+  fullName: Netick.Unity.TransformErrorCorrector.PosPreRollback
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public Vector3 PosPreRollback
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public PosPreRollback As Vector3
+- uid: Netick.Unity.TransformErrorCorrector.RotPreRollback
+  commentId: F:Netick.Unity.TransformErrorCorrector.RotPreRollback
+  id: RotPreRollback
+  parent: Netick.Unity.TransformErrorCorrector
+  langs:
+  - csharp
+  - vb
+  name: RotPreRollback
+  nameWithType: TransformErrorCorrector.RotPreRollback
+  fullName: Netick.Unity.TransformErrorCorrector.RotPreRollback
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public Quaternion RotPreRollback
+    return:
+      type: UnityEngine.Quaternion
+    content.vb: Public RotPreRollback As Quaternion
+- uid: Netick.Unity.TransformErrorCorrector.PosError
+  commentId: F:Netick.Unity.TransformErrorCorrector.PosError
+  id: PosError
+  parent: Netick.Unity.TransformErrorCorrector
+  langs:
+  - csharp
+  - vb
+  name: PosError
+  nameWithType: TransformErrorCorrector.PosError
+  fullName: Netick.Unity.TransformErrorCorrector.PosError
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public Vector3 PosError
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public PosError As Vector3
+- uid: Netick.Unity.TransformErrorCorrector.RotError
+  commentId: F:Netick.Unity.TransformErrorCorrector.RotError
+  id: RotError
+  parent: Netick.Unity.TransformErrorCorrector
+  langs:
+  - csharp
+  - vb
+  name: RotError
+  nameWithType: TransformErrorCorrector.RotError
+  fullName: Netick.Unity.TransformErrorCorrector.RotError
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public Quaternion RotError
+    return:
+      type: UnityEngine.Quaternion
+    content.vb: Public RotError As Quaternion
 - uid: Netick.Unity.TransformErrorCorrector.Init(UnityEngine.Vector3,UnityEngine.Quaternion)
   commentId: M:Netick.Unity.TransformErrorCorrector.Init(UnityEngine.Vector3,UnityEngine.Quaternion)
   id: Init(UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -144,13 +144,13 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public void Init(Vector3 posVal, Quaternion rotVal)
+    content: public void Init(Vector3 posValue, Quaternion rotValue)
     parameters:
-    - id: posVal
+    - id: posValue
       type: UnityEngine.Vector3
-    - id: rotVal
+    - id: rotValue
       type: UnityEngine.Quaternion
-    content.vb: Public Sub Init(posVal As Vector3, rotVal As Quaternion)
+    content.vb: Public Sub Init(posValue As Vector3, rotValue As Quaternion)
   overload: Netick.Unity.TransformErrorCorrector.Init*
 - uid: Netick.Unity.TransformErrorCorrector.OnPreRollback(UnityEngine.Vector3,UnityEngine.Quaternion)
   commentId: M:Netick.Unity.TransformErrorCorrector.OnPreRollback(UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -167,80 +167,69 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public void OnPreRollback(Vector3 posVal, Quaternion rotVal)
+    content: public void OnPreRollback(Vector3 posValue, Quaternion rotValue)
     parameters:
-    - id: posVal
+    - id: posValue
       type: UnityEngine.Vector3
-    - id: rotVal
+    - id: rotValue
       type: UnityEngine.Quaternion
-    content.vb: Public Sub OnPreRollback(posVal As Vector3, rotVal As Quaternion)
+    content.vb: Public Sub OnPreRollback(posValue As Vector3, rotValue As Quaternion)
   overload: Netick.Unity.TransformErrorCorrector.OnPreRollback*
-- uid: Netick.Unity.TransformErrorCorrector.OnPostResimulation(UnityEngine.Vector3,UnityEngine.Quaternion,System.Boolean,System.Boolean)
-  commentId: M:Netick.Unity.TransformErrorCorrector.OnPostResimulation(UnityEngine.Vector3,UnityEngine.Quaternion,System.Boolean,System.Boolean)
-  id: OnPostResimulation(UnityEngine.Vector3,UnityEngine.Quaternion,System.Boolean,System.Boolean)
+- uid: Netick.Unity.TransformErrorCorrector.OnPostResimulation(UnityEngine.Vector3,UnityEngine.Quaternion)
+  commentId: M:Netick.Unity.TransformErrorCorrector.OnPostResimulation(UnityEngine.Vector3,UnityEngine.Quaternion)
+  id: OnPostResimulation(UnityEngine.Vector3,UnityEngine.Quaternion)
   parent: Netick.Unity.TransformErrorCorrector
   langs:
   - csharp
   - vb
-  name: OnPostResimulation(Vector3, Quaternion, bool, bool)
-  nameWithType: TransformErrorCorrector.OnPostResimulation(Vector3, Quaternion, bool, bool)
-  fullName: Netick.Unity.TransformErrorCorrector.OnPostResimulation(UnityEngine.Vector3, UnityEngine.Quaternion, bool, bool)
+  name: OnPostResimulation(Vector3, Quaternion)
+  nameWithType: TransformErrorCorrector.OnPostResimulation(Vector3, Quaternion)
+  fullName: Netick.Unity.TransformErrorCorrector.OnPostResimulation(UnityEngine.Vector3, UnityEngine.Quaternion)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public void OnPostResimulation(Vector3 posCurrentValue, Quaternion rotCurrentValue, bool calcPositionalError, bool calcRotationError)
+    content: public void OnPostResimulation(Vector3 posCurrentValue, Quaternion rotCurrentValue)
     parameters:
     - id: posCurrentValue
       type: UnityEngine.Vector3
     - id: rotCurrentValue
       type: UnityEngine.Quaternion
-    - id: calcPositionalError
-      type: System.Boolean
-    - id: calcRotationError
-      type: System.Boolean
-    content.vb: Public Sub OnPostResimulation(posCurrentValue As Vector3, rotCurrentValue As Quaternion, calcPositionalError As Boolean, calcRotationError As Boolean)
+    content.vb: Public Sub OnPostResimulation(posCurrentValue As Vector3, rotCurrentValue As Quaternion)
   overload: Netick.Unity.TransformErrorCorrector.OnPostResimulation*
-  nameWithType.vb: TransformErrorCorrector.OnPostResimulation(Vector3, Quaternion, Boolean, Boolean)
-  fullName.vb: Netick.Unity.TransformErrorCorrector.OnPostResimulation(UnityEngine.Vector3, UnityEngine.Quaternion, Boolean, Boolean)
-  name.vb: OnPostResimulation(Vector3, Quaternion, Boolean, Boolean)
-- uid: Netick.Unity.TransformErrorCorrector.Render(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Single,System.Single,System.Single,System.Single)
-  commentId: M:Netick.Unity.TransformErrorCorrector.Render(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Single,System.Single,System.Single,System.Single)
-  id: Render(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Single,System.Single,System.Single,System.Single)
+- uid: Netick.Unity.TransformErrorCorrector.Render(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Single,System.Single)
+  commentId: M:Netick.Unity.TransformErrorCorrector.Render(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Single,System.Single)
+  id: Render(UnityEngine.Vector3@,UnityEngine.Quaternion@,System.Single,System.Single,System.Single)
   parent: Netick.Unity.TransformErrorCorrector
   langs:
   - csharp
   - vb
-  name: Render(ref Vector3, ref Quaternion, float, float, float, float, float)
-  nameWithType: TransformErrorCorrector.Render(ref Vector3, ref Quaternion, float, float, float, float, float)
-  fullName: Netick.Unity.TransformErrorCorrector.Render(ref UnityEngine.Vector3, ref UnityEngine.Quaternion, float, float, float, float, float)
+  name: Render(ref Vector3, ref Quaternion, float, float, float)
+  nameWithType: TransformErrorCorrector.Render(ref Vector3, ref Quaternion, float, float, float)
+  fullName: Netick.Unity.TransformErrorCorrector.Render(ref UnityEngine.Vector3, ref UnityEngine.Quaternion, float, float, float)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public void Render(ref Vector3 posInterpolatedValue, ref Quaternion rotInterpolationValue, float correctionMultiplier, float interpolationMultiplier, float correctionMaxBlendAlpha, float teleportThreshold, float deltaTime)
+    content: public void Render(ref Vector3 posInterpolatedValue, ref Quaternion rotInterpolatedValue, float correctionMultiplier, float teleportThreshold, float deltaTime)
     parameters:
     - id: posInterpolatedValue
       type: UnityEngine.Vector3
-    - id: rotInterpolationValue
+    - id: rotInterpolatedValue
       type: UnityEngine.Quaternion
     - id: correctionMultiplier
-      type: System.Single
-    - id: interpolationMultiplier
-      type: System.Single
-    - id: correctionMaxBlendAlpha
       type: System.Single
     - id: teleportThreshold
       type: System.Single
     - id: deltaTime
       type: System.Single
-    content.vb: Public Sub Render(posInterpolatedValue As Vector3, rotInterpolationValue As Quaternion, correctionMultiplier As Single, interpolationMultiplier As Single, correctionMaxBlendAlpha As Single, teleportThreshold As Single, deltaTime As Single)
+    content.vb: Public Sub Render(posInterpolatedValue As Vector3, rotInterpolatedValue As Quaternion, correctionMultiplier As Single, teleportThreshold As Single, deltaTime As Single)
   overload: Netick.Unity.TransformErrorCorrector.Render*
-  nameWithType.vb: TransformErrorCorrector.Render(Vector3, Quaternion, Single, Single, Single, Single, Single)
-  fullName.vb: Netick.Unity.TransformErrorCorrector.Render(UnityEngine.Vector3, UnityEngine.Quaternion, Single, Single, Single, Single, Single)
-  name.vb: Render(Vector3, Quaternion, Single, Single, Single, Single, Single)
+  nameWithType.vb: TransformErrorCorrector.Render(Vector3, Quaternion, Single, Single, Single)
+  fullName.vb: Netick.Unity.TransformErrorCorrector.Render(UnityEngine.Vector3, UnityEngine.Quaternion, Single, Single, Single)
+  name.vb: Render(Vector3, Quaternion, Single, Single, Single)
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -346,6 +335,30 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -390,30 +403,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -486,26 +475,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: UnityEngine.Vector3
-  commentId: T:UnityEngine.Vector3
-  parent: UnityEngine
-  isExternal: true
-  name: Vector3
-  nameWithType: Vector3
-  fullName: UnityEngine.Vector3
-- uid: UnityEngine
-  commentId: N:UnityEngine
-  isExternal: true
-  name: UnityEngine
-  nameWithType: UnityEngine
-  fullName: UnityEngine
-- uid: UnityEngine.Quaternion
-  commentId: T:UnityEngine.Quaternion
-  parent: UnityEngine
-  isExternal: true
-  name: Quaternion
-  nameWithType: Quaternion
-  fullName: UnityEngine.Quaternion
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -517,6 +486,16 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine.Quaternion
+  isExternal: true
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: UnityEngine.Quaternion
 - uid: Netick.Unity.TransformErrorCorrector.Init*
   commentId: Overload:Netick.Unity.TransformErrorCorrector.Init
   isExternal: true
@@ -534,25 +513,14 @@ references:
 - uid: Netick.Unity.TransformErrorCorrector.OnPostResimulation*
   commentId: Overload:Netick.Unity.TransformErrorCorrector.OnPostResimulation
   isExternal: true
-  href: Netick.Unity.TransformErrorCorrector.html#Netick_Unity_TransformErrorCorrector_OnPostResimulation_UnityEngine_Vector3_UnityEngine_Quaternion_System_Boolean_System_Boolean_
+  href: Netick.Unity.TransformErrorCorrector.html#Netick_Unity_TransformErrorCorrector_OnPostResimulation_UnityEngine_Vector3_UnityEngine_Quaternion_
   name: OnPostResimulation
   nameWithType: TransformErrorCorrector.OnPostResimulation
   fullName: Netick.Unity.TransformErrorCorrector.OnPostResimulation
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: Netick.Unity.TransformErrorCorrector.Render*
   commentId: Overload:Netick.Unity.TransformErrorCorrector.Render
   isExternal: true
-  href: Netick.Unity.TransformErrorCorrector.html#Netick_Unity_TransformErrorCorrector_Render_UnityEngine_Vector3__UnityEngine_Quaternion__System_Single_System_Single_System_Single_System_Single_System_Single_
+  href: Netick.Unity.TransformErrorCorrector.html#Netick_Unity_TransformErrorCorrector_Render_UnityEngine_Vector3__UnityEngine_Quaternion__System_Single_System_Single_System_Single_
   name: Render
   nameWithType: TransformErrorCorrector.Render
   fullName: Netick.Unity.TransformErrorCorrector.Render

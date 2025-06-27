@@ -5,12 +5,16 @@ items:
   id: NetickUnityUtils
   parent: Netick.Unity
   children:
-  - Netick.Unity.NetickUnityUtils.#ctor
+  - Netick.Unity.NetickUnityUtils.AddInterestBoxArea(Netick.NetworkPlayer,UnityEngine.Bounds,System.Int32)
+  - Netick.Unity.NetickUnityUtils.FromNumerics(System.Numerics.Quaternion)
+  - Netick.Unity.NetickUnityUtils.FromNumerics(System.Numerics.Vector3)
   - Netick.Unity.NetickUnityUtils.GetColor(System.Int32*,System.Single)
   - Netick.Unity.NetickUnityUtils.GetDouble(System.Int32*)
+  - Netick.Unity.NetickUnityUtils.GetElapsedTime(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
   - Netick.Unity.NetickUnityUtils.GetFloat(System.Int32*,System.Single)
   - Netick.Unity.NetickUnityUtils.GetQuaternion(System.Int32*,System.Single)
   - Netick.Unity.NetickUnityUtils.GetQuaternionCompressed(System.Int32*)
+  - Netick.Unity.NetickUnityUtils.GetRemainingTime(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
   - Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   - Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   - Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
@@ -22,14 +26,23 @@ items:
   - Netick.Unity.NetickUnityUtils.GetSmoothVector3(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   - Netick.Unity.NetickUnityUtils.GetVector2(System.Int32*,System.Single)
   - Netick.Unity.NetickUnityUtils.GetVector3(System.Int32*,System.Single)
+  - Netick.Unity.NetickUnityUtils.IsRunning(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  - Netick.Unity.NetickUnityUtils.IsStopped(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  - Netick.Unity.NetickUnityUtils.NetworkPlay(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,System.UInt64)
+  - Netick.Unity.NetickUnityUtils.NetworkPlayOneShot(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,UnityEngine.AudioClip,System.Single)
+  - Netick.Unity.NetickUnityUtils.NetworkPlayScheduled(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,System.Double)
   - Netick.Unity.NetickUnityUtils.QuatMemberPack(System.Single)
-  - Netick.Unity.NetickUnityUtils.QuatMemberUnpack(System.UInt32)
+  - Netick.Unity.NetickUnityUtils.QuatMemberUnpack(System.Int32)
   - Netick.Unity.NetickUnityUtils.SetColor(System.Int32*,UnityEngine.Color,System.Single)
+  - Netick.Unity.NetickUnityUtils.SetEnabled(UnityEngine.Component,Netick.Unity.NetworkSandbox,System.Boolean)
   - Netick.Unity.NetickUnityUtils.SetFloat(System.Int32*,System.Single,System.Single)
   - Netick.Unity.NetickUnityUtils.SetQuaternion(System.Int32*,UnityEngine.Quaternion,System.Single)
   - Netick.Unity.NetickUnityUtils.SetQuaternionCompressed(System.Int32*,UnityEngine.Quaternion)
   - Netick.Unity.NetickUnityUtils.SetVector2(System.Int32*,UnityEngine.Vector2,System.Single)
   - Netick.Unity.NetickUnityUtils.SetVector3(System.Int32*,UnityEngine.Vector3,System.Single)
+  - Netick.Unity.NetickUnityUtils.ToNumerics(UnityEngine.Quaternion)
+  - Netick.Unity.NetickUnityUtils.ToNumerics(UnityEngine.Vector3)
+  - Netick.Unity.NetickUnityUtils.ToUnityBounds(Netick.NetickBounds)
   langs:
   - csharp
   - vb
@@ -41,18 +54,18 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public class NetickUnityUtils
-    content.vb: Public Class NetickUnityUtils
+    content: public static class NetickUnityUtils
+    content.vb: Public Module NetickUnityUtils
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
 - uid: Netick.Unity.NetickUnityUtils.GetDouble(System.Int32*)
   commentId: M:Netick.Unity.NetickUnityUtils.GetDouble(System.Int32*)
   id: GetDouble(System.Int32*)
@@ -94,43 +107,43 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static uint QuatMemberPack(float value)
+    content: public static int QuatMemberPack(float value)
     parameters:
     - id: value
       type: System.Single
     return:
-      type: System.UInt32
-    content.vb: Public Shared Function QuatMemberPack(value As Single) As UInteger
+      type: System.Int32
+    content.vb: Public Shared Function QuatMemberPack(value As Single) As Integer
   overload: Netick.Unity.NetickUnityUtils.QuatMemberPack*
   nameWithType.vb: NetickUnityUtils.QuatMemberPack(Single)
   fullName.vb: Netick.Unity.NetickUnityUtils.QuatMemberPack(Single)
   name.vb: QuatMemberPack(Single)
-- uid: Netick.Unity.NetickUnityUtils.QuatMemberUnpack(System.UInt32)
-  commentId: M:Netick.Unity.NetickUnityUtils.QuatMemberUnpack(System.UInt32)
-  id: QuatMemberUnpack(System.UInt32)
+- uid: Netick.Unity.NetickUnityUtils.QuatMemberUnpack(System.Int32)
+  commentId: M:Netick.Unity.NetickUnityUtils.QuatMemberUnpack(System.Int32)
+  id: QuatMemberUnpack(System.Int32)
   parent: Netick.Unity.NetickUnityUtils
   langs:
   - csharp
   - vb
-  name: QuatMemberUnpack(uint)
-  nameWithType: NetickUnityUtils.QuatMemberUnpack(uint)
-  fullName: Netick.Unity.NetickUnityUtils.QuatMemberUnpack(uint)
+  name: QuatMemberUnpack(int)
+  nameWithType: NetickUnityUtils.QuatMemberUnpack(int)
+  fullName: Netick.Unity.NetickUnityUtils.QuatMemberUnpack(int)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static float QuatMemberUnpack(uint data)
+    content: public static float QuatMemberUnpack(int data)
     parameters:
     - id: data
-      type: System.UInt32
+      type: System.Int32
     return:
       type: System.Single
-    content.vb: Public Shared Function QuatMemberUnpack(data As UInteger) As Single
+    content.vb: Public Shared Function QuatMemberUnpack(data As Integer) As Single
   overload: Netick.Unity.NetickUnityUtils.QuatMemberUnpack*
-  nameWithType.vb: NetickUnityUtils.QuatMemberUnpack(UInteger)
-  fullName.vb: Netick.Unity.NetickUnityUtils.QuatMemberUnpack(UInteger)
-  name.vb: QuatMemberUnpack(UInteger)
+  nameWithType.vb: NetickUnityUtils.QuatMemberUnpack(Integer)
+  fullName.vb: Netick.Unity.NetickUnityUtils.QuatMemberUnpack(Integer)
+  name.vb: QuatMemberUnpack(Integer)
 - uid: Netick.Unity.NetickUnityUtils.SetQuaternionCompressed(System.Int32*,UnityEngine.Quaternion)
   commentId: M:Netick.Unity.NetickUnityUtils.SetQuaternionCompressed(System.Int32*,UnityEngine.Quaternion)
   id: SetQuaternionCompressed(System.Int32*,UnityEngine.Quaternion)
@@ -751,27 +764,397 @@ items:
   nameWithType.vb: NetickUnityUtils.GetQuaternion(Integer*, Single)
   fullName.vb: Netick.Unity.NetickUnityUtils.GetQuaternion(Integer*, Single)
   name.vb: GetQuaternion(Integer*, Single)
-- uid: Netick.Unity.NetickUnityUtils.#ctor
-  commentId: M:Netick.Unity.NetickUnityUtils.#ctor
-  id: '#ctor'
+- uid: Netick.Unity.NetickUnityUtils.AddInterestBoxArea(Netick.NetworkPlayer,UnityEngine.Bounds,System.Int32)
+  commentId: M:Netick.Unity.NetickUnityUtils.AddInterestBoxArea(Netick.NetworkPlayer,UnityEngine.Bounds,System.Int32)
+  id: AddInterestBoxArea(Netick.NetworkPlayer,UnityEngine.Bounds,System.Int32)
+  isExtensionMethod: true
   parent: Netick.Unity.NetickUnityUtils
   langs:
   - csharp
   - vb
-  name: NetickUnityUtils()
-  nameWithType: NetickUnityUtils.NetickUnityUtils()
-  fullName: Netick.Unity.NetickUnityUtils.NetickUnityUtils()
-  type: Constructor
+  name: AddInterestBoxArea(NetworkPlayer, Bounds, int)
+  nameWithType: NetickUnityUtils.AddInterestBoxArea(NetworkPlayer, Bounds, int)
+  fullName: Netick.Unity.NetickUnityUtils.AddInterestBoxArea(Netick.NetworkPlayer, UnityEngine.Bounds, int)
+  type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public NetickUnityUtils()
-    content.vb: Public Sub New()
-  overload: Netick.Unity.NetickUnityUtils.#ctor*
-  nameWithType.vb: NetickUnityUtils.New()
-  fullName.vb: Netick.Unity.NetickUnityUtils.New()
-  name.vb: New()
+    content: public static void AddInterestBoxArea(this NetworkPlayer player, Bounds box, int layerIndex = 0)
+    parameters:
+    - id: player
+      type: Netick.NetworkPlayer
+    - id: box
+      type: UnityEngine.Bounds
+    - id: layerIndex
+      type: System.Int32
+    content.vb: Public Shared Sub AddInterestBoxArea(player As NetworkPlayer, box As Bounds, layerIndex As Integer = 0)
+  overload: Netick.Unity.NetickUnityUtils.AddInterestBoxArea*
+  nameWithType.vb: NetickUnityUtils.AddInterestBoxArea(NetworkPlayer, Bounds, Integer)
+  fullName.vb: Netick.Unity.NetickUnityUtils.AddInterestBoxArea(Netick.NetworkPlayer, UnityEngine.Bounds, Integer)
+  name.vb: AddInterestBoxArea(NetworkPlayer, Bounds, Integer)
+- uid: Netick.Unity.NetickUnityUtils.GetRemainingTime(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetRemainingTime(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  id: GetRemainingTime(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: GetRemainingTime(NetworkTimer, NetworkSandbox, bool)
+  nameWithType: NetickUnityUtils.GetRemainingTime(NetworkTimer, NetworkSandbox, bool)
+  fullName: Netick.Unity.NetickUnityUtils.GetRemainingTime(Netick.NetworkTimer, Netick.Unity.NetworkSandbox, bool)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static float GetRemainingTime(this NetworkTimer timer, NetworkSandbox sandbox, bool usePredictedTiming = false)
+    parameters:
+    - id: timer
+      type: Netick.NetworkTimer
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: usePredictedTiming
+      type: System.Boolean
+    return:
+      type: System.Single
+    content.vb: Public Shared Function GetRemainingTime(timer As NetworkTimer, sandbox As NetworkSandbox, usePredictedTiming As Boolean = False) As Single
+  overload: Netick.Unity.NetickUnityUtils.GetRemainingTime*
+  nameWithType.vb: NetickUnityUtils.GetRemainingTime(NetworkTimer, NetworkSandbox, Boolean)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetRemainingTime(Netick.NetworkTimer, Netick.Unity.NetworkSandbox, Boolean)
+  name.vb: GetRemainingTime(NetworkTimer, NetworkSandbox, Boolean)
+- uid: Netick.Unity.NetickUnityUtils.GetElapsedTime(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetElapsedTime(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  id: GetElapsedTime(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: GetElapsedTime(NetworkTimer, NetworkSandbox, bool)
+  nameWithType: NetickUnityUtils.GetElapsedTime(NetworkTimer, NetworkSandbox, bool)
+  fullName: Netick.Unity.NetickUnityUtils.GetElapsedTime(Netick.NetworkTimer, Netick.Unity.NetworkSandbox, bool)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static float GetElapsedTime(this NetworkTimer timer, NetworkSandbox sandbox, bool usePredictedTiming = false)
+    parameters:
+    - id: timer
+      type: Netick.NetworkTimer
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: usePredictedTiming
+      type: System.Boolean
+    return:
+      type: System.Single
+    content.vb: Public Shared Function GetElapsedTime(timer As NetworkTimer, sandbox As NetworkSandbox, usePredictedTiming As Boolean = False) As Single
+  overload: Netick.Unity.NetickUnityUtils.GetElapsedTime*
+  nameWithType.vb: NetickUnityUtils.GetElapsedTime(NetworkTimer, NetworkSandbox, Boolean)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetElapsedTime(Netick.NetworkTimer, Netick.Unity.NetworkSandbox, Boolean)
+  name.vb: GetElapsedTime(NetworkTimer, NetworkSandbox, Boolean)
+- uid: Netick.Unity.NetickUnityUtils.IsStopped(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  commentId: M:Netick.Unity.NetickUnityUtils.IsStopped(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  id: IsStopped(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: IsStopped(NetworkTimer, NetworkSandbox, bool)
+  nameWithType: NetickUnityUtils.IsStopped(NetworkTimer, NetworkSandbox, bool)
+  fullName: Netick.Unity.NetickUnityUtils.IsStopped(Netick.NetworkTimer, Netick.Unity.NetworkSandbox, bool)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static bool IsStopped(this NetworkTimer timer, NetworkSandbox sandbox, bool usePredictedTiming = false)
+    parameters:
+    - id: timer
+      type: Netick.NetworkTimer
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: usePredictedTiming
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsStopped(timer As NetworkTimer, sandbox As NetworkSandbox, usePredictedTiming As Boolean = False) As Boolean
+  overload: Netick.Unity.NetickUnityUtils.IsStopped*
+  nameWithType.vb: NetickUnityUtils.IsStopped(NetworkTimer, NetworkSandbox, Boolean)
+  fullName.vb: Netick.Unity.NetickUnityUtils.IsStopped(Netick.NetworkTimer, Netick.Unity.NetworkSandbox, Boolean)
+  name.vb: IsStopped(NetworkTimer, NetworkSandbox, Boolean)
+- uid: Netick.Unity.NetickUnityUtils.IsRunning(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  commentId: M:Netick.Unity.NetickUnityUtils.IsRunning(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  id: IsRunning(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: IsRunning(NetworkTimer, NetworkSandbox, bool)
+  nameWithType: NetickUnityUtils.IsRunning(NetworkTimer, NetworkSandbox, bool)
+  fullName: Netick.Unity.NetickUnityUtils.IsRunning(Netick.NetworkTimer, Netick.Unity.NetworkSandbox, bool)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static bool IsRunning(this NetworkTimer timer, NetworkSandbox sandbox, bool usePredictedTiming = false)
+    parameters:
+    - id: timer
+      type: Netick.NetworkTimer
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: usePredictedTiming
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsRunning(timer As NetworkTimer, sandbox As NetworkSandbox, usePredictedTiming As Boolean = False) As Boolean
+  overload: Netick.Unity.NetickUnityUtils.IsRunning*
+  nameWithType.vb: NetickUnityUtils.IsRunning(NetworkTimer, NetworkSandbox, Boolean)
+  fullName.vb: Netick.Unity.NetickUnityUtils.IsRunning(Netick.NetworkTimer, Netick.Unity.NetworkSandbox, Boolean)
+  name.vb: IsRunning(NetworkTimer, NetworkSandbox, Boolean)
+- uid: Netick.Unity.NetickUnityUtils.ToNumerics(UnityEngine.Vector3)
+  commentId: M:Netick.Unity.NetickUnityUtils.ToNumerics(UnityEngine.Vector3)
+  id: ToNumerics(UnityEngine.Vector3)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: ToNumerics(Vector3)
+  nameWithType: NetickUnityUtils.ToNumerics(Vector3)
+  fullName: Netick.Unity.NetickUnityUtils.ToNumerics(UnityEngine.Vector3)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Vector3 ToNumerics(this Vector3 vec)
+    parameters:
+    - id: vec
+      type: UnityEngine.Vector3
+    return:
+      type: System.Numerics.Vector3
+    content.vb: Public Shared Function ToNumerics(vec As Vector3) As Vector3
+  overload: Netick.Unity.NetickUnityUtils.ToNumerics*
+- uid: Netick.Unity.NetickUnityUtils.ToNumerics(UnityEngine.Quaternion)
+  commentId: M:Netick.Unity.NetickUnityUtils.ToNumerics(UnityEngine.Quaternion)
+  id: ToNumerics(UnityEngine.Quaternion)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: ToNumerics(Quaternion)
+  nameWithType: NetickUnityUtils.ToNumerics(Quaternion)
+  fullName: Netick.Unity.NetickUnityUtils.ToNumerics(UnityEngine.Quaternion)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Quaternion ToNumerics(this Quaternion vec)
+    parameters:
+    - id: vec
+      type: UnityEngine.Quaternion
+    return:
+      type: System.Numerics.Quaternion
+    content.vb: Public Shared Function ToNumerics(vec As Quaternion) As Quaternion
+  overload: Netick.Unity.NetickUnityUtils.ToNumerics*
+- uid: Netick.Unity.NetickUnityUtils.FromNumerics(System.Numerics.Vector3)
+  commentId: M:Netick.Unity.NetickUnityUtils.FromNumerics(System.Numerics.Vector3)
+  id: FromNumerics(System.Numerics.Vector3)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: FromNumerics(Vector3)
+  nameWithType: NetickUnityUtils.FromNumerics(Vector3)
+  fullName: Netick.Unity.NetickUnityUtils.FromNumerics(System.Numerics.Vector3)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Vector3 FromNumerics(this Vector3 vec)
+    parameters:
+    - id: vec
+      type: System.Numerics.Vector3
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Shared Function FromNumerics(vec As Vector3) As Vector3
+  overload: Netick.Unity.NetickUnityUtils.FromNumerics*
+- uid: Netick.Unity.NetickUnityUtils.FromNumerics(System.Numerics.Quaternion)
+  commentId: M:Netick.Unity.NetickUnityUtils.FromNumerics(System.Numerics.Quaternion)
+  id: FromNumerics(System.Numerics.Quaternion)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: FromNumerics(Quaternion)
+  nameWithType: NetickUnityUtils.FromNumerics(Quaternion)
+  fullName: Netick.Unity.NetickUnityUtils.FromNumerics(System.Numerics.Quaternion)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Quaternion FromNumerics(this Quaternion vec)
+    parameters:
+    - id: vec
+      type: System.Numerics.Quaternion
+    return:
+      type: UnityEngine.Quaternion
+    content.vb: Public Shared Function FromNumerics(vec As Quaternion) As Quaternion
+  overload: Netick.Unity.NetickUnityUtils.FromNumerics*
+- uid: Netick.Unity.NetickUnityUtils.ToUnityBounds(Netick.NetickBounds)
+  commentId: M:Netick.Unity.NetickUnityUtils.ToUnityBounds(Netick.NetickBounds)
+  id: ToUnityBounds(Netick.NetickBounds)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: ToUnityBounds(NetickBounds)
+  nameWithType: NetickUnityUtils.ToUnityBounds(NetickBounds)
+  fullName: Netick.Unity.NetickUnityUtils.ToUnityBounds(Netick.NetickBounds)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Bounds ToUnityBounds(this NetickBounds bounds)
+    parameters:
+    - id: bounds
+      type: Netick.NetickBounds
+    return:
+      type: UnityEngine.Bounds
+    content.vb: Public Shared Function ToUnityBounds(bounds As NetickBounds) As Bounds
+  overload: Netick.Unity.NetickUnityUtils.ToUnityBounds*
+- uid: Netick.Unity.NetickUnityUtils.SetEnabled(UnityEngine.Component,Netick.Unity.NetworkSandbox,System.Boolean)
+  commentId: M:Netick.Unity.NetickUnityUtils.SetEnabled(UnityEngine.Component,Netick.Unity.NetworkSandbox,System.Boolean)
+  id: SetEnabled(UnityEngine.Component,Netick.Unity.NetworkSandbox,System.Boolean)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: SetEnabled(Component, NetworkSandbox, bool)
+  nameWithType: NetickUnityUtils.SetEnabled(Component, NetworkSandbox, bool)
+  fullName: Netick.Unity.NetickUnityUtils.SetEnabled(UnityEngine.Component, Netick.Unity.NetworkSandbox, bool)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static void SetEnabled(this Component comp, NetworkSandbox sandbox, bool value)
+    parameters:
+    - id: comp
+      type: UnityEngine.Component
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: value
+      type: System.Boolean
+    content.vb: Public Shared Sub SetEnabled(comp As Component, sandbox As NetworkSandbox, value As Boolean)
+  overload: Netick.Unity.NetickUnityUtils.SetEnabled*
+  nameWithType.vb: NetickUnityUtils.SetEnabled(Component, NetworkSandbox, Boolean)
+  fullName.vb: Netick.Unity.NetickUnityUtils.SetEnabled(UnityEngine.Component, Netick.Unity.NetworkSandbox, Boolean)
+  name.vb: SetEnabled(Component, NetworkSandbox, Boolean)
+- uid: Netick.Unity.NetickUnityUtils.NetworkPlayOneShot(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,UnityEngine.AudioClip,System.Single)
+  commentId: M:Netick.Unity.NetickUnityUtils.NetworkPlayOneShot(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,UnityEngine.AudioClip,System.Single)
+  id: NetworkPlayOneShot(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,UnityEngine.AudioClip,System.Single)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: NetworkPlayOneShot(AudioSource, NetworkSandbox, AudioClip, float)
+  nameWithType: NetickUnityUtils.NetworkPlayOneShot(AudioSource, NetworkSandbox, AudioClip, float)
+  fullName: Netick.Unity.NetickUnityUtils.NetworkPlayOneShot(UnityEngine.AudioSource, Netick.Unity.NetworkSandbox, UnityEngine.AudioClip, float)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static void NetworkPlayOneShot(this AudioSource audioSource, NetworkSandbox sandbox, AudioClip clip, float volumeScale = 1)
+    parameters:
+    - id: audioSource
+      type: UnityEngine.AudioSource
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: clip
+      type: UnityEngine.AudioClip
+    - id: volumeScale
+      type: System.Single
+    content.vb: Public Shared Sub NetworkPlayOneShot(audioSource As AudioSource, sandbox As NetworkSandbox, clip As AudioClip, volumeScale As Single = 1)
+  overload: Netick.Unity.NetickUnityUtils.NetworkPlayOneShot*
+  nameWithType.vb: NetickUnityUtils.NetworkPlayOneShot(AudioSource, NetworkSandbox, AudioClip, Single)
+  fullName.vb: Netick.Unity.NetickUnityUtils.NetworkPlayOneShot(UnityEngine.AudioSource, Netick.Unity.NetworkSandbox, UnityEngine.AudioClip, Single)
+  name.vb: NetworkPlayOneShot(AudioSource, NetworkSandbox, AudioClip, Single)
+- uid: Netick.Unity.NetickUnityUtils.NetworkPlay(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,System.UInt64)
+  commentId: M:Netick.Unity.NetickUnityUtils.NetworkPlay(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,System.UInt64)
+  id: NetworkPlay(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,System.UInt64)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: NetworkPlay(AudioSource, NetworkSandbox, ulong)
+  nameWithType: NetickUnityUtils.NetworkPlay(AudioSource, NetworkSandbox, ulong)
+  fullName: Netick.Unity.NetickUnityUtils.NetworkPlay(UnityEngine.AudioSource, Netick.Unity.NetworkSandbox, ulong)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static void NetworkPlay(this AudioSource audioSource, NetworkSandbox sandbox, ulong delay = 0)
+    parameters:
+    - id: audioSource
+      type: UnityEngine.AudioSource
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: delay
+      type: System.UInt64
+    content.vb: Public Shared Sub NetworkPlay(audioSource As AudioSource, sandbox As NetworkSandbox, delay As ULong = 0)
+  overload: Netick.Unity.NetickUnityUtils.NetworkPlay*
+  nameWithType.vb: NetickUnityUtils.NetworkPlay(AudioSource, NetworkSandbox, ULong)
+  fullName.vb: Netick.Unity.NetickUnityUtils.NetworkPlay(UnityEngine.AudioSource, Netick.Unity.NetworkSandbox, ULong)
+  name.vb: NetworkPlay(AudioSource, NetworkSandbox, ULong)
+- uid: Netick.Unity.NetickUnityUtils.NetworkPlayScheduled(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,System.Double)
+  commentId: M:Netick.Unity.NetickUnityUtils.NetworkPlayScheduled(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,System.Double)
+  id: NetworkPlayScheduled(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,System.Double)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: NetworkPlayScheduled(AudioSource, NetworkSandbox, double)
+  nameWithType: NetickUnityUtils.NetworkPlayScheduled(AudioSource, NetworkSandbox, double)
+  fullName: Netick.Unity.NetickUnityUtils.NetworkPlayScheduled(UnityEngine.AudioSource, Netick.Unity.NetworkSandbox, double)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static void NetworkPlayScheduled(this AudioSource audioSource, NetworkSandbox sandbox, double time)
+    parameters:
+    - id: audioSource
+      type: UnityEngine.AudioSource
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: time
+      type: System.Double
+    content.vb: Public Shared Sub NetworkPlayScheduled(audioSource As AudioSource, sandbox As NetworkSandbox, time As Double)
+  overload: Netick.Unity.NetickUnityUtils.NetworkPlayScheduled*
+  nameWithType.vb: NetickUnityUtils.NetworkPlayScheduled(AudioSource, NetworkSandbox, Double)
+  fullName.vb: Netick.Unity.NetickUnityUtils.NetworkPlayScheduled(UnityEngine.AudioSource, Netick.Unity.NetworkSandbox, Double)
+  name.vb: NetworkPlayScheduled(AudioSource, NetworkSandbox, Double)
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -811,6 +1194,78 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -889,78 +1344,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -1006,28 +1389,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
   spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
 - uid: System
@@ -1083,21 +1466,21 @@ references:
   name: QuatMemberPack
   nameWithType: NetickUnityUtils.QuatMemberPack
   fullName: Netick.Unity.NetickUnityUtils.QuatMemberPack
-- uid: System.UInt32
-  commentId: T:System.UInt32
+- uid: System.Int32
+  commentId: T:System.Int32
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.uint32
-  name: uint
-  nameWithType: uint
-  fullName: uint
-  nameWithType.vb: UInteger
-  fullName.vb: UInteger
-  name.vb: UInteger
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: Netick.Unity.NetickUnityUtils.QuatMemberUnpack*
   commentId: Overload:Netick.Unity.NetickUnityUtils.QuatMemberUnpack
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_QuatMemberUnpack_System_UInt32_
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_QuatMemberUnpack_System_Int32_
   name: QuatMemberUnpack
   nameWithType: NetickUnityUtils.QuatMemberUnpack
   fullName: Netick.Unity.NetickUnityUtils.QuatMemberUnpack
@@ -1109,18 +1492,10 @@ references:
   nameWithType: NetickUnityUtils.SetQuaternionCompressed
   fullName: Netick.Unity.NetickUnityUtils.SetQuaternionCompressed
 - uid: UnityEngine.Quaternion
-  commentId: T:UnityEngine.Quaternion
-  parent: UnityEngine
   isExternal: true
   name: Quaternion
   nameWithType: Quaternion
   fullName: UnityEngine.Quaternion
-- uid: UnityEngine
-  commentId: N:UnityEngine
-  isExternal: true
-  name: UnityEngine
-  nameWithType: UnityEngine
-  fullName: UnityEngine
 - uid: Netick.Unity.NetickUnityUtils.GetQuaternionCompressed*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetQuaternionCompressed
   isExternal: true
@@ -1199,17 +1574,6 @@ references:
   name: GetSmoothInt
   nameWithType: NetickUnityUtils.GetSmoothInt
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothInt
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothDouble*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothDouble
   isExternal: true
@@ -1243,8 +1607,6 @@ references:
   nameWithType: NetickUnityUtils.GetSmoothVector2
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothVector2
 - uid: UnityEngine.Vector2
-  commentId: T:UnityEngine.Vector2
-  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
@@ -1257,8 +1619,6 @@ references:
   nameWithType: NetickUnityUtils.GetSmoothVector3
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothVector3
 - uid: UnityEngine.Vector3
-  commentId: T:UnityEngine.Vector3
-  parent: UnityEngine
   isExternal: true
   name: Vector3
   nameWithType: Vector3
@@ -1278,8 +1638,6 @@ references:
   nameWithType: NetickUnityUtils.GetSmoothColor
   fullName: Netick.Unity.NetickUnityUtils.GetSmoothColor
 - uid: UnityEngine.Color
-  commentId: T:UnityEngine.Color
-  parent: UnityEngine
   isExternal: true
   name: Color
   nameWithType: Color
@@ -1354,13 +1712,194 @@ references:
   name: GetQuaternion
   nameWithType: NetickUnityUtils.GetQuaternion
   fullName: Netick.Unity.NetickUnityUtils.GetQuaternion
-- uid: Netick.Unity.NetickUnityUtils.#ctor*
-  commentId: Overload:Netick.Unity.NetickUnityUtils.#ctor
+- uid: Netick.Unity.NetickUnityUtils.AddInterestBoxArea*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.AddInterestBoxArea
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils__ctor
-  name: NetickUnityUtils
-  nameWithType: NetickUnityUtils.NetickUnityUtils
-  fullName: Netick.Unity.NetickUnityUtils.NetickUnityUtils
-  nameWithType.vb: NetickUnityUtils.New
-  fullName.vb: Netick.Unity.NetickUnityUtils.New
-  name.vb: New
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_AddInterestBoxArea_Netick_NetworkPlayer_UnityEngine_Bounds_System_Int32_
+  name: AddInterestBoxArea
+  nameWithType: NetickUnityUtils.AddInterestBoxArea
+  fullName: Netick.Unity.NetickUnityUtils.AddInterestBoxArea
+- uid: Netick.NetworkPlayer
+  commentId: T:Netick.NetworkPlayer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayer.html
+  name: NetworkPlayer
+  nameWithType: NetworkPlayer
+  fullName: Netick.NetworkPlayer
+- uid: UnityEngine.Bounds
+  isExternal: true
+  name: Bounds
+  nameWithType: Bounds
+  fullName: UnityEngine.Bounds
+- uid: Netick.Unity.NetickUnityUtils.GetRemainingTime*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.GetRemainingTime
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetRemainingTime_Netick_NetworkTimer_Netick_Unity_NetworkSandbox_System_Boolean_
+  name: GetRemainingTime
+  nameWithType: NetickUnityUtils.GetRemainingTime
+  fullName: Netick.Unity.NetickUnityUtils.GetRemainingTime
+- uid: Netick.NetworkTimer
+  commentId: T:Netick.NetworkTimer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkTimer.html
+  name: NetworkTimer
+  nameWithType: NetworkTimer
+  fullName: Netick.NetworkTimer
+- uid: Netick.Unity.NetworkSandbox
+  commentId: T:Netick.Unity.NetworkSandbox
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html
+  name: NetworkSandbox
+  nameWithType: NetworkSandbox
+  fullName: Netick.Unity.NetworkSandbox
+- uid: Netick.Unity.NetickUnityUtils.GetElapsedTime*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.GetElapsedTime
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetElapsedTime_Netick_NetworkTimer_Netick_Unity_NetworkSandbox_System_Boolean_
+  name: GetElapsedTime
+  nameWithType: NetickUnityUtils.GetElapsedTime
+  fullName: Netick.Unity.NetickUnityUtils.GetElapsedTime
+- uid: Netick.Unity.NetickUnityUtils.IsStopped*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.IsStopped
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_IsStopped_Netick_NetworkTimer_Netick_Unity_NetworkSandbox_System_Boolean_
+  name: IsStopped
+  nameWithType: NetickUnityUtils.IsStopped
+  fullName: Netick.Unity.NetickUnityUtils.IsStopped
+- uid: Netick.Unity.NetickUnityUtils.IsRunning*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.IsRunning
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_IsRunning_Netick_NetworkTimer_Netick_Unity_NetworkSandbox_System_Boolean_
+  name: IsRunning
+  nameWithType: NetickUnityUtils.IsRunning
+  fullName: Netick.Unity.NetickUnityUtils.IsRunning
+- uid: Netick.Unity.NetickUnityUtils.ToNumerics*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.ToNumerics
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_ToNumerics_UnityEngine_Vector3_
+  name: ToNumerics
+  nameWithType: NetickUnityUtils.ToNumerics
+  fullName: Netick.Unity.NetickUnityUtils.ToNumerics
+- uid: System.Numerics.Vector3
+  commentId: T:System.Numerics.Vector3
+  parent: System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.vector3
+  name: Vector3
+  nameWithType: Vector3
+  fullName: System.Numerics.Vector3
+- uid: System.Numerics
+  commentId: N:System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Numerics
+  nameWithType: System.Numerics
+  fullName: System.Numerics
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
+- uid: System.Numerics.Quaternion
+  commentId: T:System.Numerics.Quaternion
+  parent: System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.quaternion
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: System.Numerics.Quaternion
+- uid: Netick.Unity.NetickUnityUtils.FromNumerics*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.FromNumerics
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_FromNumerics_System_Numerics_Vector3_
+  name: FromNumerics
+  nameWithType: NetickUnityUtils.FromNumerics
+  fullName: Netick.Unity.NetickUnityUtils.FromNumerics
+- uid: Netick.Unity.NetickUnityUtils.ToUnityBounds*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.ToUnityBounds
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_ToUnityBounds_Netick_NetickBounds_
+  name: ToUnityBounds
+  nameWithType: NetickUnityUtils.ToUnityBounds
+  fullName: Netick.Unity.NetickUnityUtils.ToUnityBounds
+- uid: Netick.NetickBounds
+  commentId: T:Netick.NetickBounds
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickBounds.html
+  name: NetickBounds
+  nameWithType: NetickBounds
+  fullName: Netick.NetickBounds
+- uid: Netick.Unity.NetickUnityUtils.SetEnabled*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.SetEnabled
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_SetEnabled_UnityEngine_Component_Netick_Unity_NetworkSandbox_System_Boolean_
+  name: SetEnabled
+  nameWithType: NetickUnityUtils.SetEnabled
+  fullName: Netick.Unity.NetickUnityUtils.SetEnabled
+- uid: UnityEngine.Component
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: Netick.Unity.NetickUnityUtils.NetworkPlayOneShot*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.NetworkPlayOneShot
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_NetworkPlayOneShot_UnityEngine_AudioSource_Netick_Unity_NetworkSandbox_UnityEngine_AudioClip_System_Single_
+  name: NetworkPlayOneShot
+  nameWithType: NetickUnityUtils.NetworkPlayOneShot
+  fullName: Netick.Unity.NetickUnityUtils.NetworkPlayOneShot
+- uid: UnityEngine.AudioSource
+  isExternal: true
+  name: AudioSource
+  nameWithType: AudioSource
+  fullName: UnityEngine.AudioSource
+- uid: UnityEngine.AudioClip
+  commentId: '!:UnityEngine.AudioClip'
+  isExternal: true
+  name: AudioClip
+  nameWithType: AudioClip
+  fullName: UnityEngine.AudioClip
+- uid: Netick.Unity.NetickUnityUtils.NetworkPlay*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.NetworkPlay
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_NetworkPlay_UnityEngine_AudioSource_Netick_Unity_NetworkSandbox_System_UInt64_
+  name: NetworkPlay
+  nameWithType: NetickUnityUtils.NetworkPlay
+  fullName: Netick.Unity.NetickUnityUtils.NetworkPlay
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint64
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: Netick.Unity.NetickUnityUtils.NetworkPlayScheduled*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.NetworkPlayScheduled
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_NetworkPlayScheduled_UnityEngine_AudioSource_Netick_Unity_NetworkSandbox_System_Double_
+  name: NetworkPlayScheduled
+  nameWithType: NetickUnityUtils.NetworkPlayScheduled
+  fullName: Netick.Unity.NetickUnityUtils.NetworkPlayScheduled

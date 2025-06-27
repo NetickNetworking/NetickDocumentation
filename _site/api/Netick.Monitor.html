@@ -119,54 +119,24 @@ Class Monitor
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
   </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="Netick_Monitor__ctor_" data-uid="Netick.Monitor.#ctor*"></a>
-
-  <h3 id="Netick_Monitor__ctor" data-uid="Netick.Monitor.#ctor">
-  Monitor()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Monitor()</code></pre>
-  </div>
-
-
-
-
-
-
-
 
 
 
@@ -178,8 +148,8 @@ Class Monitor
 
 
 
-  <h3 id="Netick_Monitor_AckProfiler" data-uid="Netick.Monitor.AckProfiler">
-  AckProfiler
+  <h3 id="Netick_Monitor_FPS" data-uid="Netick.Monitor.FPS">
+  FPS
   
   </h3>
 
@@ -187,7 +157,7 @@ Class Monitor
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetcodeProfiler AckProfiler</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly FloatStats FPS</code></pre>
   </div>
 
 
@@ -195,37 +165,7 @@ Class Monitor
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetcodeProfiler.html">NetcodeProfiler</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Netick_Monitor_ChangesProfiler" data-uid="Netick.Monitor.ChangesProfiler">
-  ChangesProfiler
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetcodeProfiler ChangesProfiler</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetcodeProfiler.html">NetcodeProfiler</a></dt>
+    <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
     <dd></dd>
   </dl>
 
@@ -247,7 +187,7 @@ Class Monitor
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetcodeProfiler FixedUpdateProfiler</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly NetickProfiler FixedUpdateProfiler</code></pre>
   </div>
 
 
@@ -255,7 +195,7 @@ Class Monitor
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetcodeProfiler.html">NetcodeProfiler</a></dt>
+    <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
     <dd></dd>
   </dl>
 
@@ -268,8 +208,8 @@ Class Monitor
 
 
 
-  <h3 id="Netick_Monitor_PacketSizeProfiler" data-uid="Netick.Monitor.PacketSizeProfiler">
-  PacketSizeProfiler
+  <h3 id="Netick_Monitor_GameEngineIntoNetcodeProfiler" data-uid="Netick.Monitor.GameEngineIntoNetcodeProfiler">
+  GameEngineIntoNetcodeProfiler
   
   </h3>
 
@@ -277,7 +217,7 @@ Class Monitor
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetcodeProfiler PacketSizeProfiler</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly NetickProfiler GameEngineIntoNetcodeProfiler</code></pre>
   </div>
 
 
@@ -285,7 +225,7 @@ Class Monitor
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetcodeProfiler.html">NetcodeProfiler</a></dt>
+    <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
     <dd></dd>
   </dl>
 
@@ -298,8 +238,8 @@ Class Monitor
 
 
 
-  <h3 id="Netick_Monitor_ReadProfiler" data-uid="Netick.Monitor.ReadProfiler">
-  ReadProfiler
+  <h3 id="Netick_Monitor_NetcodeIntoGameEngineProfiler" data-uid="Netick.Monitor.NetcodeIntoGameEngineProfiler">
+  NetcodeIntoGameEngineProfiler
   
   </h3>
 
@@ -307,7 +247,7 @@ Class Monitor
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetcodeProfiler ReadProfiler</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly NetickProfiler NetcodeIntoGameEngineProfiler</code></pre>
   </div>
 
 
@@ -315,7 +255,97 @@ Class Monitor
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetcodeProfiler.html">NetcodeProfiler</a></dt>
+    <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Monitor_ProcessStateChangesProfiler" data-uid="Netick.Monitor.ProcessStateChangesProfiler">
+  ProcessStateChangesProfiler
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly NetickProfiler ProcessStateChangesProfiler</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Monitor_RTT" data-uid="Netick.Monitor.RTT">
+  RTT
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly FloatStats RTT</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Monitor_ReceiveProfiler" data-uid="Netick.Monitor.ReceiveProfiler">
+  ReceiveProfiler
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly NetickProfiler ReceiveProfiler</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
     <dd></dd>
   </dl>
 
@@ -337,7 +367,7 @@ Class Monitor
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetcodeProfiler RenderProfiler</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly NetickProfiler RenderProfiler</code></pre>
   </div>
 
 
@@ -345,7 +375,7 @@ Class Monitor
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetcodeProfiler.html">NetcodeProfiler</a></dt>
+    <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
     <dd></dd>
   </dl>
 
@@ -358,8 +388,8 @@ Class Monitor
 
 
 
-  <h3 id="Netick_Monitor_ReplicatorProfiler" data-uid="Netick.Monitor.ReplicatorProfiler">
-  ReplicatorProfiler
+  <h3 id="Netick_Monitor_ResimulateProfiler" data-uid="Netick.Monitor.ResimulateProfiler">
+  ResimulateProfiler
   
   </h3>
 
@@ -367,7 +397,7 @@ Class Monitor
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetcodeProfiler ReplicatorProfiler</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly NetickProfiler ResimulateProfiler</code></pre>
   </div>
 
 
@@ -375,7 +405,7 @@ Class Monitor
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetcodeProfiler.html">NetcodeProfiler</a></dt>
+    <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
     <dd></dd>
   </dl>
 
@@ -387,133 +417,6 @@ Class Monitor
 
 
 
-
-  <h3 id="Netick_Monitor_TickTimeProfiler" data-uid="Netick.Monitor.TickTimeProfiler">
-  TickTimeProfiler
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetcodeProfiler TickTimeProfiler</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetcodeProfiler.html">NetcodeProfiler</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Netick_Monitor_WriteProfiler" data-uid="Netick.Monitor.WriteProfiler">
-  WriteProfiler
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetcodeProfiler WriteProfiler</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetcodeProfiler.html">NetcodeProfiler</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
-
-
-  <a id="Netick_Monitor_FPS_" data-uid="Netick.Monitor.FPS*"></a>
-
-  <h3 id="Netick_Monitor_FPS" data-uid="Netick.Monitor.FPS">
-  FPS
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FloatStats FPS { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_Monitor_RTT_" data-uid="Netick.Monitor.RTT*"></a>
-
-  <h3 id="Netick_Monitor_RTT" data-uid="Netick.Monitor.RTT">
-  RTT
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FloatStats RTT { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_Monitor_Resimulations_" data-uid="Netick.Monitor.Resimulations*"></a>
 
   <h3 id="Netick_Monitor_Resimulations" data-uid="Netick.Monitor.Resimulations">
   Resimulations
@@ -524,14 +427,13 @@ Class Monitor
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FloatStats Resimulations { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly FloatStats Resimulations</code></pre>
   </div>
 
 
 
 
-
-  <h4 class="section">Property Value</h4>
+  <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
     <dd></dd>
@@ -544,7 +446,37 @@ Class Monitor
 
 
 
-  <a id="Netick_Monitor_ServerTickTime_" data-uid="Netick.Monitor.ServerTickTime*"></a>
+
+
+  <h3 id="Netick_Monitor_SendProfiler" data-uid="Netick.Monitor.SendProfiler">
+  SendProfiler
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly NetickProfiler SendProfiler</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
   <h3 id="Netick_Monitor_ServerTickTime" data-uid="Netick.Monitor.ServerTickTime">
   ServerTickTime
@@ -555,18 +487,138 @@ Class Monitor
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FloatStats ServerTickTime { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly FloatStats ServerTickTime</code></pre>
   </div>
 
 
 
 
-
-  <h4 class="section">Property Value</h4>
+  <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Monitor_SnapshotSize" data-uid="Netick.Monitor.SnapshotSize">
+  SnapshotSize
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly FloatStats SnapshotSize</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.FloatStats.html">FloatStats</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Monitor_TickProfiler" data-uid="Netick.Monitor.TickProfiler">
+  TickProfiler
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly NetickProfiler TickProfiler</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Monitor_UpdateEntryPoint" data-uid="Netick.Monitor.UpdateEntryPoint">
+  UpdateEntryPoint
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly NetickProfiler UpdateEntryPoint</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Monitor_UpdateProfiler" data-uid="Netick.Monitor.UpdateProfiler">
+  UpdateProfiler
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly NetickProfiler UpdateProfiler</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickProfiler.html">NetickProfiler</a></dt>
+    <dd></dd>
+  </dl>
+
 
 
 
@@ -594,7 +646,7 @@ Class Monitor
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

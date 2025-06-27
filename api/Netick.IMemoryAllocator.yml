@@ -38,7 +38,7 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: void* Malloc(long size, int alignment = 4)
+    content: void* Malloc(long size, int alignment = 8)
     parameters:
     - id: size
       type: System.Int64
@@ -46,7 +46,7 @@ items:
       type: System.Int32
     return:
       type: System.Void*
-    content.vb: Function Malloc(size As Long, alignment As Integer = 4) As Void*
+    content.vb: Function Malloc(size As Long, alignment As Integer = 8) As Void*
   overload: Netick.IMemoryAllocator.Malloc*
   nameWithType.vb: IMemoryAllocator.Malloc(Long, Integer)
   fullName.vb: Netick.IMemoryAllocator.Malloc(Long, Integer)

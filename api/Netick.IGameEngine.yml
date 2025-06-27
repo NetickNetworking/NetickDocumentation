@@ -13,7 +13,6 @@ items:
   - Netick.IGameEngine.OnConnectedToServer
   - Netick.IGameEngine.OnDisconnectedFromServer(Netick.TransportDisconnectReason)
   - Netick.IGameEngine.OnEntityDespawned(Netick.Entity)
-  - Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity,System.Boolean)
   - Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)
   - Netick.IGameEngine.OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta,System.Byte*,System.Int32)
   - Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*,System.Int32)
@@ -25,6 +24,8 @@ items:
   - Netick.IGameEngine.OnPeerDisconnected(Netick.NetworkConnection,Netick.TransportDisconnectReason)
   - Netick.IGameEngine.OnPlayerConnected(Netick.NetworkPlayer)
   - Netick.IGameEngine.OnPlayerDisconnected(Netick.NetworkPlayer,Netick.TransportDisconnectReason)
+  - Netick.IGameEngine.OnPlayerJoined(Netick.NetworkPlayerId)
+  - Netick.IGameEngine.OnPlayerLeft(Netick.NetworkPlayerId)
   - Netick.IGameEngine.OnReceiveData(Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
   - Netick.IGameEngine.OnUnlinkedEntityDespawned(Netick.Entity)
   - Netick.IGameEngine.PopulateEntityMeta(Netick.Entity)
@@ -106,32 +107,6 @@ items:
       description: ''
     content.vb: Function GetEntityMetaSizeWords() As Integer
   overload: Netick.IGameEngine.GetEntityMetaSizeWords*
-- uid: Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity,System.Boolean)
-  commentId: M:Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity,System.Boolean)
-  id: OnEntityInterestChanged(Netick.Entity,System.Boolean)
-  parent: Netick.IGameEngine
-  langs:
-  - csharp
-  - vb
-  name: OnEntityInterestChanged(Entity, bool)
-  nameWithType: IGameEngine.OnEntityInterestChanged(Entity, bool)
-  fullName: Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity, bool)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: void OnEntityInterestChanged(Entity entity, bool isInterested)
-    parameters:
-    - id: entity
-      type: Netick.Entity
-    - id: isInterested
-      type: System.Boolean
-    content.vb: Sub OnEntityInterestChanged(entity As Entity, isInterested As Boolean)
-  overload: Netick.IGameEngine.OnEntityInterestChanged*
-  nameWithType.vb: IGameEngine.OnEntityInterestChanged(Entity, Boolean)
-  fullName.vb: Netick.IGameEngine.OnEntityInterestChanged(Netick.Entity, Boolean)
-  name.vb: OnEntityInterestChanged(Entity, Boolean)
 - uid: Netick.IGameEngine.OnEntitySpawned(Netick.Entity)
   commentId: M:Netick.IGameEngine.OnEntitySpawned(Netick.Entity)
   id: OnEntitySpawned(Netick.Entity)
@@ -554,6 +529,48 @@ items:
       type: Netick.TransportDisconnectReason
     content.vb: Sub OnPlayerDisconnected(player As NetworkPlayer, transportDisconnectReason As TransportDisconnectReason)
   overload: Netick.IGameEngine.OnPlayerDisconnected*
+- uid: Netick.IGameEngine.OnPlayerJoined(Netick.NetworkPlayerId)
+  commentId: M:Netick.IGameEngine.OnPlayerJoined(Netick.NetworkPlayerId)
+  id: OnPlayerJoined(Netick.NetworkPlayerId)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnPlayerJoined(NetworkPlayerId)
+  nameWithType: IGameEngine.OnPlayerJoined(NetworkPlayerId)
+  fullName: Netick.IGameEngine.OnPlayerJoined(Netick.NetworkPlayerId)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnPlayerJoined(NetworkPlayerId player)
+    parameters:
+    - id: player
+      type: Netick.NetworkPlayerId
+    content.vb: Sub OnPlayerJoined(player As NetworkPlayerId)
+  overload: Netick.IGameEngine.OnPlayerJoined*
+- uid: Netick.IGameEngine.OnPlayerLeft(Netick.NetworkPlayerId)
+  commentId: M:Netick.IGameEngine.OnPlayerLeft(Netick.NetworkPlayerId)
+  id: OnPlayerLeft(Netick.NetworkPlayerId)
+  parent: Netick.IGameEngine
+  langs:
+  - csharp
+  - vb
+  name: OnPlayerLeft(NetworkPlayerId)
+  nameWithType: IGameEngine.OnPlayerLeft(NetworkPlayerId)
+  fullName: Netick.IGameEngine.OnPlayerLeft(Netick.NetworkPlayerId)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void OnPlayerLeft(NetworkPlayerId player)
+    parameters:
+    - id: player
+      type: Netick.NetworkPlayerId
+    content.vb: Sub OnPlayerLeft(player As NetworkPlayerId)
+  overload: Netick.IGameEngine.OnPlayerLeft*
 - uid: Netick.IGameEngine.OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
   commentId: M:Netick.IGameEngine.OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
   id: OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
@@ -657,13 +674,13 @@ references:
   name: GetEntityMetaSizeWords
   nameWithType: IGameEngine.GetEntityMetaSizeWords
   fullName: Netick.IGameEngine.GetEntityMetaSizeWords
-- uid: Netick.IGameEngine.OnEntityInterestChanged*
-  commentId: Overload:Netick.IGameEngine.OnEntityInterestChanged
+- uid: Netick.IGameEngine.OnEntitySpawned*
+  commentId: Overload:Netick.IGameEngine.OnEntitySpawned
   isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityInterestChanged_Netick_Entity_System_Boolean_
-  name: OnEntityInterestChanged
-  nameWithType: IGameEngine.OnEntityInterestChanged
-  fullName: Netick.IGameEngine.OnEntityInterestChanged
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntitySpawned_Netick_Entity_
+  name: OnEntitySpawned
+  nameWithType: IGameEngine.OnEntitySpawned
+  fullName: Netick.IGameEngine.OnEntitySpawned
 - uid: Netick.Entity
   commentId: T:Netick.Entity
   parent: Netick
@@ -672,24 +689,6 @@ references:
   name: Entity
   nameWithType: Entity
   fullName: Netick.Entity
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: Netick.IGameEngine.OnEntitySpawned*
-  commentId: Overload:Netick.IGameEngine.OnEntitySpawned
-  isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntitySpawned_Netick_Entity_
-  name: OnEntitySpawned
-  nameWithType: IGameEngine.OnEntitySpawned
-  fullName: Netick.IGameEngine.OnEntitySpawned
 - uid: Netick.IGameEngine.OnEntityDespawned*
   commentId: Overload:Netick.IGameEngine.OnEntityDespawned
   isExternal: true
@@ -878,6 +877,28 @@ references:
   name: OnPlayerDisconnected
   nameWithType: IGameEngine.OnPlayerDisconnected
   fullName: Netick.IGameEngine.OnPlayerDisconnected
+- uid: Netick.IGameEngine.OnPlayerJoined*
+  commentId: Overload:Netick.IGameEngine.OnPlayerJoined
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnPlayerJoined_Netick_NetworkPlayerId_
+  name: OnPlayerJoined
+  nameWithType: IGameEngine.OnPlayerJoined
+  fullName: Netick.IGameEngine.OnPlayerJoined
+- uid: Netick.NetworkPlayerId
+  commentId: T:Netick.NetworkPlayerId
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayerId.html
+  name: NetworkPlayerId
+  nameWithType: NetworkPlayerId
+  fullName: Netick.NetworkPlayerId
+- uid: Netick.IGameEngine.OnPlayerLeft*
+  commentId: Overload:Netick.IGameEngine.OnPlayerLeft
+  isExternal: true
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnPlayerLeft_Netick_NetworkPlayerId_
+  name: OnPlayerLeft
+  nameWithType: IGameEngine.OnPlayerLeft
+  fullName: Netick.IGameEngine.OnPlayerLeft
 - uid: Netick.IGameEngine.OnMatchListUpdate*
   commentId: Overload:Netick.IGameEngine.OnMatchListUpdate
   isExternal: true

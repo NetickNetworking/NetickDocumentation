@@ -6,16 +6,10 @@ items:
   parent: Netick
   children:
   - Netick.InterestManagement.AllGroups
-  - Netick.InterestManagement.CalcTotalGroupCount(Netick.NetickEngine)
-  - Netick.InterestManagement.CellSize
-  - Netick.InterestManagement.Cells
-  - Netick.InterestManagement.CellsCountPerRowX
-  - Netick.InterestManagement.CellsCountPerRowY
-  - Netick.InterestManagement.CellsCountPerRowZ
-  - Netick.InterestManagement.ConvertFromWorldToCell3D(System.Numerics.Vector3)
+  - Netick.InterestManagement.AoILayers
   - Netick.InterestManagement.CustomGroups
   - Netick.InterestManagement.Engine
-  - Netick.InterestManagement.SimulationList
+  - Netick.InterestManagement.GetAoIGroupByPosition(System.Numerics.Vector3,System.Int32)
   - Netick.InterestManagement.TotalGroupCount
   langs:
   - csharp
@@ -33,12 +27,12 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
+  - System.Object.GetHashCode
 - uid: Netick.InterestManagement.Engine
   commentId: F:Netick.InterestManagement.Engine
   id: Engine
@@ -58,82 +52,6 @@ items:
     return:
       type: Netick.NetickEngine
     content.vb: Public ReadOnly Engine As NetickEngine
-- uid: Netick.InterestManagement.CellsCountPerRowX
-  commentId: F:Netick.InterestManagement.CellsCountPerRowX
-  id: CellsCountPerRowX
-  parent: Netick.InterestManagement
-  langs:
-  - csharp
-  - vb
-  name: CellsCountPerRowX
-  nameWithType: InterestManagement.CellsCountPerRowX
-  fullName: Netick.InterestManagement.CellsCountPerRowX
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly int CellsCountPerRowX
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly CellsCountPerRowX As Integer
-- uid: Netick.InterestManagement.CellsCountPerRowY
-  commentId: F:Netick.InterestManagement.CellsCountPerRowY
-  id: CellsCountPerRowY
-  parent: Netick.InterestManagement
-  langs:
-  - csharp
-  - vb
-  name: CellsCountPerRowY
-  nameWithType: InterestManagement.CellsCountPerRowY
-  fullName: Netick.InterestManagement.CellsCountPerRowY
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly int CellsCountPerRowY
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly CellsCountPerRowY As Integer
-- uid: Netick.InterestManagement.CellsCountPerRowZ
-  commentId: F:Netick.InterestManagement.CellsCountPerRowZ
-  id: CellsCountPerRowZ
-  parent: Netick.InterestManagement
-  langs:
-  - csharp
-  - vb
-  name: CellsCountPerRowZ
-  nameWithType: InterestManagement.CellsCountPerRowZ
-  fullName: Netick.InterestManagement.CellsCountPerRowZ
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly int CellsCountPerRowZ
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly CellsCountPerRowZ As Integer
-- uid: Netick.InterestManagement.CellSize
-  commentId: F:Netick.InterestManagement.CellSize
-  id: CellSize
-  parent: Netick.InterestManagement
-  langs:
-  - csharp
-  - vb
-  name: CellSize
-  nameWithType: InterestManagement.CellSize
-  fullName: Netick.InterestManagement.CellSize
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly int CellSize
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly CellSize As Integer
 - uid: Netick.InterestManagement.TotalGroupCount
   commentId: F:Netick.InterestManagement.TotalGroupCount
   id: TotalGroupCount
@@ -191,90 +109,53 @@ items:
     return:
       type: Netick.InterestManagementGroup[]
     content.vb: Public ReadOnly CustomGroups As InterestManagementGroup()
-- uid: Netick.InterestManagement.Cells
-  commentId: F:Netick.InterestManagement.Cells
-  id: Cells
+- uid: Netick.InterestManagement.AoILayers
+  commentId: F:Netick.InterestManagement.AoILayers
+  id: AoILayers
   parent: Netick.InterestManagement
   langs:
   - csharp
   - vb
-  name: Cells
-  nameWithType: InterestManagement.Cells
-  fullName: Netick.InterestManagement.Cells
+  name: AoILayers
+  nameWithType: InterestManagement.AoILayers
+  fullName: Netick.InterestManagement.AoILayers
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public readonly InterestManagementGroup[,,] Cells
+    content: public readonly AreaOfInterestLayer[] AoILayers
     return:
-      type: Netick.InterestManagementGroup[,,]
-    content.vb: Public ReadOnly Cells As InterestManagementGroup(,,)
-- uid: Netick.InterestManagement.SimulationList
-  commentId: F:Netick.InterestManagement.SimulationList
-  id: SimulationList
+      type: Netick.AreaOfInterestLayer[]
+    content.vb: Public ReadOnly AoILayers As AreaOfInterestLayer()
+- uid: Netick.InterestManagement.GetAoIGroupByPosition(System.Numerics.Vector3,System.Int32)
+  commentId: M:Netick.InterestManagement.GetAoIGroupByPosition(System.Numerics.Vector3,System.Int32)
+  id: GetAoIGroupByPosition(System.Numerics.Vector3,System.Int32)
   parent: Netick.InterestManagement
   langs:
   - csharp
   - vb
-  name: SimulationList
-  nameWithType: InterestManagement.SimulationList
-  fullName: Netick.InterestManagement.SimulationList
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly ExecutionListLL SimulationList
-    return:
-      type: Netick.ExecutionListLL
-    content.vb: Public ReadOnly SimulationList As ExecutionListLL
-- uid: Netick.InterestManagement.CalcTotalGroupCount(Netick.NetickEngine)
-  commentId: M:Netick.InterestManagement.CalcTotalGroupCount(Netick.NetickEngine)
-  id: CalcTotalGroupCount(Netick.NetickEngine)
-  parent: Netick.InterestManagement
-  langs:
-  - csharp
-  - vb
-  name: CalcTotalGroupCount(NetickEngine)
-  nameWithType: InterestManagement.CalcTotalGroupCount(NetickEngine)
-  fullName: Netick.InterestManagement.CalcTotalGroupCount(Netick.NetickEngine)
+  name: GetAoIGroupByPosition(Vector3, int)
+  nameWithType: InterestManagement.GetAoIGroupByPosition(Vector3, int)
+  fullName: Netick.InterestManagement.GetAoIGroupByPosition(System.Numerics.Vector3, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public static int CalcTotalGroupCount(NetickEngine engine)
+    content: public InterestManagementGroup GetAoIGroupByPosition(Vector3 position, int aoiLayerIndex)
     parameters:
-    - id: engine
-      type: Netick.NetickEngine
-    return:
-      type: System.Int32
-    content.vb: Public Shared Function CalcTotalGroupCount(engine As NetickEngine) As Integer
-  overload: Netick.InterestManagement.CalcTotalGroupCount*
-- uid: Netick.InterestManagement.ConvertFromWorldToCell3D(System.Numerics.Vector3)
-  commentId: M:Netick.InterestManagement.ConvertFromWorldToCell3D(System.Numerics.Vector3)
-  id: ConvertFromWorldToCell3D(System.Numerics.Vector3)
-  parent: Netick.InterestManagement
-  langs:
-  - csharp
-  - vb
-  name: ConvertFromWorldToCell3D(Vector3)
-  nameWithType: InterestManagement.ConvertFromWorldToCell3D(Vector3)
-  fullName: Netick.InterestManagement.ConvertFromWorldToCell3D(System.Numerics.Vector3)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public NetickVector3Int ConvertFromWorldToCell3D(Vector3 pos)
-    parameters:
-    - id: pos
+    - id: position
       type: System.Numerics.Vector3
+    - id: aoiLayerIndex
+      type: System.Int32
     return:
-      type: Netick.NetickVector3Int
-    content.vb: Public Function ConvertFromWorldToCell3D(pos As Vector3) As NetickVector3Int
-  overload: Netick.InterestManagement.ConvertFromWorldToCell3D*
+      type: Netick.InterestManagementGroup
+    content.vb: Public Function GetAoIGroupByPosition(position As Vector3, aoiLayerIndex As Integer) As InterestManagementGroup
+  overload: Netick.InterestManagement.GetAoIGroupByPosition*
+  nameWithType.vb: InterestManagement.GetAoIGroupByPosition(Vector3, Integer)
+  fullName.vb: Netick.InterestManagement.GetAoIGroupByPosition(System.Numerics.Vector3, Integer)
+  name.vb: GetAoIGroupByPosition(Vector3, Integer)
 references:
 - uid: Netick
   commentId: N:Netick
@@ -294,6 +175,54 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -372,54 +301,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -465,28 +346,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
   spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
 - uid: System
@@ -538,55 +419,36 @@ references:
     href: Netick.InterestManagementGroup.html
   - name: (
   - name: )
-- uid: Netick.InterestManagementGroup[,,]
+- uid: Netick.AreaOfInterestLayer[]
   isExternal: true
-  href: Netick.InterestManagementGroup.html
-  name: InterestManagementGroup[,,]
-  nameWithType: InterestManagementGroup[,,]
-  fullName: Netick.InterestManagementGroup[,,]
-  nameWithType.vb: InterestManagementGroup(,,)
-  fullName.vb: Netick.InterestManagementGroup(,,)
-  name.vb: InterestManagementGroup(,,)
+  href: Netick.AreaOfInterestLayer.html
+  name: AreaOfInterestLayer[]
+  nameWithType: AreaOfInterestLayer[]
+  fullName: Netick.AreaOfInterestLayer[]
+  nameWithType.vb: AreaOfInterestLayer()
+  fullName.vb: Netick.AreaOfInterestLayer()
+  name.vb: AreaOfInterestLayer()
   spec.csharp:
-  - uid: Netick.InterestManagementGroup
-    name: InterestManagementGroup
+  - uid: Netick.AreaOfInterestLayer
+    name: AreaOfInterestLayer
     isExternal: true
-    href: Netick.InterestManagementGroup.html
+    href: Netick.AreaOfInterestLayer.html
   - name: '['
-  - name: ','
-  - name: ','
   - name: ']'
   spec.vb:
-  - uid: Netick.InterestManagementGroup
-    name: InterestManagementGroup
+  - uid: Netick.AreaOfInterestLayer
+    name: AreaOfInterestLayer
     isExternal: true
-    href: Netick.InterestManagementGroup.html
+    href: Netick.AreaOfInterestLayer.html
   - name: (
-  - name: ','
-  - name: ','
   - name: )
-- uid: Netick.ExecutionListLL
-  commentId: T:Netick.ExecutionListLL
-  parent: Netick
+- uid: Netick.InterestManagement.GetAoIGroupByPosition*
+  commentId: Overload:Netick.InterestManagement.GetAoIGroupByPosition
   isExternal: true
-  href: Netick.ExecutionListLL.html
-  name: ExecutionListLL
-  nameWithType: ExecutionListLL
-  fullName: Netick.ExecutionListLL
-- uid: Netick.InterestManagement.CalcTotalGroupCount*
-  commentId: Overload:Netick.InterestManagement.CalcTotalGroupCount
-  isExternal: true
-  href: Netick.InterestManagement.html#Netick_InterestManagement_CalcTotalGroupCount_Netick_NetickEngine_
-  name: CalcTotalGroupCount
-  nameWithType: InterestManagement.CalcTotalGroupCount
-  fullName: Netick.InterestManagement.CalcTotalGroupCount
-- uid: Netick.InterestManagement.ConvertFromWorldToCell3D*
-  commentId: Overload:Netick.InterestManagement.ConvertFromWorldToCell3D
-  isExternal: true
-  href: Netick.InterestManagement.html#Netick_InterestManagement_ConvertFromWorldToCell3D_System_Numerics_Vector3_
-  name: ConvertFromWorldToCell3D
-  nameWithType: InterestManagement.ConvertFromWorldToCell3D
-  fullName: Netick.InterestManagement.ConvertFromWorldToCell3D
+  href: Netick.InterestManagement.html#Netick_InterestManagement_GetAoIGroupByPosition_System_Numerics_Vector3_System_Int32_
+  name: GetAoIGroupByPosition
+  nameWithType: InterestManagement.GetAoIGroupByPosition
+  fullName: Netick.InterestManagement.GetAoIGroupByPosition
 - uid: System.Numerics.Vector3
   commentId: T:System.Numerics.Vector3
   parent: System.Numerics
@@ -595,14 +457,14 @@ references:
   name: Vector3
   nameWithType: Vector3
   fullName: System.Numerics.Vector3
-- uid: Netick.NetickVector3Int
-  commentId: T:Netick.NetickVector3Int
+- uid: Netick.InterestManagementGroup
+  commentId: T:Netick.InterestManagementGroup
   parent: Netick
   isExternal: true
-  href: Netick.NetickVector3Int.html
-  name: NetickVector3Int
-  nameWithType: NetickVector3Int
-  fullName: Netick.NetickVector3Int
+  href: Netick.InterestManagementGroup.html
+  name: InterestManagementGroup
+  nameWithType: InterestManagementGroup
+  fullName: Netick.InterestManagementGroup
 - uid: System.Numerics
   commentId: N:System.Numerics
   isExternal: true

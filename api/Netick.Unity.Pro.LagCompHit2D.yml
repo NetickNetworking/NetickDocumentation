@@ -9,6 +9,7 @@ items:
   - Netick.Unity.Pro.LagCompHit2D.Distance
   - Netick.Unity.Pro.LagCompHit2D.GameObject
   - Netick.Unity.Pro.LagCompHit2D.HitShape
+  - Netick.Unity.Pro.LagCompHit2D.Normal
   - Netick.Unity.Pro.LagCompHit2D.Point
   - Netick.Unity.Pro.LagCompHit2D.Transform
   - Netick.Unity.Pro.LagCompHit2D.Type
@@ -29,8 +30,8 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: Netick.Unity.Pro.LagCompHit2D.Type
   commentId: F:Netick.Unity.Pro.LagCompHit2D.Type
@@ -70,6 +71,25 @@ items:
     return:
       type: UnityEngine.Vector2
     content.vb: Public Point As Vector2
+- uid: Netick.Unity.Pro.LagCompHit2D.Normal
+  commentId: F:Netick.Unity.Pro.LagCompHit2D.Normal
+  id: Normal
+  parent: Netick.Unity.Pro.LagCompHit2D
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: LagCompHit2D.Normal
+  fullName: Netick.Unity.Pro.LagCompHit2D.Normal
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public Vector2 Normal
+    return:
+      type: UnityEngine.Vector2
+    content.vb: Public Normal As Vector2
 - uid: Netick.Unity.Pro.LagCompHit2D.Distance
   commentId: F:Netick.Unity.Pro.LagCompHit2D.Distance
   id: Distance
@@ -282,6 +302,30 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -326,30 +370,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -458,18 +478,10 @@ references:
     isExternal: true
     href: Netick.Pro.html
 - uid: UnityEngine.Vector2
-  commentId: T:UnityEngine.Vector2
-  parent: UnityEngine
   isExternal: true
   name: Vector2
   nameWithType: Vector2
   fullName: UnityEngine.Vector2
-- uid: UnityEngine
-  commentId: N:UnityEngine
-  isExternal: true
-  name: UnityEngine
-  nameWithType: UnityEngine
-  fullName: UnityEngine
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -482,8 +494,7 @@ references:
   fullName.vb: Single
   name.vb: Single
 - uid: UnityEngine.Collider2D
-  commentId: T:UnityEngine.Collider2D
-  parent: UnityEngine
+  commentId: '!:UnityEngine.Collider2D'
   isExternal: true
   name: Collider2D
   nameWithType: Collider2D
@@ -497,8 +508,6 @@ references:
   nameWithType: HitShape
   fullName: Netick.Unity.Pro.HitShape
 - uid: UnityEngine.GameObject
-  commentId: T:UnityEngine.GameObject
-  parent: UnityEngine
   isExternal: true
   name: GameObject
   nameWithType: GameObject
@@ -511,8 +520,6 @@ references:
   nameWithType: LagCompHit2D.Transform
   fullName: Netick.Unity.Pro.LagCompHit2D.Transform
 - uid: UnityEngine.Transform
-  commentId: T:UnityEngine.Transform
-  parent: UnityEngine
   isExternal: true
   name: Transform
   nameWithType: Transform

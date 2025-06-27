@@ -9,6 +9,7 @@ items:
   - Netick.Pro.LagCompShape.Container
   - Netick.Pro.LagCompShape.GetBounds
   - Netick.Pro.LagCompShape.Index
+  - Netick.Pro.LagCompShape.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
   - Netick.Pro.LagCompShape.Sandbox
   - Netick.Pro.LagCompShape.UserHitShape
   langs:
@@ -27,13 +28,13 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
 - uid: Netick.Pro.LagCompShape.#ctor(Netick.Pro.IHitShape)
   commentId: M:Netick.Pro.LagCompShape.#ctor(Netick.Pro.IHitShape)
   id: '#ctor(Netick.Pro.IHitShape)'
@@ -78,6 +79,42 @@ items:
       type: Netick.NetickBounds
     content.vb: Public Function GetBounds() As NetickBounds
   overload: Netick.Pro.LagCompShape.GetBounds*
+- uid: Netick.Pro.LagCompShape.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
+  commentId: M:Netick.Pro.LagCompShape.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
+  id: Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
+  parent: Netick.Pro.LagCompShape
+  langs:
+  - csharp
+  - vb
+  name: Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, bool)
+  nameWithType: LagCompShape.Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, bool)
+  fullName: Netick.Pro.LagCompShape.Raycast(System.Numerics.Vector3, System.Numerics.Vector3, out Netick.Pro.NetHit, Netick.NetworkPlayer, float, bool)
+  type: Method
+  assemblies:
+  - Netick.Pro
+  namespace: Netick.Pro
+  syntax:
+    content: public bool Raycast(Vector3 origin, Vector3 direction, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, bool includeInputSource = false)
+    parameters:
+    - id: origin
+      type: System.Numerics.Vector3
+    - id: direction
+      type: System.Numerics.Vector3
+    - id: hitData
+      type: Netick.Pro.NetHit
+    - id: inputSource
+      type: Netick.NetworkPlayer
+    - id: maxDistance
+      type: System.Single
+    - id: includeInputSource
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Function Raycast(origin As Vector3, direction As Vector3, hitData As NetHit, inputSource As NetworkPlayer, maxDistance As Single = Infinity, includeInputSource As Boolean = False) As Boolean
+  overload: Netick.Pro.LagCompShape.Raycast*
+  nameWithType.vb: LagCompShape.Raycast(Vector3, Vector3, NetHit, NetworkPlayer, Single, Boolean)
+  fullName.vb: Netick.Pro.LagCompShape.Raycast(System.Numerics.Vector3, System.Numerics.Vector3, Netick.Pro.NetHit, Netick.NetworkPlayer, Single, Boolean)
+  name.vb: Raycast(Vector3, Vector3, NetHit, NetworkPlayer, Single, Boolean)
 - uid: Netick.Pro.LagCompShape.Sandbox
   commentId: P:Netick.Pro.LagCompShape.Sandbox
   id: Sandbox
@@ -201,6 +238,78 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -279,78 +388,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -396,28 +433,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
   spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
 - uid: System
@@ -467,6 +504,86 @@ references:
   name: Netick
   nameWithType: Netick
   fullName: Netick
+- uid: Netick.Pro.LagCompShape.Raycast*
+  commentId: Overload:Netick.Pro.LagCompShape.Raycast
+  isExternal: true
+  href: Netick.Pro.LagCompShape.html#Netick_Pro_LagCompShape_Raycast_System_Numerics_Vector3_System_Numerics_Vector3_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Boolean_
+  name: Raycast
+  nameWithType: LagCompShape.Raycast
+  fullName: Netick.Pro.LagCompShape.Raycast
+- uid: System.Numerics.Vector3
+  commentId: T:System.Numerics.Vector3
+  parent: System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.vector3
+  name: Vector3
+  nameWithType: Vector3
+  fullName: System.Numerics.Vector3
+- uid: Netick.Pro.NetHit
+  commentId: T:Netick.Pro.NetHit
+  parent: Netick.Pro
+  isExternal: true
+  href: Netick.Pro.NetHit.html
+  name: NetHit
+  nameWithType: NetHit
+  fullName: Netick.Pro.NetHit
+- uid: Netick.NetworkPlayer
+  commentId: T:Netick.NetworkPlayer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayer.html
+  name: NetworkPlayer
+  nameWithType: NetworkPlayer
+  fullName: Netick.NetworkPlayer
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Numerics
+  commentId: N:System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Numerics
+  nameWithType: System.Numerics
+  fullName: System.Numerics
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
 - uid: Netick.Pro.LagCompShape.Sandbox*
   commentId: Overload:Netick.Pro.LagCompShape.Sandbox
   isExternal: true

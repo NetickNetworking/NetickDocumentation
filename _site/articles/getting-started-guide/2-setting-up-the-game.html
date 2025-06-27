@@ -176,8 +176,10 @@ public class GameplayManager : NetworkEventsListener
 {
     public NetworkObject PlayerPrefab;
 
-    public override void OnPlayerConnected(NetworkSandbox sandbox, Netick.NetworkPlayer player)
+    public override void OnPlayerJoined(NetworkSandbox sandbox, NetworkPlayerId player)
     {
+        if (sandbox.IsClient)
+            return;
         // Random Spawn Position (to not make them overlap)
         Vector3 spawnPosition = new Vector3();
         spawnPosition.x = Random.Range(-5f, 5f);
@@ -187,10 +189,6 @@ public class GameplayManager : NetworkEventsListener
     }
 }
 </code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Unity has old methods from the time when UNet was still around, sometimes providing incorrect signature information for <code>OnPlayerConnected</code> in your IDE, for instance. This issue is harmless and can be ignored.</p>
-</div>
 <h2 id="testing">Testing</h2>
 <p>Let's go ahead and enter play mode. You can see our player spawning by clicking on &quot;Start Host&quot;.</p>
 <figure><img src="../../images/getting-started/102-player-spawning.gif" alt=""><figcaption></figcaption></figure>
@@ -214,7 +212,7 @@ public class GameplayManager : NetworkEventsListener
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

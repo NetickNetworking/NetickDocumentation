@@ -216,6 +216,32 @@ Interface INetickScript
 </h2>
 
 
+  <a id="Netick_INetickScript_GameEngineIntoNetcode_" data-uid="Netick.INetickScript.GameEngineIntoNetcode*"></a>
+
+  <h3 id="Netick_INetickScript_GameEngineIntoNetcode" data-uid="Netick.INetickScript.GameEngineIntoNetcode">
+  GameEngineIntoNetcode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void GameEngineIntoNetcode()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_INetickScript_Initialize_" data-uid="Netick.INetickScript.Initialize*"></a>
 
   <h3 id="Netick_INetickScript_Initialize_Netick_NetickEngine_" data-uid="Netick.INetickScript.Initialize(Netick.NetickEngine)">
@@ -236,6 +262,32 @@ Interface INetickScript
     <dt><code>netickEngine</code> <a class="xref" href="Netick.NetickEngine.html">NetickEngine</a></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_INetickScript_NetcodeIntoGameEngine_" data-uid="Netick.INetickScript.NetcodeIntoGameEngine*"></a>
+
+  <h3 id="Netick_INetickScript_NetcodeIntoGameEngine" data-uid="Netick.INetickScript.NetcodeIntoGameEngine">
+  NetcodeIntoGameEngine()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void NetcodeIntoGameEngine()</code></pre>
+  </div>
+
 
 
 
@@ -283,7 +335,7 @@ Interface INetickScript
   </h3>
 
   <div class="markdown level1 summary"><p>Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.</p>
-<p>On the client, if you are the Input Source or if this Entity.PredictionMode is set to None, it will be called several times in one update/tick during resimulations. To check for resimulations, use [<a class="xref" href="Netick.Entity.html#Netick_Entity_IsResimulating">IsResimulating</a>].</p>
+<p>On the client, if you are the Input Source or if this Entity.PredictionMode is set to Global, it will be called several times in one update/tick during resimulations. To check for resimulations, use [<a class="xref" href="Netick.Entity.html#Netick_Entity_IsResimulating">IsResimulating</a>].</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -384,58 +436,6 @@ Interface INetickScript
 
 
 
-  <a id="Netick_INetickScript_OnBecameSimulated_" data-uid="Netick.INetickScript.OnBecameSimulated*"></a>
-
-  <h3 id="Netick_INetickScript_OnBecameSimulated" data-uid="Netick.INetickScript.OnBecameSimulated">
-  OnBecameSimulated()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void OnBecameSimulated()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_INetickScript_OnBecameUnsimulated_" data-uid="Netick.INetickScript.OnBecameUnsimulated*"></a>
-
-  <h3 id="Netick_INetickScript_OnBecameUnsimulated" data-uid="Netick.INetickScript.OnBecameUnsimulated">
-  OnBecameUnsimulated()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void OnBecameUnsimulated()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </article>
 
@@ -455,7 +455,7 @@ Interface INetickScript
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

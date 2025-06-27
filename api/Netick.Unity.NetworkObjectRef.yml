@@ -10,8 +10,12 @@ items:
   - Netick.Unity.NetworkObjectRef.Equals(System.Object)
   - Netick.Unity.NetworkObjectRef.GetHashCode
   - Netick.Unity.NetworkObjectRef.GetObject(Netick.Unity.NetworkSandbox)
+  - Netick.Unity.NetworkObjectRef.IsValid
   - Netick.Unity.NetworkObjectRef.ObjectId
+  - Netick.Unity.NetworkObjectRef.ToString
   - Netick.Unity.NetworkObjectRef.TryGetObject(Netick.Unity.NetworkSandbox,Netick.Unity.NetworkObject@)
+  - Netick.Unity.NetworkObjectRef.op_Equality(Netick.Unity.NetworkObjectRef,Netick.Unity.NetworkObjectRef)
+  - Netick.Unity.NetworkObjectRef.op_Inequality(Netick.Unity.NetworkObjectRef,Netick.Unity.NetworkObjectRef)
   langs:
   - csharp
   - vb
@@ -28,9 +32,8 @@ items:
   implements:
   - System.IEquatable{Netick.Unity.NetworkObjectRef}
   inheritedMembers:
-  - System.ValueType.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: Netick.Unity.NetworkObjectRef.ObjectId
   commentId: F:Netick.Unity.NetworkObjectRef.ObjectId
@@ -126,28 +129,6 @@ items:
       type: Netick.Unity.NetworkObject
     content.vb: Public Function GetObject(sandbox As NetworkSandbox) As NetworkObject
   overload: Netick.Unity.NetworkObjectRef.GetObject*
-- uid: Netick.Unity.NetworkObjectRef.GetHashCode
-  commentId: M:Netick.Unity.NetworkObjectRef.GetHashCode
-  id: GetHashCode
-  parent: Netick.Unity.NetworkObjectRef
-  langs:
-  - csharp
-  - vb
-  name: GetHashCode()
-  nameWithType: NetworkObjectRef.GetHashCode()
-  fullName: Netick.Unity.NetworkObjectRef.GetHashCode()
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  example: []
-  syntax:
-    content: public override int GetHashCode()
-    return:
-      type: System.Int32
-    content.vb: Public Overrides Function GetHashCode() As Integer
-  overridden: System.ValueType.GetHashCode
-  overload: Netick.Unity.NetworkObjectRef.GetHashCode*
 - uid: Netick.Unity.NetworkObjectRef.Equals(System.Object)
   commentId: M:Netick.Unity.NetworkObjectRef.Equals(System.Object)
   id: Equals(System.Object)
@@ -176,6 +157,28 @@ items:
   nameWithType.vb: NetworkObjectRef.Equals(Object)
   fullName.vb: Netick.Unity.NetworkObjectRef.Equals(Object)
   name.vb: Equals(Object)
+- uid: Netick.Unity.NetworkObjectRef.GetHashCode
+  commentId: M:Netick.Unity.NetworkObjectRef.GetHashCode
+  id: GetHashCode
+  parent: Netick.Unity.NetworkObjectRef
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: NetworkObjectRef.GetHashCode()
+  fullName: Netick.Unity.NetworkObjectRef.GetHashCode()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Netick.Unity.NetworkObjectRef.GetHashCode*
 - uid: Netick.Unity.NetworkObjectRef.Equals(Netick.Unity.NetworkObjectRef)
   commentId: M:Netick.Unity.NetworkObjectRef.Equals(Netick.Unity.NetworkObjectRef)
   id: Equals(Netick.Unity.NetworkObjectRef)
@@ -202,6 +205,105 @@ items:
   overload: Netick.Unity.NetworkObjectRef.Equals*
   implements:
   - System.IEquatable{Netick.Unity.NetworkObjectRef}.Equals(Netick.Unity.NetworkObjectRef)
+- uid: Netick.Unity.NetworkObjectRef.op_Equality(Netick.Unity.NetworkObjectRef,Netick.Unity.NetworkObjectRef)
+  commentId: M:Netick.Unity.NetworkObjectRef.op_Equality(Netick.Unity.NetworkObjectRef,Netick.Unity.NetworkObjectRef)
+  id: op_Equality(Netick.Unity.NetworkObjectRef,Netick.Unity.NetworkObjectRef)
+  parent: Netick.Unity.NetworkObjectRef
+  langs:
+  - csharp
+  - vb
+  name: operator ==(NetworkObjectRef, NetworkObjectRef)
+  nameWithType: NetworkObjectRef.operator ==(NetworkObjectRef, NetworkObjectRef)
+  fullName: Netick.Unity.NetworkObjectRef.operator ==(Netick.Unity.NetworkObjectRef, Netick.Unity.NetworkObjectRef)
+  type: Operator
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static bool operator ==(NetworkObjectRef a, NetworkObjectRef b)
+    parameters:
+    - id: a
+      type: Netick.Unity.NetworkObjectRef
+    - id: b
+      type: Netick.Unity.NetworkObjectRef
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(a As NetworkObjectRef, b As NetworkObjectRef) As Boolean
+  overload: Netick.Unity.NetworkObjectRef.op_Equality*
+  nameWithType.vb: NetworkObjectRef.=(NetworkObjectRef, NetworkObjectRef)
+  fullName.vb: Netick.Unity.NetworkObjectRef.=(Netick.Unity.NetworkObjectRef, Netick.Unity.NetworkObjectRef)
+  name.vb: =(NetworkObjectRef, NetworkObjectRef)
+- uid: Netick.Unity.NetworkObjectRef.op_Inequality(Netick.Unity.NetworkObjectRef,Netick.Unity.NetworkObjectRef)
+  commentId: M:Netick.Unity.NetworkObjectRef.op_Inequality(Netick.Unity.NetworkObjectRef,Netick.Unity.NetworkObjectRef)
+  id: op_Inequality(Netick.Unity.NetworkObjectRef,Netick.Unity.NetworkObjectRef)
+  parent: Netick.Unity.NetworkObjectRef
+  langs:
+  - csharp
+  - vb
+  name: operator !=(NetworkObjectRef, NetworkObjectRef)
+  nameWithType: NetworkObjectRef.operator !=(NetworkObjectRef, NetworkObjectRef)
+  fullName: Netick.Unity.NetworkObjectRef.operator !=(Netick.Unity.NetworkObjectRef, Netick.Unity.NetworkObjectRef)
+  type: Operator
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static bool operator !=(NetworkObjectRef a, NetworkObjectRef b)
+    parameters:
+    - id: a
+      type: Netick.Unity.NetworkObjectRef
+    - id: b
+      type: Netick.Unity.NetworkObjectRef
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(a As NetworkObjectRef, b As NetworkObjectRef) As Boolean
+  overload: Netick.Unity.NetworkObjectRef.op_Inequality*
+  nameWithType.vb: NetworkObjectRef.<>(NetworkObjectRef, NetworkObjectRef)
+  fullName.vb: Netick.Unity.NetworkObjectRef.<>(Netick.Unity.NetworkObjectRef, Netick.Unity.NetworkObjectRef)
+  name.vb: <>(NetworkObjectRef, NetworkObjectRef)
+- uid: Netick.Unity.NetworkObjectRef.ToString
+  commentId: M:Netick.Unity.NetworkObjectRef.ToString
+  id: ToString
+  parent: Netick.Unity.NetworkObjectRef
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: NetworkObjectRef.ToString()
+  fullName: Netick.Unity.NetworkObjectRef.ToString()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Netick.Unity.NetworkObjectRef.ToString*
+- uid: Netick.Unity.NetworkObjectRef.IsValid
+  commentId: P:Netick.Unity.NetworkObjectRef.IsValid
+  id: IsValid
+  parent: Netick.Unity.NetworkObjectRef
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: NetworkObjectRef.IsValid
+  fullName: Netick.Unity.NetworkObjectRef.IsValid
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsValid As Boolean
+  overload: Netick.Unity.NetworkObjectRef.IsValid*
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -265,26 +367,28 @@ references:
     isExternal: true
     href: Netick.Unity.NetworkObjectRef.html
   - name: )
-- uid: System.ValueType.ToString
-  commentId: M:System.ValueType.ToString
-  parent: System.ValueType
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
-  name: ToString()
-  nameWithType: ValueType.ToString()
-  fullName: System.ValueType.ToString()
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
   spec.csharp:
-  - uid: System.ValueType.ToString
-    name: ToString
+  - uid: System.Object.GetType
+    name: GetType
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
   - name: (
   - name: )
   spec.vb:
-  - uid: System.ValueType.ToString
-    name: ToString
+  - uid: System.Object.GetType
+    name: GetType
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
   - name: (
   - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
@@ -331,30 +435,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -436,14 +516,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.ValueType
-  commentId: T:System.ValueType
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype
-  name: ValueType
-  nameWithType: ValueType
-  fullName: System.ValueType
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -517,35 +589,6 @@ references:
   name: GetObject
   nameWithType: NetworkObjectRef.GetObject
   fullName: Netick.Unity.NetworkObjectRef.GetObject
-- uid: System.ValueType.GetHashCode
-  commentId: M:System.ValueType.GetHashCode
-  parent: System.ValueType
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  name: GetHashCode()
-  nameWithType: ValueType.GetHashCode()
-  fullName: System.ValueType.GetHashCode()
-  spec.csharp:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.ValueType.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
-  - name: (
-  - name: )
-- uid: Netick.Unity.NetworkObjectRef.GetHashCode*
-  commentId: Overload:Netick.Unity.NetworkObjectRef.GetHashCode
-  isExternal: true
-  href: Netick.Unity.NetworkObjectRef.html#Netick_Unity_NetworkObjectRef_GetHashCode
-  name: GetHashCode
-  nameWithType: NetworkObjectRef.GetHashCode
-  fullName: Netick.Unity.NetworkObjectRef.GetHashCode
 - uid: System.ValueType.Equals(System.Object)
   commentId: M:System.ValueType.Equals(System.Object)
   parent: System.ValueType
@@ -586,6 +629,43 @@ references:
   name: Equals
   nameWithType: NetworkObjectRef.Equals
   fullName: Netick.Unity.NetworkObjectRef.Equals
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkObjectRef.GetHashCode*
+  commentId: Overload:Netick.Unity.NetworkObjectRef.GetHashCode
+  isExternal: true
+  href: Netick.Unity.NetworkObjectRef.html#Netick_Unity_NetworkObjectRef_GetHashCode
+  name: GetHashCode
+  nameWithType: NetworkObjectRef.GetHashCode
+  fullName: Netick.Unity.NetworkObjectRef.GetHashCode
 - uid: System.IEquatable{Netick.Unity.NetworkObjectRef}.Equals(Netick.Unity.NetworkObjectRef)
   commentId: M:System.IEquatable{Netick.Unity.NetworkObjectRef}.Equals(Netick.Unity.NetworkObjectRef)
   parent: System.IEquatable{Netick.Unity.NetworkObjectRef}
@@ -651,3 +731,84 @@ references:
   - name: (
   - name: T
   - name: )
+- uid: Netick.Unity.NetworkObjectRef.op_Equality*
+  commentId: Overload:Netick.Unity.NetworkObjectRef.op_Equality
+  isExternal: true
+  href: Netick.Unity.NetworkObjectRef.html#Netick_Unity_NetworkObjectRef_op_Equality_Netick_Unity_NetworkObjectRef_Netick_Unity_NetworkObjectRef_
+  name: operator ==
+  nameWithType: NetworkObjectRef.operator ==
+  fullName: Netick.Unity.NetworkObjectRef.operator ==
+  nameWithType.vb: NetworkObjectRef.=
+  fullName.vb: Netick.Unity.NetworkObjectRef.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Netick.Unity.NetworkObjectRef.op_Equality*
+    name: ==
+    isExternal: true
+    href: Netick.Unity.NetworkObjectRef.html#Netick_Unity_NetworkObjectRef_op_Equality_Netick_Unity_NetworkObjectRef_Netick_Unity_NetworkObjectRef_
+- uid: Netick.Unity.NetworkObjectRef.op_Inequality*
+  commentId: Overload:Netick.Unity.NetworkObjectRef.op_Inequality
+  isExternal: true
+  href: Netick.Unity.NetworkObjectRef.html#Netick_Unity_NetworkObjectRef_op_Inequality_Netick_Unity_NetworkObjectRef_Netick_Unity_NetworkObjectRef_
+  name: operator !=
+  nameWithType: NetworkObjectRef.operator !=
+  fullName: Netick.Unity.NetworkObjectRef.operator !=
+  nameWithType.vb: NetworkObjectRef.<>
+  fullName.vb: Netick.Unity.NetworkObjectRef.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Netick.Unity.NetworkObjectRef.op_Inequality*
+    name: '!='
+    isExternal: true
+    href: Netick.Unity.NetworkObjectRef.html#Netick_Unity_NetworkObjectRef_op_Inequality_Netick_Unity_NetworkObjectRef_Netick_Unity_NetworkObjectRef_
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkObjectRef.ToString*
+  commentId: Overload:Netick.Unity.NetworkObjectRef.ToString
+  isExternal: true
+  href: Netick.Unity.NetworkObjectRef.html#Netick_Unity_NetworkObjectRef_ToString
+  name: ToString
+  nameWithType: NetworkObjectRef.ToString
+  fullName: Netick.Unity.NetworkObjectRef.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Netick.Unity.NetworkObjectRef.IsValid*
+  commentId: Overload:Netick.Unity.NetworkObjectRef.IsValid
+  isExternal: true
+  href: Netick.Unity.NetworkObjectRef.html#Netick_Unity_NetworkObjectRef_IsValid
+  name: IsValid
+  nameWithType: NetworkObjectRef.IsValid
+  fullName: Netick.Unity.NetworkObjectRef.IsValid

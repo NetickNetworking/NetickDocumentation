@@ -7,6 +7,7 @@ items:
   children:
   - Netick.Unity.LaunchData.Config
   - Netick.Unity.LaunchData.Configs
+  - Netick.Unity.LaunchData.NetworkedPrefabs
   - Netick.Unity.LaunchData.NumberOfClients
   - Netick.Unity.LaunchData.NumberOfServers
   - Netick.Unity.LaunchData.Port
@@ -31,8 +32,8 @@ items:
   - System.ValueType.Equals(System.Object)
   - System.ValueType.GetHashCode
   - System.ValueType.ToString
-  - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
 - uid: Netick.Unity.LaunchData.TransportProvider
   commentId: F:Netick.Unity.LaunchData.TransportProvider
@@ -72,6 +73,25 @@ items:
     return:
       type: UnityEngine.GameObject
     content.vb: Public SandboxPrefab As GameObject
+- uid: Netick.Unity.LaunchData.NetworkedPrefabs
+  commentId: F:Netick.Unity.LaunchData.NetworkedPrefabs
+  id: NetworkedPrefabs
+  parent: Netick.Unity.LaunchData
+  langs:
+  - csharp
+  - vb
+  name: NetworkedPrefabs
+  nameWithType: LaunchData.NetworkedPrefabs
+  fullName: Netick.Unity.LaunchData.NetworkedPrefabs
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public List<NetworkObject> NetworkedPrefabs
+    return:
+      type: System.Collections.Generic.List{Netick.Unity.NetworkObject}
+    content.vb: Public NetworkedPrefabs As List(Of NetworkObject)
 - uid: Netick.Unity.LaunchData.NumberOfClients
   commentId: F:Netick.Unity.LaunchData.NumberOfClients
   id: NumberOfClients
@@ -310,6 +330,30 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
   - name: (
   - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object,System.Object)
   commentId: M:System.Object.Equals(System.Object,System.Object)
   parent: System.Object
@@ -354,30 +398,6 @@ references:
     name: Object
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
   - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
@@ -459,18 +479,110 @@ references:
   nameWithType: NetworkTransportProvider
   fullName: Netick.Unity.NetworkTransportProvider
 - uid: UnityEngine.GameObject
-  commentId: T:UnityEngine.GameObject
-  parent: UnityEngine
   isExternal: true
   name: GameObject
   nameWithType: GameObject
   fullName: UnityEngine.GameObject
-- uid: UnityEngine
-  commentId: N:UnityEngine
+- uid: System.Collections.Generic.List{Netick.Unity.NetworkObject}
+  commentId: T:System.Collections.Generic.List{Netick.Unity.NetworkObject}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<NetworkObject>
+  nameWithType: List<NetworkObject>
+  fullName: System.Collections.Generic.List<Netick.Unity.NetworkObject>
+  nameWithType.vb: List(Of NetworkObject)
+  fullName.vb: System.Collections.Generic.List(Of Netick.Unity.NetworkObject)
+  name.vb: List(Of NetworkObject)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.Unity.NetworkObject
+    name: NetworkObject
+    isExternal: true
+    href: Netick.Unity.NetworkObject.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Unity.NetworkObject
+    name: NetworkObject
+    isExternal: true
+    href: Netick.Unity.NetworkObject.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
   isExternal: true
-  name: UnityEngine
-  nameWithType: UnityEngine
-  fullName: UnityEngine
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System

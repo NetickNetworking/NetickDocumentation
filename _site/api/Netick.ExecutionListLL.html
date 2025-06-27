@@ -99,7 +99,7 @@ Class ExecutionListLL
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class ExecutionListLL : IEnumerable&lt;Entity&gt;, IEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class ExecutionListLL</code></pre>
   </div>
 
 
@@ -113,18 +113,17 @@ Class ExecutionListLL
     </dd>
   </dl>
 
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Netick.Entity.html">Entity</a>&gt;</div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
-    </dd>
-  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -132,87 +131,12 @@ Class ExecutionListLL
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
   </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="fields">Fields
-</h2>
-
-
-
-  <h3 id="Netick_ExecutionListLL_Items" data-uid="Netick.ExecutionListLL.Items">
-  Items
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HashSet&lt;Entity&gt; Items</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="Netick.Entity.html">Entity</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
-
-
-  <a id="Netick_ExecutionListLL_Count_" data-uid="Netick.ExecutionListLL.Count*"></a>
-
-  <h3 id="Netick_ExecutionListLL_Count" data-uid="Netick.ExecutionListLL.Count">
-  Count
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
 
 
 
@@ -249,10 +173,10 @@ Class ExecutionListLL
 
 
 
-  <a id="Netick_ExecutionListLL_GetEnumerator_" data-uid="Netick.ExecutionListLL.GetEnumerator*"></a>
+  <a id="Netick_ExecutionListLL_RemoveAndInvokeNetworkDestroy_" data-uid="Netick.ExecutionListLL.RemoveAndInvokeNetworkDestroy*"></a>
 
-  <h3 id="Netick_ExecutionListLL_GetEnumerator" data-uid="Netick.ExecutionListLL.GetEnumerator">
-  GetEnumerator()
+  <h3 id="Netick_ExecutionListLL_RemoveAndInvokeNetworkDestroy_Netick_Entity_" data-uid="Netick.ExecutionListLL.RemoveAndInvokeNetworkDestroy(Netick.Entity)">
+  RemoveAndInvokeNetworkDestroy(Entity)
   
   </h3>
 
@@ -260,45 +184,12 @@ Class ExecutionListLL
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerator&lt;Entity&gt; GetEnumerator()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="Netick.Entity.html">Entity</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_ExecutionListLL_Remove_" data-uid="Netick.ExecutionListLL.Remove*"></a>
-
-  <h3 id="Netick_ExecutionListLL_Remove_Netick_INetickEntity_System_Boolean_" data-uid="Netick.ExecutionListLL.Remove(Netick.INetickEntity,System.Boolean)">
-  Remove(INetickEntity, bool)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Remove(INetickEntity obj, bool callDestroy)</code></pre>
+    <pre><code class="lang-csharp hljs">public void RemoveAndInvokeNetworkDestroy(Entity obj)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>obj</code> <a class="xref" href="Netick.INetickEntity.html">INetickEntity</a></dt>
-    <dd></dd>
-    <dt><code>callDestroy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><code>obj</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
     <dd></dd>
   </dl>
 
@@ -332,7 +223,7 @@ Class ExecutionListLL
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          Copyright © 2022-2024 Karrar Rahim. All Rights Reserved.
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
         </div>
       </div>
     </footer>

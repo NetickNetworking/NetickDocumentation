@@ -10,11 +10,16 @@ items:
   - Netick.Simulation.CreateEntity(System.Int32)
   - Netick.Simulation.CurrentInput
   - Netick.Simulation.FetchInputLocal``1(``0@,System.Boolean@,System.Int32)
+  - Netick.Simulation.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
   - Netick.Simulation.GetEntityByWorldIndex(System.Int32)
   - Netick.Simulation.GetInput``1(System.Int32)
+  - Netick.Simulation.InvokePostResimulation
+  - Netick.Simulation.InvokePreRollback
+  - Netick.Simulation.InvokeRPCs
   - Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
   - Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
   - Netick.Simulation.SetInput``1(``0,System.Int32)
+  - Netick.Simulation.SimulatedObjects
   - Netick.Simulation.UnlinkedEntities
   langs:
   - csharp
@@ -35,13 +40,32 @@ items:
   - Netick.ClientSimulation
   - Netick.ServerSimulation
   inheritedMembers:
-  - System.Object.Equals(System.Object)
-  - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: Netick.Simulation.SimulatedObjects
+  commentId: F:Netick.Simulation.SimulatedObjects
+  id: SimulatedObjects
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: SimulatedObjects
+  nameWithType: Simulation.SimulatedObjects
+  fullName: Netick.Simulation.SimulatedObjects
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly ExecutionListLL SimulatedObjects
+    return:
+      type: Netick.ExecutionListLL
+    content.vb: Public ReadOnly SimulatedObjects As ExecutionListLL
 - uid: Netick.Simulation.UnlinkedEntities
   commentId: F:Netick.Simulation.UnlinkedEntities
   id: UnlinkedEntities
@@ -61,6 +85,94 @@ items:
     return:
       type: System.Collections.Generic.Dictionary{System.Int32,Netick.Entity}
     content.vb: Public UnlinkedEntities As Dictionary(Of Integer, Entity)
+- uid: Netick.Simulation.InvokeRPCs
+  commentId: M:Netick.Simulation.InvokeRPCs
+  id: InvokeRPCs
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: InvokeRPCs()
+  nameWithType: Simulation.InvokeRPCs()
+  fullName: Netick.Simulation.InvokeRPCs()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: protected void InvokeRPCs()
+    content.vb: Protected Sub InvokeRPCs()
+  overload: Netick.Simulation.InvokeRPCs*
+- uid: Netick.Simulation.InvokePreRollback
+  commentId: M:Netick.Simulation.InvokePreRollback
+  id: InvokePreRollback
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: InvokePreRollback()
+  nameWithType: Simulation.InvokePreRollback()
+  fullName: Netick.Simulation.InvokePreRollback()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: protected void InvokePreRollback()
+    content.vb: Protected Sub InvokePreRollback()
+  overload: Netick.Simulation.InvokePreRollback*
+- uid: Netick.Simulation.InvokePostResimulation
+  commentId: M:Netick.Simulation.InvokePostResimulation
+  id: InvokePostResimulation
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: InvokePostResimulation()
+  nameWithType: Simulation.InvokePostResimulation()
+  fullName: Netick.Simulation.InvokePostResimulation()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: protected void InvokePostResimulation()
+    content.vb: Protected Sub InvokePostResimulation()
+  overload: Netick.Simulation.InvokePostResimulation*
+- uid: Netick.Simulation.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
+  commentId: M:Netick.Simulation.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
+  id: FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: FetchInput<T>(out T, ref bool, Entity, int)
+  nameWithType: Simulation.FetchInput<T>(out T, ref bool, Entity, int)
+  fullName: Netick.Simulation.FetchInput<T>(out T, ref bool, Netick.Entity, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: 'public bool FetchInput<T>(out T input, ref bool isDuplicated, Entity entity, int localPlayerIndex) where T : unmanaged'
+    parameters:
+    - id: input
+      type: '{T}'
+    - id: isDuplicated
+      type: System.Boolean
+    - id: entity
+      type: Netick.Entity
+    - id: localPlayerIndex
+      type: System.Int32
+    typeParameters:
+    - id: T
+    return:
+      type: System.Boolean
+    content.vb: Public Function FetchInput(Of T As Structure)(input As T, isDuplicated As Boolean, entity As Entity, localPlayerIndex As Integer) As Boolean
+  overload: Netick.Simulation.FetchInput*
+  nameWithType.vb: Simulation.FetchInput(Of T)(T, Boolean, Entity, Integer)
+  fullName.vb: Netick.Simulation.FetchInput(Of T)(T, Boolean, Netick.Entity, Integer)
+  name.vb: FetchInput(Of T)(T, Boolean, Entity, Integer)
 - uid: Netick.Simulation.FetchInputLocal``1(``0@,System.Boolean@,System.Int32)
   commentId: M:Netick.Simulation.FetchInputLocal``1(``0@,System.Boolean@,System.Int32)
   id: FetchInputLocal``1(``0@,System.Boolean@,System.Int32)
@@ -338,6 +450,78 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -416,78 +600,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -533,28 +645,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
   spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
 - uid: System
@@ -564,6 +676,14 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Netick.ExecutionListLL
+  commentId: T:Netick.ExecutionListLL
+  parent: Netick
+  isExternal: true
+  href: Netick.ExecutionListLL.html
+  name: ExecutionListLL
+  nameWithType: ExecutionListLL
+  fullName: Netick.ExecutionListLL
 - uid: System.Collections.Generic.Dictionary{System.Int32,Netick.Entity}
   commentId: T:System.Collections.Generic.Dictionary{System.Int32,Netick.Entity}
   parent: System.Collections.Generic
@@ -682,13 +802,34 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: Netick.Simulation.FetchInputLocal*
-  commentId: Overload:Netick.Simulation.FetchInputLocal
+- uid: Netick.Simulation.InvokeRPCs*
+  commentId: Overload:Netick.Simulation.InvokeRPCs
   isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_FetchInputLocal__1___0__System_Boolean__System_Int32_
-  name: FetchInputLocal
-  nameWithType: Simulation.FetchInputLocal
-  fullName: Netick.Simulation.FetchInputLocal
+  href: Netick.Simulation.html#Netick_Simulation_InvokeRPCs
+  name: InvokeRPCs
+  nameWithType: Simulation.InvokeRPCs
+  fullName: Netick.Simulation.InvokeRPCs
+- uid: Netick.Simulation.InvokePreRollback*
+  commentId: Overload:Netick.Simulation.InvokePreRollback
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_InvokePreRollback
+  name: InvokePreRollback
+  nameWithType: Simulation.InvokePreRollback
+  fullName: Netick.Simulation.InvokePreRollback
+- uid: Netick.Simulation.InvokePostResimulation*
+  commentId: Overload:Netick.Simulation.InvokePostResimulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_InvokePostResimulation
+  name: InvokePostResimulation
+  nameWithType: Simulation.InvokePostResimulation
+  fullName: Netick.Simulation.InvokePostResimulation
+- uid: Netick.Simulation.FetchInput*
+  commentId: Overload:Netick.Simulation.FetchInput
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_FetchInput__1___0__System_Boolean__Netick_Entity_System_Int32_
+  name: FetchInput
+  nameWithType: Simulation.FetchInput
+  fullName: Netick.Simulation.FetchInput
 - uid: '{T}'
   commentId: '!:T'
   definition: T
@@ -706,6 +847,14 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -721,6 +870,13 @@ references:
   name: T
   nameWithType: T
   fullName: T
+- uid: Netick.Simulation.FetchInputLocal*
+  commentId: Overload:Netick.Simulation.FetchInputLocal
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_FetchInputLocal__1___0__System_Boolean__System_Int32_
+  name: FetchInputLocal
+  nameWithType: Simulation.FetchInputLocal
+  fullName: Netick.Simulation.FetchInputLocal
 - uid: Netick.Simulation.GetInput*
   commentId: Overload:Netick.Simulation.GetInput
   isExternal: true
@@ -742,14 +898,6 @@ references:
   name: GetEntityByWorldIndex
   nameWithType: Simulation.GetEntityByWorldIndex
   fullName: Netick.Simulation.GetEntityByWorldIndex
-- uid: Netick.Entity
-  commentId: T:Netick.Entity
-  parent: Netick
-  isExternal: true
-  href: Netick.Entity.html
-  name: Entity
-  nameWithType: Entity
-  fullName: Netick.Entity
 - uid: Netick.Simulation.RemoveFromNetworkLoop*
   commentId: Overload:Netick.Simulation.RemoveFromNetworkLoop
   isExternal: true

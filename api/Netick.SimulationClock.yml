@@ -24,31 +24,12 @@ items:
   inheritance:
   - System.Object
   inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
-  - System.Object.GetHashCode
-  - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
-  - System.Object.ToString
-- uid: Netick.SimulationClock.Alpha
-  commentId: F:Netick.SimulationClock.Alpha
-  id: Alpha
-  parent: Netick.SimulationClock
-  langs:
-  - csharp
-  - vb
-  name: Alpha
-  nameWithType: SimulationClock.Alpha
-  fullName: Netick.SimulationClock.Alpha
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public float Alpha
-    return:
-      type: System.Single
-    content.vb: Public Alpha As Single
+  - System.Object.GetHashCode
 - uid: Netick.SimulationClock.FixedDelta
   commentId: P:Netick.SimulationClock.FixedDelta
   id: FixedDelta
@@ -91,6 +72,27 @@ items:
       type: System.Single
     content.vb: Public ReadOnly Property DeltaTime As Single
   overload: Netick.SimulationClock.DeltaTime*
+- uid: Netick.SimulationClock.Alpha
+  commentId: P:Netick.SimulationClock.Alpha
+  id: Alpha
+  parent: Netick.SimulationClock
+  langs:
+  - csharp
+  - vb
+  name: Alpha
+  nameWithType: SimulationClock.Alpha
+  fullName: Netick.SimulationClock.Alpha
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float Alpha { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property Alpha As Single
+  overload: Netick.SimulationClock.Alpha*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -110,6 +112,54 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -188,54 +238,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.GetHashCode
-  commentId: M:System.Object.GetHashCode
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  name: GetHashCode()
-  nameWithType: object.GetHashCode()
-  fullName: object.GetHashCode()
-  nameWithType.vb: Object.GetHashCode()
-  fullName.vb: Object.GetHashCode()
-  spec.csharp:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetHashCode
-    name: GetHashCode
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
-  - name: (
-  - name: )
-- uid: System.Object.GetType
-  commentId: M:System.Object.GetType
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  name: GetType()
-  nameWithType: object.GetType()
-  fullName: object.GetType()
-  nameWithType.vb: Object.GetType()
-  fullName.vb: Object.GetType()
-  spec.csharp:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.GetType
-    name: GetType
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
 - uid: System.Object.ReferenceEquals(System.Object,System.Object)
   commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
   parent: System.Object
@@ -281,28 +283,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
   parent: System.Object
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
   spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
   spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
 - uid: System
@@ -312,6 +314,13 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Netick.SimulationClock.FixedDelta*
+  commentId: Overload:Netick.SimulationClock.FixedDelta
+  isExternal: true
+  href: Netick.SimulationClock.html#Netick_SimulationClock_FixedDelta
+  name: FixedDelta
+  nameWithType: SimulationClock.FixedDelta
+  fullName: Netick.SimulationClock.FixedDelta
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -323,13 +332,6 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
-- uid: Netick.SimulationClock.FixedDelta*
-  commentId: Overload:Netick.SimulationClock.FixedDelta
-  isExternal: true
-  href: Netick.SimulationClock.html#Netick_SimulationClock_FixedDelta
-  name: FixedDelta
-  nameWithType: SimulationClock.FixedDelta
-  fullName: Netick.SimulationClock.FixedDelta
 - uid: Netick.SimulationClock.DeltaTime*
   commentId: Overload:Netick.SimulationClock.DeltaTime
   isExternal: true
@@ -337,3 +339,10 @@ references:
   name: DeltaTime
   nameWithType: SimulationClock.DeltaTime
   fullName: Netick.SimulationClock.DeltaTime
+- uid: Netick.SimulationClock.Alpha*
+  commentId: Overload:Netick.SimulationClock.Alpha
+  isExternal: true
+  href: Netick.SimulationClock.html#Netick_SimulationClock_Alpha
+  name: Alpha
+  nameWithType: SimulationClock.Alpha
+  fullName: Netick.SimulationClock.Alpha
