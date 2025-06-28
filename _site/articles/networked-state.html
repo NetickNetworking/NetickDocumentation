@@ -193,13 +193,9 @@ public struct MyNestedStruct
 {
     public int                      Int;
     public NetworkBool              Bool;
-    [Networked]
     public float                    Float    { get; set;}
-    [Networked]
     public Vector3                  Position { get; set;} 
-    [Networked]
     public Quaternion               Rotation { get; set;} 
-    [Networked]
     public Color                    Color    { get; set;} 
     public NetworkString8           Name;
 }
@@ -211,7 +207,6 @@ public struct MyStruct
     public NetworkArrayStruct8&lt;int&gt; StructArray;
     public int                      Int;
     public NetworkBool              Bool;
-    [Networked]
     public float                    Float    { get; set;}
     public double                   Double;
 }
@@ -225,7 +220,7 @@ public MyStruct MyStructProperty {get; set;}
 </div>
 <div class="NOTE">
 <h5>Note</h5>
-<p><code>[Networked]</code> attribute on structs is optional. However, when adding it to a struct, it allows float-based types (such as <code>float</code> or <code>Vector3</code>, which also have <code>[Networked]</code> on them) of a struct to have extra compression on them.</p>
+<p><code>[Networked]</code> attribute on structs is optional. However, when adding it to a struct, it allows float-based types (such as <code>float</code> or <code>Vector3</code>) of a struct to have extra compression on them.</p>
 </div>
 <h2 id="networking-references-to-networkobject-and-networkbehaviour">Networking References to <code>NetworkObject</code> and <code>NetworkBehaviour</code></h2>
 <p>Since you can't directly synchronize class references, we provide two helper structs that are used to synchronize a reference to <code>NetworkObject</code> and <code>NetworkBehaviour</code>:</p>

@@ -133,13 +133,9 @@ public struct MyNestedStruct
 {
     public int                      Int;
     public NetworkBool              Bool;
-    [Networked]
     public float                    Float    { get; set;}
-    [Networked]
     public Vector3                  Position { get; set;} 
-    [Networked]
     public Quaternion               Rotation { get; set;} 
-    [Networked]
     public Color                    Color    { get; set;} 
     public NetworkString8           Name;
 }
@@ -151,7 +147,6 @@ public struct MyStruct
     public NetworkArrayStruct8<int> StructArray;
     public int                      Int;
     public NetworkBool              Bool;
-    [Networked]
     public float                    Float    { get; set;}
     public double                   Double;
 }
@@ -164,7 +159,7 @@ public MyStruct MyStructProperty {get; set;}
 > `string` is not supported as a type that can be used inside a struct. Use `NetworkString` instead.
 
 > [!Note] 
-> `[Networked]` attribute on structs is optional. However, when adding it to a struct, it allows float-based types (such as `float` or `Vector3`, which also have `[Networked]` on them) of a struct to have extra compression on them.
+> `[Networked]` attribute on structs is optional. However, when adding it to a struct, it allows float-based types (such as `float` or `Vector3`) of a struct to have extra compression on them.
 
 
 ## Networking References to `NetworkObject` and `NetworkBehaviour`
