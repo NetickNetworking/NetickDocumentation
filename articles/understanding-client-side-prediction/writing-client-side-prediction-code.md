@@ -12,6 +12,7 @@ To define a new input, create a struct that implements `INetworkInput` interface
 [Networked]
 public struct MyInput : INetworkInput
 {
+   [Networked] // adding [Networked] to a struct field and making it a property allows Netick to provide extra compression to it.
    public Vector2     Movement { get; set;}
    public NetworkBool Shoot;
 }
