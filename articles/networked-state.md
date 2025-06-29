@@ -133,9 +133,13 @@ public struct MyNestedStruct
 {
     public int                      Int;
     public NetworkBool              Bool;
+    [Networked]
     public float                    Float    { get; set;}
+    [Networked]
     public Vector3                  Position { get; set;} 
+    [Networked]
     public Quaternion               Rotation { get; set;} 
+    [Networked]
     public Color                    Color    { get; set;} 
     public NetworkString8           Name;
 }
@@ -147,8 +151,8 @@ public struct MyStruct
     public NetworkArrayStruct8<int> StructArray;
     public int                      Int;
     public NetworkBool              Bool;
+    [Networked]
     public float                    Float    { get; set;}
-    public double                   Double;
 }
 
 [Networked]
