@@ -2,15 +2,22 @@
 This repository hosts the Documentation for Netick. It does not host the source code of Netick itself.
 
 ## Developer Guide
-This documentation uses [docfx](https://github.com/dotnet/docfx).
+The documentation of Netick is built using [docfx](https://github.com/dotnet/docfx). The documentation articles are located at `articles`, and they are written using markdown format.
 
-Install docfx:
+
+### Getting Started
+
+Installing docfx:
 ```
 dotnet tool install -g docfx
 ```
 
 Serving the docs on localhost:
-
 ```
 docfx --serve
 ```
+
+
+### Adding New Articles
+
+Make a new page at `articles`, and link it in `articles\toc.md`.
