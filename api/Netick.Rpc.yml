@@ -6,6 +6,9 @@ items:
   parent: Netick
   children:
   - Netick.Rpc.#ctor(Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Boolean)
+  - Netick.Rpc.IsReliable
+  - Netick.Rpc.Source
+  - Netick.Rpc.Target
   langs:
   - csharp
   - vb
@@ -86,6 +89,63 @@ items:
     - name: AllowMultiple
       type: System.Boolean
       value: false
+- uid: Netick.Rpc.Source
+  commentId: F:Netick.Rpc.Source
+  id: Source
+  parent: Netick.Rpc
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: Rpc.Source
+  fullName: Netick.Rpc.Source
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public RpcPeers Source
+    return:
+      type: Netick.RpcPeers
+    content.vb: Public Source As RpcPeers
+- uid: Netick.Rpc.Target
+  commentId: F:Netick.Rpc.Target
+  id: Target
+  parent: Netick.Rpc
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: Rpc.Target
+  fullName: Netick.Rpc.Target
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public RpcPeers Target
+    return:
+      type: Netick.RpcPeers
+    content.vb: Public Target As RpcPeers
+- uid: Netick.Rpc.IsReliable
+  commentId: F:Netick.Rpc.IsReliable
+  id: IsReliable
+  parent: Netick.Rpc
+  langs:
+  - csharp
+  - vb
+  name: IsReliable
+  nameWithType: Rpc.IsReliable
+  fullName: Netick.Rpc.IsReliable
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsReliable
+    return:
+      type: System.Boolean
+    content.vb: Public IsReliable As Boolean
 - uid: Netick.Rpc.#ctor(Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Boolean)
   commentId: M:Netick.Rpc.#ctor(Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Boolean)
   id: '#ctor(Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Boolean)'
@@ -1918,16 +1978,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Netick.Rpc.#ctor*
-  commentId: Overload:Netick.Rpc.#ctor
-  isExternal: true
-  href: Netick.Rpc.html#Netick_Rpc__ctor_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Boolean_
-  name: Rpc
-  nameWithType: Rpc.Rpc
-  fullName: Netick.Rpc.Rpc
-  nameWithType.vb: Rpc.New
-  fullName.vb: Netick.Rpc.New
-  name.vb: New
 - uid: Netick.RpcPeers
   commentId: T:Netick.RpcPeers
   parent: Netick
@@ -1947,3 +1997,13 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Netick.Rpc.#ctor*
+  commentId: Overload:Netick.Rpc.#ctor
+  isExternal: true
+  href: Netick.Rpc.html#Netick_Rpc__ctor_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Boolean_
+  name: Rpc
+  nameWithType: Rpc.Rpc
+  fullName: Netick.Rpc.Rpc
+  nameWithType.vb: Rpc.New
+  fullName.vb: Netick.Rpc.New
+  name.vb: New

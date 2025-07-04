@@ -5,16 +5,14 @@ items:
   id: NetworkRpc
   parent: Netick
   children:
-  - Netick.NetworkRpc.#ctor(System.Int32)
   - Netick.NetworkRpc.Data
   - Netick.NetworkRpc.Id
-  - Netick.NetworkRpc.Init(System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
   - Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32)
+  - Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,Netick.RpcInvokeData@)
   - Netick.NetworkRpc.InternalCanSend(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Int32)
-  - Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine,Netick.NetworkConnection,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
+  - Netick.NetworkRpc.InternalCreateRelayedRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
+  - Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
   - Netick.NetworkRpc.InternalIsResim(Netick.NetickEngine)
-  - Netick.NetworkRpc.Recycle
-  - Netick.NetworkRpc.RegisterSent(Netick.NetworkConnection)
   - Netick.NetworkRpc.SizeWords
   - Netick.NetworkRpc.Target
   langs:
@@ -116,104 +114,6 @@ items:
     return:
       type: System.Int32
     content.vb: Public SizeWords As Integer
-- uid: Netick.NetworkRpc.#ctor(System.Int32)
-  commentId: M:Netick.NetworkRpc.#ctor(System.Int32)
-  id: '#ctor(System.Int32)'
-  parent: Netick.NetworkRpc
-  langs:
-  - csharp
-  - vb
-  name: NetworkRpc(int)
-  nameWithType: NetworkRpc.NetworkRpc(int)
-  fullName: Netick.NetworkRpc.NetworkRpc(int)
-  type: Constructor
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public NetworkRpc(int maxPlayers)
-    parameters:
-    - id: maxPlayers
-      type: System.Int32
-    content.vb: Public Sub New(maxPlayers As Integer)
-  overload: Netick.NetworkRpc.#ctor*
-  nameWithType.vb: NetworkRpc.New(Integer)
-  fullName.vb: Netick.NetworkRpc.New(Integer)
-  name.vb: New(Integer)
-- uid: Netick.NetworkRpc.Init(System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
-  commentId: M:Netick.NetworkRpc.Init(System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
-  id: Init(System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
-  parent: Netick.NetworkRpc
-  langs:
-  - csharp
-  - vb
-  name: Init(int, INetickNetworkScript, bool, RpcPeers, int)
-  nameWithType: NetworkRpc.Init(int, INetickNetworkScript, bool, RpcPeers, int)
-  fullName: Netick.NetworkRpc.Init(int, Netick.INetickNetworkScript, bool, Netick.RpcPeers, int)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public NetworkRpc Init(int id, INetickNetworkScript behaviour, bool isReliable, RpcPeers target, int sizeWords)
-    parameters:
-    - id: id
-      type: System.Int32
-    - id: behaviour
-      type: Netick.INetickNetworkScript
-    - id: isReliable
-      type: System.Boolean
-    - id: target
-      type: Netick.RpcPeers
-    - id: sizeWords
-      type: System.Int32
-    return:
-      type: Netick.NetworkRpc
-    content.vb: Public Function Init(id As Integer, behaviour As INetickNetworkScript, isReliable As Boolean, target As RpcPeers, sizeWords As Integer) As NetworkRpc
-  overload: Netick.NetworkRpc.Init*
-  nameWithType.vb: NetworkRpc.Init(Integer, INetickNetworkScript, Boolean, RpcPeers, Integer)
-  fullName.vb: Netick.NetworkRpc.Init(Integer, Netick.INetickNetworkScript, Boolean, Netick.RpcPeers, Integer)
-  name.vb: Init(Integer, INetickNetworkScript, Boolean, RpcPeers, Integer)
-- uid: Netick.NetworkRpc.Recycle
-  commentId: M:Netick.NetworkRpc.Recycle
-  id: Recycle
-  parent: Netick.NetworkRpc
-  langs:
-  - csharp
-  - vb
-  name: Recycle()
-  nameWithType: NetworkRpc.Recycle()
-  fullName: Netick.NetworkRpc.Recycle()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void Recycle()
-    content.vb: Public Sub Recycle()
-  overload: Netick.NetworkRpc.Recycle*
-- uid: Netick.NetworkRpc.RegisterSent(Netick.NetworkConnection)
-  commentId: M:Netick.NetworkRpc.RegisterSent(Netick.NetworkConnection)
-  id: RegisterSent(Netick.NetworkConnection)
-  parent: Netick.NetworkRpc
-  langs:
-  - csharp
-  - vb
-  name: RegisterSent(NetworkConnection)
-  nameWithType: NetworkRpc.RegisterSent(NetworkConnection)
-  fullName: Netick.NetworkRpc.RegisterSent(Netick.NetworkConnection)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  example: []
-  syntax:
-    content: public void RegisterSent(NetworkConnection connection)
-    parameters:
-    - id: connection
-      type: Netick.NetworkConnection
-    content.vb: Public Sub RegisterSent(connection As NetworkConnection)
-  overload: Netick.NetworkRpc.RegisterSent*
 - uid: Netick.NetworkRpc.InternalIsResim(Netick.NetickEngine)
   commentId: M:Netick.NetworkRpc.InternalIsResim(Netick.NetickEngine)
   id: InternalIsResim(Netick.NetickEngine)
@@ -239,16 +139,16 @@ items:
       type: System.Boolean
     content.vb: Public Shared Function InternalIsResim(engine As NetickEngine) As Boolean
   overload: Netick.NetworkRpc.InternalIsResim*
-- uid: Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine,Netick.NetworkConnection,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
-  commentId: M:Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine,Netick.NetworkConnection,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
-  id: InternalCreateRpc(Netick.NetickEngine,Netick.NetworkConnection,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
+- uid: Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
+  commentId: M:Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
+  id: InternalCreateRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
   parent: Netick.NetworkRpc
   langs:
   - csharp
   - vb
-  name: InternalCreateRpc(NetickEngine, NetworkConnection, int, INetickNetworkScript, bool, RpcPeers, int)
-  nameWithType: NetworkRpc.InternalCreateRpc(NetickEngine, NetworkConnection, int, INetickNetworkScript, bool, RpcPeers, int)
-  fullName: Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine, Netick.NetworkConnection, int, Netick.INetickNetworkScript, bool, Netick.RpcPeers, int)
+  name: InternalCreateRpc(NetickEngine, bool, NetworkPlayerId, int, INetickNetworkScript, bool, RpcPeers, int)
+  nameWithType: NetworkRpc.InternalCreateRpc(NetickEngine, bool, NetworkPlayerId, int, INetickNetworkScript, bool, RpcPeers, int)
+  fullName: Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine, bool, Netick.NetworkPlayerId, int, Netick.INetickNetworkScript, bool, Netick.RpcPeers, int)
   type: Method
   assemblies:
   - Netick
@@ -256,12 +156,14 @@ items:
   summary: Internal method. Never call this.
   example: []
   syntax:
-    content: public static NetworkRpc InternalCreateRpc(NetickEngine engine, NetworkConnection connection, int id, INetickNetworkScript behaviour, bool isReliable, RpcPeers target, int wordSize)
+    content: public static NetworkRpc InternalCreateRpc(NetickEngine engine, bool isTargeted, NetworkPlayerId targetPlayer, int id, INetickNetworkScript behaviour, bool isReliable, RpcPeers target, int wordSize)
     parameters:
     - id: engine
       type: Netick.NetickEngine
-    - id: connection
-      type: Netick.NetworkConnection
+    - id: isTargeted
+      type: System.Boolean
+    - id: targetPlayer
+      type: Netick.NetworkPlayerId
     - id: id
       type: System.Int32
     - id: behaviour
@@ -274,11 +176,53 @@ items:
       type: System.Int32
     return:
       type: Netick.NetworkRpc
-    content.vb: Public Shared Function InternalCreateRpc(engine As NetickEngine, connection As NetworkConnection, id As Integer, behaviour As INetickNetworkScript, isReliable As Boolean, target As RpcPeers, wordSize As Integer) As NetworkRpc
+    content.vb: Public Shared Function InternalCreateRpc(engine As NetickEngine, isTargeted As Boolean, targetPlayer As NetworkPlayerId, id As Integer, behaviour As INetickNetworkScript, isReliable As Boolean, target As RpcPeers, wordSize As Integer) As NetworkRpc
   overload: Netick.NetworkRpc.InternalCreateRpc*
-  nameWithType.vb: NetworkRpc.InternalCreateRpc(NetickEngine, NetworkConnection, Integer, INetickNetworkScript, Boolean, RpcPeers, Integer)
-  fullName.vb: Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine, Netick.NetworkConnection, Integer, Netick.INetickNetworkScript, Boolean, Netick.RpcPeers, Integer)
-  name.vb: InternalCreateRpc(NetickEngine, NetworkConnection, Integer, INetickNetworkScript, Boolean, RpcPeers, Integer)
+  nameWithType.vb: NetworkRpc.InternalCreateRpc(NetickEngine, Boolean, NetworkPlayerId, Integer, INetickNetworkScript, Boolean, RpcPeers, Integer)
+  fullName.vb: Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine, Boolean, Netick.NetworkPlayerId, Integer, Netick.INetickNetworkScript, Boolean, Netick.RpcPeers, Integer)
+  name.vb: InternalCreateRpc(NetickEngine, Boolean, NetworkPlayerId, Integer, INetickNetworkScript, Boolean, RpcPeers, Integer)
+- uid: Netick.NetworkRpc.InternalCreateRelayedRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
+  commentId: M:Netick.NetworkRpc.InternalCreateRelayedRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
+  id: InternalCreateRelayedRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
+  parent: Netick.NetworkRpc
+  langs:
+  - csharp
+  - vb
+  name: InternalCreateRelayedRpc(NetickEngine, bool, NetworkPlayerId, NetworkPlayerId, int, INetickNetworkScript, bool, RpcPeers, int)
+  nameWithType: NetworkRpc.InternalCreateRelayedRpc(NetickEngine, bool, NetworkPlayerId, NetworkPlayerId, int, INetickNetworkScript, bool, RpcPeers, int)
+  fullName: Netick.NetworkRpc.InternalCreateRelayedRpc(Netick.NetickEngine, bool, Netick.NetworkPlayerId, Netick.NetworkPlayerId, int, Netick.INetickNetworkScript, bool, Netick.RpcPeers, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static NetworkRpc InternalCreateRelayedRpc(NetickEngine engine, bool isTargeted, NetworkPlayerId sourcePlayer, NetworkPlayerId targetPlayer, int id, INetickNetworkScript behaviour, bool isReliable, RpcPeers target, int wordSize)
+    parameters:
+    - id: engine
+      type: Netick.NetickEngine
+    - id: isTargeted
+      type: System.Boolean
+    - id: sourcePlayer
+      type: Netick.NetworkPlayerId
+    - id: targetPlayer
+      type: Netick.NetworkPlayerId
+    - id: id
+      type: System.Int32
+    - id: behaviour
+      type: Netick.INetickNetworkScript
+    - id: isReliable
+      type: System.Boolean
+    - id: target
+      type: Netick.RpcPeers
+    - id: wordSize
+      type: System.Int32
+    return:
+      type: Netick.NetworkRpc
+    content.vb: Public Shared Function InternalCreateRelayedRpc(engine As NetickEngine, isTargeted As Boolean, sourcePlayer As NetworkPlayerId, targetPlayer As NetworkPlayerId, id As Integer, behaviour As INetickNetworkScript, isReliable As Boolean, target As RpcPeers, wordSize As Integer) As NetworkRpc
+  overload: Netick.NetworkRpc.InternalCreateRelayedRpc*
+  nameWithType.vb: NetworkRpc.InternalCreateRelayedRpc(NetickEngine, Boolean, NetworkPlayerId, NetworkPlayerId, Integer, INetickNetworkScript, Boolean, RpcPeers, Integer)
+  fullName.vb: Netick.NetworkRpc.InternalCreateRelayedRpc(Netick.NetickEngine, Boolean, Netick.NetworkPlayerId, Netick.NetworkPlayerId, Integer, Netick.INetickNetworkScript, Boolean, Netick.RpcPeers, Integer)
+  name.vb: InternalCreateRelayedRpc(NetickEngine, Boolean, NetworkPlayerId, NetworkPlayerId, Integer, INetickNetworkScript, Boolean, RpcPeers, Integer)
 - uid: Netick.NetworkRpc.InternalCanSend(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Int32)
   commentId: M:Netick.NetworkRpc.InternalCanSend(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Int32)
   id: InternalCanSend(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Int32)
@@ -329,8 +273,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Internal method. Never call this.
-  example: []
   syntax:
     content: public static bool InternalCanInvoke(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcId)
     parameters:
@@ -353,6 +295,46 @@ items:
   nameWithType.vb: NetworkRpc.InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer)
   fullName.vb: Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, Boolean, Integer)
   name.vb: InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer)
+- uid: Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,Netick.RpcInvokeData@)
+  commentId: M:Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,Netick.RpcInvokeData@)
+  id: InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,Netick.RpcInvokeData@)
+  parent: Netick.NetworkRpc
+  langs:
+  - csharp
+  - vb
+  name: InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, ref RpcInvokeData)
+  nameWithType: NetworkRpc.InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, ref RpcInvokeData)
+  fullName: Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, bool, int, ref Netick.RpcInvokeData)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Internal method. Never call this.
+  example: []
+  syntax:
+    content: public static bool InternalCanInvokeWithRID(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcId, ref RpcInvokeData rpcInvokeData)
+    parameters:
+    - id: engine
+      type: Netick.NetickEngine
+    - id: obj
+      type: Netick.Entity
+    - id: source
+      type: Netick.RpcPeers
+    - id: target
+      type: Netick.RpcPeers
+    - id: localInvoke
+      type: System.Boolean
+    - id: rpcId
+      type: System.Int32
+    - id: rpcInvokeData
+      type: Netick.RpcInvokeData
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function InternalCanInvokeWithRID(engine As NetickEngine, obj As Entity, source As RpcPeers, target As RpcPeers, localInvoke As Boolean, rpcId As Integer, rpcInvokeData As RpcInvokeData) As Boolean
+  overload: Netick.NetworkRpc.InternalCanInvokeWithRID*
+  nameWithType.vb: NetworkRpc.InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer, RpcInvokeData)
+  fullName.vb: Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, Boolean, Integer, Netick.RpcInvokeData)
+  name.vb: InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer, RpcInvokeData)
 references:
 - uid: Netick
   commentId: N:Netick
@@ -638,72 +620,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: '*'
-- uid: Netick.NetworkRpc.#ctor*
-  commentId: Overload:Netick.NetworkRpc.#ctor
-  isExternal: true
-  href: Netick.NetworkRpc.html#Netick_NetworkRpc__ctor_System_Int32_
-  name: NetworkRpc
-  nameWithType: NetworkRpc.NetworkRpc
-  fullName: Netick.NetworkRpc.NetworkRpc
-  nameWithType.vb: NetworkRpc.New
-  fullName.vb: Netick.NetworkRpc.New
-  name.vb: New
-- uid: Netick.NetworkRpc.Init*
-  commentId: Overload:Netick.NetworkRpc.Init
-  isExternal: true
-  href: Netick.NetworkRpc.html#Netick_NetworkRpc_Init_System_Int32_Netick_INetickNetworkScript_System_Boolean_Netick_RpcPeers_System_Int32_
-  name: Init
-  nameWithType: NetworkRpc.Init
-  fullName: Netick.NetworkRpc.Init
-- uid: Netick.INetickNetworkScript
-  commentId: T:Netick.INetickNetworkScript
-  parent: Netick
-  isExternal: true
-  href: Netick.INetickNetworkScript.html
-  name: INetickNetworkScript
-  nameWithType: INetickNetworkScript
-  fullName: Netick.INetickNetworkScript
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: Netick.NetworkRpc
-  commentId: T:Netick.NetworkRpc
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkRpc.html
-  name: NetworkRpc
-  nameWithType: NetworkRpc
-  fullName: Netick.NetworkRpc
-- uid: Netick.NetworkRpc.Recycle*
-  commentId: Overload:Netick.NetworkRpc.Recycle
-  isExternal: true
-  href: Netick.NetworkRpc.html#Netick_NetworkRpc_Recycle
-  name: Recycle
-  nameWithType: NetworkRpc.Recycle
-  fullName: Netick.NetworkRpc.Recycle
-- uid: Netick.NetworkRpc.RegisterSent*
-  commentId: Overload:Netick.NetworkRpc.RegisterSent
-  isExternal: true
-  href: Netick.NetworkRpc.html#Netick_NetworkRpc_RegisterSent_Netick_NetworkConnection_
-  name: RegisterSent
-  nameWithType: NetworkRpc.RegisterSent
-  fullName: Netick.NetworkRpc.RegisterSent
-- uid: Netick.NetworkConnection
-  commentId: T:Netick.NetworkConnection
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkConnection.html
-  name: NetworkConnection
-  nameWithType: NetworkConnection
-  fullName: Netick.NetworkConnection
 - uid: Netick.NetworkRpc.InternalIsResim*
   commentId: Overload:Netick.NetworkRpc.InternalIsResim
   isExternal: true
@@ -719,13 +635,55 @@ references:
   name: NetickEngine
   nameWithType: NetickEngine
   fullName: Netick.NetickEngine
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: Netick.NetworkRpc.InternalCreateRpc*
   commentId: Overload:Netick.NetworkRpc.InternalCreateRpc
   isExternal: true
-  href: Netick.NetworkRpc.html#Netick_NetworkRpc_InternalCreateRpc_Netick_NetickEngine_Netick_NetworkConnection_System_Int32_Netick_INetickNetworkScript_System_Boolean_Netick_RpcPeers_System_Int32_
+  href: Netick.NetworkRpc.html#Netick_NetworkRpc_InternalCreateRpc_Netick_NetickEngine_System_Boolean_Netick_NetworkPlayerId_System_Int32_Netick_INetickNetworkScript_System_Boolean_Netick_RpcPeers_System_Int32_
   name: InternalCreateRpc
   nameWithType: NetworkRpc.InternalCreateRpc
   fullName: Netick.NetworkRpc.InternalCreateRpc
+- uid: Netick.NetworkPlayerId
+  commentId: T:Netick.NetworkPlayerId
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayerId.html
+  name: NetworkPlayerId
+  nameWithType: NetworkPlayerId
+  fullName: Netick.NetworkPlayerId
+- uid: Netick.INetickNetworkScript
+  commentId: T:Netick.INetickNetworkScript
+  parent: Netick
+  isExternal: true
+  href: Netick.INetickNetworkScript.html
+  name: INetickNetworkScript
+  nameWithType: INetickNetworkScript
+  fullName: Netick.INetickNetworkScript
+- uid: Netick.NetworkRpc
+  commentId: T:Netick.NetworkRpc
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkRpc.html
+  name: NetworkRpc
+  nameWithType: NetworkRpc
+  fullName: Netick.NetworkRpc
+- uid: Netick.NetworkRpc.InternalCreateRelayedRpc*
+  commentId: Overload:Netick.NetworkRpc.InternalCreateRelayedRpc
+  isExternal: true
+  href: Netick.NetworkRpc.html#Netick_NetworkRpc_InternalCreateRelayedRpc_Netick_NetickEngine_System_Boolean_Netick_NetworkPlayerId_Netick_NetworkPlayerId_System_Int32_Netick_INetickNetworkScript_System_Boolean_Netick_RpcPeers_System_Int32_
+  name: InternalCreateRelayedRpc
+  nameWithType: NetworkRpc.InternalCreateRelayedRpc
+  fullName: Netick.NetworkRpc.InternalCreateRelayedRpc
 - uid: Netick.NetworkRpc.InternalCanSend*
   commentId: Overload:Netick.NetworkRpc.InternalCanSend
   isExternal: true
@@ -748,3 +706,18 @@ references:
   name: InternalCanInvoke
   nameWithType: NetworkRpc.InternalCanInvoke
   fullName: Netick.NetworkRpc.InternalCanInvoke
+- uid: Netick.NetworkRpc.InternalCanInvokeWithRID*
+  commentId: Overload:Netick.NetworkRpc.InternalCanInvokeWithRID
+  isExternal: true
+  href: Netick.NetworkRpc.html#Netick_NetworkRpc_InternalCanInvokeWithRID_Netick_NetickEngine_Netick_Entity_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Int32_Netick_RpcInvokeData__
+  name: InternalCanInvokeWithRID
+  nameWithType: NetworkRpc.InternalCanInvokeWithRID
+  fullName: Netick.NetworkRpc.InternalCanInvokeWithRID
+- uid: Netick.RpcInvokeData
+  commentId: T:Netick.RpcInvokeData
+  parent: Netick
+  isExternal: true
+  href: Netick.RpcInvokeData.html
+  name: RpcInvokeData
+  nameWithType: RpcInvokeData
+  fullName: Netick.RpcInvokeData

@@ -36,6 +36,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Represents a network tick.
+  example: []
   syntax:
     content: 'public struct Tick : IEquatable<Tick>'
     content.vb: Public Structure Tick Implements IEquatable(Of Tick)
@@ -64,25 +66,6 @@ items:
     return:
       type: System.Int32
     content.vb: Public TickValue As Integer
-- uid: Netick.Tick.InvalidTick
-  commentId: F:Netick.Tick.InvalidTick
-  id: InvalidTick
-  parent: Netick.Tick
-  langs:
-  - csharp
-  - vb
-  name: InvalidTick
-  nameWithType: Tick.InvalidTick
-  fullName: Netick.Tick.InvalidTick
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public static Tick InvalidTick
-    return:
-      type: Netick.Tick
-    content.vb: Public Shared InvalidTick As Tick
 - uid: Netick.Tick.#ctor(System.Int32)
   commentId: M:Netick.Tick.#ctor(System.Int32)
   id: '#ctor(System.Int32)'
@@ -584,6 +567,27 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsValid As Boolean
   overload: Netick.Tick.IsValid*
+- uid: Netick.Tick.InvalidTick
+  commentId: P:Netick.Tick.InvalidTick
+  id: InvalidTick
+  parent: Netick.Tick
+  langs:
+  - csharp
+  - vb
+  name: InvalidTick
+  nameWithType: Tick.InvalidTick
+  fullName: Netick.Tick.InvalidTick
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static Tick InvalidTick { get; }
+    parameters: []
+    return:
+      type: Netick.Tick
+    content.vb: Public Shared ReadOnly Property InvalidTick As Tick
+  overload: Netick.Tick.InvalidTick*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -798,14 +802,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: Netick.Tick
-  commentId: T:Netick.Tick
-  parent: Netick
-  isExternal: true
-  href: Netick.Tick.html
-  name: Tick
-  nameWithType: Tick
-  fullName: Netick.Tick
 - uid: Netick.Tick.#ctor*
   commentId: Overload:Netick.Tick.#ctor
   isExternal: true
@@ -833,6 +829,14 @@ references:
     name: +
     isExternal: true
     href: Netick.Tick.html#Netick_Tick_op_Addition_Netick_Tick_System_Int32_
+- uid: Netick.Tick
+  commentId: T:Netick.Tick
+  parent: Netick
+  isExternal: true
+  href: Netick.Tick.html
+  name: Tick
+  nameWithType: Tick
+  fullName: Netick.Tick
 - uid: Netick.Tick.op_Subtraction*
   commentId: Overload:Netick.Tick.op_Subtraction
   isExternal: true
@@ -1190,3 +1194,10 @@ references:
   name: IsValid
   nameWithType: Tick.IsValid
   fullName: Netick.Tick.IsValid
+- uid: Netick.Tick.InvalidTick*
+  commentId: Overload:Netick.Tick.InvalidTick
+  isExternal: true
+  href: Netick.Tick.html#Netick_Tick_InvalidTick
+  name: InvalidTick
+  nameWithType: Tick.InvalidTick
+  fullName: Netick.Tick.InvalidTick

@@ -338,7 +338,8 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetworkPlayer CurrentRpcCaller { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This will be removed in the future, please read the doc article on Rpcs to learn the new replacement.&quot;)]
+public NetworkPlayer CurrentRpcCaller { get; }</code></pre>
   </div>
 
 
@@ -370,7 +371,8 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetworkConnection CurrentRpcSource { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This will be removed in the future, please read the doc article on Rpcs to learn the new replacement.&quot;)]
+public NetworkConnection CurrentRpcSource { get; }</code></pre>
   </div>
 
 
@@ -460,7 +462,8 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Use this to subscribe/unsubscribe to/from Netick events.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1031,7 +1034,7 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This player.</p>
+  <div class="markdown level1 summary"><p>The local player (this) player of this sandbox instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1364,200 +1367,6 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_NetworkSandbox_PostNetworkFixedUpdate_" data-uid="Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate*"></a>
-
-  <h3 id="Netick_Unity_NetworkSandbox_PostNetworkFixedUpdate" data-uid="Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate">
-  PostNetworkFixedUpdate
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Called after all NetworkFixedUpdate methods have been executed.</p>
-<p>Note: it's called with every resimulation on the client.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action PostNetworkFixedUpdate { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_NetworkSandbox_PostNetworkRender_" data-uid="Netick.Unity.NetworkSandbox.PostNetworkRender*"></a>
-
-  <h3 id="Netick_Unity_NetworkSandbox_PostNetworkRender" data-uid="Netick.Unity.NetworkSandbox.PostNetworkRender">
-  PostNetworkRender
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Called after all NetworkRender methods have been executed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action PostNetworkRender { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_NetworkSandbox_PostNetworkUpdate_" data-uid="Netick.Unity.NetworkSandbox.PostNetworkUpdate*"></a>
-
-  <h3 id="Netick_Unity_NetworkSandbox_PostNetworkUpdate" data-uid="Netick.Unity.NetworkSandbox.PostNetworkUpdate">
-  PostNetworkUpdate
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Called after all NetworkUpdate methods have been executed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action PostNetworkUpdate { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_NetworkSandbox_PreNetworkFixedUpdate_" data-uid="Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate*"></a>
-
-  <h3 id="Netick_Unity_NetworkSandbox_PreNetworkFixedUpdate" data-uid="Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate">
-  PreNetworkFixedUpdate
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Called before any NetworkFixedUpdate method have been executed.</p>
-<p>Note: it's called with every resimulation on the client.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action PreNetworkFixedUpdate { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_NetworkSandbox_PreNetworkRender_" data-uid="Netick.Unity.NetworkSandbox.PreNetworkRender*"></a>
-
-  <h3 id="Netick_Unity_NetworkSandbox_PreNetworkRender" data-uid="Netick.Unity.NetworkSandbox.PreNetworkRender">
-  PreNetworkRender
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Called before any NetworkRender method have been executed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action PreNetworkRender { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_NetworkSandbox_PreNetworkUpdate_" data-uid="Netick.Unity.NetworkSandbox.PreNetworkUpdate*"></a>
-
-  <h3 id="Netick_Unity_NetworkSandbox_PreNetworkUpdate" data-uid="Netick.Unity.NetworkSandbox.PreNetworkUpdate">
-  PreNetworkUpdate
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Called before any NetworkUpdate method have been executed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action PreNetworkUpdate { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
     <dd></dd>
   </dl>
 
@@ -2747,7 +2556,9 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Finds the <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a> instance associated with the specified <span class="xref">UnityEngine.GameObject</span>.
+Returns null if networking is not running or if no matching sandbox is found for the object's scene.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -2757,13 +2568,15 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>go</code> <span class="xref">GameObject</span></dt>
-    <dd></dd>
+    <dd><p>The <span class="xref">UnityEngine.GameObject</span> to find the sandbox for.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
-    <dd></dd>
+    <dd><p>The <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a> associated with the object's scene, or null if not found.</p>
+</dd>
   </dl>
 
 
@@ -2783,7 +2596,9 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Finds the <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a> instance associated with the specified <span class="xref">UnityEngine.GameObject</span>.
+Returns null if networking is not running or if no matching sandbox is found for the object's scene.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -2799,7 +2614,8 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a></dt>
-    <dd></dd>
+    <dd><p>The <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a> associated with the object's scene, or null if not found.</p>
+</dd>
   </dl>
 
 
@@ -3100,10 +2916,10 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
 
 
-  <a id="Netick_Unity_NetworkSandbox_GetPlayerFromId_" data-uid="Netick.Unity.NetworkSandbox.GetPlayerFromId*"></a>
+  <a id="Netick_Unity_NetworkSandbox_GetPlayerById_" data-uid="Netick.Unity.NetworkSandbox.GetPlayerById*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_GetPlayerFromId_Netick_NetworkPlayerId_" data-uid="Netick.Unity.NetworkSandbox.GetPlayerFromId(Netick.NetworkPlayerId)">
-  GetPlayerFromId(NetworkPlayerId)
+  <h3 id="Netick_Unity_NetworkSandbox_GetPlayerById_Netick_NetworkPlayerId_" data-uid="Netick.Unity.NetworkSandbox.GetPlayerById(Netick.NetworkPlayerId)">
+  GetPlayerById(NetworkPlayerId)
   
   </h3>
 
@@ -3115,7 +2931,7 @@ On the server, this method can return any player by their ID. On the client, it 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetworkPlayer GetPlayerFromId(NetworkPlayerId playerId)</code></pre>
+    <pre><code class="lang-csharp hljs">public NetworkPlayer GetPlayerById(NetworkPlayerId playerId)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3492,13 +3308,76 @@ On the server, this method can return any player by their ID. On the client, it 
 
   <a id="Netick_Unity_NetworkSandbox_Kick_" data-uid="Netick.Unity.NetworkSandbox.Kick*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_Kick_Netick_ServerConnection_" data-uid="Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)">
-  Kick(ServerConnection)
+  <h3 id="Netick_Unity_NetworkSandbox_Kick_Netick_NetworkPlayer_" data-uid="Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer)">
+  Kick(NetworkPlayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Kick(NetworkPlayer client)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>client</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_Kick_" data-uid="Netick.Unity.NetworkSandbox.Kick*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_Kick_Netick_NetworkPlayerId_" data-uid="Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId)">
+  Kick(NetworkPlayerId)
   
   </h3>
 
   <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i> Disconnects a client from the server.</p>
 </div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Kick(NetworkPlayerId client)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>client</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd><p>The client to be disconnected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_Kick_" data-uid="Netick.Unity.NetworkSandbox.Kick*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_Kick_Netick_ServerConnection_" data-uid="Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)">
+  Kick(ServerConnection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -3508,8 +3387,7 @@ On the server, this method can return any player by their ID. On the client, it 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>client</code> <a class="xref" href="Netick.ServerConnection.html">ServerConnection</a></dt>
-    <dd><p>The client to be disconnected.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -5041,6 +4919,198 @@ On the server, this method can return any player by their ID. On the client, it 
 
 
 
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Netick_Unity_NetworkSandbox_PostNetworkFixedUpdate" data-uid="Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate">
+  PostNetworkFixedUpdate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called after all NetworkFixedUpdate methods have been executed.</p>
+<p>Note: it's called with every resimulation on the client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action PostNetworkFixedUpdate</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkSandbox_PostNetworkRender" data-uid="Netick.Unity.NetworkSandbox.PostNetworkRender">
+  PostNetworkRender
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called after all NetworkRender methods have been executed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action PostNetworkRender</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkSandbox_PostNetworkUpdate" data-uid="Netick.Unity.NetworkSandbox.PostNetworkUpdate">
+  PostNetworkUpdate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called after all NetworkUpdate methods have been executed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action PostNetworkUpdate</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkSandbox_PreNetworkFixedUpdate" data-uid="Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate">
+  PreNetworkFixedUpdate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called before any NetworkFixedUpdate method have been executed.</p>
+<p>Note: it's called with every resimulation on the client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action PreNetworkFixedUpdate</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkSandbox_PreNetworkRender" data-uid="Netick.Unity.NetworkSandbox.PreNetworkRender">
+  PreNetworkRender
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called before any NetworkRender method have been executed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action PreNetworkRender</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_NetworkSandbox_PreNetworkUpdate" data-uid="Netick.Unity.NetworkSandbox.PreNetworkUpdate">
+  PreNetworkUpdate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called before any NetworkUpdate method have been executed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action PreNetworkUpdate</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
 
 
 

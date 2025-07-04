@@ -11,6 +11,7 @@ items:
   - Netick.NetworkPlayer.Engine
   - Netick.NetworkPlayer.PlayerId
   - Netick.NetworkPlayer.PlayerObject
+  - Netick.NetworkPlayer.ToString
   langs:
   - csharp
   - vb
@@ -34,7 +35,6 @@ items:
   inheritedMembers:
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
@@ -129,6 +129,28 @@ items:
   nameWithType.vb: NetworkPlayer.AddInterestBoxArea(NetickBounds, Integer)
   fullName.vb: Netick.NetworkPlayer.AddInterestBoxArea(Netick.NetickBounds, Integer)
   name.vb: AddInterestBoxArea(NetickBounds, Integer)
+- uid: Netick.NetworkPlayer.ToString
+  commentId: M:Netick.NetworkPlayer.ToString
+  id: ToString
+  parent: Netick.NetworkPlayer
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: NetworkPlayer.ToString()
+  fullName: Netick.NetworkPlayer.ToString()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Netick.NetworkPlayer.ToString*
 - uid: Netick.NetworkPlayer.PlayerId
   commentId: P:Netick.NetworkPlayer.PlayerId
   id: PlayerId
@@ -257,30 +279,6 @@ references:
     name: MemberwiseClone
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)
@@ -486,6 +484,48 @@ references:
   name: NetickBounds
   nameWithType: NetickBounds
   fullName: Netick.NetickBounds
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Netick.NetworkPlayer.ToString*
+  commentId: Overload:Netick.NetworkPlayer.ToString
+  isExternal: true
+  href: Netick.NetworkPlayer.html#Netick_NetworkPlayer_ToString
+  name: ToString
+  nameWithType: NetworkPlayer.ToString
+  fullName: Netick.NetworkPlayer.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: Netick.NetworkPlayer.PlayerId*
   commentId: Overload:Netick.NetworkPlayer.PlayerId
   isExternal: true

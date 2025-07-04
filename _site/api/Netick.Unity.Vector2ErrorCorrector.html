@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Struct NetworkString16 | Netick Networking Engine </title>
+      <title>Struct Vector2ErrorCorrector | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Struct NetworkString16 | Netick Networking Engine ">
+      <meta name="title" content="Struct Vector2ErrorCorrector | Netick Networking Engine ">
       
       <link rel="icon" href="../images/logo.png">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -82,25 +82,25 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Netick.NetworkString16">
+        <article data-uid="Netick.Unity.Vector2ErrorCorrector">
 
 
 
-  <h1 id="Netick_NetworkString16" data-uid="Netick.NetworkString16" class="text-break">
-Struct NetworkString16  
+  <h1 id="Netick_Unity_Vector2ErrorCorrector" data-uid="Netick.Unity.Vector2ErrorCorrector" class="text-break">
+Struct Vector2ErrorCorrector  
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Netick.html">Netick</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>Netick.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Netick.html">Netick</a>.<a class="xref" href="Netick.Unity.html">Unity</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Netick.Unity.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents a fixed-size network-serializable string with a maximum length of 16 characters.</p>
+  <div class="markdown summary"><p>Handles prediction error correction smoothing for a Vector2.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct NetworkString16</code></pre>
+    <pre><code class="lang-csharp hljs">public struct Vector2ErrorCorrector</code></pre>
   </div>
 
 
@@ -119,6 +119,9 @@ Struct NetworkString16
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.tostring">ValueType.ToString()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
@@ -134,14 +137,13 @@ Struct NetworkString16
 
 
 
-  <h2 class="section" id="constructors">Constructors
+  <h2 class="section" id="fields">Fields
 </h2>
 
 
-  <a id="Netick_NetworkString16__ctor_" data-uid="Netick.NetworkString16.#ctor*"></a>
 
-  <h3 id="Netick_NetworkString16__ctor_System_String_" data-uid="Netick.NetworkString16.#ctor(System.String)">
-  NetworkString16(string)
+  <h3 id="Netick_Unity_Vector2ErrorCorrector_Vector2Error" data-uid="Netick.Unity.Vector2ErrorCorrector.Vector2Error">
+  Vector2Error
   
   </h3>
 
@@ -149,12 +151,15 @@ Struct NetworkString16
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetworkString16(string value)</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2 Vector2Error</code></pre>
   </div>
 
-  <h4 class="section">Parameters</h4>
+
+
+
+  <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><span class="xref">Vector2</span></dt>
     <dd></dd>
   </dl>
 
@@ -167,15 +172,8 @@ Struct NetworkString16
 
 
 
-
-
-  <h2 class="section" id="fields">Fields
-</h2>
-
-
-
-  <h3 id="Netick_NetworkString16_RawValue" data-uid="Netick.NetworkString16.RawValue">
-  RawValue
+  <h3 id="Netick_Unity_Vector2ErrorCorrector_Vector2PreRollback" data-uid="Netick.Unity.Vector2ErrorCorrector.Vector2PreRollback">
+  Vector2PreRollback
   
   </h3>
 
@@ -183,7 +181,7 @@ Struct NetworkString16
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FixedSize16&lt;ushort&gt; RawValue</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2 Vector2PreRollback</code></pre>
   </div>
 
 
@@ -191,7 +189,7 @@ Struct NetworkString16
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.FixedSize16-1.html">FixedSize16</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a>&gt;</dt>
+    <dt><span class="xref">Vector2</span></dt>
     <dd></dd>
   </dl>
 
@@ -207,10 +205,10 @@ Struct NetworkString16
 </h2>
 
 
-  <a id="Netick_NetworkString16_LoadIntoStringBuilder_" data-uid="Netick.NetworkString16.LoadIntoStringBuilder*"></a>
+  <a id="Netick_Unity_Vector2ErrorCorrector_Init_" data-uid="Netick.Unity.Vector2ErrorCorrector.Init*"></a>
 
-  <h3 id="Netick_NetworkString16_LoadIntoStringBuilder_System_Text_StringBuilder_" data-uid="Netick.NetworkString16.LoadIntoStringBuilder(System.Text.StringBuilder)">
-  LoadIntoStringBuilder(StringBuilder)
+  <h3 id="Netick_Unity_Vector2ErrorCorrector_Init_UnityEngine_Vector2_" data-uid="Netick.Unity.Vector2ErrorCorrector.Init(UnityEngine.Vector2)">
+  Init(Vector2)
   
   </h3>
 
@@ -218,12 +216,12 @@ Struct NetworkString16
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void LoadIntoStringBuilder(StringBuilder stringBuilder)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Init(Vector2 value)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>stringBuilder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dt><code>value</code> <span class="xref">Vector2</span></dt>
     <dd></dd>
   </dl>
 
@@ -238,10 +236,10 @@ Struct NetworkString16
 
 
 
-  <a id="Netick_NetworkString16_ToString_" data-uid="Netick.NetworkString16.ToString*"></a>
+  <a id="Netick_Unity_Vector2ErrorCorrector_OnPostResimulation_" data-uid="Netick.Unity.Vector2ErrorCorrector.OnPostResimulation*"></a>
 
-  <h3 id="Netick_NetworkString16_ToString" data-uid="Netick.NetworkString16.ToString">
-  ToString()
+  <h3 id="Netick_Unity_Vector2ErrorCorrector_OnPostResimulation_UnityEngine_Vector2_" data-uid="Netick.Unity.Vector2ErrorCorrector.OnPostResimulation(UnityEngine.Vector2)">
+  OnPostResimulation(Vector2)
   
   </h3>
 
@@ -249,53 +247,12 @@ Struct NetworkString16
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="operators">Operators
-</h2>
-
-
-  <a id="Netick_NetworkString16_op_Implicit_" data-uid="Netick.NetworkString16.op_Implicit*"></a>
-
-  <h3 id="Netick_NetworkString16_op_Implicit_Netick_NetworkString16__System_String" data-uid="Netick.NetworkString16.op_Implicit(Netick.NetworkString16)~System.String">
-  implicit operator string(NetworkString16)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static implicit operator string(NetworkString16 val)</code></pre>
+    <pre><code class="lang-csharp hljs">public void OnPostResimulation(Vector2 currentValue)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>val</code> <a class="xref" href="Netick.NetworkString16.html">NetworkString16</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><code>currentValue</code> <span class="xref">Vector2</span></dt>
     <dd></dd>
   </dl>
 
@@ -309,10 +266,11 @@ Struct NetworkString16
 
 
 
-  <a id="Netick_NetworkString16_op_Implicit_" data-uid="Netick.NetworkString16.op_Implicit*"></a>
 
-  <h3 id="Netick_NetworkString16_op_Implicit_System_String__Netick_NetworkString16" data-uid="Netick.NetworkString16.op_Implicit(System.String)~Netick.NetworkString16">
-  implicit operator NetworkString16(string)
+  <a id="Netick_Unity_Vector2ErrorCorrector_OnPreRollback_" data-uid="Netick.Unity.Vector2ErrorCorrector.OnPreRollback*"></a>
+
+  <h3 id="Netick_Unity_Vector2ErrorCorrector_OnPreRollback_UnityEngine_Vector2_" data-uid="Netick.Unity.Vector2ErrorCorrector.OnPreRollback(UnityEngine.Vector2)">
+  OnPreRollback(Vector2)
   
   </h3>
 
@@ -320,20 +278,52 @@ Struct NetworkString16
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static implicit operator NetworkString16(string val)</code></pre>
+    <pre><code class="lang-csharp hljs">public void OnPreRollback(Vector2 value)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>val</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><code>value</code> <span class="xref">Vector2</span></dt>
     <dd></dd>
   </dl>
 
-  <h4 class="section">Returns</h4>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Vector2ErrorCorrector_Render_" data-uid="Netick.Unity.Vector2ErrorCorrector.Render*"></a>
+
+  <h3 id="Netick_Unity_Vector2ErrorCorrector_Render_UnityEngine_Vector2__System_Single_System_Single_System_Single_" data-uid="Netick.Unity.Vector2ErrorCorrector.Render(UnityEngine.Vector2@,System.Single,System.Single,System.Single)">
+  Render(ref Vector2, float, float, float)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Render(ref Vector2 interpolatedValue, float correctionMultiplier, float teleportThreshold, float deltaTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetworkString16.html">NetworkString16</a></dt>
+    <dt><code>interpolatedValue</code> <span class="xref">Vector2</span></dt>
+    <dd></dd>
+    <dt><code>correctionMultiplier</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>teleportThreshold</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>deltaTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
+
 
 
 

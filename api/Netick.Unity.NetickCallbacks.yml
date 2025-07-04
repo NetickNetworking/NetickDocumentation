@@ -12,6 +12,7 @@ items:
   - Netick.Unity.NetickCallbacks.OnConnectedToServer
   - Netick.Unity.NetickCallbacks.OnDataReceived
   - Netick.Unity.NetickCallbacks.OnDisconnectedFromServer
+  - Netick.Unity.NetickCallbacks.OnInput
   - Netick.Unity.NetickCallbacks.OnInputRead
   - Netick.Unity.NetickCallbacks.OnMatchCreated
   - Netick.Unity.NetickCallbacks.OnMatchListUpdate
@@ -51,25 +52,6 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: Netick.Unity.NetickCallbacks.OnDataReceived
-  commentId: E:Netick.Unity.NetickCallbacks.OnDataReceived
-  id: OnDataReceived
-  parent: Netick.Unity.NetickCallbacks
-  langs:
-  - csharp
-  - vb
-  name: OnDataReceived
-  nameWithType: NetickCallbacks.OnDataReceived
-  fullName: Netick.Unity.NetickCallbacks.OnDataReceived
-  type: Event
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public event OnDataReceivedDelegate OnDataReceived
-    return:
-      type: Netick.Unity.OnDataReceivedDelegate
-    content.vb: Public Event OnDataReceived As OnDataReceivedDelegate
 - uid: Netick.Unity.NetickCallbacks.OnConnectRequest
   commentId: E:Netick.Unity.NetickCallbacks.OnConnectRequest
   id: OnConnectRequest
@@ -165,87 +147,44 @@ items:
     return:
       type: Netick.Unity.OnVisibilityChangedDelegate
     content.vb: Public Event OnVisibilityChanged As OnVisibilityChangedDelegate
-- uid: Netick.Unity.NetickCallbacks.OnInputRead
-  commentId: E:Netick.Unity.NetickCallbacks.OnInputRead
-  id: OnInputRead
+- uid: Netick.Unity.NetickCallbacks.OnInput
+  commentId: E:Netick.Unity.NetickCallbacks.OnInput
+  id: OnInput
   parent: Netick.Unity.NetickCallbacks
   langs:
   - csharp
   - vb
-  name: OnInputRead
-  nameWithType: NetickCallbacks.OnInputRead
-  fullName: Netick.Unity.NetickCallbacks.OnInputRead
+  name: OnInput
+  nameWithType: NetickCallbacks.OnInput
+  fullName: Netick.Unity.NetickCallbacks.OnInput
   type: Event
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public event OnInputReadDelegate OnInputRead
+    content: public event OnInputReadDelegate OnInput
     return:
       type: Netick.Unity.OnInputReadDelegate
-    content.vb: Public Event OnInputRead As OnInputReadDelegate
-- uid: Netick.Unity.NetickCallbacks.OnSceneLoaded
-  commentId: E:Netick.Unity.NetickCallbacks.OnSceneLoaded
-  id: OnSceneLoaded
+    content.vb: Public Event OnInput As OnInputReadDelegate
+- uid: Netick.Unity.NetickCallbacks.OnDataReceived
+  commentId: E:Netick.Unity.NetickCallbacks.OnDataReceived
+  id: OnDataReceived
   parent: Netick.Unity.NetickCallbacks
   langs:
   - csharp
   - vb
-  name: OnSceneLoaded
-  nameWithType: NetickCallbacks.OnSceneLoaded
-  fullName: Netick.Unity.NetickCallbacks.OnSceneLoaded
+  name: OnDataReceived
+  nameWithType: NetickCallbacks.OnDataReceived
+  fullName: Netick.Unity.NetickCallbacks.OnDataReceived
   type: Event
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Obsolete("This event will be removed. Use OnSceneLoadBegan instead.")]
-
-      public event OnSceneLoadedDelegate OnSceneLoaded
+    content: public event OnDataReceivedDelegate OnDataReceived
     return:
-      type: Netick.Unity.OnSceneLoadedDelegate
-    content.vb: >-
-      <Obsolete("This event will be removed. Use OnSceneLoadBegan instead.")>
-
-      Public Event OnSceneLoaded As OnSceneLoadedDelegate
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: This event will be removed. Use OnSceneLoadBegan instead.
-- uid: Netick.Unity.NetickCallbacks.OnSceneLoadStarted
-  commentId: E:Netick.Unity.NetickCallbacks.OnSceneLoadStarted
-  id: OnSceneLoadStarted
-  parent: Netick.Unity.NetickCallbacks
-  langs:
-  - csharp
-  - vb
-  name: OnSceneLoadStarted
-  nameWithType: NetickCallbacks.OnSceneLoadStarted
-  fullName: Netick.Unity.NetickCallbacks.OnSceneLoadStarted
-  type: Event
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: >-
-      [Obsolete("This event will be removed. Use OnSceneLoadDone instead.")]
-
-      public event OnSceneLoadStartedDelegate OnSceneLoadStarted
-    return:
-      type: Netick.Unity.OnSceneLoadStartedDelegate
-    content.vb: >-
-      <Obsolete("This event will be removed. Use OnSceneLoadDone instead.")>
-
-      Public Event OnSceneLoadStarted As OnSceneLoadStartedDelegate
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: This event will be removed. Use OnSceneLoadDone instead.
+      type: Netick.Unity.OnDataReceivedDelegate
+    content.vb: Public Event OnDataReceived As OnDataReceivedDelegate
 - uid: Netick.Unity.NetickCallbacks.OnSceneOperationBegan
   commentId: E:Netick.Unity.NetickCallbacks.OnSceneOperationBegan
   id: OnSceneOperationBegan
@@ -322,6 +261,213 @@ items:
     return:
       type: Netick.Unity.OnObjectCreatedDelegate
     content.vb: Public Event OnObjectDestroyed As OnObjectCreatedDelegate
+- uid: Netick.Unity.NetickCallbacks.OnPlayerJoined
+  commentId: E:Netick.Unity.NetickCallbacks.OnPlayerJoined
+  id: OnPlayerJoined
+  parent: Netick.Unity.NetickCallbacks
+  langs:
+  - csharp
+  - vb
+  name: OnPlayerJoined
+  nameWithType: NetickCallbacks.OnPlayerJoined
+  fullName: Netick.Unity.NetickCallbacks.OnPlayerJoined
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public event OnPlayerJoinedDelegate OnPlayerJoined
+    return:
+      type: Netick.Unity.OnPlayerJoinedDelegate
+    content.vb: Public Event OnPlayerJoined As OnPlayerJoinedDelegate
+- uid: Netick.Unity.NetickCallbacks.OnPlayerLeft
+  commentId: E:Netick.Unity.NetickCallbacks.OnPlayerLeft
+  id: OnPlayerLeft
+  parent: Netick.Unity.NetickCallbacks
+  langs:
+  - csharp
+  - vb
+  name: OnPlayerLeft
+  nameWithType: NetickCallbacks.OnPlayerLeft
+  fullName: Netick.Unity.NetickCallbacks.OnPlayerLeft
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public event OnPlayerLeftDelegate OnPlayerLeft
+    return:
+      type: Netick.Unity.OnPlayerLeftDelegate
+    content.vb: Public Event OnPlayerLeft As OnPlayerLeftDelegate
+- uid: Netick.Unity.NetickCallbacks.OnConnectedToServer
+  commentId: E:Netick.Unity.NetickCallbacks.OnConnectedToServer
+  id: OnConnectedToServer
+  parent: Netick.Unity.NetickCallbacks
+  langs:
+  - csharp
+  - vb
+  name: OnConnectedToServer
+  nameWithType: NetickCallbacks.OnConnectedToServer
+  fullName: Netick.Unity.NetickCallbacks.OnConnectedToServer
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public event OnConnectedToServerDelegate OnConnectedToServer
+    return:
+      type: Netick.Unity.OnConnectedToServerDelegate
+    content.vb: Public Event OnConnectedToServer As OnConnectedToServerDelegate
+- uid: Netick.Unity.NetickCallbacks.OnDisconnectedFromServer
+  commentId: E:Netick.Unity.NetickCallbacks.OnDisconnectedFromServer
+  id: OnDisconnectedFromServer
+  parent: Netick.Unity.NetickCallbacks
+  langs:
+  - csharp
+  - vb
+  name: OnDisconnectedFromServer
+  nameWithType: NetickCallbacks.OnDisconnectedFromServer
+  fullName: Netick.Unity.NetickCallbacks.OnDisconnectedFromServer
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public event OnDisconnectedFromServerDelegate OnDisconnectedFromServer
+    return:
+      type: Netick.Unity.OnDisconnectedFromServerDelegate
+    content.vb: Public Event OnDisconnectedFromServer As OnDisconnectedFromServerDelegate
+- uid: Netick.Unity.NetickCallbacks.OnMatchListUpdate
+  commentId: E:Netick.Unity.NetickCallbacks.OnMatchListUpdate
+  id: OnMatchListUpdate
+  parent: Netick.Unity.NetickCallbacks
+  langs:
+  - csharp
+  - vb
+  name: OnMatchListUpdate
+  nameWithType: NetickCallbacks.OnMatchListUpdate
+  fullName: Netick.Unity.NetickCallbacks.OnMatchListUpdate
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public event OnMatchListUpdateDelegate OnMatchListUpdate
+    return:
+      type: Netick.Unity.OnMatchListUpdateDelegate
+    content.vb: Public Event OnMatchListUpdate As OnMatchListUpdateDelegate
+- uid: Netick.Unity.NetickCallbacks.OnMatchCreated
+  commentId: E:Netick.Unity.NetickCallbacks.OnMatchCreated
+  id: OnMatchCreated
+  parent: Netick.Unity.NetickCallbacks
+  langs:
+  - csharp
+  - vb
+  name: OnMatchCreated
+  nameWithType: NetickCallbacks.OnMatchCreated
+  fullName: Netick.Unity.NetickCallbacks.OnMatchCreated
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public event OnMatchCreatedDelegate OnMatchCreated
+    return:
+      type: Netick.Unity.OnMatchCreatedDelegate
+    content.vb: Public Event OnMatchCreated As OnMatchCreatedDelegate
+- uid: Netick.Unity.NetickCallbacks.OnInputRead
+  commentId: E:Netick.Unity.NetickCallbacks.OnInputRead
+  id: OnInputRead
+  parent: Netick.Unity.NetickCallbacks
+  langs:
+  - csharp
+  - vb
+  name: OnInputRead
+  nameWithType: NetickCallbacks.OnInputRead
+  fullName: Netick.Unity.NetickCallbacks.OnInputRead
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [Obsolete("This event will be removed. Use OnInput instead.")]
+
+      public event OnInputReadDelegate OnInputRead
+    return:
+      type: Netick.Unity.OnInputReadDelegate
+    content.vb: >-
+      <Obsolete("This event will be removed. Use OnInput instead.")>
+
+      Public Event OnInputRead As OnInputReadDelegate
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This event will be removed. Use OnInput instead.
+- uid: Netick.Unity.NetickCallbacks.OnSceneLoaded
+  commentId: E:Netick.Unity.NetickCallbacks.OnSceneLoaded
+  id: OnSceneLoaded
+  parent: Netick.Unity.NetickCallbacks
+  langs:
+  - csharp
+  - vb
+  name: OnSceneLoaded
+  nameWithType: NetickCallbacks.OnSceneLoaded
+  fullName: Netick.Unity.NetickCallbacks.OnSceneLoaded
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [Obsolete("This event will be removed. Use OnSceneLoadBegan instead.")]
+
+      public event OnSceneLoadedDelegate OnSceneLoaded
+    return:
+      type: Netick.Unity.OnSceneLoadedDelegate
+    content.vb: >-
+      <Obsolete("This event will be removed. Use OnSceneLoadBegan instead.")>
+
+      Public Event OnSceneLoaded As OnSceneLoadedDelegate
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This event will be removed. Use OnSceneLoadBegan instead.
+- uid: Netick.Unity.NetickCallbacks.OnSceneLoadStarted
+  commentId: E:Netick.Unity.NetickCallbacks.OnSceneLoadStarted
+  id: OnSceneLoadStarted
+  parent: Netick.Unity.NetickCallbacks
+  langs:
+  - csharp
+  - vb
+  name: OnSceneLoadStarted
+  nameWithType: NetickCallbacks.OnSceneLoadStarted
+  fullName: Netick.Unity.NetickCallbacks.OnSceneLoadStarted
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [Obsolete("This event will be removed. Use OnSceneLoadDone instead.")]
+
+      public event OnSceneLoadStartedDelegate OnSceneLoadStarted
+    return:
+      type: Netick.Unity.OnSceneLoadStartedDelegate
+    content.vb: >-
+      <Obsolete("This event will be removed. Use OnSceneLoadDone instead.")>
+
+      Public Event OnSceneLoadStarted As OnSceneLoadStartedDelegate
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This event will be removed. Use OnSceneLoadDone instead.
 - uid: Netick.Unity.NetickCallbacks.OnClientConnected
   commentId: E:Netick.Unity.NetickCallbacks.OnClientConnected
   id: OnClientConnected
@@ -446,120 +592,6 @@ items:
     arguments:
     - type: System.String
       value: This method will be removed. Use OnPlayerLeft instead.
-- uid: Netick.Unity.NetickCallbacks.OnPlayerJoined
-  commentId: E:Netick.Unity.NetickCallbacks.OnPlayerJoined
-  id: OnPlayerJoined
-  parent: Netick.Unity.NetickCallbacks
-  langs:
-  - csharp
-  - vb
-  name: OnPlayerJoined
-  nameWithType: NetickCallbacks.OnPlayerJoined
-  fullName: Netick.Unity.NetickCallbacks.OnPlayerJoined
-  type: Event
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public event OnPlayerJoinedDelegate OnPlayerJoined
-    return:
-      type: Netick.Unity.OnPlayerJoinedDelegate
-    content.vb: Public Event OnPlayerJoined As OnPlayerJoinedDelegate
-- uid: Netick.Unity.NetickCallbacks.OnPlayerLeft
-  commentId: E:Netick.Unity.NetickCallbacks.OnPlayerLeft
-  id: OnPlayerLeft
-  parent: Netick.Unity.NetickCallbacks
-  langs:
-  - csharp
-  - vb
-  name: OnPlayerLeft
-  nameWithType: NetickCallbacks.OnPlayerLeft
-  fullName: Netick.Unity.NetickCallbacks.OnPlayerLeft
-  type: Event
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public event OnPlayerLeftDelegate OnPlayerLeft
-    return:
-      type: Netick.Unity.OnPlayerLeftDelegate
-    content.vb: Public Event OnPlayerLeft As OnPlayerLeftDelegate
-- uid: Netick.Unity.NetickCallbacks.OnConnectedToServer
-  commentId: E:Netick.Unity.NetickCallbacks.OnConnectedToServer
-  id: OnConnectedToServer
-  parent: Netick.Unity.NetickCallbacks
-  langs:
-  - csharp
-  - vb
-  name: OnConnectedToServer
-  nameWithType: NetickCallbacks.OnConnectedToServer
-  fullName: Netick.Unity.NetickCallbacks.OnConnectedToServer
-  type: Event
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public event OnConnectedToServerDelegate OnConnectedToServer
-    return:
-      type: Netick.Unity.OnConnectedToServerDelegate
-    content.vb: Public Event OnConnectedToServer As OnConnectedToServerDelegate
-- uid: Netick.Unity.NetickCallbacks.OnDisconnectedFromServer
-  commentId: E:Netick.Unity.NetickCallbacks.OnDisconnectedFromServer
-  id: OnDisconnectedFromServer
-  parent: Netick.Unity.NetickCallbacks
-  langs:
-  - csharp
-  - vb
-  name: OnDisconnectedFromServer
-  nameWithType: NetickCallbacks.OnDisconnectedFromServer
-  fullName: Netick.Unity.NetickCallbacks.OnDisconnectedFromServer
-  type: Event
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public event OnDisconnectedFromServerDelegate OnDisconnectedFromServer
-    return:
-      type: Netick.Unity.OnDisconnectedFromServerDelegate
-    content.vb: Public Event OnDisconnectedFromServer As OnDisconnectedFromServerDelegate
-- uid: Netick.Unity.NetickCallbacks.OnMatchListUpdate
-  commentId: E:Netick.Unity.NetickCallbacks.OnMatchListUpdate
-  id: OnMatchListUpdate
-  parent: Netick.Unity.NetickCallbacks
-  langs:
-  - csharp
-  - vb
-  name: OnMatchListUpdate
-  nameWithType: NetickCallbacks.OnMatchListUpdate
-  fullName: Netick.Unity.NetickCallbacks.OnMatchListUpdate
-  type: Event
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public event OnMatchListUpdateDelegate OnMatchListUpdate
-    return:
-      type: Netick.Unity.OnMatchListUpdateDelegate
-    content.vb: Public Event OnMatchListUpdate As OnMatchListUpdateDelegate
-- uid: Netick.Unity.NetickCallbacks.OnMatchCreated
-  commentId: E:Netick.Unity.NetickCallbacks.OnMatchCreated
-  id: OnMatchCreated
-  parent: Netick.Unity.NetickCallbacks
-  langs:
-  - csharp
-  - vb
-  name: OnMatchCreated
-  nameWithType: NetickCallbacks.OnMatchCreated
-  fullName: Netick.Unity.NetickCallbacks.OnMatchCreated
-  type: Event
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public event OnMatchCreatedDelegate OnMatchCreated
-    return:
-      type: Netick.Unity.OnMatchCreatedDelegate
-    content.vb: Public Event OnMatchCreated As OnMatchCreatedDelegate
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -825,14 +857,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Netick.Unity.OnDataReceivedDelegate
-  commentId: T:Netick.Unity.OnDataReceivedDelegate
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.OnDataReceivedDelegate.html
-  name: OnDataReceivedDelegate
-  nameWithType: OnDataReceivedDelegate
-  fullName: Netick.Unity.OnDataReceivedDelegate
 - uid: Netick.Unity.OnConnectRequestDelegate
   commentId: T:Netick.Unity.OnConnectRequestDelegate
   parent: Netick.Unity
@@ -881,22 +905,14 @@ references:
   name: OnInputReadDelegate
   nameWithType: OnInputReadDelegate
   fullName: Netick.Unity.OnInputReadDelegate
-- uid: Netick.Unity.OnSceneLoadedDelegate
-  commentId: T:Netick.Unity.OnSceneLoadedDelegate
+- uid: Netick.Unity.OnDataReceivedDelegate
+  commentId: T:Netick.Unity.OnDataReceivedDelegate
   parent: Netick.Unity
   isExternal: true
-  href: Netick.Unity.OnSceneLoadedDelegate.html
-  name: OnSceneLoadedDelegate
-  nameWithType: OnSceneLoadedDelegate
-  fullName: Netick.Unity.OnSceneLoadedDelegate
-- uid: Netick.Unity.OnSceneLoadStartedDelegate
-  commentId: T:Netick.Unity.OnSceneLoadStartedDelegate
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.OnSceneLoadStartedDelegate.html
-  name: OnSceneLoadStartedDelegate
-  nameWithType: OnSceneLoadStartedDelegate
-  fullName: Netick.Unity.OnSceneLoadStartedDelegate
+  href: Netick.Unity.OnDataReceivedDelegate.html
+  name: OnDataReceivedDelegate
+  nameWithType: OnDataReceivedDelegate
+  fullName: Netick.Unity.OnDataReceivedDelegate
 - uid: Netick.Unity.OnSceneOperationDelegate
   commentId: T:Netick.Unity.OnSceneOperationDelegate
   parent: Netick.Unity
@@ -913,38 +929,6 @@ references:
   name: OnObjectCreatedDelegate
   nameWithType: OnObjectCreatedDelegate
   fullName: Netick.Unity.OnObjectCreatedDelegate
-- uid: Netick.Unity.OnClientConnectedDelegate
-  commentId: T:Netick.Unity.OnClientConnectedDelegate
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.OnClientConnectedDelegate.html
-  name: OnClientConnectedDelegate
-  nameWithType: OnClientConnectedDelegate
-  fullName: Netick.Unity.OnClientConnectedDelegate
-- uid: Netick.Unity.OnClientDisconnectedDelegate
-  commentId: T:Netick.Unity.OnClientDisconnectedDelegate
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.OnClientDisconnectedDelegate.html
-  name: OnClientDisconnectedDelegate
-  nameWithType: OnClientDisconnectedDelegate
-  fullName: Netick.Unity.OnClientDisconnectedDelegate
-- uid: Netick.Unity.OnPlayerConnectedDelegate
-  commentId: T:Netick.Unity.OnPlayerConnectedDelegate
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.OnPlayerConnectedDelegate.html
-  name: OnPlayerConnectedDelegate
-  nameWithType: OnPlayerConnectedDelegate
-  fullName: Netick.Unity.OnPlayerConnectedDelegate
-- uid: Netick.Unity.OnPlayerDisconnectedDelegate
-  commentId: T:Netick.Unity.OnPlayerDisconnectedDelegate
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.OnPlayerDisconnectedDelegate.html
-  name: OnPlayerDisconnectedDelegate
-  nameWithType: OnPlayerDisconnectedDelegate
-  fullName: Netick.Unity.OnPlayerDisconnectedDelegate
 - uid: Netick.Unity.OnPlayerJoinedDelegate
   commentId: T:Netick.Unity.OnPlayerJoinedDelegate
   parent: Netick.Unity
@@ -993,3 +977,51 @@ references:
   name: OnMatchCreatedDelegate
   nameWithType: OnMatchCreatedDelegate
   fullName: Netick.Unity.OnMatchCreatedDelegate
+- uid: Netick.Unity.OnSceneLoadedDelegate
+  commentId: T:Netick.Unity.OnSceneLoadedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnSceneLoadedDelegate.html
+  name: OnSceneLoadedDelegate
+  nameWithType: OnSceneLoadedDelegate
+  fullName: Netick.Unity.OnSceneLoadedDelegate
+- uid: Netick.Unity.OnSceneLoadStartedDelegate
+  commentId: T:Netick.Unity.OnSceneLoadStartedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnSceneLoadStartedDelegate.html
+  name: OnSceneLoadStartedDelegate
+  nameWithType: OnSceneLoadStartedDelegate
+  fullName: Netick.Unity.OnSceneLoadStartedDelegate
+- uid: Netick.Unity.OnClientConnectedDelegate
+  commentId: T:Netick.Unity.OnClientConnectedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnClientConnectedDelegate.html
+  name: OnClientConnectedDelegate
+  nameWithType: OnClientConnectedDelegate
+  fullName: Netick.Unity.OnClientConnectedDelegate
+- uid: Netick.Unity.OnClientDisconnectedDelegate
+  commentId: T:Netick.Unity.OnClientDisconnectedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnClientDisconnectedDelegate.html
+  name: OnClientDisconnectedDelegate
+  nameWithType: OnClientDisconnectedDelegate
+  fullName: Netick.Unity.OnClientDisconnectedDelegate
+- uid: Netick.Unity.OnPlayerConnectedDelegate
+  commentId: T:Netick.Unity.OnPlayerConnectedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnPlayerConnectedDelegate.html
+  name: OnPlayerConnectedDelegate
+  nameWithType: OnPlayerConnectedDelegate
+  fullName: Netick.Unity.OnPlayerConnectedDelegate
+- uid: Netick.Unity.OnPlayerDisconnectedDelegate
+  commentId: T:Netick.Unity.OnPlayerDisconnectedDelegate
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.OnPlayerDisconnectedDelegate.html
+  name: OnPlayerDisconnectedDelegate
+  nameWithType: OnPlayerDisconnectedDelegate
+  fullName: Netick.Unity.OnPlayerDisconnectedDelegate

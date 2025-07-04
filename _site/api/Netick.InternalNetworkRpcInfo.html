@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class ExecutionOrderAttribute | Netick Networking Engine </title>
+      <title>Class InternalNetworkRpcInfo | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class ExecutionOrderAttribute | Netick Networking Engine ">
+      <meta name="title" content="Class InternalNetworkRpcInfo | Netick Networking Engine ">
       
       <link rel="icon" href="../images/logo.png">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -82,12 +82,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Netick.ExecutionOrderAttribute">
+        <article data-uid="Netick.InternalNetworkRpcInfo">
 
 
 
-  <h1 id="Netick_ExecutionOrderAttribute" data-uid="Netick.ExecutionOrderAttribute" class="text-break">
-Class ExecutionOrderAttribute  
+  <h1 id="Netick_InternalNetworkRpcInfo" data-uid="Netick.InternalNetworkRpcInfo" class="text-break">
+Class InternalNetworkRpcInfo  
   </h1>
 
   <div class="facts text-secondary">
@@ -99,8 +99,7 @@ Class ExecutionOrderAttribute
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
-public class ExecutionOrderAttribute : Attribute</code></pre>
+    <pre><code class="lang-csharp hljs">public class InternalNetworkRpcInfo : Attribute</code></pre>
   </div>
 
 
@@ -111,7 +110,7 @@ public class ExecutionOrderAttribute : Attribute</code></pre>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.attribute">Attribute</a></div>
-      <div><span class="xref">ExecutionOrderAttribute</span></div>
+      <div><span class="xref">InternalNetworkRpcInfo</span></div>
     </dd>
   </dl>
 
@@ -257,10 +256,10 @@ public class ExecutionOrderAttribute : Attribute</code></pre>
 </h2>
 
 
-  <a id="Netick_ExecutionOrderAttribute__ctor_" data-uid="Netick.ExecutionOrderAttribute.#ctor*"></a>
+  <a id="Netick_InternalNetworkRpcInfo__ctor_" data-uid="Netick.InternalNetworkRpcInfo.#ctor*"></a>
 
-  <h3 id="Netick_ExecutionOrderAttribute__ctor_System_Int32_" data-uid="Netick.ExecutionOrderAttribute.#ctor(System.Int32)">
-  ExecutionOrderAttribute(int)
+  <h3 id="Netick_InternalNetworkRpcInfo__ctor_System_Int32_System_Boolean_System_Boolean_" data-uid="Netick.InternalNetworkRpcInfo.#ctor(System.Int32,System.Boolean,System.Boolean)">
+  InternalNetworkRpcInfo(int, bool, bool)
   
   </h3>
 
@@ -268,12 +267,16 @@ public class ExecutionOrderAttribute : Attribute</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ExecutionOrderAttribute(int order)</code></pre>
+    <pre><code class="lang-csharp hljs">public InternalNetworkRpcInfo(int size = -1, bool isTargeted = false, bool isStatic = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>order</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>isTargeted</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isStatic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -293,8 +296,8 @@ public class ExecutionOrderAttribute : Attribute</code></pre>
 
 
 
-  <h3 id="Netick_ExecutionOrderAttribute_Order" data-uid="Netick.ExecutionOrderAttribute.Order">
-  Order
+  <h3 id="Netick_InternalNetworkRpcInfo_IsStatic" data-uid="Netick.InternalNetworkRpcInfo.IsStatic">
+  IsStatic
   
   </h3>
 
@@ -302,7 +305,67 @@ public class ExecutionOrderAttribute : Attribute</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Order</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsStatic</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_InternalNetworkRpcInfo_IsTargeted" data-uid="Netick.InternalNetworkRpcInfo.IsTargeted">
+  IsTargeted
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsTargeted</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_InternalNetworkRpcInfo_Size" data-uid="Netick.InternalNetworkRpcInfo.Size">
+  Size
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Size</code></pre>
   </div>
 
 

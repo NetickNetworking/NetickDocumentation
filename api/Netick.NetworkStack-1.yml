@@ -150,6 +150,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Removes all elements from the stack.
+  example: []
   syntax:
     content: public void Clear()
     content.vb: Public Sub Clear()
@@ -170,13 +172,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Pushes an item onto the top of the stack.
+  example: []
   syntax:
     content: public bool Push(T item)
     parameters:
     - id: item
       type: '{T}'
+      description: The item to push onto the stack.
     return:
       type: System.Boolean
+      description: True if the item was pushed; false if the stack is full.
     content.vb: Public Function Push(item As T) As Boolean
   overload: Netick.NetworkStack`1.Push*
   nameWithType.vb: NetworkStack(Of T).Push(T)
@@ -195,10 +201,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Removes and returns the item at the top of the stack.
+  example: []
   syntax:
     content: public T Pop()
     return:
       type: '{T}'
+      description: The item removed from the top of the stack, or default if the stack is empty.
     content.vb: Public Function Pop() As T
   overload: Netick.NetworkStack`1.Pop*
   nameWithType.vb: NetworkStack(Of T).Pop()
@@ -217,13 +226,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Attempts to remove and return the item at the top of the stack.
+  example: []
   syntax:
     content: public bool TryPop(out T result)
     parameters:
     - id: result
       type: '{T}'
+      description: The item removed from the top of the stack, or default if the stack is empty.
     return:
       type: System.Boolean
+      description: True if an item was removed; otherwise, false.
     content.vb: Public Function TryPop(result As T) As Boolean
   overload: Netick.NetworkStack`1.TryPop*
   nameWithType.vb: NetworkStack(Of T).TryPop(T)
@@ -243,10 +256,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Returns the item at the top of the stack without removing it.
+  example: []
   syntax:
     content: public T Peek()
     return:
       type: '{T}'
+      description: The item at the top of the stack, or default if the stack is empty.
     content.vb: Public Function Peek() As T
   overload: Netick.NetworkStack`1.Peek*
   nameWithType.vb: NetworkStack(Of T).Peek()
@@ -265,13 +281,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Attempts to return the item at the top of the stack without removing it.
+  example: []
   syntax:
     content: public bool TryPeek(out T result)
     parameters:
     - id: result
       type: '{T}'
+      description: The item at the top of the stack, or default if the stack is empty.
     return:
       type: System.Boolean
+      description: True if an item was returned; otherwise, false.
     content.vb: Public Function TryPeek(result As T) As Boolean
   overload: Netick.NetworkStack`1.TryPeek*
   nameWithType.vb: NetworkStack(Of T).TryPeek(T)
@@ -291,11 +311,14 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Adds an element to the original stack (used for internal state).
+  example: []
   syntax:
     content: public void Add(T element)
     parameters:
     - id: element
       type: '{T}'
+      description: The element to add.
     content.vb: Public Sub Add(element As T)
   overload: Netick.NetworkStack`1.Add*
   nameWithType.vb: NetworkStack(Of T).Add(T)
@@ -338,6 +361,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Gets the number of elements contained in the stack.
+  example: []
   syntax:
     content: public int Count { get; }
     parameters: []

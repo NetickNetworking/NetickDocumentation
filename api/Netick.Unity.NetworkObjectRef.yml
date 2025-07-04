@@ -26,6 +26,11 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: >-
+    Represents a network-serializable reference to a <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> within the networked simulation.
+
+    This struct stores the object network id, allowing retrieval of the referenced object from a <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: 'public struct NetworkObjectRef : IEquatable<NetworkObjectRef>'
     content.vb: Public Structure NetworkObjectRef Implements IEquatable(Of NetworkObjectRef)
@@ -305,6 +310,30 @@ items:
     content.vb: Public ReadOnly Property IsValid As Boolean
   overload: Netick.Unity.NetworkObjectRef.IsValid*
 references:
+- uid: Netick.Unity.NetworkObject
+  commentId: T:Netick.Unity.NetworkObject
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html
+  name: NetworkObject
+  nameWithType: NetworkObject
+  fullName: Netick.Unity.NetworkObject
+- uid: Netick.Unity.NetworkSandbox
+  commentId: T:Netick.Unity.NetworkSandbox
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html
+  name: NetworkSandbox
+  nameWithType: NetworkSandbox
+  fullName: Netick.Unity.NetworkSandbox
+- uid: Netick.Unity.NetworkBehaviour
+  commentId: T:Netick.Unity.NetworkBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html
+  name: NetworkBehaviour
+  nameWithType: NetworkBehaviour
+  fullName: Netick.Unity.NetworkBehaviour
 - uid: Netick.Unity
   commentId: N:Netick.Unity
   isExternal: true
@@ -548,14 +577,6 @@ references:
   nameWithType.vb: NetworkObjectRef.New
   fullName.vb: Netick.Unity.NetworkObjectRef.New
   name.vb: New
-- uid: Netick.Unity.NetworkObject
-  commentId: T:Netick.Unity.NetworkObject
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html
-  name: NetworkObject
-  nameWithType: NetworkObject
-  fullName: Netick.Unity.NetworkObject
 - uid: Netick.Unity.NetworkObjectRef.TryGetObject*
   commentId: Overload:Netick.Unity.NetworkObjectRef.TryGetObject
   isExternal: true
@@ -563,14 +584,6 @@ references:
   name: TryGetObject
   nameWithType: NetworkObjectRef.TryGetObject
   fullName: Netick.Unity.NetworkObjectRef.TryGetObject
-- uid: Netick.Unity.NetworkSandbox
-  commentId: T:Netick.Unity.NetworkSandbox
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html
-  name: NetworkSandbox
-  nameWithType: NetworkSandbox
-  fullName: Netick.Unity.NetworkSandbox
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System

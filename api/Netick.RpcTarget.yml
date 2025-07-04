@@ -1,31 +1,30 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Netick.ExecutionOrderAttribute
-  commentId: T:Netick.ExecutionOrderAttribute
-  id: ExecutionOrderAttribute
+- uid: Netick.RpcTarget
+  commentId: T:Netick.RpcTarget
+  id: RpcTarget
   parent: Netick
   children:
-  - Netick.ExecutionOrderAttribute.#ctor(System.Int32)
-  - Netick.ExecutionOrderAttribute.Order
+  - Netick.RpcTarget.#ctor
   langs:
   - csharp
   - vb
-  name: ExecutionOrderAttribute
-  nameWithType: ExecutionOrderAttribute
-  fullName: Netick.ExecutionOrderAttribute
+  name: RpcTarget
+  nameWithType: RpcTarget
+  fullName: Netick.RpcTarget
   type: Class
   assemblies:
   - Netick
   namespace: Netick
   syntax:
     content: >-
-      [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
+      [AttributeUsage(AttributeTargets.Parameter, Inherited = true, AllowMultiple = false)]
 
-      public class ExecutionOrderAttribute : Attribute
+      public class RpcTarget : Attribute
     content.vb: >-
-      <AttributeUsage(AttributeTargets.Class, Inherited:=True, AllowMultiple:=True)>
+      <AttributeUsage(AttributeTargets.Parameter, Inherited:=True, AllowMultiple:=False)>
 
-      Public Class ExecutionOrderAttribute Inherits Attribute
+      Public Class RpcTarget Inherits Attribute
   inheritance:
   - System.Object
   - System.Attribute
@@ -77,57 +76,35 @@ items:
     ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
     arguments:
     - type: System.AttributeTargets
-      value: 4
+      value: 2048
     namedArguments:
     - name: Inherited
       type: System.Boolean
       value: true
     - name: AllowMultiple
       type: System.Boolean
-      value: true
-- uid: Netick.ExecutionOrderAttribute.Order
-  commentId: F:Netick.ExecutionOrderAttribute.Order
-  id: Order
-  parent: Netick.ExecutionOrderAttribute
+      value: false
+- uid: Netick.RpcTarget.#ctor
+  commentId: M:Netick.RpcTarget.#ctor
+  id: '#ctor'
+  parent: Netick.RpcTarget
   langs:
   - csharp
   - vb
-  name: Order
-  nameWithType: ExecutionOrderAttribute.Order
-  fullName: Netick.ExecutionOrderAttribute.Order
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int Order
-    return:
-      type: System.Int32
-    content.vb: Public Order As Integer
-- uid: Netick.ExecutionOrderAttribute.#ctor(System.Int32)
-  commentId: M:Netick.ExecutionOrderAttribute.#ctor(System.Int32)
-  id: '#ctor(System.Int32)'
-  parent: Netick.ExecutionOrderAttribute
-  langs:
-  - csharp
-  - vb
-  name: ExecutionOrderAttribute(int)
-  nameWithType: ExecutionOrderAttribute.ExecutionOrderAttribute(int)
-  fullName: Netick.ExecutionOrderAttribute.ExecutionOrderAttribute(int)
+  name: RpcTarget()
+  nameWithType: RpcTarget.RpcTarget()
+  fullName: Netick.RpcTarget.RpcTarget()
   type: Constructor
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public ExecutionOrderAttribute(int order)
-    parameters:
-    - id: order
-      type: System.Int32
-    content.vb: Public Sub New(order As Integer)
-  overload: Netick.ExecutionOrderAttribute.#ctor*
-  nameWithType.vb: ExecutionOrderAttribute.New(Integer)
-  fullName.vb: Netick.ExecutionOrderAttribute.New(Integer)
-  name.vb: New(Integer)
+    content: public RpcTarget()
+    content.vb: Public Sub New()
+  overload: Netick.RpcTarget.#ctor*
+  nameWithType.vb: RpcTarget.New()
+  fullName.vb: Netick.RpcTarget.New()
+  name.vb: New()
 references:
 - uid: Netick
   commentId: N:Netick
@@ -1930,24 +1907,13 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
+- uid: Netick.RpcTarget.#ctor*
+  commentId: Overload:Netick.RpcTarget.#ctor
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: Netick.ExecutionOrderAttribute.#ctor*
-  commentId: Overload:Netick.ExecutionOrderAttribute.#ctor
-  isExternal: true
-  href: Netick.ExecutionOrderAttribute.html#Netick_ExecutionOrderAttribute__ctor_System_Int32_
-  name: ExecutionOrderAttribute
-  nameWithType: ExecutionOrderAttribute.ExecutionOrderAttribute
-  fullName: Netick.ExecutionOrderAttribute.ExecutionOrderAttribute
-  nameWithType.vb: ExecutionOrderAttribute.New
-  fullName.vb: Netick.ExecutionOrderAttribute.New
+  href: Netick.RpcTarget.html#Netick_RpcTarget__ctor
+  name: RpcTarget
+  nameWithType: RpcTarget.RpcTarget
+  fullName: Netick.RpcTarget.RpcTarget
+  nameWithType.vb: RpcTarget.New
+  fullName.vb: Netick.RpcTarget.New
   name.vb: New

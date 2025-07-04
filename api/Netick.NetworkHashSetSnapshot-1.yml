@@ -52,13 +52,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Determines whether the hashset snapshot contains a specific value.
+  example: []
   syntax:
     content: public bool Contains(T item)
     parameters:
     - id: item
       type: '{T}'
+      description: The object to locate in the snapshot.
     return:
       type: System.Boolean
+      description: true if item is found; otherwise, false.
     content.vb: Public Function Contains(item As T) As Boolean
   overload: Netick.NetworkHashSetSnapshot`1.Contains*
   nameWithType.vb: NetworkHashSetSnapshot(Of T).Contains(T)

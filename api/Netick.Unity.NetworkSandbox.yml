@@ -47,7 +47,7 @@ items:
   - Netick.Unity.NetworkSandbox.GetLocalPlayerObject``1
   - Netick.Unity.NetworkSandbox.GetObject(Netick.Unity.NetworkObjectRef)
   - Netick.Unity.NetworkSandbox.GetObject(System.Int32)
-  - Netick.Unity.NetworkSandbox.GetPlayerFromId(Netick.NetworkPlayerId)
+  - Netick.Unity.NetworkSandbox.GetPlayerById(Netick.NetworkPlayerId)
   - Netick.Unity.NetworkSandbox.GetPlayerObject(Netick.NetworkPlayer)
   - Netick.Unity.NetworkSandbox.GetPlayerObject(Netick.NetworkPlayerId)
   - Netick.Unity.NetworkSandbox.GetPlayerObject``1(Netick.NetworkPlayer)
@@ -72,6 +72,8 @@ items:
   - Netick.Unity.NetworkSandbox.IsRunning
   - Netick.Unity.NetworkSandbox.IsServer
   - Netick.Unity.NetworkSandbox.IsVisible
+  - Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer)
+  - Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId)
   - Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)
   - Netick.Unity.NetworkSandbox.LoadCustomSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
   - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneMode)
@@ -1247,16 +1249,16 @@ items:
   nameWithType.vb: NetworkSandbox.TryGetLocalPlayerObject(Of T)(T)
   fullName.vb: Netick.Unity.NetworkSandbox.TryGetLocalPlayerObject(Of T)(T)
   name.vb: TryGetLocalPlayerObject(Of T)(T)
-- uid: Netick.Unity.NetworkSandbox.GetPlayerFromId(Netick.NetworkPlayerId)
-  commentId: M:Netick.Unity.NetworkSandbox.GetPlayerFromId(Netick.NetworkPlayerId)
-  id: GetPlayerFromId(Netick.NetworkPlayerId)
+- uid: Netick.Unity.NetworkSandbox.GetPlayerById(Netick.NetworkPlayerId)
+  commentId: M:Netick.Unity.NetworkSandbox.GetPlayerById(Netick.NetworkPlayerId)
+  id: GetPlayerById(Netick.NetworkPlayerId)
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: GetPlayerFromId(NetworkPlayerId)
-  nameWithType: NetworkSandbox.GetPlayerFromId(NetworkPlayerId)
-  fullName: Netick.Unity.NetworkSandbox.GetPlayerFromId(Netick.NetworkPlayerId)
+  name: GetPlayerById(NetworkPlayerId)
+  nameWithType: NetworkSandbox.GetPlayerById(NetworkPlayerId)
+  fullName: Netick.Unity.NetworkSandbox.GetPlayerById(Netick.NetworkPlayerId)
   type: Method
   assemblies:
   - Netick.Unity
@@ -1271,14 +1273,14 @@ items:
     </p>
   example: []
   syntax:
-    content: public NetworkPlayer GetPlayerFromId(NetworkPlayerId playerId)
+    content: public NetworkPlayer GetPlayerById(NetworkPlayerId playerId)
     parameters:
     - id: playerId
       type: Netick.NetworkPlayerId
     return:
       type: Netick.NetworkPlayer
-    content.vb: Public Function GetPlayerFromId(playerId As NetworkPlayerId) As NetworkPlayer
-  overload: Netick.Unity.NetworkSandbox.GetPlayerFromId*
+    content.vb: Public Function GetPlayerById(playerId As NetworkPlayerId) As NetworkPlayer
+  overload: Netick.Unity.NetworkSandbox.GetPlayerById*
 - uid: Netick.Unity.NetworkSandbox.ContainsPlayer(Netick.NetworkPlayerId)
   commentId: M:Netick.Unity.NetworkSandbox.ContainsPlayer(Netick.NetworkPlayerId)
   id: ContainsPlayer(Netick.NetworkPlayerId)
@@ -1918,6 +1920,11 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: >-
+    Finds the <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref> instance associated with the specified <xref href="UnityEngine.GameObject" data-throw-if-not-resolved="false"></xref>.
+
+    Returns null if networking is not running or if no matching sandbox is found for the object's scene.
+  example: []
   syntax:
     content: public static NetworkSandbox FindSandboxOf(MonoBehaviour monoBehaviour)
     parameters:
@@ -1925,6 +1932,7 @@ items:
       type: UnityEngine.MonoBehaviour
     return:
       type: Netick.Unity.NetworkSandbox
+      description: The <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref> associated with the object's scene, or null if not found.
     content.vb: Public Shared Function FindSandboxOf(monoBehaviour As MonoBehaviour) As NetworkSandbox
   overload: Netick.Unity.NetworkSandbox.FindSandboxOf*
 - uid: Netick.Unity.NetworkSandbox.FindSandboxOf(UnityEngine.GameObject)
@@ -1941,13 +1949,20 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: >-
+    Finds the <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref> instance associated with the specified <xref href="UnityEngine.GameObject" data-throw-if-not-resolved="false"></xref>.
+
+    Returns null if networking is not running or if no matching sandbox is found for the object's scene.
+  example: []
   syntax:
     content: public static NetworkSandbox FindSandboxOf(GameObject go)
     parameters:
     - id: go
       type: UnityEngine.GameObject
+      description: The <xref href="UnityEngine.GameObject" data-throw-if-not-resolved="false"></xref> to find the sandbox for.
     return:
       type: Netick.Unity.NetworkSandbox
+      description: The <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref> associated with the object's scene, or null if not found.
     content.vb: Public Shared Function FindSandboxOf(go As GameObject) As NetworkSandbox
   overload: Netick.Unity.NetworkSandbox.FindSandboxOf*
 - uid: Netick.Unity.NetworkSandbox.GetInput``1(System.Int32)
@@ -1971,13 +1986,10 @@ items:
     parameters:
     - id: index
       type: System.Int32
-      description: ''
     typeParameters:
     - id: T
-      description: ''
     return:
       type: '{T}'
-      description: ''
     content.vb: Public Function GetInput(Of T As Structure)(index As Integer = 0) As T
   overload: Netick.Unity.NetworkSandbox.GetInput*
   nameWithType.vb: NetworkSandbox.GetInput(Of T)(Integer)
@@ -2004,10 +2016,8 @@ items:
     parameters:
     - id: input
       type: '{T}'
-      description: ''
     - id: index
       type: System.Int32
-      description: ''
     typeParameters:
     - id: T
       description: ''
@@ -2056,6 +2066,30 @@ items:
   nameWithType.vb: NetworkSandbox.Connect(Integer, String, Byte(), Integer)
   fullName.vb: Netick.Unity.NetworkSandbox.Connect(Integer, String, Byte(), Integer)
   name.vb: Connect(Integer, String, Byte(), Integer)
+- uid: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId)
+  commentId: M:Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId)
+  id: Kick(Netick.NetworkPlayerId)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: Kick(NetworkPlayerId)
+  nameWithType: NetworkSandbox.Kick(NetworkPlayerId)
+  fullName: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: <i><b>[Server Only]</b></i> Disconnects a client from the server.
+  example: []
+  syntax:
+    content: public void Kick(NetworkPlayerId client)
+    parameters:
+    - id: client
+      type: Netick.NetworkPlayerId
+      description: The client to be disconnected.
+    content.vb: Public Sub Kick(client As NetworkPlayerId)
+  overload: Netick.Unity.NetworkSandbox.Kick*
 - uid: Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)
   commentId: M:Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)
   id: Kick(Netick.ServerConnection)
@@ -2070,15 +2104,33 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: <i><b>[Server Only]</b></i> Disconnects a client from the server.
-  example: []
   syntax:
     content: public void Kick(ServerConnection client)
     parameters:
     - id: client
       type: Netick.ServerConnection
-      description: The client to be disconnected.
     content.vb: Public Sub Kick(client As ServerConnection)
+  overload: Netick.Unity.NetworkSandbox.Kick*
+- uid: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer)
+  commentId: M:Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer)
+  id: Kick(Netick.NetworkPlayer)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: Kick(NetworkPlayer)
+  nameWithType: NetworkSandbox.Kick(NetworkPlayer)
+  fullName: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void Kick(NetworkPlayer client)
+    parameters:
+    - id: client
+      type: Netick.NetworkPlayer
+    content.vb: Public Sub Kick(client As NetworkPlayer)
   overload: Netick.Unity.NetworkSandbox.Kick*
 - uid: Netick.Unity.NetworkSandbox.DisconnectFromServer
   commentId: M:Netick.Unity.NetworkSandbox.DisconnectFromServer
@@ -3061,7 +3113,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: This player.
+  summary: The local player (this) player of this sandbox instance.
   example: []
   syntax:
     content: public NetworkPlayer LocalPlayer { get; }
@@ -3627,12 +3679,24 @@ items:
   summary: Always always returns null except when called inside the body of an RPC method, it returns the <xref href="Netick.NetworkConnection" data-throw-if-not-resolved="false"></xref> we are executing RPCs from.
   example: []
   syntax:
-    content: public NetworkConnection CurrentRpcSource { get; }
+    content: >-
+      [Obsolete("This will be removed in the future, please read the doc article on Rpcs to learn the new replacement.")]
+
+      public NetworkConnection CurrentRpcSource { get; }
     parameters: []
     return:
       type: Netick.NetworkConnection
-    content.vb: Public ReadOnly Property CurrentRpcSource As NetworkConnection
+    content.vb: >-
+      <Obsolete("This will be removed in the future, please read the doc article on Rpcs to learn the new replacement.")>
+
+      Public ReadOnly Property CurrentRpcSource As NetworkConnection
   overload: Netick.Unity.NetworkSandbox.CurrentRpcSource*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This will be removed in the future, please read the doc article on Rpcs to learn the new replacement.
 - uid: Netick.Unity.NetworkSandbox.CurrentRpcCaller
   commentId: P:Netick.Unity.NetworkSandbox.CurrentRpcCaller
   id: CurrentRpcCaller
@@ -3650,156 +3714,24 @@ items:
   summary: Always always returns null except when called inside the body of an RPC method, it returns the <xref href="Netick.NetworkPlayer" data-throw-if-not-resolved="false"></xref> we are executing RPCs from. Works the same as <xref href="Netick.Unity.NetworkSandbox.CurrentRpcSource" data-throw-if-not-resolved="false"></xref>, except when the RPC is called by the local player, it returns Sandbox.LocalPlayer.
   example: []
   syntax:
-    content: public NetworkPlayer CurrentRpcCaller { get; }
+    content: >-
+      [Obsolete("This will be removed in the future, please read the doc article on Rpcs to learn the new replacement.")]
+
+      public NetworkPlayer CurrentRpcCaller { get; }
     parameters: []
     return:
       type: Netick.NetworkPlayer
-    content.vb: Public ReadOnly Property CurrentRpcCaller As NetworkPlayer
+    content.vb: >-
+      <Obsolete("This will be removed in the future, please read the doc article on Rpcs to learn the new replacement.")>
+
+      Public ReadOnly Property CurrentRpcCaller As NetworkPlayer
   overload: Netick.Unity.NetworkSandbox.CurrentRpcCaller*
-- uid: Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate
-  commentId: P:Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate
-  id: PostNetworkFixedUpdate
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: PostNetworkFixedUpdate
-  nameWithType: NetworkSandbox.PostNetworkFixedUpdate
-  fullName: Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: >-
-    Called after all NetworkFixedUpdate methods have been executed.
-
-    <p>Note: it's called with every resimulation on the client.</p>
-  example: []
-  syntax:
-    content: public Action PostNetworkFixedUpdate { get; set; }
-    parameters: []
-    return:
-      type: System.Action
-    content.vb: Public Property PostNetworkFixedUpdate As Action
-  overload: Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate*
-- uid: Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate
-  commentId: P:Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate
-  id: PreNetworkFixedUpdate
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: PreNetworkFixedUpdate
-  nameWithType: NetworkSandbox.PreNetworkFixedUpdate
-  fullName: Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: >-
-    Called before any NetworkFixedUpdate method have been executed.
-
-    <p>Note: it's called with every resimulation on the client.</p>
-  example: []
-  syntax:
-    content: public Action PreNetworkFixedUpdate { get; set; }
-    parameters: []
-    return:
-      type: System.Action
-    content.vb: Public Property PreNetworkFixedUpdate As Action
-  overload: Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate*
-- uid: Netick.Unity.NetworkSandbox.PostNetworkUpdate
-  commentId: P:Netick.Unity.NetworkSandbox.PostNetworkUpdate
-  id: PostNetworkUpdate
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: PostNetworkUpdate
-  nameWithType: NetworkSandbox.PostNetworkUpdate
-  fullName: Netick.Unity.NetworkSandbox.PostNetworkUpdate
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: Called after all NetworkUpdate methods have been executed.
-  example: []
-  syntax:
-    content: public Action PostNetworkUpdate { get; set; }
-    parameters: []
-    return:
-      type: System.Action
-    content.vb: Public Property PostNetworkUpdate As Action
-  overload: Netick.Unity.NetworkSandbox.PostNetworkUpdate*
-- uid: Netick.Unity.NetworkSandbox.PreNetworkUpdate
-  commentId: P:Netick.Unity.NetworkSandbox.PreNetworkUpdate
-  id: PreNetworkUpdate
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: PreNetworkUpdate
-  nameWithType: NetworkSandbox.PreNetworkUpdate
-  fullName: Netick.Unity.NetworkSandbox.PreNetworkUpdate
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: Called before any NetworkUpdate method have been executed.
-  example: []
-  syntax:
-    content: public Action PreNetworkUpdate { get; set; }
-    parameters: []
-    return:
-      type: System.Action
-    content.vb: Public Property PreNetworkUpdate As Action
-  overload: Netick.Unity.NetworkSandbox.PreNetworkUpdate*
-- uid: Netick.Unity.NetworkSandbox.PostNetworkRender
-  commentId: P:Netick.Unity.NetworkSandbox.PostNetworkRender
-  id: PostNetworkRender
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: PostNetworkRender
-  nameWithType: NetworkSandbox.PostNetworkRender
-  fullName: Netick.Unity.NetworkSandbox.PostNetworkRender
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: Called after all NetworkRender methods have been executed.
-  example: []
-  syntax:
-    content: public Action PostNetworkRender { get; set; }
-    parameters: []
-    return:
-      type: System.Action
-    content.vb: Public Property PostNetworkRender As Action
-  overload: Netick.Unity.NetworkSandbox.PostNetworkRender*
-- uid: Netick.Unity.NetworkSandbox.PreNetworkRender
-  commentId: P:Netick.Unity.NetworkSandbox.PreNetworkRender
-  id: PreNetworkRender
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: PreNetworkRender
-  nameWithType: NetworkSandbox.PreNetworkRender
-  fullName: Netick.Unity.NetworkSandbox.PreNetworkRender
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: Called before any NetworkRender method have been executed.
-  example: []
-  syntax:
-    content: public Action PreNetworkRender { get; set; }
-    parameters: []
-    return:
-      type: System.Action
-    content.vb: Public Property PreNetworkRender As Action
-  overload: Netick.Unity.NetworkSandbox.PreNetworkRender*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This will be removed in the future, please read the doc article on Rpcs to learn the new replacement.
 - uid: Netick.Unity.NetworkSandbox.Events
   commentId: P:Netick.Unity.NetworkSandbox.Events
   id: Events
@@ -3814,6 +3746,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Use this to subscribe/unsubscribe to/from Netick events.
+  example: []
   syntax:
     content: public NetickCallbacks Events { get; }
     parameters: []
@@ -3821,6 +3755,138 @@ items:
       type: Netick.Unity.NetickCallbacks
     content.vb: Public ReadOnly Property Events As NetickCallbacks
   overload: Netick.Unity.NetworkSandbox.Events*
+- uid: Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate
+  commentId: E:Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate
+  id: PostNetworkFixedUpdate
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: PostNetworkFixedUpdate
+  nameWithType: NetworkSandbox.PostNetworkFixedUpdate
+  fullName: Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: >-
+    Called after all NetworkFixedUpdate methods have been executed.
+
+    <p>Note: it's called with every resimulation on the client.</p>
+  example: []
+  syntax:
+    content: public event Action PostNetworkFixedUpdate
+    return:
+      type: System.Action
+    content.vb: Public Event PostNetworkFixedUpdate As Action
+- uid: Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate
+  commentId: E:Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate
+  id: PreNetworkFixedUpdate
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: PreNetworkFixedUpdate
+  nameWithType: NetworkSandbox.PreNetworkFixedUpdate
+  fullName: Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: >-
+    Called before any NetworkFixedUpdate method have been executed.
+
+    <p>Note: it's called with every resimulation on the client.</p>
+  example: []
+  syntax:
+    content: public event Action PreNetworkFixedUpdate
+    return:
+      type: System.Action
+    content.vb: Public Event PreNetworkFixedUpdate As Action
+- uid: Netick.Unity.NetworkSandbox.PostNetworkUpdate
+  commentId: E:Netick.Unity.NetworkSandbox.PostNetworkUpdate
+  id: PostNetworkUpdate
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: PostNetworkUpdate
+  nameWithType: NetworkSandbox.PostNetworkUpdate
+  fullName: Netick.Unity.NetworkSandbox.PostNetworkUpdate
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Called after all NetworkUpdate methods have been executed.
+  example: []
+  syntax:
+    content: public event Action PostNetworkUpdate
+    return:
+      type: System.Action
+    content.vb: Public Event PostNetworkUpdate As Action
+- uid: Netick.Unity.NetworkSandbox.PreNetworkUpdate
+  commentId: E:Netick.Unity.NetworkSandbox.PreNetworkUpdate
+  id: PreNetworkUpdate
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: PreNetworkUpdate
+  nameWithType: NetworkSandbox.PreNetworkUpdate
+  fullName: Netick.Unity.NetworkSandbox.PreNetworkUpdate
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Called before any NetworkUpdate method have been executed.
+  example: []
+  syntax:
+    content: public event Action PreNetworkUpdate
+    return:
+      type: System.Action
+    content.vb: Public Event PreNetworkUpdate As Action
+- uid: Netick.Unity.NetworkSandbox.PostNetworkRender
+  commentId: E:Netick.Unity.NetworkSandbox.PostNetworkRender
+  id: PostNetworkRender
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: PostNetworkRender
+  nameWithType: NetworkSandbox.PostNetworkRender
+  fullName: Netick.Unity.NetworkSandbox.PostNetworkRender
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Called after all NetworkRender methods have been executed.
+  example: []
+  syntax:
+    content: public event Action PostNetworkRender
+    return:
+      type: System.Action
+    content.vb: Public Event PostNetworkRender As Action
+- uid: Netick.Unity.NetworkSandbox.PreNetworkRender
+  commentId: E:Netick.Unity.NetworkSandbox.PreNetworkRender
+  id: PreNetworkRender
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: PreNetworkRender
+  nameWithType: NetworkSandbox.PreNetworkRender
+  fullName: Netick.Unity.NetworkSandbox.PreNetworkRender
+  type: Event
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Called before any NetworkRender method have been executed.
+  example: []
+  syntax:
+    content: public event Action PreNetworkRender
+    return:
+      type: System.Action
+    content.vb: Public Event PreNetworkRender As Action
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -4190,13 +4256,13 @@ references:
   name: TryGetLocalPlayerObject
   nameWithType: NetworkSandbox.TryGetLocalPlayerObject
   fullName: Netick.Unity.NetworkSandbox.TryGetLocalPlayerObject
-- uid: Netick.Unity.NetworkSandbox.GetPlayerFromId*
-  commentId: Overload:Netick.Unity.NetworkSandbox.GetPlayerFromId
+- uid: Netick.Unity.NetworkSandbox.GetPlayerById*
+  commentId: Overload:Netick.Unity.NetworkSandbox.GetPlayerById
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_GetPlayerFromId_Netick_NetworkPlayerId_
-  name: GetPlayerFromId
-  nameWithType: NetworkSandbox.GetPlayerFromId
-  fullName: Netick.Unity.NetworkSandbox.GetPlayerFromId
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_GetPlayerById_Netick_NetworkPlayerId_
+  name: GetPlayerById
+  nameWithType: NetworkSandbox.GetPlayerById
+  fullName: Netick.Unity.NetworkSandbox.GetPlayerById
 - uid: Netick.Unity.NetworkSandbox.ContainsPlayer*
   commentId: Overload:Netick.Unity.NetworkSandbox.ContainsPlayer
   isExternal: true
@@ -4552,6 +4618,14 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: Netick.Unity.NetworkSandbox
+  commentId: T:Netick.Unity.NetworkSandbox
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html
+  name: NetworkSandbox
+  nameWithType: NetworkSandbox
+  fullName: Netick.Unity.NetworkSandbox
 - uid: Netick.Unity.NetworkSandbox.FindSandboxOf*
   commentId: Overload:Netick.Unity.NetworkSandbox.FindSandboxOf
   isExternal: true
@@ -4565,14 +4639,6 @@ references:
   name: MonoBehaviour
   nameWithType: MonoBehaviour
   fullName: UnityEngine.MonoBehaviour
-- uid: Netick.Unity.NetworkSandbox
-  commentId: T:Netick.Unity.NetworkSandbox
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html
-  name: NetworkSandbox
-  nameWithType: NetworkSandbox
-  fullName: Netick.Unity.NetworkSandbox
 - uid: Netick.Unity.NetworkSandbox.GetInput*
   commentId: Overload:Netick.Unity.NetworkSandbox.GetInput
   isExternal: true
@@ -4620,7 +4686,7 @@ references:
 - uid: Netick.Unity.NetworkSandbox.Kick*
   commentId: Overload:Netick.Unity.NetworkSandbox.Kick
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Kick_Netick_ServerConnection_
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Kick_Netick_NetworkPlayerId_
   name: Kick
   nameWithType: NetworkSandbox.Kick
   fullName: Netick.Unity.NetworkSandbox.Kick
@@ -5437,56 +5503,6 @@ references:
   name: CurrentRpcCaller
   nameWithType: NetworkSandbox.CurrentRpcCaller
   fullName: Netick.Unity.NetworkSandbox.CurrentRpcCaller
-- uid: Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate*
-  commentId: Overload:Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_PostNetworkFixedUpdate
-  name: PostNetworkFixedUpdate
-  nameWithType: NetworkSandbox.PostNetworkFixedUpdate
-  fullName: Netick.Unity.NetworkSandbox.PostNetworkFixedUpdate
-- uid: System.Action
-  commentId: T:System.Action
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.action
-  name: Action
-  nameWithType: Action
-  fullName: System.Action
-- uid: Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate*
-  commentId: Overload:Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_PreNetworkFixedUpdate
-  name: PreNetworkFixedUpdate
-  nameWithType: NetworkSandbox.PreNetworkFixedUpdate
-  fullName: Netick.Unity.NetworkSandbox.PreNetworkFixedUpdate
-- uid: Netick.Unity.NetworkSandbox.PostNetworkUpdate*
-  commentId: Overload:Netick.Unity.NetworkSandbox.PostNetworkUpdate
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_PostNetworkUpdate
-  name: PostNetworkUpdate
-  nameWithType: NetworkSandbox.PostNetworkUpdate
-  fullName: Netick.Unity.NetworkSandbox.PostNetworkUpdate
-- uid: Netick.Unity.NetworkSandbox.PreNetworkUpdate*
-  commentId: Overload:Netick.Unity.NetworkSandbox.PreNetworkUpdate
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_PreNetworkUpdate
-  name: PreNetworkUpdate
-  nameWithType: NetworkSandbox.PreNetworkUpdate
-  fullName: Netick.Unity.NetworkSandbox.PreNetworkUpdate
-- uid: Netick.Unity.NetworkSandbox.PostNetworkRender*
-  commentId: Overload:Netick.Unity.NetworkSandbox.PostNetworkRender
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_PostNetworkRender
-  name: PostNetworkRender
-  nameWithType: NetworkSandbox.PostNetworkRender
-  fullName: Netick.Unity.NetworkSandbox.PostNetworkRender
-- uid: Netick.Unity.NetworkSandbox.PreNetworkRender*
-  commentId: Overload:Netick.Unity.NetworkSandbox.PreNetworkRender
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_PreNetworkRender
-  name: PreNetworkRender
-  nameWithType: NetworkSandbox.PreNetworkRender
-  fullName: Netick.Unity.NetworkSandbox.PreNetworkRender
 - uid: Netick.Unity.NetworkSandbox.Events*
   commentId: Overload:Netick.Unity.NetworkSandbox.Events
   isExternal: true
@@ -5502,3 +5518,11 @@ references:
   name: NetickCallbacks
   nameWithType: NetickCallbacks
   fullName: Netick.Unity.NetickCallbacks
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action

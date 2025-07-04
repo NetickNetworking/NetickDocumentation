@@ -150,7 +150,10 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.NetworkBehaviour.html">NetworkBehaviour</a></dt>
-      <dd></dd>
+      <dd><p>Base class for all networked behaviors in Netick.
+Inherit from this class to create custom network-synchronized logic.
+Provides access to network state, input, and misc utility methods.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.NetworkEvents.html">NetworkEvents</a></dt>
@@ -259,7 +262,8 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.PhysicsSimulationStep.html">PhysicsSimulationStep</a></dt>
-      <dd></dd>
+      <dd><p>Executes the physics (PhysX or Box2D) simulation step during the <code>NetworkFixedUpdate</code> callback of Netick.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.ProfilerIMGUI.html">ProfilerIMGUI</a></dt>
@@ -290,6 +294,11 @@ Structs
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="Netick.Unity.FloatErrorCorrector.html">FloatErrorCorrector</a></dt>
+      <dd><p>Handles prediction error correction smoothing for a float.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.LaunchData.html">LaunchData</a></dt>
       <dd></dd>
     </dl>
@@ -299,11 +308,15 @@ Structs
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.NetworkBehaviourRef-1.html">NetworkBehaviourRef&lt;T&gt;</a></dt>
-      <dd></dd>
+      <dd><p>Represents a network-serializable reference to a <a class="xref" href="Netick.Unity.NetworkBehaviour.html">NetworkBehaviour</a> of type <code class="typeparamref">T</code> within the networked simulation.
+This struct stores the object and behaviour ids, allowing retrieval of the referenced behaviour from a <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.NetworkObjectRef.html">NetworkObjectRef</a></dt>
-      <dd></dd>
+      <dd><p>Represents a network-serializable reference to a <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a> within the networked simulation.
+This struct stores the object network id, allowing retrieval of the referenced object from a <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.NetworkSceneOperation.html">NetworkSceneOperation</a></dt>
@@ -311,7 +324,8 @@ Structs
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.QuaternionErrorCorrector.html">QuaternionErrorCorrector</a></dt>
-      <dd></dd>
+      <dd><p>Handles prediction error correction smoothing for a Quaternion.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.SandboxLaunchData.html">SandboxLaunchData</a></dt>
@@ -319,11 +333,18 @@ Structs
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.TransformErrorCorrector.html">TransformErrorCorrector</a></dt>
-      <dd></dd>
+      <dd><p>Handles prediction error correction smoothing for a transform.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="Netick.Unity.Vector2ErrorCorrector.html">Vector2ErrorCorrector</a></dt>
+      <dd><p>Handles prediction error correction smoothing for a Vector2.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Unity.Vector3ErrorCorrector.html">Vector3ErrorCorrector</a></dt>
-      <dd></dd>
+      <dd><p>Handles prediction error correction smoothing for a Vector3.</p>
+</dd>
     </dl>
     <h3 id="interfaces">
 Interfaces

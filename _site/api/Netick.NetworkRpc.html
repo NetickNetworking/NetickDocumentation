@@ -146,41 +146,6 @@ Class NetworkRpc
 
 
 
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="Netick_NetworkRpc__ctor_" data-uid="Netick.NetworkRpc.#ctor*"></a>
-
-  <h3 id="Netick_NetworkRpc__ctor_System_Int32_" data-uid="Netick.NetworkRpc.#ctor(System.Int32)">
-  NetworkRpc(int)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetworkRpc(int maxPlayers)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>maxPlayers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <h2 class="section" id="fields">Fields
 </h2>
 
@@ -309,50 +274,6 @@ Class NetworkRpc
 </h2>
 
 
-  <a id="Netick_NetworkRpc_Init_" data-uid="Netick.NetworkRpc.Init*"></a>
-
-  <h3 id="Netick_NetworkRpc_Init_System_Int32_Netick_INetickNetworkScript_System_Boolean_Netick_RpcPeers_System_Int32_" data-uid="Netick.NetworkRpc.Init(System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)">
-  Init(int, INetickNetworkScript, bool, RpcPeers, int)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetworkRpc Init(int id, INetickNetworkScript behaviour, bool isReliable, RpcPeers target, int sizeWords)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>behaviour</code> <a class="xref" href="Netick.INetickNetworkScript.html">INetickNetworkScript</a></dt>
-    <dd></dd>
-    <dt><code>isReliable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-    <dt><code>target</code> <a class="xref" href="Netick.RpcPeers.html">RpcPeers</a></dt>
-    <dd></dd>
-    <dt><code>sizeWords</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.NetworkRpc.html">NetworkRpc</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="Netick_NetworkRpc_InternalCanInvoke_" data-uid="Netick.NetworkRpc.InternalCanInvoke*"></a>
 
   <h3 id="Netick_NetworkRpc_InternalCanInvoke_Netick_NetickEngine_Netick_Entity_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Int32_" data-uid="Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32)">
@@ -360,8 +281,7 @@ Class NetworkRpc
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Internal method. Never call this.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -381,6 +301,55 @@ Class NetworkRpc
     <dt><code>localInvoke</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
     <dt><code>rpcId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkRpc_InternalCanInvokeWithRID_" data-uid="Netick.NetworkRpc.InternalCanInvokeWithRID*"></a>
+
+  <h3 id="Netick_NetworkRpc_InternalCanInvokeWithRID_Netick_NetickEngine_Netick_Entity_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Int32_Netick_RpcInvokeData__" data-uid="Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,Netick.RpcInvokeData@)">
+  InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, ref RpcInvokeData)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Internal method. Never call this.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool InternalCanInvokeWithRID(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcId, ref RpcInvokeData rpcInvokeData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>engine</code> <a class="xref" href="Netick.NetickEngine.html">NetickEngine</a></dt>
+    <dd></dd>
+    <dt><code>obj</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="Netick.RpcPeers.html">RpcPeers</a></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="Netick.RpcPeers.html">RpcPeers</a></dt>
+    <dd></dd>
+    <dt><code>localInvoke</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>rpcId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>rpcInvokeData</code> <a class="xref" href="Netick.RpcInvokeData.html">RpcInvokeData</a></dt>
     <dd></dd>
   </dl>
 
@@ -445,10 +414,62 @@ Class NetworkRpc
 
 
 
+  <a id="Netick_NetworkRpc_InternalCreateRelayedRpc_" data-uid="Netick.NetworkRpc.InternalCreateRelayedRpc*"></a>
+
+  <h3 id="Netick_NetworkRpc_InternalCreateRelayedRpc_Netick_NetickEngine_System_Boolean_Netick_NetworkPlayerId_Netick_NetworkPlayerId_System_Int32_Netick_INetickNetworkScript_System_Boolean_Netick_RpcPeers_System_Int32_" data-uid="Netick.NetworkRpc.InternalCreateRelayedRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)">
+  InternalCreateRelayedRpc(NetickEngine, bool, NetworkPlayerId, NetworkPlayerId, int, INetickNetworkScript, bool, RpcPeers, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NetworkRpc InternalCreateRelayedRpc(NetickEngine engine, bool isTargeted, NetworkPlayerId sourcePlayer, NetworkPlayerId targetPlayer, int id, INetickNetworkScript behaviour, bool isReliable, RpcPeers target, int wordSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>engine</code> <a class="xref" href="Netick.NetickEngine.html">NetickEngine</a></dt>
+    <dd></dd>
+    <dt><code>isTargeted</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>sourcePlayer</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
+    <dt><code>targetPlayer</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>behaviour</code> <a class="xref" href="Netick.INetickNetworkScript.html">INetickNetworkScript</a></dt>
+    <dd></dd>
+    <dt><code>isReliable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="Netick.RpcPeers.html">RpcPeers</a></dt>
+    <dd></dd>
+    <dt><code>wordSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkRpc.html">NetworkRpc</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_NetworkRpc_InternalCreateRpc_" data-uid="Netick.NetworkRpc.InternalCreateRpc*"></a>
 
-  <h3 id="Netick_NetworkRpc_InternalCreateRpc_Netick_NetickEngine_Netick_NetworkConnection_System_Int32_Netick_INetickNetworkScript_System_Boolean_Netick_RpcPeers_System_Int32_" data-uid="Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine,Netick.NetworkConnection,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)">
-  InternalCreateRpc(NetickEngine, NetworkConnection, int, INetickNetworkScript, bool, RpcPeers, int)
+  <h3 id="Netick_NetworkRpc_InternalCreateRpc_Netick_NetickEngine_System_Boolean_Netick_NetworkPlayerId_System_Int32_Netick_INetickNetworkScript_System_Boolean_Netick_RpcPeers_System_Int32_" data-uid="Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)">
+  InternalCreateRpc(NetickEngine, bool, NetworkPlayerId, int, INetickNetworkScript, bool, RpcPeers, int)
   
   </h3>
 
@@ -457,14 +478,16 @@ Class NetworkRpc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static NetworkRpc InternalCreateRpc(NetickEngine engine, NetworkConnection connection, int id, INetickNetworkScript behaviour, bool isReliable, RpcPeers target, int wordSize)</code></pre>
+    <pre><code class="lang-csharp hljs">public static NetworkRpc InternalCreateRpc(NetickEngine engine, bool isTargeted, NetworkPlayerId targetPlayer, int id, INetickNetworkScript behaviour, bool isReliable, RpcPeers target, int wordSize)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>engine</code> <a class="xref" href="Netick.NetickEngine.html">NetickEngine</a></dt>
     <dd></dd>
-    <dt><code>connection</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dt><code>isTargeted</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>targetPlayer</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
     <dd></dd>
     <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
@@ -520,63 +543,6 @@ Class NetworkRpc
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_NetworkRpc_Recycle_" data-uid="Netick.NetworkRpc.Recycle*"></a>
-
-  <h3 id="Netick_NetworkRpc_Recycle" data-uid="Netick.NetworkRpc.Recycle">
-  Recycle()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Recycle()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_NetworkRpc_RegisterSent_" data-uid="Netick.NetworkRpc.RegisterSent*"></a>
-
-  <h3 id="Netick_NetworkRpc_RegisterSent_Netick_NetworkConnection_" data-uid="Netick.NetworkRpc.RegisterSent(Netick.NetworkConnection)">
-  RegisterSent(NetworkConnection)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RegisterSent(NetworkConnection connection)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>connection</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
-    <dd></dd>
-  </dl>
-
 
 
 

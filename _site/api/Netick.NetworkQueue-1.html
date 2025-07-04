@@ -210,7 +210,8 @@ Class NetworkQueue&lt;T&gt;
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the number of elements contained in the queue.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -245,7 +246,8 @@ Class NetworkQueue&lt;T&gt;
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds an item to the underlying original queue. Used for local operations.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -255,7 +257,8 @@ Class NetworkQueue&lt;T&gt;
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>item</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The item to add.</p>
+</dd>
   </dl>
 
 
@@ -276,7 +279,8 @@ Class NetworkQueue&lt;T&gt;
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes all elements from the queue.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -302,7 +306,8 @@ Class NetworkQueue&lt;T&gt;
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes and returns the item at the beginning of the queue.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -313,7 +318,8 @@ Class NetworkQueue&lt;T&gt;
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The item removed from the beginning of the queue.</p>
+</dd>
   </dl>
 
 
@@ -323,6 +329,12 @@ Class NetworkQueue&lt;T&gt;
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the queue is empty.</p>
+</dd>
+  </dl>
 
 
 
@@ -333,7 +345,8 @@ Class NetworkQueue&lt;T&gt;
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds an item to the end of the queue if there is capacity.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -343,13 +356,15 @@ Class NetworkQueue&lt;T&gt;
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>item</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The item to add.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><code>true</code> if the item was added; otherwise, <code>false</code> if the queue is full.</p>
+</dd>
   </dl>
 
 
@@ -463,7 +478,8 @@ Class NetworkQueue&lt;T&gt;
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the item at the beginning of the queue without removing it.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -474,7 +490,8 @@ Class NetworkQueue&lt;T&gt;
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The item at the beginning of the queue.</p>
+</dd>
   </dl>
 
 
@@ -484,6 +501,12 @@ Class NetworkQueue&lt;T&gt;
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the queue is empty.</p>
+</dd>
+  </dl>
 
 
 
@@ -494,7 +517,8 @@ Class NetworkQueue&lt;T&gt;
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Attempts to remove and return the item at the beginning of the queue.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -504,13 +528,15 @@ Class NetworkQueue&lt;T&gt;
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>result</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>When this method returns, contains the object removed from the queue, or the default value if the queue is empty.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><code>true</code> if an item was dequeued; otherwise, <code>false</code>.</p>
+</dd>
   </dl>
 
 
@@ -530,7 +556,8 @@ Class NetworkQueue&lt;T&gt;
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Attempts to return the item at the beginning of the queue without removing it.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -540,13 +567,15 @@ Class NetworkQueue&lt;T&gt;
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>result</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>When this method returns, contains the object at the beginning of the queue, or the default value if the queue is empty.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><code>true</code> if an item was found; otherwise, <code>false</code>.</p>
+</dd>
   </dl>
 
 

@@ -28,10 +28,16 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: >-
+    Represents a network-serializable reference to a <xref href="Netick.Unity.NetworkBehaviour" data-throw-if-not-resolved="false"></xref> of type <code class="typeparamref">T</code> within the networked simulation.
+
+    This struct stores the object and behaviour ids, allowing retrieval of the referenced behaviour from a <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: 'public struct NetworkBehaviourRef<T> : IEquatable<NetworkBehaviourRef<T>> where T : NetworkBehaviour'
     typeParameters:
     - id: T
+      description: The type of <xref href="Netick.Unity.NetworkBehaviour" data-throw-if-not-resolved="false"></xref> being referenced.
     content.vb: Public Structure NetworkBehaviourRef(Of T As NetworkBehaviour) Implements IEquatable(Of NetworkBehaviourRef(Of T))
   implements:
   - System.IEquatable{Netick.Unity.NetworkBehaviourRef`1}
@@ -374,6 +380,22 @@ items:
   nameWithType.vb: NetworkBehaviourRef(Of T).IsValid
   fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).IsValid
 references:
+- uid: Netick.Unity.NetworkBehaviour
+  commentId: T:Netick.Unity.NetworkBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html
+  name: NetworkBehaviour
+  nameWithType: NetworkBehaviour
+  fullName: Netick.Unity.NetworkBehaviour
+- uid: Netick.Unity.NetworkSandbox
+  commentId: T:Netick.Unity.NetworkSandbox
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html
+  name: NetworkSandbox
+  nameWithType: NetworkSandbox
+  fullName: Netick.Unity.NetworkSandbox
 - uid: Netick.Unity
   commentId: N:Netick.Unity
   isExternal: true
@@ -625,14 +647,6 @@ references:
   nameWithType.vb: NetworkBehaviourRef(Of T).New
   fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).New
   name.vb: New
-- uid: Netick.Unity.NetworkBehaviour
-  commentId: T:Netick.Unity.NetworkBehaviour
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.NetworkBehaviour.html
-  name: NetworkBehaviour
-  nameWithType: NetworkBehaviour
-  fullName: Netick.Unity.NetworkBehaviour
 - uid: Netick.Unity.NetworkBehaviourRef`1.TryGetBehaviour*
   commentId: Overload:Netick.Unity.NetworkBehaviourRef`1.TryGetBehaviour
   isExternal: true
@@ -642,14 +656,6 @@ references:
   fullName: Netick.Unity.NetworkBehaviourRef<T>.TryGetBehaviour
   nameWithType.vb: NetworkBehaviourRef(Of T).TryGetBehaviour
   fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).TryGetBehaviour
-- uid: Netick.Unity.NetworkSandbox
-  commentId: T:Netick.Unity.NetworkSandbox
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html
-  name: NetworkSandbox
-  nameWithType: NetworkSandbox
-  fullName: Netick.Unity.NetworkSandbox
 - uid: '{T}'
   commentId: '!:T'
   definition: T
