@@ -2,17 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | Netick Networking Engine </title>
+      <title>Port Forwarding | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | Netick Networking Engine ">
+      <meta name="title" content="Port Forwarding | Netick Networking Engine ">
       
-      <link rel="icon" href="images/logo.png">
-      <link rel="stylesheet" href="public/docfx.min.css">
-      <link rel="stylesheet" href="public/main.css">
-      <meta name="docfx:navrel" content="toc.html">
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      <meta name="docfx:rel" content="">
+      <meta name="docfx:rel" content="../">
       
       
       
@@ -29,7 +29,7 @@
       <meta name="loc:copy" content="Copy">
   </head>
 
-  <script type="module" src="./public/docfx.min.js"></script>
+  <script type="module" src="./../public/docfx.min.js"></script>
 
   <script>
     const theme = localStorage.getItem('theme') || 'auto'
@@ -41,8 +41,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="index.html">
-            <img id="logo" class="svg" src="images/logo.png" alt="Netick Docs | v2">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
             Netick Docs | v2
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,17 +83,69 @@
         </div>
 
         <article data-uid="">
+<h1 id="port-forwarding">Port Forwarding</h1>
 
-<h2 id="documentation">Documentation</h2>
-<p>This repository hosts the Documentation for Netick. It does not host the source code of Netick itself.</p>
-<h2 id="developer-guide">Developer Guide</h2>
-<p>This documentation uses <a href="https://github.com/dotnet/docfx">docfx</a>.</p>
-<p>Install docfx:</p>
-<pre><code>dotnet tool install -g docfx
-</code></pre>
-<p>To serve the docs on localhost, use this command:</p>
-<pre><code>docfx --serve
-</code></pre>
+<p>Port forwarding is a technique that allows a local server (player-hosted server) to be accessible over the internet (WAN). However, many Internet Service Providers (ISPs) block this functionality by default to reduce potential security risks. As a result, self-hosted game servers may be inaccessible to other players.</p>
+<p>Some games do not include built-in relay or NAT traversal solutions to work around port forwarding restrictions, such as Minecraft, Terraria, and Valheim.</p>
+<p>Below are common solutions to bypass NAT (Network Address Translation) restrictions and enable connectivity.</p>
+<h2 id="cloud-hosting-providers">Cloud Hosting Providers</h2>
+<p>Hosting your game server on a cloud platform that provides a public IP address is one of the most reliable methods.</p>
+<p>Popular cloud service providers include:</p>
+<ul>
+<li>Amazon Web Services (AWS)</li>
+<li>Google Cloud Platform (GCP)</li>
+<li>Microsoft Azure</li>
+</ul>
+<h2 id="relay-sdks">Relay SDKs</h2>
+<p>Relay services act as intermediaries (bridges) between clients and servers, facilitating communication without direct port forwarding. While effective, they often introduce additional latency.</p>
+<p>Popular relay solutions:</p>
+<ul>
+<li>Steamworks</li>
+<li>Epic Online Services (EOS)</li>
+<li>Unity Relay</li>
+</ul>
+<h2 id="reverse-proxy-services">Reverse Proxy Services</h2>
+<p>A reverse proxy runs alongside the game server on the host machine and exposes it to the internet. This approach is conceptually similar to using a relay.</p>
+<p>Common reverse proxy tools:</p>
+<ul>
+<li>Ngrok (TCP only)</li>
+<li>Playit.gg</li>
+<li>Hamachi</li>
+</ul>
+<h2 id="contacting-your-isp">Contacting Your ISP</h2>
+<p>If your ISP restricts NAT or blocks incoming connections, you may request a public IP address. Be aware that this might incur additional charges or require specific configuration.</p>
+<h2 id="solution-comparison">Solution Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Hosting</td>
+<td>Lowest latency, reliable</td>
+<td>Higher cost, less control over the environment</td>
+</tr>
+<tr>
+<td>Relay SDK</td>
+<td>Seamless integration, user-friendly</td>
+<td>Additional latency, requires compatible transport layer</td>
+</tr>
+<tr>
+<td>Reverse Proxy</td>
+<td>Cost-effective, flexible</td>
+<td>Added latency, manual setup often required for players</td>
+</tr>
+<tr>
+<td>Public IP (ISP)</td>
+<td>Works universally with games</td>
+<td>May involve extra cost and technical setup</td>
+</tr>
+</tbody>
+</table>
 
 </article>
 

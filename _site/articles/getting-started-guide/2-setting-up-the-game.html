@@ -87,7 +87,10 @@
 
 <h2 id="starting-the-game">Starting the Game</h2>
 <p>There are a few methods we can use to start the game:</p>
-<pre><code class="lang-cs">// start the game as a server with a player
+<pre><code class="lang-cs">// manually initialize Netick (also done automatically when `Network.StartAsHost`/`Network.StartAsClient`/`Network.StartAsServer` is called)
+Netick.Unity.Network.Init();
+
+// start the game as a server with a player
 Netick.Unity.Network.StartAsHost(...);
 
 // start the game as a client

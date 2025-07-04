@@ -2,17 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | Netick Networking Engine </title>
+      <title>Timers | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | Netick Networking Engine ">
+      <meta name="title" content="Timers | Netick Networking Engine ">
       
-      <link rel="icon" href="images/logo.png">
-      <link rel="stylesheet" href="public/docfx.min.css">
-      <link rel="stylesheet" href="public/main.css">
-      <meta name="docfx:navrel" content="toc.html">
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      <meta name="docfx:rel" content="">
+      <meta name="docfx:rel" content="../">
       
       
       
@@ -29,7 +29,7 @@
       <meta name="loc:copy" content="Copy">
   </head>
 
-  <script type="module" src="./public/docfx.min.js"></script>
+  <script type="module" src="./../public/docfx.min.js"></script>
 
   <script>
     const theme = localStorage.getItem('theme') || 'auto'
@@ -41,8 +41,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="index.html">
-            <img id="logo" class="svg" src="images/logo.png" alt="Netick Docs | v2">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs | v2">
             Netick Docs | v2
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,16 +83,57 @@
         </div>
 
         <article data-uid="">
+<h1 id="timers">Timers</h1>
 
-<h2 id="documentation">Documentation</h2>
-<p>This repository hosts the Documentation for Netick. It does not host the source code of Netick itself.</p>
-<h2 id="developer-guide">Developer Guide</h2>
-<p>This documentation uses <a href="https://github.com/dotnet/docfx">docfx</a>.</p>
-<p>Install docfx:</p>
-<pre><code>dotnet tool install -g docfx
+<p>Netick provides several ways to work with time in your networked game.</p>
+<h2 id="converting-between-ticks-and-time">Converting Between Ticks and Time</h2>
+<p>Sometimes you need to convert between ticks and time (in seconds). Netick provides methods to do this conversion:</p>
+<h3 id="sandboxticktotime">Sandbox.TickToTime()</h3>
+<p>The <code>TickToTime()</code> method converts ticks to time in seconds. This is useful when you need to check if a certain amount of time has passed since an event occurred. For example, if you want to explode a bomb after a delay:</p>
+<pre><code class="lang-csharp">public override void NetworkFixedUpdate()
+{
+    if (Sandbox.TickToTime(Sandbox.Tick - Object.SpawnTick) &gt;= ExplosionDelay)
+        Explode();
+}
 </code></pre>
-<p>To serve the docs on localhost, use this command:</p>
-<pre><code>docfx --serve
+<p>In this example, <code>Sandbox.Tick</code> is the current tick, <code>Object.SpawnTick</code> is the tick when the object was spawned, and <code>ExplosionDelay</code> is the delay in seconds before the explosion. The difference between the current tick and spawn tick determines the number of ticks that have passed since the object was spawned, which is then converted to seconds using <code>TickToTime()</code>.</p>
+<h3 id="sandboxtimetotick">Sandbox.TimeToTick()</h3>
+<p>The <code>TimeToTick()</code> method does the opposite conversion, from time in seconds to ticks:</p>
+<pre><code class="lang-csharp">// Convert time in seconds to ticks
+Tick tickValue = Sandbox.TimeToTick(timeInSeconds);
+</code></pre>
+<h2 id="using-networktimer">Using NetworkTimer</h2>
+<p>Netick provides a <code>NetworkTimer</code> class that makes it easier to work with time-based events in your networked game. The <code>NetworkTimer</code> class offers methods to check if a timer is running, if it has stopped, and how much time remains.</p>
+<h3 id="starting-a-timer">Starting a Timer</h3>
+<p>You can start a timer using the <code>Sandbox.StartTimer()</code> method:</p>
+<pre><code class="lang-csharp">// Start a 5-seconds timer
+NetworkTimer myNetworkTimer = Sandbox.StartTimer(5.0f);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>By default, the system uses predicted timing. You can use <code>usePredictedTiming: false</code> to opt out of this feature: <code>Sandbox.StartTimer(duration, usePredictedTiming: false)</code>.</p>
+</div>
+<h3 id="checking-timer-status">Checking Timer Status</h3>
+<p>You can check the status of a timer using the following methods:</p>
+<pre><code class="lang-csharp">// Check if the timer is still running
+if (myNetworkTimer.IsRunning(Sandbox))
+{
+    // Timer is still running
+}
+
+// Check if the timer has stopped
+if (myNetworkTimer.IsStopped(Sandbox))
+{
+    // Timer has stopped/finished
+}
+</code></pre>
+<h3 id="getting-remaining-and-elapsed-time">Getting Remaining and Elapsed Time</h3>
+<p>You can get the remaining time and elapsed time of a timer:</p>
+<pre><code class="lang-csharp">// Get the remaining time in seconds
+float remainingTime = myNetworkTimer.GetRemainingTime(Sandbox);
+
+// Get the elapsed time in seconds
+float elapsedTime = myNetworkTimer.GetElapsedTime(Sandbox);
 </code></pre>
 
 </article>

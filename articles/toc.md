@@ -70,9 +70,10 @@
 
 ## [Networked Procedural Generation](networked-procedural-generation.md)
 
+## [Port Forwarding](port-forwarding.md)
+
 ## [Coming from Netick 1](coming-from-netick-1.md)
 
-## [Port Forward](port-forward.md)
 
 # Built-in Components
 
