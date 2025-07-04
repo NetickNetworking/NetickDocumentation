@@ -50,6 +50,8 @@
 
 ## [Sandboxing](sandboxing.md)
 
+## [Timers](timers.md)
+
 ## [Physics Prediction](physics-prediction.md)
 
 ## [Interpolation](interpolation.md)
@@ -93,7 +95,3 @@
 ## [Available Transports](transports.md)
 
 ## [How to Write a Transport Wrapper (Guide)](how-to-write-a-transport-wrapper.md)
-
-
-
-
