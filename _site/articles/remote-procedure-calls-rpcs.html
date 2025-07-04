@@ -85,8 +85,8 @@
         <article data-uid="">
 <h1 id="remote-procedure-calls-rpcs">Remote Procedure Calls (RPCs)</h1>
 
-<p>RPCs are method calls on Network Behaviors that are replicated across the network. They can be used for syncing events or to transfer small amounts of data.</p>
-<p>An important use of RPCs is to set up the game and send configuration messages. Use reliable RPCs for things like that.</p>
+<p>Remote Procedure Calls (RPCs) in Netick are methods defined on <code>NetworkBehavior</code> scripts that can be invoked remotely across the network. They are typically used to synchronize discrete events or transmit small amounts of data between clients and the server.</p>
+<p>A common use case for RPCs is initializing gameplay logic or sending configuration data at the start of a session. Such tasks should use <strong>reliable RPCs</strong> to ensure delivery.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>While other solutions are heavily dependent on RPCs, Netick is designed to make usage of RPCs very minimal (less than 3 RPCs in the entire game). RPCs teach bad practices and produce <a href="https://en.wikipedia.org/wiki/Spaghetti_code">spaghetti code</a>. Read the article on <a href="rpcs-vs-properties.html">RPCs vs Properties</a> for more.</p>
@@ -95,61 +95,96 @@
 <h5>Warning</h5>
 <p>RPCs are not suitable for sending large amounts of data (e.g., over 500 bytes) or transferring files. For those use cases, refer to this <a href="sending-large-amounts-of-data.html">article</a>.</p>
 </div>
-<p>An RPC example:</p>
+<h2 id="basic-example">Basic Example</h2>
+<p>Here's a simple example of an RPC:</p>
 <pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.InputSource, isReliable: true, localInvoke: false)]
 private void MyRpc(int arg1)
 {
-    // Code to be executed
+    // Code to be executed remotely
 }
 </code></pre>
-<p>You use the [<a class="xref" href="../api/Netick.Rpc.html">Rpc</a>] attribute to mark a method as an RPC.</p>
+<p>To declare a method as an RPC, decorate it with the [<code>Rpc</code>] attribute.</p>
 <h2 id="static-rpcs">Static RPCs</h2>
-<p>Static RPCs are RPCs not attached to a specific instance of a network behavior. Static RPCs must have their first parameter as a <code>NetickEngine</code> type. Which can be used to access the <code>NetworkSandbox</code> instance if needed.</p>
+<p><strong>Static RPCs</strong> are RPCs not tied to a specific instance of a <code>NetworkBehavior</code>. The first parameter of a static RPC must be of type <code>NetickEngine</code>, which allows access to the current <code>NetworkSandbox</code>.</p>
 <pre><code class="lang-csharp">[Rpc]
 public static void MyStaticRpc(NetickEngine engine, int someRpcPara)
 {
-  var sandbox = engine.UserObject as NetworkSandbox;
+    var sandbox = engine.UserObject as NetworkSandbox;
 }
 
-// this is how you would call the rpc:
-
+// Invoking the RPC:
 MyStaticRpc(Sandbox.Engine, 56);
 </code></pre>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>RPCs are not called on resimulated ticks.</p>
+<p>RPCs are not executed on resimulated ticks.</p>
 </div>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>By default all RPCs are unreliable.</p>
+<p>Additionally, all RPCs are <strong>unreliable by default</strong> unless explicitly marked otherwise.</p>
 </div>
-<h3 id="rpc-method-constraints">[Rpc] method constraints</h3>
+<h2 id="rpc-method-requirements"><code>[Rpc]</code> Method Requirements</h2>
+<p>RPC methods must adhere to the following constraints:</p>
 <ul>
-<li>Must have the return type of void.</li>
-<li>Must not have reference types as parameters.</li>
-<li>Must not have class-based network collections as parameters. Only <code>NetworkArrayStruct</code> varaints are allowed as array RPC parameters.</li>
-<li>Must not have <code>string</code> as a parameter type. Instead, you can use NetworkString varaints.</li>
+<li>Must have a return type of <code>void</code>.</li>
+<li>Reference types are not allowed as parameters.</li>
+<li>Class-based network collections are not allowed. Use <code>NetworkArrayStruct</code> for array parameters.</li>
+<li><code>string</code> parameters are not allowed. Use one of the <code>NetworkString</code> variants instead.</li>
 </ul>
-<h3 id="rpc-attribute-parameters">[Rpc] attribute parameters</h3>
+<h2 id="rpc-attribute-parameters"><code>[Rpc]</code> Attribute Parameters</h2>
+<p>The <code>[Rpc]</code> attribute accepts the following options:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source</code></td>
+<td>Specifies which peer(s) the RPC originates from</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td>Specifies which peer(s) should execute the RPC</td>
+</tr>
+<tr>
+<td><code>isReliable</code></td>
+<td>If <code>true</code>, the RPC will be sent reliably</td>
+</tr>
+<tr>
+<td><code>localInvoke</code></td>
+<td>If <code>true</code>, the RPC will also be invoked locally</td>
+</tr>
+</tbody>
+</table>
+<h3 id="peer-options">Peer Options</h3>
+<p>The <code>source</code> and <code>target</code> can be any of the following:</p>
 <ul>
-<li>Source: the peer/peers the RPC should be sent from</li>
-<li>Target: the peer/peers the RPC will be executed on</li>
-<li>isReliable: whether the RPC is sent reliably or unreliably</li>
-<li>localInvoke: whether to invoke the RPC locally or not</li>
+<li><code>Owner</code> — The server.</li>
+<li><code>Input Source</code> — The player providing input for the object.</li>
+<li><code>Proxies</code> — All peers except the Owner and Input Source.</li>
+<li><code>Everyone</code> — All connected peers, including the server.</li>
 </ul>
-<p>Source and target can be any of the following:</p>
-<ul>
-<li>Owner (the server)</li>
-<li>Input Source: the client which is providing inputs for this Network Object</li>
-<li>Proxies: everyone except the Owner and the Input Source</li>
-<li>Everyone: the server and every connected client</li>
-</ul>
-<h3 id="source-connection-of-rpcs">Source Connection of RPCs</h3>
-<p>If you need to know which connection (a client, or the server) the current RPC is being executed from, you can use <code>Sandbox.CurrentRpcSource</code></p>
+<h2 id="targeted-rpcs">Targeted RPCs</h2>
+<p>To send an RPC to a specific peer (e.g., a single player), include a parameter of type <code>NetworkPlayerId</code> decorated with the <code>[RpcTarget]</code> attribute. For instance:</p>
 <pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.InputSource, isReliable: true, localInvoke: false)]
-private void MyRpc(int arg1)
+private void MyRpc([RpcTarget] NetworkPlayerId target, int arg1)
 {
-    var rpcSource = Sandbox.CurrentRpcSource;
+    // ...
+}
+
+// Invocation example:
+MyRpc(Sandbox.Players[2], someValue);
+</code></pre>
+<p>In the case of static RPCs, the <code>NetworkPlayerId</code> must be the <strong>second</strong> parameter, following the <code>NetickEngine</code> parameter.</p>
+<h2 id="identifying-the-rpc-source">Identifying the RPC Source</h2>
+<p>To determine which player originally called an RPC, add a final parameter of type <code>RpcInvokeData</code>. This allows you to retrieve the <code>Source</code> of the RPC at runtime:</p>
+<pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.InputSource, isReliable: true, localInvoke: false)]
+private void MyRpc(int arg1, RpcInvokeData rpcInvokeData = default)
+{
+    var rpcSource = rpcInvokeData.Source; // Identifies the sender
 }
 </code></pre>
 
