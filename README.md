@@ -9,7 +9,7 @@ Install docfx:
 dotnet tool install -g docfx
 ```
 
-To serve the docs on localhost, use this command:
+Serving the docs on localhost:
 
 ```
 docfx --serve
