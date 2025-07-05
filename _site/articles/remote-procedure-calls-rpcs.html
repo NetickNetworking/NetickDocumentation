@@ -180,11 +180,11 @@ MyRpc(Sandbox.Players[2], someValue);
 </code></pre>
 <p>In the case of static RPCs, the <code>NetworkPlayerId</code> must be the <strong>second</strong> parameter, following the <code>NetickEngine</code> parameter.</p>
 <h2 id="identifying-the-rpc-source">Identifying the RPC Source</h2>
-<p>To determine which player originally called an RPC, add a final parameter of type <code>RpcInvokeData</code>. This allows you to retrieve the <code>Source</code> of the RPC at runtime:</p>
+<p>To determine which player originally called an RPC, add a final parameter of type <code>RpcContext</code>. This allows you to retrieve the <code>Source</code> of the RPC at runtime:</p>
 <pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.InputSource, isReliable: true, localInvoke: false)]
-private void MyRpc(int arg1, RpcInvokeData rpcInvokeData = default)
+private void MyRpc(int arg1, RpcContext context = default)
 {
-    var rpcSource = rpcInvokeData.Source; // Identifies the sender
+    var rpcSource = context.Source; // Identifies the sender
 }
 </code></pre>
 

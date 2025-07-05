@@ -92,13 +92,13 @@ In the case of static RPCs, the `NetworkPlayerId` must be the **second** paramet
 
 ## Identifying the RPC Source
 
-To determine which player originally called an RPC, add a final parameter of type `RpcInvokeData`. This allows you to retrieve the `Source` of the RPC at runtime:
+To determine which player originally called an RPC, add a final parameter of type `RpcContext`. This allows you to retrieve the `Source` of the RPC at runtime:
 
 ```csharp
 [Rpc(source: RpcPeers.Everyone, target: RpcPeers.InputSource, isReliable: true, localInvoke: false)]
-private void MyRpc(int arg1, RpcInvokeData rpcInvokeData = default)
+private void MyRpc(int arg1, RpcContext context = default)
 {
-    var rpcSource = rpcInvokeData.Source; // Identifies the sender
+    var rpcSource = context.Source; // Identifies the sender
 }
 ```
 
