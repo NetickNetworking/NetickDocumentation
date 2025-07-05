@@ -169,7 +169,7 @@ MyStaticRpc(Sandbox.Engine, 56);
 </ul>
 <h2 id="targeted-rpcs">Targeted RPCs</h2>
 <p>To send an RPC to a specific peer (e.g., a single player), include a parameter of type <code>NetworkPlayerId</code> decorated with the <code>[RpcTarget]</code> attribute. For instance:</p>
-<pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.InputSource, isReliable: true, localInvoke: false)]
+<pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.Everyone, isReliable: true, localInvoke: false)]
 private void MyRpc([RpcTarget] NetworkPlayerId target, int arg1)
 {
     // ...

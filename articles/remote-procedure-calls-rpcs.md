@@ -78,7 +78,7 @@ The `source` and `target` can be any of the following:
 To send an RPC to a specific peer (e.g., a single player), include a parameter of type `NetworkPlayerId` decorated with the `[RpcTarget]` attribute. For instance:
 
 ```csharp
-[Rpc(source: RpcPeers.Everyone, target: RpcPeers.InputSource, isReliable: true, localInvoke: false)]
+[Rpc(source: RpcPeers.Everyone, target: RpcPeers.Everyone, isReliable: true, localInvoke: false)]
 private void MyRpc([RpcTarget] NetworkPlayerId target, int arg1)
 {
     // ...
