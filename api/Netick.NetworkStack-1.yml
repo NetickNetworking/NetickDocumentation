@@ -150,7 +150,7 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Removes all elements from the stack.
+  summary: Removes all items from the stack.
   example: []
   syntax:
     content: public void Clear()
@@ -311,15 +311,15 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Adds an element to the original stack (used for internal state).
+  summary: Adds an item to the original stack (used for internal state).
   example: []
   syntax:
-    content: public void Add(T element)
+    content: public void Add(T item)
     parameters:
-    - id: element
+    - id: item
       type: '{T}'
       description: The element to add.
-    content.vb: Public Sub Add(element As T)
+    content.vb: Public Sub Add(item As T)
   overload: Netick.NetworkStack`1.Add*
   nameWithType.vb: NetworkStack(Of T).Add(T)
   fullName.vb: Netick.NetworkStack(Of T).Add(T)
@@ -361,7 +361,7 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets the number of elements contained in the stack.
+  summary: Gets the number of items contained in the stack.
   example: []
   syntax:
     content: public int Count { get; }

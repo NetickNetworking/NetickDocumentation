@@ -20,6 +20,7 @@ items:
   - Netick.Unity.Network.ShutdownImmediately(System.Boolean)
   - Netick.Unity.Network.ShutdownSandbox(Netick.Unity.NetworkSandbox,System.Boolean)
   - Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,Netick.Unity.NetickConfig)
+  - Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider,UnityEngine.GameObject,Netick.Unity.NetickConfig)
   - Netick.Unity.Network.StartAsHost(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,Netick.Unity.NetickConfig)
   - Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Boolean,System.Int32,Netick.Unity.NetickConfig)
   - Netick.Unity.Network.StartAsServer(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,Netick.Unity.NetickConfig)
@@ -306,6 +307,36 @@ items:
   nameWithType.vb: Network.StartAsMultiplePeers(NetworkTransportProvider, Integer, GameObject, Boolean, Boolean, Integer, NetickConfig)
   fullName.vb: Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider, Integer, UnityEngine.GameObject, Boolean, Boolean, Integer, Netick.Unity.NetickConfig)
   name.vb: StartAsMultiplePeers(NetworkTransportProvider, Integer, GameObject, Boolean, Boolean, Integer, NetickConfig)
+- uid: Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider,UnityEngine.GameObject,Netick.Unity.NetickConfig)
+  commentId: M:Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider,UnityEngine.GameObject,Netick.Unity.NetickConfig)
+  id: StartAsClient(Netick.Unity.NetworkTransportProvider,UnityEngine.GameObject,Netick.Unity.NetickConfig)
+  parent: Netick.Unity.Network
+  langs:
+  - csharp
+  - vb
+  name: StartAsClient(NetworkTransportProvider, GameObject, NetickConfig)
+  nameWithType: Network.StartAsClient(NetworkTransportProvider, GameObject, NetickConfig)
+  fullName: Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider, UnityEngine.GameObject, Netick.Unity.NetickConfig)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Starts Netick as a client.
+  example: []
+  syntax:
+    content: public static NetworkSandbox StartAsClient(NetworkTransportProvider transportProvider, GameObject sandboxPrefab = null, NetickConfig config = null)
+    parameters:
+    - id: transportProvider
+      type: Netick.Unity.NetworkTransportProvider
+    - id: sandboxPrefab
+      type: UnityEngine.GameObject
+    - id: config
+      type: Netick.Unity.NetickConfig
+    return:
+      type: Netick.Unity.NetworkSandbox
+      description: The sandbox representing the client
+    content.vb: Public Shared Function StartAsClient(transportProvider As NetworkTransportProvider, sandboxPrefab As GameObject = Nothing, config As NetickConfig = Nothing) As NetworkSandbox
+  overload: Netick.Unity.Network.StartAsClient*
 - uid: Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,Netick.Unity.NetickConfig)
   commentId: M:Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,Netick.Unity.NetickConfig)
   id: StartAsClient(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,Netick.Unity.NetickConfig)
@@ -868,7 +899,7 @@ references:
 - uid: Netick.Unity.Network.StartAsClient*
   commentId: Overload:Netick.Unity.Network.StartAsClient
   isExternal: true
-  href: Netick.Unity.Network.html#Netick_Unity_Network_StartAsClient_Netick_Unity_NetworkTransportProvider_System_Int32_UnityEngine_GameObject_Netick_Unity_NetickConfig_
+  href: Netick.Unity.Network.html#Netick_Unity_Network_StartAsClient_Netick_Unity_NetworkTransportProvider_UnityEngine_GameObject_Netick_Unity_NetickConfig_
   name: StartAsClient
   nameWithType: Network.StartAsClient
   fullName: Netick.Unity.Network.StartAsClient

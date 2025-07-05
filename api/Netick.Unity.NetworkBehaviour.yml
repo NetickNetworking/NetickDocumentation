@@ -22,8 +22,10 @@ items:
   - Netick.Unity.NetworkBehaviour.InternalInit
   - Netick.Unity.NetworkBehaviour.InternalReset
   - Netick.Unity.NetworkBehaviour.IsClient
+  - Netick.Unity.NetworkBehaviour.IsHost
   - Netick.Unity.NetworkBehaviour.IsInputSource
   - Netick.Unity.NetworkBehaviour.IsOwner
+  - Netick.Unity.NetworkBehaviour.IsPlayer
   - Netick.Unity.NetworkBehaviour.IsPredicted
   - Netick.Unity.NetworkBehaviour.IsProxy
   - Netick.Unity.NetworkBehaviour.IsResimulating
@@ -764,6 +766,52 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsOwner As Boolean
   overload: Netick.Unity.NetworkBehaviour.IsOwner*
+- uid: Netick.Unity.NetworkBehaviour.IsHost
+  commentId: P:Netick.Unity.NetworkBehaviour.IsHost
+  id: IsHost
+  parent: Netick.Unity.NetworkBehaviour
+  langs:
+  - csharp
+  - vb
+  name: IsHost
+  nameWithType: NetworkBehaviour.IsHost
+  fullName: Netick.Unity.NetworkBehaviour.IsHost
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns true if this <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref> is the host.
+  example: []
+  syntax:
+    content: public bool IsHost { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsHost As Boolean
+  overload: Netick.Unity.NetworkBehaviour.IsHost*
+- uid: Netick.Unity.NetworkBehaviour.IsPlayer
+  commentId: P:Netick.Unity.NetworkBehaviour.IsPlayer
+  id: IsPlayer
+  parent: Netick.Unity.NetworkBehaviour
+  langs:
+  - csharp
+  - vb
+  name: IsPlayer
+  nameWithType: NetworkBehaviour.IsPlayer
+  fullName: Netick.Unity.NetworkBehaviour.IsPlayer
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns true if this <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref> is a client or the host.
+  example: []
+  syntax:
+    content: public bool IsPlayer { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsPlayer As Boolean
+  overload: Netick.Unity.NetworkBehaviour.IsPlayer*
 - uid: Netick.Unity.NetworkBehaviour.IsInputSource
   commentId: P:Netick.Unity.NetworkBehaviour.IsInputSource
   id: IsInputSource
@@ -1739,6 +1787,20 @@ references:
   name: IsOwner
   nameWithType: NetworkBehaviour.IsOwner
   fullName: Netick.Unity.NetworkBehaviour.IsOwner
+- uid: Netick.Unity.NetworkBehaviour.IsHost*
+  commentId: Overload:Netick.Unity.NetworkBehaviour.IsHost
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsHost
+  name: IsHost
+  nameWithType: NetworkBehaviour.IsHost
+  fullName: Netick.Unity.NetworkBehaviour.IsHost
+- uid: Netick.Unity.NetworkBehaviour.IsPlayer*
+  commentId: Overload:Netick.Unity.NetworkBehaviour.IsPlayer
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsPlayer
+  name: IsPlayer
+  nameWithType: NetworkBehaviour.IsPlayer
+  fullName: Netick.Unity.NetworkBehaviour.IsPlayer
 - uid: Netick.Unity.NetworkSandbox.LocalPlayer
   commentId: P:Netick.Unity.NetworkSandbox.LocalPlayer
   isExternal: true

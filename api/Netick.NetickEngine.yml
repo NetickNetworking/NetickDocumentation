@@ -116,7 +116,7 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: The NetickEngine class is the core of the Netick, managing server/client, simulation, interpolation, replication, etc.
+  summary: The NetickEngine class is the core of Netick, managing networking, simulation, interpolation, replication, etc.
   example: []
   syntax:
     content: public sealed class NetickEngine
@@ -294,6 +294,144 @@ items:
     content: public void DisconnectHost()
     content.vb: Public Sub DisconnectHost()
   overload: Netick.NetickEngine.DisconnectHost*
+- uid: Netick.NetickEngine.GetWorldStateTotalSize
+  commentId: M:Netick.NetickEngine.GetWorldStateTotalSize
+  id: GetWorldStateTotalSize
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: GetWorldStateTotalSize()
+  nameWithType: NetickEngine.GetWorldStateTotalSize()
+  fullName: Netick.NetickEngine.GetWorldStateTotalSize()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Returns the size of the entirety of the game's networked state snapshot size, in bytes. This includes the sizes of all allocated blocks.
+  example: []
+  syntax:
+    content: public long GetWorldStateTotalSize()
+    return:
+      type: System.Int64
+      description: ''
+    content.vb: Public Function GetWorldStateTotalSize() As Long
+  overload: Netick.NetickEngine.GetWorldStateTotalSize*
+- uid: Netick.NetickEngine.GetWorldStateBlockSize
+  commentId: M:Netick.NetickEngine.GetWorldStateBlockSize
+  id: GetWorldStateBlockSize
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: GetWorldStateBlockSize()
+  nameWithType: NetickEngine.GetWorldStateBlockSize()
+  fullName: Netick.NetickEngine.GetWorldStateBlockSize()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public long GetWorldStateBlockSize()
+    return:
+      type: System.Int64
+    content.vb: Public Function GetWorldStateBlockSize() As Long
+  overload: Netick.NetickEngine.GetWorldStateBlockSize*
+- uid: Netick.NetickEngine.GetWorldStateBlockCount
+  commentId: M:Netick.NetickEngine.GetWorldStateBlockCount
+  id: GetWorldStateBlockCount
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: GetWorldStateBlockCount()
+  nameWithType: NetickEngine.GetWorldStateBlockCount()
+  fullName: Netick.NetickEngine.GetWorldStateBlockCount()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int GetWorldStateBlockCount()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetWorldStateBlockCount() As Integer
+  overload: Netick.NetickEngine.GetWorldStateBlockCount*
+- uid: Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte*)
+  commentId: M:Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte*)
+  id: CopyWorldStateTo(System.Int32,System.Byte*)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: CopyWorldStateTo(int, byte*)
+  nameWithType: NetickEngine.CopyWorldStateTo(int, byte*)
+  fullName: Netick.NetickEngine.CopyWorldStateTo(int, byte*)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void CopyWorldStateTo(int blockIndex, byte* target)
+    parameters:
+    - id: blockIndex
+      type: System.Int32
+    - id: target
+      type: System.Byte*
+    content.vb: Public Sub CopyWorldStateTo(blockIndex As Integer, target As Byte*)
+  overload: Netick.NetickEngine.CopyWorldStateTo*
+  nameWithType.vb: NetickEngine.CopyWorldStateTo(Integer, Byte*)
+  fullName.vb: Netick.NetickEngine.CopyWorldStateTo(Integer, Byte*)
+  name.vb: CopyWorldStateTo(Integer, Byte*)
+- uid: Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte[])
+  commentId: M:Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte[])
+  id: CopyWorldStateTo(System.Int32,System.Byte[])
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: CopyWorldStateTo(int, byte[])
+  nameWithType: NetickEngine.CopyWorldStateTo(int, byte[])
+  fullName: Netick.NetickEngine.CopyWorldStateTo(int, byte[])
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void CopyWorldStateTo(int blockIndex, byte[] target)
+    parameters:
+    - id: blockIndex
+      type: System.Int32
+    - id: target
+      type: System.Byte[]
+    content.vb: Public Sub CopyWorldStateTo(blockIndex As Integer, target As Byte())
+  overload: Netick.NetickEngine.CopyWorldStateTo*
+  nameWithType.vb: NetickEngine.CopyWorldStateTo(Integer, Byte())
+  fullName.vb: Netick.NetickEngine.CopyWorldStateTo(Integer, Byte())
+  name.vb: CopyWorldStateTo(Integer, Byte())
+- uid: Netick.NetickEngine.GetBehaviourOrder(System.Type)
+  commentId: M:Netick.NetickEngine.GetBehaviourOrder(System.Type)
+  id: GetBehaviourOrder(System.Type)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: GetBehaviourOrder(Type)
+  nameWithType: NetickEngine.GetBehaviourOrder(Type)
+  fullName: Netick.NetickEngine.GetBehaviourOrder(System.Type)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int GetBehaviourOrder(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+    return:
+      type: System.Int32
+    content.vb: Public Function GetBehaviourOrder(type As Type) As Integer
+  overload: Netick.NetickEngine.GetBehaviourOrder*
 - uid: Netick.NetickEngine.ContainsPlayer(Netick.NetworkPlayerId)
   commentId: M:Netick.NetickEngine.ContainsPlayer(Netick.NetworkPlayerId)
   id: ContainsPlayer(Netick.NetworkPlayerId)
@@ -789,144 +927,6 @@ items:
   nameWithType.vb: NetickEngine.FetchInput(Of T)(T, Boolean, Entity, Integer)
   fullName.vb: Netick.NetickEngine.FetchInput(Of T)(T, Boolean, Netick.Entity, Integer)
   name.vb: FetchInput(Of T)(T, Boolean, Entity, Integer)
-- uid: Netick.NetickEngine.GetWorldStateTotalSize
-  commentId: M:Netick.NetickEngine.GetWorldStateTotalSize
-  id: GetWorldStateTotalSize
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: GetWorldStateTotalSize()
-  nameWithType: NetickEngine.GetWorldStateTotalSize()
-  fullName: Netick.NetickEngine.GetWorldStateTotalSize()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  summary: Returns the size of the entirety of the game's networked state snapshot size, in bytes. This includes the sizes of all allocated blocks.
-  example: []
-  syntax:
-    content: public long GetWorldStateTotalSize()
-    return:
-      type: System.Int64
-      description: ''
-    content.vb: Public Function GetWorldStateTotalSize() As Long
-  overload: Netick.NetickEngine.GetWorldStateTotalSize*
-- uid: Netick.NetickEngine.GetWorldStateBlockSize
-  commentId: M:Netick.NetickEngine.GetWorldStateBlockSize
-  id: GetWorldStateBlockSize
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: GetWorldStateBlockSize()
-  nameWithType: NetickEngine.GetWorldStateBlockSize()
-  fullName: Netick.NetickEngine.GetWorldStateBlockSize()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public long GetWorldStateBlockSize()
-    return:
-      type: System.Int64
-    content.vb: Public Function GetWorldStateBlockSize() As Long
-  overload: Netick.NetickEngine.GetWorldStateBlockSize*
-- uid: Netick.NetickEngine.GetWorldStateBlockCount
-  commentId: M:Netick.NetickEngine.GetWorldStateBlockCount
-  id: GetWorldStateBlockCount
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: GetWorldStateBlockCount()
-  nameWithType: NetickEngine.GetWorldStateBlockCount()
-  fullName: Netick.NetickEngine.GetWorldStateBlockCount()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int GetWorldStateBlockCount()
-    return:
-      type: System.Int32
-    content.vb: Public Function GetWorldStateBlockCount() As Integer
-  overload: Netick.NetickEngine.GetWorldStateBlockCount*
-- uid: Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte*)
-  commentId: M:Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte*)
-  id: CopyWorldStateTo(System.Int32,System.Byte*)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: CopyWorldStateTo(int, byte*)
-  nameWithType: NetickEngine.CopyWorldStateTo(int, byte*)
-  fullName: Netick.NetickEngine.CopyWorldStateTo(int, byte*)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void CopyWorldStateTo(int blockIndex, byte* target)
-    parameters:
-    - id: blockIndex
-      type: System.Int32
-    - id: target
-      type: System.Byte*
-    content.vb: Public Sub CopyWorldStateTo(blockIndex As Integer, target As Byte*)
-  overload: Netick.NetickEngine.CopyWorldStateTo*
-  nameWithType.vb: NetickEngine.CopyWorldStateTo(Integer, Byte*)
-  fullName.vb: Netick.NetickEngine.CopyWorldStateTo(Integer, Byte*)
-  name.vb: CopyWorldStateTo(Integer, Byte*)
-- uid: Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte[])
-  commentId: M:Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte[])
-  id: CopyWorldStateTo(System.Int32,System.Byte[])
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: CopyWorldStateTo(int, byte[])
-  nameWithType: NetickEngine.CopyWorldStateTo(int, byte[])
-  fullName: Netick.NetickEngine.CopyWorldStateTo(int, byte[])
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void CopyWorldStateTo(int blockIndex, byte[] target)
-    parameters:
-    - id: blockIndex
-      type: System.Int32
-    - id: target
-      type: System.Byte[]
-    content.vb: Public Sub CopyWorldStateTo(blockIndex As Integer, target As Byte())
-  overload: Netick.NetickEngine.CopyWorldStateTo*
-  nameWithType.vb: NetickEngine.CopyWorldStateTo(Integer, Byte())
-  fullName.vb: Netick.NetickEngine.CopyWorldStateTo(Integer, Byte())
-  name.vb: CopyWorldStateTo(Integer, Byte())
-- uid: Netick.NetickEngine.GetBehaviourOrder(System.Type)
-  commentId: M:Netick.NetickEngine.GetBehaviourOrder(System.Type)
-  id: GetBehaviourOrder(System.Type)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: GetBehaviourOrder(Type)
-  nameWithType: NetickEngine.GetBehaviourOrder(Type)
-  fullName: Netick.NetickEngine.GetBehaviourOrder(System.Type)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int GetBehaviourOrder(Type type)
-    parameters:
-    - id: type
-      type: System.Type
-    return:
-      type: System.Int32
-    content.vb: Public Function GetBehaviourOrder(type As Type) As Integer
-  overload: Netick.NetickEngine.GetBehaviourOrder*
 - uid: Netick.NetickEngine.Start(System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
   commentId: M:Netick.NetickEngine.Start(System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
   id: Start(System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
@@ -2850,6 +2850,81 @@ references:
   name: DisconnectHost
   nameWithType: NetickEngine.DisconnectHost
   fullName: Netick.NetickEngine.DisconnectHost
+- uid: Netick.NetickEngine.GetWorldStateTotalSize*
+  commentId: Overload:Netick.NetickEngine.GetWorldStateTotalSize
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_GetWorldStateTotalSize
+  name: GetWorldStateTotalSize
+  nameWithType: NetickEngine.GetWorldStateTotalSize
+  fullName: Netick.NetickEngine.GetWorldStateTotalSize
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Netick.NetickEngine.GetWorldStateBlockSize*
+  commentId: Overload:Netick.NetickEngine.GetWorldStateBlockSize
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_GetWorldStateBlockSize
+  name: GetWorldStateBlockSize
+  nameWithType: NetickEngine.GetWorldStateBlockSize
+  fullName: Netick.NetickEngine.GetWorldStateBlockSize
+- uid: Netick.NetickEngine.GetWorldStateBlockCount*
+  commentId: Overload:Netick.NetickEngine.GetWorldStateBlockCount
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_GetWorldStateBlockCount
+  name: GetWorldStateBlockCount
+  nameWithType: NetickEngine.GetWorldStateBlockCount
+  fullName: Netick.NetickEngine.GetWorldStateBlockCount
+- uid: Netick.NetickEngine.CopyWorldStateTo*
+  commentId: Overload:Netick.NetickEngine.CopyWorldStateTo
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_CopyWorldStateTo_System_Int32_System_Byte__
+  name: CopyWorldStateTo
+  nameWithType: NetickEngine.CopyWorldStateTo
+  fullName: Netick.NetickEngine.CopyWorldStateTo
+- uid: System.Byte*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte*
+  nameWithType: byte*
+  fullName: byte*
+  nameWithType.vb: Byte*
+  fullName.vb: Byte*
+  name.vb: Byte*
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+- uid: Netick.NetickEngine.GetBehaviourOrder*
+  commentId: Overload:Netick.NetickEngine.GetBehaviourOrder
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_GetBehaviourOrder_System_Type_
+  name: GetBehaviourOrder
+  nameWithType: NetickEngine.GetBehaviourOrder
+  fullName: Netick.NetickEngine.GetBehaviourOrder
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
 - uid: Netick.NetickEngine.ContainsPlayer*
   commentId: Overload:Netick.NetickEngine.ContainsPlayer
   isExternal: true
@@ -3032,27 +3107,6 @@ references:
   name: GetEntityUserMeta
   nameWithType: NetickEngine.GetEntityUserMeta
   fullName: Netick.NetickEngine.GetEntityUserMeta
-- uid: System.Byte*
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.byte
-  name: byte*
-  nameWithType: byte*
-  fullName: byte*
-  nameWithType.vb: Byte*
-  fullName.vb: Byte*
-  name.vb: Byte*
-  spec.csharp:
-  - uid: System.Byte
-    name: byte
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.byte
-  - name: '*'
-  spec.vb:
-  - uid: System.Byte
-    name: Byte
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.byte
-  - name: '*'
 - uid: Netick.NetickEngine.SetEntityUserMetaDirty*
   commentId: Overload:Netick.NetickEngine.SetEntityUserMetaDirty
   isExternal: true
@@ -3112,60 +3166,6 @@ references:
   name: FetchInput
   nameWithType: NetickEngine.FetchInput
   fullName: Netick.NetickEngine.FetchInput
-- uid: Netick.NetickEngine.GetWorldStateTotalSize*
-  commentId: Overload:Netick.NetickEngine.GetWorldStateTotalSize
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_GetWorldStateTotalSize
-  name: GetWorldStateTotalSize
-  nameWithType: NetickEngine.GetWorldStateTotalSize
-  fullName: Netick.NetickEngine.GetWorldStateTotalSize
-- uid: System.Int64
-  commentId: T:System.Int64
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int64
-  name: long
-  nameWithType: long
-  fullName: long
-  nameWithType.vb: Long
-  fullName.vb: Long
-  name.vb: Long
-- uid: Netick.NetickEngine.GetWorldStateBlockSize*
-  commentId: Overload:Netick.NetickEngine.GetWorldStateBlockSize
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_GetWorldStateBlockSize
-  name: GetWorldStateBlockSize
-  nameWithType: NetickEngine.GetWorldStateBlockSize
-  fullName: Netick.NetickEngine.GetWorldStateBlockSize
-- uid: Netick.NetickEngine.GetWorldStateBlockCount*
-  commentId: Overload:Netick.NetickEngine.GetWorldStateBlockCount
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_GetWorldStateBlockCount
-  name: GetWorldStateBlockCount
-  nameWithType: NetickEngine.GetWorldStateBlockCount
-  fullName: Netick.NetickEngine.GetWorldStateBlockCount
-- uid: Netick.NetickEngine.CopyWorldStateTo*
-  commentId: Overload:Netick.NetickEngine.CopyWorldStateTo
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_CopyWorldStateTo_System_Int32_System_Byte__
-  name: CopyWorldStateTo
-  nameWithType: NetickEngine.CopyWorldStateTo
-  fullName: Netick.NetickEngine.CopyWorldStateTo
-- uid: Netick.NetickEngine.GetBehaviourOrder*
-  commentId: Overload:Netick.NetickEngine.GetBehaviourOrder
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_GetBehaviourOrder_System_Type_
-  name: GetBehaviourOrder
-  nameWithType: NetickEngine.GetBehaviourOrder
-  fullName: Netick.NetickEngine.GetBehaviourOrder
-- uid: System.Type
-  commentId: T:System.Type
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: Type
-  nameWithType: Type
-  fullName: System.Type
 - uid: Netick.NetickEngine.Start*
   commentId: Overload:Netick.NetickEngine.Start
   isExternal: true
