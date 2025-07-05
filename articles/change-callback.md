@@ -22,8 +22,8 @@ private void OnHealthChanged(OnChangedData onChangedData)
 Example:
 
 ```csharp
-[Networked(size: 32)]
-public readonly NetworkArray<int> ArrayExample = new NetworkArray<int>(32);
+[Networked(size: 16)]
+public readonly NetworkArray<int> ArrayExample = new(16);
 
 [OnChanged(nameof(ArrayExample))]
 private void OnArrayExampleChanged(OnChangedData onChangedData)
@@ -44,14 +44,13 @@ private void OnArrayExampleChanged(OnChangedData onChangedData)
 
 ## For Collections
 
-
 ### NetworkLinkedList
 
 Example:
 
 ```csharp
-[Networked(size: 32)]
-public readonly NetworkLinkedList<int> MyNetworkLinkedList = new NetworkArray<int>(32);
+[Networked(size: 16)]
+public readonly NetworkLinkedList<int> MyNetworkLinkedList = new(16);
 
 [OnChanged(nameof(MyNetworkLinkedList))]
 private void OnMyNetworkLinkedListChanged(OnChangedData onChangedData)
@@ -66,8 +65,8 @@ private void OnMyNetworkLinkedListChanged(OnChangedData onChangedData)
 Example:
 
 ```csharp
-[Networked(size: 5)] 
-public readonly NetworkDictionary<int, int>  MyNetworkDictionary    = new NetworkDictionary<int, int>(5);
+[Networked(size: 16)] 
+public readonly NetworkDictionary<int, int>  MyNetworkDictionary = new(16);
 
 [OnChanged(nameof(MyNetworkDictionary))]
 private void OnMyNetworkDictionaryChanged(OnChangedData onChangedData)
@@ -82,8 +81,8 @@ private void OnMyNetworkDictionaryChanged(OnChangedData onChangedData)
 Example:
 
 ```csharp
-[Networked(size: 5)] 
-public readonly NetworkHashSet<int>  MyNetworkHashSet    = new NetworkHashSet<int>(5);
+[Networked(size: 16)] 
+public readonly NetworkHashSet<int>  MyNetworkHashSet = new(16);
 
 [OnChanged(nameof(MyNetworkHashSet))]
 private void OnMyNetworkHashSetChanged(OnChangedData onChangedData)
@@ -98,8 +97,8 @@ private void OnMyNetworkHashSetChanged(OnChangedData onChangedData)
 Example:
 
 ```csharp
-[Networked(size: 5)] 
-public readonly NetworkUnorderedList<int>  MyNetworkUnorderedList    = new NetworkUnorderedList<int>(5);
+[Networked(size: 16)] 
+public readonly NetworkUnorderedList<int>  MyNetworkUnorderedList = new(16);
 
 [OnChanged(nameof(MyNetworkUnorderedList))]
 private void OnMyNetworkUnorderedListChanged(OnChangedData onChangedData)
@@ -115,8 +114,8 @@ private void OnMyNetworkUnorderedListChanged(OnChangedData onChangedData)
 Example:
 
 ```csharp
-[Networked(size: 5)]
-public readonly NetworkQueue<int> MyNetworkQueue = new NetworkQueue<int>(5);
+[Networked(size: 16)]
+public readonly NetworkQueue<int> MyNetworkQueue = new(16);
 
 [OnChanged(nameof(MyNetworkQueue))]
 private void OnMyNetworkQueueChanged(OnChangedData onChangedData)
@@ -131,8 +130,8 @@ private void OnMyNetworkQueueChanged(OnChangedData onChangedData)
 Example:
 
 ```csharp
-[Networked(size: 5)]
-public readonly NetworkStack<int> MyNetworkStack = new NetworkStack<int>(5);
+[Networked(size: 16)]
+public readonly NetworkStack<int> MyNetworkStack = new(16);
 
 [OnChanged(nameof(MyNetworkStack))]
 private void OnMyNetworkStackChanged(OnChangedData onChangedData)
