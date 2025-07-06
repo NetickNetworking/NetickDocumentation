@@ -29,7 +29,7 @@ In general, you should minimize your usage of RPCs — especially server->client
 - RPCs from the client can be a security concern. Since you can't control how the client calls them. And they are not tick-aligned, which can be a problem if an RPC is intended to be used for tick-accurate gameplay logic. You can use network inputs to handle most of your client->server actions. 
 - RPCs from the server to every connected client are expensive. You can always find a way to mimic an RPC using a network property and an `[OnChanged]` event.
 
-## Using [OnChanged] Callbacks for Events
+### Using [OnChanged] Callbacks for Events
 [OnChanged callbacks](change-callback.md) are very powerful. Their use-cases are endless. For a couple examples:
 
 #### Jump Sound
@@ -38,7 +38,7 @@ Use a `JumpCounter` Network Property. Increment it each time the player jumps. I
 #### Death Effect
 Monitor a `Health` Network Property. If it drops to zero (and was higher before), trigger a death animation or sound in the callback.
 
-## Circular Buffers
+### Circular Buffers
 
 One of the easiest ways to avoid many types of RPCs is to use [Circular Buffers](https://en.wikipedia.org/wiki/Circular_buffer). A circular buffer is a `NetworkArray` that you update in a circular/ring fashion. When you reach the end of the array, you start over at the beginning of the array - this is accomplished by using the modulo operator when indexing the array, using an incrementing value. Using this, you can synchronize many short-lived things such as projectiles, hit indicators, and more.
 

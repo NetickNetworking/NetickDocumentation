@@ -110,13 +110,13 @@
 <li>RPCs from the client can be a security concern. Since you can't control how the client calls them. And they are not tick-aligned, which can be a problem if an RPC is intended to be used for tick-accurate gameplay logic. You can use network inputs to handle most of your client-&gt;server actions.</li>
 <li>RPCs from the server to every connected client are expensive. You can always find a way to mimic an RPC using a network property and an <code>[OnChanged]</code> event.</li>
 </ul>
-<h2 id="using-onchanged-callbacks-for-events">Using [OnChanged] Callbacks for Events</h2>
+<h3 id="using-onchanged-callbacks-for-events">Using [OnChanged] Callbacks for Events</h3>
 <p><a href="change-callback.html">OnChanged callbacks</a> are very powerful. Their use-cases are endless. For a couple examples:</p>
 <h4 id="jump-sound">Jump Sound</h4>
 <p>Use a <code>JumpCounter</code> Network Property. Increment it each time the player jumps. In the <code>[OnChanged]</code> callback, play the jump sound.</p>
 <h4 id="death-effect">Death Effect</h4>
 <p>Monitor a <code>Health</code> Network Property. If it drops to zero (and was higher before), trigger a death animation or sound in the callback.</p>
-<h2 id="circular-buffers">Circular Buffers</h2>
+<h3 id="circular-buffers">Circular Buffers</h3>
 <p>One of the easiest ways to avoid many types of RPCs is to use <a href="https://en.wikipedia.org/wiki/Circular_buffer">Circular Buffers</a>. A circular buffer is a <code>NetworkArray</code> that you update in a circular/ring fashion. When you reach the end of the array, you start over at the beginning of the array - this is accomplished by using the modulo operator when indexing the array, using an incrementing value. Using this, you can synchronize many short-lived things such as projectiles, hit indicators, and more.</p>
 <p>Example:</p>
 <p>This example showcases how we can use circular buffers to synchronize hit indicators, usually seen in FPS games. Hit indicators are rotating arrows around the middle of the screen that point to the locations of where you were last being damaged from.</p>
