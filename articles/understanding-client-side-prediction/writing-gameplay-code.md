@@ -1,4 +1,4 @@
-# Writing Client-Side Prediction Code
+# Writing Gameplay Code
 
 ## Network Input 
 
@@ -40,7 +40,7 @@ public override void NetworkUpdate()
 
 You could also set them on `OnInput` of `NetworkEventsListener`, which is preferred.
 
-## Simulating (Executing) Inputs
+## Simulating Inputs
 
 To drive the gameplay based on the input struct, you must do that in `NetworkFixedUpdate`:
 
@@ -148,14 +148,18 @@ There are two methods you can override to run code when Input Source has changed
 1. `OnInputSourceChanged`: called on the Input Source and server when the Input Source changes.
 2. `OnInputSourceLeft`: called on the owner (server) when the Input Source client has left the game.
 
-
 ## RPCs vs Inputs for Client->Server Actions
 
-Other networking solution rely heavily on the usage of RPCs. However, Netick allows for a much more easier, robust, and safer approach that will make most RPCs obsolete.
+Other networking solutions rely heavily on RPCs for communication between clients and the server. However, Netick offers a more robust, secure, and streamlined alternative that often makes most RPCs unnecessary.
 
-Let's take an example to understand this.
+### Example: Interacting with a Pickup
 
-Say you want to interact with an object in the game world. A pickup, let's say. Now, instead of sending an RPC to this pickup, which will use additional bandwidth, in addition to being easily cheat-able (by being vulnerable to malicious users who will send RPCs to pickups that are not even nearby), you can simply use an `Interact` input field to implement the logic for it.
+Imagine a scenario where a player needs to interact with an object in the world—such as picking up an item. In traditional approaches, this might involve sending an RPC from the client to the server, which comes with a few drawbacks:
+
+- Higher bandwidth usage, as each RPC transmits additional metadata.
+- Security risks, since a malicious client could invoke RPCs to interact with objects outside their legitimate range.
+
+With Netick, a cleaner and safer solution is to use a networked input field, such as `Interact`:
 
 ```cs
 public override void NetworkFixedUpdate()
@@ -178,9 +182,26 @@ public override void NetworkFixedUpdate()
 
 This way, you have full server-authority on what objects the client can interact with, and the code is very simple to read and debug. It's almost the exact same code you would use for a single-player game, excluding the input fetching logic.
 
+## Supporting Multiple Local Players
+Many games—such as party games—support multiple players on a single device. In Netick, the concept of a Network Player refers to a single peer or machine, and therefore doesn't directly account for multiple local players on the same peer.
+
+To handle this, you can define a local player index to distinguish between players sharing the same machine. Netick facilitates this pattern by including an input index parameter in all input-related methods, which can be used as the local player index.
+
+```cs
+Sandbox.GetInput(localPlayerIndex);
+```
+```cs
+Sandbox.SetInput(localPlayerIndex);
+```
+```cs
+FetchInput(localPlayerIndex, out MyInput input);
+```
+
 ## Framerate Lower than Tickrate
 
-When the framerate is lower than the tickrate, there will be more ticks than frames. Therefore, two or more ticks need to use the same input of one frame. Not handling this can cause the player character to move slower during very low FPS. 
+When the framerate drops below the tickrate, multiple simulation ticks must be processed within a single rendered frame. In such cases, the same input must be reused across multiple ticks.
+
+If this scenario is not handled correctly, it can lead to inconsistent simulation results—most notably, player characters may appear to move slower at very low framerates due to insufficient input sampling.
 
 ### Enabling `Input Reuse At Low FPS` in Netick Settings
 

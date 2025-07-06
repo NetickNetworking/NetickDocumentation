@@ -26,7 +26,7 @@
 
 ## [Understanding Client-Side Prediction](understanding-client-side-prediction/understanding-client-side-prediction.md)
 
-## [Writing Client-Side Prediction Code](understanding-client-side-prediction/writing-client-side-prediction-code.md)
+## [Writing Gameplay Code](understanding-client-side-prediction/writing-gameplay-code.md)
 
 ## [Prediction In-Depth](prediction-in-depth.md)
 

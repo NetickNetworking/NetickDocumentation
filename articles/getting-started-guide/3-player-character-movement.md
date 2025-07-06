@@ -47,7 +47,7 @@ public class GameplayManager : NetworkEventsListener
 
 ```
 
-[Learn More About Inputs](../understanding-client-side-prediction/writing-client-side-prediction-code.md)
+[Learn More About Inputs](../understanding-client-side-prediction/writing-gameplay-code.md)
 
 ## Fetch Input
 
@@ -81,7 +81,7 @@ In a single-player game, we use `Time.deltaTime` to move our player to make it f
 > Do not confuse `Sandbox.FixedDeltaTime` with `Sandbox.DeltaTime` (equal to Unity's `Time.deltaTime`). 
 
 
-[Learn More About Writing Client-Side Prediction Code](../understanding-client-side-prediction/writing-client-side-prediction-code.md)
+[Learn More About Writing Client-Side Prediction Code](../understanding-client-side-prediction/writing-gameplay-code.md)
 
 ## Network Transform
 Adding `NetworkTransform` allows us to sync the position, rotation of our character.

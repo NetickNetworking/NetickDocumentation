@@ -125,7 +125,7 @@ public class GameplayManager : NetworkEventsListener
 }
 
 </code></pre>
-<p><a href="../understanding-client-side-prediction/writing-client-side-prediction-code.html">Learn More About Inputs</a></p>
+<p><a href="../understanding-client-side-prediction/writing-gameplay-code.html">Learn More About Inputs</a></p>
 <h2 id="fetch-input">Fetch Input</h2>
 <p>We use a method called <code>FetchInput</code> to try to fetch an input for the current tick. If we are able to fetch an input, we use it to drive the gameplay logic, such as the movement of our character.</p>
 <p><code>FetchInput</code> must only be called inside <code>NetworkFixedUpdate</code>. To be able to use this method, let's create a new C# script named <code>PlayerCharacterMovement</code>, to handle our movement logic. Let's also change its parent class from <code>MonoBehaviour</code> to <code>NetworkBehaviour</code>.</p>
@@ -150,7 +150,7 @@ public class GameplayManager : NetworkEventsListener
 <h5>Note</h5>
 <p>Do not confuse <code>Sandbox.FixedDeltaTime</code> with <code>Sandbox.DeltaTime</code> (equal to Unity's <code>Time.deltaTime</code>).</p>
 </div>
-<p><a href="../understanding-client-side-prediction/writing-client-side-prediction-code.html">Learn More About Writing Client-Side Prediction Code</a></p>
+<p><a href="../understanding-client-side-prediction/writing-gameplay-code.html">Learn More About Writing Client-Side Prediction Code</a></p>
 <h2 id="network-transform">Network Transform</h2>
 <p>Adding <code>NetworkTransform</code> allows us to sync the position, rotation of our character.</p>
 <ul>
