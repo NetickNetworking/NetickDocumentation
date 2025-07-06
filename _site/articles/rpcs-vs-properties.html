@@ -85,26 +85,37 @@
         <article data-uid="">
 <h1 id="rpcs-vs-properties">RPCs vs Properties</h1>
 
-<p>RPCs can be used to replicate non-critical (often visual/cosmetic) events. In contrast, Network Properties are used to replicate critical gameplay state.</p>
-<p>Network Properties are best when you have a variable that is constantly changing and whose exact value matters for the duration of the game, because properties will replicate to everyone regardless of whether they joined the game in the middle or the start of it.</p>
-<p><strong>Example: a health property.</strong></p>
-<p>On the other hand, RPCs are only relevant at the time of their execution, meaning any client joining after the call will never receive anything about any RPCs before its time of joining.</p>
-<p><strong>Example: a damage effect event.</strong></p>
-<p>If an event happens infrequently and is merely visual (doesn’t affect gameplay, for example, a sound effect event) you can use an RPC for it. However, you can, and should, avoid using RPCs even for such events, and that’s by using a <a href="change-callback.html">change callback</a> using <code>[OnChanged]</code> attribute. Ideally, RPCs should only be used for setting up things in the server by the client (client-&gt;server RPC), or sending chat messages.</p>
-<h2 id="avoiding-using-rpcs">Avoiding using RPCs</h2>
-<p>It's highly recommended to avoid using RPCs, and only use them when necessary. Especially server-&gt;client RPCs, if possible, they should be completely avoided. And client-&gt;server RPCs should only be used for sending a player's name or setting up things or similar actions.</p>
+<p>Remote Procedure Calls (RPCs) and Network Properties (Networked State) serve distinct purposes in a multiplayer game.</p>
+<p>RPCs are an option for non-critical, often cosmetic events that occur at specific moments. In contrast, Network Properties are used to synchronize critical gameplay state, especially data that must persist and remain synced for all clients, including late joiners.</p>
+<h2 id="when-to-use-network-properties">When to Use Network Properties</h2>
+<p>Network Properties are designed for values that:</p>
 <ul>
-<li><p>RPCs from the client can be a security concern. Since you can't control how the client calls them. And they are not tick-aligned, which can be a problem if an RPC is intended to be used for tick-accurate gameplay logic. You can use network inputs to handle most of your client-&gt;server actions.</p>
-</li>
-<li><p>RPCs from the server to every connected client are expensive. You can always find a way to mimic an RPC using a network property and an <code>[OnChanged]</code> event.</p>
-</li>
+<li>Change frequently.</li>
+<li>Must remain synchronized for all players.</li>
+<li>Need to be known by clients who join mid-game.</li>
 </ul>
-<h2 id="using-onchanged-for-events">Using <code>OnChanged</code> for Events</h2>
+<p>Example: a player's health should be a Network Property, as its current value is critical for gameplay and must remain synced across all clients at all times.</p>
+<h2 id="when-to-use-rpcs">When to Use RPCs</h2>
+<p>RPCs are event-based, meaning they only execute at a specific point in time. Clients that join after an RPC is called will not receive that RPC. For this reason, they are best used for:</p>
+<ul>
+<li>Visual or cosmetic events.</li>
+<li>One-off setup instructions (e.g. sent from client to server).</li>
+<li>Chat messages or UI updates.</li>
+</ul>
+<p>Example: a visual damage effect or sound effect that doesn't impact game logic can be triggered via an RPC.</p>
+<p>However, you can, and should, avoid using RPCs even for such events, and that’s by using a <a href="change-callback.html">change callback</a> using <code>[OnChanged]</code> attribute. Ideally, RPCs should only be used for setting up things in the server by the client (client-&gt;server RPC), or sending chat messages.</p>
+<h2 id="avoiding-rpcs">Avoiding RPCs</h2>
+<p>In general, you should minimize your usage of RPCs — especially server-&gt;client RPCs, which are bandwidth-heavy and harder to manage.</p>
+<ul>
+<li>RPCs from the client can be a security concern. Since you can't control how the client calls them. And they are not tick-aligned, which can be a problem if an RPC is intended to be used for tick-accurate gameplay logic. You can use network inputs to handle most of your client-&gt;server actions.</li>
+<li>RPCs from the server to every connected client are expensive. You can always find a way to mimic an RPC using a network property and an <code>[OnChanged]</code> event.</li>
+</ul>
+<h2 id="using-onchanged-callbacks-for-events">Using [OnChanged] Callbacks for Events</h2>
 <p><a href="change-callback.html">OnChanged callbacks</a> are very powerful. Their use-cases are endless. For a couple examples:</p>
-<ul>
-<li>A jump counter network property to sync jump audio. Increment it every time you jump, resulting in a callback that you can use to play jump audio.</li>
-<li>A health network property to sync death event. Check if the previous value is higher than the current value, and the current value has turned to 0. This means the player has died, and you can use the callback to create effects or play audio.</li>
-</ul>
+<h4 id="jump-sound">Jump Sound</h4>
+<p>Use a <code>JumpCounter</code> Network Property. Increment it each time the player jumps. In the <code>[OnChanged]</code> callback, play the jump sound.</p>
+<h4 id="death-effect">Death Effect</h4>
+<p>Monitor a <code>Health</code> Network Property. If it drops to zero (and was higher before), trigger a death animation or sound in the callback.</p>
 <h2 id="circular-buffers">Circular Buffers</h2>
 <p>One of the easiest ways to avoid many types of RPCs is to use <a href="https://en.wikipedia.org/wiki/Circular_buffer">Circular Buffers</a>. A circular buffer is a <code>NetworkArray</code> that you update in a circular/ring fashion. When you reach the end of the array, you start over at the beginning of the array - this is accomplished by using the modulo operator when indexing the array, using an incrementing value. Using this, you can synchronize many short-lived things such as projectiles, hit indicators, and more.</p>
 <p>Example:</p>

@@ -1,6 +1,6 @@
 # Remote Procedure Calls (RPCs)
 
-Remote Procedure Calls (RPCs) in Netick are methods defined on `NetworkBehavior` scripts that can be invoked remotely across the network. They are typically used to synchronize discrete events or transmit small amounts of data between clients and the server.
+Remote Procedure Calls (RPCs) are methods defined on `NetworkBehavior` scripts that can be invoked remotely across the network. They are typically used to synchronize discrete events or transmit small amounts of data between clients and the server.
 
 A common use case for RPCs is initializing gameplay logic or sending configuration data at the start of a session. Such tasks should use **reliable RPCs** to ensure delivery.
 
