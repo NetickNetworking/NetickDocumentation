@@ -17,3 +17,16 @@ Example:
       // ... 
  }
 ```
+
+The methods that are affected by these attributes are
+
+- `NetworkStart`
+- `NetworkUpdate`
+- `NetworkFixedUpdate`
+- `NetworkRender`
+
+The following methods are also affected, but only in respect to the object itself:
+
+- `NetworkDestroy`
+- `NetcodeIntoGameEngine`
+- `GameEngineIntoNetcode`

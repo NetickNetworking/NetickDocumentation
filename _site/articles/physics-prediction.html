@@ -88,6 +88,10 @@
 <p>Predicting physics means resimulating multiple physics steps in one tick. This can be very expensive and so by default physics prediction is turned off. To enable it, go to <code>Netick -&gt; Settings</code> and enable <code>Physics Prediction</code>.</p>
 <p>To make a <code>Rigidbody</code>/<code>Rigidbody2D</code> predictable, add <code>NetworkRigidbody</code>/<code>NetworkRigidbody2D</code> to its GameObject.</p>
 <p>To enable/disable Physics Prediction in the client at runtime, use <code>Sandbox.PhysicsPrediction</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When Netick starts and the <code>Physics</code> option in Netick Settings/Config is set to either <code>Physics2D</code> or <code>Physics3D</code> (as opposed to <code>None</code>), Netick will take control of the physics stepping and automatically set <code>UnityEngine.Physics.simulationMode</code> to <code>Script</code>.</p>
+</div>
 <h2 id="cost-of-predicting-physx-rigidbody3d">Cost of Predicting PhysX (Rigidbody3D)</h2>
 <p>It's very expensive to predict 3D physics as PhysX and its integration with Unity perform very badly when calling <code>PhysicsScene.Simulate</code> multiple times in one frame, even with small numbers of rigidbodies.</p>
 <p>The cost of predicting physics increases with two factors:</p>

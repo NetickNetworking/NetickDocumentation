@@ -6,6 +6,10 @@ To make a `Rigidbody`/`Rigidbody2D` predictable, add `NetworkRigidbody`/`Network
 
 To enable/disable Physics Prediction in the client at runtime, use `Sandbox.PhysicsPrediction`.
 
+> [!NOTE]
+> When Netick starts and the `Physics` option in Netick Settings/Config is set to either `Physics2D` or `Physics3D` (as opposed to `None`), Netick will take control of the physics stepping and automatically set `UnityEngine.Physics.simulationMode` to `Script`.
+
+
 ## Cost of Predicting PhysX (Rigidbody3D)
 
 It's very expensive to predict 3D physics as PhysX and its integration with Unity perform very badly when calling `PhysicsScene.Simulate` multiple times in one frame, even with small numbers of rigidbodies.
