@@ -181,37 +181,25 @@ items:
   assemblies:
   - Netick.Pro
   namespace: Netick.Pro
-  summary: >-
-    Casts a lag compensated ray, from point origin, in direction direction, of length maxDistance,
-
-    against all HitShapes and Colliders (if includeUnityColliders is equal to true) in the Scene.
-  example: []
   syntax:
     content: public bool Raycast(Vector3 origin, Vector3 direction, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false)
     parameters:
     - id: origin
       type: System.Numerics.Vector3
-      description: The starting point of the ray in world coordinates.
     - id: direction
       type: System.Numerics.Vector3
-      description: The direction of the ray.
     - id: hitData
       type: Netick.Pro.NetHit
-      description: ''
     - id: inputSource
       type: Netick.NetworkPlayer
-      description: The input source to compensate for.
     - id: maxDistance
       type: System.Single
-      description: The max distance the ray should check for collisions.
     - id: layerMask
       type: System.Int32
-      description: A that is used to selectively ignore Colliders when casting a ray.
     - id: includeInputSource
       type: System.Boolean
     return:
       type: System.Boolean
-      description: Returns true if the ray intersects with a Collider/HitShape, otherwise false.
     content.vb: Public Function Raycast(origin As Vector3, direction As Vector3, hitData As NetHit, inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -1, includeInputSource As Boolean = False) As Boolean
   overload: Netick.Pro.LagCompensation.Raycast*
   nameWithType.vb: LagCompensation.Raycast(Vector3, Vector3, NetHit, NetworkPlayer, Single, Integer, Boolean)
@@ -269,31 +257,21 @@ items:
   assemblies:
   - Netick.Pro
   namespace: Netick.Pro
-  summary: >-
-    Casts a lag compensated ray, from point origin, in direction direction, of length maxDistance,
-
-    against all HitShapes and in the Scene, and return all hits.
-  example: []
   syntax:
     content: public void RaycastAll(Vector3 origin, Vector3 direction, List<NetHit> hits, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false)
     parameters:
     - id: origin
       type: System.Numerics.Vector3
-      description: The starting point of the ray in world coordinates.
     - id: direction
       type: System.Numerics.Vector3
-      description: The direction of the ray.
     - id: hits
       type: System.Collections.Generic.List{Netick.Pro.NetHit}
     - id: inputSource
       type: Netick.NetworkPlayer
-      description: The input source to compensate for.
     - id: maxDistance
       type: System.Single
-      description: The max distance the ray should check for collisions.
     - id: layerMask
       type: System.Int32
-      description: A that is used to selectively ignore Colliders when casting a ray.
     - id: includeInputSource
       type: System.Boolean
     - id: oneHitPerHitShapeContainer
@@ -317,31 +295,23 @@ items:
   assemblies:
   - Netick.Pro
   namespace: Netick.Pro
-  summary: Performs a lag compensated OverlapSphere which computes and stores HitShapes and Colliders (if includeUnityColliders is equal to true) touching or inside the sphere.
-  example: []
   syntax:
     content: public void OverlapSphere(Vector3 center, float radius, List<NetHit> hits, NetworkPlayer inputSource, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false)
     parameters:
     - id: center
       type: System.Numerics.Vector3
-      description: Center of the sphere.
     - id: radius
       type: System.Single
-      description: Radius of the sphere.
     - id: hits
       type: System.Collections.Generic.List{Netick.Pro.NetHit}
-      description: ''
     - id: inputSource
       type: Netick.NetworkPlayer
-      description: The input source to compensate for.
     - id: layerMask
       type: System.Int32
-      description: A defines which layers of colliders to include in the query.
     - id: includeInputSource
       type: System.Boolean
     - id: oneHitPerHitShapeContainer
       type: System.Boolean
-      description: Choose whether you want to include only one HitShape per HitShapeContainer
     content.vb: Public Sub OverlapSphere(center As Vector3, radius As Single, hits As List(Of NetHit), inputSource As NetworkPlayer, layerMask As Integer = -1, includeInputSource As Boolean = False, oneHitPerHitShapeContainer As Boolean = False)
   overload: Netick.Pro.LagCompensation.OverlapSphere*
   nameWithType.vb: LagCompensation.OverlapSphere(Vector3, Single, List(Of NetHit), NetworkPlayer, Integer, Boolean, Boolean)

@@ -348,7 +348,12 @@ typically for the purpose of optimizing network traffic by only sending relevant
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Networked.html">Networked</a></dt>
-      <dd></dd>
+      <dd><p>Use this attribute on a property to make it networked. It will be synchronized across the network.</p>
+<p> * Use the parameter "size" to specify the max capacity of a network array/collection.</p>
+<p> * Use the parameter "relevancy" to specify who will receive this variable.</p>
+<p> * Use the parameter "precision" to specify the precision of a float-based variable.</p>
+<p> * Use the parameter "ensureSafety" to specify if it will always be safe to access this variable (for instance, when Netick is not running).</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.NotClientException.html">NotClientException</a></dt>
@@ -374,7 +379,7 @@ typically for the purpose of optimizing network traffic by only sending relevant
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Rpc.html">Rpc</a></dt>
-      <dd><p>Use this attribute on any method you want to make an RPC. Should have the return type of void.</p>
+      <dd><p>Use this attribute on any method you want to make an RPC. Must have the return type of void.</p>
 <p> * Use the parameter "source" to specify who is allowed to send this RPC.</p>
 <p> * Use the parameter "target" to specify who is allowed to receive and execute this RPC.</p>
 <p> * Use the parameter "isReliable" to specify if this Rpc should be reliable or not, meaning it won't be lost (due to packet loss).</p>
@@ -598,7 +603,8 @@ Structs
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.RpcContext.html">RpcContext</a></dt>
-      <dd></dd>
+      <dd><p>Contains information about an RPC call.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="Netick.Session.html">Session</a></dt>

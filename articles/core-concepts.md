@@ -72,4 +72,4 @@ public class MyBehaviour : NetworkBehaviour
 
 Don’t forget to include `using Netick` and `using Netick.Unity`.
 
-A class derived from <xref:Netick.Unity.NetworkBehaviour> is almost useless without the utilization of Network Properties, which are the building blocks of your networked synced state. Network Properties are delta compressed, letting you create objects with complex states and not worry about it.
+A class derived from <xref:Netick.Unity.NetworkBehaviour> is of limited use without the utilization of Network Properties, which are the building blocks of your networked synced state. Network Properties are delta compressed, letting you create objects with complex states and not worry about it.

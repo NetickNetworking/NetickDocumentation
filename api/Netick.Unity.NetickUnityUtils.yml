@@ -33,6 +33,8 @@ items:
   - Netick.Unity.NetickUnityUtils.NetworkPlayScheduled(UnityEngine.AudioSource,Netick.Unity.NetworkSandbox,System.Double)
   - Netick.Unity.NetickUnityUtils.QuatMemberPack(System.Single)
   - Netick.Unity.NetickUnityUtils.QuatMemberUnpack(System.Int32)
+  - Netick.Unity.NetickUnityUtils.RaycastAll(UnityEngine.PhysicsScene,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.RaycastHit[],System.Single,System.Int32,UnityEngine.QueryTriggerInteraction)
+  - Netick.Unity.NetickUnityUtils.RaycastAll(UnityEngine.PhysicsScene2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,UnityEngine.ContactFilter2D,UnityEngine.RaycastHit2D[])
   - Netick.Unity.NetickUnityUtils.SetColor(System.Int32*,UnityEngine.Color,System.Single)
   - Netick.Unity.NetickUnityUtils.SetEnabled(UnityEngine.Component,Netick.Unity.NetworkSandbox,System.Boolean)
   - Netick.Unity.NetickUnityUtils.SetFloat(System.Int32*,System.Single,System.Single)
@@ -1155,6 +1157,82 @@ items:
   nameWithType.vb: NetickUnityUtils.NetworkPlayScheduled(AudioSource, NetworkSandbox, Double)
   fullName.vb: Netick.Unity.NetickUnityUtils.NetworkPlayScheduled(UnityEngine.AudioSource, Netick.Unity.NetworkSandbox, Double)
   name.vb: NetworkPlayScheduled(AudioSource, NetworkSandbox, Double)
+- uid: Netick.Unity.NetickUnityUtils.RaycastAll(UnityEngine.PhysicsScene,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.RaycastHit[],System.Single,System.Int32,UnityEngine.QueryTriggerInteraction)
+  commentId: M:Netick.Unity.NetickUnityUtils.RaycastAll(UnityEngine.PhysicsScene,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.RaycastHit[],System.Single,System.Int32,UnityEngine.QueryTriggerInteraction)
+  id: RaycastAll(UnityEngine.PhysicsScene,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.RaycastHit[],System.Single,System.Int32,UnityEngine.QueryTriggerInteraction)
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: RaycastAll(PhysicsScene, Vector3, Vector3, RaycastHit[], float, int, QueryTriggerInteraction)
+  nameWithType: NetickUnityUtils.RaycastAll(PhysicsScene, Vector3, Vector3, RaycastHit[], float, int, QueryTriggerInteraction)
+  fullName: Netick.Unity.NetickUnityUtils.RaycastAll(UnityEngine.PhysicsScene, UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.RaycastHit[], float, int, UnityEngine.QueryTriggerInteraction)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static int RaycastAll(this PhysicsScene physics, Vector3 origin, Vector3 direction, RaycastHit[] hits, float maxDistance = Infinity, int layerMask = -5, QueryTriggerInteraction queryTriggerInteraction = 0)
+    parameters:
+    - id: physics
+      type: UnityEngine.PhysicsScene
+    - id: origin
+      type: UnityEngine.Vector3
+    - id: direction
+      type: UnityEngine.Vector3
+    - id: hits
+      type: UnityEngine.RaycastHit[]
+    - id: maxDistance
+      type: System.Single
+    - id: layerMask
+      type: System.Int32
+    - id: queryTriggerInteraction
+      type: UnityEngine.QueryTriggerInteraction
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RaycastAll(physics As PhysicsScene, origin As Vector3, direction As Vector3, hits As RaycastHit(), maxDistance As Single = Infinity, layerMask As Integer = -5, queryTriggerInteraction As QueryTriggerInteraction = 0) As Integer
+  overload: Netick.Unity.NetickUnityUtils.RaycastAll*
+  nameWithType.vb: NetickUnityUtils.RaycastAll(PhysicsScene, Vector3, Vector3, RaycastHit(), Single, Integer, QueryTriggerInteraction)
+  fullName.vb: Netick.Unity.NetickUnityUtils.RaycastAll(UnityEngine.PhysicsScene, UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.RaycastHit(), Single, Integer, UnityEngine.QueryTriggerInteraction)
+  name.vb: RaycastAll(PhysicsScene, Vector3, Vector3, RaycastHit(), Single, Integer, QueryTriggerInteraction)
+- uid: Netick.Unity.NetickUnityUtils.RaycastAll(UnityEngine.PhysicsScene2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,UnityEngine.ContactFilter2D,UnityEngine.RaycastHit2D[])
+  commentId: M:Netick.Unity.NetickUnityUtils.RaycastAll(UnityEngine.PhysicsScene2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,UnityEngine.ContactFilter2D,UnityEngine.RaycastHit2D[])
+  id: RaycastAll(UnityEngine.PhysicsScene2D,UnityEngine.Vector2,UnityEngine.Vector2,System.Single,UnityEngine.ContactFilter2D,UnityEngine.RaycastHit2D[])
+  isExtensionMethod: true
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: RaycastAll(PhysicsScene2D, Vector2, Vector2, float, ContactFilter2D, RaycastHit2D[])
+  nameWithType: NetickUnityUtils.RaycastAll(PhysicsScene2D, Vector2, Vector2, float, ContactFilter2D, RaycastHit2D[])
+  fullName: Netick.Unity.NetickUnityUtils.RaycastAll(UnityEngine.PhysicsScene2D, UnityEngine.Vector2, UnityEngine.Vector2, float, UnityEngine.ContactFilter2D, UnityEngine.RaycastHit2D[])
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static int RaycastAll(this PhysicsScene2D physics, Vector2 origin, Vector2 direction, float distance, ContactFilter2D contactFilter, RaycastHit2D[] results)
+    parameters:
+    - id: physics
+      type: UnityEngine.PhysicsScene2D
+    - id: origin
+      type: UnityEngine.Vector2
+    - id: direction
+      type: UnityEngine.Vector2
+    - id: distance
+      type: System.Single
+    - id: contactFilter
+      type: UnityEngine.ContactFilter2D
+    - id: results
+      type: UnityEngine.RaycastHit2D[]
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RaycastAll(physics As PhysicsScene2D, origin As Vector2, direction As Vector2, distance As Single, contactFilter As ContactFilter2D, results As RaycastHit2D()) As Integer
+  overload: Netick.Unity.NetickUnityUtils.RaycastAll*
+  nameWithType.vb: NetickUnityUtils.RaycastAll(PhysicsScene2D, Vector2, Vector2, Single, ContactFilter2D, RaycastHit2D())
+  fullName.vb: Netick.Unity.NetickUnityUtils.RaycastAll(UnityEngine.PhysicsScene2D, UnityEngine.Vector2, UnityEngine.Vector2, Single, UnityEngine.ContactFilter2D, UnityEngine.RaycastHit2D())
+  name.vb: RaycastAll(PhysicsScene2D, Vector2, Vector2, Single, ContactFilter2D, RaycastHit2D())
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -1903,3 +1981,71 @@ references:
   name: NetworkPlayScheduled
   nameWithType: NetickUnityUtils.NetworkPlayScheduled
   fullName: Netick.Unity.NetickUnityUtils.NetworkPlayScheduled
+- uid: Netick.Unity.NetickUnityUtils.RaycastAll*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.RaycastAll
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_RaycastAll_UnityEngine_PhysicsScene_UnityEngine_Vector3_UnityEngine_Vector3_UnityEngine_RaycastHit___System_Single_System_Int32_UnityEngine_QueryTriggerInteraction_
+  name: RaycastAll
+  nameWithType: NetickUnityUtils.RaycastAll
+  fullName: Netick.Unity.NetickUnityUtils.RaycastAll
+- uid: UnityEngine.PhysicsScene
+  isExternal: true
+  name: PhysicsScene
+  nameWithType: PhysicsScene
+  fullName: UnityEngine.PhysicsScene
+- uid: UnityEngine.RaycastHit[]
+  isExternal: true
+  name: RaycastHit[]
+  nameWithType: RaycastHit[]
+  fullName: UnityEngine.RaycastHit[]
+  nameWithType.vb: RaycastHit()
+  fullName.vb: UnityEngine.RaycastHit()
+  name.vb: RaycastHit()
+  spec.csharp:
+  - uid: UnityEngine.RaycastHit
+    name: RaycastHit
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: UnityEngine.RaycastHit
+    name: RaycastHit
+    isExternal: true
+  - name: (
+  - name: )
+- uid: UnityEngine.QueryTriggerInteraction
+  isExternal: true
+  name: QueryTriggerInteraction
+  nameWithType: QueryTriggerInteraction
+  fullName: UnityEngine.QueryTriggerInteraction
+- uid: UnityEngine.PhysicsScene2D
+  isExternal: true
+  name: PhysicsScene2D
+  nameWithType: PhysicsScene2D
+  fullName: UnityEngine.PhysicsScene2D
+- uid: UnityEngine.ContactFilter2D
+  commentId: '!:UnityEngine.ContactFilter2D'
+  isExternal: true
+  name: ContactFilter2D
+  nameWithType: ContactFilter2D
+  fullName: UnityEngine.ContactFilter2D
+- uid: UnityEngine.RaycastHit2D[]
+  isExternal: true
+  name: RaycastHit2D[]
+  nameWithType: RaycastHit2D[]
+  fullName: UnityEngine.RaycastHit2D[]
+  nameWithType.vb: RaycastHit2D()
+  fullName.vb: UnityEngine.RaycastHit2D()
+  name.vb: RaycastHit2D()
+  spec.csharp:
+  - uid: UnityEngine.RaycastHit2D
+    name: RaycastHit2D
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: UnityEngine.RaycastHit2D
+    name: RaycastHit2D
+    isExternal: true
+  - name: (
+  - name: )
