@@ -14,27 +14,28 @@
 
 
 [data-bs-theme='light'] .alert-info {
-    --bs-alert-color: #000000;
-    --bs-alert-bg: #ddf4ff;
-    --bs-alert-border-color: #0969da;
+    --bs-alert-color: ##515151;
+    --bs-alert-bg: #e8f8ff;
+    --bs-alert-border-color: #add2ff;
     --bs-alert-link-color: var(--bs-info-text-emphasis);
 }
 
 [data-bs-theme='light'] .alert-warning {
-    --bs-alert-color: #000000;
-    --bs-alert-bg: #fffde9;
-    --bs-alert-border-color: #cfc122;
+    --bs-alert-color: ##515151;
+    --bs-alert-bg: #fffcf7;
+    --bs-alert-border-color: #d2df00;
     --bs-alert-link-color: var(--bs-warning-text-emphasis);
 
 }
 
 [data-bs-theme='light'] .alert-danger {
 
-    --bs-alert-color: #000000;
+    --bs-alert-color: ##515151;
     --bs-alert-bg: #ffebe9;
-    --bs-alert-border-color: #cf222e;
+    --bs-alert-border-color: #ffd0d3;
     --bs-alert-link-color: var(--bs-danger-text-emphasis);
 }
+
 
 .typelist.derived {
     display: none;
@@ -72,6 +73,24 @@ footer {
 
 body {
     font-family: 'Open Sans', sans-serif;
+}
+
+/* Override heading sizes */
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit !important;
+}
+
+/* Optionally adjust the hierarchy manually */
+h1 { font-size: 2em !important; }
+h2 { font-size: 1.75em !important; }
+h3 { font-size: 1.5em !important; }
+h4 { font-size: 1.25em !important; }
+h5 { font-size: 1em !important; }
+h6 { font-size: 0.875em !important; }
+
+/* Optional: adjust navbar and TOC too */
+.navbar, .toc {
+    font-size: 1em !important;
 }
 
 .alert {
@@ -134,18 +153,51 @@ body {
  */
 
 
-[data-bs-theme='light'] .alert-warning {
-    --bs-alert-color: #4e4e4e;
-    /* --bs-alert-bg: #fffde9; */
-}
 
+@media print {
+    body {
+        font-family: 'Open Sans', sans-serif;
+        font-size: x-small !important;
+    }
 
-[data-bs-theme='light'] .alert-danger {
-    --bs-alert-color: #4e4e4e;
-    /* --bs-alert-bg: #fffde9; */
-}
+    /* Override heading sizes */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: inherit !important;
+    }
 
-[data-bs-theme='light'] .alert-info {
-    --bs-alert-color: #4e4e4e;
-    /* --bs-alert-bg: #fffde9; */
+    /* Optionally adjust the hierarchy manually */
+    h1 {
+        font-size: 2em !important;
+    }
+
+    h2 {
+        font-size: 1.75em !important;
+    }
+
+    h3 {
+        font-size: 1.5em !important;
+    }
+
+    h4 {
+        font-size: 1.25em !important;
+    }
+
+    h5 {
+        font-size: 1em !important;
+    }
+
+    h6 {
+        font-size: 0.875em !important;
+    }
+
+    /* Optional: adjust navbar and TOC too */
+    .navbar,
+    .toc {
+        font-size: 1em !important;
+    }
 }

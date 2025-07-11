@@ -1,5 +1,5 @@
 ## Documentation
-This repository hosts the Documentation for Netick. It does not host the source code of Netick itself.
+This repository hosts the [Documentation](https://netick.net/docs/2/index.html) for Netick.
 
 ## Contributing  Guide
 The documentation of Netick is built using [docfx](https://github.com/dotnet/docfx). The documentation articles are located at `articles`, and they are written using markdown format.

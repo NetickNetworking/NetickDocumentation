@@ -30,7 +30,9 @@
 
     }
   ],
+
   "build": {
+
     "content": [
       {
         "files": [
@@ -40,7 +42,11 @@
       },
       {
         "files": [
+          "pdf/**.md",
+          "pdf/header.md",
+          "pdf/toc.yml",
           "articles/**.md",
+          "articles/**.yml",
           "articles/**/toc.yml",
           "toc.yml",
           "*.md"
@@ -63,8 +69,11 @@
       "_enableSearch" : true,
       "_appName" : "Netick Docs",
       "_appTitle" : "Netick Networking Engine",
-      "_appFooter" : "Copyright © 2022-2025 Karrar Rahim. All Rights Reserved."
-
+      "_appFooter" : "Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.",
+      "pdfTocPage": true,
+      "pdfCoverPage": "pdf/cover.html",
+      "pdfHeaderTemplate": "pdf/header.html",
+       "pdf": false
     },
 
     "fileMetadataFiles": [],
@@ -73,6 +82,8 @@
       "modern",
       "templates/netick"
     ],
+
+   
     "postProcessors": [],
     "keepFileLink": false,
     "disableGitFeatures": true,
