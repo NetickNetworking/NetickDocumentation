@@ -95,6 +95,8 @@
 
 ## [Dungeon Frenzy](samples/dungeon-frenzy.md)
 
+## [IM (Interest Management ) Sample ](samples/im-sample.md)
+
 # Transports
 
 ## [Available Transports](transports.md)

@@ -1,8 +1,12 @@
 # 3 - Player Character Movement
 
+---
+
 Since Netick is a server-authoritative networking solution, we can't directly move the player character object (in a client-auth fashion) on the client for security reasons. Instead, we use inputs, which will be used to move our player. To move the player based on our input, here's how it works: we send an input to the server, the server fetches our input, and then uses it to move our character. Netick uses something called Client-Side Prediction to make this process responsive.
 
 [Learn More About Client-Side Prediction](../understanding-client-side-prediction/understanding-client-side-prediction.md)
+
+---
 
 ## Input Struct
 Consider the type of player inputs required for our gameplay. In this tutorial, we only use a vector for movement direction.
@@ -21,6 +25,8 @@ public struct PlayerCharacterInput : INetworkInput
     public Vector2 Movement;    
 }
 ```
+
+---
 
 ## Setting and Sending Input
 There are a few places to set your input. The preferred way is on `OnInput` on `NetworkEventsListener`.
@@ -48,6 +54,8 @@ public class GameplayManager : NetworkEventsListener
 ```
 
 [Learn More About Inputs](../understanding-client-side-prediction/writing-gameplay-code.md)
+
+---
 
 ## Fetch Input
 
@@ -83,6 +91,8 @@ In a single-player game, we use `Time.deltaTime` to move our player to make it f
 
 [Learn More About Writing Client-Side Prediction Code](../understanding-client-side-prediction/writing-gameplay-code.md)
 
+---
+
 ## Network Transform
 Adding `NetworkTransform` allows us to sync the position, rotation of our character.
 
@@ -103,6 +113,8 @@ Because Netick is a tick-based netcode, it means movement will happen at a fixed
 Here's what our player character object looks like now:
 
 <figure><img src="../../images/getting-started/103-player-character.png" alt=""><figcaption></figcaption></figure>
+
+---
 
 ## Multiplayer Testing
 Let's try to run the game now. In Netick, there is something called Sandboxing (or multi-peer), that allows us to simulate multiple peers on a single Unity process, meaning we don't have to build the game (or use two editors) to test multiplayer. Instead, we run a server and a client (or multiple) together in the same project at the same time.

@@ -92,6 +92,13 @@
 <p>For example, within any <code>NetworkBehaviour</code>, you can easily access these management scripts using <code>GetComponent</code>:</p>
 <pre><code class="lang-csharp">var manager = Sandbox.GetComponent&lt;Manager&gt;();
 </code></pre>
+<p>Sometimes, you may want to find which sandbox instance a non-networked GameObject belongs to:</p>
+<pre><code class="lang-csharp">var sandbox = NetworkSandbox.FindSandboxOf(gameObject);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This method should only be called when you are certain that Netick is running and a valid sandbox instance exists. Calling it before initialization results in a null value.</p>
+</div>
 <hr>
 <h2 id="persistent-network-objects">Persistent Network Objects</h2>
 <p>Another option for game-wide systems is to use persistent network objects. These must be instances of network prefabs with the <code>Is Persistent</code> property enabled. This ensures they can always be instantiated.</p>

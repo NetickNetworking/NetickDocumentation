@@ -1,5 +1,7 @@
 # Simple First Person (Unity)
 
+---
+
 This is a very simple FPS game.
 
 ## Features

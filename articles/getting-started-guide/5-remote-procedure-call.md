@@ -1,7 +1,12 @@
 # 5 - Remote Procedure Call
+
+---
+
 In this tutorial, we are going to use an RPC (Remote Procedure Call) to set our nickname randomly. RPC is the most primitive way to sync things in the game. It's not recommended to use RPCs most of the time, and should only be used for infrequent actions like sending the player's name to the server.
 
 [Learn More About RPCs](../remote-procedure-calls-rpcs.md)
+
+---
 
 ## UI Setup
 
@@ -19,11 +24,15 @@ In this tutorial, we are going to use an RPC (Remote Procedure Call) to set our 
 
 <figure><img src="../../images/getting-started/105-tmp.png" alt=""><figcaption></figcaption></figure>
 
+---
+
 ## PlayerCharacterNametag
 
 1. Create a new script and name it `PlayerCharacterNametag`.
 2. Change parent class to `NetworkBehaviour`.
 3. Create a network property named Nickname and give it the type of `NetworkString32` (`string` works too, however you should always use NetworkString as `string` can't work as an RPC parameter or a struct field).
+
+---
 
 ## RPC Implementation
 
@@ -45,6 +54,8 @@ public class PlayerCharacterNametag : NetworkBehaviour
     }
 }
 ```
+
+---
 
 ## Calling the RPC
 
@@ -69,6 +80,8 @@ public class PlayerCharacterNametag : NetworkBehaviour
 ```
 
 
+---
+
 ## Nickname OnChanged
 Then, we're going to use an OnChanged callback for our Nickname:
 
@@ -90,6 +103,8 @@ public class PlayerCharacterNametag : NetworkBehaviour
 ```
 
 Assign the TextNametag with the TextMeshPro UI we have created before.
+
+---
 
 ## Final Testing
 

@@ -1,9 +1,13 @@
 # 4 - Network Property
 
+---
+
 A network property allows us to replicate things in the game and keep them in sync across the network.
 In this tutorial, we are going to replicate our mesh color between players using inputs and network property.
 
 [Learn More About Network Properties](../networked-state.md)
+
+---
 
 ## Color Input
 Let's add one more type of input which is a `bool` and give it the name of `randomizeColor`. If this bool is true, then we will randomize the color.  
@@ -32,6 +36,8 @@ public class GameplayManager : NetworkEventsListener
 }
 
 ```
+
+---
 
 ## Defining a Network Property
 
@@ -74,6 +80,8 @@ public class PlayerCharacterVisual : NetworkBehaviour
 ```
 
 5. Declare a field of `MeshRenderer`.
+
+---
 
 ### Detecting Changes
 Netick lets you automatically detect whenever a certain network property changes, which is by using the `[OnChanged]` attribute on a method that will be invoked when the specified property changes.

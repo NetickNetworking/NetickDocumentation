@@ -1,8 +1,10 @@
 # Dungeon Frenzy (Unity)
 
+---
+
 <figure><img src="../../images/samples/dungeon-frenzy.gif" alt=""><figcaption></figcaption></figure>
 
-A simple 2D fast-paced platformer shooter. Made by one of our community members.
+A simple 2D fast-paced platformer shooter.
 
 ## Features
 

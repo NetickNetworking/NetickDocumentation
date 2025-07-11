@@ -1,6 +1,6 @@
 # Scene Management 
 
-## Overview
+---
 
 In Netick, scenes are categorized based on how and when they are loaded. The **main scene** refers to either:
 

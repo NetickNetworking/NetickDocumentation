@@ -85,6 +85,7 @@
         <article data-uid="">
 <h1 id="2---setting-up-the-game">2 - Setting Up the Game</h1>
 
+<hr>
 <h2 id="starting-the-game">Starting the Game</h2>
 <p>There are a few methods we can use to start the game:</p>
 <pre><code class="lang-cs">// manually initialize Netick (also done automatically when `Network.StartAsHost`/`Network.StartAsClient`/`Network.StartAsServer` is called)
@@ -113,6 +114,7 @@ Netick.Unity.Network.Shutdown();
 </ol>
 <p>After adding the component, there are several fields we need to take care of.</p>
 <figure><img src="../../images/getting-started/102-game-starter.png" alt=""><figcaption></figcaption></figure>
+<hr>
 <h2 id="sandbox-prefab">Sandbox Prefab</h2>
 <p>The first field asks for a <code>Sandbox Prefab</code></p>
 <ol>
@@ -125,10 +127,12 @@ Netick.Unity.Network.Shutdown();
 <p>Netick will automatically add a few other scripts too on this prefab when it's created which will happen when you start Netick, the most important one of those scripts is <code>NetworkSandox</code>. The Sandbox Prefab is a persistent GameObject, it will only be destroyed when you shut down Netick.</p>
 </div>
 <p>Any scripts you add to the Sandbox Prefab will stay around until you shut down Netick. Methods on <code>NetworkSandbox</code> (the script Netick adds to the Sandbox Prefab) lets you do various things like connecting, spawning objects and destroying them.</p>
+<hr>
 <h2 id="transport">Transport</h2>
 <p>Now we need to assign a transport, Netick uses the LiteNetLib by default. To use this transport, we can right click on an empty place in the Assets folder and go to <code>Create &gt; Netick &gt; Transport &gt; LiteNetLibTransportProvider</code>.
 Then assign the <code>Transport</code> field of Game Starter.</p>
 <figure><img src="../../images/getting-started/102-create-transport.png" alt=""><figcaption></figcaption></figure>
+<hr>
 <h2 id="setting-up-the-scene">Setting Up the Scene</h2>
 <h3 id="floor">Floor</h3>
 <ul>
@@ -192,6 +196,7 @@ public class GameplayManager : NetworkEventsListener
     }
 }
 </code></pre>
+<hr>
 <h2 id="testing">Testing</h2>
 <p>Let's go ahead and enter play mode. You can see our player spawning by clicking on &quot;Start Host&quot;.</p>
 <figure><img src="../../images/getting-started/102-player-spawning.gif" alt=""><figcaption></figcaption></figure>

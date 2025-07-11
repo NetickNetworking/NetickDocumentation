@@ -14,6 +14,15 @@ For example, within any `NetworkBehaviour`, you can easily access these manageme
 var manager = Sandbox.GetComponent<Manager>();
 ```
 
+Sometimes, you may want to find which sandbox instance a non-networked GameObject belongs to:
+
+```csharp
+var sandbox = NetworkSandbox.FindSandboxOf(gameObject);
+```
+
+> [!Note]
+> This method should only be called when you are certain that Netick is running and a valid sandbox instance exists. Calling it before initialization results in a null value.
+
 ---
 
 ## Persistent Network Objects
@@ -25,4 +34,5 @@ Another option for game-wide systems is to use persistent network objects. These
 ## Additive Scene Loading
 
 Some developers prefer to use additive scenes to separate game management logic. While this approach is not recommended in most cases, it is supported. If you choose to use additive scenes, ensure that they are loaded **after** Netick has initialized — using Netick’s scene loading API.
+
 

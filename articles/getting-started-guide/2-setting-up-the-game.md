@@ -1,5 +1,7 @@
 # 2 - Setting Up the Game
 
+---
+
 ## Starting the Game
 There are a few methods we can use to start the game:
 
@@ -34,6 +36,8 @@ After adding the component, there are several fields we need to take care of.
 
 <figure><img src="../../images/getting-started/102-game-starter.png" alt=""><figcaption></figcaption></figure>
 
+---
+
 ## Sandbox Prefab
 The first field asks for a `Sandbox Prefab`
 
@@ -46,11 +50,15 @@ The first field asks for a `Sandbox Prefab`
 
 Any scripts you add to the Sandbox Prefab will stay around until you shut down Netick. Methods on `NetworkSandbox` (the script Netick adds to the Sandbox Prefab) lets you do various things like connecting, spawning objects and destroying them.
 
+---
+
 ## Transport 
 Now we need to assign a transport, Netick uses the LiteNetLib by default. To use this transport, we can right click on an empty place in the Assets folder and go to `Create > Netick > Transport > LiteNetLibTransportProvider`.
 Then assign the `Transport` field of Game Starter.
 
 <figure><img src="../../images/getting-started/102-create-transport.png" alt=""><figcaption></figcaption></figure>
+
+---
 
 ## Setting Up the Scene
 ### Floor
@@ -122,6 +130,8 @@ public class GameplayManager : NetworkEventsListener
     }
 }
 ```
+
+---
 
 ## Testing
 
