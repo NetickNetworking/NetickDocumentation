@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Parenting | Netick Networking Engine </title>
+      <title>Managing the Game in Netick | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Parenting | Netick Networking Engine ">
+      <meta name="title" content="Managing the Game in Netick | Netick Networking Engine ">
       
       <link rel="icon" href="../images/logo.png">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -83,15 +83,21 @@
         </div>
 
         <article data-uid="">
-<h1 id="parenting">Parenting</h1>
+<h1 id="managing-the-game-in-netick">Managing the Game in Netick</h1>
 
 <hr>
-<p>The parent of a network object can only be changed if you are the Input Source of the object, or if you are the owner (server).</p>
-<p>To change the parent of an object: <code>Object.SetParent(newParent);</code></p>
-<div class="CAUTION">
-<h5>Caution</h5>
-<p>The original hierarchy of network prefab instances shouldn’t be changed at run-time. In other words, you shouldn’t unparent the original children of a prefab. Although, you can parent objects to them, just not unparenting them (prefab children) from their original parent.</p>
-</div>
+<p>In both single-player and multiplayer games, it's common to use the singleton pattern for game management systems. That typically involves static global references and <code>DontDestroyOnLoad</code> to persist objects across scene transitions.</p>
+<p>In Netick, however, this pattern is streamlined through the use of the <strong>Network Sandbox</strong> — a dedicated <code>GameObject</code> (with <code>DontDestroyOnLoad</code>) designed to manage an instance of the game. The sandbox acts as a built-in singleton where you can attach all your management scripts directly by adding them to the sandbox prefab.</p>
+<p>These scripts can be either standard <code>MonoBehaviour</code>s or <code>NetworkBehaviour</code>s, enabling the use of networked properties and RPCs as needed.</p>
+<p>For example, within any <code>NetworkBehaviour</code>, you can easily access these management scripts using <code>GetComponent</code>:</p>
+<pre><code class="lang-csharp">var manager = Sandbox.GetComponent&lt;Manager&gt;();
+</code></pre>
+<hr>
+<h2 id="persistent-network-objects">Persistent Network Objects</h2>
+<p>Another option for game-wide systems is to use persistent network objects. These must be instances of network prefabs with the <code>Is Persistent</code> property enabled. This ensures they can always be instantiated.</p>
+<hr>
+<h2 id="additive-scene-loading">Additive Scene Loading</h2>
+<p>Some developers prefer to use additive scenes to separate game management logic. While this approach is not recommended in most cases, it is supported. If you choose to use additive scenes, ensure that they are loaded <strong>after</strong> Netick has initialized — using Netick’s scene loading API.</p>
 
 </article>
 

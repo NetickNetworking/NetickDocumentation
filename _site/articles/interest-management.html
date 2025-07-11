@@ -85,9 +85,11 @@
         <article data-uid="">
 <h1 id="interest-management-pro">Interest Management [Pro]</h1>
 
+<hr>
 <h2 id="understanding-interest-management">Understanding Interest Management</h2>
 <p>When you have a game with a big world and a high player count, it becomes more and more expensive to replicate every object in the game to every connected client. It's an O(N<sup>2</sup>) problem, meaning the bandwidth sent from the server scales quadratically with the number of players connected. Interest Management mitigates this problem by filtering objects that are of no interest to the client. Usually, this is done using Area of Interest, which is the area around the player. The client will only receive objects existing in this area. Interest management is often used in battle-royale scale games</p>
 <p>Interest Management is also useful as an anti-cheat measure. For instance, you can replicate team-specific objects to only players of the same team, using a Custom interest group, which we will learn about in this article.</p>
+<hr>
 <p><strong>Netick handles Interest Management (filters objects replicated to a client) in two phases:</strong></p>
 <ul>
 <li>Broad Phase Filtering</li>
@@ -116,6 +118,7 @@
 <h5>Note</h5>
 <p>The above is only valid when the <code>Broad Phase Filter</code> of the object is set to Custom. When it's set to <code>Area of Interest</code>, it will only be controllable by Netick - meaning the object will be assigned a group that corresponds to its current position in the world.</p>
 </div>
+<hr>
 <h3 id="narrow-phase-filtering">Narrow Phase Filtering</h3>
 <p>Narrow Phase Filtering allows for finer control. Instead of being handled per-group basis, it's done per-object per-client basis. Which is slower. Thus, it should only be used when necessary.</p>
 <h4 id="filtering-an-object-to-a-specific-client">Filtering an object to a specific client</h4>
@@ -133,6 +136,7 @@
 <h5>Caution</h5>
 <p>This must be done every <code>NetworkFixedUpdate</code> callback since it's cleared at the end of the tick. Usually, you should do this in the movement controller of your player character.</p>
 </div>
+<hr>
 <h2 id="callbacks">Callbacks</h2>
 <p>There are two callbacks on <code>NetworkBehaviour</code> for when the interest status of an object changes in the client.</p>
 <pre><code class="lang-csharp">public override void OnBecameInterested()

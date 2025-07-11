@@ -1,8 +1,12 @@
 # RPCs vs Properties
 
+---
+
 Remote Procedure Calls (RPCs) and Network Properties (Networked State) serve distinct purposes in a multiplayer game.
 
 RPCs are an option for non-critical, often cosmetic events that occur at specific moments. In contrast, Network Properties are used to synchronize critical gameplay state, especially data that must persist and remain synced for all clients, including late joiners.
+
+---
 
 ## When to Use Network Properties
 Network Properties are designed for values that:
@@ -13,6 +17,8 @@ Network Properties are designed for values that:
 
 Example: a player's health should be a Network Property, as its current value is critical for gameplay and must remain synced across all clients at all times.
 
+---
+
 ## When to Use RPCs
 RPCs are event-based, meaning they only execute at a specific point in time. Clients that join after an RPC is called will not receive that RPC. For this reason, they are best used for:
 - Visual or cosmetic events.
@@ -22,6 +28,8 @@ RPCs are event-based, meaning they only execute at a specific point in time. Cli
 Example: a visual damage effect or sound effect that doesn't impact game logic can be triggered via an RPC.
 
 However, you can, and should, avoid using RPCs even for such events, and that’s by using a [change callback](change-callback.md) using `[OnChanged]` attribute. Ideally, RPCs should only be used for setting up things in the server by the client (client->server RPC), or sending chat messages.
+
+---
 
 ## Avoiding RPCs
 In general, you should minimize your usage of RPCs — especially server->client RPCs, which are bandwidth-heavy and harder to manage.
@@ -37,6 +45,8 @@ Use a `JumpCounter` Network Property. Increment it each time the player jumps. I
 
 #### Death Effect
 Monitor a `Health` Network Property. If it drops to zero (and was higher before), trigger a death animation or sound in the callback.
+
+---
 
 ### Circular Buffers
 

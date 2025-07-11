@@ -85,6 +85,7 @@
         <article data-uid="">
 <h1 id="remote-procedure-calls-rpcs">Remote Procedure Calls (RPCs)</h1>
 
+<hr>
 <p>Remote Procedure Calls (RPCs) are methods defined on <code>NetworkBehavior</code> scripts that can be invoked remotely across the network. They are typically used to synchronize discrete events or transmit small amounts of data between clients and the server.</p>
 <p>A common use case for RPCs is initializing gameplay logic or sending configuration data at the start of a session. Such tasks should use <strong>reliable RPCs</strong> to ensure delivery.</p>
 <div class="NOTE">
@@ -95,6 +96,7 @@
 <h5>Warning</h5>
 <p>RPCs are not suitable for sending large amounts of data (e.g., over 500 bytes) or transferring files. For those use cases, refer to this <a href="sending-large-amounts-of-data.html">article</a>.</p>
 </div>
+<hr>
 <h2 id="basic-example">Basic Example</h2>
 <p>Here's a simple example of an RPC:</p>
 <pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.InputSource, isReliable: true, localInvoke: false)]
@@ -104,6 +106,7 @@ private void MyRpc(int arg1)
 }
 </code></pre>
 <p>To declare a method as an RPC, decorate it with the [<code>Rpc</code>] attribute.</p>
+<hr>
 <h2 id="static-rpcs">Static RPCs</h2>
 <p><strong>Static RPCs</strong> are RPCs not tied to a specific instance of a <code>NetworkBehavior</code>. The first parameter of a static RPC must be of type <code>NetickEngine</code>, which allows access to the current <code>NetworkSandbox</code>.</p>
 <pre><code class="lang-csharp">[Rpc]
@@ -123,6 +126,7 @@ MyStaticRpc(Sandbox.Engine, 56);
 <h5>Warning</h5>
 <p>Additionally, all RPCs are <strong>unreliable by default</strong> unless explicitly marked otherwise.</p>
 </div>
+<hr>
 <h2 id="rpc-method-requirements"><code>[Rpc]</code> Method Requirements</h2>
 <p>RPC methods must adhere to the following constraints:</p>
 <ul>
@@ -131,6 +135,7 @@ MyStaticRpc(Sandbox.Engine, 56);
 <li>Class-based network collections are not allowed. Use <code>NetworkArrayStruct</code> for array parameters.</li>
 <li><code>string</code> parameters are not allowed. Use one of the <code>NetworkString</code> variants instead.</li>
 </ul>
+<hr>
 <h2 id="rpc-attribute-parameters"><code>[Rpc]</code> Attribute Parameters</h2>
 <p>The <code>[Rpc]</code> attribute accepts the following options:</p>
 <table>
@@ -159,6 +164,7 @@ MyStaticRpc(Sandbox.Engine, 56);
 </tr>
 </tbody>
 </table>
+<hr>
 <h3 id="peer-options">Peer Options</h3>
 <p>The <code>source</code> and <code>target</code> can be any of the following:</p>
 <ul>
@@ -167,6 +173,7 @@ MyStaticRpc(Sandbox.Engine, 56);
 <li><code>Proxies</code> — All peers except the Owner and Input Source.</li>
 <li><code>Everyone</code> — All connected peers, including the server.</li>
 </ul>
+<hr>
 <h2 id="targeted-rpcs">Targeted RPCs</h2>
 <p>To send an RPC to a specific peer (e.g., a single player), include a parameter of type <code>NetworkPlayerId</code> decorated with the <code>[RpcTarget]</code> attribute. For instance:</p>
 <pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.Everyone, isReliable: true, localInvoke: false)]
@@ -179,6 +186,7 @@ private void MyRpc([RpcTarget] NetworkPlayerId target, int arg1)
 MyRpc(Sandbox.Players[2], someValue);
 </code></pre>
 <p>In the case of static RPCs, the <code>NetworkPlayerId</code> must be the <strong>second</strong> parameter, following the <code>NetickEngine</code> parameter.</p>
+<hr>
 <h2 id="identifying-the-rpc-source">Identifying the RPC Source</h2>
 <p>To determine which player originally called an RPC, add a final parameter of type <code>RpcContext</code>. This allows you to retrieve the <code>Source</code> of the RPC at runtime:</p>
 <pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.Everyone, isReliable: true, localInvoke: false)]

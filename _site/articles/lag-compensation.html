@@ -85,6 +85,7 @@
         <article data-uid="">
 <h1 id="lag-compensation-pro">Lag Compensation [Pro]</h1>
 
+<hr>
 <h2 id="understanding-the-need-for-lag-compensation">Understanding the Need for Lag Compensation</h2>
 <p>Due to varying latencies (ping) of connected players, each player will see the world at a different point in time than the server. For instance, when the client sends an input to the server to shoot its weapon, the target that the client was aiming at would be at a different place in the client than the server. Therefore the client would miss its shoots. Because, usually, from the perspective of the client, the positions of other objects (players) are in the <em><strong>remote snapshot timeline</strong></em>, which is always in the past compared to the timeline of the player-controlled character, which’s the <em><strong>predicted snapshot timeline</strong></em>.<br>
 <br>
@@ -98,6 +99,7 @@ On the server, <strong>everything is in the present</strong>. While on the clien
 <br>
 Watch this video for a visual explanation:</p>
 <div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/6EwaW2iz4iA?rel=0" frameborder="0" allowfullscreen="true"></iframe></div>
+<hr>
 <h2 id="lag-compensation-in-netick">Lag Compensation in Netick</h2>
 <p>To use Lag Compensation in your project, you first need to enable it in Netick Settings. Go to <code>Netick Settings -&gt; Lag Compensation</code> and turn on <code>Enable</code>.</p>
 <h3 id="setting-up-your-character-for-lag-compensation"><strong>Setting up your character for Lag Compensation</strong></h3>
@@ -117,6 +119,7 @@ Watch this video for a visual explanation:</p>
 <h5>Warning</h5>
 <p>Make sure to enable Lag Compensation in Netick Settings.</p>
 </div>
+<hr>
 <h3 id="performing-a-lag-compensated-raycast-in-unity"><strong>Performing a Lag-Compensated Raycast in Unity</strong></h3>
 <pre><code class="lang-csharp">          // lag-compensated Raycast
             if (Sandbox.Raycast(

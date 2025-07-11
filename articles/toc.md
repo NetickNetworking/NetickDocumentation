@@ -40,6 +40,8 @@
 
 ## [Managing Netick](managing-netick.md)
 
+## [Managing the Game](managing-the-game.md)
+
 ## [Scene Management](scene-management.md)
 
 ## [Listening to Network Events](listening-to-network-events.md)

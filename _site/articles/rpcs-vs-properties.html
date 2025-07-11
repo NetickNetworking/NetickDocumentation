@@ -85,8 +85,10 @@
         <article data-uid="">
 <h1 id="rpcs-vs-properties">RPCs vs Properties</h1>
 
+<hr>
 <p>Remote Procedure Calls (RPCs) and Network Properties (Networked State) serve distinct purposes in a multiplayer game.</p>
 <p>RPCs are an option for non-critical, often cosmetic events that occur at specific moments. In contrast, Network Properties are used to synchronize critical gameplay state, especially data that must persist and remain synced for all clients, including late joiners.</p>
+<hr>
 <h2 id="when-to-use-network-properties">When to Use Network Properties</h2>
 <p>Network Properties are designed for values that:</p>
 <ul>
@@ -95,6 +97,7 @@
 <li>Need to be known by clients who join mid-game.</li>
 </ul>
 <p>Example: a player's health should be a Network Property, as its current value is critical for gameplay and must remain synced across all clients at all times.</p>
+<hr>
 <h2 id="when-to-use-rpcs">When to Use RPCs</h2>
 <p>RPCs are event-based, meaning they only execute at a specific point in time. Clients that join after an RPC is called will not receive that RPC. For this reason, they are best used for:</p>
 <ul>
@@ -104,6 +107,7 @@
 </ul>
 <p>Example: a visual damage effect or sound effect that doesn't impact game logic can be triggered via an RPC.</p>
 <p>However, you can, and should, avoid using RPCs even for such events, and that’s by using a <a href="change-callback.html">change callback</a> using <code>[OnChanged]</code> attribute. Ideally, RPCs should only be used for setting up things in the server by the client (client-&gt;server RPC), or sending chat messages.</p>
+<hr>
 <h2 id="avoiding-rpcs">Avoiding RPCs</h2>
 <p>In general, you should minimize your usage of RPCs — especially server-&gt;client RPCs, which are bandwidth-heavy and harder to manage.</p>
 <ul>
@@ -116,6 +120,7 @@
 <p>Use a <code>JumpCounter</code> Network Property. Increment it each time the player jumps. In the <code>[OnChanged]</code> callback, play the jump sound.</p>
 <h4 id="death-effect">Death Effect</h4>
 <p>Monitor a <code>Health</code> Network Property. If it drops to zero (and was higher before), trigger a death animation or sound in the callback.</p>
+<hr>
 <h3 id="circular-buffers">Circular Buffers</h3>
 <p>One of the easiest ways to avoid many types of RPCs is to use <a href="https://en.wikipedia.org/wiki/Circular_buffer">Circular Buffers</a>. A circular buffer is a <code>NetworkArray</code> that you update in a circular/ring fashion. When you reach the end of the array, you start over at the beginning of the array - this is accomplished by using the modulo operator when indexing the array, using an incrementing value. Using this, you can synchronize many short-lived things such as projectiles, hit indicators, and more.</p>
 <p>Example:</p>

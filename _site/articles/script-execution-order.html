@@ -85,6 +85,7 @@
         <article data-uid="">
 <h1 id="script-execution-order">Script Execution Order</h1>
 
+<hr>
 <p>The network methods on your Network Behavior classes are called from inside Netick, which means standard Unity <code>MonoBehaviour</code> script order control does not work here. To specify the order of execution, use the attributes:</p>
 <pre><code class="lang-csharp">[ExecuteAfter(typeof(SomeOtherScript))]  /* to specify that this script executes after SomeOtherScript) */
 [ExecuteBefore(typeof(SomeOtherScript))] /* to specify that this script executes before SomeOtherScript */

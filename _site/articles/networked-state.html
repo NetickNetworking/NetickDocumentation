@@ -85,8 +85,10 @@
         <article data-uid="">
 <h1 id="networked-state">Networked State</h1>
 
+<hr>
 <p>Networked state is the data of the game that you want to replicate to players. In Netick, networked state is delta compressed, therefore only changes are replicated. If a field of a struct changes, only that field is replicated. If a counter increases, only the delta to the previous value is replicated. If your counter was at 32534536, and now it is at 32534537, it will be replicated as a delta of one. It applies to vectors and quaternions too. Thus, using as little bandwidth as possible.</p>
 <p>Every networked variable can be predicted and interpolated too. Allowing you to create complex networked systems easily.</p>
+<hr>
 <h2 id="network-properties">Network Properties</h2>
 <p>A network property is a C# property which is replicated across the network. For a property to be networked, the attribute [<a class="xref" href="../api/Netick.Networked.html">Networked</a>] must be added to it.</p>
 <p>Examples of networked properties:</p>
@@ -120,6 +122,7 @@ public NetworkString32  Name     {get; set;}
 <h5>Note</h5>
 <p>Don't use types with sizes lower than 4 bytes such as <code>byte</code> or <code>short</code>, instead simply use <code>int</code>. Netick already compresses everything to only the required bits of the current value of a variable. So if an <code>int</code> variable current value is <code>5</code>, it will only be serialized as a few bits, not anywhere near 4 bytes (the byte size of <code>int</code>).</p>
 </div>
+<hr>
 <h2 id="network-arrays">Network Arrays</h2>
 <p>Network arrays are just like regular C# arrays, but their syntax is a bit different. They are defined using the <a class="xref" href="../api/Netick.Unity.NetworkArray-1.html">NetworkArray&lt;T&gt;</a> generic class.</p>
 <p>Example of a network array:</p>
@@ -130,6 +133,7 @@ public readonly NetworkArray&lt;int&gt; IntArrayExample = new NetworkArray&lt;in
 <h5>Warning</h5>
 <p><code>size</code> of <code>[Networked(size: 32)]</code> must be the same as the value that is passed to the array constructor <code>new NetworkArray&lt;int&gt;(32)</code>.</p>
 </div>
+<hr>
 <h2 id="network-array-structs">Network Array Structs</h2>
 <p>Netick 2 introduces a new type of network array, network arrays that are completely value types - Network Array Structs. These are fixed-size struct arrays available only in 4 fixed sizes: 8, 16, 32, and 64.</p>
 <p>Network Array Structs are pretty useful since they can used as members of another struct, or even nested inside other arrays. In addition, they can be sent as RPC parameters.</p>
@@ -150,6 +154,7 @@ public NetworkArrayStruct8&lt;NetworkArrayStruct8&lt;int&gt;&gt; ArrayOfArrays {
 <pre><code class="lang-csharp">IntFixedArray = IntFixedArray.Set(index, value);
 // as you can see, we are reassigning the property with the new changed array which has the change.
 </code></pre>
+<hr>
 <h2 id="network-collections">Network Collections</h2>
 <p>In addition to <code>NetworkArray&lt;T&gt;</code>, Netick also has alternatives to C# collections that are fully synced, predicted, and interpolated.</p>
 <ul>
@@ -185,6 +190,7 @@ public readonly NetworkQueue&lt;int&gt;            MyNetworkedQueue       = new(
 <h5>Note</h5>
 <p>The <code>size</code> that you pass to <code>[Networked]</code> and the constructor represents the fixed capacity of the collection. The collections don't support resizing as all network state sizes are set at compile time.</p>
 </div>
+<hr>
 <h2 id="network-structs">Network Structs</h2>
 <p>Netick can synchronize any struct that does not contain class-based arrays or references. Which includes all C# primitive types and Unity/Godot/Flax primitive types.</p>
 <p>Example:</p>
@@ -226,6 +232,7 @@ public MyStruct MyStructProperty {get; set;}
 <h5>Note</h5>
 <p><code>[Networked]</code> attribute on structs is optional. However, when adding it to a struct, it allows float-based types (such as <code>float</code> or <code>Vector3</code>, which also have <code>[Networked]</code> on them) of a struct to have extra compression on them.</p>
 </div>
+<hr>
 <h2 id="networking-references-to-networkobject-and-networkbehaviour">Networking References to <code>NetworkObject</code> and <code>NetworkBehaviour</code></h2>
 <p>Since you can't directly synchronize class references, we provide two helper structs that are used to synchronize a reference to <code>NetworkObject</code> and <code>NetworkBehaviour</code>:</p>
 <h3 id="networkobjectref"><code>NetworkObjectRef</code></h3>
@@ -268,6 +275,7 @@ public MyStruct MyStructProperty {get; set;}
         }
     }
 </code></pre>
+<hr>
 <!-- > [!WARNING]
 > Under the hood, these structs use ids which are `NetworkObject.Id` and `NetworkBehaviour.BehaviourId`, and since ids are recycled between objects, it's possible for a `NetworkObjectRef` and `NetworkBehaviourRef<T>` to refer to incorrect objects if they are not cleared properly when those objects are destroyed. -->
 <h2 id="replication-relevancy">Replication Relevancy</h2>
@@ -276,6 +284,7 @@ public MyStruct MyStructProperty {get; set;}
 <pre><code class="lang-csharp">[Networked(relevancy: Relevancy.InputSource)] 
 public int              Ammo     {get; set;}
 </code></pre>
+<hr>
 <h2 id="state-synchronization">State Synchronization</h2>
 <p>Updates to the network state are atomic, it's not possible for a property to update in the client without other changed properties to update alongside it. If you change two (or more) properties in the server at the same time (or in two subsequent ticks), you are ensured to have both replicate together in the client. This makes it so that you don't have to worry about packet loss and possible race conditions that might occur due to some properties updates arriving while others arriving later. This simplifies how you program your game as you never have to worry about such things happening.</p>
 <p>This also means that when you create an object in the server, assign some initial values to some network properties, when this object is created in the client, inside <code>NetworkStart</code> of that object you will have full initial state that you assigned in the server.</p>

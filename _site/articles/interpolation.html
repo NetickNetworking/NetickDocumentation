@@ -85,6 +85,7 @@
         <article data-uid="">
 <h1 id="interpolation">Interpolation</h1>
 
+<hr>
 <p>Netick runs at a fixed-time step, equal to the inverse of the tick rate used for the simulation, which you can specify in Netick Settings. Because of that, the motion of network objects will appear unsmooth and jittery. The reason for this is that, usually, your update rate (render rate) is way higher than your fixed network tick rate. The solution to this problem is called interpolation, which means filling in the gaps between these fixed-time steps/ticks:</p>
 <figure><img src="../images/interpolation.png" alt="Interpolation"><figcaption></figcaption></figure>
 <p>So, for example, at tick 6, the value of a network property is 2.0. And at tick 7, it becomes 3.0.<br>
@@ -96,9 +97,11 @@ Since there are 5 frames between two ticks, the values at each frame would be:</
 <li>Frame 4: 2.75</li>
 <li>Frame 5: 3 — End of tick 6, beginning of tick 7</li>
 </ul>
+<hr>
 <h2 id="interpolation-of-network-transform">Interpolation of Network Transform</h2>
 <p>For moving objects, this is important to deal with. Every <a class="xref" href="../api/Netick.Unity.NetworkTransform.html">NetworkTransform</a> has a slot for a Render transform, which is basically the smoothed/interpolated mesh of the object, while the parent would be the simulated/non-interpolated object.</p>
 <p>So, you must break your moving objects into a parent (which has the <a class="xref" href="../api/Netick.Unity.NetworkTransform.html">NetworkTransform</a>), and a child which is the interpolated object, and has the mesh/s. Then you specify that child in the NetworkTransform RenderTransform property in the inspector. Check the samples if you are confused.</p>
+<hr>
 <h2 id="interpolation-source">Interpolation Source</h2>
 <p>The source of interpolation data can be of two options:</p>
 <ul>
@@ -111,11 +114,13 @@ Since there are 5 frames between two ticks, the values at each frame would be:</
 <h5>Note</h5>
 <p>When you want the server only to move your local player object, you must switch <code>Interpolation Source</code> to <code>Remote Snapshot</code>, to keep smooth rendering of the object as it's being controlled remotely and the prediction buffers will contain jittery data as the object is not being moved locally in the client.</p>
 </div>
+<hr>
 <h2 id="interpolation-of-network-properties">Interpolation of Network Properties</h2>
 <p>To interpolate a property, add the [<a class="xref" href="../api/Netick.Smooth.html">Smooth</a>] attribute to its declaration:</p>
 <pre><code class="lang-csharp">[Networked][Smooth]
 public Vector3 Movement {get; set;}
 </code></pre>
+<hr>
 <h2 id="automatic-interpolation">Automatic Interpolation</h2>
 <p>To access the interpolated value, by referencing the property in <a class="xref" href="../api/Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender">NetworkRender</a>, you automatically get interpolated values:</p>
 <pre><code class="lang-csharp">public override NetworkRender()
@@ -138,6 +143,7 @@ public Vector3 Movement {get; set;}
 <h5>Warning</h5>
 <p>Currently this is only supported in Unity. Use Manual Interpolation in other engines.</p>
 </div>
+<hr>
 <h2 id="manual-interpolation">Manual Interpolation</h2>
 <p>To manually interpolate a network property or network array, you can do that using the <a class="xref" href="../api/Netick.Interpolator.html">Interpolator</a> struct. You also have to pass false to <code>[Smooth]</code> to inform Netick we want to manually interpolate the property.</p>
 <h3 id="interpolating-properties">Interpolating Properties</h3>

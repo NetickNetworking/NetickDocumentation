@@ -85,9 +85,12 @@
         <article data-uid="">
 <h1 id="optimizing-large-numbers-of-objects">Optimizing Large Numbers of Objects</h1>
 
+<hr>
 <p>Usually networked objects in a video game are simulated in one of two ways:</p>
+<hr>
 <h2 id="internal-simulation">Internal Simulation</h2>
 <p>Internal Simulation refers to objects which are simulated and changed from within. Objects such as these include the character of the player. They also include objects such as vehicles, all sorts of physics objects, and game management objects. Any object that is self-controlled and needs to run each tick is within this category.</p>
+<hr>
 <h2 id="external-simulation">External Simulation</h2>
 <p>External Simulation refers to objects that never simulate or change themselves, instead they are controlled from the outside. There are many examples of such objects: doors, pickups, trees, buildings, etc. All these objects are altered from an external object that belongs to the first category (Internal Simulation). These objects don't need to run themselves or have <code>NetworkFixedUpdate</code>, <code>NetworkUpdate</code>, or <code>NetworkRender</code> run on them each tick/frame. Therefore we should simply exclude them from the network loop, meaning all of their network loop methods (<code>NetworkFixedUpdate</code>, <code>NetworkUpdate</code>, <code>NetworkRender</code>, etc) will not be invoked. This will save a lot of performance, potentially making some types of games possible when they wouldn't be.</p>
 <p>Netick makes this very simple. To make an object externally simulated, disable <code>Add to Network Loop</code> on its NetworkObject. It will no longer be simulated each tick, but it will still be synced, and its <code>NetworkStart</code> and <code>NetworkDestroy</code> methods invoked. The object will have no CPU cost almost at all, you can have 1000 objects and shouldn't see a difference in CPU performance, excluding the rendering cost which is irrelevant.</p>

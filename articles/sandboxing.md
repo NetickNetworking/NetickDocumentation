@@ -1,5 +1,7 @@
 # Sandboxing
 
+---
+
 Sandboxing (also known as multi-peer) allows you to start multiple Netick instances in a single Unity process for various purposes:
 - Starting multiple clients and a server.
 - Starting multiple servers in a single Unity process.
@@ -9,6 +11,8 @@ Sandboxes panel can be accessed by going to `Netick > Sandboxes`
 <figure><img src="../images/sandboxing.png" alt="Interpolation"><figcaption></figcaption></figure>
 
 ## Starting Netick as Multiple Peers
+
+---
 
 ### Starting a Client and a Server
 
@@ -21,6 +25,8 @@ Sandboxes panel can be accessed by going to `Netick > Sandboxes`
      NumberOfClients   = 1
    });
 ```
+
+---
 
 ### Starting Multiple Servers
 
@@ -37,6 +43,8 @@ Sandboxes panel can be accessed by going to `Netick > Sandboxes`
      NumberOfServers   = 20
    });
 ```
+
+---
 
 ## Making Your Project Sandbox-Safe
 

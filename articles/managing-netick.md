@@ -1,5 +1,7 @@
 # Managing Netick
 
+---
+
 ## Starting and Shutting Down Netick
 
 When you start Netick, you need to specify the mode you want to start it in. Like this:
@@ -29,6 +31,8 @@ var sandbox = Netick.Unity.Network.StartAsServer(Transport, Port);
 ```csharp
 var sandbox = Netick.Unity.Network.StartAsSinglePlayer();
 ```
+
+---
 
 ### Multiple Peers (Sandboxing)
 
@@ -69,6 +73,8 @@ To shut down Netick completely:
 Netick.Unity.Network.Shutdown();
 ```
 
+---
+
 ## Connecting to the Server
 
 To connect the client to the server:
@@ -76,6 +82,8 @@ To connect the client to the server:
 ```csharp
 sandbox.Connect(serverIPAddress);
 ```
+
+---
 
 ## Disconnecting From the Server
 

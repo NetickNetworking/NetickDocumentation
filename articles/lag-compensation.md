@@ -1,5 +1,7 @@
 # Lag Compensation [Pro]
 
+---
+
 ## Understanding the Need for Lag Compensation
 
 Due to varying latencies (ping) of connected players, each player will see the world at a different point in time than the server. For instance, when the client sends an input to the server to shoot its weapon, the target that the client was aiming at would be at a different place in the client than the server. Therefore the client would miss its shoots. Because, usually, from the perspective of the client, the positions of other objects (players) are in the _**remote snapshot timeline**_, which is always in the past compared to the timeline of the player-controlled character, which’s the _**predicted snapshot timeline**_.\
@@ -16,6 +18,8 @@ Lag Compensation basically means going back in time to what the client was seein
 Watch this video for a visual explanation:
 
 > [!Video https://www.youtube.com/embed/6EwaW2iz4iA]
+
+---
 
 ## Lag Compensation in Netick
 
@@ -46,6 +50,7 @@ The hierarchy should be as follows:
 > [!WARNING]
 > Make sure to enable Lag Compensation in Netick Settings.
 
+---
 
 ### **Performing a Lag-Compensated Raycast in Unity**
 

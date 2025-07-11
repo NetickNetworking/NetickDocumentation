@@ -1,5 +1,7 @@
 # Parenting
 
+---
+
 The parent of a network object can only be changed if you are the Input Source of the object, or if you are the owner (server).
 
 To change the parent of an object: `Object.SetParent(newParent);`

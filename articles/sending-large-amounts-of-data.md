@@ -1,5 +1,7 @@
 # Sending Large Amounts of Data (Byte Arrays)
 
+---
+
 It's true that RPCs can be used to send small amount of data, but they shouldn't be used to send anything bigger than 500 bytes. For that, the proper way to send data is through the Data Sending API of Netick.
 
 ## Usage Example

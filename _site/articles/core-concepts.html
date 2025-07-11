@@ -85,12 +85,14 @@
         <article data-uid="">
 <h1 id="core-concepts">Core Concepts</h1>
 
+<hr>
 <h3 id="network-sandbox">Network Sandbox</h3>
 <p><a class="xref" href="../api/Netick.Unity.NetworkSandbox.html">NetworkSandbox</a> is what controls the whole network game. It can be thought of as representing an instance of the game. You can have more than one network sandbox in a single Unity game, and that happens when you start both a client and a server on the same project. This can be extremely useful for testing/debugging, because it allows you to run a server and a client (or multiple thereof) in the same project and therefore see what happens at both at the same time, without interference.</p>
 <ul>
 <li>Therefore you can think of a sandbox as representing a server or a client.</li>
 <li>You can show/hide the current sandboxes from the Network Sandboxes panel.</li>
 </ul>
+<hr>
 <h3 id="network-object">Network Object</h3>
 <p>Any GameObject which needs to be synced/replicated must have a <a class="xref" href="../api/Netick.Unity.NetworkObject.html">NetworkObject</a> component added to it. If you want to see something on everyone’s screen, it has to have a <a class="xref" href="../api/Netick.Unity.NetworkObject.html">NetworkObject</a> component added to it. It’s the component that tells Netick that a GameObject is networked. The <a class="xref" href="../api/Netick.Unity.NetworkObject.html">NetworkObject</a> component by itself just informs Netick that the object is networked. To add networked gameplay-logic to it, you must do so in a component of a class derived from <a class="xref" href="../api/Netick.Unity.NetworkBehaviour.html">NetworkBehaviour</a>. Netick comes with a few essential built-in components:</p>
 <ul>
@@ -98,6 +100,7 @@
 <li><a class="xref" href="../api/Netick.Unity.NetworkRigidbody.html">NetworkRigidbody</a>: used to sync controllable physical objects</li>
 <li><a class="xref" href="../api/Netick.Unity.NetworkAnimator.html">NetworkAnimator</a>: used to sync Unity’s animator’s state</li>
 </ul>
+<hr>
 <h3 id="network-behaviour">Network Behaviour</h3>
 <p>The <a class="xref" href="../api/Netick.Unity.NetworkBehaviour.html">NetworkBehaviour</a> class is your old friend <code>MonoBehaviour</code>, just the networked version of it. To implement your networked functionality, create a new class and derive it from <a class="xref" href="../api/Netick.Unity.NetworkBehaviour.html">NetworkBehaviour</a>. You have several methods you can override which correspond to Unity’s non-networked equivalents (they must be used instead of Unity’s equivalents when doing anything related to the network simulation):</p>
 <ul>

@@ -85,12 +85,14 @@
         <article data-uid="">
 <h1 id="network-object-instantiation-and-destruction">Network Object Instantiation and Destruction</h1>
 
+<hr>
 <h2 id="instantiate">Instantiate</h2>
 <p>To Instantiate a network prefab:</p>
 <pre><code class="lang-csharp">Sandbox.NetworkInstantiate(prefab, position, Quaternion.identity);
 </code></pre>
 <p>This must be called only in the server.</p>
 <!-- Normally, it’s only possible to instantiate network prefabs on the server. However, it’s possible to spawn-predict them on the client, check out the next section for that. -->
+<hr>
 <h2 id="destroy">Destroy</h2>
 <p>To destroy a network object:</p>
 <pre><code class="lang-csharp">Sandbox.Destroy(obj)

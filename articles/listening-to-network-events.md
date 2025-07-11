@@ -1,5 +1,7 @@
 # Listening to Network Events
 
+---
+
 Netick has several useful callbacks you can use:
 
 | Callbacks                                                                                                                       | Description                                                                                                       | Invoke target |

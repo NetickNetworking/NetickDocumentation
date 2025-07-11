@@ -1,5 +1,7 @@
 # Understanding Client-Side Prediction (CSP)
 
+---
+
 ## Tick-based Networking
 
 Before diving into client-side prediction, it’s essential to first understand tick-based networking.
@@ -7,6 +9,8 @@ Before diving into client-side prediction, it’s essential to first understand 
 In a multiplayer environment, clients and the server may run at vastly different framerates. To ensure consistent and synchronized gameplay across all machines, networked game logic is executed at a fixed interval known as the tickrate. This fixed simulation rate—similar to Unity’s physics fixed timestep—ensures stable and proper behavior across the network.
 
 Each step of simulation at this interval is called a tick, representing a discrete moment in simulated time. By tying actions and updates to specific ticks, synchronizing a networked game becomes a lot simpler regardless of the various framerates each connected client runs at. 
+
+---
 
 ## Client-Side Prediction (CSP)
 

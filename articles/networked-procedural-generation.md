@@ -1,5 +1,7 @@
 # Networked Procedural Generation
 
+---
+
 When you want to procedurally generate a level of static objects, you don't need to network any of the objects. Since the procedural generation operation can be deterministic, and therefore all you have to sync to be able to independently create the level in the client is the initial random seed.
 
 Example:

@@ -1,8 +1,12 @@
 # Writing Gameplay Code
 
+---
+
 ## Network Input 
 
 Network Input describes what the player wants to do, which will be used to simulate the state of objects they want to control. This ensures that the client can’t directly change the state – the change happens by executing the input, which, even if tampered with, won’t be game-breaking.
+
+---
 
 ## Defining Inputs
 
@@ -23,6 +27,8 @@ public struct MyInput : INetworkInput
 - Must not have reference types as fields.
 - Must not have `string` as a field. Instead, you can use `NetworkString` variants.
 
+---
+
 ## Setting Inputs 
 
 To set the fields of an input, you first need to acquire the input struct of the current tick, using `Sandbox.GetInput`.
@@ -39,6 +45,8 @@ public override void NetworkUpdate()
 ```
 
 You could also set them on `OnInput` of `NetworkEventsListener`, which is preferred.
+
+---
 
 ## Simulating Inputs
 
@@ -115,6 +123,8 @@ Here, we see three types of actions:
 
 And to avoid the previous issue we talked about, we make sure that we are only shooting if we are simulating a new input, by checking `IsResimulating`.
 
+---
+
 ## Input Source
 
 For a client to be able to provide inputs to be used in an Object’s `NetworkFixedUpdate`, and hence take control of it, that client must be the Input Source of that object. Otherwise, `FetchInput` will return false. To check if you are the Input Source, use `IsInputSource`.
@@ -147,6 +157,8 @@ There are two methods you can override to run code when Input Source has changed
 
 1. `OnInputSourceChanged`: called on the Input Source and server when the Input Source changes.
 2. `OnInputSourceLeft`: called on the owner (server) when the Input Source client has left the game.
+
+---
 
 ## RPCs vs Inputs for Client->Server Actions
 
@@ -182,6 +194,8 @@ public override void NetworkFixedUpdate()
 
 This way, you have full server-authority on what objects the client can interact with, and the code is very simple to read and debug. It's almost the exact same code you would use for a single-player game, excluding the input fetching logic.
 
+---
+
 ## Supporting Multiple Local Players
 Many games—such as party games—support multiple players on a single device. In Netick, the concept of a Network Player refers to a single peer or machine, and therefore doesn't directly account for multiple local players on the same peer.
 
@@ -196,6 +210,8 @@ Sandbox.SetInput(localPlayerIndex);
 ```cs
 FetchInput(localPlayerIndex, out MyInput input);
 ```
+
+---
 
 ## Framerate Lower than Tickrate
 
@@ -219,6 +235,8 @@ public override void NetworkFixedUpdate()
     }
 }
 ```
+
+---
 
 ## Detailed Breakdown of What Happens in a Single Tick
 

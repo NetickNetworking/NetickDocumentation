@@ -1,14 +1,31 @@
 # Scene Management 
 
-## Scene Loading
+## Overview
 
-To switch from the current scene to another:
+In Netick, scenes are categorized based on how and when they are loaded. The **main scene** refers to either:
+
+* The initial scene present before starting Netick, or
+* Any scene loaded at runtime using `LoadSceneMode.Single` load mode.
+
+All other scenes loaded **additively** after the main scene are referred to as **additive scenes**.
+
+The main scene plays a critical role in ensuring network consistency. While it is still loading, Netick **blocks network operations** to prevent synchronization issues. 
+
+In contrast, **additive scenes** are always loaded **asynchronously at runtime** and do not block network operations.
+
+---
+
+## Changing The Main Scene
+
+To switch from the current scene to another scene:
 
 ```csharp
-Sandbox.SwitchScene("sceneName");
+Sandbox.SwitchScene("sceneName"); // same as Sandbox.LoadSceneAsync("sceneName", LoadSceneMode.Single);
 ```
 
-### Additive Scenes
+---
+
+## Additive Scenes
 
 Loading an additive scene:
 
@@ -29,6 +46,8 @@ Sandbox.UnloadSceneAsync("sceneName");
 
 > [!NOTE]
 > To find the build index of a scene, open the `Build Settings` window where you will see a list of all added scenes. If the desired scene is not present, open that scene and add it to the list.
+
+---
 
 ## Scene Events
 
@@ -54,6 +73,8 @@ public override void OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneO
  }
 ```
 
+---
+
 ### Using `Sandbox.Events`
 
 Or you can manually subscribe/unsubscribe on a `NetworkBehaviour`.
@@ -78,3 +99,7 @@ private void OnSceneOperationDone(NetworkSandbox sandbox, NetworkSceneOperation 
 {
 }
 ```
+
+
+
+
