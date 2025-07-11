@@ -109,7 +109,6 @@
 <p>So, the conclusion here is that neither approach is perfect. Not predicting remote objects will result in delayed collisions. Predicting them will result in mispredictions. This is the reality of game-networking, there is not a one-size-fit-all solution. You choose the lesser evil.</p>
 <p>The lesser evil for this game is to predict remote objects. Therefore, it's a matter of choosing which approach works better for a particular game.</p>
 <p>In conclusion, let's see the pros and cons of each approach:</p>
-<hr>
 <h3 id="without-proxyremote-prediction">Without Proxy/Remote Prediction</h3>
 <h4 id="pros">Pros</h4>
 <ul>
@@ -122,7 +121,6 @@
 <li>Weak Player-to-Player Interactions: usually the best approach is to disable collisions between players.</li>
 <li>Multiple Timelines: the local player is out-of-sync with remote players, due to being in the Local Timeline, while they are in the Remote Timeline.</li>
 </ul>
-<hr>
 <h3 id="with-proxyremote-prediction">With Proxy/Remote Prediction</h3>
 <h4 id="pros-1">Pros</h4>
 <ul>
@@ -136,7 +134,6 @@
 <li>No Lag Compensation: you can't perform lag compensation on predicted objects. However, because all objects are in the same timeline, there is no need for lag compensation. But, due to mispredictions, the client hits will often miss.</li>
 <li>High CPU Overhead: predicting more objects will use more CPU time, and the cost of that increases with ping and tickrate.</li>
 </ul>
-<hr>
 <h2 id="predicting-remoteproxy-objects">Predicting Remote/Proxy Objects</h2>
 <p>Now, let's see how we can actually predict remote objects, in practice. Using Netick, this is quite simple. Simply change the <code>Prediction Mode</code> of an object to be equal to <code>Everyone</code> in the inspector. This will cause the <code>NetworkFixedUpdate</code> of this object to execute multiple times due to resimulation.</p>
 <p>However, this is not all. To be able to predict the input of other players, we need to sync their inputs. The following code snippet is taken from Rocket Cars.</p>
@@ -152,10 +149,8 @@
 <p>That's all there is to it. <code>FetchInput</code> only returns true on the Input Source itself, and the server. So, by simply defining a network property to store the input in, we are able to sync the input to everyone, including observing (proxies) players.</p>
 <p>Notice that we don't actually try to predict the input, we simply use the last input for prediction. Because predicting that the client pressed something it never did is a lot worse than simply assuming the client is still pressing the same buttons.</p>
 <p>Rocket Cars serves as an excellent example of how Proxy/Remote Prediction works.</p>
-<hr>
 <h2 id="prediction-error-correction-smoothing">Prediction Error Correction Smoothing</h2>
 <p>By default, correcting mispredictions is instantaneous. This will cause the predicted remote objects to snap somewhere else when a player changes their movement direction suddenly. And as we said, the magnitude of mispredictions is proportional to latency. Therefore, for a smooth visual experience, we must smooth out the prediction correction. Netick implements a smooth correcter in <code>NetworkTransfrom</code>/<code>NetworkRigidbody</code>. By enabling it, it will smooth out the corrections over multiple frames. There are a few settings for it which will need to be fine-tuned to find what is best for your object.</p>
-<hr>
 <h2 id="input-delay">Input Delay</h2>
 <p>A powerful technique to reduce mispredictions on remote objects is to to delay the inputs of everyone by a specific amount/ticks. This will make the game almost perfectly synced without mispredictions for players with pings roughly below the input delay.</p>
 <p>Example:</p>

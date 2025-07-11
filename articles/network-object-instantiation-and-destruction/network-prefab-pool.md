@@ -29,8 +29,6 @@ And you don’t need to use special instantiate or destroy methods to deal with 
 
 Although you still need to reset your objects. However, Netick automatically resets all network properties to their declaration values.
 
----
-
 #### Resetting Prefab Instances
 
 You can simply use `NetworkStart` to reset your prefab instances.

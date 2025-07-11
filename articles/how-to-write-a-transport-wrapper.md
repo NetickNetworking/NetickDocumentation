@@ -8,8 +8,6 @@ A transport is the low-level component that does the actual data sending, receiv
 
 This guide will show how to implement a wrapper for the [Unity Transport](https://docs.unity3d.com/Packages/com.unity.transport@2.0/manual/index.html) 
 
----
-
 ## Defining the Connection Wrapper
 
 First you need to define a connection class which you will pass to Netick. This represents a transport connection. It must implement several properties and a send method:
@@ -44,7 +42,6 @@ public unsafe class NetickUnityTransportConnection : TransportConnection
 
 The `Send` method is called by Netick when it wants to send a packet to this connection. `Transport` represents the UnityTransport transport class which we will talk about in a bit. `Connection` represents the UnityTransport connection that corresponds to this `NetickUnityTransportConnection` type that we will pass into Netick.
 
----
 
 ### Defining the End Point Wrapper
 
@@ -73,8 +70,6 @@ public unsafe class NetickUnityTransport : NetworkTransport
     }
   }
 ```
-
----
 
 ## Defining the Transport Wrapper
 
@@ -311,8 +306,6 @@ Here we are handling everything from making new connections, handling disconnect
    }
  }
 ```
-
----
 
 ## Defining the Transport Provider
 

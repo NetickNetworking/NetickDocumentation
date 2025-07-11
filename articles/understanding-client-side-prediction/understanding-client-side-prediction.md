@@ -10,8 +10,6 @@ In a multiplayer environment, clients and the server may run at vastly different
 
 Each step of simulation at this interval is called a tick, representing a discrete moment in simulated time. By tying actions and updates to specific ticks, synchronizing a networked game becomes a lot simpler regardless of the various framerates each connected client runs at. 
 
----
-
 ## Client-Side Prediction (CSP)
 
 In a client-server model, clients are not allowed to authoritatively modify the state of networked objects. Instead, the server alone owns the truth and is responsible for applying any changes. Because ultimately the client’s executable can be tampered with or modified. In other words, only the server can ever change the true state of network variables. What the client does to affect changes to the networked state is send inputs which are later simulated by the server to produce the desired state which is sent back to all clients.

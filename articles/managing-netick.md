@@ -32,8 +32,6 @@ var sandbox = Netick.Unity.Network.StartAsServer(Transport, Port);
 var sandbox = Netick.Unity.Network.StartAsSinglePlayer();
 ```
 
----
-
 ### Multiple Peers (Sandboxing)
 
 [Learn More About Sandboxing](sandboxing.md)
@@ -73,7 +71,6 @@ To shut down Netick completely:
 Netick.Unity.Network.Shutdown();
 ```
 
----
 
 ## Connecting to the Server
 
@@ -83,7 +80,6 @@ To connect the client to the server:
 sandbox.Connect(serverIPAddress);
 ```
 
----
 
 ## Disconnecting From the Server
 

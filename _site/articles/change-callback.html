@@ -87,7 +87,6 @@
 
 <hr>
 <p>You can have a method get called whenever a networked variable changes, which is very useful. To do that, add the attribute [<a class="xref" href="../api/Netick.OnChanged.html">OnChanged</a>] to the method and give it the name of the variable. The method must must have a parameter of <a class="xref" href="../api/Netick.OnChangedData.html">OnChangedData</a> type which can be used to retrieve the previous variable value.</p>
-<hr>
 <h2 id="for-properties">For Properties</h2>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked]
@@ -99,7 +98,6 @@ private void OnHealthChanged(OnChangedData onChangedData)
   var previous = onChangedData.GetPreviousValue&lt;int&gt;();
 }
 </code></pre>
-<hr>
 <h2 id="for-arrays">For Arrays</h2>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked(size: 16)]
@@ -121,7 +119,6 @@ private void OnArrayExampleChanged(OnChangedData onChangedData)
   var someRandomPreviousElementValue = onChangedData.GetArrayPreviousElementValue&lt;int&gt;(13);
 }
 </code></pre>
-<hr>
 <h2 id="for-collections">For Collections</h2>
 <h3 id="networklinkedlist">NetworkLinkedList</h3>
 <p>Example:</p>
@@ -203,7 +200,6 @@ private void OnMyNetworkStackChanged(OnChangedData onChangedData)
 <h5>Warning</h5>
 <p>Be careful when using these methods on <code>OnChangedData</code>, since they are unsafe and can cause a crash if you go outside array range or use an incorrect type.</p>
 </div>
-<hr>
 <h2 id="finding-removed-and-added-items-to-collections">Finding Removed and Added Items to Collections</h2>
 <p>Using the previous snapshot (version) of the collection, we are able to compare the current collection against the previous snapshot to find the items that were added and the items that were removed.</p>
 <h3 id="example">Example:</h3>
@@ -228,7 +224,6 @@ private void OnMyNetworkStackChanged(OnChangedData onChangedData)
        Debug.Log($&quot;{item} was removed!&quot;);
  }
 </code></pre>
-<hr>
 <h2 id="invoke-behavior-of-onchanged-callbacks">Invoke Behavior of <code>[OnChanged]</code> Callbacks</h2>
 <ul>
 <li><p>When you change a variable in the server or in the client (on a predicted object), the <code>[OnChanged]</code> method will be invoked from the setter of the networked variable, therefore it's immediately invoked when changing the variable.</p>

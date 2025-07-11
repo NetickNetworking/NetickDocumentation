@@ -8,8 +8,6 @@ When you have a game with a big world and a high player count, it becomes more a
 
 Interest Management is also useful as an anti-cheat measure. For instance, you can replicate team-specific objects to only players of the same team, using a Custom interest group, which we will learn about in this article.
 
----
-
 **Netick handles Interest Management (filters objects replicated to a client) in two phases:**
 - Broad Phase Filtering
 - Narrow Phase Filtering
@@ -38,8 +36,6 @@ Object.InterestGroup = Sandbox.InterestManagement.CustomGroups[groupIndex];
 > [!Note]
 > The above is only valid when the `Broad Phase Filter` of the object is set to Custom. When it's set to `Area of Interest`, it will only be controllable by Netick - meaning the object will be assigned a group that corresponds to its current position in the world.
 
----
-
 ### Narrow Phase Filtering
 
 Narrow Phase Filtering allows for finer control. Instead of being handled per-group basis, it's done per-object per-client basis. Which is slower. Thus, it should only be used when necessary.
@@ -66,8 +62,6 @@ InputSource.AddInterestGroup(customInterestGroupIndex);
 
 > [!CAUTION]
 > This must be done every `NetworkFixedUpdate` callback since it's cleared at the end of the tick. Usually, you should do this in the movement controller of your player character.
-
----
 
 ## Callbacks
 

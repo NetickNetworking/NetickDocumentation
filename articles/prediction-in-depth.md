@@ -40,8 +40,6 @@ The lesser evil for this game is to predict remote objects. Therefore, it's a ma
 
 In conclusion, let's see the pros and cons of each approach:
 
----
-
 ### Without Proxy/Remote Prediction
 
 #### Pros
@@ -52,8 +50,6 @@ In conclusion, let's see the pros and cons of each approach:
 #### Cons
 * Weak Player-to-Player Interactions: usually the best approach is to disable collisions between players.
 * Multiple Timelines: the local player is out-of-sync with remote players, due to being in the Local Timeline, while they are in the Remote Timeline.
-
----
 
 ### With Proxy/Remote Prediction
 
@@ -66,8 +62,6 @@ In conclusion, let's see the pros and cons of each approach:
 * Mispredictions: the rendered states of predicted remote objects are not necessarily states that actually happened in the server, due to mispredictions. One player can report seeing different things compared to other players, creating contradictory perspectives on what happened. Mispredictions get worse with higher pings, so clients with very high pings (+300) might have almost an unplayable experience.
 * No Lag Compensation: you can't perform lag compensation on predicted objects. However, because all objects are in the same timeline, there is no need for lag compensation. But, due to mispredictions, the client hits will often miss. 
 * High CPU Overhead: predicting more objects will use more CPU time, and the cost of that increases with ping and tickrate.
-
----
 
 ## Predicting Remote/Proxy Objects
 
@@ -92,13 +86,9 @@ Notice that we don't actually try to predict the input, we simply use the last i
 
 Rocket Cars serves as an excellent example of how Proxy/Remote Prediction works.
 
----
-
 ## Prediction Error Correction Smoothing
 
 By default, correcting mispredictions is instantaneous. This will cause the predicted remote objects to snap somewhere else when a player changes their movement direction suddenly. And as we said, the magnitude of mispredictions is proportional to latency. Therefore, for a smooth visual experience, we must smooth out the prediction correction. Netick implements a smooth correcter in `NetworkTransfrom`/`NetworkRigidbody`. By enabling it, it will smooth out the corrections over multiple frames. There are a few settings for it which will need to be fine-tuned to find what is best for your object.
-
----
 
 ## Input Delay
 

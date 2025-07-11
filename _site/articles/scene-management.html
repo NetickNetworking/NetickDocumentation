@@ -94,12 +94,10 @@
 <p>All other scenes loaded <strong>additively</strong> after the main scene are referred to as <strong>additive scenes</strong>.</p>
 <p>The main scene plays a critical role in ensuring network consistency. While it is still loading, Netick <strong>blocks network operations</strong> to prevent synchronization issues.</p>
 <p>In contrast, <strong>additive scenes</strong> are always loaded <strong>asynchronously at runtime</strong> and do not block network operations.</p>
-<hr>
 <h2 id="changing-the-main-scene">Changing The Main Scene</h2>
 <p>To switch from the current scene to another scene:</p>
 <pre><code class="lang-csharp">Sandbox.SwitchScene(&quot;sceneName&quot;); // same as Sandbox.LoadSceneAsync(&quot;sceneName&quot;, LoadSceneMode.Single);
 </code></pre>
-<hr>
 <h2 id="additive-scenes">Additive Scenes</h2>
 <p>Loading an additive scene:</p>
 <pre><code class="lang-csharp">Sandbox.LoadSceneAsync(&quot;sceneName&quot;, LoadSceneMode.Additive);
@@ -119,7 +117,6 @@
 <h5>Note</h5>
 <p>To find the build index of a scene, open the <code>Build Settings</code> window where you will see a list of all added scenes. If the desired scene is not present, open that scene and add it to the list.</p>
 </div>
-<hr>
 <h2 id="scene-events">Scene Events</h2>
 <p>When you call <code>Sandbox.LoadSceneAsync</code> in the server, for instance, <code>OnSceneOperationBegan</code> event will be invoked in both the client and the server. You can use the <code>NetworkSceneOperation</code> parameter to know information about the scene load/unload operation like the current progress.</p>
 <p><code>OnSceneOperationDone</code> will be invoked when that scene operation finishes. <code>NetworkSceneOperation</code> struct includes a <code>Scene</code> getter you can use to access the <code> UnityEngine.SceneManagement.Scene</code> struct.</p>
@@ -136,7 +133,6 @@
   // invoked in both the client and the server when a scene operation caused by calling Sandbox.LoadSceneAsync, Sandbox.UnloadSceneAsync, or Sandbox.SwitchScene finishes.
  }
 </code></pre>
-<hr>
 <h3 id="using-sandboxevents">Using <code>Sandbox.Events</code></h3>
 <p>Or you can manually subscribe/unsubscribe on a <code>NetworkBehaviour</code>.</p>
 <pre><code class="lang-cs">public override void NetworkAwake()

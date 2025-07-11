@@ -88,7 +88,6 @@
 <hr>
 <p>In this tutorial, we are going to use an RPC (Remote Procedure Call) to set our nickname randomly. RPC is the most primitive way to sync things in the game. It's not recommended to use RPCs most of the time, and should only be used for infrequent actions like sending the player's name to the server.</p>
 <p><a href="../remote-procedure-calls-rpcs.html">Learn More About RPCs</a></p>
-<hr>
 <h2 id="ui-setup">UI Setup</h2>
 <ol>
 <li>In PlayerCharacter prefab, on the <code>Visual</code> transform, add a <code>UI &gt; Text - TextMeshPro</code>.</li>
@@ -104,14 +103,12 @@ Pos Y: <code>2 </code></li>
 <li>In your text component, change font size to <code>128</code>, and middle &amp; center alignment. Make sure your text now is in the center.</li>
 </ol>
 <figure><img src="../../images/getting-started/105-tmp.png" alt=""><figcaption></figcaption></figure>
-<hr>
 <h2 id="playercharacternametag">PlayerCharacterNametag</h2>
 <ol>
 <li>Create a new script and name it <code>PlayerCharacterNametag</code>.</li>
 <li>Change parent class to <code>NetworkBehaviour</code>.</li>
 <li>Create a network property named Nickname and give it the type of <code>NetworkString32</code> (<code>string</code> works too, however you should always use NetworkString as <code>string</code> can't work as an RPC parameter or a struct field).</li>
 </ol>
-<hr>
 <h2 id="rpc-implementation">RPC Implementation</h2>
 <p>We're going to set the RPC source to <code>InputSource</code> and the target to <code>Owner</code> (Server/Host). This means only the input source peer is able to call this RPC, but only the server will execute the RPC. We also want to set <code>isReliable</code> to true, this will ensure that this RPC will arrive to the server, even if packet loss occurs.</p>
 <pre><code class="lang-cs">using UnityEngine;
@@ -129,7 +126,6 @@ public class PlayerCharacterNametag : NetworkBehaviour
     }
 }
 </code></pre>
-<hr>
 <h2 id="calling-the-rpc">Calling the RPC</h2>
 <p>RPCs can be called from any place. We're going to call them from inside <code>NetworkUpdate</code> (not to be confused with <code>NetworkFixedUpdate</code>) which is just a regular Unity <code>Update</code>.
 We only want to call the RPC if we have the input authority and if we press the Enter keycode.</p>
@@ -148,7 +144,6 @@ We only want to call the RPC if we have the input authority and if we press the 
     //...
 }
 </code></pre>
-<hr>
 <h2 id="nickname-onchanged">Nickname OnChanged</h2>
 <p>Then, we're going to use an OnChanged callback for our Nickname:</p>
 <pre><code class="lang-cs">public class PlayerCharacterNametag : NetworkBehaviour
@@ -167,7 +162,6 @@ We only want to call the RPC if we have the input authority and if we press the 
 }
 </code></pre>
 <p>Assign the TextNametag with the TextMeshPro UI we have created before.</p>
-<hr>
 <h2 id="final-testing">Final Testing</h2>
 <p>Let's press the Enter key repeatedly to check if the RPC is working.</p>
 <figure><img src="../../images/getting-started/105-nametag.gif" alt=""><figcaption></figcaption></figure>

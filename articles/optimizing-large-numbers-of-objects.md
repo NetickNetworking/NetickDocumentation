@@ -4,12 +4,8 @@
 
 Usually networked objects in a video game are simulated in one of two ways:
 
----
-
 ## Internal Simulation
 Internal Simulation refers to objects which are simulated and changed from within. Objects such as these include the character of the player. They also include objects such as vehicles, all sorts of physics objects, and game management objects. Any object that is self-controlled and needs to run each tick is within this category.
-
----
 
 ## External Simulation
 External Simulation refers to objects that never simulate or change themselves, instead they are controlled from the outside. There are many examples of such objects: doors, pickups, trees, buildings, etc. All these objects are altered from an external object that belongs to the first category (Internal Simulation). These objects don't need to run themselves or have `NetworkFixedUpdate`, `NetworkUpdate`, or `NetworkRender` run on them each tick/frame. Therefore we should simply exclude them from the network loop, meaning all of their network loop methods (`NetworkFixedUpdate`, `NetworkUpdate`, `NetworkRender`, etc) will not be invoked. This will save a lot of performance, potentially making some types of games possible when they wouldn't be.

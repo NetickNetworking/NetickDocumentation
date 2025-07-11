@@ -13,8 +13,6 @@ The main scene plays a critical role in ensuring network consistency. While it i
 
 In contrast, **additive scenes** are always loaded **asynchronously at runtime** and do not block network operations.
 
----
-
 ## Changing The Main Scene
 
 To switch from the current scene to another scene:
@@ -22,8 +20,6 @@ To switch from the current scene to another scene:
 ```csharp
 Sandbox.SwitchScene("sceneName"); // same as Sandbox.LoadSceneAsync("sceneName", LoadSceneMode.Single);
 ```
-
----
 
 ## Additive Scenes
 
@@ -46,8 +42,6 @@ Sandbox.UnloadSceneAsync("sceneName");
 
 > [!NOTE]
 > To find the build index of a scene, open the `Build Settings` window where you will see a list of all added scenes. If the desired scene is not present, open that scene and add it to the list.
-
----
 
 ## Scene Events
 
@@ -72,8 +66,6 @@ public override void OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneO
   // invoked in both the client and the server when a scene operation caused by calling Sandbox.LoadSceneAsync, Sandbox.UnloadSceneAsync, or Sandbox.SwitchScene finishes.
  }
 ```
-
----
 
 ### Using `Sandbox.Events`
 

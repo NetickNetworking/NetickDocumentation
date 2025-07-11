@@ -6,8 +6,6 @@ Networked state is the data of the game that you want to replicate to players. I
 
 Every networked variable can be predicted and interpolated too. Allowing you to create complex networked systems easily.
 
----
-
 ## Network Properties
 
 A network property is a C# property which is replicated across the network. For a property to be networked, the attribute [<xref:Netick.Networked>] must be added to it. 
@@ -43,7 +41,6 @@ public NetworkString32  Name     {get; set;}
 > [!Note]
 > Don't use types with sizes lower than 4 bytes such as `byte` or `short`, instead simply use `int`. Netick already compresses everything to only the required bits of the current value of a variable. So if an `int` variable current value is `5`, it will only be serialized as a few bits, not anywhere near 4 bytes (the byte size of `int`).
 
----
 
 ## Network Arrays
 
@@ -58,8 +55,6 @@ public readonly NetworkArray<int> IntArrayExample = new NetworkArray<int>(5) { 5
 
 > [!WARNING]
 > `size` of `[Networked(size: 32)]` must be the same as the value that is passed to the array constructor `new NetworkArray<int>(32)`.
-
----
 
 ## Network Array Structs
 
@@ -88,8 +83,6 @@ Because Network Array Structs are structs, the whole array will be replaced even
 IntFixedArray = IntFixedArray.Set(index, value);
 // as you can see, we are reassigning the property with the new changed array which has the change.
 ```
-
----
 
 ## Network Collections
 
@@ -130,8 +123,6 @@ Removing and adding elements is the same as with C# collections.
 
 > [!Note]
 > The `size` that you pass to `[Networked]` and the constructor represents the fixed capacity of the collection. The collections don't support resizing as all network state sizes are set at compile time.
-
----
 
 ## Network Structs
 
@@ -176,8 +167,6 @@ public MyStruct MyStructProperty {get; set;}
 
 > [!Note] 
 > `[Networked]` attribute on structs is optional. However, when adding it to a struct, it allows float-based types (such as `float` or `Vector3`, which also have `[Networked]` on them) of a struct to have extra compression on them.
-
----
 
 ## Networking References to `NetworkObject` and `NetworkBehaviour`
 
@@ -231,8 +220,6 @@ Usage Example:
     }
 ```
 
----
-
 <!-- > [!WARNING]
 > Under the hood, these structs use ids which are `NetworkObject.Id` and `NetworkBehaviour.BehaviourId`, and since ids are recycled between objects, it's possible for a `NetworkObjectRef` and `NetworkBehaviourRef<T>` to refer to incorrect objects if they are not cleared properly when those objects are destroyed. -->
 
@@ -246,8 +233,6 @@ Example:
 [Networked(relevancy: Relevancy.InputSource)] 
 public int              Ammo     {get; set;}
 ```
-
----
 
 ## State Synchronization
 

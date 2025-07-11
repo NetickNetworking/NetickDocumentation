@@ -88,7 +88,6 @@
 <hr>
 <h2 id="network-input">Network Input</h2>
 <p>Network Input describes what the player wants to do, which will be used to simulate the state of objects they want to control. This ensures that the client can’t directly change the state – the change happens by executing the input, which, even if tampered with, won’t be game-breaking.</p>
-<hr>
 <h2 id="defining-inputs">Defining Inputs</h2>
 <p>To define a new input, create a struct that implements <code>INetworkInput</code> interface:</p>
 <pre><code class="lang-csharp">[Networked]
@@ -105,7 +104,6 @@ public struct MyInput : INetworkInput
 <li>Must not have reference types as fields.</li>
 <li>Must not have <code>string</code> as a field. Instead, you can use <code>NetworkString</code> variants.</li>
 </ul>
-<hr>
 <h2 id="setting-inputs">Setting Inputs</h2>
 <p>To set the fields of an input, you first need to acquire the input struct of the current tick, using <code>Sandbox.GetInput</code>.
 Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour</code>:</p>
@@ -118,7 +116,6 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 }
 </code></pre>
 <p>You could also set them on <code>OnInput</code> of <code>NetworkEventsListener</code>, which is preferred.</p>
-<hr>
 <h2 id="simulating-inputs">Simulating Inputs</h2>
 <p>To drive the gameplay based on the input struct, you must do that in <code>NetworkFixedUpdate</code>:</p>
 <pre><code class="lang-csharp">public override void NetworkFixedUpdate()
@@ -189,7 +186,6 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 <li>We are the owner (the server) of this object – receiving inputs from the client who’s the Input Source. And only if we have an input for the current tick being simulated. If not, it would return false. Usually, that happens due to packet loss.</li>
 </ol>
 <p>And to avoid the previous issue we talked about, we make sure that we are only shooting if we are simulating a new input, by checking <code>IsResimulating</code>.</p>
-<hr>
 <h2 id="input-source">Input Source</h2>
 <p>For a client to be able to provide inputs to be used in an Object’s <code>NetworkFixedUpdate</code>, and hence take control of it, that client must be the Input Source of that object. Otherwise, <code>FetchInput</code> will return false. To check if you are the Input Source, use <code>IsInputSource</code>.</p>
 <p>The server can also be the Input Source of objects, although it won’t do any CSP, since it needs not to, after all, it’s the server.</p>
@@ -209,7 +205,6 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 <li><code>OnInputSourceChanged</code>: called on the Input Source and server when the Input Source changes.</li>
 <li><code>OnInputSourceLeft</code>: called on the owner (server) when the Input Source client has left the game.</li>
 </ol>
-<hr>
 <h2 id="rpcs-vs-inputs-for-client-server-actions">RPCs vs Inputs for Client-&gt;Server Actions</h2>
 <p>Other networking solutions rely heavily on RPCs for communication between clients and the server. However, Netick offers a more robust, secure, and streamlined alternative that often makes most RPCs unnecessary.</p>
 <h3 id="example-interacting-with-a-pickup">Example: Interacting with a Pickup</h3>
@@ -237,7 +232,6 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 }
 </code></pre>
 <p>This way, you have full server-authority on what objects the client can interact with, and the code is very simple to read and debug. It's almost the exact same code you would use for a single-player game, excluding the input fetching logic.</p>
-<hr>
 <h2 id="supporting-multiple-local-players">Supporting Multiple Local Players</h2>
 <p>Many games—such as party games—support multiple players on a single device. In Netick, the concept of a Network Player refers to a single peer or machine, and therefore doesn't directly account for multiple local players on the same peer.</p>
 <p>To handle this, you can define a local player index to distinguish between players sharing the same machine. Netick facilitates this pattern by including an input index parameter in all input-related methods, which can be used as the local player index.</p>
@@ -247,7 +241,6 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 </code></pre>
 <pre><code class="lang-cs">FetchInput(localPlayerIndex, out MyInput input);
 </code></pre>
-<hr>
 <h2 id="framerate-lower-than-tickrate">Framerate Lower than Tickrate</h2>
 <p>When the framerate drops below the tickrate, multiple simulation ticks must be processed within a single rendered frame. In such cases, the same input must be reused across multiple ticks.</p>
 <p>If this scenario is not handled correctly, it can lead to inconsistent simulation results—most notably, player characters may appear to move slower at very low framerates due to insufficient input sampling.</p>
@@ -264,7 +257,6 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
     }
 }
 </code></pre>
-<hr>
 <h2 id="detailed-breakdown-of-what-happens-in-a-single-tick">Detailed Breakdown of What Happens in a Single Tick</h2>
 <div class="NOTE">
 <h5>Note</h5>

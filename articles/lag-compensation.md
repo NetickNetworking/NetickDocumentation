@@ -19,8 +19,6 @@ Watch this video for a visual explanation:
 
 > [!Video https://www.youtube.com/embed/6EwaW2iz4iA]
 
----
-
 ## Lag Compensation in Netick
 
 To use Lag Compensation in your project, you first need to enable it in Netick Settings. Go to `Netick Settings -> Lag Compensation` and turn on `Enable`.
@@ -50,7 +48,6 @@ The hierarchy should be as follows:
 > [!WARNING]
 > Make sure to enable Lag Compensation in Netick Settings.
 
----
 
 ### **Performing a Lag-Compensated Raycast in Unity**
 

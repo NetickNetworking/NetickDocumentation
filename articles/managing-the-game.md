@@ -23,13 +23,10 @@ var sandbox = NetworkSandbox.FindSandboxOf(gameObject);
 > [!Note]
 > This method should only be called when you are certain that Netick is running and a valid sandbox instance exists. Calling it before initialization results in a null value.
 
----
 
 ## Persistent Network Objects
 
 Another option for game-wide systems is to use persistent network objects. These must be instances of network prefabs with the `Is Persistent` property enabled. This ensures they can always be instantiated.
-
----
 
 ## Additive Scene Loading
 

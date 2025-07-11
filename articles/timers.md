@@ -4,8 +4,6 @@
 
 Netick provides several ways to work with time in your networked game.
 
----
-
 ## Converting Between Ticks and Time
 
 Sometimes you need to convert between ticks and time (in seconds). Netick provides methods to do this conversion:
@@ -32,8 +30,6 @@ The `TimeToTick()` method does the opposite conversion, from time in seconds to 
 // Convert time in seconds to ticks
 Tick tickValue = Sandbox.TimeToTick(timeInSeconds);
 ```
-
----
 
 ## Using NetworkTimer
 

@@ -14,8 +14,6 @@ This must be called only in the server.
 
 <!-- Normally, it’s only possible to instantiate network prefabs on the server. However, it’s possible to spawn-predict them on the client, check out the next section for that. -->
 
----
-
 ## Destroy
 
 To destroy a network object:

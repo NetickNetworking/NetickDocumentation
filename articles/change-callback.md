@@ -4,8 +4,6 @@
 
 You can have a method get called whenever a networked variable changes, which is very useful. To do that, add the attribute [<xref:Netick.OnChanged>] to the method and give it the name of the variable. The method must must have a parameter of <xref:Netick.OnChangedData> type which can be used to retrieve the previous variable value.
 
----
-
 ## For Properties
 
 Example:
@@ -20,8 +18,6 @@ private void OnHealthChanged(OnChangedData onChangedData)
   var previous = onChangedData.GetPreviousValue<int>();
 }
 ```
-
----
 
 ## For Arrays
 
@@ -47,8 +43,6 @@ private void OnArrayExampleChanged(OnChangedData onChangedData)
   var someRandomPreviousElementValue = onChangedData.GetArrayPreviousElementValue<int>(13);
 }
 ```
-
----
 
 ## For Collections
 
@@ -155,8 +149,6 @@ private void OnMyNetworkStackChanged(OnChangedData onChangedData)
 > [!WARNING]
 > Be careful when using these methods on `OnChangedData`, since they are unsafe and can cause a crash if you go outside array range or use an incorrect type.
 
----
-
 ## Finding Removed and Added Items to Collections
 
 Using the previous snapshot (version) of the collection, we are able to compare the current collection against the previous snapshot to find the items that were added and the items that were removed.
@@ -186,8 +178,6 @@ This example uses a `NetworkDictionary` but the same applies to other collection
        Debug.Log($"{item} was removed!");
  }
 ```
-
----
 
 ## Invoke Behavior of `[OnChanged]` Callbacks
 

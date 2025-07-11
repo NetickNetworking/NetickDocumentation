@@ -8,8 +8,6 @@ Some games do not include built-in relay or NAT traversal solutions to work arou
 
 Below are common solutions to bypass NAT (Network Address Translation) restrictions and enable connectivity.
 
----
-
 ## Cloud Hosting Providers
 
 Hosting your game server on a cloud platform that provides a public IP address is one of the most reliable methods.
@@ -18,8 +16,6 @@ Popular cloud service providers include:
 - Amazon Web Services (AWS)
 - Google Cloud Platform (GCP)
 - Microsoft Azure
-
----
 
 ## Relay SDKs
 
@@ -30,8 +26,6 @@ Popular relay solutions:
 - Epic Online Services (EOS)
 - Unity Relay
 
----
-
 ## Reverse Proxy Services
 
 A reverse proxy runs alongside the game server on the host machine and exposes it to the internet. This approach is conceptually similar to using a relay.
@@ -41,13 +35,9 @@ Common reverse proxy tools:
 - Playit.gg
 - Hamachi
 
----
-
 ## Contacting Your ISP
 
 If your ISP restricts NAT or blocks incoming connections, you may request a public IP address. Be aware that this might incur additional charges or require specific configuration.
-
----
 
 ## Solution Comparison
 

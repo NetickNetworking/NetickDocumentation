@@ -9,8 +9,6 @@
 - Therefore you can think of a sandbox as representing a server or a client.
 - You can show/hide the current sandboxes from the Network Sandboxes panel.
 
----
-
 ### Network Object
 
 Any GameObject which needs to be synced/replicated must have a <xref:Netick.Unity.NetworkObject> component added to it. If you want to see something on everyone’s screen, it has to have a <xref:Netick.Unity.NetworkObject> component added to it. It’s the component that tells Netick that a GameObject is networked. The <xref:Netick.Unity.NetworkObject> component by itself just informs Netick that the object is networked. To add networked gameplay-logic to it, you must do so in a component of a class derived from <xref:Netick.Unity.NetworkBehaviour>. Netick comes with a few essential built-in components:
@@ -18,8 +16,6 @@ Any GameObject which needs to be synced/replicated must have a <xref:Netick.Unit
 - <xref:Netick.Unity.NetworkTransform>: used to sync position and rotation
 - <xref:Netick.Unity.NetworkRigidbody>: used to sync controllable physical objects
 - <xref:Netick.Unity.NetworkAnimator>: used to sync Unity’s animator’s state
-
----
 
 ### Network Behaviour
 

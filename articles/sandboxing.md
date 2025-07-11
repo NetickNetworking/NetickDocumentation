@@ -12,8 +12,6 @@ Sandboxes panel can be accessed by going to `Netick > Sandboxes`
 
 ## Starting Netick as Multiple Peers
 
----
-
 ### Starting a Client and a Server
 
 ```csharp
@@ -25,8 +23,6 @@ Sandboxes panel can be accessed by going to `Netick > Sandboxes`
      NumberOfClients   = 1
    });
 ```
-
----
 
 ### Starting Multiple Servers
 
@@ -43,8 +39,6 @@ Sandboxes panel can be accessed by going to `Netick > Sandboxes`
      NumberOfServers   = 20
    });
 ```
-
----
 
 ## Making Your Project Sandbox-Safe
 

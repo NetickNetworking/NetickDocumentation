@@ -12,8 +12,6 @@ A common use case for RPCs is initializing gameplay logic or sending configurati
 > [!Warning]
 > RPCs are not suitable for sending large amounts of data (e.g., over 500 bytes) or transferring files. For those use cases, refer to this [article](sending-large-amounts-of-data.md).
 
----
-
 ## Basic Example
 
 Here's a simple example of an RPC:
@@ -27,8 +25,6 @@ private void MyRpc(int arg1)
 ```
 
 To declare a method as an RPC, decorate it with the \[`Rpc`] attribute.
-
----
 
 ## Static RPCs
 
@@ -50,8 +46,6 @@ MyStaticRpc(Sandbox.Engine, 56);
 > [!WARNING]
 > Additionally, all RPCs are **unreliable by default** unless explicitly marked otherwise.
 
----
-
 ## `[Rpc]` Method Requirements
 
 RPC methods must adhere to the following constraints:
@@ -60,8 +54,6 @@ RPC methods must adhere to the following constraints:
 * Reference types are not allowed as parameters.
 * Class-based network collections are not allowed. Use `NetworkArrayStruct` for array parameters.
 * `string` parameters are not allowed. Use one of the `NetworkString` variants instead.
-
----
 
 ## `[Rpc]` Attribute Parameters
 
@@ -74,8 +66,6 @@ The `[Rpc]` attribute accepts the following options:
 | `isReliable`  | If `true`, the RPC will be sent reliably        |
 | `localInvoke` | If `true`, the RPC will also be invoked locally |
 
----
-
 ### Peer Options
 
 The `source` and `target` can be any of the following:
@@ -84,8 +74,6 @@ The `source` and `target` can be any of the following:
 * `Input Source` — The player providing input for the object.
 * `Proxies` — All peers except the Owner and Input Source.
 * `Everyone` — All connected peers, including the server.
-
----
 
 ## Targeted RPCs
 
@@ -103,8 +91,6 @@ MyRpc(Sandbox.Players[2], someValue);
 ```
 
 In the case of static RPCs, the `NetworkPlayerId` must be the **second** parameter, following the `NetickEngine` parameter.
-
----
 
 ## Identifying the RPC Source
 

@@ -99,10 +99,8 @@
 <h5>Note</h5>
 <p>This method should only be called when you are certain that Netick is running and a valid sandbox instance exists. Calling it before initialization results in a null value.</p>
 </div>
-<hr>
 <h2 id="persistent-network-objects">Persistent Network Objects</h2>
 <p>Another option for game-wide systems is to use persistent network objects. These must be instances of network prefabs with the <code>Is Persistent</code> property enabled. This ensures they can always be instantiated.</p>
-<hr>
 <h2 id="additive-scene-loading">Additive Scene Loading</h2>
 <p>Some developers prefer to use additive scenes to separate game management logic. While this approach is not recommended in most cases, it is supported. If you choose to use additive scenes, ensure that they are loaded <strong>after</strong> Netick has initialized — using Netick’s scene loading API.</p>
 

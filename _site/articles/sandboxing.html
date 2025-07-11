@@ -94,7 +94,6 @@
 <p>Sandboxes panel can be accessed by going to <code>Netick &gt; Sandboxes</code></p>
 <figure><img src="../images/sandboxing.png" alt="Interpolation"><figcaption></figcaption></figure>
 <h2 id="starting-netick-as-multiple-peers">Starting Netick as Multiple Peers</h2>
-<hr>
 <h3 id="starting-a-client-and-a-server">Starting a Client and a Server</h3>
 <pre><code class="lang-csharp">   var sandboxes       = Netick.Unity.Network.Launch(StartMode.MultiplePeers, new LaunchData()
    {
@@ -104,7 +103,6 @@
      NumberOfClients   = 1
    });
 </code></pre>
-<hr>
 <h3 id="starting-multiple-servers">Starting Multiple Servers</h3>
 <pre><code class="lang-csharp">   int   portOffset    = 4561;
    int[] ports         = new int[20];
@@ -118,7 +116,6 @@
      NumberOfServers   = 20
    });
 </code></pre>
-<hr>
 <h2 id="making-your-project-sandbox-safe">Making Your Project Sandbox-Safe</h2>
 <p>Running any project in multiple-peers mode does not always work, because of how some projects are set up. We call scripts or projects that can work with multiple sandboxes without issues as sandbox-safe.</p>
 <p>Notes on how to make your project sandbox-safe:</p>

@@ -89,7 +89,6 @@
 <h2 id="introduction">Introduction</h2>
 <p>A transport is the low-level component that does the actual data sending, receiving and handling connections.</p>
 <p>This guide will show how to implement a wrapper for the <a href="https://docs.unity3d.com/Packages/com.unity.transport@2.0/manual/index.html">Unity Transport</a></p>
-<hr>
 <h2 id="defining-the-connection-wrapper">Defining the Connection Wrapper</h2>
 <p>First you need to define a connection class which you will pass to Netick. This represents a transport connection. It must implement several properties and a send method:</p>
 <pre><code class="lang-csharp">public unsafe class NetickUnityTransportConnection : TransportConnection
@@ -118,7 +117,6 @@
 }
 </code></pre>
 <p>The <code>Send</code> method is called by Netick when it wants to send a packet to this connection. <code>Transport</code> represents the UnityTransport transport class which we will talk about in a bit. <code>Connection</code> represents the UnityTransport connection that corresponds to this <code>NetickUnityTransportConnection</code> type that we will pass into Netick.</p>
-<hr>
 <h3 id="defining-the-end-point-wrapper">Defining the End Point Wrapper</h3>
 <p>Let's also define an end point wrapper over UnityTransport <code>NetworkEndPoint</code>, and a extension class to do the conversion:</p>
 <pre><code class="lang-csharp">public static class NetickUnityTransportExt                          
@@ -143,7 +141,6 @@ public unsafe class NetickUnityTransport : NetworkTransport
     }
   }
 </code></pre>
-<hr>
 <h2 id="defining-the-transport-wrapper">Defining the Transport Wrapper</h2>
 <pre><code class="lang-csharp">public unsafe class NetickUnityTransportConnection : TransportConnection
 {
@@ -346,7 +343,6 @@ public unsafe class NetickUnityTransport : NetworkTransport
    }
  }
 </code></pre>
-<hr>
 <h2 id="defining-the-transport-provider">Defining the Transport Provider</h2>
 <p>Finally, we have to define a transport provider (a ScriptableObject), which will be used by Netick to create a new instance of the transport wrapper.</p>
 <pre><code class="lang-csharp">[CreateAssetMenu(fileName = &quot;UnityTransportProvider&quot;, menuName = &quot;Netick/Transport/UnityTransportProvider&quot;, order = 1)]
