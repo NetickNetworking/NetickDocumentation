@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Managing the Game in Netick | Netick Networking Engine </title>
+      <title>Managing the Game | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Managing the Game in Netick | Netick Networking Engine ">
+      <meta name="title" content="Managing the Game | Netick Networking Engine ">
       
       <link rel="icon" href="../images/logo.png">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -83,9 +83,10 @@
         </div>
 
         <article data-uid="">
-<h1 id="managing-the-game-in-netick">Managing the Game in Netick</h1>
+<h1 id="managing-the-game">Managing the Game</h1>
 
 <hr>
+<h2 id="game-managers">Game Managers</h2>
 <p>In both single-player and multiplayer games, it's common to use the singleton pattern for game management systems. That typically involves static global references and <code>DontDestroyOnLoad</code> to persist objects across scene transitions.</p>
 <p>In Netick, however, this pattern is streamlined through the use of the <strong>Network Sandbox</strong> — a dedicated <code>GameObject</code> (with <code>DontDestroyOnLoad</code>) designed to manage an instance of the game. The sandbox acts as a built-in singleton where you can attach all your management scripts directly by adding them to the sandbox prefab.</p>
 <p>These scripts can be either standard <code>MonoBehaviour</code>s or <code>NetworkBehaviour</code>s, enabling the use of networked properties and RPCs as needed.</p>
@@ -99,10 +100,43 @@
 <h5>Note</h5>
 <p>This method should only be called when you are certain that Netick is running and a valid sandbox instance exists. Calling it before initialization results in a null value.</p>
 </div>
-<h2 id="persistent-network-objects">Persistent Network Objects</h2>
+<h3 id="persistent-network-objects">Persistent Network Objects</h3>
 <p>Another option for game-wide systems is to use persistent network objects. These must be instances of network prefabs with the <code>Is Persistent</code> property enabled. This ensures they can always be instantiated.</p>
-<h2 id="additive-scene-loading">Additive Scene Loading</h2>
+<h3 id="additive-scene-loading">Additive Scene Loading</h3>
 <p>Some developers prefer to use additive scenes to separate game management logic. While this approach is not recommended in most cases, it is supported. If you choose to use additive scenes, ensure that they are loaded <strong>after</strong> Netick has initialized — using Netick’s scene loading API.</p>
+<h2 id="networkplayer-and-networkplayerid">NetworkPlayer and NetworkPlayerId</h2>
+<p>In Netick, each connected player is represented by a <code>NetworkPlayer</code> instance. This abstraction differs slightly between the client and the server:</p>
+<ul>
+<li><p>On the server:</p>
+<ul>
+<li>The host player is represented as a <code>NetworkPlayer</code>.</li>
+<li>Each connected client is represented as a <code>ServerConnection</code>, which inherits from <code>NetworkPlayer</code>.</li>
+</ul>
+</li>
+<li><p>On the client:</p>
+<ul>
+<li>The local player is a <code>NetworkPlayer</code>.</li>
+<li>The server (or host) is represented as a <code>ClientConnection</code>, which also inherits from <code>NetworkPlayer</code>.</li>
+<li>Other remote clients are <strong>not represented</strong> as <code>NetworkPlayer</code> instances, since the client is only connected directly to the server—not to other clients.</li>
+</ul>
+</li>
+</ul>
+<p>To enable consistent player identification across the network, each <code>NetworkPlayer</code> is assigned a unique <code>NetworkPlayerId</code> (accessible via <code>NetworkPlayer.PlayerId</code>). This struct serves as a network-safe identifier.</p>
+<p>For this reason:</p>
+<ul>
+<li>The <code>Sandbox.Players</code> list—used to track all connected players—is a synchronized list of <code>NetworkPlayerId</code>, not <code>NetworkPlayer</code> instances.</li>
+<li>Additionally, since reference types like <code>NetworkPlayer</code> cannot be serialized or synced across the network, <code>NetworkPlayerId</code> is required for networking purposes.</li>
+</ul>
+<h3 id="converting-between-networkplayer-and-networkplayerid">Converting Between <code>NetworkPlayer</code> and <code>NetworkPlayerId</code></h3>
+<p>If you have a <code>NetworkPlayerId</code> and need to retrieve the corresponding <code>NetworkPlayer</code>, you can use:</p>
+<pre><code class="lang-csharp">var player = Sandbox.GetPlayerById(playerId);
+</code></pre>
+<p>However, on the <strong>client</strong>, this method only returns a valid result if the <code>playerId</code> corresponds to either:</p>
+<ul>
+<li>The <strong>local player</strong>, or</li>
+<li>The <strong>server (host)</strong> player.</li>
+</ul>
+<p>Since clients do not maintain direct connections to other clients, <code>NetworkPlayer</code> instances for remote peers do not exist on the client side, and this method will return <code>null</code> for those cases.</p>
 
 </article>
 
