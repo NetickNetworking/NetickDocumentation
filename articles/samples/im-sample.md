@@ -1,4 +1,4 @@
-# IM (Interest Management) Sample (Unity)
+# Interest Management Sample (Unity)
 
 ---
 

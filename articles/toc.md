@@ -58,7 +58,7 @@
 ## [Bomberman](samples/bomberman.md)
 ## [Simple First Person](samples/simple-first-person.md)
 ## [Dungeon Frenzy](samples/dungeon-frenzy.md)
-## [IM (Interest Management ) Sample ](samples/im-sample.md)
+## [IM (Interest Management) Sample ](samples/im-sample.md)
 
 # Transports
 
