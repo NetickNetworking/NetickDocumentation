@@ -56,7 +56,7 @@ For this reason:
 
 ### Converting Between `NetworkPlayer` and `NetworkPlayerId`
 
-If you have a `NetworkPlayerId` and need to retrieve the corresponding `NetworkPlayer`, you can use:
+If you have a `NetworkPlayerId` and need to retrieve the corresponding `NetworkPlayer`:
 
 ```csharp
 var player = Sandbox.GetPlayerById(playerId);

@@ -128,7 +128,7 @@
 <li>Additionally, since reference types like <code>NetworkPlayer</code> cannot be serialized or synced across the network, <code>NetworkPlayerId</code> is required for networking purposes.</li>
 </ul>
 <h3 id="converting-between-networkplayer-and-networkplayerid">Converting Between <code>NetworkPlayer</code> and <code>NetworkPlayerId</code></h3>
-<p>If you have a <code>NetworkPlayerId</code> and need to retrieve the corresponding <code>NetworkPlayer</code>, you can use:</p>
+<p>If you have a <code>NetworkPlayerId</code> and need to retrieve the corresponding <code>NetworkPlayer</code>:</p>
 <pre><code class="lang-csharp">var player = Sandbox.GetPlayerById(playerId);
 </code></pre>
 <p>However, on the <strong>client</strong>, this method only returns a valid result if the <code>playerId</code> corresponds to either:</p>
