@@ -61,7 +61,7 @@ public class MyBehaviour : NetworkBehaviour
     public override void NetworkFixedUpdate()
     {
         // Called every fixed-time network step. Any changes to the networked state should happen here.
-        // Check out the chapter named "Writing Client-Side Prediction code" to learn more about this method.
+        // Check out the chapter named "Writing Gameplay code" to learn more about this method.
     }
 
     public override void NetworkRender()

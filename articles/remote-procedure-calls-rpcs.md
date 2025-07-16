@@ -34,7 +34,7 @@ To declare a method as an RPC, decorate it with the \[`Rpc`] attribute.
 [Rpc]
 public static void MyStaticRpc(NetickEngine engine, int someRpcPara)
 {
-    var sandbox = engine.UserObject as NetworkSandbox;
+    var sandbox = engine.GetSandbox();
 }
 
 // Invoking the RPC:

@@ -110,7 +110,7 @@ private void MyRpc(int arg1)
 <pre><code class="lang-csharp">[Rpc]
 public static void MyStaticRpc(NetickEngine engine, int someRpcPara)
 {
-    var sandbox = engine.UserObject as NetworkSandbox;
+    var sandbox = engine.GetSandbox();
 }
 
 // Invoking the RPC:

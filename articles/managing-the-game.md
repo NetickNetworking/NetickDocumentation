@@ -69,3 +69,25 @@ However, on the **client**, this method only returns a valid result if the `play
 
 Since clients do not maintain direct connections to other clients, `NetworkPlayer` instances for remote peers do not exist on the client side, and this method will return `null` for those cases.
 
+## Associating Player `NetworkObject` with `NetworkPlayerId`
+
+It's a common requirement to associate a player's in-game character object with their corresponding `NetworkPlayer` or `NetworkPlayerId`. Netick provides a built-in system for this.
+
+You can set up this association, for instance, when a player first joins the game. You'd do this inside the `OnPlayerJoined` event:
+
+```csharp
+public override void OnPlayerJoined(NetworkSandbox sandbox, NetworkPlayerId player)
+{
+  if (IsServer)
+  {
+    var character = Sandbox.NetworkInstantiate(playerPrefab);
+    Sandbox.SetPlayerObject(player, character); 
+  }
+}
+```
+
+Once associated, you can retrieve a player's assigned network object from any connected client or the server using their `NetworkPlayerId`:
+
+```csharp
+var playerNetworkObject = Sandbox.GetPlayerObject(somePlayerId);
+```

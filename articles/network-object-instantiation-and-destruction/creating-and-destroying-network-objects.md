@@ -1,4 +1,4 @@
-# Network Object Instantiation and Destruction
+# Creating and Destroying Network Objects
 
 ---
 
