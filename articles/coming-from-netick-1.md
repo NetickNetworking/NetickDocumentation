@@ -1,5 +1,7 @@
 # Coming from Netick 1 (Unity)
 
+---
+
 This is a guide to help you migrate from Netick 1 to Netick 2, for Unity users. It shows you what has changed in Netick 2 and it also shows you many of the new features that Netick 2 brings to your toolset.
 
 First of all, please make a back-up copy of your project. Then carefully read each section of this article. If you need help, please feel free to join our [discord](https://discord.com/invite/uV6bfG66Fx).
