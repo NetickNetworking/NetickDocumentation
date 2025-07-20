@@ -253,78 +253,6 @@ items:
       type: Netick.Unity.NetworkSceneOperation
     content.vb: Public Overridable Sub OnSceneOperationDone(sandbox As NetworkSandbox, sceneOperation As NetworkSceneOperation)
   overload: Netick.Unity.NetworkEventsListener.OnSceneOperationDone*
-- uid: Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
-  commentId: M:Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
-  id: OnSceneLoaded(Netick.Unity.NetworkSandbox)
-  parent: Netick.Unity.NetworkEventsListener
-  langs:
-  - csharp
-  - vb
-  name: OnSceneLoaded(NetworkSandbox)
-  nameWithType: NetworkEventsListener.OnSceneLoaded(NetworkSandbox)
-  fullName: Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: Called on both the client and the server when the scene has been loaded.
-  example: []
-  syntax:
-    content: >-
-      [Obsolete("This method will be removed. Use OnSceneLoadBegan instead.")]
-
-      public virtual void OnSceneLoaded(NetworkSandbox sandbox)
-    parameters:
-    - id: sandbox
-      type: Netick.Unity.NetworkSandbox
-      description: ''
-    content.vb: >-
-      <Obsolete("This method will be removed. Use OnSceneLoadBegan instead.")>
-
-      Public Overridable Sub OnSceneLoaded(sandbox As NetworkSandbox)
-  overload: Netick.Unity.NetworkEventsListener.OnSceneLoaded*
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: This method will be removed. Use OnSceneLoadBegan instead.
-- uid: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
-  commentId: M:Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
-  id: OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
-  parent: Netick.Unity.NetworkEventsListener
-  langs:
-  - csharp
-  - vb
-  name: OnSceneLoadStarted(NetworkSandbox)
-  nameWithType: NetworkEventsListener.OnSceneLoadStarted(NetworkSandbox)
-  fullName: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: Called on both the client and the server before beginning to load the new scene.
-  example: []
-  syntax:
-    content: >-
-      [Obsolete("This method will be removed. Use OnSceneLoadDone instead.")]
-
-      public virtual void OnSceneLoadStarted(NetworkSandbox sandbox)
-    parameters:
-    - id: sandbox
-      type: Netick.Unity.NetworkSandbox
-      description: ''
-    content.vb: >-
-      <Obsolete("This method will be removed. Use OnSceneLoadDone instead.")>
-
-      Public Overridable Sub OnSceneLoadStarted(sandbox As NetworkSandbox)
-  overload: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted*
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: This method will be removed. Use OnSceneLoadDone instead.
 - uid: Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   commentId: M:Netick.Unity.NetworkEventsListener.OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   id: OnConnectedToServer(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
@@ -431,6 +359,133 @@ items:
       type: Netick.NetworkPlayerId
     content.vb: Public Overridable Sub OnPlayerLeft(sandbox As NetworkSandbox, player As NetworkPlayerId)
   overload: Netick.Unity.NetworkEventsListener.OnPlayerLeft*
+- uid: Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
+  id: OnObjectCreated(Netick.Unity.NetworkObject)
+  parent: Netick.Unity.NetworkEventsListener
+  langs:
+  - csharp
+  - vb
+  name: OnObjectCreated(NetworkObject)
+  nameWithType: NetworkEventsListener.OnObjectCreated(NetworkObject)
+  fullName: Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Called when a network object has been created/initialized.
+  example: []
+  syntax:
+    content: public virtual void OnObjectCreated(NetworkObject entity)
+    parameters:
+    - id: entity
+      type: Netick.Unity.NetworkObject
+    content.vb: Public Overridable Sub OnObjectCreated(entity As NetworkObject)
+  overload: Netick.Unity.NetworkEventsListener.OnObjectCreated*
+- uid: Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
+  id: OnObjectDestroyed(Netick.Unity.NetworkObject)
+  parent: Netick.Unity.NetworkEventsListener
+  langs:
+  - csharp
+  - vb
+  name: OnObjectDestroyed(NetworkObject)
+  nameWithType: NetworkEventsListener.OnObjectDestroyed(NetworkObject)
+  fullName: Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Called when a network object has been destroyed/recycled.
+  example: []
+  syntax:
+    content: public virtual void OnObjectDestroyed(NetworkObject entity)
+    parameters:
+    - id: entity
+      type: Netick.Unity.NetworkObject
+    content.vb: Public Overridable Sub OnObjectDestroyed(entity As NetworkObject)
+  overload: Netick.Unity.NetworkEventsListener.OnObjectDestroyed*
+- uid: Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
+  commentId: M:Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
+  id: OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
+  parent: Netick.Unity.NetworkEventsListener
+  langs:
+  - csharp
+  - vb
+  name: OnMatchListUpdate(NetworkSandbox, List<Session>)
+  nameWithType: NetworkEventsListener.OnMatchListUpdate(NetworkSandbox, List<Session>)
+  fullName: Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox, System.Collections.Generic.List<Netick.Session>)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public virtual void OnMatchListUpdate(NetworkSandbox sandbox, List<Session> sessions)
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: sessions
+      type: System.Collections.Generic.List{Netick.Session}
+    content.vb: Public Overridable Sub OnMatchListUpdate(sandbox As NetworkSandbox, sessions As List(Of Session))
+  overload: Netick.Unity.NetworkEventsListener.OnMatchListUpdate*
+  nameWithType.vb: NetworkEventsListener.OnMatchListUpdate(NetworkSandbox, List(Of Session))
+  fullName.vb: Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox, System.Collections.Generic.List(Of Netick.Session))
+  name.vb: OnMatchListUpdate(NetworkSandbox, List(Of Session))
+- uid: Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
+  id: OnMatchCreated(Netick.Unity.NetworkSandbox)
+  parent: Netick.Unity.NetworkEventsListener
+  langs:
+  - csharp
+  - vb
+  name: OnMatchCreated(NetworkSandbox)
+  nameWithType: NetworkEventsListener.OnMatchCreated(NetworkSandbox)
+  fullName: Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public virtual void OnMatchCreated(NetworkSandbox sandbox)
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    content.vb: Public Overridable Sub OnMatchCreated(sandbox As NetworkSandbox)
+  overload: Netick.Unity.NetworkEventsListener.OnMatchCreated*
+- uid: Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  id: OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
+  parent: Netick.Unity.NetworkEventsListener
+  langs:
+  - csharp
+  - vb
+  name: OnDataReceived(NetworkSandbox, NetworkConnection, byte, byte*, int, TransportDeliveryMethod)
+  nameWithType: NetworkEventsListener.OnDataReceived(NetworkSandbox, NetworkConnection, byte, byte*, int, TransportDeliveryMethod)
+  fullName: Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox, Netick.NetworkConnection, byte, byte*, int, Netick.TransportDeliveryMethod)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public virtual void OnDataReceived(NetworkSandbox sandbox, NetworkConnection sender, byte id, byte* data, int length, TransportDeliveryMethod transportDeliveryMethod)
+    parameters:
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
+    - id: sender
+      type: Netick.NetworkConnection
+    - id: id
+      type: System.Byte
+    - id: data
+      type: System.Byte*
+    - id: length
+      type: System.Int32
+    - id: transportDeliveryMethod
+      type: Netick.TransportDeliveryMethod
+    content.vb: Public Overridable Sub OnDataReceived(sandbox As NetworkSandbox, sender As NetworkConnection, id As Byte, data As Byte*, length As Integer, transportDeliveryMethod As TransportDeliveryMethod)
+  overload: Netick.Unity.NetworkEventsListener.OnDataReceived*
+  nameWithType.vb: NetworkEventsListener.OnDataReceived(NetworkSandbox, NetworkConnection, Byte, Byte*, Integer, TransportDeliveryMethod)
+  fullName.vb: Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox, Netick.NetworkConnection, Byte, Byte*, Integer, Netick.TransportDeliveryMethod)
+  name.vb: OnDataReceived(NetworkSandbox, NetworkConnection, Byte, Byte*, Integer, TransportDeliveryMethod)
 - uid: Netick.Unity.NetworkEventsListener.OnClientConnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   commentId: M:Netick.Unity.NetworkEventsListener.OnClientConnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
   id: OnClientConnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection)
@@ -589,135 +644,78 @@ items:
     arguments:
     - type: System.String
       value: This method will be removed. Use OnPlayerLeft instead.
-- uid: Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
-  commentId: M:Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
-  id: OnObjectCreated(Netick.Unity.NetworkObject)
+- uid: Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
+  id: OnSceneLoaded(Netick.Unity.NetworkSandbox)
   parent: Netick.Unity.NetworkEventsListener
   langs:
   - csharp
   - vb
-  name: OnObjectCreated(NetworkObject)
-  nameWithType: NetworkEventsListener.OnObjectCreated(NetworkObject)
-  fullName: Netick.Unity.NetworkEventsListener.OnObjectCreated(Netick.Unity.NetworkObject)
+  name: OnSceneLoaded(NetworkSandbox)
+  nameWithType: NetworkEventsListener.OnSceneLoaded(NetworkSandbox)
+  fullName: Netick.Unity.NetworkEventsListener.OnSceneLoaded(Netick.Unity.NetworkSandbox)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Called when a network object has been created/initialized.
+  summary: Called on both the client and the server when the scene has been loaded.
   example: []
   syntax:
-    content: public virtual void OnObjectCreated(NetworkObject entity)
+    content: >-
+      [Obsolete("This method will be removed. Use OnSceneLoadBegan instead.")]
+
+      public virtual void OnSceneLoaded(NetworkSandbox sandbox)
     parameters:
-    - id: entity
-      type: Netick.Unity.NetworkObject
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
       description: ''
-    content.vb: Public Overridable Sub OnObjectCreated(entity As NetworkObject)
-  overload: Netick.Unity.NetworkEventsListener.OnObjectCreated*
-- uid: Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
-  commentId: M:Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
-  id: OnObjectDestroyed(Netick.Unity.NetworkObject)
+    content.vb: >-
+      <Obsolete("This method will be removed. Use OnSceneLoadBegan instead.")>
+
+      Public Overridable Sub OnSceneLoaded(sandbox As NetworkSandbox)
+  overload: Netick.Unity.NetworkEventsListener.OnSceneLoaded*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This method will be removed. Use OnSceneLoadBegan instead.
+- uid: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
+  commentId: M:Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
+  id: OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
   parent: Netick.Unity.NetworkEventsListener
   langs:
   - csharp
   - vb
-  name: OnObjectDestroyed(NetworkObject)
-  nameWithType: NetworkEventsListener.OnObjectDestroyed(NetworkObject)
-  fullName: Netick.Unity.NetworkEventsListener.OnObjectDestroyed(Netick.Unity.NetworkObject)
+  name: OnSceneLoadStarted(NetworkSandbox)
+  nameWithType: NetworkEventsListener.OnSceneLoadStarted(NetworkSandbox)
+  fullName: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted(Netick.Unity.NetworkSandbox)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Called when a network object has been destroyed/recycled.
+  summary: Called on both the client and the server before beginning to load the new scene.
   example: []
   syntax:
-    content: public virtual void OnObjectDestroyed(NetworkObject entity)
+    content: >-
+      [Obsolete("This method will be removed. Use OnSceneLoadDone instead.")]
+
+      public virtual void OnSceneLoadStarted(NetworkSandbox sandbox)
     parameters:
-    - id: entity
-      type: Netick.Unity.NetworkObject
+    - id: sandbox
+      type: Netick.Unity.NetworkSandbox
       description: ''
-    content.vb: Public Overridable Sub OnObjectDestroyed(entity As NetworkObject)
-  overload: Netick.Unity.NetworkEventsListener.OnObjectDestroyed*
-- uid: Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
-  commentId: M:Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
-  id: OnMatchListUpdate(Netick.Unity.NetworkSandbox,System.Collections.Generic.List{Netick.Session})
-  parent: Netick.Unity.NetworkEventsListener
-  langs:
-  - csharp
-  - vb
-  name: OnMatchListUpdate(NetworkSandbox, List<Session>)
-  nameWithType: NetworkEventsListener.OnMatchListUpdate(NetworkSandbox, List<Session>)
-  fullName: Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox, System.Collections.Generic.List<Netick.Session>)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public virtual void OnMatchListUpdate(NetworkSandbox sandbox, List<Session> sessions)
-    parameters:
-    - id: sandbox
-      type: Netick.Unity.NetworkSandbox
-    - id: sessions
-      type: System.Collections.Generic.List{Netick.Session}
-    content.vb: Public Overridable Sub OnMatchListUpdate(sandbox As NetworkSandbox, sessions As List(Of Session))
-  overload: Netick.Unity.NetworkEventsListener.OnMatchListUpdate*
-  nameWithType.vb: NetworkEventsListener.OnMatchListUpdate(NetworkSandbox, List(Of Session))
-  fullName.vb: Netick.Unity.NetworkEventsListener.OnMatchListUpdate(Netick.Unity.NetworkSandbox, System.Collections.Generic.List(Of Netick.Session))
-  name.vb: OnMatchListUpdate(NetworkSandbox, List(Of Session))
-- uid: Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
-  commentId: M:Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
-  id: OnMatchCreated(Netick.Unity.NetworkSandbox)
-  parent: Netick.Unity.NetworkEventsListener
-  langs:
-  - csharp
-  - vb
-  name: OnMatchCreated(NetworkSandbox)
-  nameWithType: NetworkEventsListener.OnMatchCreated(NetworkSandbox)
-  fullName: Netick.Unity.NetworkEventsListener.OnMatchCreated(Netick.Unity.NetworkSandbox)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public virtual void OnMatchCreated(NetworkSandbox sandbox)
-    parameters:
-    - id: sandbox
-      type: Netick.Unity.NetworkSandbox
-    content.vb: Public Overridable Sub OnMatchCreated(sandbox As NetworkSandbox)
-  overload: Netick.Unity.NetworkEventsListener.OnMatchCreated*
-- uid: Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
-  commentId: M:Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
-  id: OnDataReceived(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
-  parent: Netick.Unity.NetworkEventsListener
-  langs:
-  - csharp
-  - vb
-  name: OnDataReceived(NetworkSandbox, NetworkConnection, byte, byte*, int, TransportDeliveryMethod)
-  nameWithType: NetworkEventsListener.OnDataReceived(NetworkSandbox, NetworkConnection, byte, byte*, int, TransportDeliveryMethod)
-  fullName: Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox, Netick.NetworkConnection, byte, byte*, int, Netick.TransportDeliveryMethod)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public virtual void OnDataReceived(NetworkSandbox sandbox, NetworkConnection sender, byte id, byte* data, int length, TransportDeliveryMethod transportDeliveryMethod)
-    parameters:
-    - id: sandbox
-      type: Netick.Unity.NetworkSandbox
-    - id: sender
-      type: Netick.NetworkConnection
-    - id: id
-      type: System.Byte
-    - id: data
-      type: System.Byte*
-    - id: length
-      type: System.Int32
-    - id: transportDeliveryMethod
-      type: Netick.TransportDeliveryMethod
-    content.vb: Public Overridable Sub OnDataReceived(sandbox As NetworkSandbox, sender As NetworkConnection, id As Byte, data As Byte*, length As Integer, transportDeliveryMethod As TransportDeliveryMethod)
-  overload: Netick.Unity.NetworkEventsListener.OnDataReceived*
-  nameWithType.vb: NetworkEventsListener.OnDataReceived(NetworkSandbox, NetworkConnection, Byte, Byte*, Integer, TransportDeliveryMethod)
-  fullName.vb: Netick.Unity.NetworkEventsListener.OnDataReceived(Netick.Unity.NetworkSandbox, Netick.NetworkConnection, Byte, Byte*, Integer, Netick.TransportDeliveryMethod)
-  name.vb: OnDataReceived(NetworkSandbox, NetworkConnection, Byte, Byte*, Integer, TransportDeliveryMethod)
+    content.vb: >-
+      <Obsolete("This method will be removed. Use OnSceneLoadDone instead.")>
+
+      Public Overridable Sub OnSceneLoadStarted(sandbox As NetworkSandbox)
+  overload: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This method will be removed. Use OnSceneLoadDone instead.
 - uid: Netick.Unity.NetworkEventsListener.UnlinkFromNetick
   commentId: M:Netick.Unity.NetworkEventsListener.UnlinkFromNetick
   id: UnlinkFromNetick
@@ -927,20 +925,6 @@ references:
   name: OnSceneOperationDone
   nameWithType: NetworkEventsListener.OnSceneOperationDone
   fullName: Netick.Unity.NetworkEventsListener.OnSceneOperationDone
-- uid: Netick.Unity.NetworkEventsListener.OnSceneLoaded*
-  commentId: Overload:Netick.Unity.NetworkEventsListener.OnSceneLoaded
-  isExternal: true
-  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneLoaded_Netick_Unity_NetworkSandbox_
-  name: OnSceneLoaded
-  nameWithType: NetworkEventsListener.OnSceneLoaded
-  fullName: Netick.Unity.NetworkEventsListener.OnSceneLoaded
-- uid: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted*
-  commentId: Overload:Netick.Unity.NetworkEventsListener.OnSceneLoadStarted
-  isExternal: true
-  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneLoadStarted_Netick_Unity_NetworkSandbox_
-  name: OnSceneLoadStarted
-  nameWithType: NetworkEventsListener.OnSceneLoadStarted
-  fullName: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted
 - uid: Netick.Unity.NetworkEventsListener.OnConnectedToServer*
   commentId: Overload:Netick.Unity.NetworkEventsListener.OnConnectedToServer
   isExternal: true
@@ -993,42 +977,6 @@ references:
   name: OnPlayerLeft
   nameWithType: NetworkEventsListener.OnPlayerLeft
   fullName: Netick.Unity.NetworkEventsListener.OnPlayerLeft
-- uid: Netick.Unity.NetworkEventsListener.OnClientConnected*
-  commentId: Overload:Netick.Unity.NetworkEventsListener.OnClientConnected
-  isExternal: true
-  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientConnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
-  name: OnClientConnected
-  nameWithType: NetworkEventsListener.OnClientConnected
-  fullName: Netick.Unity.NetworkEventsListener.OnClientConnected
-- uid: Netick.Unity.NetworkEventsListener.OnClientDisconnected*
-  commentId: Overload:Netick.Unity.NetworkEventsListener.OnClientDisconnected
-  isExternal: true
-  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_
-  name: OnClientDisconnected
-  nameWithType: NetworkEventsListener.OnClientDisconnected
-  fullName: Netick.Unity.NetworkEventsListener.OnClientDisconnected
-- uid: Netick.Unity.NetworkEventsListener.OnPlayerConnected*
-  commentId: Overload:Netick.Unity.NetworkEventsListener.OnPlayerConnected
-  isExternal: true
-  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerConnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_
-  name: OnPlayerConnected
-  nameWithType: NetworkEventsListener.OnPlayerConnected
-  fullName: Netick.Unity.NetworkEventsListener.OnPlayerConnected
-- uid: Netick.NetworkPlayer
-  commentId: T:Netick.NetworkPlayer
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkPlayer.html
-  name: NetworkPlayer
-  nameWithType: NetworkPlayer
-  fullName: Netick.NetworkPlayer
-- uid: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected*
-  commentId: Overload:Netick.Unity.NetworkEventsListener.OnPlayerDisconnected
-  isExternal: true
-  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_Netick_TransportDisconnectReason_
-  name: OnPlayerDisconnected
-  nameWithType: NetworkEventsListener.OnPlayerDisconnected
-  fullName: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected
 - uid: Netick.Unity.NetworkEventsListener.OnObjectCreated*
   commentId: Overload:Netick.Unity.NetworkEventsListener.OnObjectCreated
   isExternal: true
@@ -1223,6 +1171,56 @@ references:
   name: TransportDeliveryMethod
   nameWithType: TransportDeliveryMethod
   fullName: Netick.TransportDeliveryMethod
+- uid: Netick.Unity.NetworkEventsListener.OnClientConnected*
+  commentId: Overload:Netick.Unity.NetworkEventsListener.OnClientConnected
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientConnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_
+  name: OnClientConnected
+  nameWithType: NetworkEventsListener.OnClientConnected
+  fullName: Netick.Unity.NetworkEventsListener.OnClientConnected
+- uid: Netick.Unity.NetworkEventsListener.OnClientDisconnected*
+  commentId: Overload:Netick.Unity.NetworkEventsListener.OnClientDisconnected
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnClientDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkConnection_Netick_TransportDisconnectReason_
+  name: OnClientDisconnected
+  nameWithType: NetworkEventsListener.OnClientDisconnected
+  fullName: Netick.Unity.NetworkEventsListener.OnClientDisconnected
+- uid: Netick.Unity.NetworkEventsListener.OnPlayerConnected*
+  commentId: Overload:Netick.Unity.NetworkEventsListener.OnPlayerConnected
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerConnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_
+  name: OnPlayerConnected
+  nameWithType: NetworkEventsListener.OnPlayerConnected
+  fullName: Netick.Unity.NetworkEventsListener.OnPlayerConnected
+- uid: Netick.NetworkPlayer
+  commentId: T:Netick.NetworkPlayer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayer.html
+  name: NetworkPlayer
+  nameWithType: NetworkPlayer
+  fullName: Netick.NetworkPlayer
+- uid: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected*
+  commentId: Overload:Netick.Unity.NetworkEventsListener.OnPlayerDisconnected
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnPlayerDisconnected_Netick_Unity_NetworkSandbox_Netick_NetworkPlayer_Netick_TransportDisconnectReason_
+  name: OnPlayerDisconnected
+  nameWithType: NetworkEventsListener.OnPlayerDisconnected
+  fullName: Netick.Unity.NetworkEventsListener.OnPlayerDisconnected
+- uid: Netick.Unity.NetworkEventsListener.OnSceneLoaded*
+  commentId: Overload:Netick.Unity.NetworkEventsListener.OnSceneLoaded
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneLoaded_Netick_Unity_NetworkSandbox_
+  name: OnSceneLoaded
+  nameWithType: NetworkEventsListener.OnSceneLoaded
+  fullName: Netick.Unity.NetworkEventsListener.OnSceneLoaded
+- uid: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted*
+  commentId: Overload:Netick.Unity.NetworkEventsListener.OnSceneLoadStarted
+  isExternal: true
+  href: Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnSceneLoadStarted_Netick_Unity_NetworkSandbox_
+  name: OnSceneLoadStarted
+  nameWithType: NetworkEventsListener.OnSceneLoadStarted
+  fullName: Netick.Unity.NetworkEventsListener.OnSceneLoadStarted
 - uid: Netick.Unity.NetworkEventsListener.UnlinkFromNetick*
   commentId: Overload:Netick.Unity.NetworkEventsListener.UnlinkFromNetick
   isExternal: true

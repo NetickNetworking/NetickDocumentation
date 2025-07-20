@@ -8,7 +8,7 @@ items:
   - Netick.Unity.NetworkTransform.#ctor
   - Netick.Unity.NetworkTransform.CorrectionMultiplier
   - Netick.Unity.NetworkTransform.GameEngineIntoNetcode
-  - Netick.Unity.NetworkTransform.GetInterpolationData(UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  - Netick.Unity.NetworkTransform.GetInterpolatedPosRot(UnityEngine.Vector3@,UnityEngine.Quaternion@)
   - Netick.Unity.NetworkTransform.InternalGetStateSizeWords
   - Netick.Unity.NetworkTransform.InternalReset
   - Netick.Unity.NetworkTransform.InterpolationSource
@@ -102,6 +102,7 @@ items:
   - Netick.Unity.NetworkBehaviour.IsProxy
   - Netick.Unity.NetworkBehaviour.IsResimulating
   - Netick.Unity.NetworkBehaviour.IsPredicted
+  - Netick.Unity.NetworkBehaviour.IsInterested
   - Netick.Unity.NetworkBehaviour.InputSource
   - Netick.Unity.NetworkBehaviour.InputSourcePlayerId
   - Netick.Unity.NetworkBehaviour.StateSize
@@ -530,22 +531,22 @@ items:
     content.vb: Public Overrides Sub NetworkRender()
   overridden: Netick.Unity.NetickBehaviour.NetworkRender
   overload: Netick.Unity.NetworkTransform.NetworkRender*
-- uid: Netick.Unity.NetworkTransform.GetInterpolationData(UnityEngine.Vector3@,UnityEngine.Quaternion@)
-  commentId: M:Netick.Unity.NetworkTransform.GetInterpolationData(UnityEngine.Vector3@,UnityEngine.Quaternion@)
-  id: GetInterpolationData(UnityEngine.Vector3@,UnityEngine.Quaternion@)
+- uid: Netick.Unity.NetworkTransform.GetInterpolatedPosRot(UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  commentId: M:Netick.Unity.NetworkTransform.GetInterpolatedPosRot(UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  id: GetInterpolatedPosRot(UnityEngine.Vector3@,UnityEngine.Quaternion@)
   parent: Netick.Unity.NetworkTransform
   langs:
   - csharp
   - vb
-  name: GetInterpolationData(out Vector3, out Quaternion)
-  nameWithType: NetworkTransform.GetInterpolationData(out Vector3, out Quaternion)
-  fullName: Netick.Unity.NetworkTransform.GetInterpolationData(out UnityEngine.Vector3, out UnityEngine.Quaternion)
+  name: GetInterpolatedPosRot(out Vector3, out Quaternion)
+  nameWithType: NetworkTransform.GetInterpolatedPosRot(out Vector3, out Quaternion)
+  fullName: Netick.Unity.NetworkTransform.GetInterpolatedPosRot(out UnityEngine.Vector3, out UnityEngine.Quaternion)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public bool GetInterpolationData(out Vector3 pos, out Quaternion rot)
+    content: public bool GetInterpolatedPosRot(out Vector3 pos, out Quaternion rot)
     parameters:
     - id: pos
       type: UnityEngine.Vector3
@@ -553,11 +554,11 @@ items:
       type: UnityEngine.Quaternion
     return:
       type: System.Boolean
-    content.vb: Public Function GetInterpolationData(pos As Vector3, rot As Quaternion) As Boolean
-  overload: Netick.Unity.NetworkTransform.GetInterpolationData*
-  nameWithType.vb: NetworkTransform.GetInterpolationData(Vector3, Quaternion)
-  fullName.vb: Netick.Unity.NetworkTransform.GetInterpolationData(UnityEngine.Vector3, UnityEngine.Quaternion)
-  name.vb: GetInterpolationData(Vector3, Quaternion)
+    content.vb: Public Function GetInterpolatedPosRot(pos As Vector3, rot As Quaternion) As Boolean
+  overload: Netick.Unity.NetworkTransform.GetInterpolatedPosRot*
+  nameWithType.vb: NetworkTransform.GetInterpolatedPosRot(Vector3, Quaternion)
+  fullName.vb: Netick.Unity.NetworkTransform.GetInterpolatedPosRot(UnityEngine.Vector3, UnityEngine.Quaternion)
+  name.vb: GetInterpolatedPosRot(Vector3, Quaternion)
 - uid: Netick.Unity.NetworkTransform.Render
   commentId: M:Netick.Unity.NetworkTransform.Render
   id: Render
@@ -1563,6 +1564,14 @@ references:
   name: IsPredicted
   nameWithType: NetworkBehaviour.IsPredicted
   fullName: Netick.Unity.NetworkBehaviour.IsPredicted
+- uid: Netick.Unity.NetworkBehaviour.IsInterested
+  commentId: P:Netick.Unity.NetworkBehaviour.IsInterested
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsInterested
+  name: IsInterested
+  nameWithType: NetworkBehaviour.IsInterested
+  fullName: Netick.Unity.NetworkBehaviour.IsInterested
 - uid: Netick.Unity.NetworkBehaviour.InputSource
   commentId: P:Netick.Unity.NetworkBehaviour.InputSource
   parent: Netick.Unity.NetworkBehaviour
@@ -2009,13 +2018,13 @@ references:
   name: NetworkRender
   nameWithType: NetworkTransform.NetworkRender
   fullName: Netick.Unity.NetworkTransform.NetworkRender
-- uid: Netick.Unity.NetworkTransform.GetInterpolationData*
-  commentId: Overload:Netick.Unity.NetworkTransform.GetInterpolationData
+- uid: Netick.Unity.NetworkTransform.GetInterpolatedPosRot*
+  commentId: Overload:Netick.Unity.NetworkTransform.GetInterpolatedPosRot
   isExternal: true
-  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_GetInterpolationData_UnityEngine_Vector3__UnityEngine_Quaternion__
-  name: GetInterpolationData
-  nameWithType: NetworkTransform.GetInterpolationData
-  fullName: Netick.Unity.NetworkTransform.GetInterpolationData
+  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_GetInterpolatedPosRot_UnityEngine_Vector3__UnityEngine_Quaternion__
+  name: GetInterpolatedPosRot
+  nameWithType: NetworkTransform.GetInterpolatedPosRot
+  fullName: Netick.Unity.NetworkTransform.GetInterpolatedPosRot
 - uid: Netick.Unity.NetworkTransform.Render*
   commentId: Overload:Netick.Unity.NetworkTransform.Render
   isExternal: true

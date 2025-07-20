@@ -95,7 +95,8 @@ Class NetworkRpc
   <dl><dt>Assembly</dt><dd>Netick.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents an RPC. Used internally only.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -276,8 +277,8 @@ Class NetworkRpc
 
   <a id="Netick_NetworkRpc_InternalCanInvoke_" data-uid="Netick.NetworkRpc.InternalCanInvoke*"></a>
 
-  <h3 id="Netick_NetworkRpc_InternalCanInvoke_Netick_NetickEngine_Netick_Entity_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Int32_" data-uid="Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32)">
-  InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int)
+  <h3 id="Netick_NetworkRpc_InternalCanInvoke_Netick_NetickEngine_Netick_Entity_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Int32_System_Boolean_Netick_NetworkPlayerId_" data-uid="Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,System.Boolean,Netick.NetworkPlayerId)">
+  InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, bool, NetworkPlayerId)
   
   </h3>
 
@@ -285,7 +286,7 @@ Class NetworkRpc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool InternalCanInvoke(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcId)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool InternalCanInvoke(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcId, bool isTargeted, NetworkPlayerId targetPlayer)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -301,6 +302,10 @@ Class NetworkRpc
     <dt><code>localInvoke</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
     <dt><code>rpcId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>isTargeted</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>targetPlayer</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
     <dd></dd>
   </dl>
 
@@ -322,8 +327,8 @@ Class NetworkRpc
 
   <a id="Netick_NetworkRpc_InternalCanInvokeWithRID_" data-uid="Netick.NetworkRpc.InternalCanInvokeWithRID*"></a>
 
-  <h3 id="Netick_NetworkRpc_InternalCanInvokeWithRID_Netick_NetickEngine_Netick_Entity_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Int32_Netick_RpcContext__" data-uid="Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,Netick.RpcContext@)">
-  InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, ref RpcContext)
+  <h3 id="Netick_NetworkRpc_InternalCanInvokeWithRID_Netick_NetickEngine_Netick_Entity_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Int32_System_Boolean_Netick_NetworkPlayerId_Netick_RpcContext__" data-uid="Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,System.Boolean,Netick.NetworkPlayerId,Netick.RpcContext@)">
+  InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, bool, NetworkPlayerId, ref RpcContext)
   
   </h3>
 
@@ -332,7 +337,7 @@ Class NetworkRpc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool InternalCanInvokeWithRID(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcId, ref RpcContext rpcContext)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool InternalCanInvokeWithRID(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcHash, bool isTargeted, NetworkPlayerId targetPlayer, ref RpcContext rpcContext)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -347,7 +352,11 @@ Class NetworkRpc
     <dd></dd>
     <dt><code>localInvoke</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
-    <dt><code>rpcId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>rpcHash</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>isTargeted</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>targetPlayer</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
     <dd></dd>
     <dt><code>rpcContext</code> <a class="xref" href="Netick.RpcContext.html">RpcContext</a></dt>
     <dd></dd>

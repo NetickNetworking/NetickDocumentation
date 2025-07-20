@@ -7,8 +7,8 @@ items:
   children:
   - Netick.NetworkRpc.Data
   - Netick.NetworkRpc.Id
-  - Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32)
-  - Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,Netick.RpcContext@)
+  - Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,System.Boolean,Netick.NetworkPlayerId)
+  - Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,System.Boolean,Netick.NetworkPlayerId,Netick.RpcContext@)
   - Netick.NetworkRpc.InternalCanSend(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Int32)
   - Netick.NetworkRpc.InternalCreateRelayedRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
   - Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
@@ -25,6 +25,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Represents an RPC. Used internally only.
+  example: []
   syntax:
     content: public class NetworkRpc
     content.vb: Public Class NetworkRpc
@@ -259,22 +261,22 @@ items:
   nameWithType.vb: NetworkRpc.InternalCanSend(NetickEngine, Entity, RpcPeers, RpcPeers, Integer)
   fullName.vb: Netick.NetworkRpc.InternalCanSend(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, Integer)
   name.vb: InternalCanSend(NetickEngine, Entity, RpcPeers, RpcPeers, Integer)
-- uid: Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32)
-  commentId: M:Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32)
-  id: InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32)
+- uid: Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,System.Boolean,Netick.NetworkPlayerId)
+  commentId: M:Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,System.Boolean,Netick.NetworkPlayerId)
+  id: InternalCanInvoke(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,System.Boolean,Netick.NetworkPlayerId)
   parent: Netick.NetworkRpc
   langs:
   - csharp
   - vb
-  name: InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int)
-  nameWithType: NetworkRpc.InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int)
-  fullName: Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, bool, int)
+  name: InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, bool, NetworkPlayerId)
+  nameWithType: NetworkRpc.InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, bool, NetworkPlayerId)
+  fullName: Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, bool, int, bool, Netick.NetworkPlayerId)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public static bool InternalCanInvoke(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcId)
+    content: public static bool InternalCanInvoke(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcId, bool isTargeted, NetworkPlayerId targetPlayer)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -288,23 +290,27 @@ items:
       type: System.Boolean
     - id: rpcId
       type: System.Int32
+    - id: isTargeted
+      type: System.Boolean
+    - id: targetPlayer
+      type: Netick.NetworkPlayerId
     return:
       type: System.Boolean
-    content.vb: Public Shared Function InternalCanInvoke(engine As NetickEngine, obj As Entity, source As RpcPeers, target As RpcPeers, localInvoke As Boolean, rpcId As Integer) As Boolean
+    content.vb: Public Shared Function InternalCanInvoke(engine As NetickEngine, obj As Entity, source As RpcPeers, target As RpcPeers, localInvoke As Boolean, rpcId As Integer, isTargeted As Boolean, targetPlayer As NetworkPlayerId) As Boolean
   overload: Netick.NetworkRpc.InternalCanInvoke*
-  nameWithType.vb: NetworkRpc.InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer)
-  fullName.vb: Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, Boolean, Integer)
-  name.vb: InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer)
-- uid: Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,Netick.RpcContext@)
-  commentId: M:Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,Netick.RpcContext@)
-  id: InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,Netick.RpcContext@)
+  nameWithType.vb: NetworkRpc.InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer, Boolean, NetworkPlayerId)
+  fullName.vb: Netick.NetworkRpc.InternalCanInvoke(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, Boolean, Integer, Boolean, Netick.NetworkPlayerId)
+  name.vb: InternalCanInvoke(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer, Boolean, NetworkPlayerId)
+- uid: Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,System.Boolean,Netick.NetworkPlayerId,Netick.RpcContext@)
+  commentId: M:Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,System.Boolean,Netick.NetworkPlayerId,Netick.RpcContext@)
+  id: InternalCanInvokeWithRID(Netick.NetickEngine,Netick.Entity,Netick.RpcPeers,Netick.RpcPeers,System.Boolean,System.Int32,System.Boolean,Netick.NetworkPlayerId,Netick.RpcContext@)
   parent: Netick.NetworkRpc
   langs:
   - csharp
   - vb
-  name: InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, ref RpcContext)
-  nameWithType: NetworkRpc.InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, ref RpcContext)
-  fullName: Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, bool, int, ref Netick.RpcContext)
+  name: InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, bool, NetworkPlayerId, ref RpcContext)
+  nameWithType: NetworkRpc.InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, bool, int, bool, NetworkPlayerId, ref RpcContext)
+  fullName: Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, bool, int, bool, Netick.NetworkPlayerId, ref Netick.RpcContext)
   type: Method
   assemblies:
   - Netick
@@ -312,7 +318,7 @@ items:
   summary: Internal method. Never call this.
   example: []
   syntax:
-    content: public static bool InternalCanInvokeWithRID(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcId, ref RpcContext rpcContext)
+    content: public static bool InternalCanInvokeWithRID(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcHash, bool isTargeted, NetworkPlayerId targetPlayer, ref RpcContext rpcContext)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -324,17 +330,21 @@ items:
       type: Netick.RpcPeers
     - id: localInvoke
       type: System.Boolean
-    - id: rpcId
+    - id: rpcHash
       type: System.Int32
+    - id: isTargeted
+      type: System.Boolean
+    - id: targetPlayer
+      type: Netick.NetworkPlayerId
     - id: rpcContext
       type: Netick.RpcContext
     return:
       type: System.Boolean
-    content.vb: Public Shared Function InternalCanInvokeWithRID(engine As NetickEngine, obj As Entity, source As RpcPeers, target As RpcPeers, localInvoke As Boolean, rpcId As Integer, rpcContext As RpcContext) As Boolean
+    content.vb: Public Shared Function InternalCanInvokeWithRID(engine As NetickEngine, obj As Entity, source As RpcPeers, target As RpcPeers, localInvoke As Boolean, rpcHash As Integer, isTargeted As Boolean, targetPlayer As NetworkPlayerId, rpcContext As RpcContext) As Boolean
   overload: Netick.NetworkRpc.InternalCanInvokeWithRID*
-  nameWithType.vb: NetworkRpc.InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer, RpcContext)
-  fullName.vb: Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, Boolean, Integer, Netick.RpcContext)
-  name.vb: InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer, RpcContext)
+  nameWithType.vb: NetworkRpc.InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer, Boolean, NetworkPlayerId, RpcContext)
+  fullName.vb: Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, Boolean, Integer, Boolean, Netick.NetworkPlayerId, Netick.RpcContext)
+  name.vb: InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer, Boolean, NetworkPlayerId, RpcContext)
 references:
 - uid: Netick
   commentId: N:Netick
@@ -702,14 +712,14 @@ references:
 - uid: Netick.NetworkRpc.InternalCanInvoke*
   commentId: Overload:Netick.NetworkRpc.InternalCanInvoke
   isExternal: true
-  href: Netick.NetworkRpc.html#Netick_NetworkRpc_InternalCanInvoke_Netick_NetickEngine_Netick_Entity_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Int32_
+  href: Netick.NetworkRpc.html#Netick_NetworkRpc_InternalCanInvoke_Netick_NetickEngine_Netick_Entity_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Int32_System_Boolean_Netick_NetworkPlayerId_
   name: InternalCanInvoke
   nameWithType: NetworkRpc.InternalCanInvoke
   fullName: Netick.NetworkRpc.InternalCanInvoke
 - uid: Netick.NetworkRpc.InternalCanInvokeWithRID*
   commentId: Overload:Netick.NetworkRpc.InternalCanInvokeWithRID
   isExternal: true
-  href: Netick.NetworkRpc.html#Netick_NetworkRpc_InternalCanInvokeWithRID_Netick_NetickEngine_Netick_Entity_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Int32_Netick_RpcContext__
+  href: Netick.NetworkRpc.html#Netick_NetworkRpc_InternalCanInvokeWithRID_Netick_NetickEngine_Netick_Entity_Netick_RpcPeers_Netick_RpcPeers_System_Boolean_System_Int32_System_Boolean_Netick_NetworkPlayerId_Netick_RpcContext__
   name: InternalCanInvokeWithRID
   nameWithType: NetworkRpc.InternalCanInvokeWithRID
   fullName: Netick.NetworkRpc.InternalCanInvokeWithRID

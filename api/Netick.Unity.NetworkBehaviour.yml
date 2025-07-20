@@ -24,6 +24,7 @@ items:
   - Netick.Unity.NetworkBehaviour.IsClient
   - Netick.Unity.NetworkBehaviour.IsHost
   - Netick.Unity.NetworkBehaviour.IsInputSource
+  - Netick.Unity.NetworkBehaviour.IsInterested
   - Netick.Unity.NetworkBehaviour.IsOwner
   - Netick.Unity.NetworkBehaviour.IsPlayer
   - Netick.Unity.NetworkBehaviour.IsPredicted
@@ -895,7 +896,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: On the client, it returns true only if the client is predicting this object. On the server, it always returns true.
+  summary: On the client  returns true only if the client is predicting this object. On the server, always returns true.
   example: []
   syntax:
     content: public bool IsPredicted { get; }
@@ -904,6 +905,29 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsPredicted As Boolean
   overload: Netick.Unity.NetworkBehaviour.IsPredicted*
+- uid: Netick.Unity.NetworkBehaviour.IsInterested
+  commentId: P:Netick.Unity.NetworkBehaviour.IsInterested
+  id: IsInterested
+  parent: Netick.Unity.NetworkBehaviour
+  langs:
+  - csharp
+  - vb
+  name: IsInterested
+  nameWithType: NetworkBehaviour.IsInterested
+  fullName: Netick.Unity.NetworkBehaviour.IsInterested
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: On the client, returns true if this client is interested in this object. On the server, always returns true.
+  example: []
+  syntax:
+    content: public bool IsInterested { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInterested As Boolean
+  overload: Netick.Unity.NetworkBehaviour.IsInterested*
 - uid: Netick.Unity.NetworkBehaviour.InputSource
   commentId: P:Netick.Unity.NetworkBehaviour.InputSource
   id: InputSource
@@ -1836,6 +1860,13 @@ references:
   name: IsPredicted
   nameWithType: NetworkBehaviour.IsPredicted
   fullName: Netick.Unity.NetworkBehaviour.IsPredicted
+- uid: Netick.Unity.NetworkBehaviour.IsInterested*
+  commentId: Overload:Netick.Unity.NetworkBehaviour.IsInterested
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsInterested
+  name: IsInterested
+  nameWithType: NetworkBehaviour.IsInterested
+  fullName: Netick.Unity.NetworkBehaviour.IsInterested
 - uid: Netick.NetworkPeer
   commentId: T:Netick.NetworkPeer
   parent: Netick

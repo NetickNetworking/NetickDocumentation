@@ -22,6 +22,8 @@ items:
   - Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
   - Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
   - Netick.Entity.IsInputSource
+  - Netick.Entity.IsInterested
+  - Netick.Entity.IsMarkedForDestruction
   - Netick.Entity.IsOwner
   - Netick.Entity.IsPredicted
   - Netick.Entity.IsProxy
@@ -51,6 +53,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Represents an networked entity (object) in the simulation.
+  example: []
   syntax:
     content: >-
       [IgnoreCodeGen]
@@ -282,6 +286,25 @@ items:
     return:
       type: System.Numerics.Vector3
     content.vb: Public Position As Vector3
+- uid: Netick.Entity.IsMarkedForDestruction
+  commentId: F:Netick.Entity.IsMarkedForDestruction
+  id: IsMarkedForDestruction
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: IsMarkedForDestruction
+  nameWithType: Entity.IsMarkedForDestruction
+  fullName: Netick.Entity.IsMarkedForDestruction
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsMarkedForDestruction
+    return:
+      type: System.Boolean
+    content.vb: Public IsMarkedForDestruction As Boolean
 - uid: Netick.Entity.StatePtr
   commentId: F:Netick.Entity.StatePtr
   id: StatePtr
@@ -709,6 +732,27 @@ items:
   nameWithType.vb: Entity.InterestMarkAltered(Integer, Integer)
   fullName.vb: Netick.Entity.InterestMarkAltered(Integer, Integer)
   name.vb: InterestMarkAltered(Integer, Integer)
+- uid: Netick.Entity.IsInterested
+  commentId: P:Netick.Entity.IsInterested
+  id: IsInterested
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: IsInterested
+  nameWithType: Entity.IsInterested
+  fullName: Netick.Entity.IsInterested
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsInterested { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInterested As Boolean
+  overload: Netick.Entity.IsInterested*
 - uid: Netick.Entity.InterestGroup
   commentId: P:Netick.Entity.InterestGroup
   id: InterestGroup
@@ -1176,6 +1220,17 @@ references:
     name: Numerics
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.numerics
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: System.Int32*
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.int32
@@ -1230,17 +1285,6 @@ references:
   name: NetworkPlayer
   nameWithType: NetworkPlayer
   fullName: Netick.NetworkPlayer
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: Netick.Entity.InternalDirtify*
   commentId: Overload:Netick.Entity.InternalDirtify
   isExternal: true
@@ -1408,6 +1452,13 @@ references:
   name: InterestMarkAltered
   nameWithType: Entity.InterestMarkAltered
   fullName: Netick.Entity.InterestMarkAltered
+- uid: Netick.Entity.IsInterested*
+  commentId: Overload:Netick.Entity.IsInterested
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_IsInterested
+  name: IsInterested
+  nameWithType: Entity.IsInterested
+  fullName: Netick.Entity.IsInterested
 - uid: Netick.Entity.InterestGroup*
   commentId: Overload:Netick.Entity.InterestGroup
   isExternal: true

@@ -399,7 +399,8 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Time period between frames. Same as <span class="xref">UnityEngine.Time.deltaTime</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -467,7 +468,7 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetickCallbacks Events { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public NetworkCallbacks Events { get; }</code></pre>
   </div>
 
 
@@ -476,7 +477,7 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.Unity.NetickCallbacks.html">NetickCallbacks</a></dt>
+    <dt><a class="xref" href="Netick.Unity.NetworkCallbacks.html">NetworkCallbacks</a></dt>
     <dd></dd>
   </dl>
 
@@ -590,7 +591,8 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns true if input is enabled on this sandbox. Use this to enable/disable input at runtime.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -621,7 +623,8 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Use this to manages interest groups and area of interest (AoI) layers.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -652,7 +655,7 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Interpolation delay in seconds.</p>
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Remote Interpolation delay in seconds.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -748,7 +751,7 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns true if this NetworkFixedUpdate call is the first one executed in this frame. This excludes resimulations, and it only refers to new/forward ticks.</p>
+  <div class="markdown level1 summary"><p>Returns true if this NetworkFixedUpdate call is the first one executed in this frame. This excludes re-simulations, and it only refers to new/forward ticks.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -812,7 +815,7 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns true if this NetworkFixedUpdate call is the last one executed in this frame. This excludes resimulations, and it only refers to new/forward ticks.</p>
+  <div class="markdown level1 summary"><p>Returns true if this NetworkFixedUpdate call is the last one executed in this frame. This excludes re-simulations, and it only refers to new/forward ticks.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -876,7 +879,7 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns true if we are currently resimulating a previous input/tick of the past. On the server, it always returns false since <b>only the clients resimulate</b>.</p>
+  <div class="markdown level1 summary"><p>Returns true if we are currently re-simulating a previous input/tick of the past. On the server, it always returns false since <b>only the clients resimulate</b>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -972,7 +975,8 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns true if this sandbox is visible. Use this to enable/disable visibility at runtime.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1003,7 +1007,8 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The Local (predicted) Interpolation instance used for interpolating local/predicted objects. Includes useful interpolation data, such as the current interpolation alpha, the ticks being interpolated, and the local interpolation time (in seconds).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1066,7 +1071,8 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Used to track network metrics and statistics.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1129,7 +1135,8 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Current (local/predicted) network time in seconds. Same as <a class="xref" href="Netick.LocalInterpolation.html#Netick_LocalInterpolation_Time">Time</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1450,7 +1457,9 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The Remote Interpolation instance used for interpolating remote objects on the client. Includes useful interpolation data, such as the current interpolation alpha, the ticks being interpolated, the remote interpolation time (in seconds), and the remote interpolation delay (in seconds).</p>
+<p>Note: this is only valid in the client.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1474,6 +1483,38 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
 
 
 
+  <a id="Netick_Unity_NetworkSandbox_ResimulationCount_" data-uid="Netick.Unity.NetworkSandbox.ResimulationCount*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_ResimulationCount" data-uid="Netick.Unity.NetworkSandbox.ResimulationCount">
+  ResimulationCount
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> The number of re-simulations that have been performed in this tick. This is only valid on the client (and during the re-simulation stage), and it returns 0 on the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ResimulationCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_ResimulationStep_" data-uid="Netick.Unity.NetworkSandbox.ResimulationStep*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_ResimulationStep" data-uid="Netick.Unity.NetworkSandbox.ResimulationStep">
@@ -1481,7 +1522,8 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Returns the current re-simulation step we are currently performing, if we are in the re-simulation stage. This is only valid on the client, and it returns 0 on the server.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1516,7 +1558,8 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Resimulations { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This will be removed in the future, please use ResimulationCount instead.&quot;)]
+public int Resimulations { get; }</code></pre>
   </div>
 
 
@@ -1543,7 +1586,8 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Scaled time period between network simulation steps. This is the same as <span class="xref">UnityEngine.Time.fixedDeltaTime</span>, but multiplied by <span class="xref">UnityEngine.Time.timeScale</span>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1631,68 +1675,6 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
 
 
 
-  <a id="Netick_Unity_NetworkSandbox_SimulatedLossIn_" data-uid="Netick.Unity.NetworkSandbox.SimulatedLossIn*"></a>
-
-  <h3 id="Netick_Unity_NetworkSandbox_SimulatedLossIn" data-uid="Netick.Unity.NetworkSandbox.SimulatedLossIn">
-  SimulatedLossIn
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float SimulatedLossIn { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_NetworkSandbox_SimulatedLossOut_" data-uid="Netick.Unity.NetworkSandbox.SimulatedLossOut*"></a>
-
-  <h3 id="Netick_Unity_NetworkSandbox_SimulatedLossOut" data-uid="Netick.Unity.NetworkSandbox.SimulatedLossOut">
-  SimulatedLossOut
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float SimulatedLossOut { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="Netick_Unity_NetworkSandbox_StartMode_" data-uid="Netick.Unity.NetworkSandbox.StartMode*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_StartMode" data-uid="Netick.Unity.NetworkSandbox.StartMode">
@@ -1705,7 +1687,7 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StartMode StartMode { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public NetickStartMode StartMode { get; }</code></pre>
   </div>
 
 
@@ -1714,7 +1696,7 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.Unity.StartMode.html">StartMode</a></dt>
+    <dt><a class="xref" href="Netick.NetickStartMode.html">NetickStartMode</a></dt>
     <dd></dd>
   </dl>
 
@@ -1734,7 +1716,7 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
 
   <div class="markdown level1 summary"><p>Current simulation tick.</p>
 <p>On the server, <b>it's always going forward/increasing.</b></p>
-<p>On the client, <b>during resimulations it returns the current resimulated tick. </b> To check for resimulations, use <a class="xref" href="Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_IsResimulating">IsResimulating</a>.</p>
+<p>On the client, <b>during resimulations it returns the current re-simulated tick. </b> To check for resimulations, use <a class="xref" href="Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_IsResimulating">IsResimulating</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1766,7 +1748,8 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The simulation clock used for managing time in the network simulation.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1938,6 +1921,37 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>rigidbodyGameObject</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_AttachNonNetworkedRigidbody_" data-uid="Netick.Unity.NetworkSandbox.AttachNonNetworkedRigidbody*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_AttachNonNetworkedRigidbody_UnityEngine_Rigidbody_" data-uid="Netick.Unity.NetworkSandbox.AttachNonNetworkedRigidbody(UnityEngine.Rigidbody)">
+  AttachNonNetworkedRigidbody(Rigidbody)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AttachNonNetworkedRigidbody(Rigidbody rigidbody)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rigidbody</code> <span class="xref">Rigidbody</span></dt>
     <dd></dd>
   </dl>
 
@@ -2210,6 +2224,37 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>rigidbodyGameObject</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_DetachNonNetworkedRigidbody_" data-uid="Netick.Unity.NetworkSandbox.DetachNonNetworkedRigidbody*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_DetachNonNetworkedRigidbody_UnityEngine_Rigidbody_" data-uid="Netick.Unity.NetworkSandbox.DetachNonNetworkedRigidbody(UnityEngine.Rigidbody)">
+  DetachNonNetworkedRigidbody(Rigidbody)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DetachNonNetworkedRigidbody(Rigidbody rigidbody)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rigidbody</code> <span class="xref">Rigidbody</span></dt>
     <dd></dd>
   </dl>
 
@@ -2653,6 +2698,80 @@ Returns null if networking is not running or if no matching sandbox is found for
     <dt><span class="xref">T</span></dt>
     <dd></dd>
   </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_GetBehavioursOfType_" data-uid="Netick.Unity.NetworkSandbox.GetBehavioursOfType*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_GetBehavioursOfType__1" data-uid="Netick.Unity.NetworkSandbox.GetBehavioursOfType``1">
+  GetBehavioursOfType&lt;T&gt;()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets all network behaviours (or Netick behaviours) in the simulation that have the type of T.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;T&gt; GetBehavioursOfType&lt;T&gt;() where T : NetickBehaviour</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_GetBehavioursOfType_" data-uid="Netick.Unity.NetworkSandbox.GetBehavioursOfType*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_GetBehavioursOfType__1_System_Collections_Generic_List___0__" data-uid="Netick.Unity.NetworkSandbox.GetBehavioursOfType``1(System.Collections.Generic.List{``0})">
+  GetBehavioursOfType&lt;T&gt;(List&lt;T&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets all network behaviours (or Netick behaviours) in the simulation that have the type of T.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetBehavioursOfType&lt;T&gt;(List&lt;T&gt; result) where T : NetickBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
 
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
@@ -3142,32 +3261,6 @@ On the server, this method can return any player by their ID. On the client, it 
     <dd><p>The Network Prefab</p>
 </dd>
   </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_NetworkSandbox_Hide_" data-uid="Netick.Unity.NetworkSandbox.Hide*"></a>
-
-  <h3 id="Netick_Unity_NetworkSandbox_Hide" data-uid="Netick.Unity.NetworkSandbox.Hide">
-  Hide()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void Hide()</code></pre>
-  </div>
-
-
 
 
 
@@ -3761,6 +3854,162 @@ On the server, this method can return any player by their ID. On the client, it 
 
   <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
 
+  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_Netick_NetworkPlayer_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayer)">
+  NetworkInstantiate(GameObject, NetworkPlayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkObject NetworkInstantiate(GameObject prefab, NetworkPlayer inputSource = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_Netick_NetworkPlayerId_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayerId)">
+  NetworkInstantiate(GameObject, NetworkPlayerId)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkObject NetworkInstantiate(GameObject prefab, NetworkPlayerId inputSource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_Netick_NetworkPlayer_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayer)">
+  NetworkInstantiate(GameObject, Vector3, NetworkPlayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, NetworkPlayer inputSource = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_Netick_NetworkPlayerId_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayerId)">
+  NetworkInstantiate(GameObject, Vector3, NetworkPlayerId)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, NetworkPlayerId inputSource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
+
   <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)">
   NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer)
   
@@ -3841,6 +4090,182 @@ On the server, this method can return any player by their ID. On the client, it 
     <dd></dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate__1___0_Netick_NetworkPlayer_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,Netick.NetworkPlayer)">
+  NetworkInstantiate&lt;T&gt;(T, NetworkPlayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T NetworkInstantiate&lt;T&gt;(T prefab, NetworkPlayer inputSource = null) where T : MonoBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate__1___0_Netick_NetworkPlayerId_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,Netick.NetworkPlayerId)">
+  NetworkInstantiate&lt;T&gt;(T, NetworkPlayerId)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T NetworkInstantiate&lt;T&gt;(T prefab, NetworkPlayerId inputSource) where T : MonoBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate__1___0_UnityEngine_Vector3_Netick_NetworkPlayer_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayer)">
+  NetworkInstantiate&lt;T&gt;(T, Vector3, NetworkPlayer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T NetworkInstantiate&lt;T&gt;(T prefab, Vector3 position, NetworkPlayer inputSource = null) where T : MonoBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_NetworkInstantiate_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_NetworkInstantiate__1___0_UnityEngine_Vector3_Netick_NetworkPlayerId_" data-uid="Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayerId)">
+  NetworkInstantiate&lt;T&gt;(T, Vector3, NetworkPlayerId)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T NetworkInstantiate&lt;T&gt;(T prefab, Vector3 position, NetworkPlayerId inputSource) where T : MonoBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -4138,32 +4563,6 @@ On the server, this method can return any player by their ID. On the client, it 
     <dt><code>obj</code> <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
     <dd></dd>
   </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_Unity_NetworkSandbox_Show_" data-uid="Netick.Unity.NetworkSandbox.Show*"></a>
-
-  <h3 id="Netick_Unity_NetworkSandbox_Show" data-uid="Netick.Unity.NetworkSandbox.Show">
-  Show()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void Show()</code></pre>
-  </div>
-
 
 
 

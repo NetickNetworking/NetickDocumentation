@@ -33,6 +33,8 @@ items:
   - Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
   - Netick.NetickEngine.FixedDeltaTime
   - Netick.NetickEngine.GetBehaviourOrder(System.Type)
+  - Netick.NetickEngine.GetBehavioursOfType``1(System.Collections.Generic.List{``0})
+  - Netick.NetickEngine.GetEntityByWorldIndex(System.Int32)
   - Netick.NetickEngine.GetEntityMeta(Netick.Entity)
   - Netick.NetickEngine.GetEntityUserMeta(Netick.Entity)
   - Netick.NetickEngine.GetInput``1(System.Int32)
@@ -62,6 +64,7 @@ items:
   - Netick.NetickEngine.LocalPeer
   - Netick.NetickEngine.LocalPlayer
   - Netick.NetickEngine.MaxClients
+  - Netick.NetickEngine.MaxPlayers
   - Netick.NetickEngine.Monitor
   - Netick.NetickEngine.Name
   - Netick.NetickEngine.OnPostNetworkStart
@@ -93,18 +96,17 @@ items:
   - Netick.NetickEngine.SetInput``1(``0,System.Int32)
   - Netick.NetickEngine.SetPlayerEntity(Netick.NetworkPlayerId,Netick.Entity)
   - Netick.NetickEngine.Shutdown
-  - Netick.NetickEngine.Simulate
   - Netick.NetickEngine.SimulatedLossIn
   - Netick.NetickEngine.SimulatedLossOut
   - Netick.NetickEngine.Simulation
   - Netick.NetickEngine.SimulationTick
   - Netick.NetickEngine.SnapshotTick
-  - Netick.NetickEngine.Start(System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
+  - Netick.NetickEngine.Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
   - Netick.NetickEngine.StartMode
   - Netick.NetickEngine.Tick
   - Netick.NetickEngine.Timer
   - Netick.NetickEngine.Transport
-  - Netick.NetickEngine.Update(System.Single,System.Single)
+  - Netick.NetickEngine.Update(System.Single,System.Single,System.Boolean)
   - Netick.NetickEngine.UserObject
   langs:
   - csharp
@@ -478,6 +480,32 @@ items:
       type: Netick.NetworkPlayer
     content.vb: Public Function GetPlayerById(playerId As NetworkPlayerId) As NetworkPlayer
   overload: Netick.NetickEngine.GetPlayerById*
+- uid: Netick.NetickEngine.GetBehavioursOfType``1(System.Collections.Generic.List{``0})
+  commentId: M:Netick.NetickEngine.GetBehavioursOfType``1(System.Collections.Generic.List{``0})
+  id: GetBehavioursOfType``1(System.Collections.Generic.List{``0})
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: GetBehavioursOfType<T>(List<T>)
+  nameWithType: NetickEngine.GetBehavioursOfType<T>(List<T>)
+  fullName: Netick.NetickEngine.GetBehavioursOfType<T>(System.Collections.Generic.List<T>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: 'public void GetBehavioursOfType<T>(List<T> result) where T : INetickScript'
+    parameters:
+    - id: result
+      type: System.Collections.Generic.List{{T}}
+    typeParameters:
+    - id: T
+    content.vb: Public Sub GetBehavioursOfType(Of T As INetickScript)(result As List(Of T))
+  overload: Netick.NetickEngine.GetBehavioursOfType*
+  nameWithType.vb: NetickEngine.GetBehavioursOfType(Of T)(List(Of T))
+  fullName.vb: Netick.NetickEngine.GetBehavioursOfType(Of T)(System.Collections.Generic.List(Of T))
+  name.vb: GetBehavioursOfType(Of T)(List(Of T))
 - uid: Netick.NetickEngine.GetPlayerEntity(Netick.NetworkPlayerId)
   commentId: M:Netick.NetickEngine.GetPlayerEntity(Netick.NetworkPlayerId)
   id: GetPlayerEntity(Netick.NetworkPlayerId)
@@ -765,6 +793,32 @@ items:
   nameWithType.vb: NetickEngine.DestroyEntity(Entity, Boolean, Boolean)
   fullName.vb: Netick.NetickEngine.DestroyEntity(Netick.Entity, Boolean, Boolean)
   name.vb: DestroyEntity(Entity, Boolean, Boolean)
+- uid: Netick.NetickEngine.GetEntityByWorldIndex(System.Int32)
+  commentId: M:Netick.NetickEngine.GetEntityByWorldIndex(System.Int32)
+  id: GetEntityByWorldIndex(System.Int32)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: GetEntityByWorldIndex(int)
+  nameWithType: NetickEngine.GetEntityByWorldIndex(int)
+  fullName: Netick.NetickEngine.GetEntityByWorldIndex(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Entity GetEntityByWorldIndex(int worldIndex)
+    parameters:
+    - id: worldIndex
+      type: System.Int32
+    return:
+      type: Netick.Entity
+    content.vb: Public Function GetEntityByWorldIndex(worldIndex As Integer) As Entity
+  overload: Netick.NetickEngine.GetEntityByWorldIndex*
+  nameWithType.vb: NetickEngine.GetEntityByWorldIndex(Integer)
+  fullName.vb: Netick.NetickEngine.GetEntityByWorldIndex(Integer)
+  name.vb: GetEntityByWorldIndex(Integer)
 - uid: Netick.NetickEngine.GetEntityMeta(Netick.Entity)
   commentId: M:Netick.NetickEngine.GetEntityMeta(Netick.Entity)
   id: GetEntityMeta(Netick.Entity)
@@ -927,23 +981,25 @@ items:
   nameWithType.vb: NetickEngine.FetchInput(Of T)(T, Boolean, Entity, Integer)
   fullName.vb: Netick.NetickEngine.FetchInput(Of T)(T, Boolean, Netick.Entity, Integer)
   name.vb: FetchInput(Of T)(T, Boolean, Entity, Integer)
-- uid: Netick.NetickEngine.Start(System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
-  commentId: M:Netick.NetickEngine.Start(System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
-  id: Start(System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
+- uid: Netick.NetickEngine.Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
+  commentId: M:Netick.NetickEngine.Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
+  id: Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
   parent: Netick.NetickEngine
   langs:
   - csharp
   - vb
-  name: Start(string, int, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, int)
-  nameWithType: NetickEngine.Start(string, int, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, int)
-  fullName: Netick.NetickEngine.Start(string, int, Netick.NetickStartMode, Netick.IGameEngine, Netick.NetickConfigData, Netick.NetworkTransport, Netick.ReflectionData, Netick.INetickLogger, Netick.IMemoryAllocator, int)
+  name: Start(object, string, int, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, int)
+  nameWithType: NetickEngine.Start(object, string, int, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, int)
+  fullName: Netick.NetickEngine.Start(object, string, int, Netick.NetickStartMode, Netick.IGameEngine, Netick.NetickConfigData, Netick.NetworkTransport, Netick.ReflectionData, Netick.INetickLogger, Netick.IMemoryAllocator, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void Start(string name, int serverPort, NetickStartMode startMode, IGameEngine gameEngine, NetickConfigData config, NetworkTransport transport, ReflectionData reflectionData, INetickLogger logger, IMemoryAllocator allocator, int numberOfThreads)
+    content: public void Start(object userObject, string name, int serverPort, NetickStartMode startMode, IGameEngine gameEngine, NetickConfigData config, NetworkTransport transport, ReflectionData reflectionData, INetickLogger logger, IMemoryAllocator allocator, int numberOfThreads)
     parameters:
+    - id: userObject
+      type: System.Object
     - id: name
       type: System.String
     - id: serverPort
@@ -964,11 +1020,11 @@ items:
       type: Netick.IMemoryAllocator
     - id: numberOfThreads
       type: System.Int32
-    content.vb: Public Sub Start(name As String, serverPort As Integer, startMode As NetickStartMode, gameEngine As IGameEngine, config As NetickConfigData, transport As NetworkTransport, reflectionData As ReflectionData, logger As INetickLogger, allocator As IMemoryAllocator, numberOfThreads As Integer)
+    content.vb: Public Sub Start(userObject As Object, name As String, serverPort As Integer, startMode As NetickStartMode, gameEngine As IGameEngine, config As NetickConfigData, transport As NetworkTransport, reflectionData As ReflectionData, logger As INetickLogger, allocator As IMemoryAllocator, numberOfThreads As Integer)
   overload: Netick.NetickEngine.Start*
-  nameWithType.vb: NetickEngine.Start(String, Integer, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, Integer)
-  fullName.vb: Netick.NetickEngine.Start(String, Integer, Netick.NetickStartMode, Netick.IGameEngine, Netick.NetickConfigData, Netick.NetworkTransport, Netick.ReflectionData, Netick.INetickLogger, Netick.IMemoryAllocator, Integer)
-  name.vb: Start(String, Integer, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, Integer)
+  nameWithType.vb: NetickEngine.Start(Object, String, Integer, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, Integer)
+  fullName.vb: Netick.NetickEngine.Start(Object, String, Integer, Netick.NetickStartMode, Netick.IGameEngine, Netick.NetickConfigData, Netick.NetworkTransport, Netick.ReflectionData, Netick.INetickLogger, Netick.IMemoryAllocator, Integer)
+  name.vb: Start(Object, String, Integer, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, Integer)
 - uid: Netick.NetickEngine.Shutdown
   commentId: M:Netick.NetickEngine.Shutdown
   id: Shutdown
@@ -1005,16 +1061,16 @@ items:
     content: public void ResetForSceneSwitch()
     content.vb: Public Sub ResetForSceneSwitch()
   overload: Netick.NetickEngine.ResetForSceneSwitch*
-- uid: Netick.NetickEngine.Update(System.Single,System.Single)
-  commentId: M:Netick.NetickEngine.Update(System.Single,System.Single)
-  id: Update(System.Single,System.Single)
+- uid: Netick.NetickEngine.Update(System.Single,System.Single,System.Boolean)
+  commentId: M:Netick.NetickEngine.Update(System.Single,System.Single,System.Boolean)
+  id: Update(System.Single,System.Single,System.Boolean)
   parent: Netick.NetickEngine
   langs:
   - csharp
   - vb
-  name: Update(float, float)
-  nameWithType: NetickEngine.Update(float, float)
-  fullName: Netick.NetickEngine.Update(float, float)
+  name: Update(float, float, bool)
+  nameWithType: NetickEngine.Update(float, float, bool)
+  fullName: Netick.NetickEngine.Update(float, float, bool)
   type: Method
   assemblies:
   - Netick
@@ -1022,17 +1078,19 @@ items:
   summary: Updates Netick logic.
   example: []
   syntax:
-    content: public void Update(float deltaTime, float timeScale)
+    content: public void Update(float deltaTime, float timeScale, bool simulate)
     parameters:
     - id: deltaTime
       type: System.Single
     - id: timeScale
       type: System.Single
-    content.vb: Public Sub Update(deltaTime As Single, timeScale As Single)
+    - id: simulate
+      type: System.Boolean
+    content.vb: Public Sub Update(deltaTime As Single, timeScale As Single, simulate As Boolean)
   overload: Netick.NetickEngine.Update*
-  nameWithType.vb: NetickEngine.Update(Single, Single)
-  fullName.vb: Netick.NetickEngine.Update(Single, Single)
-  name.vb: Update(Single, Single)
+  nameWithType.vb: NetickEngine.Update(Single, Single, Boolean)
+  fullName.vb: Netick.NetickEngine.Update(Single, Single, Boolean)
+  name.vb: Update(Single, Single, Boolean)
 - uid: Netick.NetickEngine.Render
   commentId: M:Netick.NetickEngine.Render
   id: Render
@@ -2409,27 +2467,27 @@ items:
       type: System.Int32
     content.vb: Public ReadOnly Property MaxClients As Integer
   overload: Netick.NetickEngine.MaxClients*
-- uid: Netick.NetickEngine.Simulate
-  commentId: P:Netick.NetickEngine.Simulate
-  id: Simulate
+- uid: Netick.NetickEngine.MaxPlayers
+  commentId: P:Netick.NetickEngine.MaxPlayers
+  id: MaxPlayers
   parent: Netick.NetickEngine
   langs:
   - csharp
   - vb
-  name: Simulate
-  nameWithType: NetickEngine.Simulate
-  fullName: Netick.NetickEngine.Simulate
+  name: MaxPlayers
+  nameWithType: NetickEngine.MaxPlayers
+  fullName: Netick.NetickEngine.MaxPlayers
   type: Property
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool Simulate { get; set; }
+    content: public int MaxPlayers { get; }
     parameters: []
     return:
-      type: System.Boolean
-    content.vb: Public Property Simulate As Boolean
-  overload: Netick.NetickEngine.Simulate*
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxPlayers As Integer
+  overload: Netick.NetickEngine.MaxPlayers*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -2966,6 +3024,42 @@ references:
   name: NetworkPlayer
   nameWithType: NetworkPlayer
   fullName: Netick.NetworkPlayer
+- uid: Netick.NetickEngine.GetBehavioursOfType*
+  commentId: Overload:Netick.NetickEngine.GetBehavioursOfType
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_GetBehavioursOfType__1_System_Collections_Generic_List___0__
+  name: GetBehavioursOfType
+  nameWithType: NetickEngine.GetBehavioursOfType
+  fullName: Netick.NetickEngine.GetBehavioursOfType
+- uid: System.Collections.Generic.List{{T}}
+  commentId: T:System.Collections.Generic.List{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick.NetickEngine.GetPlayerEntity*
   commentId: Overload:Netick.NetickEngine.GetPlayerEntity
   isExternal: true
@@ -3075,6 +3169,13 @@ references:
   name: DestroyEntity
   nameWithType: NetickEngine.DestroyEntity
   fullName: Netick.NetickEngine.DestroyEntity
+- uid: Netick.NetickEngine.GetEntityByWorldIndex*
+  commentId: Overload:Netick.NetickEngine.GetEntityByWorldIndex
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_GetEntityByWorldIndex_System_Int32_
+  name: GetEntityByWorldIndex
+  nameWithType: NetickEngine.GetEntityByWorldIndex
+  fullName: Netick.NetickEngine.GetEntityByWorldIndex
 - uid: Netick.NetickEngine.GetEntityMeta*
   commentId: Overload:Netick.NetickEngine.GetEntityMeta
   isExternal: true
@@ -3169,7 +3270,7 @@ references:
 - uid: Netick.NetickEngine.Start*
   commentId: Overload:Netick.NetickEngine.Start
   isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_Start_System_String_System_Int32_Netick_NetickStartMode_Netick_IGameEngine_Netick_NetickConfigData_Netick_NetworkTransport_Netick_ReflectionData_Netick_INetickLogger_Netick_IMemoryAllocator_System_Int32_
+  href: Netick.NetickEngine.html#Netick_NetickEngine_Start_System_Object_System_String_System_Int32_Netick_NetickStartMode_Netick_IGameEngine_Netick_NetickConfigData_Netick_NetworkTransport_Netick_ReflectionData_Netick_INetickLogger_Netick_IMemoryAllocator_System_Int32_
   name: Start
   nameWithType: NetickEngine.Start
   fullName: Netick.NetickEngine.Start
@@ -3246,7 +3347,7 @@ references:
 - uid: Netick.NetickEngine.Update*
   commentId: Overload:Netick.NetickEngine.Update
   isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_Update_System_Single_System_Single_
+  href: Netick.NetickEngine.html#Netick_NetickEngine_Update_System_Single_System_Single_System_Boolean_
   name: Update
   nameWithType: NetickEngine.Update
   fullName: Netick.NetickEngine.Update
@@ -4096,10 +4197,10 @@ references:
   name: MaxClients
   nameWithType: NetickEngine.MaxClients
   fullName: Netick.NetickEngine.MaxClients
-- uid: Netick.NetickEngine.Simulate*
-  commentId: Overload:Netick.NetickEngine.Simulate
+- uid: Netick.NetickEngine.MaxPlayers*
+  commentId: Overload:Netick.NetickEngine.MaxPlayers
   isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_Simulate
-  name: Simulate
-  nameWithType: NetickEngine.Simulate
-  fullName: Netick.NetickEngine.Simulate
+  href: Netick.NetickEngine.html#Netick_NetickEngine_MaxPlayers
+  name: MaxPlayers
+  nameWithType: NetickEngine.MaxPlayers
+  fullName: Netick.NetickEngine.MaxPlayers

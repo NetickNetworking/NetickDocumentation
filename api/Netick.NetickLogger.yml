@@ -11,6 +11,7 @@ items:
   - Netick.NetickLogger.LogError(Netick.Entity,System.Object,System.Object)
   - Netick.NetickLogger.LogError(Netick.NetickEngine,System.Object)
   - Netick.NetickLogger.LogError(System.Object,System.Object)
+  - Netick.NetickLogger.LogWarning(Netick.NetickEngine,System.Object)
   - Netick.NetickLogger.LogWarning(System.Object)
   - Netick.NetickLogger.SetLogger(Netick.INetickLogger)
   langs:
@@ -57,6 +58,30 @@ items:
       type: Netick.INetickLogger
     content.vb: Public Shared Sub SetLogger(logger As INetickLogger)
   overload: Netick.NetickLogger.SetLogger*
+- uid: Netick.NetickLogger.Log(System.Object)
+  commentId: M:Netick.NetickLogger.Log(System.Object)
+  id: Log(System.Object)
+  parent: Netick.NetickLogger
+  langs:
+  - csharp
+  - vb
+  name: Log(object)
+  nameWithType: NetickLogger.Log(object)
+  fullName: Netick.NetickLogger.Log(object)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static void Log(object message)
+    parameters:
+    - id: message
+      type: System.Object
+    content.vb: Public Shared Sub Log(message As Object)
+  overload: Netick.NetickLogger.Log*
+  nameWithType.vb: NetickLogger.Log(Object)
+  fullName.vb: Netick.NetickLogger.Log(Object)
+  name.vb: Log(Object)
 - uid: Netick.NetickLogger.Log(Netick.NetickEngine,System.Object)
   commentId: M:Netick.NetickLogger.Log(Netick.NetickEngine,System.Object)
   id: Log(Netick.NetickEngine,System.Object)
@@ -83,30 +108,6 @@ items:
   nameWithType.vb: NetickLogger.Log(NetickEngine, Object)
   fullName.vb: Netick.NetickLogger.Log(Netick.NetickEngine, Object)
   name.vb: Log(NetickEngine, Object)
-- uid: Netick.NetickLogger.Log(System.Object)
-  commentId: M:Netick.NetickLogger.Log(System.Object)
-  id: Log(System.Object)
-  parent: Netick.NetickLogger
-  langs:
-  - csharp
-  - vb
-  name: Log(object)
-  nameWithType: NetickLogger.Log(object)
-  fullName: Netick.NetickLogger.Log(object)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public static void Log(object message)
-    parameters:
-    - id: message
-      type: System.Object
-    content.vb: Public Shared Sub Log(message As Object)
-  overload: Netick.NetickLogger.Log*
-  nameWithType.vb: NetickLogger.Log(Object)
-  fullName.vb: Netick.NetickLogger.Log(Object)
-  name.vb: Log(Object)
 - uid: Netick.NetickLogger.LogWarning(System.Object)
   commentId: M:Netick.NetickLogger.LogWarning(System.Object)
   id: LogWarning(System.Object)
@@ -131,6 +132,32 @@ items:
   nameWithType.vb: NetickLogger.LogWarning(Object)
   fullName.vb: Netick.NetickLogger.LogWarning(Object)
   name.vb: LogWarning(Object)
+- uid: Netick.NetickLogger.LogWarning(Netick.NetickEngine,System.Object)
+  commentId: M:Netick.NetickLogger.LogWarning(Netick.NetickEngine,System.Object)
+  id: LogWarning(Netick.NetickEngine,System.Object)
+  parent: Netick.NetickLogger
+  langs:
+  - csharp
+  - vb
+  name: LogWarning(NetickEngine, object)
+  nameWithType: NetickLogger.LogWarning(NetickEngine, object)
+  fullName: Netick.NetickLogger.LogWarning(Netick.NetickEngine, object)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static void LogWarning(NetickEngine engine, object message)
+    parameters:
+    - id: engine
+      type: Netick.NetickEngine
+    - id: message
+      type: System.Object
+    content.vb: Public Shared Sub LogWarning(engine As NetickEngine, message As Object)
+  overload: Netick.NetickLogger.LogWarning*
+  nameWithType.vb: NetickLogger.LogWarning(NetickEngine, Object)
+  fullName.vb: Netick.NetickLogger.LogWarning(Netick.NetickEngine, Object)
+  name.vb: LogWarning(NetickEngine, Object)
 - uid: Netick.NetickLogger.LogError(Netick.Entity,System.Object,System.Object)
   commentId: M:Netick.NetickLogger.LogError(Netick.Entity,System.Object,System.Object)
   id: LogError(Netick.Entity,System.Object,System.Object)
@@ -500,7 +527,7 @@ references:
 - uid: Netick.NetickLogger.Log*
   commentId: Overload:Netick.NetickLogger.Log
   isExternal: true
-  href: Netick.NetickLogger.html#Netick_NetickLogger_Log_Netick_NetickEngine_System_Object_
+  href: Netick.NetickLogger.html#Netick_NetickLogger_Log_System_Object_
   name: Log
   nameWithType: NetickLogger.Log
   fullName: Netick.NetickLogger.Log

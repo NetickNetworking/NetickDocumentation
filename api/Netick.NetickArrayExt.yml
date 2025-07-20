@@ -7,6 +7,7 @@ items:
   children:
   - Netick.NetickArrayExt.ToNetworkArrayStruct16``1(``0[])
   - Netick.NetickArrayExt.ToNetworkArrayStruct32``1(``0[])
+  - Netick.NetickArrayExt.ToNetworkArrayStruct4``1(``0[])
   - Netick.NetickArrayExt.ToNetworkArrayStruct64``1(``0[])
   - Netick.NetickArrayExt.ToNetworkArrayStruct8``1(``0[])
   langs:
@@ -32,6 +33,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+- uid: Netick.NetickArrayExt.ToNetworkArrayStruct4``1(``0[])
+  commentId: M:Netick.NetickArrayExt.ToNetworkArrayStruct4``1(``0[])
+  id: ToNetworkArrayStruct4``1(``0[])
+  isExtensionMethod: true
+  parent: Netick.NetickArrayExt
+  langs:
+  - csharp
+  - vb
+  name: ToNetworkArrayStruct4<T>(T[])
+  nameWithType: NetickArrayExt.ToNetworkArrayStruct4<T>(T[])
+  fullName: Netick.NetickArrayExt.ToNetworkArrayStruct4<T>(T[])
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: 'public static NetworkArrayStruct4<T> ToNetworkArrayStruct4<T>(this T[] array) where T : unmanaged'
+    parameters:
+    - id: array
+      type: '{T}[]'
+    typeParameters:
+    - id: T
+    return:
+      type: Netick.NetworkArrayStruct4{{T}}
+    content.vb: Public Shared Function ToNetworkArrayStruct4(Of T As Structure)(array As T()) As NetworkArrayStruct4(Of T)
+  overload: Netick.NetickArrayExt.ToNetworkArrayStruct4*
+  nameWithType.vb: NetickArrayExt.ToNetworkArrayStruct4(Of T)(T())
+  fullName.vb: Netick.NetickArrayExt.ToNetworkArrayStruct4(Of T)(T())
+  name.vb: ToNetworkArrayStruct4(Of T)(T())
 - uid: Netick.NetickArrayExt.ToNetworkArrayStruct8``1(``0[])
   commentId: M:Netick.NetickArrayExt.ToNetworkArrayStruct8``1(``0[])
   id: ToNetworkArrayStruct8``1(``0[])
@@ -393,13 +423,13 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Netick.NetickArrayExt.ToNetworkArrayStruct8*
-  commentId: Overload:Netick.NetickArrayExt.ToNetworkArrayStruct8
+- uid: Netick.NetickArrayExt.ToNetworkArrayStruct4*
+  commentId: Overload:Netick.NetickArrayExt.ToNetworkArrayStruct4
   isExternal: true
-  href: Netick.NetickArrayExt.html#Netick_NetickArrayExt_ToNetworkArrayStruct8__1___0___
-  name: ToNetworkArrayStruct8
-  nameWithType: NetickArrayExt.ToNetworkArrayStruct8
-  fullName: Netick.NetickArrayExt.ToNetworkArrayStruct8
+  href: Netick.NetickArrayExt.html#Netick_NetickArrayExt_ToNetworkArrayStruct4__1___0___
+  name: ToNetworkArrayStruct4
+  nameWithType: NetickArrayExt.ToNetworkArrayStruct4
+  fullName: Netick.NetickArrayExt.ToNetworkArrayStruct4
 - uid: '{T}[]'
   isExternal: true
   name: T[]
@@ -416,6 +446,71 @@ references:
   - name: T
   - name: (
   - name: )
+- uid: Netick.NetworkArrayStruct4{{T}}
+  commentId: T:Netick.NetworkArrayStruct4{``0}
+  parent: Netick
+  definition: Netick.NetworkArrayStruct4`1
+  href: Netick.NetworkArrayStruct4-1.html
+  name: NetworkArrayStruct4<T>
+  nameWithType: NetworkArrayStruct4<T>
+  fullName: Netick.NetworkArrayStruct4<T>
+  nameWithType.vb: NetworkArrayStruct4(Of T)
+  fullName.vb: Netick.NetworkArrayStruct4(Of T)
+  name.vb: NetworkArrayStruct4(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkArrayStruct4`1
+    name: NetworkArrayStruct4
+    isExternal: true
+    href: Netick.NetworkArrayStruct4-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkArrayStruct4`1
+    name: NetworkArrayStruct4
+    isExternal: true
+    href: Netick.NetworkArrayStruct4-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetworkArrayStruct4`1
+  commentId: T:Netick.NetworkArrayStruct4`1
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkArrayStruct4-1.html
+  name: NetworkArrayStruct4<T>
+  nameWithType: NetworkArrayStruct4<T>
+  fullName: Netick.NetworkArrayStruct4<T>
+  nameWithType.vb: NetworkArrayStruct4(Of T)
+  fullName.vb: Netick.NetworkArrayStruct4(Of T)
+  name.vb: NetworkArrayStruct4(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkArrayStruct4`1
+    name: NetworkArrayStruct4
+    isExternal: true
+    href: Netick.NetworkArrayStruct4-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkArrayStruct4`1
+    name: NetworkArrayStruct4
+    isExternal: true
+    href: Netick.NetworkArrayStruct4-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetickArrayExt.ToNetworkArrayStruct8*
+  commentId: Overload:Netick.NetickArrayExt.ToNetworkArrayStruct8
+  isExternal: true
+  href: Netick.NetickArrayExt.html#Netick_NetickArrayExt_ToNetworkArrayStruct8__1___0___
+  name: ToNetworkArrayStruct8
+  nameWithType: NetickArrayExt.ToNetworkArrayStruct8
+  fullName: Netick.NetickArrayExt.ToNetworkArrayStruct8
 - uid: Netick.NetworkArrayStruct8{{T}}
   commentId: T:Netick.NetworkArrayStruct8{``0}
   parent: Netick

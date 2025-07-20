@@ -59,11 +59,13 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: The version of Netick.
+  example: []
   syntax:
-    content: public const string Version = "0.14.14"
+    content: public const string Version = "0.14.29"
     return:
       type: System.String
-    content.vb: Public Const Version As String = "0.14.14"
+    content.vb: Public Const Version As String = "0.14.29"
 - uid: Netick.Unity.Network.Init(Netick.Unity.NetickConfig)
   commentId: M:Netick.Unity.Network.Init(Netick.Unity.NetickConfig)
   id: Init(Netick.Unity.NetickConfig)
@@ -560,6 +562,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: The start mode of Netick.
+  example: []
   syntax:
     content: public static StartMode StartMode { get; }
     parameters: []
@@ -581,6 +585,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Returns true if Netick is running, false otherwise.
+  example: []
   syntax:
     content: public static bool IsRunning { get; }
     parameters: []
@@ -588,27 +594,6 @@ items:
       type: System.Boolean
     content.vb: Public Shared ReadOnly Property IsRunning As Boolean
   overload: Netick.Unity.Network.IsRunning*
-- uid: Netick.Unity.Network.IsHeadless
-  commentId: P:Netick.Unity.Network.IsHeadless
-  id: IsHeadless
-  parent: Netick.Unity.Network
-  langs:
-  - csharp
-  - vb
-  name: IsHeadless
-  nameWithType: Network.IsHeadless
-  fullName: Netick.Unity.Network.IsHeadless
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public static bool IsHeadless { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Shared ReadOnly Property IsHeadless As Boolean
-  overload: Netick.Unity.Network.IsHeadless*
 - uid: Netick.Unity.Network.Sandboxes
   commentId: P:Netick.Unity.Network.Sandboxes
   id: Sandboxes
@@ -623,6 +608,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Returns the list of all sandboxes currently running in Netick.
+  example: []
   syntax:
     content: public static IReadOnlyList<NetworkSandbox> Sandboxes { get; }
     parameters: []
@@ -644,6 +631,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Returns the singleton instance of the Network class, which manages Netick.
+  example: []
   syntax:
     content: public static Network Instance { get; }
     parameters: []
@@ -665,6 +654,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Returns the configuration (of the first sandbox) used by Netick.
+  example: []
   syntax:
     content: public static NetickConfig Config { get; }
     parameters: []
@@ -672,6 +663,29 @@ items:
       type: Netick.Unity.NetickConfig
     content.vb: Public Shared ReadOnly Property Config As NetickConfig
   overload: Netick.Unity.Network.Config*
+- uid: Netick.Unity.Network.IsHeadless
+  commentId: P:Netick.Unity.Network.IsHeadless
+  id: IsHeadless
+  parent: Netick.Unity.Network
+  langs:
+  - csharp
+  - vb
+  name: IsHeadless
+  nameWithType: Network.IsHeadless
+  fullName: Netick.Unity.Network.IsHeadless
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns true if Netick is running in headless mode (batch mode), false otherwise.
+  example: []
+  syntax:
+    content: public static bool IsHeadless { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Shared ReadOnly Property IsHeadless As Boolean
+  overload: Netick.Unity.Network.IsHeadless*
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -1104,13 +1118,6 @@ references:
   name: IsRunning
   nameWithType: Network.IsRunning
   fullName: Netick.Unity.Network.IsRunning
-- uid: Netick.Unity.Network.IsHeadless*
-  commentId: Overload:Netick.Unity.Network.IsHeadless
-  isExternal: true
-  href: Netick.Unity.Network.html#Netick_Unity_Network_IsHeadless
-  name: IsHeadless
-  nameWithType: Network.IsHeadless
-  fullName: Netick.Unity.Network.IsHeadless
 - uid: Netick.Unity.Network.Sandboxes*
   commentId: Overload:Netick.Unity.Network.Sandboxes
   isExternal: true
@@ -1203,3 +1210,10 @@ references:
   name: Config
   nameWithType: Network.Config
   fullName: Netick.Unity.Network.Config
+- uid: Netick.Unity.Network.IsHeadless*
+  commentId: Overload:Netick.Unity.Network.IsHeadless
+  isExternal: true
+  href: Netick.Unity.Network.html#Netick_Unity_Network_IsHeadless
+  name: IsHeadless
+  nameWithType: Network.IsHeadless
+  fullName: Netick.Unity.Network.IsHeadless

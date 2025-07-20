@@ -11,7 +11,6 @@ items:
   - Netick.Simulation.CurrentInput
   - Netick.Simulation.FetchInputLocal``1(``0@,System.Boolean@,System.Int32)
   - Netick.Simulation.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
-  - Netick.Simulation.GetEntityByWorldIndex(System.Int32)
   - Netick.Simulation.GetInput``1(System.Int32)
   - Netick.Simulation.InvokePostResimulation
   - Netick.Simulation.InvokePreRollback
@@ -21,6 +20,12 @@ items:
   - Netick.Simulation.SetInput``1(``0,System.Int32)
   - Netick.Simulation.SimulatedObjects
   - Netick.Simulation.UnlinkedEntities
+  - Netick.Simulation._networkStartExecutionList
+  - Netick.Simulation._newObjectsList
+  - Netick.Simulation._pendingAddedObjects
+  - Netick.Simulation._pendingBehaviours
+  - Netick.Simulation._pendingRemovedEntities
+  - Netick.Simulation._removedObjectsList
   langs:
   - csharp
   - vb
@@ -85,6 +90,120 @@ items:
     return:
       type: System.Collections.Generic.Dictionary{System.Int32,Netick.Entity}
     content.vb: Public UnlinkedEntities As Dictionary(Of Integer, Entity)
+- uid: Netick.Simulation._pendingAddedObjects
+  commentId: F:Netick.Simulation._pendingAddedObjects
+  id: _pendingAddedObjects
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: _pendingAddedObjects
+  nameWithType: Simulation._pendingAddedObjects
+  fullName: Netick.Simulation._pendingAddedObjects
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: protected HashSet<Entity> _pendingAddedObjects
+    return:
+      type: System.Collections.Generic.HashSet{Netick.Entity}
+    content.vb: Protected _pendingAddedObjects As HashSet(Of Entity)
+- uid: Netick.Simulation._pendingRemovedEntities
+  commentId: F:Netick.Simulation._pendingRemovedEntities
+  id: _pendingRemovedEntities
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: _pendingRemovedEntities
+  nameWithType: Simulation._pendingRemovedEntities
+  fullName: Netick.Simulation._pendingRemovedEntities
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: protected HashSet<Simulation.EntityRemove> _pendingRemovedEntities
+    return:
+      type: System.Collections.Generic.HashSet{Netick.Simulation.EntityRemove}
+    content.vb: Protected _pendingRemovedEntities As HashSet(Of Simulation.EntityRemove)
+- uid: Netick.Simulation._pendingBehaviours
+  commentId: F:Netick.Simulation._pendingBehaviours
+  id: _pendingBehaviours
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: _pendingBehaviours
+  nameWithType: Simulation._pendingBehaviours
+  fullName: Netick.Simulation._pendingBehaviours
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: protected Queue<Simulation.BehaviourAttachOperation> _pendingBehaviours
+    return:
+      type: System.Collections.Generic.Queue{Netick.Simulation.BehaviourAttachOperation}
+    content.vb: Protected _pendingBehaviours As Queue(Of Simulation.BehaviourAttachOperation)
+- uid: Netick.Simulation._networkStartExecutionList
+  commentId: F:Netick.Simulation._networkStartExecutionList
+  id: _networkStartExecutionList
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: _networkStartExecutionList
+  nameWithType: Simulation._networkStartExecutionList
+  fullName: Netick.Simulation._networkStartExecutionList
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: protected ExecutionList _networkStartExecutionList
+    return:
+      type: Netick.ExecutionList
+    content.vb: Protected _networkStartExecutionList As ExecutionList
+- uid: Netick.Simulation._newObjectsList
+  commentId: F:Netick.Simulation._newObjectsList
+  id: _newObjectsList
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: _newObjectsList
+  nameWithType: Simulation._newObjectsList
+  fullName: Netick.Simulation._newObjectsList
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: protected List<Entity> _newObjectsList
+    return:
+      type: System.Collections.Generic.List{Netick.Entity}
+    content.vb: Protected _newObjectsList As List(Of Entity)
+- uid: Netick.Simulation._removedObjectsList
+  commentId: F:Netick.Simulation._removedObjectsList
+  id: _removedObjectsList
+  parent: Netick.Simulation
+  langs:
+  - csharp
+  - vb
+  name: _removedObjectsList
+  nameWithType: Simulation._removedObjectsList
+  fullName: Netick.Simulation._removedObjectsList
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: protected List<Simulation.EntityRemove> _removedObjectsList
+    return:
+      type: System.Collections.Generic.List{Netick.Simulation.EntityRemove}
+    content.vb: Protected _removedObjectsList As List(Of Simulation.EntityRemove)
 - uid: Netick.Simulation.InvokeRPCs
   commentId: M:Netick.Simulation.InvokeRPCs
   id: InvokeRPCs
@@ -261,32 +380,6 @@ items:
   nameWithType.vb: Simulation.SetInput(Of T)(T, Integer)
   fullName.vb: Netick.Simulation.SetInput(Of T)(T, Integer)
   name.vb: SetInput(Of T)(T, Integer)
-- uid: Netick.Simulation.GetEntityByWorldIndex(System.Int32)
-  commentId: M:Netick.Simulation.GetEntityByWorldIndex(System.Int32)
-  id: GetEntityByWorldIndex(System.Int32)
-  parent: Netick.Simulation
-  langs:
-  - csharp
-  - vb
-  name: GetEntityByWorldIndex(int)
-  nameWithType: Simulation.GetEntityByWorldIndex(int)
-  fullName: Netick.Simulation.GetEntityByWorldIndex(int)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public Entity GetEntityByWorldIndex(int worldIndex)
-    parameters:
-    - id: worldIndex
-      type: System.Int32
-    return:
-      type: Netick.Entity
-    content.vb: Public Function GetEntityByWorldIndex(worldIndex As Integer) As Entity
-  overload: Netick.Simulation.GetEntityByWorldIndex*
-  nameWithType.vb: Simulation.GetEntityByWorldIndex(Integer)
-  fullName.vb: Netick.Simulation.GetEntityByWorldIndex(Integer)
-  name.vb: GetEntityByWorldIndex(Integer)
 - uid: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
   commentId: M:Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
   id: RemoveFromNetworkLoop(Netick.Entity)
@@ -802,6 +895,303 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.HashSet{Netick.Entity}
+  commentId: T:System.Collections.Generic.HashSet{Netick.Entity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<Entity>
+  nameWithType: HashSet<Entity>
+  fullName: System.Collections.Generic.HashSet<Netick.Entity>
+  nameWithType.vb: HashSet(Of Entity)
+  fullName.vb: System.Collections.Generic.HashSet(Of Netick.Entity)
+  name.vb: HashSet(Of Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.HashSet{Netick.Simulation.EntityRemove}
+  commentId: T:System.Collections.Generic.HashSet{Netick.Simulation.EntityRemove}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<Simulation.EntityRemove>
+  nameWithType: HashSet<Simulation.EntityRemove>
+  fullName: System.Collections.Generic.HashSet<Netick.Simulation.EntityRemove>
+  nameWithType.vb: HashSet(Of Simulation.EntityRemove)
+  fullName.vb: System.Collections.Generic.HashSet(Of Netick.Simulation.EntityRemove)
+  name.vb: HashSet(Of Simulation.EntityRemove)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - uid: Netick.Simulation
+    name: Simulation
+    isExternal: true
+    href: Netick.Simulation.html
+  - name: .
+  - uid: Netick.Simulation.EntityRemove
+    name: EntityRemove
+    isExternal: true
+    href: Netick.Simulation.EntityRemove.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Simulation
+    name: Simulation
+    isExternal: true
+    href: Netick.Simulation.html
+  - name: .
+  - uid: Netick.Simulation.EntityRemove
+    name: EntityRemove
+    isExternal: true
+    href: Netick.Simulation.EntityRemove.html
+  - name: )
+- uid: System.Collections.Generic.Queue{Netick.Simulation.BehaviourAttachOperation}
+  commentId: T:System.Collections.Generic.Queue{Netick.Simulation.BehaviourAttachOperation}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Queue`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  name: Queue<Simulation.BehaviourAttachOperation>
+  nameWithType: Queue<Simulation.BehaviourAttachOperation>
+  fullName: System.Collections.Generic.Queue<Netick.Simulation.BehaviourAttachOperation>
+  nameWithType.vb: Queue(Of Simulation.BehaviourAttachOperation)
+  fullName.vb: System.Collections.Generic.Queue(Of Netick.Simulation.BehaviourAttachOperation)
+  name.vb: Queue(Of Simulation.BehaviourAttachOperation)
+  spec.csharp:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: <
+  - uid: Netick.Simulation
+    name: Simulation
+    isExternal: true
+    href: Netick.Simulation.html
+  - name: .
+  - uid: Netick.Simulation.BehaviourAttachOperation
+    name: BehaviourAttachOperation
+    isExternal: true
+    href: Netick.Simulation.BehaviourAttachOperation.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Simulation
+    name: Simulation
+    isExternal: true
+    href: Netick.Simulation.html
+  - name: .
+  - uid: Netick.Simulation.BehaviourAttachOperation
+    name: BehaviourAttachOperation
+    isExternal: true
+    href: Netick.Simulation.BehaviourAttachOperation.html
+  - name: )
+- uid: System.Collections.Generic.Queue`1
+  commentId: T:System.Collections.Generic.Queue`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  name: Queue<T>
+  nameWithType: Queue<T>
+  fullName: System.Collections.Generic.Queue<T>
+  nameWithType.vb: Queue(Of T)
+  fullName.vb: System.Collections.Generic.Queue(Of T)
+  name.vb: Queue(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.ExecutionList
+  commentId: T:Netick.ExecutionList
+  parent: Netick
+  isExternal: true
+  href: Netick.ExecutionList.html
+  name: ExecutionList
+  nameWithType: ExecutionList
+  fullName: Netick.ExecutionList
+- uid: System.Collections.Generic.List{Netick.Entity}
+  commentId: T:System.Collections.Generic.List{Netick.Entity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Entity>
+  nameWithType: List<Entity>
+  fullName: System.Collections.Generic.List<Netick.Entity>
+  nameWithType.vb: List(Of Entity)
+  fullName.vb: System.Collections.Generic.List(Of Netick.Entity)
+  name.vb: List(Of Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.List{Netick.Simulation.EntityRemove}
+  commentId: T:System.Collections.Generic.List{Netick.Simulation.EntityRemove}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Simulation.EntityRemove>
+  nameWithType: List<Simulation.EntityRemove>
+  fullName: System.Collections.Generic.List<Netick.Simulation.EntityRemove>
+  nameWithType.vb: List(Of Simulation.EntityRemove)
+  fullName.vb: System.Collections.Generic.List(Of Netick.Simulation.EntityRemove)
+  name.vb: List(Of Simulation.EntityRemove)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.Simulation
+    name: Simulation
+    isExternal: true
+    href: Netick.Simulation.html
+  - name: .
+  - uid: Netick.Simulation.EntityRemove
+    name: EntityRemove
+    isExternal: true
+    href: Netick.Simulation.EntityRemove.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Simulation
+    name: Simulation
+    isExternal: true
+    href: Netick.Simulation.html
+  - name: .
+  - uid: Netick.Simulation.EntityRemove
+    name: EntityRemove
+    isExternal: true
+    href: Netick.Simulation.EntityRemove.html
+  - name: )
 - uid: Netick.Simulation.InvokeRPCs*
   commentId: Overload:Netick.Simulation.InvokeRPCs
   isExternal: true
@@ -891,13 +1281,6 @@ references:
   name: SetInput
   nameWithType: Simulation.SetInput
   fullName: Netick.Simulation.SetInput
-- uid: Netick.Simulation.GetEntityByWorldIndex*
-  commentId: Overload:Netick.Simulation.GetEntityByWorldIndex
-  isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_GetEntityByWorldIndex_System_Int32_
-  name: GetEntityByWorldIndex
-  nameWithType: Simulation.GetEntityByWorldIndex
-  fullName: Netick.Simulation.GetEntityByWorldIndex
 - uid: Netick.Simulation.RemoveFromNetworkLoop*
   commentId: Overload:Netick.Simulation.RemoveFromNetworkLoop
   isExternal: true

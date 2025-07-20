@@ -25,6 +25,8 @@ items:
   - Netick.Unity.NetworkObject.InterestGroup
   - Netick.Unity.NetworkObject.IsClient
   - Netick.Unity.NetworkObject.IsInputSource
+  - Netick.Unity.NetworkObject.IsInterested
+  - Netick.Unity.NetworkObject.IsMarkedForDestruction
   - Netick.Unity.NetworkObject.IsOwner
   - Netick.Unity.NetworkObject.IsPersistent
   - Netick.Unity.NetworkObject.IsPrefabObject
@@ -86,32 +88,15 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Returns a network-serializable reference to this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref>. This is used to get a networkable identifier for this object, which can be used for RPCs or network properties.
+  example: []
   syntax:
     content: public NetworkObjectRef GetRef()
     return:
       type: Netick.Unity.NetworkObjectRef
+      description: ''
     content.vb: Public Function GetRef() As NetworkObjectRef
   overload: Netick.Unity.NetworkObject.GetRef*
-- uid: Netick.Unity.NetworkObject.GetSceneId
-  commentId: M:Netick.Unity.NetworkObject.GetSceneId
-  id: GetSceneId
-  parent: Netick.Unity.NetworkObject
-  langs:
-  - csharp
-  - vb
-  name: GetSceneId()
-  nameWithType: NetworkObject.GetSceneId()
-  fullName: Netick.Unity.NetworkObject.GetSceneId()
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public int GetSceneId()
-    return:
-      type: System.Int32
-    content.vb: Public Function GetSceneId() As Integer
-  overload: Netick.Unity.NetworkObject.GetSceneId*
 - uid: Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
   commentId: M:Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
   id: SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
@@ -158,6 +143,38 @@ items:
       type: Netick.EntityStateRef
     content.vb: Public Function GetStateRef() As EntityStateRef
   overload: Netick.Unity.NetworkObject.GetStateRef*
+- uid: Netick.Unity.NetworkObject.GetSceneId
+  commentId: M:Netick.Unity.NetworkObject.GetSceneId
+  id: GetSceneId
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: GetSceneId()
+  nameWithType: NetworkObject.GetSceneId()
+  fullName: Netick.Unity.NetworkObject.GetSceneId()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [Obsolete("Use SceneId instead. This will be removed in the future.")]
+
+      public int GetSceneId()
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Obsolete("Use SceneId instead. This will be removed in the future.")>
+
+      Public Function GetSceneId() As Integer
+  overload: Netick.Unity.NetworkObject.GetSceneId*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use SceneId instead. This will be removed in the future.
 - uid: Netick.Unity.NetworkObject.ClearState(System.Boolean)
   commentId: M:Netick.Unity.NetworkObject.ClearState(System.Boolean)
   id: ClearState(System.Boolean)
@@ -531,6 +548,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: The <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref> this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> belongs to.
+  example: []
   syntax:
     content: public NetworkSandbox Sandbox { get; }
     parameters: []
@@ -552,6 +571,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: The <xref href="Netick.NetickEngine" data-throw-if-not-resolved="false"></xref> this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> belongs to.
   example: []
   syntax:
     content: public NetickEngine Engine { get; }
@@ -576,6 +596,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: The <xref href="Netick.Entity" data-throw-if-not-resolved="false"></xref> this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> represents in the Netick simulation.
   example: []
   syntax:
     content: public Entity Entity { get; }
@@ -600,6 +621,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Returns the unique identifier of this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> in the Netick simulation. This id is assigned by the Netick when the object is added to the simulation and is used to identify the object across the network.
+  example: []
   syntax:
     content: public int Id { get; }
     parameters: []
@@ -607,6 +630,29 @@ items:
       type: System.Int32
     content.vb: Public ReadOnly Property Id As Integer
   overload: Netick.Unity.NetworkObject.Id*
+- uid: Netick.Unity.NetworkObject.SpawnTick
+  commentId: P:Netick.Unity.NetworkObject.SpawnTick
+  id: SpawnTick
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: SpawnTick
+  nameWithType: NetworkObject.SpawnTick
+  fullName: Netick.Unity.NetworkObject.SpawnTick
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns the tick at which this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> was spawned locally. This is a local value, and is not synced.
+  example: []
+  syntax:
+    content: public Tick SpawnTick { get; }
+    parameters: []
+    return:
+      type: Netick.Tick
+    content.vb: Public ReadOnly Property SpawnTick As Tick
+  overload: Netick.Unity.NetworkObject.SpawnTick*
 - uid: Netick.Unity.NetworkObject.HasValidId
   commentId: P:Netick.Unity.NetworkObject.HasValidId
   id: HasValidId
@@ -630,6 +676,75 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property HasValidId As Boolean
   overload: Netick.Unity.NetworkObject.HasValidId*
+- uid: Netick.Unity.NetworkObject.IsMarkedForDestruction
+  commentId: P:Netick.Unity.NetworkObject.IsMarkedForDestruction
+  id: IsMarkedForDestruction
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: IsMarkedForDestruction
+  nameWithType: NetworkObject.IsMarkedForDestruction
+  fullName: Netick.Unity.NetworkObject.IsMarkedForDestruction
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: <i><b>[Server Only]</b></i> Returns true if <xref href="Netick.Unity.NetworkSandbox.Destroy(Netick.Unity.NetworkObject)" data-throw-if-not-resolved="false"></xref> has been called on this object in the server, and the object is scheduled to be removed from the simulation (destroyed) at the end of the current tick.
+  example: []
+  syntax:
+    content: public bool IsMarkedForDestruction { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsMarkedForDestruction As Boolean
+  overload: Netick.Unity.NetworkObject.IsMarkedForDestruction*
+- uid: Netick.Unity.NetworkObject.NetworkedBehaviours
+  commentId: P:Netick.Unity.NetworkObject.NetworkedBehaviours
+  id: NetworkedBehaviours
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: NetworkedBehaviours
+  nameWithType: NetworkObject.NetworkedBehaviours
+  fullName: Netick.Unity.NetworkObject.NetworkedBehaviours
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns the <xref href="Netick.Unity.NetworkBehaviour" data-throw-if-not-resolved="false"></xref> components attached to this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public NetworkBehaviour[] NetworkedBehaviours { get; }
+    parameters: []
+    return:
+      type: Netick.Unity.NetworkBehaviour[]
+    content.vb: Public ReadOnly Property NetworkedBehaviours As NetworkBehaviour()
+  overload: Netick.Unity.NetworkObject.NetworkedBehaviours*
+- uid: Netick.Unity.NetworkObject.NetickBehaviours
+  commentId: P:Netick.Unity.NetworkObject.NetickBehaviours
+  id: NetickBehaviours
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: NetickBehaviours
+  nameWithType: NetworkObject.NetickBehaviours
+  fullName: Netick.Unity.NetworkObject.NetickBehaviours
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns the <xref href="Netick.Unity.NetickBehaviour" data-throw-if-not-resolved="false"></xref> components attached to this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public NetickBehaviour[] NetickBehaviours { get; }
+    parameters: []
+    return:
+      type: Netick.Unity.NetickBehaviour[]
+    content.vb: Public ReadOnly Property NetickBehaviours As NetickBehaviour()
+  overload: Netick.Unity.NetworkObject.NetickBehaviours*
 - uid: Netick.Unity.NetworkObject.AoILayer
   commentId: P:Netick.Unity.NetworkObject.AoILayer
   id: AoILayer
@@ -762,27 +877,6 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsPersistent As Boolean
   overload: Netick.Unity.NetworkObject.IsPersistent*
-- uid: Netick.Unity.NetworkObject.SpawnTick
-  commentId: P:Netick.Unity.NetworkObject.SpawnTick
-  id: SpawnTick
-  parent: Netick.Unity.NetworkObject
-  langs:
-  - csharp
-  - vb
-  name: SpawnTick
-  nameWithType: NetworkObject.SpawnTick
-  fullName: Netick.Unity.NetworkObject.SpawnTick
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public Tick SpawnTick { get; }
-    parameters: []
-    return:
-      type: Netick.Tick
-    content.vb: Public ReadOnly Property SpawnTick As Tick
-  overload: Netick.Unity.NetworkObject.SpawnTick*
 - uid: Netick.Unity.NetworkObject.Parent
   commentId: P:Netick.Unity.NetworkObject.Parent
   id: Parent
@@ -820,6 +914,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Returns true if this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> is a scene object (not a prefab instance). Scene objects are objects that are part of the scene and not instantiated from a prefab.
+  example: []
   syntax:
     content: public bool IsSceneObject { get; }
     parameters: []
@@ -841,6 +937,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Returns true if this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> is a prefab object (not a scene object). Prefab objects are objects that are instantiated from a prefab and not part of the scene.
+  example: []
   syntax:
     content: public bool IsPrefabObject { get; }
     parameters: []
@@ -862,6 +960,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Returns the prefab id of this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref>. This is used to identify the prefab from which this object was instantiated. If this object is a scene object, it returns -1.
+  example: []
   syntax:
     content: public int PrefabId { get; }
     parameters: []
@@ -883,6 +983,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Returns the scene id of this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref>. This value is only unique per-scene, and not per the entire game.
+  example: []
   syntax:
     content: public int SceneId { get; }
     parameters: []
@@ -904,6 +1006,8 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
+  summary: Returns the runtime scene id of this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref>. This value is only unique per-scene, and not per the entire game.
+  example: []
   syntax:
     content: public int RuntimeSceneId { get; }
     parameters: []
@@ -911,48 +1015,6 @@ items:
       type: System.Int32
     content.vb: Public ReadOnly Property RuntimeSceneId As Integer
   overload: Netick.Unity.NetworkObject.RuntimeSceneId*
-- uid: Netick.Unity.NetworkObject.NetworkedBehaviours
-  commentId: P:Netick.Unity.NetworkObject.NetworkedBehaviours
-  id: NetworkedBehaviours
-  parent: Netick.Unity.NetworkObject
-  langs:
-  - csharp
-  - vb
-  name: NetworkedBehaviours
-  nameWithType: NetworkObject.NetworkedBehaviours
-  fullName: Netick.Unity.NetworkObject.NetworkedBehaviours
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public NetworkBehaviour[] NetworkedBehaviours { get; }
-    parameters: []
-    return:
-      type: Netick.Unity.NetworkBehaviour[]
-    content.vb: Public ReadOnly Property NetworkedBehaviours As NetworkBehaviour()
-  overload: Netick.Unity.NetworkObject.NetworkedBehaviours*
-- uid: Netick.Unity.NetworkObject.NetickBehaviours
-  commentId: P:Netick.Unity.NetworkObject.NetickBehaviours
-  id: NetickBehaviours
-  parent: Netick.Unity.NetworkObject
-  langs:
-  - csharp
-  - vb
-  name: NetickBehaviours
-  nameWithType: NetworkObject.NetickBehaviours
-  fullName: Netick.Unity.NetworkObject.NetickBehaviours
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public NetickBehaviour[] NetickBehaviours { get; }
-    parameters: []
-    return:
-      type: Netick.Unity.NetickBehaviour[]
-    content.vb: Public ReadOnly Property NetickBehaviours As NetickBehaviour()
-  overload: Netick.Unity.NetworkObject.NetickBehaviours*
 - uid: Netick.Unity.NetworkObject.IsClient
   commentId: P:Netick.Unity.NetworkObject.IsClient
   id: IsClient
@@ -1109,6 +1171,8 @@ items:
     Returns the source <xref href="Netick.NetworkPlayer" data-throw-if-not-resolved="false"></xref> (<xref href="Netick.NetworkPeer" data-throw-if-not-resolved="false"></xref>/<xref href="Netick.ServerConnection" data-throw-if-not-resolved="false"></xref>) of inputs for this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref>. If the source of inputs is remote (from a client) it returns that <xref href="Netick.ServerConnection" data-throw-if-not-resolved="false"></xref>, while on the
 
     input source itself it returns the local <xref href="Netick.NetworkPlayer" data-throw-if-not-resolved="false"></xref>.
+
+    <p>Use <xref href="Netick.Unity.NetworkObject.InputSourcePlayerId" data-throw-if-not-resolved="false"></xref> for the synced-to-everyone player id of the Input Source - because <xref href="Netick.Unity.NetworkObject.InputSource" data-throw-if-not-resolved="false"></xref> is only valid in the client for objects the client itself is the input source of, and it's null for everything else.</p>
   example: []
   syntax:
     content: public NetworkPlayer InputSource { get; set; }
@@ -1140,6 +1204,29 @@ items:
       type: Netick.NetworkPlayerId
     content.vb: Public ReadOnly Property InputSourcePlayerId As NetworkPlayerId
   overload: Netick.Unity.NetworkObject.InputSourcePlayerId*
+- uid: Netick.Unity.NetworkObject.IsInterested
+  commentId: P:Netick.Unity.NetworkObject.IsInterested
+  id: IsInterested
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: IsInterested
+  nameWithType: NetworkObject.IsInterested
+  fullName: Netick.Unity.NetworkObject.IsInterested
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: <i><b>[Client Only]</b></i> On the client, returns true if this client is interested in this object. On the server, always returns true.
+  example: []
+  syntax:
+    content: public bool IsInterested { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInterested As Boolean
+  overload: Netick.Unity.NetworkObject.IsInterested*
 - uid: Netick.Unity.NetworkObject.InterestGroup
   commentId: P:Netick.Unity.NetworkObject.InterestGroup
   id: InterestGroup
@@ -1247,6 +1334,14 @@ references:
   name: Netick
   nameWithType: Netick
   fullName: Netick
+- uid: Netick.Unity.NetworkObject
+  commentId: T:Netick.Unity.NetworkObject
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html
+  name: NetworkObject
+  nameWithType: NetworkObject
+  fullName: Netick.Unity.NetworkObject
 - uid: Netick.Unity.NetworkObject.GetRef*
   commentId: Overload:Netick.Unity.NetworkObject.GetRef
   isExternal: true
@@ -1262,24 +1357,6 @@ references:
   name: NetworkObjectRef
   nameWithType: NetworkObjectRef
   fullName: Netick.Unity.NetworkObjectRef
-- uid: Netick.Unity.NetworkObject.GetSceneId*
-  commentId: Overload:Netick.Unity.NetworkObject.GetSceneId
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_GetSceneId
-  name: GetSceneId
-  nameWithType: NetworkObject.GetSceneId
-  fullName: Netick.Unity.NetworkObject.GetSceneId
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: Netick.Unity.NetworkObject.SetNarrowphaseInterest*
   commentId: Overload:Netick.Unity.NetworkObject.SetNarrowphaseInterest
   isExternal: true
@@ -1321,6 +1398,24 @@ references:
   name: EntityStateRef
   nameWithType: EntityStateRef
   fullName: Netick.EntityStateRef
+- uid: Netick.Unity.NetworkObject.GetSceneId*
+  commentId: Overload:Netick.Unity.NetworkObject.GetSceneId
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_GetSceneId
+  name: GetSceneId
+  nameWithType: NetworkObject.GetSceneId
+  fullName: Netick.Unity.NetworkObject.GetSceneId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: Netick.Unity.NetworkObject.ClearState*
   commentId: Overload:Netick.Unity.NetworkObject.ClearState
   isExternal: true
@@ -1429,14 +1524,6 @@ references:
   name: SetParent
   nameWithType: NetworkObject.SetParent
   fullName: Netick.Unity.NetworkObject.SetParent
-- uid: Netick.Unity.NetworkObject
-  commentId: T:Netick.Unity.NetworkObject
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html
-  name: NetworkObject
-  nameWithType: NetworkObject
-  fullName: Netick.Unity.NetworkObject
 - uid: Netick.Unity.NetworkObject.SetInitialProperties*
   commentId: Overload:Netick.Unity.NetworkObject.SetInitialProperties
   isExternal: true
@@ -1470,13 +1557,6 @@ references:
   nameWithType.vb: NetworkObject.New
   fullName.vb: Netick.Unity.NetworkObject.New
   name.vb: New
-- uid: Netick.Unity.NetworkObject.Sandbox*
-  commentId: Overload:Netick.Unity.NetworkObject.Sandbox
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_Sandbox
-  name: Sandbox
-  nameWithType: NetworkObject.Sandbox
-  fullName: Netick.Unity.NetworkObject.Sandbox
 - uid: Netick.Unity.NetworkSandbox
   commentId: T:Netick.Unity.NetworkSandbox
   parent: Netick.Unity
@@ -1485,6 +1565,21 @@ references:
   name: NetworkSandbox
   nameWithType: NetworkSandbox
   fullName: Netick.Unity.NetworkSandbox
+- uid: Netick.Unity.NetworkObject.Sandbox*
+  commentId: Overload:Netick.Unity.NetworkObject.Sandbox
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_Sandbox
+  name: Sandbox
+  nameWithType: NetworkObject.Sandbox
+  fullName: Netick.Unity.NetworkObject.Sandbox
+- uid: Netick.NetickEngine
+  commentId: T:Netick.NetickEngine
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickEngine.html
+  name: NetickEngine
+  nameWithType: NetickEngine
+  fullName: Netick.NetickEngine
 - uid: Netick.Unity.NetworkObject.Engine*
   commentId: Overload:Netick.Unity.NetworkObject.Engine
   isExternal: true
@@ -1499,14 +1594,14 @@ references:
   name: Engine
   nameWithType: INetickEntity.Engine
   fullName: Netick.INetickEntity.Engine
-- uid: Netick.NetickEngine
-  commentId: T:Netick.NetickEngine
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
   parent: Netick
   isExternal: true
-  href: Netick.NetickEngine.html
-  name: NetickEngine
-  nameWithType: NetickEngine
-  fullName: Netick.NetickEngine
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
 - uid: Netick.Unity.NetworkObject.Entity*
   commentId: Overload:Netick.Unity.NetworkObject.Entity
   isExternal: true
@@ -1521,14 +1616,6 @@ references:
   name: Entity
   nameWithType: INetickEntity.Entity
   fullName: Netick.INetickEntity.Entity
-- uid: Netick.Entity
-  commentId: T:Netick.Entity
-  parent: Netick
-  isExternal: true
-  href: Netick.Entity.html
-  name: Entity
-  nameWithType: Entity
-  fullName: Netick.Entity
 - uid: Netick.Unity.NetworkObject.Id*
   commentId: Overload:Netick.Unity.NetworkObject.Id
   isExternal: true
@@ -1536,6 +1623,21 @@ references:
   name: Id
   nameWithType: NetworkObject.Id
   fullName: Netick.Unity.NetworkObject.Id
+- uid: Netick.Unity.NetworkObject.SpawnTick*
+  commentId: Overload:Netick.Unity.NetworkObject.SpawnTick
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_SpawnTick
+  name: SpawnTick
+  nameWithType: NetworkObject.SpawnTick
+  fullName: Netick.Unity.NetworkObject.SpawnTick
+- uid: Netick.Tick
+  commentId: T:Netick.Tick
+  parent: Netick
+  isExternal: true
+  href: Netick.Tick.html
+  name: Tick
+  nameWithType: Tick
+  fullName: Netick.Tick
 - uid: Netick.Unity.NetworkObject.HasValidId*
   commentId: Overload:Netick.Unity.NetworkObject.HasValidId
   isExternal: true
@@ -1543,6 +1645,118 @@ references:
   name: HasValidId
   nameWithType: NetworkObject.HasValidId
   fullName: Netick.Unity.NetworkObject.HasValidId
+- uid: Netick.Unity.NetworkSandbox.Destroy(Netick.Unity.NetworkObject)
+  commentId: M:Netick.Unity.NetworkSandbox.Destroy(Netick.Unity.NetworkObject)
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Destroy_Netick_Unity_NetworkObject_
+  name: Destroy(NetworkObject)
+  nameWithType: NetworkSandbox.Destroy(NetworkObject)
+  fullName: Netick.Unity.NetworkSandbox.Destroy(Netick.Unity.NetworkObject)
+  spec.csharp:
+  - uid: Netick.Unity.NetworkSandbox.Destroy(Netick.Unity.NetworkObject)
+    name: Destroy
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Destroy_Netick_Unity_NetworkObject_
+  - name: (
+  - uid: Netick.Unity.NetworkObject
+    name: NetworkObject
+    isExternal: true
+    href: Netick.Unity.NetworkObject.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkSandbox.Destroy(Netick.Unity.NetworkObject)
+    name: Destroy
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Destroy_Netick_Unity_NetworkObject_
+  - name: (
+  - uid: Netick.Unity.NetworkObject
+    name: NetworkObject
+    isExternal: true
+    href: Netick.Unity.NetworkObject.html
+  - name: )
+- uid: Netick.Unity.NetworkObject.IsMarkedForDestruction*
+  commentId: Overload:Netick.Unity.NetworkObject.IsMarkedForDestruction
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_IsMarkedForDestruction
+  name: IsMarkedForDestruction
+  nameWithType: NetworkObject.IsMarkedForDestruction
+  fullName: Netick.Unity.NetworkObject.IsMarkedForDestruction
+- uid: Netick.Unity.NetworkBehaviour
+  commentId: T:Netick.Unity.NetworkBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html
+  name: NetworkBehaviour
+  nameWithType: NetworkBehaviour
+  fullName: Netick.Unity.NetworkBehaviour
+- uid: Netick.Unity.NetworkObject.NetworkedBehaviours*
+  commentId: Overload:Netick.Unity.NetworkObject.NetworkedBehaviours
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_NetworkedBehaviours
+  name: NetworkedBehaviours
+  nameWithType: NetworkObject.NetworkedBehaviours
+  fullName: Netick.Unity.NetworkObject.NetworkedBehaviours
+- uid: Netick.Unity.NetworkBehaviour[]
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html
+  name: NetworkBehaviour[]
+  nameWithType: NetworkBehaviour[]
+  fullName: Netick.Unity.NetworkBehaviour[]
+  nameWithType.vb: NetworkBehaviour()
+  fullName.vb: Netick.Unity.NetworkBehaviour()
+  name.vb: NetworkBehaviour()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour
+    name: NetworkBehaviour
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour
+    name: NetworkBehaviour
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetickBehaviour
+  commentId: T:Netick.Unity.NetickBehaviour
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetickBehaviour.html
+  name: NetickBehaviour
+  nameWithType: NetickBehaviour
+  fullName: Netick.Unity.NetickBehaviour
+- uid: Netick.Unity.NetworkObject.NetickBehaviours*
+  commentId: Overload:Netick.Unity.NetworkObject.NetickBehaviours
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_NetickBehaviours
+  name: NetickBehaviours
+  nameWithType: NetworkObject.NetickBehaviours
+  fullName: Netick.Unity.NetworkObject.NetickBehaviours
+- uid: Netick.Unity.NetickBehaviour[]
+  isExternal: true
+  href: Netick.Unity.NetickBehaviour.html
+  name: NetickBehaviour[]
+  nameWithType: NetickBehaviour[]
+  fullName: Netick.Unity.NetickBehaviour[]
+  nameWithType.vb: NetickBehaviour()
+  fullName.vb: Netick.Unity.NetickBehaviour()
+  name.vb: NetickBehaviour()
+  spec.csharp:
+  - uid: Netick.Unity.NetickBehaviour
+    name: NetickBehaviour
+    isExternal: true
+    href: Netick.Unity.NetickBehaviour.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Netick.Unity.NetickBehaviour
+    name: NetickBehaviour
+    isExternal: true
+    href: Netick.Unity.NetickBehaviour.html
+  - name: (
+  - name: )
 - uid: Netick.Unity.NetworkObject.AoILayer*
   commentId: Overload:Netick.Unity.NetworkObject.AoILayer
   isExternal: true
@@ -1599,21 +1813,6 @@ references:
   name: IsPersistent
   nameWithType: NetworkObject.IsPersistent
   fullName: Netick.Unity.NetworkObject.IsPersistent
-- uid: Netick.Unity.NetworkObject.SpawnTick*
-  commentId: Overload:Netick.Unity.NetworkObject.SpawnTick
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_SpawnTick
-  name: SpawnTick
-  nameWithType: NetworkObject.SpawnTick
-  fullName: Netick.Unity.NetworkObject.SpawnTick
-- uid: Netick.Tick
-  commentId: T:Netick.Tick
-  parent: Netick
-  isExternal: true
-  href: Netick.Tick.html
-  name: Tick
-  nameWithType: Tick
-  fullName: Netick.Tick
 - uid: Netick.Unity.NetworkObject.Parent*
   commentId: Overload:Netick.Unity.NetworkObject.Parent
   isExternal: true
@@ -1656,66 +1855,6 @@ references:
   name: RuntimeSceneId
   nameWithType: NetworkObject.RuntimeSceneId
   fullName: Netick.Unity.NetworkObject.RuntimeSceneId
-- uid: Netick.Unity.NetworkObject.NetworkedBehaviours*
-  commentId: Overload:Netick.Unity.NetworkObject.NetworkedBehaviours
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_NetworkedBehaviours
-  name: NetworkedBehaviours
-  nameWithType: NetworkObject.NetworkedBehaviours
-  fullName: Netick.Unity.NetworkObject.NetworkedBehaviours
-- uid: Netick.Unity.NetworkBehaviour[]
-  isExternal: true
-  href: Netick.Unity.NetworkBehaviour.html
-  name: NetworkBehaviour[]
-  nameWithType: NetworkBehaviour[]
-  fullName: Netick.Unity.NetworkBehaviour[]
-  nameWithType.vb: NetworkBehaviour()
-  fullName.vb: Netick.Unity.NetworkBehaviour()
-  name.vb: NetworkBehaviour()
-  spec.csharp:
-  - uid: Netick.Unity.NetworkBehaviour
-    name: NetworkBehaviour
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: Netick.Unity.NetworkBehaviour
-    name: NetworkBehaviour
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html
-  - name: (
-  - name: )
-- uid: Netick.Unity.NetworkObject.NetickBehaviours*
-  commentId: Overload:Netick.Unity.NetworkObject.NetickBehaviours
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_NetickBehaviours
-  name: NetickBehaviours
-  nameWithType: NetworkObject.NetickBehaviours
-  fullName: Netick.Unity.NetworkObject.NetickBehaviours
-- uid: Netick.Unity.NetickBehaviour[]
-  isExternal: true
-  href: Netick.Unity.NetickBehaviour.html
-  name: NetickBehaviour[]
-  nameWithType: NetickBehaviour[]
-  fullName: Netick.Unity.NetickBehaviour[]
-  nameWithType.vb: NetickBehaviour()
-  fullName.vb: Netick.Unity.NetickBehaviour()
-  name.vb: NetickBehaviour()
-  spec.csharp:
-  - uid: Netick.Unity.NetickBehaviour
-    name: NetickBehaviour
-    isExternal: true
-    href: Netick.Unity.NetickBehaviour.html
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: Netick.Unity.NetickBehaviour
-    name: NetickBehaviour
-    isExternal: true
-    href: Netick.Unity.NetickBehaviour.html
-  - name: (
-  - name: )
 - uid: Netick.Unity.NetworkObject.IsClient*
   commentId: Overload:Netick.Unity.NetworkObject.IsClient
   isExternal: true
@@ -1781,6 +1920,20 @@ references:
   name: ServerConnection
   nameWithType: ServerConnection
   fullName: Netick.ServerConnection
+- uid: Netick.Unity.NetworkObject.InputSourcePlayerId
+  commentId: P:Netick.Unity.NetworkObject.InputSourcePlayerId
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_InputSourcePlayerId
+  name: InputSourcePlayerId
+  nameWithType: NetworkObject.InputSourcePlayerId
+  fullName: Netick.Unity.NetworkObject.InputSourcePlayerId
+- uid: Netick.Unity.NetworkObject.InputSource
+  commentId: P:Netick.Unity.NetworkObject.InputSource
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_InputSource
+  name: InputSource
+  nameWithType: NetworkObject.InputSource
+  fullName: Netick.Unity.NetworkObject.InputSource
 - uid: Netick.Unity.NetworkObject.InputSource*
   commentId: Overload:Netick.Unity.NetworkObject.InputSource
   isExternal: true
@@ -1803,6 +1956,13 @@ references:
   name: NetworkPlayerId
   nameWithType: NetworkPlayerId
   fullName: Netick.NetworkPlayerId
+- uid: Netick.Unity.NetworkObject.IsInterested*
+  commentId: Overload:Netick.Unity.NetworkObject.IsInterested
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_IsInterested
+  name: IsInterested
+  nameWithType: NetworkObject.IsInterested
+  fullName: Netick.Unity.NetworkObject.IsInterested
 - uid: Netick.Unity.NetworkObject.InterestGroup*
   commentId: Overload:Netick.Unity.NetworkObject.InterestGroup
   isExternal: true

@@ -231,7 +231,8 @@ Class NetworkObject
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Netick.NetickEngine.html">NetickEngine</a> this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a> belongs to.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -262,7 +263,8 @@ Class NetworkObject
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Netick.Entity.html">Entity</a> this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a> represents in the Netick simulation.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -325,7 +327,8 @@ Class NetworkObject
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the unique identifier of this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a> in the Netick simulation. This id is assigned by the Netick when the object is added to the simulation and is used to identify the object across the network.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -358,6 +361,7 @@ Class NetworkObject
 
   <div class="markdown level1 summary"><p>Returns the source <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a> (<a class="xref" href="Netick.NetworkPeer.html">NetworkPeer</a>/<a class="xref" href="Netick.ServerConnection.html">ServerConnection</a>) of inputs for this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a>. If the source of inputs is remote (from a client) it returns that <a class="xref" href="Netick.ServerConnection.html">ServerConnection</a>, while on the
 input source itself it returns the local <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a>.</p>
+<p>Use <a class="xref" href="Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_InputSourcePlayerId">InputSourcePlayerId</a> for the synced-to-everyone player id of the Input Source - because <a class="xref" href="Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_InputSource">InputSource</a> is only valid in the client for objects the client itself is the input source of, and it's null for everything else.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -510,6 +514,70 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
 
 
 
+  <a id="Netick_Unity_NetworkObject_IsInterested_" data-uid="Netick.Unity.NetworkObject.IsInterested*"></a>
+
+  <h3 id="Netick_Unity_NetworkObject_IsInterested" data-uid="Netick.Unity.NetworkObject.IsInterested">
+  IsInterested
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> On the client, returns true if this client is interested in this object. On the server, always returns true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsInterested { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkObject_IsMarkedForDestruction_" data-uid="Netick.Unity.NetworkObject.IsMarkedForDestruction*"></a>
+
+  <h3 id="Netick_Unity_NetworkObject_IsMarkedForDestruction" data-uid="Netick.Unity.NetworkObject.IsMarkedForDestruction">
+  IsMarkedForDestruction
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i> Returns true if <a class="xref" href="Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Destroy_Netick_Unity_NetworkObject_">Destroy(NetworkObject)</a> has been called on this object in the server, and the object is scheduled to be removed from the simulation (destroyed) at the end of the current tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsMarkedForDestruction { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkObject_IsOwner_" data-uid="Netick.Unity.NetworkObject.IsOwner*"></a>
 
   <h3 id="Netick_Unity_NetworkObject_IsOwner" data-uid="Netick.Unity.NetworkObject.IsOwner">
@@ -580,7 +648,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns true if this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a> is a prefab object (not a scene object). Prefab objects are objects that are instantiated from a prefab and not part of the scene.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -675,7 +744,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns true if this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a> is a scene object (not a prefab instance). Scene objects are objects that are part of the scene and not instantiated from a prefab.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -769,7 +839,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Netick.Unity.NetickBehaviour.html">NetickBehaviour</a> components attached to this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -800,7 +871,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="Netick.Unity.NetworkBehaviour.html">NetworkBehaviour</a> components attached to this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -894,7 +966,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the prefab id of this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a>. This is used to identify the prefab from which this object was instantiated. If this object is a scene object, it returns -1.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -925,7 +998,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the runtime scene id of this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a>. This value is only unique per-scene, and not per the entire game.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -956,7 +1030,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Netick.Unity.NetworkSandbox.html">NetworkSandbox</a> this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a> belongs to.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -987,7 +1062,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the scene id of this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a>. This value is only unique per-scene, and not per the entire game.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1049,7 +1125,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the tick at which this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a> was spawned locally. This is a local value, and is not synced.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1289,7 +1366,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a network-serializable reference to this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a>. This is used to get a networkable identifier for this object, which can be used for RPCs or network properties.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1324,7 +1402,8 @@ input source itself it returns the local <a class="xref" href="Netick.NetworkPla
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int GetSceneId()</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use SceneId instead. This will be removed in the future.&quot;)]
+public int GetSceneId()</code></pre>
   </div>
 
 
