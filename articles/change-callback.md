@@ -46,25 +46,9 @@ private void OnArrayExampleChanged(OnChangedData onChangedData)
 
 ## For Collections
 
-### NetworkLinkedList
+Unlike network arrays, where the change callback is invoked for each modified element (by index), other network collections are treated as a single networked property. However, if needed, you can still access a snapshot of the collection's previous state for various purposes.
 
-Example:
-
-```csharp
-[Networked(size: 16)]
-public readonly NetworkLinkedList<int> MyNetworkLinkedList = new(16);
-
-[OnChanged(nameof(MyNetworkLinkedList))]
-private void OnMyNetworkLinkedListChanged(OnChangedData onChangedData)
-{
-  // getting a snapshot of the previous state of the collection
-  var previous = onChangedData.GetPreviousNetworkLinkedList(MyNetworkLinkedList);
-}
-```
-
-### NetworkDictionary
-
-Example:
+`NetworkDictionary` Example:
 
 ```csharp
 [Networked(size: 16)] 
@@ -75,71 +59,6 @@ private void OnMyNetworkDictionaryChanged(OnChangedData onChangedData)
 {
   // getting a snapshot of the previous state of the collection.
   var previous = onChangedData.GetPreviousNetworkDictionary(MyNetworkDictionary);
-}
-```
-
-### NetworkHashSet
-
-Example:
-
-```csharp
-[Networked(size: 16)] 
-public readonly NetworkHashSet<int>  MyNetworkHashSet = new(16);
-
-[OnChanged(nameof(MyNetworkHashSet))]
-private void OnMyNetworkHashSetChanged(OnChangedData onChangedData)
-{
-  // getting a snapshot of the previous state of the collection.
-  var previous = onChangedData.GetPreviousNetworkHashSet(MyNetworkHashSet);
-}
-```
-
-### NetworkUnorderedList
-
-Example:
-
-```csharp
-[Networked(size: 16)] 
-public readonly NetworkUnorderedList<int>  MyNetworkUnorderedList = new(16);
-
-[OnChanged(nameof(MyNetworkUnorderedList))]
-private void OnMyNetworkUnorderedListChanged(OnChangedData onChangedData)
-{
-  // getting a snapshot of the previous state of the collection.
-  var previous = onChangedData.GetPreviousNetworkUnorderedList(MyNetworkUnorderedList);
-}
-```
-
-
-### NetworkQueue
-
-Example:
-
-```csharp
-[Networked(size: 16)]
-public readonly NetworkQueue<int> MyNetworkQueue = new(16);
-
-[OnChanged(nameof(MyNetworkQueue))]
-private void OnMyNetworkQueueChanged(OnChangedData onChangedData)
-{
-  // getting a snapshot of the previous state of the collection.
-  var previous = onChangedData.GetPreviousNetworkQueue(MyNetworkQueue);
-}
-```
-
-### NetworkStack
-
-Example:
-
-```csharp
-[Networked(size: 16)]
-public readonly NetworkStack<int> MyNetworkStack = new(16);
-
-[OnChanged(nameof(MyNetworkStack))]
-private void OnMyNetworkStackChanged(OnChangedData onChangedData)
-{
-  // getting a snapshot of the previous state of the collection.
-  var previous = onChangedData.GetPreviousNetworkStack(MyNetworkStack);
 }
 ```
 
@@ -159,8 +78,8 @@ This example uses a `NetworkDictionary` but the same applies to other collection
 
 ```cs
 
- [Networked(size: 10)]
- public NetworkDictionary<int, Vector3> NetworkDictionaryExample = new NetworkDictionary<int, Vector3>(10);
+ [Networked(size: 16)]
+ public readonly NetworkDictionary<int, int> NetworkDictionaryExample = new(16);
 
  [OnChanged(nameof(NetworkDictionaryExample))]
  void OnNetworkDictionaryExampleChanged(OnChangedData dat)

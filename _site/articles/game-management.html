@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Game Management | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Game Management | Netick Networking Engine ">
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../pdf/toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs">
+            Netick Docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="game-management">Game Management</h1>
+
+<hr>
+<h2 id="game-managers">Game Managers</h2>
+<p>In both single-player and multiplayer games, it's common to use the singleton pattern for game management systems. That typically involves static global references and <code>DontDestroyOnLoad</code> to persist objects across scene transitions.</p>
+<p>In Netick, however, this pattern is streamlined through the use of the <strong>Network Sandbox</strong> — a dedicated <code>GameObject</code> (with <code>DontDestroyOnLoad</code>) designed to manage an instance of the game. The sandbox acts as a built-in singleton where you can attach all your management scripts directly by adding them to the sandbox prefab.</p>
+<p>These scripts can be either standard <code>MonoBehaviour</code>s or <code>NetworkBehaviour</code>s, enabling the use of networked properties and RPCs as needed.</p>
+<p>For example, within any <code>NetworkBehaviour</code>, you can easily access these management scripts using <code>GetComponent</code>:</p>
+<pre><code class="lang-csharp">var manager = Sandbox.GetComponent&lt;Manager&gt;();
+</code></pre>
+<p>Sometimes, you may want to find which sandbox instance a non-networked GameObject belongs to:</p>
+<pre><code class="lang-csharp">var sandbox = NetworkSandbox.FindSandboxOf(gameObject);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This method should only be called when you are certain that Netick is running and a valid sandbox instance exists. Calling it before initialization results in a null value.</p>
+</div>
+<h3 id="persistent-network-objects">Persistent Network Objects</h3>
+<p>Another option for game-wide systems is to use persistent network objects. These must be instances of network prefabs with the <code>Is Persistent</code> property enabled. This ensures they can always be instantiated.</p>
+<h3 id="additive-scene-loading">Additive Scene Loading</h3>
+<p>Some developers prefer to use additive scenes to separate game management logic. While this approach is not recommended in most cases, it is supported. If you choose to use additive scenes, ensure that they are loaded <strong>after</strong> Netick has initialized — using Netick’s scene loading API.</p>
+<h2 id="networkplayer-and-networkplayerid">NetworkPlayer and NetworkPlayerId</h2>
+<p>In Netick, each connected player is represented by a <code>NetworkPlayer</code> instance. This abstraction differs slightly between the client and the server:</p>
+<ul>
+<li><p>On the server:</p>
+<ul>
+<li>The host player is represented as a <code>NetworkPlayer</code>.</li>
+<li>Each connected client is represented as a <code>ServerConnection</code>, which inherits from <code>NetworkPlayer</code>.</li>
+</ul>
+</li>
+<li><p>On the client:</p>
+<ul>
+<li>The local player is a <code>NetworkPlayer</code>.</li>
+<li>The server (or host) is represented as a <code>ClientConnection</code>, which also inherits from <code>NetworkPlayer</code>.</li>
+<li>Other remote clients are <strong>not represented</strong> as <code>NetworkPlayer</code> instances, since the client is only connected directly to the server—not to other clients.</li>
+</ul>
+</li>
+</ul>
+<p>To enable consistent player identification across the network, each <code>NetworkPlayer</code> is assigned a unique <code>NetworkPlayerId</code> (accessible via <code>NetworkPlayer.PlayerId</code>). This struct serves as a network-safe identifier.</p>
+<p>For this reason:</p>
+<ul>
+<li>The <code>Sandbox.Players</code> list—used to track all connected players—is a synchronized list of <code>NetworkPlayerId</code>, not <code>NetworkPlayer</code> instances.</li>
+<li>Additionally, since reference types like <code>NetworkPlayer</code> cannot be serialized or synced across the network, <code>NetworkPlayerId</code> is required for networking purposes.</li>
+</ul>
+<h3 id="converting-between-networkplayer-and-networkplayerid">Converting Between <code>NetworkPlayer</code> and <code>NetworkPlayerId</code></h3>
+<p>If you have a <code>NetworkPlayerId</code> and need to retrieve the corresponding <code>NetworkPlayer</code>:</p>
+<pre><code class="lang-csharp">var player = Sandbox.GetPlayerById(playerId);
+</code></pre>
+<p>However, on the <strong>client</strong>, this method only returns a valid result if the <code>playerId</code> corresponds to either:</p>
+<ul>
+<li>The <strong>local player</strong>, or</li>
+<li>The <strong>server (host)</strong> player.</li>
+</ul>
+<p>Since clients do not maintain direct connections to other clients, <code>NetworkPlayer</code> instances for remote peers do not exist on the client side, and this method will return <code>null</code> for those cases.</p>
+<h2 id="associating-player-networkobject-with-networkplayerid">Associating Player <code>NetworkObject</code> with <code>NetworkPlayerId</code></h2>
+<p>It's a common requirement to associate a player's in-game character object with their corresponding <code>NetworkPlayer</code> or <code>NetworkPlayerId</code>. Netick provides a built-in system for this.</p>
+<p>You can set up this association, for instance, when a player first joins the game. You'd do this inside the <code>OnPlayerJoined</code> event:</p>
+<pre><code class="lang-csharp">public override void OnPlayerJoined(NetworkSandbox sandbox, NetworkPlayerId player)
+{
+  if (IsServer)
+  {
+    var character = Sandbox.NetworkInstantiate(playerPrefab);
+    Sandbox.SetPlayerObject(player, character); 
+  }
+}
+</code></pre>
+<p>Once associated, you can retrieve a player's assigned network object from any connected client or the server using their <code>NetworkPlayerId</code>:</p>
+<pre><code class="lang-csharp">var playerNetworkObject = Sandbox.GetPlayerObject(somePlayerId);
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

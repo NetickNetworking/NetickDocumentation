@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Physics Prediction (Unity) | Netick Networking Engine </title>
+      <title>Physics | Netick Networking Engine </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Physics Prediction (Unity) | Netick Networking Engine ">
+      <meta name="title" content="Physics | Netick Networking Engine ">
       
       <link rel="icon" href="../images/logo.png">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -83,30 +83,35 @@
         </div>
 
         <article data-uid="">
-<h1 id="physics-prediction-unity">Physics Prediction (Unity)</h1>
+<h1 id="physics">Physics</h1>
 
 <hr>
-<p>Predicting physics means resimulating multiple physics steps in one tick. This can be very expensive and so by default physics prediction is turned off. To enable it, go to <code>Netick -&gt; Settings</code> and enable <code>Physics Prediction</code>.</p>
-<p>To make a <code>Rigidbody</code>/<code>Rigidbody2D</code> predictable, add <code>NetworkRigidbody</code>/<code>NetworkRigidbody2D</code> to its GameObject.</p>
-<p>To enable/disable Physics Prediction in the client at runtime, use <code>Sandbox.PhysicsPrediction</code>.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>When Netick starts and the <code>Physics Type</code> option in Netick Settings/Config is set to either <code>Physics2D</code> or <code>Physics3D</code> (as opposed to <code>None</code>), Netick will take control of the physics stepping and automatically set <code>UnityEngine.Physics.simulationMode</code> to <code>Script</code>.</p>
-</div>
-<h2 id="cost-of-predicting-physx-rigidbody3d">Cost of Predicting PhysX (Rigidbody3D)</h2>
-<p>It's very expensive to predict 3D physics as PhysX and its integration with Unity perform very badly when calling <code>PhysicsScene.Simulate</code> multiple times in one frame, even with small numbers of rigidbodies.</p>
-<p>The cost of predicting physics increases with two factors:</p>
+<p>When Netick starts and the <code>Physics Type</code> option in Netick Settings/Config is set to either <code>Physics2D</code> or <code>Physics3D</code> (instead of <code>None</code>), Netick takes control of physics stepping by setting <code>UnityEngine.Physics.simulationMode</code> (or <code>UnityEngine.Physics2D.simulationMode</code>) to <code>Script</code>. This ensures physics simulation remains synchronized with Netick’s networked fixed-time loop. Stepping is handled by the <code>PhysicsSimulationStep</code> component, which is automatically added to the sandbox GameObject upon Netick initialization.</p>
+<p>Each sandbox instance has its own physics scene, which is simulated independently to other sandboxes. By default, only the physics scene of the main scene of the sandbox is stepped.</p>
+<h2 id="networked-rigidbodies">Networked Rigidbodies</h2>
+<p>To make a <code>Rigidbody</code> or <code>Rigidbody2D</code> part of the networked simulation, you must add a <code>NetworkRigidbody</code> or <code>NetworkRigidbody2D</code> component to the same GameObject (which has a <code>NetworkObject</code> on it or on one of its parents, of course). This component enables Netick to synchronize the transform and physics state of the object across the network.</p>
+<h2 id="physics-prediction">Physics Prediction</h2>
+<p>Physics prediction involves resimulating multiple physics steps within a single network tick. This is computationally expensive and therefore disabled by default. You can enable it via Netick -&gt; Settings by checking the <code>Physics Prediction</code> option.</p>
+<p>To enable or disable physics prediction on the client at runtime, use the <code>Sandbox.PhysicsPrediction</code> property.</p>
+<h3 id="performance-cost-of-predicting-physx-3d-physics">Performance Cost of Predicting PhysX (3D Physics)</h3>
+<p>Predicting 3D physics using PhysX is particularly expensive. Unity's integration with PhysX performs poorly when <code>PhysicsScene.Simulate</code> is called multiple times per frame, even for a small number of rigidbodies.</p>
+<p>The cost of prediction scales primarily with:</p>
 <ul>
-<li>Ping</li>
-<li>Tickrate</li>
+<li><strong>Ping</strong>: Higher ping requires simulating more ticks during resimulation.</li>
+<li><strong>Tickrate</strong>: A higher tickrate reduces the time period between ticks, therefore increasing the number of ticks that must be simulated for a given latency.</li>
 </ul>
-<p>As ping increases, you would need to simulate more ticks in one frame for rollback and resimulation. As tickrate increases, the time period between each tick becomes smaller, therefore you will need to simulate more ticks for smaller values of latency.</p>
-<p>It's very much not recommended to enable 3D physics prediction, as it's almost impractical on some machines on relatively high tickrates (+33). It can take more than 10ms on some machines on 100ms ping just to resimulate a bunch of physics ticks.</p>
-<p>If you don't want to predict physics, you have two other alternatives:</p>
+<p>In practice, enabling 3D physics prediction is not recommended. On some machines (phones, for example), simulating a few physics ticks with a ping of ~100ms at high tickrates (e.g., 33+) can take more than 10ms per frame, making it impractical.</p>
+<h3 id="alternatives-to-physics-prediction">Alternatives to Physics Prediction</h3>
+<p>If prediction is not feasible, consider the following approaches:</p>
 <ul>
-<li>Not predicting physics at all, and make it server-authoritative completely.</li>
-<li>Make your physics objects client-authoritative by sending the resultant states as RPCs or network inputs.</li>
+<li><strong>Server-authoritative physics</strong>: Disable physics prediction and rely solely on the server's simulation.</li>
+<li><strong>Client-authoritative physics</strong>: Let clients simulate and send resulting states via RPCs or network inputs.</li>
+<li><strong>Integrating a third-party physics engine</strong>: Explore other physics engines such as Bullet, Jolt, or Rapier.</li>
 </ul>
+<h2 id="local-non-networked-physics">Local Non-Networked Physics</h2>
+<p>In many multiplayer games, it’s common to have locally simulated (non-networked) rigidbodies to reduce bandwidth usage. These objects are not synchronized across clients, so their behavior may differ per client — which is generally acceptable for rigidbodies that do not affect gameplay directly and only exist to enrich the physical experience of the game.</p>
+<p>If physics prediction is disabled, these local objects can be safely simulated. However, when prediction is enabled, Netick steps <em>all</em> rigidbodies (due to how PhysX and Box2D work in Unity, it's outside Netick's control) — including non-networked ones — during each predicted tick. This leads to local rigidbodies being overstepped and behaving incorrectly, as they are not reset due to lack of rollback (only networked rigidbodies are rolled back).</p>
+<p>To address this, Netick automatically tracks and restores the state of local rigidbodies before and after resimulation. However, <strong>when applying forces to non-networked rigidbodies, ensure this is done in <code>NetworkFixedUpdate</code> (not Unity’s <code>FixedUpdate</code>)</strong>. This guarantees compatibility with Netick’s internal tracking and avoids force loss or simulation issues.</p>
 
 </article>
 

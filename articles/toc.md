@@ -28,7 +28,7 @@
 ## [Script Execution Order](script-execution-order.md)
 ## [Sandboxing](sandboxing.md)
 ## [Timers](timers.md)
-## [Physics Prediction](physics-prediction.md)
+## [Physics](physics-prediction.md)
 ## [Interpolation](interpolation.md)
 
 # Advanced
