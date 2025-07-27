@@ -2,7 +2,9 @@
 
 ---
 
-You can have a method get called whenever a networked variable changes, which is very useful. To do that, add the attribute [<xref:Netick.OnChanged>] to the method and give it the name of the variable. The method must must have a parameter of <xref:Netick.OnChangedData> type which can be used to retrieve the previous variable value.
+To react to changes in a networked variable, use the [<xref:Netick.OnChanged>] attribute on a method and provide it with the name of the variable. This allows your method to be automatically invoked whenever the specified variable is changed.
+
+The method must include a single parameter of type [<xref:Netick.OnChangedData>], which provides optional access to the previous value of the variable.
 
 ## For Properties
 

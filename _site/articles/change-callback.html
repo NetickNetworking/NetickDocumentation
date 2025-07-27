@@ -86,7 +86,8 @@
 <h1 id="change-callback">Change Callback</h1>
 
 <hr>
-<p>You can have a method get called whenever a networked variable changes, which is very useful. To do that, add the attribute [<a class="xref" href="../api/Netick.OnChanged.html">OnChanged</a>] to the method and give it the name of the variable. The method must must have a parameter of <a class="xref" href="../api/Netick.OnChangedData.html">OnChangedData</a> type which can be used to retrieve the previous variable value.</p>
+<p>To react to changes in a networked variable, use the [<a class="xref" href="../api/Netick.OnChanged.html">OnChanged</a>] attribute on a method and provide it with the name of the variable. This allows your method to be automatically invoked whenever the specified variable is changed.</p>
+<p>The method must include a single parameter of type [<a class="xref" href="../api/Netick.OnChangedData.html">OnChangedData</a>], which provides optional access to the previous value of the variable.</p>
 <h2 id="for-properties">For Properties</h2>
 <p>Example:</p>
 <pre><code class="lang-csharp">[Networked]
