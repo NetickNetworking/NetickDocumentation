@@ -14,7 +14,7 @@
 #### Easy Character Movement 2 (ECM2)
 * Asset: [link](https://assetstore.unity.com/packages/tools/physics/easy-character-movement-2-193614)
 * Description: a feature-rich, highly customizable, general purpose (not game-genre tied) kinematic character controller.
-* Download: https://github.com/Milk-Drinker01/Netick2-Facepunch-Transport
+* Download: https://github.com/Milk-Drinker01/ECM2-Netick
 
 #### Unity Character Controller Example
 * Description: this is a simple example project of how to get the default CC to work with Netick CSP without issues.
