@@ -13,7 +13,7 @@
 
 #### Easy Character Movement 2 (ECM2)
 * Asset: [link](https://assetstore.unity.com/packages/tools/physics/easy-character-movement-2-193614)
-* Description: Dissonance is a realtime Voice over IP (VoIP) system designed to be built directly into Unity games.
+* Description: a feature-rich, highly customizable, general purpose (not game-genre tied) kinematic character controller.
 * Download: https://github.com/Milk-Drinker01/Netick2-Facepunch-Transport
 
 #### Unity Character Controller Example
