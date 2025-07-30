@@ -13,7 +13,7 @@ The main scene plays a critical role in ensuring network consistency. While it i
 
 In contrast, **additive scenes** are always loaded **asynchronously at runtime** and do not block network operations.
 
-## Changing The Main Scene
+## Changing the Main Scene
 
 To switch from the current scene to another scene:
 
