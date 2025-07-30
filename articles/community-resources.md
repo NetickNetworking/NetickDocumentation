@@ -25,7 +25,7 @@
 #### Dissonance
 * Asset: [link](https://assetstore.unity.com/packages/tools/audio/dissonance-voice-chat-70078#description)
 * Description: Dissonance is a realtime Voice over IP (VoIP) system designed to be built directly into Unity games.
-* Download: https://github.com/Milk-Drinker01/Netick2-Facepunch-Transport
+* Download: https://github.com/Milk-Drinker01/Dissonance-Netick
 
 ## Utilizes
 
