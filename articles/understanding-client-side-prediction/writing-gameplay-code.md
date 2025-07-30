@@ -246,7 +246,7 @@ During this step:
 
 #### C. Resimulation (Resim)
 
-* `NetworkFixedUpdate` is called on all predicted objects, repeated for the number of times specified by `Sandbox.Resimulations`.
+* `NetworkFixedUpdate` is called on all predicted objects, repeated for the number of times specified by `Sandbox.ResimulationCount`.
 * `Sandbox.IsResimulating` is equal to true.
 * This advances the simulation from the rolled-back state to the predicted tick.
 

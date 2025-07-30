@@ -59,6 +59,10 @@
 ## [Dungeon Frenzy](samples/dungeon-frenzy.md)
 ## [IM (Interest Management) Sample ](samples/im-sample.md)
 
+# Community Resources
+
+## [Community Resources](community-resources.md)
+
 # Transports
 
 ## [Available Transports](transports.md)
