@@ -52,7 +52,7 @@ Notes on how to make your project sandbox-safe:
 
 - When you want to disable a render/audio component on a GameObject, use `SetEnabled` instead of `enabled`. This method respects the running sandboxes so when a hidden sandbox enables a mesh renderer, for instance, it will not be visible because that sandbox is hidden.
 
-- When you want to instantiate a non-networked GameObject, use `Sandbox.Instantiate` instead of `GameObject.Instantiate`. `Sandbox.Instantiate` respects the running sandboxes, so when a hidden sandbox instantiates a new GameObject, it will not be visible because that sandbox is hidden.
+- When you want to instantiate a non-networked GameObject, use `Sandbox.LocalInstantiate` instead of `GameObject.Instantiate`. `Sandbox.Instantiate` respects the running sandboxes, so when a hidden sandbox instantiates a new GameObject, it will not be visible because that sandbox is hidden.
 
 - Use `Sandbox.Log`, `Sandbox.LogWarning`, and `Sandbox.LogError` instead of Unity equivalents. These will include the name of the sandbox at the start of the log message.
 
