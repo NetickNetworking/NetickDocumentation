@@ -623,7 +623,7 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Use this to manages interest groups and area of interest (AoI) layers.</p>
+  <div class="markdown level1 summary"><p>Use this to manage interest groups and area of interest (AoI) layers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -3241,7 +3241,6 @@ On the server, this method can return any player by their ID. On the client, it 
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a Network Prefab by name.</p>
-<p>Note: this causes GC.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -3319,13 +3318,12 @@ On the server, this method can return any player by their ID. On the client, it 
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Instantiates a prefab. This must be called instead of <span class="xref">UnityEngine.Object.Instantiate(UnityEngine.Object)</span> or its variations.</p>
-<p>Note: this must be called only for non-networked prefabs. If you want to instantiate a network prefab, use <a class="xref" href="Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_">NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer)</a> instead.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This will be removed in the future, please use LocalInstantiate instead.&quot;)]
+public GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3365,7 +3363,8 @@ On the server, this method can return any player by their ID. On the client, it 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) where T : MonoBehaviour</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This will be removed in the future, please use LocalInstantiate instead.&quot;)]
+public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) where T : MonoBehaviour</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3650,6 +3649,251 @@ On the server, this method can return any player by their ID. On the client, it 
   </dl>
 
 
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_LocalInstantiate_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_LocalInstantiate_UnityEngine_GameObject_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject)">
+  LocalInstantiate(GameObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject LocalInstantiate(GameObject prefab)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_LocalInstantiate_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_LocalInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3)">
+  LocalInstantiate(GameObject, Vector3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Instantiates a prefab. This must be called instead of <span class="xref">UnityEngine.Object.Instantiate(UnityEngine.Object)</span>.</p>
+<p>Note: this must be called only for non-networked prefabs. If you want to instantiate a network prefab, use <a class="xref" href="Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_">NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer)</a> instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject LocalInstantiate(GameObject prefab, Vector3 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_LocalInstantiate_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_LocalInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)">
+  LocalInstantiate(GameObject, Vector3, Quaternion)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject LocalInstantiate(GameObject prefab, Vector3 position, Quaternion rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">GameObject</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <span class="xref">Quaternion</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GameObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_LocalInstantiate_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_LocalInstantiate__1___0_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0)">
+  LocalInstantiate&lt;T&gt;(T)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T LocalInstantiate&lt;T&gt;(T prefab) where T : MonoBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_LocalInstantiate_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_LocalInstantiate__1___0_UnityEngine_Vector3_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0,UnityEngine.Vector3)">
+  LocalInstantiate&lt;T&gt;(T, Vector3)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T LocalInstantiate&lt;T&gt;(T prefab, Vector3 position) where T : MonoBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_LocalInstantiate_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_LocalInstantiate__1___0_UnityEngine_Vector3_UnityEngine_Quaternion_" data-uid="Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)">
+  LocalInstantiate&lt;T&gt;(T, Vector3, Quaternion)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T LocalInstantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) where T : MonoBehaviour</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prefab</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>position</code> <span class="xref">Vector3</span></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <span class="xref">Quaternion</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
 
 
 

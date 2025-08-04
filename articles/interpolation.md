@@ -62,6 +62,7 @@ Automatic Interpolation is implemented by Netick on these types:
 - `Color`
 - `Int`
 - `NetworkBool`
+- `Angle`
 
 > [!WARNING]
 > Currently this is only supported in Unity. Use Manual Interpolation in other engines.

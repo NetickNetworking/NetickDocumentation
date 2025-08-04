@@ -95,7 +95,7 @@ Class Entity
   <dl><dt>Assembly</dt><dd>Netick.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents an networked entity (object) in the simulation.</p>
+  <div class="markdown summary"><p>Represents an networked entity (object) in Netick.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -147,36 +147,6 @@ public sealed class Entity</code></pre>
 
   <h2 class="section" id="fields">Fields
 </h2>
-
-
-
-  <h3 id="Netick_Entity_AdaptiveRemoteInterpolation" data-uid="Netick.Entity.AdaptiveRemoteInterpolation">
-  AdaptiveRemoteInterpolation
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AdaptiveRemoteInterpolation AdaptiveRemoteInterpolation</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.AdaptiveRemoteInterpolation.html">AdaptiveRemoteInterpolation</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
 
 
 
@@ -249,7 +219,7 @@ public sealed class Entity</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetickEngine Engine</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly NetickEngine Engine</code></pre>
   </div>
 
 
@@ -360,36 +330,6 @@ public sealed class Entity</code></pre>
 
 
 
-  <h3 id="Netick_Entity_NetworkId" data-uid="Netick.Entity.NetworkId">
-  NetworkId
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int NetworkId</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <h3 id="Netick_Entity_ObjectMeta" data-uid="Netick.Entity.ObjectMeta">
   ObjectMeta
   
@@ -438,6 +378,36 @@ public sealed class Entity</code></pre>
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Entity_RawId" data-uid="Netick.Entity.RawId">
+  RawId
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RawId</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -631,6 +601,68 @@ public sealed class Entity</code></pre>
 
   <h2 class="section" id="properties">Properties
 </h2>
+
+
+  <a id="Netick_Entity_AdaptiveRemoteInterpolation_" data-uid="Netick.Entity.AdaptiveRemoteInterpolation*"></a>
+
+  <h3 id="Netick_Entity_AdaptiveRemoteInterpolation" data-uid="Netick.Entity.AdaptiveRemoteInterpolation">
+  AdaptiveRemoteInterpolation
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AdaptiveRemoteInterpolation AdaptiveRemoteInterpolation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.AdaptiveRemoteInterpolation.html">AdaptiveRemoteInterpolation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Entity_Id_" data-uid="Netick.Entity.Id*"></a>
+
+  <h3 id="Netick_Entity_Id" data-uid="Netick.Entity.Id">
+  Id
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Id { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Netick_Entity_InputSource_" data-uid="Netick.Entity.InputSource*"></a>
@@ -916,32 +948,6 @@ public sealed class Entity</code></pre>
 </h2>
 
 
-  <a id="Netick_Entity_GameEngineIntoNetcode_" data-uid="Netick.Entity.GameEngineIntoNetcode*"></a>
-
-  <h3 id="Netick_Entity_GameEngineIntoNetcode" data-uid="Netick.Entity.GameEngineIntoNetcode">
-  GameEngineIntoNetcode()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void GameEngineIntoNetcode()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="Netick_Entity_GetStateRef_" data-uid="Netick.Entity.GetStateRef*"></a>
 
   <h3 id="Netick_Entity_GetStateRef" data-uid="Netick.Entity.GetStateRef">
@@ -1172,6 +1178,58 @@ public sealed class Entity</code></pre>
 
 
 
+  <a id="Netick_Entity_InvokeGameEngineIntoNetcode_" data-uid="Netick.Entity.InvokeGameEngineIntoNetcode*"></a>
+
+  <h3 id="Netick_Entity_InvokeGameEngineIntoNetcode" data-uid="Netick.Entity.InvokeGameEngineIntoNetcode">
+  InvokeGameEngineIntoNetcode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InvokeGameEngineIntoNetcode()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Entity_InvokeNetcodeIntoGameEngine_" data-uid="Netick.Entity.InvokeNetcodeIntoGameEngine*"></a>
+
+  <h3 id="Netick_Entity_InvokeNetcodeIntoGameEngine" data-uid="Netick.Entity.InvokeNetcodeIntoGameEngine">
+  InvokeNetcodeIntoGameEngine()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InvokeNetcodeIntoGameEngine()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Entity_MarkAltered_" data-uid="Netick.Entity.MarkAltered*"></a>
 
   <h3 id="Netick_Entity_MarkAltered_System_Int32__System_Int32_" data-uid="Netick.Entity.MarkAltered(System.Int32*,System.Int32)">
@@ -1241,71 +1299,6 @@ public sealed class Entity</code></pre>
 
 
 
-  <a id="Netick_Entity_NetcodeIntoGameEngine_" data-uid="Netick.Entity.NetcodeIntoGameEngine*"></a>
-
-  <h3 id="Netick_Entity_NetcodeIntoGameEngine" data-uid="Netick.Entity.NetcodeIntoGameEngine">
-  NetcodeIntoGameEngine()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void NetcodeIntoGameEngine()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_Entity_SetData_" data-uid="Netick.Entity.SetData*"></a>
-
-  <h3 id="Netick_Entity_SetData_System_Int32__System_Int32__System_Int32_System_Int32_System_Int32_" data-uid="Netick.Entity.SetData(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)">
-  SetData(int*, int*, int, int, int)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetData(int* newValue, int* p, int size, int hasOnChanged, int isInputSourceOnly)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>newValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
-    <dd></dd>
-    <dt><code>p</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
-    <dd></dd>
-    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>hasOnChanged</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>isInputSourceOnly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="Netick_Entity_SetNarrowphaseInterest_" data-uid="Netick.Entity.SetNarrowphaseInterest*"></a>
 
   <h3 id="Netick_Entity_SetNarrowphaseInterest_Netick_NetworkPlayer_System_Boolean_" data-uid="Netick.Entity.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)">
@@ -1325,6 +1318,45 @@ public sealed class Entity</code></pre>
     <dt><code>player</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
     <dd></dd>
     <dt><code>isInterested</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Entity_SetState_" data-uid="Netick.Entity.SetState*"></a>
+
+  <h3 id="Netick_Entity_SetState_System_Int32__System_Int32__System_Int32_System_Int32_System_Int32_" data-uid="Netick.Entity.SetState(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)">
+  SetState(int*, int*, int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetState(int* newValue, int* p, int size, int hasOnChanged, int isInputSourceOnly)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+    <dt><code>p</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>hasOnChanged</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>isInputSourceOnly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -1362,6 +1394,47 @@ public sealed class Entity</code></pre>
     <dt><code>sizeWords</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>invokeOnChanged</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Entity_SetState_Collection_" data-uid="Netick.Entity.SetState_Collection*"></a>
+
+  <h3 id="Netick_Entity_SetState_Collection_System_Int32__System_Int32__System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="Netick.Entity.SetState_Collection(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32,System.Int32)">
+  SetState_Collection(int*, int*, int, int, int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetState_Collection(int* newValue, int* p, int size, int hasOnChanged, int isInputSourceOnly, int collectionHasOnChanged)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+    <dt><code>p</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>hasOnChanged</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>isInputSourceOnly</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>collectionHasOnChanged</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 

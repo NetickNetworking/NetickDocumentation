@@ -16,6 +16,7 @@ items:
   - Netick.Unity.NetickUnityUtils.GetQuaternionCompressed(System.Int32*)
   - Netick.Unity.NetickUnityUtils.GetRemainingTime(Netick.NetworkTimer,Netick.Unity.NetworkSandbox,System.Boolean)
   - Netick.Unity.NetickUnityUtils.GetSandbox(Netick.NetickEngine)
+  - Netick.Unity.NetickUnityUtils.GetSmoothAngle(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   - Netick.Unity.NetickUnityUtils.GetSmoothBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   - Netick.Unity.NetickUnityUtils.GetSmoothColor(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   - Netick.Unity.NetickUnityUtils.GetSmoothDouble(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
@@ -69,6 +70,38 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothAngle(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothAngle(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  id: GetSmoothAngle(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
+  parent: Netick.Unity.NetickUnityUtils
+  langs:
+  - csharp
+  - vb
+  name: GetSmoothAngle(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  nameWithType: NetickUnityUtils.GetSmoothAngle(NetickEngine, int*, ref Interpolator, InterpolationSource)
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothAngle(Netick.NetickEngine, int*, ref Netick.Interpolator, Netick.InterpolationSource)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Angle GetSmoothAngle(NetickEngine engine, int* data, ref Interpolator interpolator, InterpolationSource interpolationSource)
+    parameters:
+    - id: engine
+      type: Netick.NetickEngine
+    - id: data
+      type: System.Int32*
+    - id: interpolator
+      type: Netick.Interpolator
+    - id: interpolationSource
+      type: Netick.InterpolationSource
+    return:
+      type: Netick.Unity.Angle
+    content.vb: Public Shared Function GetSmoothAngle(engine As NetickEngine, data As Integer*, interpolator As Interpolator, interpolationSource As InterpolationSource) As Angle
+  overload: Netick.Unity.NetickUnityUtils.GetSmoothAngle*
+  nameWithType.vb: NetickUnityUtils.GetSmoothAngle(NetickEngine, Integer*, Interpolator, InterpolationSource)
+  fullName.vb: Netick.Unity.NetickUnityUtils.GetSmoothAngle(Netick.NetickEngine, Integer*, Netick.Interpolator, Netick.InterpolationSource)
+  name.vb: GetSmoothAngle(NetickEngine, Integer*, Interpolator, InterpolationSource)
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   commentId: M:Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
   id: GetSmoothNetworkBool(Netick.NetickEngine,System.Int32*,Netick.Interpolator@,Netick.InterpolationSource)
@@ -1523,13 +1556,13 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool*
-  commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothAngle*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothAngle
   isExternal: true
-  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothNetworkBool_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
-  name: GetSmoothNetworkBool
-  nameWithType: NetickUnityUtils.GetSmoothNetworkBool
-  fullName: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothAngle_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
+  name: GetSmoothAngle
+  nameWithType: NetickUnityUtils.GetSmoothAngle
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothAngle
 - uid: Netick.NetickEngine
   commentId: T:Netick.NetickEngine
   parent: Netick
@@ -1575,6 +1608,28 @@ references:
   name: InterpolationSource
   nameWithType: InterpolationSource
   fullName: Netick.InterpolationSource
+- uid: Netick.Unity.Angle
+  commentId: T:Netick.Unity.Angle
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.Angle.html
+  name: Angle
+  nameWithType: Angle
+  fullName: Netick.Unity.Angle
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool*
+  commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool
+  isExternal: true
+  href: Netick.Unity.NetickUnityUtils.html#Netick_Unity_NetickUnityUtils_GetSmoothNetworkBool_Netick_NetickEngine_System_Int32__Netick_Interpolator__Netick_InterpolationSource_
+  name: GetSmoothNetworkBool
+  nameWithType: NetickUnityUtils.GetSmoothNetworkBool
+  fullName: Netick.Unity.NetickUnityUtils.GetSmoothNetworkBool
 - uid: Netick.NetworkBool
   commentId: T:Netick.NetworkBool
   parent: Netick
@@ -1583,13 +1638,6 @@ references:
   name: NetworkBool
   nameWithType: NetworkBool
   fullName: Netick.NetworkBool
-- uid: Netick
-  commentId: N:Netick
-  isExternal: true
-  href: Netick.html
-  name: Netick
-  nameWithType: Netick
-  fullName: Netick
 - uid: Netick.Unity.NetickUnityUtils.GetSmoothBool*
   commentId: Overload:Netick.Unity.NetickUnityUtils.GetSmoothBool
   isExternal: true

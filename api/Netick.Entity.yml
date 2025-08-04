@@ -9,10 +9,10 @@ items:
   - Netick.Entity.BehsHash
   - Netick.Entity.BlockIndex
   - Netick.Entity.Engine
-  - Netick.Entity.GameEngineIntoNetcode
   - Netick.Entity.GetStateRef
   - Netick.Entity.GetStateSizeWords(Netick.INetickNetworkScript[])
   - Netick.Entity.GroupTableId
+  - Netick.Entity.Id
   - Netick.Entity.InputSource
   - Netick.Entity.InputSourcePlayerId
   - Netick.Entity.InstanceCounter
@@ -21,6 +21,8 @@ items:
   - Netick.Entity.InternalDirtify(Netick.INetickNetworkScript,System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
   - Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
   - Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
+  - Netick.Entity.InvokeGameEngineIntoNetcode
+  - Netick.Entity.InvokeNetcodeIntoGameEngine
   - Netick.Entity.IsInputSource
   - Netick.Entity.IsInterested
   - Netick.Entity.IsMarkedForDestruction
@@ -30,13 +32,13 @@ items:
   - Netick.Entity.IsResimulating
   - Netick.Entity.MarkAltered(System.Int32*,System.Int32)
   - Netick.Entity.Move(System.Numerics.Vector3)
-  - Netick.Entity.NetcodeIntoGameEngine
-  - Netick.Entity.NetworkId
   - Netick.Entity.ObjectMeta
   - Netick.Entity.Position
-  - Netick.Entity.SetData(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  - Netick.Entity.RawId
   - Netick.Entity.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
+  - Netick.Entity.SetState(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
   - Netick.Entity.SetStateFrom(System.Byte*,System.Int32,System.Int32,System.Boolean)
+  - Netick.Entity.SetState_Collection(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32,System.Int32)
   - Netick.Entity.StateOffsetBytes
   - Netick.Entity.StatePtr
   - Netick.Entity.StateSizeWords
@@ -53,7 +55,7 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Represents an networked entity (object) in the simulation.
+  summary: Represents an networked entity (object) in Netick.
   example: []
   syntax:
     content: >-
@@ -92,10 +94,10 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public NetickEngine Engine
+    content: public readonly NetickEngine Engine
     return:
       type: Netick.NetickEngine
-    content.vb: Public Engine As NetickEngine
+    content.vb: Public ReadOnly Engine As NetickEngine
 - uid: Netick.Entity.UserEntity
   commentId: F:Netick.Entity.UserEntity
   id: UserEntity
@@ -115,25 +117,6 @@ items:
     return:
       type: Netick.INetickEntity
     content.vb: Public UserEntity As INetickEntity
-- uid: Netick.Entity.AdaptiveRemoteInterpolation
-  commentId: F:Netick.Entity.AdaptiveRemoteInterpolation
-  id: AdaptiveRemoteInterpolation
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: AdaptiveRemoteInterpolation
-  nameWithType: Entity.AdaptiveRemoteInterpolation
-  fullName: Netick.Entity.AdaptiveRemoteInterpolation
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public AdaptiveRemoteInterpolation AdaptiveRemoteInterpolation
-    return:
-      type: Netick.AdaptiveRemoteInterpolation
-    content.vb: Public AdaptiveRemoteInterpolation As AdaptiveRemoteInterpolation
 - uid: Netick.Entity.ObjectMeta
   commentId: F:Netick.Entity.ObjectMeta
   id: ObjectMeta
@@ -191,63 +174,6 @@ items:
     return:
       type: System.Int32
     content.vb: Public UserId As Integer
-- uid: Netick.Entity.NetworkId
-  commentId: F:Netick.Entity.NetworkId
-  id: NetworkId
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: NetworkId
-  nameWithType: Entity.NetworkId
-  fullName: Netick.Entity.NetworkId
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int NetworkId
-    return:
-      type: System.Int32
-    content.vb: Public NetworkId As Integer
-- uid: Netick.Entity.WorldIndex
-  commentId: F:Netick.Entity.WorldIndex
-  id: WorldIndex
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: WorldIndex
-  nameWithType: Entity.WorldIndex
-  fullName: Netick.Entity.WorldIndex
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int WorldIndex
-    return:
-      type: System.Int32
-    content.vb: Public WorldIndex As Integer
-- uid: Netick.Entity.GroupTableId
-  commentId: F:Netick.Entity.GroupTableId
-  id: GroupTableId
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: GroupTableId
-  nameWithType: Entity.GroupTableId
-  fullName: Netick.Entity.GroupTableId
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int GroupTableId
-    return:
-      type: System.Int32
-    content.vb: Public GroupTableId As Integer
 - uid: Netick.Entity.InstanceCounter
   commentId: F:Netick.Entity.InstanceCounter
   id: InstanceCounter
@@ -286,6 +212,63 @@ items:
     return:
       type: System.Numerics.Vector3
     content.vb: Public Position As Vector3
+- uid: Netick.Entity.WorldIndex
+  commentId: F:Netick.Entity.WorldIndex
+  id: WorldIndex
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: WorldIndex
+  nameWithType: Entity.WorldIndex
+  fullName: Netick.Entity.WorldIndex
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int WorldIndex
+    return:
+      type: System.Int32
+    content.vb: Public WorldIndex As Integer
+- uid: Netick.Entity.GroupTableId
+  commentId: F:Netick.Entity.GroupTableId
+  id: GroupTableId
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: GroupTableId
+  nameWithType: Entity.GroupTableId
+  fullName: Netick.Entity.GroupTableId
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int GroupTableId
+    return:
+      type: System.Int32
+    content.vb: Public GroupTableId As Integer
+- uid: Netick.Entity.RawId
+  commentId: F:Netick.Entity.RawId
+  id: RawId
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: RawId
+  nameWithType: Entity.RawId
+  fullName: Netick.Entity.RawId
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int RawId
+    return:
+      type: System.Int32
+    content.vb: Public RawId As Integer
 - uid: Netick.Entity.IsMarkedForDestruction
   commentId: F:Netick.Entity.IsMarkedForDestruction
   id: IsMarkedForDestruction
@@ -305,25 +288,6 @@ items:
     return:
       type: System.Boolean
     content.vb: Public IsMarkedForDestruction As Boolean
-- uid: Netick.Entity.StatePtr
-  commentId: F:Netick.Entity.StatePtr
-  id: StatePtr
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: StatePtr
-  nameWithType: Entity.StatePtr
-  fullName: Netick.Entity.StatePtr
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int* StatePtr
-    return:
-      type: System.Int32*
-    content.vb: Public StatePtr As Integer*
 - uid: Netick.Entity.StateSizeWords
   commentId: F:Netick.Entity.StateSizeWords
   id: StateSizeWords
@@ -381,6 +345,25 @@ items:
     return:
       type: System.Int32
     content.vb: Public BlockIndex As Integer
+- uid: Netick.Entity.StatePtr
+  commentId: F:Netick.Entity.StatePtr
+  id: StatePtr
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: StatePtr
+  nameWithType: Entity.StatePtr
+  fullName: Netick.Entity.StatePtr
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int* StatePtr
+    return:
+      type: System.Int32*
+    content.vb: Public StatePtr As Integer*
 - uid: Netick.Entity.Move(System.Numerics.Vector3)
   commentId: M:Netick.Entity.Move(System.Numerics.Vector3)
   id: Move(System.Numerics.Vector3)
@@ -558,42 +541,6 @@ items:
   nameWithType.vb: Entity.GetStateSizeWords(INetickNetworkScript())
   fullName.vb: Netick.Entity.GetStateSizeWords(Netick.INetickNetworkScript())
   name.vb: GetStateSizeWords(INetickNetworkScript())
-- uid: Netick.Entity.GameEngineIntoNetcode
-  commentId: M:Netick.Entity.GameEngineIntoNetcode
-  id: GameEngineIntoNetcode
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: GameEngineIntoNetcode()
-  nameWithType: Entity.GameEngineIntoNetcode()
-  fullName: Netick.Entity.GameEngineIntoNetcode()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void GameEngineIntoNetcode()
-    content.vb: Public Sub GameEngineIntoNetcode()
-  overload: Netick.Entity.GameEngineIntoNetcode*
-- uid: Netick.Entity.NetcodeIntoGameEngine
-  commentId: M:Netick.Entity.NetcodeIntoGameEngine
-  id: NetcodeIntoGameEngine
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: NetcodeIntoGameEngine()
-  nameWithType: Entity.NetcodeIntoGameEngine()
-  fullName: Netick.Entity.NetcodeIntoGameEngine()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void NetcodeIntoGameEngine()
-    content.vb: Public Sub NetcodeIntoGameEngine()
-  overload: Netick.Entity.NetcodeIntoGameEngine*
 - uid: Netick.Entity.GetStateRef
   commentId: M:Netick.Entity.GetStateRef
   id: GetStateRef
@@ -614,6 +561,42 @@ items:
       type: Netick.EntityStateRef
     content.vb: Public Function GetStateRef() As EntityStateRef
   overload: Netick.Entity.GetStateRef*
+- uid: Netick.Entity.InvokeGameEngineIntoNetcode
+  commentId: M:Netick.Entity.InvokeGameEngineIntoNetcode
+  id: InvokeGameEngineIntoNetcode
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: InvokeGameEngineIntoNetcode()
+  nameWithType: Entity.InvokeGameEngineIntoNetcode()
+  fullName: Netick.Entity.InvokeGameEngineIntoNetcode()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void InvokeGameEngineIntoNetcode()
+    content.vb: Public Sub InvokeGameEngineIntoNetcode()
+  overload: Netick.Entity.InvokeGameEngineIntoNetcode*
+- uid: Netick.Entity.InvokeNetcodeIntoGameEngine
+  commentId: M:Netick.Entity.InvokeNetcodeIntoGameEngine
+  id: InvokeNetcodeIntoGameEngine
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: InvokeNetcodeIntoGameEngine()
+  nameWithType: Entity.InvokeNetcodeIntoGameEngine()
+  fullName: Netick.Entity.InvokeNetcodeIntoGameEngine()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void InvokeNetcodeIntoGameEngine()
+    content.vb: Public Sub InvokeNetcodeIntoGameEngine()
+  overload: Netick.Entity.InvokeNetcodeIntoGameEngine*
 - uid: Netick.Entity.SetStateFrom(System.Byte*,System.Int32,System.Int32,System.Boolean)
   commentId: M:Netick.Entity.SetStateFrom(System.Byte*,System.Int32,System.Int32,System.Boolean)
   id: SetStateFrom(System.Byte*,System.Int32,System.Int32,System.Boolean)
@@ -644,22 +627,22 @@ items:
   nameWithType.vb: Entity.SetStateFrom(Byte*, Integer, Integer, Boolean)
   fullName.vb: Netick.Entity.SetStateFrom(Byte*, Integer, Integer, Boolean)
   name.vb: SetStateFrom(Byte*, Integer, Integer, Boolean)
-- uid: Netick.Entity.SetData(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
-  commentId: M:Netick.Entity.SetData(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
-  id: SetData(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+- uid: Netick.Entity.SetState(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  commentId: M:Netick.Entity.SetState(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
+  id: SetState(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
   parent: Netick.Entity
   langs:
   - csharp
   - vb
-  name: SetData(int*, int*, int, int, int)
-  nameWithType: Entity.SetData(int*, int*, int, int, int)
-  fullName: Netick.Entity.SetData(int*, int*, int, int, int)
+  name: SetState(int*, int*, int, int, int)
+  nameWithType: Entity.SetState(int*, int*, int, int, int)
+  fullName: Netick.Entity.SetState(int*, int*, int, int, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void SetData(int* newValue, int* p, int size, int hasOnChanged, int isInputSourceOnly)
+    content: public void SetState(int* newValue, int* p, int size, int hasOnChanged, int isInputSourceOnly)
     parameters:
     - id: newValue
       type: System.Int32*
@@ -671,11 +654,45 @@ items:
       type: System.Int32
     - id: isInputSourceOnly
       type: System.Int32
-    content.vb: Public Sub SetData(newValue As Integer*, p As Integer*, size As Integer, hasOnChanged As Integer, isInputSourceOnly As Integer)
-  overload: Netick.Entity.SetData*
-  nameWithType.vb: Entity.SetData(Integer*, Integer*, Integer, Integer, Integer)
-  fullName.vb: Netick.Entity.SetData(Integer*, Integer*, Integer, Integer, Integer)
-  name.vb: SetData(Integer*, Integer*, Integer, Integer, Integer)
+    content.vb: Public Sub SetState(newValue As Integer*, p As Integer*, size As Integer, hasOnChanged As Integer, isInputSourceOnly As Integer)
+  overload: Netick.Entity.SetState*
+  nameWithType.vb: Entity.SetState(Integer*, Integer*, Integer, Integer, Integer)
+  fullName.vb: Netick.Entity.SetState(Integer*, Integer*, Integer, Integer, Integer)
+  name.vb: SetState(Integer*, Integer*, Integer, Integer, Integer)
+- uid: Netick.Entity.SetState_Collection(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:Netick.Entity.SetState_Collection(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32,System.Int32)
+  id: SetState_Collection(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: SetState_Collection(int*, int*, int, int, int, int)
+  nameWithType: Entity.SetState_Collection(int*, int*, int, int, int, int)
+  fullName: Netick.Entity.SetState_Collection(int*, int*, int, int, int, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void SetState_Collection(int* newValue, int* p, int size, int hasOnChanged, int isInputSourceOnly, int collectionHasOnChanged)
+    parameters:
+    - id: newValue
+      type: System.Int32*
+    - id: p
+      type: System.Int32*
+    - id: size
+      type: System.Int32
+    - id: hasOnChanged
+      type: System.Int32
+    - id: isInputSourceOnly
+      type: System.Int32
+    - id: collectionHasOnChanged
+      type: System.Int32
+    content.vb: Public Sub SetState_Collection(newValue As Integer*, p As Integer*, size As Integer, hasOnChanged As Integer, isInputSourceOnly As Integer, collectionHasOnChanged As Integer)
+  overload: Netick.Entity.SetState_Collection*
+  nameWithType.vb: Entity.SetState_Collection(Integer*, Integer*, Integer, Integer, Integer, Integer)
+  fullName.vb: Netick.Entity.SetState_Collection(Integer*, Integer*, Integer, Integer, Integer, Integer)
+  name.vb: SetState_Collection(Integer*, Integer*, Integer, Integer, Integer, Integer)
 - uid: Netick.Entity.MarkAltered(System.Int32*,System.Int32)
   commentId: M:Netick.Entity.MarkAltered(System.Int32*,System.Int32)
   id: MarkAltered(System.Int32*,System.Int32)
@@ -921,6 +938,48 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsResimulating As Boolean
   overload: Netick.Entity.IsResimulating*
+- uid: Netick.Entity.AdaptiveRemoteInterpolation
+  commentId: P:Netick.Entity.AdaptiveRemoteInterpolation
+  id: AdaptiveRemoteInterpolation
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: AdaptiveRemoteInterpolation
+  nameWithType: Entity.AdaptiveRemoteInterpolation
+  fullName: Netick.Entity.AdaptiveRemoteInterpolation
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public AdaptiveRemoteInterpolation AdaptiveRemoteInterpolation { get; }
+    parameters: []
+    return:
+      type: Netick.AdaptiveRemoteInterpolation
+    content.vb: Public ReadOnly Property AdaptiveRemoteInterpolation As AdaptiveRemoteInterpolation
+  overload: Netick.Entity.AdaptiveRemoteInterpolation*
+- uid: Netick.Entity.Id
+  commentId: P:Netick.Entity.Id
+  id: Id
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Entity.Id
+  fullName: Netick.Entity.Id
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int Id { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Id As Integer
+  overload: Netick.Entity.Id*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -1158,14 +1217,6 @@ references:
   name: INetickEntity
   nameWithType: INetickEntity
   fullName: Netick.INetickEntity
-- uid: Netick.AdaptiveRemoteInterpolation
-  commentId: T:Netick.AdaptiveRemoteInterpolation
-  parent: Netick
-  isExternal: true
-  href: Netick.AdaptiveRemoteInterpolation.html
-  name: AdaptiveRemoteInterpolation
-  nameWithType: AdaptiveRemoteInterpolation
-  fullName: Netick.AdaptiveRemoteInterpolation
 - uid: Netick.NetickUniqueObjectMeta
   commentId: T:Netick.NetickUniqueObjectMeta
   parent: Netick
@@ -1231,6 +1282,17 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
 - uid: System.Int32*
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.int32
@@ -1252,17 +1314,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: '*'
-- uid: System.Int64
-  commentId: T:System.Int64
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int64
-  name: long
-  nameWithType: long
-  fullName: long
-  nameWithType.vb: Long
-  fullName.vb: Long
-  name.vb: Long
 - uid: Netick.Entity.Move*
   commentId: Overload:Netick.Entity.Move
   isExternal: true
@@ -1374,20 +1425,6 @@ references:
     href: Netick.INetickNetworkScript.html
   - name: (
   - name: )
-- uid: Netick.Entity.GameEngineIntoNetcode*
-  commentId: Overload:Netick.Entity.GameEngineIntoNetcode
-  isExternal: true
-  href: Netick.Entity.html#Netick_Entity_GameEngineIntoNetcode
-  name: GameEngineIntoNetcode
-  nameWithType: Entity.GameEngineIntoNetcode
-  fullName: Netick.Entity.GameEngineIntoNetcode
-- uid: Netick.Entity.NetcodeIntoGameEngine*
-  commentId: Overload:Netick.Entity.NetcodeIntoGameEngine
-  isExternal: true
-  href: Netick.Entity.html#Netick_Entity_NetcodeIntoGameEngine
-  name: NetcodeIntoGameEngine
-  nameWithType: Entity.NetcodeIntoGameEngine
-  fullName: Netick.Entity.NetcodeIntoGameEngine
 - uid: Netick.Entity.GetStateRef*
   commentId: Overload:Netick.Entity.GetStateRef
   isExternal: true
@@ -1403,6 +1440,20 @@ references:
   name: EntityStateRef
   nameWithType: EntityStateRef
   fullName: Netick.EntityStateRef
+- uid: Netick.Entity.InvokeGameEngineIntoNetcode*
+  commentId: Overload:Netick.Entity.InvokeGameEngineIntoNetcode
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_InvokeGameEngineIntoNetcode
+  name: InvokeGameEngineIntoNetcode
+  nameWithType: Entity.InvokeGameEngineIntoNetcode
+  fullName: Netick.Entity.InvokeGameEngineIntoNetcode
+- uid: Netick.Entity.InvokeNetcodeIntoGameEngine*
+  commentId: Overload:Netick.Entity.InvokeNetcodeIntoGameEngine
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_InvokeNetcodeIntoGameEngine
+  name: InvokeNetcodeIntoGameEngine
+  nameWithType: Entity.InvokeNetcodeIntoGameEngine
+  fullName: Netick.Entity.InvokeNetcodeIntoGameEngine
 - uid: Netick.Entity.SetStateFrom*
   commentId: Overload:Netick.Entity.SetStateFrom
   isExternal: true
@@ -1431,13 +1482,20 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: '*'
-- uid: Netick.Entity.SetData*
-  commentId: Overload:Netick.Entity.SetData
+- uid: Netick.Entity.SetState*
+  commentId: Overload:Netick.Entity.SetState
   isExternal: true
-  href: Netick.Entity.html#Netick_Entity_SetData_System_Int32__System_Int32__System_Int32_System_Int32_System_Int32_
-  name: SetData
-  nameWithType: Entity.SetData
-  fullName: Netick.Entity.SetData
+  href: Netick.Entity.html#Netick_Entity_SetState_System_Int32__System_Int32__System_Int32_System_Int32_System_Int32_
+  name: SetState
+  nameWithType: Entity.SetState
+  fullName: Netick.Entity.SetState
+- uid: Netick.Entity.SetState_Collection*
+  commentId: Overload:Netick.Entity.SetState_Collection
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_SetState_Collection_System_Int32__System_Int32__System_Int32_System_Int32_System_Int32_System_Int32_
+  name: SetState_Collection
+  nameWithType: Entity.SetState_Collection
+  fullName: Netick.Entity.SetState_Collection
 - uid: Netick.Entity.MarkAltered*
   commentId: Overload:Netick.Entity.MarkAltered
   isExternal: true
@@ -1531,3 +1589,25 @@ references:
   name: IsResimulating
   nameWithType: Entity.IsResimulating
   fullName: Netick.Entity.IsResimulating
+- uid: Netick.Entity.AdaptiveRemoteInterpolation*
+  commentId: Overload:Netick.Entity.AdaptiveRemoteInterpolation
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_AdaptiveRemoteInterpolation
+  name: AdaptiveRemoteInterpolation
+  nameWithType: Entity.AdaptiveRemoteInterpolation
+  fullName: Netick.Entity.AdaptiveRemoteInterpolation
+- uid: Netick.AdaptiveRemoteInterpolation
+  commentId: T:Netick.AdaptiveRemoteInterpolation
+  parent: Netick
+  isExternal: true
+  href: Netick.AdaptiveRemoteInterpolation.html
+  name: AdaptiveRemoteInterpolation
+  nameWithType: AdaptiveRemoteInterpolation
+  fullName: Netick.AdaptiveRemoteInterpolation
+- uid: Netick.Entity.Id*
+  commentId: Overload:Netick.Entity.Id
+  isExternal: true
+  href: Netick.Entity.html#Netick_Entity_Id
+  name: Id
+  nameWithType: Entity.Id
+  fullName: Netick.Entity.Id

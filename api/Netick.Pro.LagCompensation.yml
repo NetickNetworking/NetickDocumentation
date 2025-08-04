@@ -12,10 +12,10 @@ items:
   - Netick.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Pro.LagCompShape,Netick.Tick,System.Numerics.Vector3@,System.Numerics.Quaternion@)
   - Netick.Pro.LagCompensation.NetworkFixedUpdate
   - Netick.Pro.LagCompensation.NetworkRender
-  - Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean)
+  - Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
   - Netick.Pro.LagCompensation.Raycast(Netick.Pro.LagCompShape,System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
-  - Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean)
-  - Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
+  - Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
+  - Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
   langs:
   - csharp
   - vb
@@ -167,22 +167,22 @@ items:
   nameWithType.vb: LagCompensation.FetchHitShapePosAndRot(LagCompShape, Tick, Vector3, Quaternion)
   fullName.vb: Netick.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Pro.LagCompShape, Netick.Tick, System.Numerics.Vector3, System.Numerics.Quaternion)
   name.vb: FetchHitShapePosAndRot(LagCompShape, Tick, Vector3, Quaternion)
-- uid: Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean)
-  commentId: M:Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean)
-  id: Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean)
+- uid: Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
+  commentId: M:Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
+  id: Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
   parent: Netick.Pro.LagCompensation
   langs:
   - csharp
   - vb
-  name: Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, int, bool)
-  nameWithType: LagCompensation.Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, int, bool)
-  fullName: Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3, System.Numerics.Vector3, out Netick.Pro.NetHit, Netick.NetworkPlayer, float, int, bool)
+  name: Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, int, bool, Predicate<LagCompContainer>)
+  nameWithType: LagCompensation.Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, int, bool, Predicate<LagCompContainer>)
+  fullName: Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3, System.Numerics.Vector3, out Netick.Pro.NetHit, Netick.NetworkPlayer, float, int, bool, System.Predicate<Netick.Pro.LagCompContainer>)
   type: Method
   assemblies:
   - Netick.Pro
   namespace: Netick.Pro
   syntax:
-    content: public bool Raycast(Vector3 origin, Vector3 direction, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false)
+    content: public bool Raycast(Vector3 origin, Vector3 direction, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, Predicate<LagCompContainer> filter = null)
     parameters:
     - id: origin
       type: System.Numerics.Vector3
@@ -198,13 +198,15 @@ items:
       type: System.Int32
     - id: includeInputSource
       type: System.Boolean
+    - id: filter
+      type: System.Predicate{Netick.Pro.LagCompContainer}
     return:
       type: System.Boolean
-    content.vb: Public Function Raycast(origin As Vector3, direction As Vector3, hitData As NetHit, inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -1, includeInputSource As Boolean = False) As Boolean
+    content.vb: Public Function Raycast(origin As Vector3, direction As Vector3, hitData As NetHit, inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -1, includeInputSource As Boolean = False, filter As Predicate(Of LagCompContainer) = Nothing) As Boolean
   overload: Netick.Pro.LagCompensation.Raycast*
-  nameWithType.vb: LagCompensation.Raycast(Vector3, Vector3, NetHit, NetworkPlayer, Single, Integer, Boolean)
-  fullName.vb: Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3, System.Numerics.Vector3, Netick.Pro.NetHit, Netick.NetworkPlayer, Single, Integer, Boolean)
-  name.vb: Raycast(Vector3, Vector3, NetHit, NetworkPlayer, Single, Integer, Boolean)
+  nameWithType.vb: LagCompensation.Raycast(Vector3, Vector3, NetHit, NetworkPlayer, Single, Integer, Boolean, Predicate(Of LagCompContainer))
+  fullName.vb: Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3, System.Numerics.Vector3, Netick.Pro.NetHit, Netick.NetworkPlayer, Single, Integer, Boolean, System.Predicate(Of Netick.Pro.LagCompContainer))
+  name.vb: Raycast(Vector3, Vector3, NetHit, NetworkPlayer, Single, Integer, Boolean, Predicate(Of LagCompContainer))
 - uid: Netick.Pro.LagCompensation.Raycast(Netick.Pro.LagCompShape,System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
   commentId: M:Netick.Pro.LagCompensation.Raycast(Netick.Pro.LagCompShape,System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
   id: Raycast(Netick.Pro.LagCompShape,System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
@@ -243,22 +245,22 @@ items:
   nameWithType.vb: LagCompensation.Raycast(LagCompShape, Vector3, Vector3, NetHit, NetworkPlayer, Single, Boolean)
   fullName.vb: Netick.Pro.LagCompensation.Raycast(Netick.Pro.LagCompShape, System.Numerics.Vector3, System.Numerics.Vector3, Netick.Pro.NetHit, Netick.NetworkPlayer, Single, Boolean)
   name.vb: Raycast(LagCompShape, Vector3, Vector3, NetHit, NetworkPlayer, Single, Boolean)
-- uid: Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
-  commentId: M:Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
-  id: RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)
+- uid: Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
+  commentId: M:Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
+  id: RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
   parent: Netick.Pro.LagCompensation
   langs:
   - csharp
   - vb
-  name: RaycastAll(Vector3, Vector3, List<NetHit>, NetworkPlayer, float, int, bool, bool)
-  nameWithType: LagCompensation.RaycastAll(Vector3, Vector3, List<NetHit>, NetworkPlayer, float, int, bool, bool)
-  fullName: Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3, System.Numerics.Vector3, System.Collections.Generic.List<Netick.Pro.NetHit>, Netick.NetworkPlayer, float, int, bool, bool)
+  name: RaycastAll(Vector3, Vector3, List<NetHit>, NetworkPlayer, float, int, bool, bool, Predicate<LagCompContainer>)
+  nameWithType: LagCompensation.RaycastAll(Vector3, Vector3, List<NetHit>, NetworkPlayer, float, int, bool, bool, Predicate<LagCompContainer>)
+  fullName: Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3, System.Numerics.Vector3, System.Collections.Generic.List<Netick.Pro.NetHit>, Netick.NetworkPlayer, float, int, bool, bool, System.Predicate<Netick.Pro.LagCompContainer>)
   type: Method
   assemblies:
   - Netick.Pro
   namespace: Netick.Pro
   syntax:
-    content: public void RaycastAll(Vector3 origin, Vector3 direction, List<NetHit> hits, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false)
+    content: public void RaycastAll(Vector3 origin, Vector3 direction, List<NetHit> hits, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false, Predicate<LagCompContainer> filter = null)
     parameters:
     - id: origin
       type: System.Numerics.Vector3
@@ -276,27 +278,29 @@ items:
       type: System.Boolean
     - id: oneHitPerHitShapeContainer
       type: System.Boolean
-    content.vb: Public Sub RaycastAll(origin As Vector3, direction As Vector3, hits As List(Of NetHit), inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -1, includeInputSource As Boolean = False, oneHitPerHitShapeContainer As Boolean = False)
+    - id: filter
+      type: System.Predicate{Netick.Pro.LagCompContainer}
+    content.vb: Public Sub RaycastAll(origin As Vector3, direction As Vector3, hits As List(Of NetHit), inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -1, includeInputSource As Boolean = False, oneHitPerHitShapeContainer As Boolean = False, filter As Predicate(Of LagCompContainer) = Nothing)
   overload: Netick.Pro.LagCompensation.RaycastAll*
-  nameWithType.vb: LagCompensation.RaycastAll(Vector3, Vector3, List(Of NetHit), NetworkPlayer, Single, Integer, Boolean, Boolean)
-  fullName.vb: Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3, System.Numerics.Vector3, System.Collections.Generic.List(Of Netick.Pro.NetHit), Netick.NetworkPlayer, Single, Integer, Boolean, Boolean)
-  name.vb: RaycastAll(Vector3, Vector3, List(Of NetHit), NetworkPlayer, Single, Integer, Boolean, Boolean)
-- uid: Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean)
-  commentId: M:Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean)
-  id: OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean)
+  nameWithType.vb: LagCompensation.RaycastAll(Vector3, Vector3, List(Of NetHit), NetworkPlayer, Single, Integer, Boolean, Boolean, Predicate(Of LagCompContainer))
+  fullName.vb: Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3, System.Numerics.Vector3, System.Collections.Generic.List(Of Netick.Pro.NetHit), Netick.NetworkPlayer, Single, Integer, Boolean, Boolean, System.Predicate(Of Netick.Pro.LagCompContainer))
+  name.vb: RaycastAll(Vector3, Vector3, List(Of NetHit), NetworkPlayer, Single, Integer, Boolean, Boolean, Predicate(Of LagCompContainer))
+- uid: Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
+  commentId: M:Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
+  id: OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})
   parent: Netick.Pro.LagCompensation
   langs:
   - csharp
   - vb
-  name: OverlapSphere(Vector3, float, List<NetHit>, NetworkPlayer, int, bool, bool)
-  nameWithType: LagCompensation.OverlapSphere(Vector3, float, List<NetHit>, NetworkPlayer, int, bool, bool)
-  fullName: Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3, float, System.Collections.Generic.List<Netick.Pro.NetHit>, Netick.NetworkPlayer, int, bool, bool)
+  name: OverlapSphere(Vector3, float, List<NetHit>, NetworkPlayer, int, bool, bool, Predicate<LagCompContainer>)
+  nameWithType: LagCompensation.OverlapSphere(Vector3, float, List<NetHit>, NetworkPlayer, int, bool, bool, Predicate<LagCompContainer>)
+  fullName: Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3, float, System.Collections.Generic.List<Netick.Pro.NetHit>, Netick.NetworkPlayer, int, bool, bool, System.Predicate<Netick.Pro.LagCompContainer>)
   type: Method
   assemblies:
   - Netick.Pro
   namespace: Netick.Pro
   syntax:
-    content: public void OverlapSphere(Vector3 center, float radius, List<NetHit> hits, NetworkPlayer inputSource, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false)
+    content: public void OverlapSphere(Vector3 center, float radius, List<NetHit> hits, NetworkPlayer inputSource, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false, Predicate<LagCompContainer> filter = null)
     parameters:
     - id: center
       type: System.Numerics.Vector3
@@ -312,11 +316,13 @@ items:
       type: System.Boolean
     - id: oneHitPerHitShapeContainer
       type: System.Boolean
-    content.vb: Public Sub OverlapSphere(center As Vector3, radius As Single, hits As List(Of NetHit), inputSource As NetworkPlayer, layerMask As Integer = -1, includeInputSource As Boolean = False, oneHitPerHitShapeContainer As Boolean = False)
+    - id: filter
+      type: System.Predicate{Netick.Pro.LagCompContainer}
+    content.vb: Public Sub OverlapSphere(center As Vector3, radius As Single, hits As List(Of NetHit), inputSource As NetworkPlayer, layerMask As Integer = -1, includeInputSource As Boolean = False, oneHitPerHitShapeContainer As Boolean = False, filter As Predicate(Of LagCompContainer) = Nothing)
   overload: Netick.Pro.LagCompensation.OverlapSphere*
-  nameWithType.vb: LagCompensation.OverlapSphere(Vector3, Single, List(Of NetHit), NetworkPlayer, Integer, Boolean, Boolean)
-  fullName.vb: Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3, Single, System.Collections.Generic.List(Of Netick.Pro.NetHit), Netick.NetworkPlayer, Integer, Boolean, Boolean)
-  name.vb: OverlapSphere(Vector3, Single, List(Of NetHit), NetworkPlayer, Integer, Boolean, Boolean)
+  nameWithType.vb: LagCompensation.OverlapSphere(Vector3, Single, List(Of NetHit), NetworkPlayer, Integer, Boolean, Boolean, Predicate(Of LagCompContainer))
+  fullName.vb: Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3, Single, System.Collections.Generic.List(Of Netick.Pro.NetHit), Netick.NetworkPlayer, Integer, Boolean, Boolean, System.Predicate(Of Netick.Pro.LagCompContainer))
+  name.vb: OverlapSphere(Vector3, Single, List(Of NetHit), NetworkPlayer, Integer, Boolean, Boolean, Predicate(Of LagCompContainer))
 - uid: Netick.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
   commentId: M:Netick.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
   id: CanRewind(Netick.ServerConnection)
@@ -719,7 +725,7 @@ references:
 - uid: Netick.Pro.LagCompensation.Raycast*
   commentId: Overload:Netick.Pro.LagCompensation.Raycast
   isExternal: true
-  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_Raycast_System_Numerics_Vector3_System_Numerics_Vector3_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_
+  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_Raycast_System_Numerics_Vector3_System_Numerics_Vector3_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Predicate_Netick_Pro_LagCompContainer__
   name: Raycast
   nameWithType: LagCompensation.Raycast
   fullName: Netick.Pro.LagCompensation.Raycast
@@ -753,10 +759,73 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: System.Predicate{Netick.Pro.LagCompContainer}
+  commentId: T:System.Predicate{Netick.Pro.LagCompContainer}
+  parent: System
+  definition: System.Predicate`1
+  href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  name: Predicate<LagCompContainer>
+  nameWithType: Predicate<LagCompContainer>
+  fullName: System.Predicate<Netick.Pro.LagCompContainer>
+  nameWithType.vb: Predicate(Of LagCompContainer)
+  fullName.vb: System.Predicate(Of Netick.Pro.LagCompContainer)
+  name.vb: Predicate(Of LagCompContainer)
+  spec.csharp:
+  - uid: System.Predicate`1
+    name: Predicate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  - name: <
+  - uid: Netick.Pro.LagCompContainer
+    name: LagCompContainer
+    isExternal: true
+    href: Netick.Pro.LagCompContainer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Predicate`1
+    name: Predicate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Pro.LagCompContainer
+    name: LagCompContainer
+    isExternal: true
+    href: Netick.Pro.LagCompContainer.html
+  - name: )
+- uid: System.Predicate`1
+  commentId: T:System.Predicate`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  name: Predicate<T>
+  nameWithType: Predicate<T>
+  fullName: System.Predicate<T>
+  nameWithType.vb: Predicate(Of T)
+  fullName.vb: System.Predicate(Of T)
+  name.vb: Predicate(Of T)
+  spec.csharp:
+  - uid: System.Predicate`1
+    name: Predicate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Predicate`1
+    name: Predicate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick.Pro.LagCompensation.RaycastAll*
   commentId: Overload:Netick.Pro.LagCompensation.RaycastAll
   isExternal: true
-  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_RaycastAll_System_Numerics_Vector3_System_Numerics_Vector3_System_Collections_Generic_List_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Boolean_
+  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_RaycastAll_System_Numerics_Vector3_System_Numerics_Vector3_System_Collections_Generic_List_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Boolean_System_Predicate_Netick_Pro_LagCompContainer__
   name: RaycastAll
   nameWithType: LagCompensation.RaycastAll
   fullName: Netick.Pro.LagCompensation.RaycastAll
@@ -863,7 +932,7 @@ references:
 - uid: Netick.Pro.LagCompensation.OverlapSphere*
   commentId: Overload:Netick.Pro.LagCompensation.OverlapSphere
   isExternal: true
-  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_OverlapSphere_System_Numerics_Vector3_System_Single_System_Collections_Generic_List_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_
+  href: Netick.Pro.LagCompensation.html#Netick_Pro_LagCompensation_OverlapSphere_System_Numerics_Vector3_System_Single_System_Collections_Generic_List_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_System_Predicate_Netick_Pro_LagCompContainer__
   name: OverlapSphere
   nameWithType: LagCompensation.OverlapSphere
   fullName: Netick.Pro.LagCompensation.OverlapSphere

@@ -13,9 +13,9 @@ items:
   - Netick.INetickEntity.Entity
   - Netick.INetickEntity.Initialize(Netick.NetickEngine,Netick.Entity)
   - Netick.INetickEntity.NarrowPhaseFilter
+  - Netick.INetickEntity.NetworkAwake
   - Netick.INetickEntity.NetworkRegister
   - Netick.INetickEntity.NetworkScripts
-  - Netick.INetickEntity.NetworkStart
   - Netick.INetickEntity.NetworkUnregister
   - Netick.INetickEntity.PredictionMode
   - Netick.INetickEntity.UseSAP
@@ -62,24 +62,24 @@ items:
       description: ''
     content.vb: Sub Initialize(netickEngine As NetickEngine, entity As Entity)
   overload: Netick.INetickEntity.Initialize*
-- uid: Netick.INetickEntity.NetworkStart
-  commentId: M:Netick.INetickEntity.NetworkStart
-  id: NetworkStart
+- uid: Netick.INetickEntity.NetworkAwake
+  commentId: M:Netick.INetickEntity.NetworkAwake
+  id: NetworkAwake
   parent: Netick.INetickEntity
   langs:
   - csharp
   - vb
-  name: NetworkStart()
-  nameWithType: INetickEntity.NetworkStart()
-  fullName: Netick.INetickEntity.NetworkStart()
+  name: NetworkAwake()
+  nameWithType: INetickEntity.NetworkAwake()
+  fullName: Netick.INetickEntity.NetworkAwake()
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: void NetworkStart()
-    content.vb: Sub NetworkStart()
-  overload: Netick.INetickEntity.NetworkStart*
+    content: void NetworkAwake()
+    content.vb: Sub NetworkAwake()
+  overload: Netick.INetickEntity.NetworkAwake*
 - uid: Netick.INetickEntity.NetworkRegister
   commentId: M:Netick.INetickEntity.NetworkRegister
   id: NetworkRegister
@@ -378,13 +378,13 @@ references:
   name: Entity
   nameWithType: Entity
   fullName: Netick.Entity
-- uid: Netick.INetickEntity.NetworkStart*
-  commentId: Overload:Netick.INetickEntity.NetworkStart
+- uid: Netick.INetickEntity.NetworkAwake*
+  commentId: Overload:Netick.INetickEntity.NetworkAwake
   isExternal: true
-  href: Netick.INetickEntity.html#Netick_INetickEntity_NetworkStart
-  name: NetworkStart
-  nameWithType: INetickEntity.NetworkStart
-  fullName: Netick.INetickEntity.NetworkStart
+  href: Netick.INetickEntity.html#Netick_INetickEntity_NetworkAwake
+  name: NetworkAwake
+  nameWithType: INetickEntity.NetworkAwake
+  fullName: Netick.INetickEntity.NetworkAwake
 - uid: Netick.INetickEntity.NetworkRegister*
   commentId: Overload:Netick.INetickEntity.NetworkRegister
   isExternal: true

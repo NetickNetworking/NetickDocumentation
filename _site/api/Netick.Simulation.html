@@ -158,36 +158,6 @@ Class Simulation
 
 
 
-  <h3 id="Netick_Simulation_SimulatedObjects" data-uid="Netick.Simulation.SimulatedObjects">
-  SimulatedObjects
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly ExecutionListLL SimulatedObjects</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.ExecutionListLL.html">ExecutionListLL</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <h3 id="Netick_Simulation_UnlinkedEntities" data-uid="Netick.Simulation.UnlinkedEntities">
   UnlinkedEntities
   
@@ -206,6 +176,36 @@ Class Simulation
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="Netick.Entity.html">Entity</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Simulation__addedEntitiesList" data-uid="Netick.Simulation._addedEntitiesList">
+  _addedEntitiesList
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;Entity&gt; _addedEntitiesList</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.Entity.html">Entity</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -248,8 +248,8 @@ Class Simulation
 
 
 
-  <h3 id="Netick_Simulation__newObjectsList" data-uid="Netick.Simulation._newObjectsList">
-  _newObjectsList
+  <h3 id="Netick_Simulation__pendingAddedEntities" data-uid="Netick.Simulation._pendingAddedEntities">
+  _pendingAddedEntities
   
   </h3>
 
@@ -257,37 +257,7 @@ Class Simulation
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected List&lt;Entity&gt; _newObjectsList</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.Entity.html">Entity</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Netick_Simulation__pendingAddedObjects" data-uid="Netick.Simulation._pendingAddedObjects">
-  _pendingAddedObjects
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected HashSet&lt;Entity&gt; _pendingAddedObjects</code></pre>
+    <pre><code class="lang-csharp hljs">protected HashSet&lt;Entity&gt; _pendingAddedEntities</code></pre>
   </div>
 
 
@@ -368,8 +338,8 @@ Class Simulation
 
 
 
-  <h3 id="Netick_Simulation__removedObjectsList" data-uid="Netick.Simulation._removedObjectsList">
-  _removedObjectsList
+  <h3 id="Netick_Simulation__removedEntitiesList" data-uid="Netick.Simulation._removedEntitiesList">
+  _removedEntitiesList
   
   </h3>
 
@@ -377,7 +347,7 @@ Class Simulation
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected List&lt;Simulation.EntityRemove&gt; _removedObjectsList</code></pre>
+    <pre><code class="lang-csharp hljs">protected List&lt;Simulation.EntityRemove&gt; _removedEntitiesList</code></pre>
   </div>
 
 
@@ -666,6 +636,32 @@ Class Simulation
     <dt><code>T</code></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_InvokePlayerJoinLeaveCallbacks_" data-uid="Netick.Simulation.InvokePlayerJoinLeaveCallbacks*"></a>
+
+  <h3 id="Netick_Simulation_InvokePlayerJoinLeaveCallbacks" data-uid="Netick.Simulation.InvokePlayerJoinLeaveCallbacks">
+  InvokePlayerJoinLeaveCallbacks()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void InvokePlayerJoinLeaveCallbacks()</code></pre>
+  </div>
+
+
+
 
 
 

@@ -31,25 +31,25 @@ items:
   - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Netick.Unity.SandboxLaunchData.TransportProvider
-  commentId: F:Netick.Unity.SandboxLaunchData.TransportProvider
-  id: TransportProvider
+- uid: Netick.Unity.SandboxLaunchData.StartMode
+  commentId: F:Netick.Unity.SandboxLaunchData.StartMode
+  id: StartMode
   parent: Netick.Unity.SandboxLaunchData
   langs:
   - csharp
   - vb
-  name: TransportProvider
-  nameWithType: SandboxLaunchData.TransportProvider
-  fullName: Netick.Unity.SandboxLaunchData.TransportProvider
+  name: StartMode
+  nameWithType: SandboxLaunchData.StartMode
+  fullName: Netick.Unity.SandboxLaunchData.StartMode
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public NetworkTransportProvider TransportProvider
+    content: public NetickStartMode StartMode
     return:
-      type: Netick.Unity.NetworkTransportProvider
-    content.vb: Public TransportProvider As NetworkTransportProvider
+      type: Netick.NetickStartMode
+    content.vb: Public StartMode As NetickStartMode
 - uid: Netick.Unity.SandboxLaunchData.SandboxPrefab
   commentId: F:Netick.Unity.SandboxLaunchData.SandboxPrefab
   id: SandboxPrefab
@@ -69,6 +69,25 @@ items:
     return:
       type: UnityEngine.GameObject
     content.vb: Public SandboxPrefab As GameObject
+- uid: Netick.Unity.SandboxLaunchData.TransportProvider
+  commentId: F:Netick.Unity.SandboxLaunchData.TransportProvider
+  id: TransportProvider
+  parent: Netick.Unity.SandboxLaunchData
+  langs:
+  - csharp
+  - vb
+  name: TransportProvider
+  nameWithType: SandboxLaunchData.TransportProvider
+  fullName: Netick.Unity.SandboxLaunchData.TransportProvider
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public NetworkTransportProvider TransportProvider
+    return:
+      type: Netick.Unity.NetworkTransportProvider
+    content.vb: Public TransportProvider As NetworkTransportProvider
 - uid: Netick.Unity.SandboxLaunchData.NetworkedPrefabs
   commentId: F:Netick.Unity.SandboxLaunchData.NetworkedPrefabs
   id: NetworkedPrefabs
@@ -126,25 +145,6 @@ items:
     return:
       type: System.Int32
     content.vb: Public Port As Integer
-- uid: Netick.Unity.SandboxLaunchData.StartMode
-  commentId: F:Netick.Unity.SandboxLaunchData.StartMode
-  id: StartMode
-  parent: Netick.Unity.SandboxLaunchData
-  langs:
-  - csharp
-  - vb
-  name: StartMode
-  nameWithType: SandboxLaunchData.StartMode
-  fullName: Netick.Unity.SandboxLaunchData.StartMode
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public NetickStartMode StartMode
-    return:
-      type: Netick.NetickStartMode
-    content.vb: Public StartMode As NetickStartMode
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -390,6 +390,26 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Netick.NetickStartMode
+  commentId: T:Netick.NetickStartMode
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickStartMode.html
+  name: NetickStartMode
+  nameWithType: NetickStartMode
+  fullName: Netick.NetickStartMode
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: UnityEngine.GameObject
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
 - uid: Netick.Unity.NetworkTransportProvider
   commentId: T:Netick.Unity.NetworkTransportProvider
   parent: Netick.Unity
@@ -398,11 +418,6 @@ references:
   name: NetworkTransportProvider
   nameWithType: NetworkTransportProvider
   fullName: Netick.Unity.NetworkTransportProvider
-- uid: UnityEngine.GameObject
-  isExternal: true
-  name: GameObject
-  nameWithType: GameObject
-  fullName: UnityEngine.GameObject
 - uid: System.Collections.Generic.List{Netick.Unity.NetworkObject}
   commentId: T:System.Collections.Generic.List{Netick.Unity.NetworkObject}
   parent: System.Collections.Generic
@@ -522,18 +537,3 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: Netick.NetickStartMode
-  commentId: T:Netick.NetickStartMode
-  parent: Netick
-  isExternal: true
-  href: Netick.NetickStartMode.html
-  name: NetickStartMode
-  nameWithType: NetickStartMode
-  fullName: Netick.NetickStartMode
-- uid: Netick
-  commentId: N:Netick
-  isExternal: true
-  href: Netick.html
-  name: Netick
-  nameWithType: Netick
-  fullName: Netick

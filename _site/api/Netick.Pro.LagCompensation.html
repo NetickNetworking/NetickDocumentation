@@ -382,8 +382,8 @@ public sealed class LagCompensation : INetickComponent</code></pre>
 
   <a id="Netick_Pro_LagCompensation_OverlapSphere_" data-uid="Netick.Pro.LagCompensation.OverlapSphere*"></a>
 
-  <h3 id="Netick_Pro_LagCompensation_OverlapSphere_System_Numerics_Vector3_System_Single_System_Collections_Generic_List_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_" data-uid="Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean)">
-  OverlapSphere(Vector3, float, List&lt;NetHit&gt;, NetworkPlayer, int, bool, bool)
+  <h3 id="Netick_Pro_LagCompensation_OverlapSphere_System_Numerics_Vector3_System_Single_System_Collections_Generic_List_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_System_Predicate_Netick_Pro_LagCompContainer__" data-uid="Netick.Pro.LagCompensation.OverlapSphere(System.Numerics.Vector3,System.Single,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})">
+  OverlapSphere(Vector3, float, List&lt;NetHit&gt;, NetworkPlayer, int, bool, bool, Predicate&lt;LagCompContainer&gt;)
   
   </h3>
 
@@ -391,7 +391,7 @@ public sealed class LagCompensation : INetickComponent</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void OverlapSphere(Vector3 center, float radius, List&lt;NetHit&gt; hits, NetworkPlayer inputSource, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public void OverlapSphere(Vector3 center, float radius, List&lt;NetHit&gt; hits, NetworkPlayer inputSource, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false, Predicate&lt;LagCompContainer&gt; filter = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -409,6 +409,8 @@ public sealed class LagCompensation : INetickComponent</code></pre>
     <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
     <dt><code>oneHitPerHitShapeContainer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>filter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;<a class="xref" href="Netick.Pro.LagCompContainer.html">LagCompContainer</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -473,8 +475,8 @@ public sealed class LagCompensation : INetickComponent</code></pre>
 
   <a id="Netick_Pro_LagCompensation_Raycast_" data-uid="Netick.Pro.LagCompensation.Raycast*"></a>
 
-  <h3 id="Netick_Pro_LagCompensation_Raycast_System_Numerics_Vector3_System_Numerics_Vector3_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_" data-uid="Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean)">
-  Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, int, bool)
+  <h3 id="Netick_Pro_LagCompensation_Raycast_System_Numerics_Vector3_System_Numerics_Vector3_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Predicate_Netick_Pro_LagCompContainer__" data-uid="Netick.Pro.LagCompensation.Raycast(System.Numerics.Vector3,System.Numerics.Vector3,Netick.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})">
+  Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, int, bool, Predicate&lt;LagCompContainer&gt;)
   
   </h3>
 
@@ -482,7 +484,7 @@ public sealed class LagCompensation : INetickComponent</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Raycast(Vector3 origin, Vector3 direction, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Raycast(Vector3 origin, Vector3 direction, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, Predicate&lt;LagCompContainer&gt; filter = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -500,6 +502,8 @@ public sealed class LagCompensation : INetickComponent</code></pre>
     <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>filter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;<a class="xref" href="Netick.Pro.LagCompContainer.html">LagCompContainer</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -521,8 +525,8 @@ public sealed class LagCompensation : INetickComponent</code></pre>
 
   <a id="Netick_Pro_LagCompensation_RaycastAll_" data-uid="Netick.Pro.LagCompensation.RaycastAll*"></a>
 
-  <h3 id="Netick_Pro_LagCompensation_RaycastAll_System_Numerics_Vector3_System_Numerics_Vector3_System_Collections_Generic_List_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Boolean_" data-uid="Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean)">
-  RaycastAll(Vector3, Vector3, List&lt;NetHit&gt;, NetworkPlayer, float, int, bool, bool)
+  <h3 id="Netick_Pro_LagCompensation_RaycastAll_System_Numerics_Vector3_System_Numerics_Vector3_System_Collections_Generic_List_Netick_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Boolean_System_Predicate_Netick_Pro_LagCompContainer__" data-uid="Netick.Pro.LagCompensation.RaycastAll(System.Numerics.Vector3,System.Numerics.Vector3,System.Collections.Generic.List{Netick.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Pro.LagCompContainer})">
+  RaycastAll(Vector3, Vector3, List&lt;NetHit&gt;, NetworkPlayer, float, int, bool, bool, Predicate&lt;LagCompContainer&gt;)
   
   </h3>
 
@@ -530,7 +534,7 @@ public sealed class LagCompensation : INetickComponent</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RaycastAll(Vector3 origin, Vector3 direction, List&lt;NetHit&gt; hits, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public void RaycastAll(Vector3 origin, Vector3 direction, List&lt;NetHit&gt; hits, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false, Predicate&lt;LagCompContainer&gt; filter = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -550,6 +554,8 @@ public sealed class LagCompensation : INetickComponent</code></pre>
     <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
     <dt><code>oneHitPerHitShapeContainer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>filter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;<a class="xref" href="Netick.Pro.LagCompContainer.html">LagCompContainer</a>&gt;</dt>
     <dd></dd>
   </dl>
 

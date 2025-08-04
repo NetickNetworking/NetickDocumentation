@@ -45,6 +45,7 @@ items:
   - Netick.Unity.NetworkObject.SceneId
   - Netick.Unity.NetworkObject.SetInitialProperties(System.Boolean,Netick.Relevancy,System.Boolean,Netick.BroadPhaseFilter,System.Boolean)
   - Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayer,System.Boolean)
+  - Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayerId,System.Boolean)
   - Netick.Unity.NetworkObject.SetParent(Netick.Unity.NetworkObject)
   - Netick.Unity.NetworkObject.SetStateFrom(Netick.EntityStateRef,System.Byte*,System.Boolean)
   - Netick.Unity.NetworkObject.SetStateFrom(Netick.EntityStateRef,System.Byte[],System.Boolean)
@@ -123,6 +124,32 @@ items:
   nameWithType.vb: NetworkObject.SetNarrowphaseInterest(NetworkPlayer, Boolean)
   fullName.vb: Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayer, Boolean)
   name.vb: SetNarrowphaseInterest(NetworkPlayer, Boolean)
+- uid: Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayerId,System.Boolean)
+  commentId: M:Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayerId,System.Boolean)
+  id: SetNarrowphaseInterest(Netick.NetworkPlayerId,System.Boolean)
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: SetNarrowphaseInterest(NetworkPlayerId, bool)
+  nameWithType: NetworkObject.SetNarrowphaseInterest(NetworkPlayerId, bool)
+  fullName: Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayerId, bool)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void SetNarrowphaseInterest(NetworkPlayerId player, bool isInterested)
+    parameters:
+    - id: player
+      type: Netick.NetworkPlayerId
+    - id: isInterested
+      type: System.Boolean
+    content.vb: Public Sub SetNarrowphaseInterest(player As NetworkPlayerId, isInterested As Boolean)
+  overload: Netick.Unity.NetworkObject.SetNarrowphaseInterest*
+  nameWithType.vb: NetworkObject.SetNarrowphaseInterest(NetworkPlayerId, Boolean)
+  fullName.vb: Netick.Unity.NetworkObject.SetNarrowphaseInterest(Netick.NetworkPlayerId, Boolean)
+  name.vb: SetNarrowphaseInterest(NetworkPlayerId, Boolean)
 - uid: Netick.Unity.NetworkObject.GetStateRef
   commentId: M:Netick.Unity.NetworkObject.GetStateRef
   id: GetStateRef
@@ -1383,6 +1410,14 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Netick.NetworkPlayerId
+  commentId: T:Netick.NetworkPlayerId
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayerId.html
+  name: NetworkPlayerId
+  nameWithType: NetworkPlayerId
+  fullName: Netick.NetworkPlayerId
 - uid: Netick.Unity.NetworkObject.GetStateRef*
   commentId: Overload:Netick.Unity.NetworkObject.GetStateRef
   isExternal: true
@@ -1948,14 +1983,6 @@ references:
   name: InputSourcePlayerId
   nameWithType: NetworkObject.InputSourcePlayerId
   fullName: Netick.Unity.NetworkObject.InputSourcePlayerId
-- uid: Netick.NetworkPlayerId
-  commentId: T:Netick.NetworkPlayerId
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkPlayerId.html
-  name: NetworkPlayerId
-  nameWithType: NetworkPlayerId
-  fullName: Netick.NetworkPlayerId
 - uid: Netick.Unity.NetworkObject.IsInterested*
   commentId: Overload:Netick.Unity.NetworkObject.IsInterested
   isExternal: true

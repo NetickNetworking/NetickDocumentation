@@ -13,6 +13,7 @@ items:
   - Netick.Tick.IsValid
   - Netick.Tick.TickValue
   - Netick.Tick.ToString
+  - Netick.Tick.Value
   - Netick.Tick.op_Addition(Netick.Tick,System.Int32)
   - Netick.Tick.op_Equality(Netick.Tick,Netick.Tick)
   - Netick.Tick.op_GreaterThan(Netick.Tick,Netick.Tick)
@@ -47,25 +48,25 @@ items:
   - System.Object.GetType
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Netick.Tick.TickValue
-  commentId: F:Netick.Tick.TickValue
-  id: TickValue
+- uid: Netick.Tick.Value
+  commentId: F:Netick.Tick.Value
+  id: Value
   parent: Netick.Tick
   langs:
   - csharp
   - vb
-  name: TickValue
-  nameWithType: Tick.TickValue
-  fullName: Netick.Tick.TickValue
+  name: Value
+  nameWithType: Tick.Value
+  fullName: Netick.Tick.Value
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public int TickValue
+    content: public int Value
     return:
       type: System.Int32
-    content.vb: Public TickValue As Integer
+    content.vb: Public Value As Integer
 - uid: Netick.Tick.#ctor(System.Int32)
   commentId: M:Netick.Tick.#ctor(System.Int32)
   id: '#ctor(System.Int32)'
@@ -567,6 +568,39 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsValid As Boolean
   overload: Netick.Tick.IsValid*
+- uid: Netick.Tick.TickValue
+  commentId: P:Netick.Tick.TickValue
+  id: TickValue
+  parent: Netick.Tick
+  langs:
+  - csharp
+  - vb
+  name: TickValue
+  nameWithType: Tick.TickValue
+  fullName: Netick.Tick.TickValue
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: >-
+      [Obsolete("This will be removed in the future, use Value instead.")]
+
+      public int TickValue { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Obsolete("This will be removed in the future, use Value instead.")>
+
+      Public Property TickValue As Integer
+  overload: Netick.Tick.TickValue*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This will be removed in the future, use Value instead.
 - uid: Netick.Tick.InvalidTick
   commentId: P:Netick.Tick.InvalidTick
   id: InvalidTick
@@ -1194,6 +1228,13 @@ references:
   name: IsValid
   nameWithType: Tick.IsValid
   fullName: Netick.Tick.IsValid
+- uid: Netick.Tick.TickValue*
+  commentId: Overload:Netick.Tick.TickValue
+  isExternal: true
+  href: Netick.Tick.html#Netick_Tick_TickValue
+  name: TickValue
+  nameWithType: Tick.TickValue
+  fullName: Netick.Tick.TickValue
 - uid: Netick.Tick.InvalidTick*
   commentId: Overload:Netick.Tick.InvalidTick
   isExternal: true

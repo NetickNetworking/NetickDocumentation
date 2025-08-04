@@ -8,9 +8,9 @@ items:
   - Netick.ClientSimulation.InterestGroups
   - Netick.ClientSimulation.IsLastTickFull
   - Netick.ClientSimulation.IsResimulating
-  - Netick.ClientSimulation.PostReadPhaseTwo
+  - Netick.ClientSimulation.PostReadPhase2
+  - Netick.ClientSimulation.ResimulationCount
   - Netick.ClientSimulation.ResimulationStep
-  - Netick.ClientSimulation.Resimulatios
   langs:
   - csharp
   - vb
@@ -28,7 +28,6 @@ items:
   - System.Object
   - Netick.Simulation
   inheritedMembers:
-  - Netick.Simulation.SimulatedObjects
   - Netick.Simulation.UnlinkedEntities
   - Netick.Simulation.FetchInput``1({T}@,System.Boolean@,Netick.Entity,System.Int32)
   - Netick.Simulation.FetchInputLocal``1({T}@,System.Boolean@,System.Int32)
@@ -65,24 +64,24 @@ items:
     return:
       type: System.Collections.Generic.HashSet{Netick.InterestManagementGroup}
     content.vb: Public InterestGroups As HashSet(Of InterestManagementGroup)
-- uid: Netick.ClientSimulation.PostReadPhaseTwo
-  commentId: M:Netick.ClientSimulation.PostReadPhaseTwo
-  id: PostReadPhaseTwo
+- uid: Netick.ClientSimulation.PostReadPhase2
+  commentId: M:Netick.ClientSimulation.PostReadPhase2
+  id: PostReadPhase2
   parent: Netick.ClientSimulation
   langs:
   - csharp
   - vb
-  name: PostReadPhaseTwo()
-  nameWithType: ClientSimulation.PostReadPhaseTwo()
-  fullName: Netick.ClientSimulation.PostReadPhaseTwo()
+  name: PostReadPhase2()
+  nameWithType: ClientSimulation.PostReadPhase2()
+  fullName: Netick.ClientSimulation.PostReadPhase2()
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void PostReadPhaseTwo()
-    content.vb: Public Sub PostReadPhaseTwo()
-  overload: Netick.ClientSimulation.PostReadPhaseTwo*
+    content: public void PostReadPhase2()
+    content.vb: Public Sub PostReadPhase2()
+  overload: Netick.ClientSimulation.PostReadPhase2*
 - uid: Netick.ClientSimulation.IsLastTickFull
   commentId: P:Netick.ClientSimulation.IsLastTickFull
   id: IsLastTickFull
@@ -125,27 +124,27 @@ items:
       type: System.Boolean
     content.vb: Public Property IsResimulating As Boolean
   overload: Netick.ClientSimulation.IsResimulating*
-- uid: Netick.ClientSimulation.Resimulatios
-  commentId: P:Netick.ClientSimulation.Resimulatios
-  id: Resimulatios
+- uid: Netick.ClientSimulation.ResimulationCount
+  commentId: P:Netick.ClientSimulation.ResimulationCount
+  id: ResimulationCount
   parent: Netick.ClientSimulation
   langs:
   - csharp
   - vb
-  name: Resimulatios
-  nameWithType: ClientSimulation.Resimulatios
-  fullName: Netick.ClientSimulation.Resimulatios
+  name: ResimulationCount
+  nameWithType: ClientSimulation.ResimulationCount
+  fullName: Netick.ClientSimulation.ResimulationCount
   type: Property
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public int Resimulatios { get; set; }
+    content: public int ResimulationCount { get; set; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property Resimulatios As Integer
-  overload: Netick.ClientSimulation.Resimulatios*
+    content.vb: Public Property ResimulationCount As Integer
+  overload: Netick.ClientSimulation.ResimulationCount*
 - uid: Netick.ClientSimulation.ResimulationStep
   commentId: P:Netick.ClientSimulation.ResimulationStep
   id: ResimulationStep
@@ -194,14 +193,6 @@ references:
   name: Simulation
   nameWithType: Simulation
   fullName: Netick.Simulation
-- uid: Netick.Simulation.SimulatedObjects
-  commentId: F:Netick.Simulation.SimulatedObjects
-  parent: Netick.Simulation
-  isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_SimulatedObjects
-  name: SimulatedObjects
-  nameWithType: Simulation.SimulatedObjects
-  fullName: Netick.Simulation.SimulatedObjects
 - uid: Netick.Simulation.UnlinkedEntities
   commentId: F:Netick.Simulation.UnlinkedEntities
   parent: Netick.Simulation
@@ -1120,13 +1111,13 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: Netick.ClientSimulation.PostReadPhaseTwo*
-  commentId: Overload:Netick.ClientSimulation.PostReadPhaseTwo
+- uid: Netick.ClientSimulation.PostReadPhase2*
+  commentId: Overload:Netick.ClientSimulation.PostReadPhase2
   isExternal: true
-  href: Netick.ClientSimulation.html#Netick_ClientSimulation_PostReadPhaseTwo
-  name: PostReadPhaseTwo
-  nameWithType: ClientSimulation.PostReadPhaseTwo
-  fullName: Netick.ClientSimulation.PostReadPhaseTwo
+  href: Netick.ClientSimulation.html#Netick_ClientSimulation_PostReadPhase2
+  name: PostReadPhase2
+  nameWithType: ClientSimulation.PostReadPhase2
+  fullName: Netick.ClientSimulation.PostReadPhase2
 - uid: Netick.ClientSimulation.IsLastTickFull*
   commentId: Overload:Netick.ClientSimulation.IsLastTickFull
   isExternal: true
@@ -1152,13 +1143,13 @@ references:
   name: IsResimulating
   nameWithType: ClientSimulation.IsResimulating
   fullName: Netick.ClientSimulation.IsResimulating
-- uid: Netick.ClientSimulation.Resimulatios*
-  commentId: Overload:Netick.ClientSimulation.Resimulatios
+- uid: Netick.ClientSimulation.ResimulationCount*
+  commentId: Overload:Netick.ClientSimulation.ResimulationCount
   isExternal: true
-  href: Netick.ClientSimulation.html#Netick_ClientSimulation_Resimulatios
-  name: Resimulatios
-  nameWithType: ClientSimulation.Resimulatios
-  fullName: Netick.ClientSimulation.Resimulatios
+  href: Netick.ClientSimulation.html#Netick_ClientSimulation_ResimulationCount
+  name: ResimulationCount
+  nameWithType: ClientSimulation.ResimulationCount
+  fullName: Netick.ClientSimulation.ResimulationCount
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System

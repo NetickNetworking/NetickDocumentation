@@ -1,0 +1,973 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Unity.Angle
+  commentId: T:Netick.Unity.Angle
+  id: Angle
+  parent: Netick.Unity
+  children:
+  - Netick.Unity.Angle.#ctor(System.Single)
+  - Netick.Unity.Angle.CreateAngle(System.Int32*)
+  - Netick.Unity.Angle.Equals(Netick.Unity.Angle)
+  - Netick.Unity.Angle.Equals(System.Object)
+  - Netick.Unity.Angle.GetHashCode
+  - Netick.Unity.Angle.ToString
+  - Netick.Unity.Angle.Value
+  - Netick.Unity.Angle.Wrap(System.Single)
+  - Netick.Unity.Angle.op_Addition(Netick.Unity.Angle,Netick.Unity.Angle)
+  - Netick.Unity.Angle.op_Division(Netick.Unity.Angle,System.Single)
+  - Netick.Unity.Angle.op_Implicit(Netick.Unity.Angle)~System.Single
+  - Netick.Unity.Angle.op_Implicit(System.Single)~Netick.Unity.Angle
+  - Netick.Unity.Angle.op_Multiply(Netick.Unity.Angle,System.Single)
+  - Netick.Unity.Angle.op_Subtraction(Netick.Unity.Angle,Netick.Unity.Angle)
+  langs:
+  - csharp
+  - vb
+  name: Angle
+  nameWithType: Angle
+  fullName: Netick.Unity.Angle
+  type: Struct
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: A helper struct that represents an angle in degrees, which automatically wraps to [0, 360) range.
+  example: []
+  syntax:
+    content: 'public struct Angle : IEquatable<Angle>'
+    content.vb: Public Structure Angle Implements IEquatable(Of Angle)
+  implements:
+  - System.IEquatable{Netick.Unity.Angle}
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Netick.Unity.Angle.#ctor(System.Single)
+  commentId: M:Netick.Unity.Angle.#ctor(System.Single)
+  id: '#ctor(System.Single)'
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: Angle(float)
+  nameWithType: Angle.Angle(float)
+  fullName: Netick.Unity.Angle.Angle(float)
+  type: Constructor
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Construct from raw degrees (auto-wrapped to [0, 360) internally).
+  example: []
+  syntax:
+    content: public Angle(float degrees)
+    parameters:
+    - id: degrees
+      type: System.Single
+    content.vb: Public Sub New(degrees As Single)
+  overload: Netick.Unity.Angle.#ctor*
+  nameWithType.vb: Angle.New(Single)
+  fullName.vb: Netick.Unity.Angle.New(Single)
+  name.vb: New(Single)
+- uid: Netick.Unity.Angle.Wrap(System.Single)
+  commentId: M:Netick.Unity.Angle.Wrap(System.Single)
+  id: Wrap(System.Single)
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: Wrap(float)
+  nameWithType: Angle.Wrap(float)
+  fullName: Netick.Unity.Angle.Wrap(float)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static float Wrap(float angle)
+    parameters:
+    - id: angle
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function Wrap(angle As Single) As Single
+  overload: Netick.Unity.Angle.Wrap*
+  nameWithType.vb: Angle.Wrap(Single)
+  fullName.vb: Netick.Unity.Angle.Wrap(Single)
+  name.vb: Wrap(Single)
+- uid: Netick.Unity.Angle.CreateAngle(System.Int32*)
+  commentId: M:Netick.Unity.Angle.CreateAngle(System.Int32*)
+  id: CreateAngle(System.Int32*)
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: CreateAngle(int*)
+  nameWithType: Angle.CreateAngle(int*)
+  fullName: Netick.Unity.Angle.CreateAngle(int*)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Angle CreateAngle(int* data)
+    parameters:
+    - id: data
+      type: System.Int32*
+    return:
+      type: Netick.Unity.Angle
+    content.vb: Public Shared Function CreateAngle(data As Integer*) As Angle
+  overload: Netick.Unity.Angle.CreateAngle*
+  nameWithType.vb: Angle.CreateAngle(Integer*)
+  fullName.vb: Netick.Unity.Angle.CreateAngle(Integer*)
+  name.vb: CreateAngle(Integer*)
+- uid: Netick.Unity.Angle.op_Addition(Netick.Unity.Angle,Netick.Unity.Angle)
+  commentId: M:Netick.Unity.Angle.op_Addition(Netick.Unity.Angle,Netick.Unity.Angle)
+  id: op_Addition(Netick.Unity.Angle,Netick.Unity.Angle)
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: operator +(Angle, Angle)
+  nameWithType: Angle.operator +(Angle, Angle)
+  fullName: Netick.Unity.Angle.operator +(Netick.Unity.Angle, Netick.Unity.Angle)
+  type: Operator
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Angle operator +(Angle a, Angle b)
+    parameters:
+    - id: a
+      type: Netick.Unity.Angle
+    - id: b
+      type: Netick.Unity.Angle
+    return:
+      type: Netick.Unity.Angle
+    content.vb: Public Shared Operator +(a As Angle, b As Angle) As Angle
+  overload: Netick.Unity.Angle.op_Addition*
+  nameWithType.vb: Angle.+(Angle, Angle)
+  fullName.vb: Netick.Unity.Angle.+(Netick.Unity.Angle, Netick.Unity.Angle)
+  name.vb: +(Angle, Angle)
+- uid: Netick.Unity.Angle.op_Subtraction(Netick.Unity.Angle,Netick.Unity.Angle)
+  commentId: M:Netick.Unity.Angle.op_Subtraction(Netick.Unity.Angle,Netick.Unity.Angle)
+  id: op_Subtraction(Netick.Unity.Angle,Netick.Unity.Angle)
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: operator -(Angle, Angle)
+  nameWithType: Angle.operator -(Angle, Angle)
+  fullName: Netick.Unity.Angle.operator -(Netick.Unity.Angle, Netick.Unity.Angle)
+  type: Operator
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Angle operator -(Angle a, Angle b)
+    parameters:
+    - id: a
+      type: Netick.Unity.Angle
+    - id: b
+      type: Netick.Unity.Angle
+    return:
+      type: Netick.Unity.Angle
+    content.vb: Public Shared Operator -(a As Angle, b As Angle) As Angle
+  overload: Netick.Unity.Angle.op_Subtraction*
+  nameWithType.vb: Angle.-(Angle, Angle)
+  fullName.vb: Netick.Unity.Angle.-(Netick.Unity.Angle, Netick.Unity.Angle)
+  name.vb: -(Angle, Angle)
+- uid: Netick.Unity.Angle.op_Multiply(Netick.Unity.Angle,System.Single)
+  commentId: M:Netick.Unity.Angle.op_Multiply(Netick.Unity.Angle,System.Single)
+  id: op_Multiply(Netick.Unity.Angle,System.Single)
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: operator *(Angle, float)
+  nameWithType: Angle.operator *(Angle, float)
+  fullName: Netick.Unity.Angle.operator *(Netick.Unity.Angle, float)
+  type: Operator
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Angle operator *(Angle a, float scalar)
+    parameters:
+    - id: a
+      type: Netick.Unity.Angle
+    - id: scalar
+      type: System.Single
+    return:
+      type: Netick.Unity.Angle
+    content.vb: Public Shared Operator *(a As Angle, scalar As Single) As Angle
+  overload: Netick.Unity.Angle.op_Multiply*
+  nameWithType.vb: Angle.*(Angle, Single)
+  fullName.vb: Netick.Unity.Angle.*(Netick.Unity.Angle, Single)
+  name.vb: '*(Angle, Single)'
+- uid: Netick.Unity.Angle.op_Division(Netick.Unity.Angle,System.Single)
+  commentId: M:Netick.Unity.Angle.op_Division(Netick.Unity.Angle,System.Single)
+  id: op_Division(Netick.Unity.Angle,System.Single)
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: operator /(Angle, float)
+  nameWithType: Angle.operator /(Angle, float)
+  fullName: Netick.Unity.Angle.operator /(Netick.Unity.Angle, float)
+  type: Operator
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Angle operator /(Angle a, float scalar)
+    parameters:
+    - id: a
+      type: Netick.Unity.Angle
+    - id: scalar
+      type: System.Single
+    return:
+      type: Netick.Unity.Angle
+    content.vb: Public Shared Operator /(a As Angle, scalar As Single) As Angle
+  overload: Netick.Unity.Angle.op_Division*
+  nameWithType.vb: Angle./(Angle, Single)
+  fullName.vb: Netick.Unity.Angle./(Netick.Unity.Angle, Single)
+  name.vb: /(Angle, Single)
+- uid: Netick.Unity.Angle.op_Implicit(System.Single)~Netick.Unity.Angle
+  commentId: M:Netick.Unity.Angle.op_Implicit(System.Single)~Netick.Unity.Angle
+  id: op_Implicit(System.Single)~Netick.Unity.Angle
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: implicit operator Angle(float)
+  nameWithType: Angle.implicit operator Angle(float)
+  fullName: Netick.Unity.Angle.implicit operator Netick.Unity.Angle(float)
+  type: Operator
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static implicit operator Angle(float degrees)
+    parameters:
+    - id: degrees
+      type: System.Single
+    return:
+      type: Netick.Unity.Angle
+    content.vb: Public Shared Widening Operator CType(degrees As Single) As Angle
+  overload: Netick.Unity.Angle.op_Implicit*
+  nameWithType.vb: Angle.CType(Single)
+  fullName.vb: Netick.Unity.Angle.CType(Single)
+  name.vb: CType(Single)
+- uid: Netick.Unity.Angle.op_Implicit(Netick.Unity.Angle)~System.Single
+  commentId: M:Netick.Unity.Angle.op_Implicit(Netick.Unity.Angle)~System.Single
+  id: op_Implicit(Netick.Unity.Angle)~System.Single
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: implicit operator float(Angle)
+  nameWithType: Angle.implicit operator float(Angle)
+  fullName: Netick.Unity.Angle.implicit operator float(Netick.Unity.Angle)
+  type: Operator
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static implicit operator float(Angle a)
+    parameters:
+    - id: a
+      type: Netick.Unity.Angle
+    return:
+      type: System.Single
+    content.vb: Public Shared Widening Operator CType(a As Angle) As Single
+  overload: Netick.Unity.Angle.op_Implicit*
+  nameWithType.vb: Angle.CType(Angle)
+  fullName.vb: Netick.Unity.Angle.CType(Netick.Unity.Angle)
+  name.vb: CType(Angle)
+- uid: Netick.Unity.Angle.Equals(Netick.Unity.Angle)
+  commentId: M:Netick.Unity.Angle.Equals(Netick.Unity.Angle)
+  id: Equals(Netick.Unity.Angle)
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: Equals(Angle)
+  nameWithType: Angle.Equals(Angle)
+  fullName: Netick.Unity.Angle.Equals(Netick.Unity.Angle)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public bool Equals(Angle other)
+    parameters:
+    - id: other
+      type: Netick.Unity.Angle
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As Angle) As Boolean
+  overload: Netick.Unity.Angle.Equals*
+  implements:
+  - System.IEquatable{Netick.Unity.Angle}.Equals(Netick.Unity.Angle)
+- uid: Netick.Unity.Angle.Equals(System.Object)
+  commentId: M:Netick.Unity.Angle.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: Angle.Equals(object)
+  fullName: Netick.Unity.Angle.Equals(object)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: Netick.Unity.Angle.Equals*
+  nameWithType.vb: Angle.Equals(Object)
+  fullName.vb: Netick.Unity.Angle.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Netick.Unity.Angle.GetHashCode
+  commentId: M:Netick.Unity.Angle.GetHashCode
+  id: GetHashCode
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Angle.GetHashCode()
+  fullName: Netick.Unity.Angle.GetHashCode()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: Netick.Unity.Angle.GetHashCode*
+- uid: Netick.Unity.Angle.ToString
+  commentId: M:Netick.Unity.Angle.ToString
+  id: ToString
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Angle.ToString()
+  fullName: Netick.Unity.Angle.ToString()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: Netick.Unity.Angle.ToString*
+- uid: Netick.Unity.Angle.Value
+  commentId: P:Netick.Unity.Angle.Value
+  id: Value
+  parent: Netick.Unity.Angle
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: Angle.Value
+  fullName: Netick.Unity.Angle.Value
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public float Value { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Value As Single
+  overload: Netick.Unity.Angle.Value*
+references:
+- uid: Netick.Unity
+  commentId: N:Netick.Unity
+  isExternal: true
+  href: Netick.html
+  name: Netick.Unity
+  nameWithType: Netick.Unity
+  fullName: Netick.Unity
+  spec.csharp:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+  spec.vb:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+- uid: System.IEquatable{Netick.Unity.Angle}
+  commentId: T:System.IEquatable{Netick.Unity.Angle}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Angle>
+  nameWithType: IEquatable<Angle>
+  fullName: System.IEquatable<Netick.Unity.Angle>
+  nameWithType.vb: IEquatable(Of Angle)
+  fullName.vb: System.IEquatable(Of Netick.Unity.Angle)
+  name.vb: IEquatable(Of Angle)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Netick.Unity.Angle
+    name: Angle
+    isExternal: true
+    href: Netick.Unity.Angle.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Unity.Angle
+    name: Angle
+    isExternal: true
+    href: Netick.Unity.Angle.html
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Netick.Unity.Angle.#ctor*
+  commentId: Overload:Netick.Unity.Angle.#ctor
+  isExternal: true
+  href: Netick.Unity.Angle.html#Netick_Unity_Angle__ctor_System_Single_
+  name: Angle
+  nameWithType: Angle.Angle
+  fullName: Netick.Unity.Angle.Angle
+  nameWithType.vb: Angle.New
+  fullName.vb: Netick.Unity.Angle.New
+  name.vb: New
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Netick.Unity.Angle.Wrap*
+  commentId: Overload:Netick.Unity.Angle.Wrap
+  isExternal: true
+  href: Netick.Unity.Angle.html#Netick_Unity_Angle_Wrap_System_Single_
+  name: Wrap
+  nameWithType: Angle.Wrap
+  fullName: Netick.Unity.Angle.Wrap
+- uid: Netick.Unity.Angle.CreateAngle*
+  commentId: Overload:Netick.Unity.Angle.CreateAngle
+  isExternal: true
+  href: Netick.Unity.Angle.html#Netick_Unity_Angle_CreateAngle_System_Int32__
+  name: CreateAngle
+  nameWithType: Angle.CreateAngle
+  fullName: Netick.Unity.Angle.CreateAngle
+- uid: System.Int32*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int*
+  nameWithType: int*
+  fullName: int*
+  nameWithType.vb: Integer*
+  fullName.vb: Integer*
+  name.vb: Integer*
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+- uid: Netick.Unity.Angle
+  commentId: T:Netick.Unity.Angle
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.Angle.html
+  name: Angle
+  nameWithType: Angle
+  fullName: Netick.Unity.Angle
+- uid: Netick.Unity.Angle.op_Addition*
+  commentId: Overload:Netick.Unity.Angle.op_Addition
+  isExternal: true
+  href: Netick.Unity.Angle.html#Netick_Unity_Angle_op_Addition_Netick_Unity_Angle_Netick_Unity_Angle_
+  name: operator +
+  nameWithType: Angle.operator +
+  fullName: Netick.Unity.Angle.operator +
+  nameWithType.vb: Angle.+
+  fullName.vb: Netick.Unity.Angle.+
+  name.vb: +
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Netick.Unity.Angle.op_Addition*
+    name: +
+    isExternal: true
+    href: Netick.Unity.Angle.html#Netick_Unity_Angle_op_Addition_Netick_Unity_Angle_Netick_Unity_Angle_
+- uid: Netick.Unity.Angle.op_Subtraction*
+  commentId: Overload:Netick.Unity.Angle.op_Subtraction
+  isExternal: true
+  href: Netick.Unity.Angle.html#Netick_Unity_Angle_op_Subtraction_Netick_Unity_Angle_Netick_Unity_Angle_
+  name: operator -
+  nameWithType: Angle.operator -
+  fullName: Netick.Unity.Angle.operator -
+  nameWithType.vb: Angle.-
+  fullName.vb: Netick.Unity.Angle.-
+  name.vb: '-'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Netick.Unity.Angle.op_Subtraction*
+    name: '-'
+    isExternal: true
+    href: Netick.Unity.Angle.html#Netick_Unity_Angle_op_Subtraction_Netick_Unity_Angle_Netick_Unity_Angle_
+- uid: Netick.Unity.Angle.op_Multiply*
+  commentId: Overload:Netick.Unity.Angle.op_Multiply
+  isExternal: true
+  href: Netick.Unity.Angle.html#Netick_Unity_Angle_op_Multiply_Netick_Unity_Angle_System_Single_
+  name: operator *
+  nameWithType: Angle.operator *
+  fullName: Netick.Unity.Angle.operator *
+  nameWithType.vb: Angle.*
+  fullName.vb: Netick.Unity.Angle.*
+  name.vb: '*'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Netick.Unity.Angle.op_Multiply*
+    name: '*'
+    isExternal: true
+    href: Netick.Unity.Angle.html#Netick_Unity_Angle_op_Multiply_Netick_Unity_Angle_System_Single_
+- uid: Netick.Unity.Angle.op_Division*
+  commentId: Overload:Netick.Unity.Angle.op_Division
+  isExternal: true
+  href: Netick.Unity.Angle.html#Netick_Unity_Angle_op_Division_Netick_Unity_Angle_System_Single_
+  name: operator /
+  nameWithType: Angle.operator /
+  fullName: Netick.Unity.Angle.operator /
+  nameWithType.vb: Angle./
+  fullName.vb: Netick.Unity.Angle./
+  name.vb: /
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: Netick.Unity.Angle.op_Division*
+    name: /
+    isExternal: true
+    href: Netick.Unity.Angle.html#Netick_Unity_Angle_op_Division_Netick_Unity_Angle_System_Single_
+- uid: Netick.Unity.Angle.op_Implicit*
+  commentId: Overload:Netick.Unity.Angle.op_Implicit
+  name: implicit operator
+  nameWithType: Angle.implicit operator
+  fullName: Netick.Unity.Angle.implicit operator
+  nameWithType.vb: Angle.CType
+  fullName.vb: Netick.Unity.Angle.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: Netick.Unity.Angle.Equals*
+  commentId: Overload:Netick.Unity.Angle.Equals
+  isExternal: true
+  href: Netick.Unity.Angle.html#Netick_Unity_Angle_Equals_Netick_Unity_Angle_
+  name: Equals
+  nameWithType: Angle.Equals
+  fullName: Netick.Unity.Angle.Equals
+- uid: System.IEquatable{Netick.Unity.Angle}.Equals(Netick.Unity.Angle)
+  commentId: M:System.IEquatable{Netick.Unity.Angle}.Equals(Netick.Unity.Angle)
+  parent: System.IEquatable{Netick.Unity.Angle}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(Angle)
+  nameWithType: IEquatable<Angle>.Equals(Angle)
+  fullName: System.IEquatable<Netick.Unity.Angle>.Equals(Netick.Unity.Angle)
+  nameWithType.vb: IEquatable(Of Angle).Equals(Angle)
+  fullName.vb: System.IEquatable(Of Netick.Unity.Angle).Equals(Netick.Unity.Angle)
+  spec.csharp:
+  - uid: System.IEquatable{Netick.Unity.Angle}.Equals(Netick.Unity.Angle)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Netick.Unity.Angle
+    name: Angle
+    isExternal: true
+    href: Netick.Unity.Angle.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{Netick.Unity.Angle}.Equals(Netick.Unity.Angle)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: Netick.Unity.Angle
+    name: Angle
+    isExternal: true
+    href: Netick.Unity.Angle.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: Netick.Unity.Angle.GetHashCode*
+  commentId: Overload:Netick.Unity.Angle.GetHashCode
+  isExternal: true
+  href: Netick.Unity.Angle.html#Netick_Unity_Angle_GetHashCode
+  name: GetHashCode
+  nameWithType: Angle.GetHashCode
+  fullName: Netick.Unity.Angle.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: Netick.Unity.Angle.ToString*
+  commentId: Overload:Netick.Unity.Angle.ToString
+  isExternal: true
+  href: Netick.Unity.Angle.html#Netick_Unity_Angle_ToString
+  name: ToString
+  nameWithType: Angle.ToString
+  fullName: Netick.Unity.Angle.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Netick.Unity.Angle.Value*
+  commentId: Overload:Netick.Unity.Angle.Value
+  isExternal: true
+  href: Netick.Unity.Angle.html#Netick_Unity_Angle_Value
+  name: Value
+  nameWithType: Angle.Value
+  fullName: Netick.Unity.Angle.Value

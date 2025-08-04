@@ -14,22 +14,25 @@ Examples of networked properties:
 
 ```csharp
 [Networked]
-public int              Health   {get; set;}
+public int              Health   { get; set; }
 
 [Networked]
-public float            Speed    {get; set;}
+public float            Speed    { get; set; }
 
 [Networked]
-public Vector3          Velocity {get; set;}
+public Vector3          Velocity { get; set; }
 
 [Networked]
-public int              Ammo     {get; set;}
+public Angle            Pitch    { get; set; } // This is a helper struct that represents an angle in degrees, which automatically wraps to [0, 360) range. This type supports automatic interpolation.
 
 [Networked]
-public NetworkBool      IsAlive  {get; set;}
+public int              Ammo     { get; set; }
 
 [Networked]
-public NetworkString32  Name     {get; set;}
+public NetworkBool      IsAlive  { get; set; }
+
+[Networked]
+public NetworkString32  Name     { get; set;} 
 ```
 
 > [!WARNING]

@@ -83,6 +83,12 @@ items:
   - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
   - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneMode)
   - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneParameters)
+  - Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject)
+  - Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3)
+  - Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+  - Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0)
+  - Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0,UnityEngine.Vector3)
+  - Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
   - Netick.Unity.NetworkSandbox.LocalInterpolation
   - Netick.Unity.NetworkSandbox.LocalPlayer
   - Netick.Unity.NetworkSandbox.Log(System.Object)
@@ -481,54 +487,75 @@ items:
       type: Netick.Unity.NetworkObject
     content.vb: Public Sub RemoveFromLoop(obj As NetworkObject)
   overload: Netick.Unity.NetworkSandbox.RemoveFromLoop*
-- uid: Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
-  commentId: M:Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
-  id: Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+- uid: Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3)
+  commentId: M:Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3)
+  id: LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3)
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: Instantiate(GameObject, Vector3, Quaternion)
-  nameWithType: NetworkSandbox.Instantiate(GameObject, Vector3, Quaternion)
-  fullName: Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Quaternion)
+  name: LocalInstantiate(GameObject, Vector3)
+  nameWithType: NetworkSandbox.LocalInstantiate(GameObject, Vector3)
+  fullName: Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject, UnityEngine.Vector3)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   summary: >-
-    Instantiates a prefab. This must be called instead of <xref href="UnityEngine.Object.Instantiate(UnityEngine.Object)" data-throw-if-not-resolved="false"></xref> or its variations. 
+    Instantiates a prefab. This must be called instead of <xref href="UnityEngine.Object.Instantiate(UnityEngine.Object)" data-throw-if-not-resolved="false"></xref>. 
 
     <p>Note: this must be called only for non-networked prefabs. If you want to instantiate a network prefab, use <xref href="Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject%2cUnityEngine.Vector3%2cUnityEngine.Quaternion%2cNetick.NetworkPlayer)" data-throw-if-not-resolved="false"></xref> instead.</p>
   example: []
   syntax:
-    content: public GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)
+    content: public GameObject LocalInstantiate(GameObject prefab, Vector3 position)
     parameters:
     - id: prefab
       type: UnityEngine.GameObject
     - id: position
       type: UnityEngine.Vector3
-    - id: rotation
-      type: UnityEngine.Quaternion
     return:
       type: UnityEngine.GameObject
-    content.vb: Public Function Instantiate(prefab As GameObject, position As Vector3, rotation As Quaternion) As GameObject
-  overload: Netick.Unity.NetworkSandbox.Instantiate*
-- uid: Netick.Unity.NetworkSandbox.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
-  commentId: M:Netick.Unity.NetworkSandbox.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
-  id: Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
+    content.vb: Public Function LocalInstantiate(prefab As GameObject, position As Vector3) As GameObject
+  overload: Netick.Unity.NetworkSandbox.LocalInstantiate*
+- uid: Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject)
+  commentId: M:Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject)
+  id: LocalInstantiate(UnityEngine.GameObject)
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: Instantiate<T>(T, Vector3, Quaternion)
-  nameWithType: NetworkSandbox.Instantiate<T>(T, Vector3, Quaternion)
-  fullName: Netick.Unity.NetworkSandbox.Instantiate<T>(T, UnityEngine.Vector3, UnityEngine.Quaternion)
+  name: LocalInstantiate(GameObject)
+  nameWithType: NetworkSandbox.LocalInstantiate(GameObject)
+  fullName: Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: 'public T Instantiate<T>(T prefab, Vector3 position, Quaternion rotation) where T : MonoBehaviour'
+    content: public GameObject LocalInstantiate(GameObject prefab)
+    parameters:
+    - id: prefab
+      type: UnityEngine.GameObject
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public Function LocalInstantiate(prefab As GameObject) As GameObject
+  overload: Netick.Unity.NetworkSandbox.LocalInstantiate*
+- uid: Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
+  commentId: M:Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
+  id: LocalInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: LocalInstantiate<T>(T, Vector3, Quaternion)
+  nameWithType: NetworkSandbox.LocalInstantiate<T>(T, Vector3, Quaternion)
+  fullName: Netick.Unity.NetworkSandbox.LocalInstantiate<T>(T, UnityEngine.Vector3, UnityEngine.Quaternion)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: 'public T LocalInstantiate<T>(T prefab, Vector3 position, Quaternion rotation) where T : MonoBehaviour'
     parameters:
     - id: prefab
       type: '{T}'
@@ -540,11 +567,486 @@ items:
     - id: T
     return:
       type: '{T}'
-    content.vb: Public Function Instantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3, rotation As Quaternion) As T
-  overload: Netick.Unity.NetworkSandbox.Instantiate*
-  nameWithType.vb: NetworkSandbox.Instantiate(Of T)(T, Vector3, Quaternion)
-  fullName.vb: Netick.Unity.NetworkSandbox.Instantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion)
-  name.vb: Instantiate(Of T)(T, Vector3, Quaternion)
+    content.vb: Public Function LocalInstantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3, rotation As Quaternion) As T
+  overload: Netick.Unity.NetworkSandbox.LocalInstantiate*
+  nameWithType.vb: NetworkSandbox.LocalInstantiate(Of T)(T, Vector3, Quaternion)
+  fullName.vb: Netick.Unity.NetworkSandbox.LocalInstantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion)
+  name.vb: LocalInstantiate(Of T)(T, Vector3, Quaternion)
+- uid: Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0,UnityEngine.Vector3)
+  commentId: M:Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0,UnityEngine.Vector3)
+  id: LocalInstantiate``1(``0,UnityEngine.Vector3)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: LocalInstantiate<T>(T, Vector3)
+  nameWithType: NetworkSandbox.LocalInstantiate<T>(T, Vector3)
+  fullName: Netick.Unity.NetworkSandbox.LocalInstantiate<T>(T, UnityEngine.Vector3)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: 'public T LocalInstantiate<T>(T prefab, Vector3 position) where T : MonoBehaviour'
+    parameters:
+    - id: prefab
+      type: '{T}'
+    - id: position
+      type: UnityEngine.Vector3
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function LocalInstantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3) As T
+  overload: Netick.Unity.NetworkSandbox.LocalInstantiate*
+  nameWithType.vb: NetworkSandbox.LocalInstantiate(Of T)(T, Vector3)
+  fullName.vb: Netick.Unity.NetworkSandbox.LocalInstantiate(Of T)(T, UnityEngine.Vector3)
+  name.vb: LocalInstantiate(Of T)(T, Vector3)
+- uid: Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0)
+  commentId: M:Netick.Unity.NetworkSandbox.LocalInstantiate``1(``0)
+  id: LocalInstantiate``1(``0)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: LocalInstantiate<T>(T)
+  nameWithType: NetworkSandbox.LocalInstantiate<T>(T)
+  fullName: Netick.Unity.NetworkSandbox.LocalInstantiate<T>(T)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: 'public T LocalInstantiate<T>(T prefab) where T : MonoBehaviour'
+    parameters:
+    - id: prefab
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function LocalInstantiate(Of T As MonoBehaviour)(prefab As T) As T
+  overload: Netick.Unity.NetworkSandbox.LocalInstantiate*
+  nameWithType.vb: NetworkSandbox.LocalInstantiate(Of T)(T)
+  fullName.vb: Netick.Unity.NetworkSandbox.LocalInstantiate(Of T)(T)
+  name.vb: LocalInstantiate(Of T)(T)
+- uid: Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+  commentId: M:Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+  id: LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: LocalInstantiate(GameObject, Vector3, Quaternion)
+  nameWithType: NetworkSandbox.LocalInstantiate(GameObject, Vector3, Quaternion)
+  fullName: Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Quaternion)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public GameObject LocalInstantiate(GameObject prefab, Vector3 position, Quaternion rotation)
+    parameters:
+    - id: prefab
+      type: UnityEngine.GameObject
+    - id: position
+      type: UnityEngine.Vector3
+    - id: rotation
+      type: UnityEngine.Quaternion
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public Function LocalInstantiate(prefab As GameObject, position As Vector3, rotation As Quaternion) As GameObject
+  overload: Netick.Unity.NetworkSandbox.LocalInstantiate*
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
+  id: NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer)
+  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayer)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: >-
+    <i><b>[Server Only]</b></i> Instantiates a network prefab. 
+
+    <p>This must only be called on the server, since only the server can instantiate network prefabs.</p>
+
+    <p>Note: make sure the prefab has been registered. </p> 
+
+    <p>Note: the specified input source will be given to every <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> child of this prefab.</p>
+  example: []
+  syntax:
+    content: public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, Quaternion rotation, NetworkPlayer inputSource = null)
+    parameters:
+    - id: prefab
+      type: UnityEngine.GameObject
+    - id: position
+      type: UnityEngine.Vector3
+    - id: rotation
+      type: UnityEngine.Quaternion
+    - id: inputSource
+      type: Netick.NetworkPlayer
+    return:
+      type: Netick.Unity.NetworkObject
+    content.vb: Public Function NetworkInstantiate(prefab As GameObject, position As Vector3, rotation As Quaternion, inputSource As NetworkPlayer = Nothing) As NetworkObject
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
+  id: NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayerId)
+  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayerId)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayerId)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: >-
+    <i><b>[Server Only]</b></i> Instantiates a network prefab. 
+
+    <p>This must only be called on the server, since only the server can instantiate network prefabs.</p>
+
+    <p>Note: make sure the prefab has been registered. </p> 
+
+    <p>Note: the specified input source will be given to every <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> child of this prefab.</p>
+  example: []
+  syntax:
+    content: public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, Quaternion rotation, NetworkPlayerId inputSource)
+    parameters:
+    - id: prefab
+      type: UnityEngine.GameObject
+    - id: position
+      type: UnityEngine.Vector3
+    - id: rotation
+      type: UnityEngine.Quaternion
+    - id: inputSource
+      type: Netick.NetworkPlayerId
+    return:
+      type: Netick.Unity.NetworkObject
+    content.vb: Public Function NetworkInstantiate(prefab As GameObject, position As Vector3, rotation As Quaternion, inputSource As NetworkPlayerId) As NetworkObject
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
+  id: NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate<T>(T, Vector3, Quaternion, NetworkPlayer)
+  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, Vector3, Quaternion, NetworkPlayer)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayer)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: >-
+    <i><b>[Server Only]</b></i> Instantiates a network prefab. 
+
+    <p>This must only be called on the server, since only the server can instantiate network prefabs.</p>
+
+    <p>Note: make sure the prefab has been registered. </p> 
+
+    <p>Note: the specified input source will be given to every <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> child of this prefab.</p>
+  example: []
+  syntax:
+    content: 'public T NetworkInstantiate<T>(T prefab, Vector3 position, Quaternion rotation, NetworkPlayer inputSource = null) where T : MonoBehaviour'
+    parameters:
+    - id: prefab
+      type: '{T}'
+    - id: position
+      type: UnityEngine.Vector3
+    - id: rotation
+      type: UnityEngine.Quaternion
+    - id: inputSource
+      type: Netick.NetworkPlayer
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3, rotation As Quaternion, inputSource As NetworkPlayer = Nothing) As T
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, Vector3, Quaternion, NetworkPlayer)
+  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayer)
+  name.vb: NetworkInstantiate(Of T)(T, Vector3, Quaternion, NetworkPlayer)
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
+  id: NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate<T>(T, Vector3, Quaternion, NetworkPlayerId)
+  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, Vector3, Quaternion, NetworkPlayerId)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayerId)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: >-
+    <i><b>[Server Only]</b></i> Instantiates a network prefab. 
+
+    <p>This must only be called on the server, since only the server can instantiate network prefabs.</p>
+
+    <p>Note: make sure the prefab has been registered. </p> 
+
+    <p>Note: the specified input source will be given to every <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> child of this prefab.</p>
+  example: []
+  syntax:
+    content: 'public T NetworkInstantiate<T>(T prefab, Vector3 position, Quaternion rotation, NetworkPlayerId inputSource) where T : MonoBehaviour'
+    parameters:
+    - id: prefab
+      type: '{T}'
+    - id: position
+      type: UnityEngine.Vector3
+    - id: rotation
+      type: UnityEngine.Quaternion
+    - id: inputSource
+      type: Netick.NetworkPlayerId
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3, rotation As Quaternion, inputSource As NetworkPlayerId) As T
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, Vector3, Quaternion, NetworkPlayerId)
+  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayerId)
+  name.vb: NetworkInstantiate(Of T)(T, Vector3, Quaternion, NetworkPlayerId)
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayer)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayer)
+  id: NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayer)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate(GameObject, Vector3, NetworkPlayer)
+  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, Vector3, NetworkPlayer)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, UnityEngine.Vector3, Netick.NetworkPlayer)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, NetworkPlayer inputSource = null)
+    parameters:
+    - id: prefab
+      type: UnityEngine.GameObject
+    - id: position
+      type: UnityEngine.Vector3
+    - id: inputSource
+      type: Netick.NetworkPlayer
+    return:
+      type: Netick.Unity.NetworkObject
+    content.vb: Public Function NetworkInstantiate(prefab As GameObject, position As Vector3, inputSource As NetworkPlayer = Nothing) As NetworkObject
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayerId)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayerId)
+  id: NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayerId)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate(GameObject, Vector3, NetworkPlayerId)
+  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, Vector3, NetworkPlayerId)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, UnityEngine.Vector3, Netick.NetworkPlayerId)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, NetworkPlayerId inputSource)
+    parameters:
+    - id: prefab
+      type: UnityEngine.GameObject
+    - id: position
+      type: UnityEngine.Vector3
+    - id: inputSource
+      type: Netick.NetworkPlayerId
+    return:
+      type: Netick.Unity.NetworkObject
+    content.vb: Public Function NetworkInstantiate(prefab As GameObject, position As Vector3, inputSource As NetworkPlayerId) As NetworkObject
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayer)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayer)
+  id: NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayer)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate<T>(T, Vector3, NetworkPlayer)
+  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, Vector3, NetworkPlayer)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, UnityEngine.Vector3, Netick.NetworkPlayer)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: 'public T NetworkInstantiate<T>(T prefab, Vector3 position, NetworkPlayer inputSource = null) where T : MonoBehaviour'
+    parameters:
+    - id: prefab
+      type: '{T}'
+    - id: position
+      type: UnityEngine.Vector3
+    - id: inputSource
+      type: Netick.NetworkPlayer
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3, inputSource As NetworkPlayer = Nothing) As T
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, Vector3, NetworkPlayer)
+  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, UnityEngine.Vector3, Netick.NetworkPlayer)
+  name.vb: NetworkInstantiate(Of T)(T, Vector3, NetworkPlayer)
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayerId)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayerId)
+  id: NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayerId)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate<T>(T, Vector3, NetworkPlayerId)
+  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, Vector3, NetworkPlayerId)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, UnityEngine.Vector3, Netick.NetworkPlayerId)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: 'public T NetworkInstantiate<T>(T prefab, Vector3 position, NetworkPlayerId inputSource) where T : MonoBehaviour'
+    parameters:
+    - id: prefab
+      type: '{T}'
+    - id: position
+      type: UnityEngine.Vector3
+    - id: inputSource
+      type: Netick.NetworkPlayerId
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3, inputSource As NetworkPlayerId) As T
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, Vector3, NetworkPlayerId)
+  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, UnityEngine.Vector3, Netick.NetworkPlayerId)
+  name.vb: NetworkInstantiate(Of T)(T, Vector3, NetworkPlayerId)
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayer)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayer)
+  id: NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayer)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate(GameObject, NetworkPlayer)
+  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, NetworkPlayer)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, Netick.NetworkPlayer)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public NetworkObject NetworkInstantiate(GameObject prefab, NetworkPlayer inputSource = null)
+    parameters:
+    - id: prefab
+      type: UnityEngine.GameObject
+    - id: inputSource
+      type: Netick.NetworkPlayer
+    return:
+      type: Netick.Unity.NetworkObject
+    content.vb: Public Function NetworkInstantiate(prefab As GameObject, inputSource As NetworkPlayer = Nothing) As NetworkObject
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayerId)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayerId)
+  id: NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayerId)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate(GameObject, NetworkPlayerId)
+  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, NetworkPlayerId)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, Netick.NetworkPlayerId)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public NetworkObject NetworkInstantiate(GameObject prefab, NetworkPlayerId inputSource)
+    parameters:
+    - id: prefab
+      type: UnityEngine.GameObject
+    - id: inputSource
+      type: Netick.NetworkPlayerId
+    return:
+      type: Netick.Unity.NetworkObject
+    content.vb: Public Function NetworkInstantiate(prefab As GameObject, inputSource As NetworkPlayerId) As NetworkObject
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,Netick.NetworkPlayer)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,Netick.NetworkPlayer)
+  id: NetworkInstantiate``1(``0,Netick.NetworkPlayer)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate<T>(T, NetworkPlayer)
+  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, NetworkPlayer)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, Netick.NetworkPlayer)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: 'public T NetworkInstantiate<T>(T prefab, NetworkPlayer inputSource = null) where T : MonoBehaviour'
+    parameters:
+    - id: prefab
+      type: '{T}'
+    - id: inputSource
+      type: Netick.NetworkPlayer
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, inputSource As NetworkPlayer = Nothing) As T
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, NetworkPlayer)
+  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, Netick.NetworkPlayer)
+  name.vb: NetworkInstantiate(Of T)(T, NetworkPlayer)
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,Netick.NetworkPlayerId)
+  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,Netick.NetworkPlayerId)
+  id: NetworkInstantiate``1(``0,Netick.NetworkPlayerId)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkInstantiate<T>(T, NetworkPlayerId)
+  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, NetworkPlayerId)
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, Netick.NetworkPlayerId)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: 'public T NetworkInstantiate<T>(T prefab, NetworkPlayerId inputSource) where T : MonoBehaviour'
+    parameters:
+    - id: prefab
+      type: '{T}'
+    - id: inputSource
+      type: Netick.NetworkPlayerId
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, inputSource As NetworkPlayerId) As T
+  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, NetworkPlayerId)
+  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, Netick.NetworkPlayerId)
+  name.vb: NetworkInstantiate(Of T)(T, NetworkPlayerId)
 - uid: Netick.Unity.NetworkSandbox.GetPlayerObject(Netick.NetworkPlayer)
   commentId: M:Netick.Unity.NetworkSandbox.GetPlayerObject(Netick.NetworkPlayer)
   id: GetPlayerObject(Netick.NetworkPlayer)
@@ -1588,6 +2090,89 @@ items:
   nameWithType.vb: NetworkSandbox.LogError(Object, Object)
   fullName.vb: Netick.Unity.NetworkSandbox.LogError(Object, UnityEngine.Object)
   name.vb: LogError(Object, Object)
+- uid: Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+  commentId: M:Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+  id: Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: Instantiate(GameObject, Vector3, Quaternion)
+  nameWithType: NetworkSandbox.Instantiate(GameObject, Vector3, Quaternion)
+  fullName: Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Quaternion)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [Obsolete("This will be removed in the future, please use LocalInstantiate instead.")]
+
+      public GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)
+    parameters:
+    - id: prefab
+      type: UnityEngine.GameObject
+    - id: position
+      type: UnityEngine.Vector3
+    - id: rotation
+      type: UnityEngine.Quaternion
+    return:
+      type: UnityEngine.GameObject
+    content.vb: >-
+      <Obsolete("This will be removed in the future, please use LocalInstantiate instead.")>
+
+      Public Function Instantiate(prefab As GameObject, position As Vector3, rotation As Quaternion) As GameObject
+  overload: Netick.Unity.NetworkSandbox.Instantiate*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This will be removed in the future, please use LocalInstantiate instead.
+- uid: Netick.Unity.NetworkSandbox.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
+  commentId: M:Netick.Unity.NetworkSandbox.Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
+  id: Instantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: Instantiate<T>(T, Vector3, Quaternion)
+  nameWithType: NetworkSandbox.Instantiate<T>(T, Vector3, Quaternion)
+  fullName: Netick.Unity.NetworkSandbox.Instantiate<T>(T, UnityEngine.Vector3, UnityEngine.Quaternion)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [Obsolete("This will be removed in the future, please use LocalInstantiate instead.")]
+
+      public T Instantiate<T>(T prefab, Vector3 position, Quaternion rotation) where T : MonoBehaviour
+    parameters:
+    - id: prefab
+      type: '{T}'
+    - id: position
+      type: UnityEngine.Vector3
+    - id: rotation
+      type: UnityEngine.Quaternion
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: >-
+      <Obsolete("This will be removed in the future, please use LocalInstantiate instead.")>
+
+      Public Function Instantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3, rotation As Quaternion) As T
+  overload: Netick.Unity.NetworkSandbox.Instantiate*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This will be removed in the future, please use LocalInstantiate instead.
+  nameWithType.vb: NetworkSandbox.Instantiate(Of T)(T, Vector3, Quaternion)
+  fullName.vb: Netick.Unity.NetworkSandbox.Instantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion)
+  name.vb: Instantiate(Of T)(T, Vector3, Quaternion)
 - uid: Netick.Unity.NetworkSandbox.InitializePool(UnityEngine.GameObject,System.Int32,System.Boolean)
   commentId: M:Netick.Unity.NetworkSandbox.InitializePool(UnityEngine.GameObject,System.Int32,System.Boolean)
   id: InitializePool(UnityEngine.GameObject,System.Int32,System.Boolean)
@@ -1659,17 +2244,13 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: >-
-    Gets a Network Prefab by name.
-
-    <p>Note: this causes GC.</p>
+  summary: Gets a Network Prefab by name.
   example: []
   syntax:
     content: public GameObject GetPrefab(string name)
     parameters:
     - id: name
       type: System.String
-      description: ''
     return:
       type: UnityEngine.GameObject
       description: The Network Prefab
@@ -1678,396 +2259,6 @@ items:
   nameWithType.vb: NetworkSandbox.GetPrefab(String)
   fullName.vb: Netick.Unity.NetworkSandbox.GetPrefab(String)
   name.vb: GetPrefab(String)
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
-  id: NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer)
-  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayer)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayer)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: >-
-    <i><b>[Server Only]</b></i> Instantiates a network prefab. 
-
-    <p>This must only be called on the server, since only the server can instantiate network prefabs.</p>
-
-    <p>Note: make sure the prefab has been registered. </p> 
-
-    <p>Note: the specified input source will be given to every <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> child of this prefab.</p>
-  example: []
-  syntax:
-    content: public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, Quaternion rotation, NetworkPlayer inputSource = null)
-    parameters:
-    - id: prefab
-      type: UnityEngine.GameObject
-    - id: position
-      type: UnityEngine.Vector3
-    - id: rotation
-      type: UnityEngine.Quaternion
-    - id: inputSource
-      type: Netick.NetworkPlayer
-    return:
-      type: Netick.Unity.NetworkObject
-    content.vb: Public Function NetworkInstantiate(prefab As GameObject, position As Vector3, rotation As Quaternion, inputSource As NetworkPlayer = Nothing) As NetworkObject
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
-  id: NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayerId)
-  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, Vector3, Quaternion, NetworkPlayerId)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayerId)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: >-
-    <i><b>[Server Only]</b></i> Instantiates a network prefab. 
-
-    <p>This must only be called on the server, since only the server can instantiate network prefabs.</p>
-
-    <p>Note: make sure the prefab has been registered. </p> 
-
-    <p>Note: the specified input source will be given to every <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> child of this prefab.</p>
-  example: []
-  syntax:
-    content: public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, Quaternion rotation, NetworkPlayerId inputSource)
-    parameters:
-    - id: prefab
-      type: UnityEngine.GameObject
-    - id: position
-      type: UnityEngine.Vector3
-    - id: rotation
-      type: UnityEngine.Quaternion
-    - id: inputSource
-      type: Netick.NetworkPlayerId
-    return:
-      type: Netick.Unity.NetworkObject
-    content.vb: Public Function NetworkInstantiate(prefab As GameObject, position As Vector3, rotation As Quaternion, inputSource As NetworkPlayerId) As NetworkObject
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
-  id: NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate<T>(T, Vector3, Quaternion, NetworkPlayer)
-  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, Vector3, Quaternion, NetworkPlayer)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayer)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: >-
-    <i><b>[Server Only]</b></i> Instantiates a network prefab. 
-
-    <p>This must only be called on the server, since only the server can instantiate network prefabs.</p>
-
-    <p>Note: make sure the prefab has been registered. </p> 
-
-    <p>Note: the specified input source will be given to every <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> child of this prefab.</p>
-  example: []
-  syntax:
-    content: 'public T NetworkInstantiate<T>(T prefab, Vector3 position, Quaternion rotation, NetworkPlayer inputSource = null) where T : MonoBehaviour'
-    parameters:
-    - id: prefab
-      type: '{T}'
-    - id: position
-      type: UnityEngine.Vector3
-    - id: rotation
-      type: UnityEngine.Quaternion
-    - id: inputSource
-      type: Netick.NetworkPlayer
-    typeParameters:
-    - id: T
-    return:
-      type: '{T}'
-    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3, rotation As Quaternion, inputSource As NetworkPlayer = Nothing) As T
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, Vector3, Quaternion, NetworkPlayer)
-  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayer)
-  name.vb: NetworkInstantiate(Of T)(T, Vector3, Quaternion, NetworkPlayer)
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
-  id: NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate<T>(T, Vector3, Quaternion, NetworkPlayerId)
-  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, Vector3, Quaternion, NetworkPlayerId)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayerId)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: >-
-    <i><b>[Server Only]</b></i> Instantiates a network prefab. 
-
-    <p>This must only be called on the server, since only the server can instantiate network prefabs.</p>
-
-    <p>Note: make sure the prefab has been registered. </p> 
-
-    <p>Note: the specified input source will be given to every <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref> child of this prefab.</p>
-  example: []
-  syntax:
-    content: 'public T NetworkInstantiate<T>(T prefab, Vector3 position, Quaternion rotation, NetworkPlayerId inputSource) where T : MonoBehaviour'
-    parameters:
-    - id: prefab
-      type: '{T}'
-    - id: position
-      type: UnityEngine.Vector3
-    - id: rotation
-      type: UnityEngine.Quaternion
-    - id: inputSource
-      type: Netick.NetworkPlayerId
-    typeParameters:
-    - id: T
-    return:
-      type: '{T}'
-    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3, rotation As Quaternion, inputSource As NetworkPlayerId) As T
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, Vector3, Quaternion, NetworkPlayerId)
-  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion, Netick.NetworkPlayerId)
-  name.vb: NetworkInstantiate(Of T)(T, Vector3, Quaternion, NetworkPlayerId)
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayer)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayer)
-  id: NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayer)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate(GameObject, Vector3, NetworkPlayer)
-  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, Vector3, NetworkPlayer)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, UnityEngine.Vector3, Netick.NetworkPlayer)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, NetworkPlayer inputSource = null)
-    parameters:
-    - id: prefab
-      type: UnityEngine.GameObject
-    - id: position
-      type: UnityEngine.Vector3
-    - id: inputSource
-      type: Netick.NetworkPlayer
-    return:
-      type: Netick.Unity.NetworkObject
-    content.vb: Public Function NetworkInstantiate(prefab As GameObject, position As Vector3, inputSource As NetworkPlayer = Nothing) As NetworkObject
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayerId)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayerId)
-  id: NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,Netick.NetworkPlayerId)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate(GameObject, Vector3, NetworkPlayerId)
-  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, Vector3, NetworkPlayerId)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, UnityEngine.Vector3, Netick.NetworkPlayerId)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public NetworkObject NetworkInstantiate(GameObject prefab, Vector3 position, NetworkPlayerId inputSource)
-    parameters:
-    - id: prefab
-      type: UnityEngine.GameObject
-    - id: position
-      type: UnityEngine.Vector3
-    - id: inputSource
-      type: Netick.NetworkPlayerId
-    return:
-      type: Netick.Unity.NetworkObject
-    content.vb: Public Function NetworkInstantiate(prefab As GameObject, position As Vector3, inputSource As NetworkPlayerId) As NetworkObject
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayer)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayer)
-  id: NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayer)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate<T>(T, Vector3, NetworkPlayer)
-  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, Vector3, NetworkPlayer)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, UnityEngine.Vector3, Netick.NetworkPlayer)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: 'public T NetworkInstantiate<T>(T prefab, Vector3 position, NetworkPlayer inputSource = null) where T : MonoBehaviour'
-    parameters:
-    - id: prefab
-      type: '{T}'
-    - id: position
-      type: UnityEngine.Vector3
-    - id: inputSource
-      type: Netick.NetworkPlayer
-    typeParameters:
-    - id: T
-    return:
-      type: '{T}'
-    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3, inputSource As NetworkPlayer = Nothing) As T
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, Vector3, NetworkPlayer)
-  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, UnityEngine.Vector3, Netick.NetworkPlayer)
-  name.vb: NetworkInstantiate(Of T)(T, Vector3, NetworkPlayer)
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayerId)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayerId)
-  id: NetworkInstantiate``1(``0,UnityEngine.Vector3,Netick.NetworkPlayerId)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate<T>(T, Vector3, NetworkPlayerId)
-  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, Vector3, NetworkPlayerId)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, UnityEngine.Vector3, Netick.NetworkPlayerId)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: 'public T NetworkInstantiate<T>(T prefab, Vector3 position, NetworkPlayerId inputSource) where T : MonoBehaviour'
-    parameters:
-    - id: prefab
-      type: '{T}'
-    - id: position
-      type: UnityEngine.Vector3
-    - id: inputSource
-      type: Netick.NetworkPlayerId
-    typeParameters:
-    - id: T
-    return:
-      type: '{T}'
-    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, position As Vector3, inputSource As NetworkPlayerId) As T
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, Vector3, NetworkPlayerId)
-  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, UnityEngine.Vector3, Netick.NetworkPlayerId)
-  name.vb: NetworkInstantiate(Of T)(T, Vector3, NetworkPlayerId)
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayer)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayer)
-  id: NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayer)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate(GameObject, NetworkPlayer)
-  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, NetworkPlayer)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, Netick.NetworkPlayer)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public NetworkObject NetworkInstantiate(GameObject prefab, NetworkPlayer inputSource = null)
-    parameters:
-    - id: prefab
-      type: UnityEngine.GameObject
-    - id: inputSource
-      type: Netick.NetworkPlayer
-    return:
-      type: Netick.Unity.NetworkObject
-    content.vb: Public Function NetworkInstantiate(prefab As GameObject, inputSource As NetworkPlayer = Nothing) As NetworkObject
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayerId)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayerId)
-  id: NetworkInstantiate(UnityEngine.GameObject,Netick.NetworkPlayerId)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate(GameObject, NetworkPlayerId)
-  nameWithType: NetworkSandbox.NetworkInstantiate(GameObject, NetworkPlayerId)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject, Netick.NetworkPlayerId)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public NetworkObject NetworkInstantiate(GameObject prefab, NetworkPlayerId inputSource)
-    parameters:
-    - id: prefab
-      type: UnityEngine.GameObject
-    - id: inputSource
-      type: Netick.NetworkPlayerId
-    return:
-      type: Netick.Unity.NetworkObject
-    content.vb: Public Function NetworkInstantiate(prefab As GameObject, inputSource As NetworkPlayerId) As NetworkObject
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,Netick.NetworkPlayer)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,Netick.NetworkPlayer)
-  id: NetworkInstantiate``1(``0,Netick.NetworkPlayer)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate<T>(T, NetworkPlayer)
-  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, NetworkPlayer)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, Netick.NetworkPlayer)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: 'public T NetworkInstantiate<T>(T prefab, NetworkPlayer inputSource = null) where T : MonoBehaviour'
-    parameters:
-    - id: prefab
-      type: '{T}'
-    - id: inputSource
-      type: Netick.NetworkPlayer
-    typeParameters:
-    - id: T
-    return:
-      type: '{T}'
-    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, inputSource As NetworkPlayer = Nothing) As T
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, NetworkPlayer)
-  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, Netick.NetworkPlayer)
-  name.vb: NetworkInstantiate(Of T)(T, NetworkPlayer)
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,Netick.NetworkPlayerId)
-  commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,Netick.NetworkPlayerId)
-  id: NetworkInstantiate``1(``0,Netick.NetworkPlayerId)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: NetworkInstantiate<T>(T, NetworkPlayerId)
-  nameWithType: NetworkSandbox.NetworkInstantiate<T>(T, NetworkPlayerId)
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate<T>(T, Netick.NetworkPlayerId)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: 'public T NetworkInstantiate<T>(T prefab, NetworkPlayerId inputSource) where T : MonoBehaviour'
-    parameters:
-    - id: prefab
-      type: '{T}'
-    - id: inputSource
-      type: Netick.NetworkPlayerId
-    typeParameters:
-    - id: T
-    return:
-      type: '{T}'
-    content.vb: Public Function NetworkInstantiate(Of T As MonoBehaviour)(prefab As T, inputSource As NetworkPlayerId) As T
-  overload: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-  nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, NetworkPlayerId)
-  fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, Netick.NetworkPlayerId)
-  name.vb: NetworkInstantiate(Of T)(T, NetworkPlayerId)
 - uid: Netick.Unity.NetworkSandbox.Destroy(Netick.Unity.NetworkObject)
   commentId: M:Netick.Unity.NetworkSandbox.Destroy(Netick.Unity.NetworkObject)
   id: Destroy(Netick.Unity.NetworkObject)
@@ -3497,7 +3688,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Use this to manages interest groups and area of interest (AoI) layers.
+  summary: Use this to manage interest groups and area of interest (AoI) layers.
   example: []
   syntax:
     content: public InterestManagement InterestManagement { get; }
@@ -4407,40 +4598,40 @@ references:
 - uid: Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
   commentId: M:Netick.Unity.NetworkSandbox.NetworkInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
   isExternal: true
-- uid: Netick.Unity.NetworkSandbox.Instantiate*
-  commentId: Overload:Netick.Unity.NetworkSandbox.Instantiate
+- uid: Netick.Unity.NetworkSandbox.LocalInstantiate*
+  commentId: Overload:Netick.Unity.NetworkSandbox.LocalInstantiate
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Instantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_
-  name: Instantiate
-  nameWithType: NetworkSandbox.Instantiate
-  fullName: Netick.Unity.NetworkSandbox.Instantiate
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_LocalInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_
+  name: LocalInstantiate
+  nameWithType: NetworkSandbox.LocalInstantiate
+  fullName: Netick.Unity.NetworkSandbox.LocalInstantiate
 - uid: UnityEngine.Vector3
   isExternal: true
   name: Vector3
   nameWithType: Vector3
   fullName: UnityEngine.Vector3
-- uid: UnityEngine.Quaternion
-  isExternal: true
-  name: Quaternion
-  nameWithType: Quaternion
-  fullName: UnityEngine.Quaternion
 - uid: '{T}'
   commentId: '!:T'
   definition: T
   name: T
   nameWithType: T
   fullName: T
+- uid: UnityEngine.Quaternion
+  isExternal: true
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: UnityEngine.Quaternion
 - uid: T
   name: T
   nameWithType: T
   fullName: T
-- uid: Netick.Unity.NetworkSandbox.GetPlayerObject*
-  commentId: Overload:Netick.Unity.NetworkSandbox.GetPlayerObject
+- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate*
+  commentId: Overload:Netick.Unity.NetworkSandbox.NetworkInstantiate
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_GetPlayerObject_Netick_NetworkPlayer_
-  name: GetPlayerObject
-  nameWithType: NetworkSandbox.GetPlayerObject
-  fullName: Netick.Unity.NetworkSandbox.GetPlayerObject
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_
+  name: NetworkInstantiate
+  nameWithType: NetworkSandbox.NetworkInstantiate
+  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate
 - uid: Netick.NetworkPlayer
   commentId: T:Netick.NetworkPlayer
   parent: Netick
@@ -4449,13 +4640,6 @@ references:
   name: NetworkPlayer
   nameWithType: NetworkPlayer
   fullName: Netick.NetworkPlayer
-- uid: Netick.Unity.NetworkSandbox.TryGetPlayerObject*
-  commentId: Overload:Netick.Unity.NetworkSandbox.TryGetPlayerObject
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_TryGetPlayerObject_Netick_NetworkPlayer_Netick_Unity_NetworkObject__
-  name: TryGetPlayerObject
-  nameWithType: NetworkSandbox.TryGetPlayerObject
-  fullName: Netick.Unity.NetworkSandbox.TryGetPlayerObject
 - uid: Netick.NetworkPlayerId
   commentId: T:Netick.NetworkPlayerId
   parent: Netick
@@ -4464,6 +4648,20 @@ references:
   name: NetworkPlayerId
   nameWithType: NetworkPlayerId
   fullName: Netick.NetworkPlayerId
+- uid: Netick.Unity.NetworkSandbox.GetPlayerObject*
+  commentId: Overload:Netick.Unity.NetworkSandbox.GetPlayerObject
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_GetPlayerObject_Netick_NetworkPlayer_
+  name: GetPlayerObject
+  nameWithType: NetworkSandbox.GetPlayerObject
+  fullName: Netick.Unity.NetworkSandbox.GetPlayerObject
+- uid: Netick.Unity.NetworkSandbox.TryGetPlayerObject*
+  commentId: Overload:Netick.Unity.NetworkSandbox.TryGetPlayerObject
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_TryGetPlayerObject_Netick_NetworkPlayer_Netick_Unity_NetworkObject__
+  name: TryGetPlayerObject
+  nameWithType: NetworkSandbox.TryGetPlayerObject
+  fullName: Netick.Unity.NetworkSandbox.TryGetPlayerObject
 - uid: Netick.Unity.NetworkSandbox.SetPlayerObject*
   commentId: Overload:Netick.Unity.NetworkSandbox.SetPlayerObject
   isExternal: true
@@ -4801,6 +4999,13 @@ references:
   name: Object
   nameWithType: Object
   fullName: UnityEngine.Object
+- uid: Netick.Unity.NetworkSandbox.Instantiate*
+  commentId: Overload:Netick.Unity.NetworkSandbox.Instantiate
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Instantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_
+  name: Instantiate
+  nameWithType: NetworkSandbox.Instantiate
+  fullName: Netick.Unity.NetworkSandbox.Instantiate
 - uid: Netick.Unity.NetworkEventsListener.OnStartup(Netick.Unity.NetworkSandbox)
   commentId: M:Netick.Unity.NetworkEventsListener.OnStartup(Netick.Unity.NetworkSandbox)
   parent: Netick.Unity.NetworkEventsListener
@@ -4871,13 +5076,6 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: Netick.Unity.NetworkSandbox.NetworkInstantiate*
-  commentId: Overload:Netick.Unity.NetworkSandbox.NetworkInstantiate
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_NetworkInstantiate_UnityEngine_GameObject_UnityEngine_Vector3_UnityEngine_Quaternion_Netick_NetworkPlayer_
-  name: NetworkInstantiate
-  nameWithType: NetworkSandbox.NetworkInstantiate
-  fullName: Netick.Unity.NetworkSandbox.NetworkInstantiate
 - uid: Netick.Unity.NetworkSandbox.Destroy*
   commentId: Overload:Netick.Unity.NetworkSandbox.Destroy
   isExternal: true

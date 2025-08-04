@@ -70,10 +70,10 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public readonly ClientData SimulationData
+    content: public readonly ServerSimulation.ClientData SimulationData
     return:
-      type: Netick.ClientData
-    content.vb: Public ReadOnly SimulationData As ClientData
+      type: Netick.ServerSimulation.ClientData
+    content.vb: Public ReadOnly SimulationData As ServerSimulation.ClientData
 - uid: Netick.ServerConnection.#ctor(System.Int16,Netick.NetickEngine)
   commentId: M:Netick.ServerConnection.#ctor(System.Int16,Netick.NetickEngine)
   id: '#ctor(System.Int16,Netick.NetickEngine)'
@@ -783,14 +783,34 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Netick.ClientData
-  commentId: T:Netick.ClientData
+- uid: Netick.ServerSimulation.ClientData
+  commentId: T:Netick.ServerSimulation.ClientData
   parent: Netick
   isExternal: true
-  href: Netick.ClientData.html
-  name: ClientData
-  nameWithType: ClientData
-  fullName: Netick.ClientData
+  href: Netick.ServerSimulation.html
+  name: ServerSimulation.ClientData
+  nameWithType: ServerSimulation.ClientData
+  fullName: Netick.ServerSimulation.ClientData
+  spec.csharp:
+  - uid: Netick.ServerSimulation
+    name: ServerSimulation
+    isExternal: true
+    href: Netick.ServerSimulation.html
+  - name: .
+  - uid: Netick.ServerSimulation.ClientData
+    name: ClientData
+    isExternal: true
+    href: Netick.ServerSimulation.ClientData.html
+  spec.vb:
+  - uid: Netick.ServerSimulation
+    name: ServerSimulation
+    isExternal: true
+    href: Netick.ServerSimulation.html
+  - name: .
+  - uid: Netick.ServerSimulation.ClientData
+    name: ClientData
+    isExternal: true
+    href: Netick.ServerSimulation.ClientData.html
 - uid: Netick.ServerConnection.#ctor*
   commentId: Overload:Netick.ServerConnection.#ctor
   isExternal: true

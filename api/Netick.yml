@@ -12,7 +12,6 @@ items:
   - Netick.BroadPhaseFilter
   - Netick.Client
   - Netick.ClientConnection
-  - Netick.ClientData
   - Netick.ClientReplicatorData
   - Netick.ClientSimulation
   - Netick.Connection
@@ -142,6 +141,7 @@ items:
   - Netick.Server
   - Netick.ServerConnection
   - Netick.ServerSimulation
+  - Netick.ServerSimulation.ClientData
   - Netick.Session
   - Netick.Simulation
   - Netick.Simulation.BehaviourAttachOperation
@@ -366,14 +366,42 @@ references:
   name: ReflectionData
   nameWithType: ReflectionData
   fullName: Netick.ReflectionData
-- uid: Netick.ExecutionListLL
-  commentId: T:Netick.ExecutionListLL
+- uid: Netick.ServerSimulation
+  commentId: T:Netick.ServerSimulation
   parent: Netick
   isExternal: true
-  href: Netick.ExecutionListLL.html
-  name: ExecutionListLL
-  nameWithType: ExecutionListLL
-  fullName: Netick.ExecutionListLL
+  href: Netick.ServerSimulation.html
+  name: ServerSimulation
+  nameWithType: ServerSimulation
+  fullName: Netick.ServerSimulation
+- uid: Netick.ServerSimulation.ClientData
+  commentId: T:Netick.ServerSimulation.ClientData
+  parent: Netick
+  isExternal: true
+  href: Netick.ServerSimulation.html
+  name: ServerSimulation.ClientData
+  nameWithType: ServerSimulation.ClientData
+  fullName: Netick.ServerSimulation.ClientData
+  spec.csharp:
+  - uid: Netick.ServerSimulation
+    name: ServerSimulation
+    isExternal: true
+    href: Netick.ServerSimulation.html
+  - name: .
+  - uid: Netick.ServerSimulation.ClientData
+    name: ClientData
+    isExternal: true
+    href: Netick.ServerSimulation.ClientData.html
+  spec.vb:
+  - uid: Netick.ServerSimulation
+    name: ServerSimulation
+    isExternal: true
+    href: Netick.ServerSimulation.html
+  - name: .
+  - uid: Netick.ServerSimulation.ClientData
+    name: ClientData
+    isExternal: true
+    href: Netick.ServerSimulation.ClientData.html
 - uid: Netick.NetickBounds
   commentId: T:Netick.NetickBounds
   parent: Netick
@@ -1285,6 +1313,14 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: Netick.EntityStateRef
+  commentId: T:Netick.EntityStateRef
+  parent: Netick
+  isExternal: true
+  href: Netick.EntityStateRef.html
+  name: EntityStateRef
+  nameWithType: EntityStateRef
+  fullName: Netick.EntityStateRef
 - uid: Netick.Relevancy
   commentId: T:Netick.Relevancy
   parent: Netick
@@ -1548,14 +1584,6 @@ references:
   name: NetickEngine
   nameWithType: NetickEngine
   fullName: Netick.NetickEngine
-- uid: Netick.EntityStateRef
-  commentId: T:Netick.EntityStateRef
-  parent: Netick
-  isExternal: true
-  href: Netick.EntityStateRef.html
-  name: EntityStateRef
-  nameWithType: EntityStateRef
-  fullName: Netick.EntityStateRef
 - uid: Netick.NetworkPlayer
   commentId: T:Netick.NetworkPlayer
   parent: Netick
@@ -1564,14 +1592,14 @@ references:
   name: NetworkPlayer
   nameWithType: NetworkPlayer
   fullName: Netick.NetworkPlayer
-- uid: Netick.ClientData
-  commentId: T:Netick.ClientData
+- uid: Netick.ExecutionList
+  commentId: T:Netick.ExecutionList
   parent: Netick
   isExternal: true
-  href: Netick.ClientData.html
-  name: ClientData
-  nameWithType: ClientData
-  fullName: Netick.ClientData
+  href: Netick.ExecutionList.html
+  name: ExecutionList
+  nameWithType: ExecutionList
+  fullName: Netick.ExecutionList
 - uid: Netick.Monitor
   commentId: T:Netick.Monitor
   parent: Netick
@@ -1596,6 +1624,13 @@ references:
   name: NetickStartMode
   nameWithType: NetickStartMode
   fullName: Netick.NetickStartMode
+- uid: Netick.ExecutionListLL
+  commentId: T:Netick.ExecutionListLL
+  isExternal: true
+  href: Netick.ExecutionListLL.html
+  name: ExecutionListLL
+  nameWithType: ExecutionListLL
+  fullName: Netick.ExecutionListLL
 - uid: Netick.SimulationClock
   commentId: T:Netick.SimulationClock
   parent: Netick
@@ -1683,14 +1718,6 @@ references:
   name: ClientSimulation
   nameWithType: ClientSimulation
   fullName: Netick.ClientSimulation
-- uid: Netick.ServerSimulation
-  commentId: T:Netick.ServerSimulation
-  parent: Netick
-  isExternal: true
-  href: Netick.ServerSimulation.html
-  name: ServerSimulation
-  nameWithType: ServerSimulation
-  fullName: Netick.ServerSimulation
 - uid: Netick.Session
   commentId: T:Netick.Session
   parent: Netick
@@ -1882,14 +1909,6 @@ references:
   name: NetworkConnection
   nameWithType: NetworkConnection
   fullName: Netick.NetworkConnection
-- uid: Netick.ExecutionList
-  commentId: T:Netick.ExecutionList
-  parent: Netick
-  isExternal: true
-  href: Netick.ExecutionList.html
-  name: ExecutionList
-  nameWithType: ExecutionList
-  fullName: Netick.ExecutionList
 - uid: Netick.NetworkString8
   commentId: T:Netick.NetworkString8
   parent: Netick

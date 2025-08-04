@@ -56,7 +56,7 @@ items:
   summary: >-
     Base class for all networked behaviors in Netick.
 
-    Inherit from this class to create custom network-synchronized logic.
+    Inherit from this class to create network-synchronized logic.
 
     Provides access to network state, input, and misc utility methods.
   example: []
@@ -946,6 +946,8 @@ items:
     Returns the source <xref href="Netick.NetworkPlayer" data-throw-if-not-resolved="false"></xref> (<xref href="Netick.NetworkPeer" data-throw-if-not-resolved="false"></xref>/<xref href="Netick.ServerConnection" data-throw-if-not-resolved="false"></xref>) of inputs for this <xref href="Netick.Unity.NetworkObject" data-throw-if-not-resolved="false"></xref>. If the source of inputs is remote (from a client) it returns that <xref href="Netick.ServerConnection" data-throw-if-not-resolved="false"></xref>, while on the
 
     input source itself it returns the local <xref href="Netick.NetworkPlayer" data-throw-if-not-resolved="false"></xref>.
+
+    <p>Use <xref href="Netick.Unity.NetworkBehaviour.InputSourcePlayerId" data-throw-if-not-resolved="false"></xref> for the synced-to-everyone player id of the Input Source - because <xref href="Netick.Unity.NetworkBehaviour.InputSource" data-throw-if-not-resolved="false"></xref> is only valid in the client for objects the client itself is the input source of, and it's null for everything else.</p>
   example: []
   syntax:
     content: public NetworkPlayer InputSource { get; set; }
@@ -1891,6 +1893,22 @@ references:
   name: NetworkObject
   nameWithType: NetworkObject
   fullName: Netick.Unity.NetworkObject
+- uid: Netick.Unity.NetworkBehaviour.InputSourcePlayerId
+  commentId: P:Netick.Unity.NetworkBehaviour.InputSourcePlayerId
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSourcePlayerId
+  name: InputSourcePlayerId
+  nameWithType: NetworkBehaviour.InputSourcePlayerId
+  fullName: Netick.Unity.NetworkBehaviour.InputSourcePlayerId
+- uid: Netick.Unity.NetworkBehaviour.InputSource
+  commentId: P:Netick.Unity.NetworkBehaviour.InputSource
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSource
+  name: InputSource
+  nameWithType: NetworkBehaviour.InputSource
+  fullName: Netick.Unity.NetworkBehaviour.InputSource
 - uid: Netick.Unity.NetworkBehaviour.InputSource*
   commentId: Overload:Netick.Unity.NetworkBehaviour.InputSource
   isExternal: true

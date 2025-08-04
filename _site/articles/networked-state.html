@@ -92,22 +92,25 @@
 <p>A network property is a C# property which is replicated across the network. For a property to be networked, the attribute [<a class="xref" href="../api/Netick.Networked.html">Networked</a>] must be added to it.</p>
 <p>Examples of networked properties:</p>
 <pre><code class="lang-csharp">[Networked]
-public int              Health   {get; set;}
+public int              Health   { get; set; }
 
 [Networked]
-public float            Speed    {get; set;}
+public float            Speed    { get; set; }
 
 [Networked]
-public Vector3          Velocity {get; set;}
+public Vector3          Velocity { get; set; }
 
 [Networked]
-public int              Ammo     {get; set;}
+public Angle            Pitch    { get; set; } // This is a helper struct that represents an angle in degrees, which automatically wraps to [0, 360) range. This type supports automatic interpolation.
 
 [Networked]
-public NetworkBool      IsAlive  {get; set;}
+public int              Ammo     { get; set; }
 
 [Networked]
-public NetworkString32  Name     {get; set;}
+public NetworkBool      IsAlive  { get; set; }
+
+[Networked]
+public NetworkString32  Name     { get; set;} 
 </code></pre>
 <div class="WARNING">
 <h5>Warning</h5>

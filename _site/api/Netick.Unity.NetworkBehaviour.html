@@ -96,7 +96,7 @@ Class NetworkBehaviour
   </div>
 
   <div class="markdown summary"><p>Base class for all networked behaviors in Netick.
-Inherit from this class to create custom network-synchronized logic.
+Inherit from this class to create network-synchronized logic.
 Provides access to network state, input, and misc utility methods.</p>
 </div>
   <div class="markdown conceptual"></div>
@@ -319,6 +319,7 @@ Provides access to network state, input, and misc utility methods.</p>
 
   <div class="markdown level1 summary"><p>Returns the source <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a> (<a class="xref" href="Netick.NetworkPeer.html">NetworkPeer</a>/<a class="xref" href="Netick.ServerConnection.html">ServerConnection</a>) of inputs for this <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a>. If the source of inputs is remote (from a client) it returns that <a class="xref" href="Netick.ServerConnection.html">ServerConnection</a>, while on the
 input source itself it returns the local <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a>.</p>
+<p>Use <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSourcePlayerId">InputSourcePlayerId</a> for the synced-to-everyone player id of the Input Source - because <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSource">InputSource</a> is only valid in the client for objects the client itself is the input source of, and it's null for everything else.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

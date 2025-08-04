@@ -13,9 +13,9 @@ items:
   - Netick.IGameEngine.OnConnectedToServer
   - Netick.IGameEngine.OnDisconnectedFromServer(Netick.TransportDisconnectReason)
   - Netick.IGameEngine.OnEntityDespawned(Netick.Entity)
-  - Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)
-  - Netick.IGameEngine.OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta,System.Byte*,System.Int32)
-  - Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  - Netick.IGameEngine.OnEntityMetaChanged1(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  - Netick.IGameEngine.OnEntityMetaChangedPhase2(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  - Netick.IGameEngine.OnEntityMetaChangedPhase3(Netick.NetickEntityMeta,System.Byte*,System.Int32)
   - Netick.IGameEngine.OnEntitySpawned(Netick.Entity)
   - Netick.IGameEngine.OnInput
   - Netick.IGameEngine.OnMatchListUpdate(System.Collections.Generic.List{Netick.Session})
@@ -205,16 +205,16 @@ items:
       description: ''
     content.vb: Sub PopulateEntityMeta(entity As Entity)
   overload: Netick.IGameEngine.PopulateEntityMeta*
-- uid: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)
-  commentId: M:Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)
-  id: OnEntityMetaChanged(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+- uid: Netick.IGameEngine.OnEntityMetaChanged1(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  commentId: M:Netick.IGameEngine.OnEntityMetaChanged1(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  id: OnEntityMetaChanged1(Netick.NetickEntityMeta,System.Byte*,System.Int32)
   parent: Netick.IGameEngine
   langs:
   - csharp
   - vb
-  name: OnEntityMetaChanged(NetickEntityMeta, byte*, int)
-  nameWithType: IGameEngine.OnEntityMetaChanged(NetickEntityMeta, byte*, int)
-  fullName: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta, byte*, int)
+  name: OnEntityMetaChanged1(NetickEntityMeta, byte*, int)
+  nameWithType: IGameEngine.OnEntityMetaChanged1(NetickEntityMeta, byte*, int)
+  fullName: Netick.IGameEngine.OnEntityMetaChanged1(Netick.NetickEntityMeta, byte*, int)
   type: Method
   assemblies:
   - Netick
@@ -225,7 +225,7 @@ items:
     <p>Note: user entity meta data can be used for custom user data that might be used in creating entities.</p>
   example: []
   syntax:
-    content: void OnEntityMetaChanged(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)
+    content: void OnEntityMetaChanged1(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)
     parameters:
     - id: netickMeta
       type: Netick.NetickEntityMeta
@@ -235,27 +235,27 @@ items:
       description: ''
     - id: worldIndex
       type: System.Int32
-    content.vb: Sub OnEntityMetaChanged(netickMeta As NetickEntityMeta, userMetaData As Byte*, worldIndex As Integer)
-  overload: Netick.IGameEngine.OnEntityMetaChanged*
-  nameWithType.vb: IGameEngine.OnEntityMetaChanged(NetickEntityMeta, Byte*, Integer)
-  fullName.vb: Netick.IGameEngine.OnEntityMetaChanged(Netick.NetickEntityMeta, Byte*, Integer)
-  name.vb: OnEntityMetaChanged(NetickEntityMeta, Byte*, Integer)
-- uid: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*,System.Int32)
-  commentId: M:Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*,System.Int32)
-  id: OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+    content.vb: Sub OnEntityMetaChanged1(netickMeta As NetickEntityMeta, userMetaData As Byte*, worldIndex As Integer)
+  overload: Netick.IGameEngine.OnEntityMetaChanged1*
+  nameWithType.vb: IGameEngine.OnEntityMetaChanged1(NetickEntityMeta, Byte*, Integer)
+  fullName.vb: Netick.IGameEngine.OnEntityMetaChanged1(Netick.NetickEntityMeta, Byte*, Integer)
+  name.vb: OnEntityMetaChanged1(NetickEntityMeta, Byte*, Integer)
+- uid: Netick.IGameEngine.OnEntityMetaChangedPhase2(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  commentId: M:Netick.IGameEngine.OnEntityMetaChangedPhase2(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  id: OnEntityMetaChangedPhase2(Netick.NetickEntityMeta,System.Byte*,System.Int32)
   parent: Netick.IGameEngine
   langs:
   - csharp
   - vb
-  name: OnEntityMetaChangedPhaseTwo(NetickEntityMeta, byte*, int)
-  nameWithType: IGameEngine.OnEntityMetaChangedPhaseTwo(NetickEntityMeta, byte*, int)
-  fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta, byte*, int)
+  name: OnEntityMetaChangedPhase2(NetickEntityMeta, byte*, int)
+  nameWithType: IGameEngine.OnEntityMetaChangedPhase2(NetickEntityMeta, byte*, int)
+  fullName: Netick.IGameEngine.OnEntityMetaChangedPhase2(Netick.NetickEntityMeta, byte*, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: void OnEntityMetaChangedPhaseTwo(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)
+    content: void OnEntityMetaChangedPhase2(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)
     parameters:
     - id: netickMeta
       type: Netick.NetickEntityMeta
@@ -263,27 +263,27 @@ items:
       type: System.Byte*
     - id: worldIndex
       type: System.Int32
-    content.vb: Sub OnEntityMetaChangedPhaseTwo(netickMeta As NetickEntityMeta, userMetaData As Byte*, worldIndex As Integer)
-  overload: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo*
-  nameWithType.vb: IGameEngine.OnEntityMetaChangedPhaseTwo(NetickEntityMeta, Byte*, Integer)
-  fullName.vb: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo(Netick.NetickEntityMeta, Byte*, Integer)
-  name.vb: OnEntityMetaChangedPhaseTwo(NetickEntityMeta, Byte*, Integer)
-- uid: Netick.IGameEngine.OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta,System.Byte*,System.Int32)
-  commentId: M:Netick.IGameEngine.OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta,System.Byte*,System.Int32)
-  id: OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+    content.vb: Sub OnEntityMetaChangedPhase2(netickMeta As NetickEntityMeta, userMetaData As Byte*, worldIndex As Integer)
+  overload: Netick.IGameEngine.OnEntityMetaChangedPhase2*
+  nameWithType.vb: IGameEngine.OnEntityMetaChangedPhase2(NetickEntityMeta, Byte*, Integer)
+  fullName.vb: Netick.IGameEngine.OnEntityMetaChangedPhase2(Netick.NetickEntityMeta, Byte*, Integer)
+  name.vb: OnEntityMetaChangedPhase2(NetickEntityMeta, Byte*, Integer)
+- uid: Netick.IGameEngine.OnEntityMetaChangedPhase3(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  commentId: M:Netick.IGameEngine.OnEntityMetaChangedPhase3(Netick.NetickEntityMeta,System.Byte*,System.Int32)
+  id: OnEntityMetaChangedPhase3(Netick.NetickEntityMeta,System.Byte*,System.Int32)
   parent: Netick.IGameEngine
   langs:
   - csharp
   - vb
-  name: OnEntityMetaChangedPhaseThree(NetickEntityMeta, byte*, int)
-  nameWithType: IGameEngine.OnEntityMetaChangedPhaseThree(NetickEntityMeta, byte*, int)
-  fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta, byte*, int)
+  name: OnEntityMetaChangedPhase3(NetickEntityMeta, byte*, int)
+  nameWithType: IGameEngine.OnEntityMetaChangedPhase3(NetickEntityMeta, byte*, int)
+  fullName: Netick.IGameEngine.OnEntityMetaChangedPhase3(Netick.NetickEntityMeta, byte*, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: void OnEntityMetaChangedPhaseThree(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)
+    content: void OnEntityMetaChangedPhase3(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)
     parameters:
     - id: netickMeta
       type: Netick.NetickEntityMeta
@@ -291,11 +291,11 @@ items:
       type: System.Byte*
     - id: worldIndex
       type: System.Int32
-    content.vb: Sub OnEntityMetaChangedPhaseThree(netickMeta As NetickEntityMeta, userMetaData As Byte*, worldIndex As Integer)
-  overload: Netick.IGameEngine.OnEntityMetaChangedPhaseThree*
-  nameWithType.vb: IGameEngine.OnEntityMetaChangedPhaseThree(NetickEntityMeta, Byte*, Integer)
-  fullName.vb: Netick.IGameEngine.OnEntityMetaChangedPhaseThree(Netick.NetickEntityMeta, Byte*, Integer)
-  name.vb: OnEntityMetaChangedPhaseThree(NetickEntityMeta, Byte*, Integer)
+    content.vb: Sub OnEntityMetaChangedPhase3(netickMeta As NetickEntityMeta, userMetaData As Byte*, worldIndex As Integer)
+  overload: Netick.IGameEngine.OnEntityMetaChangedPhase3*
+  nameWithType.vb: IGameEngine.OnEntityMetaChangedPhase3(NetickEntityMeta, Byte*, Integer)
+  fullName.vb: Netick.IGameEngine.OnEntityMetaChangedPhase3(Netick.NetickEntityMeta, Byte*, Integer)
+  name.vb: OnEntityMetaChangedPhase3(NetickEntityMeta, Byte*, Integer)
 - uid: Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
   commentId: M:Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
   id: OnBeforeSend(Netick.NetworkConnection)
@@ -712,13 +712,13 @@ references:
   name: PopulateEntityMeta
   nameWithType: IGameEngine.PopulateEntityMeta
   fullName: Netick.IGameEngine.PopulateEntityMeta
-- uid: Netick.IGameEngine.OnEntityMetaChanged*
-  commentId: Overload:Netick.IGameEngine.OnEntityMetaChanged
+- uid: Netick.IGameEngine.OnEntityMetaChanged1*
+  commentId: Overload:Netick.IGameEngine.OnEntityMetaChanged1
   isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChanged_Netick_NetickEntityMeta_System_Byte__System_Int32_
-  name: OnEntityMetaChanged
-  nameWithType: IGameEngine.OnEntityMetaChanged
-  fullName: Netick.IGameEngine.OnEntityMetaChanged
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChanged1_Netick_NetickEntityMeta_System_Byte__System_Int32_
+  name: OnEntityMetaChanged1
+  nameWithType: IGameEngine.OnEntityMetaChanged1
+  fullName: Netick.IGameEngine.OnEntityMetaChanged1
 - uid: Netick.NetickEntityMeta
   commentId: T:Netick.NetickEntityMeta
   parent: Netick
@@ -748,20 +748,20 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: '*'
-- uid: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo*
-  commentId: Overload:Netick.IGameEngine.OnEntityMetaChangedPhaseTwo
+- uid: Netick.IGameEngine.OnEntityMetaChangedPhase2*
+  commentId: Overload:Netick.IGameEngine.OnEntityMetaChangedPhase2
   isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChangedPhaseTwo_Netick_NetickEntityMeta_System_Byte__System_Int32_
-  name: OnEntityMetaChangedPhaseTwo
-  nameWithType: IGameEngine.OnEntityMetaChangedPhaseTwo
-  fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseTwo
-- uid: Netick.IGameEngine.OnEntityMetaChangedPhaseThree*
-  commentId: Overload:Netick.IGameEngine.OnEntityMetaChangedPhaseThree
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChangedPhase2_Netick_NetickEntityMeta_System_Byte__System_Int32_
+  name: OnEntityMetaChangedPhase2
+  nameWithType: IGameEngine.OnEntityMetaChangedPhase2
+  fullName: Netick.IGameEngine.OnEntityMetaChangedPhase2
+- uid: Netick.IGameEngine.OnEntityMetaChangedPhase3*
+  commentId: Overload:Netick.IGameEngine.OnEntityMetaChangedPhase3
   isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChangedPhaseThree_Netick_NetickEntityMeta_System_Byte__System_Int32_
-  name: OnEntityMetaChangedPhaseThree
-  nameWithType: IGameEngine.OnEntityMetaChangedPhaseThree
-  fullName: Netick.IGameEngine.OnEntityMetaChangedPhaseThree
+  href: Netick.IGameEngine.html#Netick_IGameEngine_OnEntityMetaChangedPhase3_Netick_NetickEntityMeta_System_Byte__System_Int32_
+  name: OnEntityMetaChangedPhase3
+  nameWithType: IGameEngine.OnEntityMetaChangedPhase3
+  fullName: Netick.IGameEngine.OnEntityMetaChangedPhase3
 - uid: Netick.IGameEngine.OnBeforeSend*
   commentId: Overload:Netick.IGameEngine.OnBeforeSend
   isExternal: true
