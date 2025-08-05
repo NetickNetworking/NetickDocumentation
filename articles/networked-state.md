@@ -23,7 +23,7 @@ public float            Speed    { get; set; }
 public Vector3          Velocity { get; set; }
 
 [Networked]
-public Angle            Pitch    { get; set; } // This is a helper struct that represents an angle in degrees, which automatically wraps to [0, 360) range. This type supports automatic interpolation.
+public Angle            Pitch    { get; set; } // `Angle` is a helper struct that represents an angle in degrees, which automatically wraps to [0, 360) range. This type supports automatic interpolation.
 
 [Networked]
 public int              Ammo     { get; set; }
