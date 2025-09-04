@@ -8,7 +8,7 @@
 * Download: included with Netick
 * Maintainer: Netick Staff
 
-## UnityTransport 
+## UnityTransport:
 * Protocol: UDP & WebSocket
 * Platforms: All
 * Download: https://github.com/karrarrahim/UnityTransport-Netick
@@ -32,10 +32,22 @@
 * Download: https://github.com/StinkySteak/NetickLiteNetLibNatPunchTransport
 * Maintainer: community
 
-## WebRTC:
+## WebRTC Embedded:
 * Protocol: UDP
-* Platforms: WebGL
-* Download: https://github.com/StinkySteak/NetickWebRTCTransport
+* Platforms: Native and WebGL
+* Download: https://github.com/StinkySteak/NetickWebRTCEmbeddedTransport
+* Maintainer: community
+
+## Simple Web Transport:
+* Protocol: Websocket
+* Platforms: All
+* Download: https://github.com/StinkySteak/SimpleWebTransport
+* Maintainer: community
+
+## Photon Realtime:
+* Protocol: UDP, TCP, WS
+* Platforms: All
+* Download: https://github.com/StinkySteak/NetickRealtimeTransport
 * Maintainer: community
 
 ## Multiplex Transport:
@@ -43,4 +55,3 @@ Allows you to use more than one transport together.
 
 * Download: https://github.com/StinkySteak/NetickMultiplexTransport
 * Maintainer: community
-
