@@ -6,7 +6,7 @@
 
 ### Character Controllers
 
-#### KCC
+#### Kinematic Character Controller (KCC)
 * Asset: [link](https://assetstore.unity.com/packages/tools/physics/kinematic-character-controller-99131?srsltid=AfmBOoqVsbipgX5cpeoRofI5wkdfl_FjJrFrdtKSgOpBXI_sb8CQ6LGh)
 * Description: Kinematic Character Controller a relatively low-level character controller solution that is not tied to any specific game genre and is made to be cleanly integrated into any project/architecture with as little friction or bloat as possible. Instead of using rigidbody physics, it uses a "collide and slide" algorithm that makes its movements perfectly fluid, precise and responsive. Note that its "kinematic" nature means that it will not get pushed by forces or rigidbodies automatically. These sorts of interactions have to be explicitly scripted.
 * Download: https://github.com/Milk-Drinker01/Netick2-KCC
