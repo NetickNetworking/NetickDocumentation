@@ -22,6 +22,11 @@
 
 ### Voice Chat Solutions
 
+#### MetaVoiceChat
+* Asset: [link](https://github.com/Metater/MetaVoiceChat)
+* Description: Self-contained proximity voice chat solution for Unity.
+* Download: https://github.com/Milk-Drinker01/MetaVoiceChat-Netick/tree/main
+
 #### Dissonance
 * Asset: [link](https://assetstore.unity.com/packages/tools/audio/dissonance-voice-chat-70078#description)
 * Description: Dissonance is a realtime Voice over IP (VoIP) system designed to be built directly into Unity games.

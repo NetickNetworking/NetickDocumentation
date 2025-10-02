@@ -7,6 +7,7 @@
 
 [API reference](api/index.html) 
 
+[Community Resources](articles/community-resources.html) 
 <!-- 
 ## Getting Started
 
