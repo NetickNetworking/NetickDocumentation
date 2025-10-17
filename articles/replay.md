@@ -163,16 +163,19 @@ If either version changes, existing replay files become incompatible.
 
 ### Playback Control
 
-Once playback begins with `Sandbox.StartPlayback(replayPath)`, you can control the timeline via the **Playback API**:
+Once playback begins with `Sandbox.StartPlayback(replayPath)`, you can control playback via the **Playback API**:
 
-| Action                       | Method                                        |
-| ---------------------------- | --------------------------------------------- |
-| Seek / Skip (by time)        | `Sandbox.Replay.Playback.SeekToTime(time);`   |
-| Seek / Skip (by frame)       | `Sandbox.Replay.Playback.SeekToFrame(frame);` |
-| Get total duration (seconds) | `Sandbox.Replay.Playback.Duration;`           |
-| Get total frame count        | `Sandbox.Replay.Playback.TotalFrames;`        |
+| Action                                  | API                                           |
+| ----------------------------            | --------------------------------------------- |
+| Set / Get time scale                    | `Time.timeScale;`                             |
+| Seek / Skip (by time)                   | `Sandbox.Replay.Playback.SeekToTime(time);`   |
+| Seek / Skip (by frame)                  | `Sandbox.Replay.Playback.SeekToFrame(frame);` |
+| Get total duration (seconds)            | `Sandbox.Replay.Playback.Duration;`           |
+| Get total frame count                   | `Sandbox.Replay.Playback.TotalFrames;`        |
 
 Slowing down or speeding up the playback is done by simply increasing/decreasing `Time.timeScale`. Pausing the playback is accomplished by setting `Time.timeScale` to `0`.
+
+`Sandbox.Replay.Playback.OnSeeked` event can be used for clean up or similar actions when seeking.
 
 > [!Note]
 > In the replay system, the term “Frame” refers to snapshots of the game, not rendering frames. These replay frames correspond to ticks in the simulation, but are labeled as frames within the context of replays.

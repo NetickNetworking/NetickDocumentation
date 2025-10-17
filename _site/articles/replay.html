@@ -188,15 +188,19 @@ Replay validation checks the value of <code> Netick.Unity.Network.GameVersion</c
 <p>If either version changes, existing replay files become incompatible.</p>
 <hr>
 <h3 id="playback-control">Playback Control</h3>
-<p>Once playback begins with <code>Sandbox.StartPlayback(replayPath)</code>, you can control the timeline via the <strong>Playback API</strong>:</p>
+<p>Once playback begins with <code>Sandbox.StartPlayback(replayPath)</code>, you can control playback via the <strong>Playback API</strong>:</p>
 <table>
 <thead>
 <tr>
 <th>Action</th>
-<th>Method</th>
+<th>API</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Set / Get time scale</td>
+<td><code>Time.timeScale;</code></td>
+</tr>
 <tr>
 <td>Seek / Skip (by time)</td>
 <td><code>Sandbox.Replay.Playback.SeekToTime(time);</code></td>
@@ -216,6 +220,7 @@ Replay validation checks the value of <code> Netick.Unity.Network.GameVersion</c
 </tbody>
 </table>
 <p>Slowing down or speeding up the playback is done by simply increasing/decreasing <code>Time.timeScale</code>. Pausing the playback is accomplished by setting <code>Time.timeScale</code> to <code>0</code>.</p>
+<p><code>Sandbox.Replay.Playback.OnSeeked</code> event can be used for clean up or similar actions when seeking.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>In the replay system, the term “Frame” refers to snapshots of the game, not rendering frames. These replay frames correspond to ticks in the simulation, but are labeled as frames within the context of replays.</p>
