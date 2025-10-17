@@ -1,20 +1,20 @@
 # Full Game Replay
-## File Backend
+## File Replay Backend
 
-The replay system in Netick allows for recording the *entire networked state* of a game — including all network objects, RPCs, and scene state — directly on the server. This data can later be used to replay the full game exactly as it happened.
+The replay system in Netick allows for recording the *entire networked state* of a game (including all network objects, RPCs, and scene state) directly on the server. This data can later be used to replay the full game exactly as it happened.
 
 Unlike replay systems in games such as Counter-Strike, which store raw network packets and must process every packet sequentially to reach a target frame (making seeking very slow), Netick records snapshots of the full game state.
 This approach is conceptually similar to video compression formats, allowing for instant seeking without needing to apply all previous data.
 
 ### Use Cases
 
-* Player improvement: Let players review full matches to understand mistakes or study top players.
+* Player improvement: Let players review full matches to learn from mistakes or study better players.
 * Cheat review: Let admins investigate potential cheating (e.g., wallhacks, aimbots) by replaying suspicious matches.
 * Debugging: Simulate late-joins or extended packet loss by skipping through the replay timeline.
 
 ### Overview
 
-Netick’s replay system is **entirely server-side** — only the server records gameplay data.
+Recording in Netick’s replay system is **entirely server-side**.
 To replay a recording, Netick must be started in a special mode called **Replay Client**.
 
 A Replay Client behaves like a normal client, with a few key differences:
@@ -23,6 +23,8 @@ A Replay Client behaves like a normal client, with a few key differences:
 * The prediction loop is disabled.
 * The local player id `Sandbox.LocalPlayer` is fixed to `NetworkPlayerId.ReplayPlayer`. This ensures RPCs sent to that id during recording will still exist when replaying.
 * The local player does not appear in `Sandbox.Players`, as it’s only a dummy player that was never in the game when it was recorded.
+
+Replays recorded on older versions of the game are incompatible and can't be replayed on newer versions. This limitation exists on all replay systems. While it's rarely done, one way to deal with this is to keep older builds of the game and use them to play older replays. However, Netick does not handle any of this and is up to the developer if needed.
 
 ---
 
@@ -41,6 +43,8 @@ if (Sandbox.IsReplaying)
 
 This allows you to adjust or skip code that should not run during replay.
 
+> [!Note]
+> Viewing the game from the perspective of different players is not handled automatically. Developers must implement support for this functionality as needed.
 
 ## Replay API
 
@@ -76,7 +80,7 @@ Path.Combine(Application.persistentDataPath, "replays", Network.GameVersion.ToSt
 **Example (Windows path):**
 
 ```
-C:\Users\<username>\AppData\LocalLow\<CompanyName>\<ProjectName>\replays\<gameVersionHash>
+C:\Users\<username>\AppData\LocalLow\<CompanyName>\<ProjectName>\replays\<gameVersionHash>\<replayFileName>
 ```
 
 ### Replay Metadata
@@ -112,7 +116,7 @@ sandbox.StartPlayback(replayPath);
 If no path is specified (`sandbox.StartPlayback()`), Netick automatically loads the **most recent replay file** from:
 
 ```
-C:\Users\<username>\AppData\LocalLow\MyStudio\MyGame\replays\<gameVersionHash>
+C:\Users\<username>\AppData\LocalLow\MyStudio\MyGame\replays\<gameVersionHash>\
 ```
 
 #### Replay Metadata
@@ -148,7 +152,7 @@ You can use this result to decide how to handle missing, corrupted, or incompati
 #### Version Compatibility
 
 Netick prevents replaying files recorded with mismatched versions.
-Replay validation checks the value of ` Netick.Unity.Network.GameVersion`, which is derived from a hash of:
+Replay validation checks the value of ` Netick.Unity.Network.GameVersion`, which is a hash of:
 
 * **Netick version:** ` Netick.Unity.Network.Version`
 * **Game version:** `Application.version` (configured in *Project Settings → Player*)
@@ -167,6 +171,12 @@ Once playback begins with `Sandbox.StartPlayback(replayPath)`, you can control t
 | Seek / Skip (by frame)       | `Sandbox.Replay.Playback.SeekToFrame(frame);` |
 | Get total duration (seconds) | `Sandbox.Replay.Playback.Duration;`           |
 | Get total frame count        | `Sandbox.Replay.Playback.TotalFrames;`        |
+
+Slowing down or speeding up the playback is done by simply increasing/decreasing `Time.timeScale`. Pausing the playback is accomplished by setting `Time.timeScale` to `0`.
+
+> [!Note]
+> In the replay system, the term “Frame” refers to snapshots of the game, not rendering frames. These replay frames correspond to ticks in the simulation, but are labeled as frames within the context of replays.
+
 
 ---
 

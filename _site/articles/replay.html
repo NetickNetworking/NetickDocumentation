@@ -85,18 +85,18 @@
         <article data-uid="">
 <h1 id="full-game-replay">Full Game Replay</h1>
 
-<h2 id="file-backend">File Backend</h2>
-<p>The replay system in Netick allows for recording the <em>entire networked state</em> of a game — including all network objects, RPCs, and scene state — directly on the server. This data can later be used to replay the full game exactly as it happened.</p>
+<h2 id="file-replay-backend">File Replay Backend</h2>
+<p>The replay system in Netick allows for recording the <em>entire networked state</em> of a game (including all network objects, RPCs, and scene state) directly on the server. This data can later be used to replay the full game exactly as it happened.</p>
 <p>Unlike replay systems in games such as Counter-Strike, which store raw network packets and must process every packet sequentially to reach a target frame (making seeking very slow), Netick records snapshots of the full game state.
 This approach is conceptually similar to video compression formats, allowing for instant seeking without needing to apply all previous data.</p>
 <h3 id="use-cases">Use Cases</h3>
 <ul>
-<li>Player improvement: Let players review full matches to understand mistakes or study top players.</li>
+<li>Player improvement: Let players review full matches to learn from mistakes or study better players.</li>
 <li>Cheat review: Let admins investigate potential cheating (e.g., wallhacks, aimbots) by replaying suspicious matches.</li>
 <li>Debugging: Simulate late-joins or extended packet loss by skipping through the replay timeline.</li>
 </ul>
 <h3 id="overview">Overview</h3>
-<p>Netick’s replay system is <strong>entirely server-side</strong> — only the server records gameplay data.
+<p>Recording in Netick’s replay system is <strong>entirely server-side</strong>.
 To replay a recording, Netick must be started in a special mode called <strong>Replay Client</strong>.</p>
 <p>A Replay Client behaves like a normal client, with a few key differences:</p>
 <ul>
@@ -105,6 +105,7 @@ To replay a recording, Netick must be started in a special mode called <strong>R
 <li>The local player id <code>Sandbox.LocalPlayer</code> is fixed to <code>NetworkPlayerId.ReplayPlayer</code>. This ensures RPCs sent to that id during recording will still exist when replaying.</li>
 <li>The local player does not appear in <code>Sandbox.Players</code>, as it’s only a dummy player that was never in the game when it was recorded.</li>
 </ul>
+<p>Replays recorded on older versions of the game are incompatible and can't be replayed on newer versions. This limitation exists on all replay systems. While it's rarely done, one way to deal with this is to keep older builds of the game and use them to play older replays. However, Netick does not handle any of this and is up to the developer if needed.</p>
 <hr>
 <h2 id="replay-safety">Replay-Safety</h2>
 <p>In most cases, achieving replay safety (making a project fully compatible with Netick’s Replay System) is straightforward</p>
@@ -115,6 +116,10 @@ To replay a recording, Netick must be started in a special mode called <strong>R
 }
 </code></pre>
 <p>This allows you to adjust or skip code that should not run during replay.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Viewing the game from the perspective of different players is not handled automatically. Developers must implement support for this functionality as needed.</p>
+</div>
 <h2 id="replay-api">Replay API</h2>
 <p>The Replay System consists of two primary components:</p>
 <ul>
@@ -134,7 +139,7 @@ To replay a recording, Netick must be started in a special mode called <strong>R
 <pre><code class="lang-csharp">Path.Combine(Application.persistentDataPath, &quot;replays&quot;, Network.GameVersion.ToString());
 </code></pre>
 <p><strong>Example (Windows path):</strong></p>
-<pre><code>C:\Users\&lt;username&gt;\AppData\LocalLow\&lt;CompanyName&gt;\&lt;ProjectName&gt;\replays\&lt;gameVersionHash&gt;
+<pre><code>C:\Users\&lt;username&gt;\AppData\LocalLow\&lt;CompanyName&gt;\&lt;ProjectName&gt;\replays\&lt;gameVersionHash&gt;\&lt;replayFileName&gt;
 </code></pre>
 <h3 id="replay-metadata">Replay Metadata</h3>
 <p>Including metadata in a replay file is often useful for capturing additional game-specific information, such as round start and end times, special events, or custom markers.</p>
@@ -152,7 +157,7 @@ To replay a recording, Netick must be started in a special mode called <strong>R
 <pre><code class="lang-csharp">sandbox.StartPlayback(replayPath);
 </code></pre>
 <p>If no path is specified (<code>sandbox.StartPlayback()</code>), Netick automatically loads the <strong>most recent replay file</strong> from:</p>
-<pre><code>C:\Users\&lt;username&gt;\AppData\LocalLow\MyStudio\MyGame\replays\&lt;gameVersionHash&gt;
+<pre><code>C:\Users\&lt;username&gt;\AppData\LocalLow\MyStudio\MyGame\replays\&lt;gameVersionHash&gt;\
 </code></pre>
 <h4 id="replay-metadata-1">Replay Metadata</h4>
 <p>To get the replay metadata during playback:</p>
@@ -174,7 +179,7 @@ To replay a recording, Netick must be started in a special mode called <strong>R
 <p>You can use this result to decide how to handle missing, corrupted, or incompatible replay files.</p>
 <h4 id="version-compatibility">Version Compatibility</h4>
 <p>Netick prevents replaying files recorded with mismatched versions.
-Replay validation checks the value of <code> Netick.Unity.Network.GameVersion</code>, which is derived from a hash of:</p>
+Replay validation checks the value of <code> Netick.Unity.Network.GameVersion</code>, which is a hash of:</p>
 <ul>
 <li><strong>Netick version:</strong> <code> Netick.Unity.Network.Version</code></li>
 <li><strong>Game version:</strong> <code>Application.version</code> (configured in <em>Project Settings → Player</em>)</li>
@@ -209,6 +214,11 @@ Replay validation checks the value of <code> Netick.Unity.Network.GameVersion</c
 </tr>
 </tbody>
 </table>
+<p>Slowing down or speeding up the playback is done by simply increasing/decreasing <code>Time.timeScale</code>. Pausing the playback is accomplished by setting <code>Time.timeScale</code> to <code>0</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In the replay system, the term “Frame” refers to snapshots of the game, not rendering frames. These replay frames correspond to ticks in the simulation, but are labeled as frames within the context of replays.</p>
+</div>
 <hr>
 <h2 id="replay-compression">Replay Compression</h2>
 <p>By default, Netick applies delta compression to replay snapshots. This allows for instant recording and playback with minimal processing overhead.</p>
