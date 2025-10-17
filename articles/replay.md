@@ -116,7 +116,7 @@ sandbox.StartPlayback(replayPath);
 If no path is specified (`sandbox.StartPlayback()`), Netick automatically loads the **most recent replay file** from:
 
 ```
-C:\Users\<username>\AppData\LocalLow\MyStudio\MyGame\replays\<gameVersionHash>\
+C:\Users\<username>\AppData\LocalLow\<CompanyName>\<ProjectName>\replays\<gameVersionHash>\
 ```
 
 #### Replay Metadata
