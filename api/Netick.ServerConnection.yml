@@ -5,10 +5,9 @@ items:
   id: ServerConnection
   parent: Netick
   children:
-  - Netick.ServerConnection.#ctor(System.Int16,Netick.NetickEngine)
+  - Netick.ServerConnection.#ctor(System.Int32,Netick.NetickEngine)
   - Netick.ServerConnection.Finalize
   - Netick.ServerConnection.InterestGroups
-  - Netick.ServerConnection.ProcessAck(Netick.Tick,System.Boolean)
   - Netick.ServerConnection.SimulationData
   langs:
   - csharp
@@ -34,10 +33,10 @@ items:
   - Netick.NetworkConnection.RTT
   - Netick.NetworkConnection.SendData(System.Byte,System.Byte*,System.Int32,Netick.TransportDeliveryMethod)
   - Netick.NetworkConnection.SendData(System.Byte,System.Byte[],System.Int32,Netick.TransportDeliveryMethod)
+  - Netick.NetworkConnection.TransportConnection
+  - Netick.NetworkConnection.EndPoint
   - Netick.NetworkConnection.Id
   - Netick.NetworkConnection.ReplicateEntities
-  - Netick.NetworkConnection.EndPoint
-  - Netick.NetworkConnection.TransportConnection
   - Netick.NetworkConnection.BytesIn
   - Netick.NetworkConnection.BytesOut
   - Netick.NetworkConnection.InPacketLossBurst
@@ -74,32 +73,32 @@ items:
     return:
       type: Netick.ServerSimulation.ClientData
     content.vb: Public ReadOnly SimulationData As ServerSimulation.ClientData
-- uid: Netick.ServerConnection.#ctor(System.Int16,Netick.NetickEngine)
-  commentId: M:Netick.ServerConnection.#ctor(System.Int16,Netick.NetickEngine)
-  id: '#ctor(System.Int16,Netick.NetickEngine)'
+- uid: Netick.ServerConnection.#ctor(System.Int32,Netick.NetickEngine)
+  commentId: M:Netick.ServerConnection.#ctor(System.Int32,Netick.NetickEngine)
+  id: '#ctor(System.Int32,Netick.NetickEngine)'
   parent: Netick.ServerConnection
   langs:
   - csharp
   - vb
-  name: ServerConnection(short, NetickEngine)
-  nameWithType: ServerConnection.ServerConnection(short, NetickEngine)
-  fullName: Netick.ServerConnection.ServerConnection(short, Netick.NetickEngine)
+  name: ServerConnection(int, NetickEngine)
+  nameWithType: ServerConnection.ServerConnection(int, NetickEngine)
+  fullName: Netick.ServerConnection.ServerConnection(int, Netick.NetickEngine)
   type: Constructor
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public ServerConnection(short clientIndex, NetickEngine engine)
+    content: public ServerConnection(int clientIndex, NetickEngine engine)
     parameters:
     - id: clientIndex
-      type: System.Int16
+      type: System.Int32
     - id: engine
       type: Netick.NetickEngine
-    content.vb: Public Sub New(clientIndex As Short, engine As NetickEngine)
+    content.vb: Public Sub New(clientIndex As Integer, engine As NetickEngine)
   overload: Netick.ServerConnection.#ctor*
-  nameWithType.vb: ServerConnection.New(Short, NetickEngine)
-  fullName.vb: Netick.ServerConnection.New(Short, Netick.NetickEngine)
-  name.vb: New(Short, NetickEngine)
+  nameWithType.vb: ServerConnection.New(Integer, NetickEngine)
+  fullName.vb: Netick.ServerConnection.New(Integer, Netick.NetickEngine)
+  name.vb: New(Integer, NetickEngine)
 - uid: Netick.ServerConnection.Finalize
   commentId: M:Netick.ServerConnection.Finalize
   id: Finalize
@@ -121,32 +120,6 @@ items:
   nameWithType.vb: ''
   fullName.vb: ''
   name.vb: ''
-- uid: Netick.ServerConnection.ProcessAck(Netick.Tick,System.Boolean)
-  commentId: M:Netick.ServerConnection.ProcessAck(Netick.Tick,System.Boolean)
-  id: ProcessAck(Netick.Tick,System.Boolean)
-  parent: Netick.ServerConnection
-  langs:
-  - csharp
-  - vb
-  name: ProcessAck(Tick, bool)
-  nameWithType: ServerConnection.ProcessAck(Tick, bool)
-  fullName: Netick.ServerConnection.ProcessAck(Netick.Tick, bool)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: protected void ProcessAck(Tick snapshotTick, bool wasLost)
-    parameters:
-    - id: snapshotTick
-      type: Netick.Tick
-    - id: wasLost
-      type: System.Boolean
-    content.vb: Protected Sub ProcessAck(snapshotTick As Tick, wasLost As Boolean)
-  overload: Netick.ServerConnection.ProcessAck*
-  nameWithType.vb: ServerConnection.ProcessAck(Tick, Boolean)
-  fullName.vb: Netick.ServerConnection.ProcessAck(Netick.Tick, Boolean)
-  name.vb: ProcessAck(Tick, Boolean)
 - uid: Netick.ServerConnection.InterestGroups
   commentId: P:Netick.ServerConnection.InterestGroups
   id: InterestGroups
@@ -379,6 +352,22 @@ references:
     isExternal: true
     href: Netick.TransportDeliveryMethod.html
   - name: )
+- uid: Netick.NetworkConnection.TransportConnection
+  commentId: P:Netick.NetworkConnection.TransportConnection
+  parent: Netick.NetworkConnection
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_TransportConnection
+  name: TransportConnection
+  nameWithType: NetworkConnection.TransportConnection
+  fullName: Netick.NetworkConnection.TransportConnection
+- uid: Netick.NetworkConnection.EndPoint
+  commentId: P:Netick.NetworkConnection.EndPoint
+  parent: Netick.NetworkConnection
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_EndPoint
+  name: EndPoint
+  nameWithType: NetworkConnection.EndPoint
+  fullName: Netick.NetworkConnection.EndPoint
 - uid: Netick.NetworkConnection.Id
   commentId: P:Netick.NetworkConnection.Id
   parent: Netick.NetworkConnection
@@ -395,22 +384,6 @@ references:
   name: ReplicateEntities
   nameWithType: NetworkConnection.ReplicateEntities
   fullName: Netick.NetworkConnection.ReplicateEntities
-- uid: Netick.NetworkConnection.EndPoint
-  commentId: P:Netick.NetworkConnection.EndPoint
-  parent: Netick.NetworkConnection
-  isExternal: true
-  href: Netick.NetworkConnection.html#Netick_NetworkConnection_EndPoint
-  name: EndPoint
-  nameWithType: NetworkConnection.EndPoint
-  fullName: Netick.NetworkConnection.EndPoint
-- uid: Netick.NetworkConnection.TransportConnection
-  commentId: P:Netick.NetworkConnection.TransportConnection
-  parent: Netick.NetworkConnection
-  isExternal: true
-  href: Netick.NetworkConnection.html#Netick_NetworkConnection_TransportConnection
-  name: TransportConnection
-  nameWithType: NetworkConnection.TransportConnection
-  fullName: Netick.NetworkConnection.TransportConnection
 - uid: Netick.NetworkConnection.BytesIn
   commentId: P:Netick.NetworkConnection.BytesIn
   parent: Netick.NetworkConnection
@@ -814,24 +787,24 @@ references:
 - uid: Netick.ServerConnection.#ctor*
   commentId: Overload:Netick.ServerConnection.#ctor
   isExternal: true
-  href: Netick.ServerConnection.html#Netick_ServerConnection__ctor_System_Int16_Netick_NetickEngine_
+  href: Netick.ServerConnection.html#Netick_ServerConnection__ctor_System_Int32_Netick_NetickEngine_
   name: ServerConnection
   nameWithType: ServerConnection.ServerConnection
   fullName: Netick.ServerConnection.ServerConnection
   nameWithType.vb: ServerConnection.New
   fullName.vb: Netick.ServerConnection.New
   name.vb: New
-- uid: System.Int16
-  commentId: T:System.Int16
+- uid: System.Int32
+  commentId: T:System.Int32
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int16
-  name: short
-  nameWithType: short
-  fullName: short
-  nameWithType.vb: Short
-  fullName.vb: Short
-  name.vb: Short
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: Netick.NetickEngine
   commentId: T:Netick.NetickEngine
   parent: Netick
@@ -853,32 +826,6 @@ references:
     name: ServerConnection
     isExternal: true
     href: Netick.ServerConnection.html#Netick_ServerConnection_Finalize
-- uid: Netick.ServerConnection.ProcessAck*
-  commentId: Overload:Netick.ServerConnection.ProcessAck
-  isExternal: true
-  href: Netick.ServerConnection.html#Netick_ServerConnection_ProcessAck_Netick_Tick_System_Boolean_
-  name: ProcessAck
-  nameWithType: ServerConnection.ProcessAck
-  fullName: Netick.ServerConnection.ProcessAck
-- uid: Netick.Tick
-  commentId: T:Netick.Tick
-  parent: Netick
-  isExternal: true
-  href: Netick.Tick.html
-  name: Tick
-  nameWithType: Tick
-  fullName: Netick.Tick
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: Netick.ServerConnection.InterestGroups*
   commentId: Overload:Netick.ServerConnection.InterestGroups
   isExternal: true

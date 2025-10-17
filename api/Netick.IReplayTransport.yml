@@ -1,0 +1,597 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.IReplayTransport
+  commentId: T:Netick.IReplayTransport
+  id: IReplayTransport
+  parent: Netick
+  children:
+  - Netick.IReplayTransport.GetPlaybackState
+  - Netick.IReplayTransport.GetReplayAddress
+  - Netick.IReplayTransport.Initialize(Netick.NetickEngine)
+  - Netick.IReplayTransport.Seek(System.Int32)
+  - Netick.IReplayTransport.SetReplayMetadata(System.ReadOnlySpan{System.Byte})
+  - Netick.IReplayTransport.Shutdown
+  - Netick.IReplayTransport.StartRecording(System.String)
+  - Netick.IReplayTransport.StartReplaying(System.String)
+  - Netick.IReplayTransport.StopRecording
+  - Netick.IReplayTransport.TryGetReplayMetadata(System.Byte[]@)
+  - Netick.IReplayTransport.UpdatePlayback
+  - Netick.IReplayTransport.WriteSnapshot(System.Byte*,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: IReplayTransport
+  nameWithType: IReplayTransport
+  fullName: Netick.IReplayTransport
+  type: Interface
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public interface IReplayTransport
+    content.vb: Public Interface IReplayTransport
+- uid: Netick.IReplayTransport.Initialize(Netick.NetickEngine)
+  commentId: M:Netick.IReplayTransport.Initialize(Netick.NetickEngine)
+  id: Initialize(Netick.NetickEngine)
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: Initialize(NetickEngine)
+  nameWithType: IReplayTransport.Initialize(NetickEngine)
+  fullName: Netick.IReplayTransport.Initialize(Netick.NetickEngine)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void Initialize(NetickEngine engine)
+    parameters:
+    - id: engine
+      type: Netick.NetickEngine
+    content.vb: Sub Initialize(engine As NetickEngine)
+  overload: Netick.IReplayTransport.Initialize*
+- uid: Netick.IReplayTransport.Shutdown
+  commentId: M:Netick.IReplayTransport.Shutdown
+  id: Shutdown
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: Shutdown()
+  nameWithType: IReplayTransport.Shutdown()
+  fullName: Netick.IReplayTransport.Shutdown()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void Shutdown()
+    content.vb: Sub Shutdown()
+  overload: Netick.IReplayTransport.Shutdown*
+- uid: Netick.IReplayTransport.GetReplayAddress
+  commentId: M:Netick.IReplayTransport.GetReplayAddress
+  id: GetReplayAddress
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: GetReplayAddress()
+  nameWithType: IReplayTransport.GetReplayAddress()
+  fullName: Netick.IReplayTransport.GetReplayAddress()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: string GetReplayAddress()
+    return:
+      type: System.String
+    content.vb: Function GetReplayAddress() As String
+  overload: Netick.IReplayTransport.GetReplayAddress*
+- uid: Netick.IReplayTransport.SetReplayMetadata(System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.IReplayTransport.SetReplayMetadata(System.ReadOnlySpan{System.Byte})
+  id: SetReplayMetadata(System.ReadOnlySpan{System.Byte})
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: SetReplayMetadata(ReadOnlySpan<byte>)
+  nameWithType: IReplayTransport.SetReplayMetadata(ReadOnlySpan<byte>)
+  fullName: Netick.IReplayTransport.SetReplayMetadata(System.ReadOnlySpan<byte>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void SetReplayMetadata(ReadOnlySpan<byte> data)
+    parameters:
+    - id: data
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Sub SetReplayMetadata(data As ReadOnlySpan(Of Byte))
+  overload: Netick.IReplayTransport.SetReplayMetadata*
+  nameWithType.vb: IReplayTransport.SetReplayMetadata(ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.IReplayTransport.SetReplayMetadata(System.ReadOnlySpan(Of Byte))
+  name.vb: SetReplayMetadata(ReadOnlySpan(Of Byte))
+- uid: Netick.IReplayTransport.StartRecording(System.String)
+  commentId: M:Netick.IReplayTransport.StartRecording(System.String)
+  id: StartRecording(System.String)
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: StartRecording(string)
+  nameWithType: IReplayTransport.StartRecording(string)
+  fullName: Netick.IReplayTransport.StartRecording(string)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void StartRecording(string replayAddress)
+    parameters:
+    - id: replayAddress
+      type: System.String
+    content.vb: Sub StartRecording(replayAddress As String)
+  overload: Netick.IReplayTransport.StartRecording*
+  nameWithType.vb: IReplayTransport.StartRecording(String)
+  fullName.vb: Netick.IReplayTransport.StartRecording(String)
+  name.vb: StartRecording(String)
+- uid: Netick.IReplayTransport.StopRecording
+  commentId: M:Netick.IReplayTransport.StopRecording
+  id: StopRecording
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: StopRecording()
+  nameWithType: IReplayTransport.StopRecording()
+  fullName: Netick.IReplayTransport.StopRecording()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: Task StopRecording()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function StopRecording() As Task
+  overload: Netick.IReplayTransport.StopRecording*
+- uid: Netick.IReplayTransport.WriteSnapshot(System.Byte*,System.Int32)
+  commentId: M:Netick.IReplayTransport.WriteSnapshot(System.Byte*,System.Int32)
+  id: WriteSnapshot(System.Byte*,System.Int32)
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: WriteSnapshot(byte*, int)
+  nameWithType: IReplayTransport.WriteSnapshot(byte*, int)
+  fullName: Netick.IReplayTransport.WriteSnapshot(byte*, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void WriteSnapshot(byte* snapshot, int size)
+    parameters:
+    - id: snapshot
+      type: System.Byte*
+    - id: size
+      type: System.Int32
+    content.vb: Sub WriteSnapshot(snapshot As Byte*, size As Integer)
+  overload: Netick.IReplayTransport.WriteSnapshot*
+  nameWithType.vb: IReplayTransport.WriteSnapshot(Byte*, Integer)
+  fullName.vb: Netick.IReplayTransport.WriteSnapshot(Byte*, Integer)
+  name.vb: WriteSnapshot(Byte*, Integer)
+- uid: Netick.IReplayTransport.StartReplaying(System.String)
+  commentId: M:Netick.IReplayTransport.StartReplaying(System.String)
+  id: StartReplaying(System.String)
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: StartReplaying(string)
+  nameWithType: IReplayTransport.StartReplaying(string)
+  fullName: Netick.IReplayTransport.StartReplaying(string)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void StartReplaying(string replayAddress)
+    parameters:
+    - id: replayAddress
+      type: System.String
+    content.vb: Sub StartReplaying(replayAddress As String)
+  overload: Netick.IReplayTransport.StartReplaying*
+  nameWithType.vb: IReplayTransport.StartReplaying(String)
+  fullName.vb: Netick.IReplayTransport.StartReplaying(String)
+  name.vb: StartReplaying(String)
+- uid: Netick.IReplayTransport.TryGetReplayMetadata(System.Byte[]@)
+  commentId: M:Netick.IReplayTransport.TryGetReplayMetadata(System.Byte[]@)
+  id: TryGetReplayMetadata(System.Byte[]@)
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: TryGetReplayMetadata(out byte[])
+  nameWithType: IReplayTransport.TryGetReplayMetadata(out byte[])
+  fullName: Netick.IReplayTransport.TryGetReplayMetadata(out byte[])
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: bool TryGetReplayMetadata(out byte[] data)
+    parameters:
+    - id: data
+      type: System.Byte[]
+    return:
+      type: System.Boolean
+    content.vb: Function TryGetReplayMetadata(data As Byte()) As Boolean
+  overload: Netick.IReplayTransport.TryGetReplayMetadata*
+  nameWithType.vb: IReplayTransport.TryGetReplayMetadata(Byte())
+  fullName.vb: Netick.IReplayTransport.TryGetReplayMetadata(Byte())
+  name.vb: TryGetReplayMetadata(Byte())
+- uid: Netick.IReplayTransport.UpdatePlayback
+  commentId: M:Netick.IReplayTransport.UpdatePlayback
+  id: UpdatePlayback
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: UpdatePlayback()
+  nameWithType: IReplayTransport.UpdatePlayback()
+  fullName: Netick.IReplayTransport.UpdatePlayback()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void UpdatePlayback()
+    content.vb: Sub UpdatePlayback()
+  overload: Netick.IReplayTransport.UpdatePlayback*
+- uid: Netick.IReplayTransport.Seek(System.Int32)
+  commentId: M:Netick.IReplayTransport.Seek(System.Int32)
+  id: Seek(System.Int32)
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: Seek(int)
+  nameWithType: IReplayTransport.Seek(int)
+  fullName: Netick.IReplayTransport.Seek(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void Seek(int frameIndex)
+    parameters:
+    - id: frameIndex
+      type: System.Int32
+    content.vb: Sub Seek(frameIndex As Integer)
+  overload: Netick.IReplayTransport.Seek*
+  nameWithType.vb: IReplayTransport.Seek(Integer)
+  fullName.vb: Netick.IReplayTransport.Seek(Integer)
+  name.vb: Seek(Integer)
+- uid: Netick.IReplayTransport.GetPlaybackState
+  commentId: M:Netick.IReplayTransport.GetPlaybackState
+  id: GetPlaybackState
+  parent: Netick.IReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: GetPlaybackState()
+  nameWithType: IReplayTransport.GetPlaybackState()
+  fullName: Netick.IReplayTransport.GetPlaybackState()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: ReplayPlaybackState GetPlaybackState()
+    return:
+      type: Netick.ReplayPlaybackState
+    content.vb: Function GetPlaybackState() As ReplayPlaybackState
+  overload: Netick.IReplayTransport.GetPlaybackState*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: Netick.IReplayTransport.Initialize*
+  commentId: Overload:Netick.IReplayTransport.Initialize
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_Initialize_Netick_NetickEngine_
+  name: Initialize
+  nameWithType: IReplayTransport.Initialize
+  fullName: Netick.IReplayTransport.Initialize
+- uid: Netick.NetickEngine
+  commentId: T:Netick.NetickEngine
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickEngine.html
+  name: NetickEngine
+  nameWithType: NetickEngine
+  fullName: Netick.NetickEngine
+- uid: Netick.IReplayTransport.Shutdown*
+  commentId: Overload:Netick.IReplayTransport.Shutdown
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_Shutdown
+  name: Shutdown
+  nameWithType: IReplayTransport.Shutdown
+  fullName: Netick.IReplayTransport.Shutdown
+- uid: Netick.IReplayTransport.GetReplayAddress*
+  commentId: Overload:Netick.IReplayTransport.GetReplayAddress
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_GetReplayAddress
+  name: GetReplayAddress
+  nameWithType: IReplayTransport.GetReplayAddress
+  fullName: Netick.IReplayTransport.GetReplayAddress
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.IReplayTransport.SetReplayMetadata*
+  commentId: Overload:Netick.IReplayTransport.SetReplayMetadata
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_SetReplayMetadata_System_ReadOnlySpan_System_Byte__
+  name: SetReplayMetadata
+  nameWithType: IReplayTransport.SetReplayMetadata
+  fullName: Netick.IReplayTransport.SetReplayMetadata
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.IReplayTransport.StartRecording*
+  commentId: Overload:Netick.IReplayTransport.StartRecording
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_StartRecording_System_String_
+  name: StartRecording
+  nameWithType: IReplayTransport.StartRecording
+  fullName: Netick.IReplayTransport.StartRecording
+- uid: Netick.IReplayTransport.StopRecording*
+  commentId: Overload:Netick.IReplayTransport.StopRecording
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_StopRecording
+  name: StopRecording
+  nameWithType: IReplayTransport.StopRecording
+  fullName: Netick.IReplayTransport.StopRecording
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Netick.IReplayTransport.WriteSnapshot*
+  commentId: Overload:Netick.IReplayTransport.WriteSnapshot
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_WriteSnapshot_System_Byte__System_Int32_
+  name: WriteSnapshot
+  nameWithType: IReplayTransport.WriteSnapshot
+  fullName: Netick.IReplayTransport.WriteSnapshot
+- uid: System.Byte*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte*
+  nameWithType: byte*
+  fullName: byte*
+  nameWithType.vb: Byte*
+  fullName.vb: Byte*
+  name.vb: Byte*
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.IReplayTransport.StartReplaying*
+  commentId: Overload:Netick.IReplayTransport.StartReplaying
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_StartReplaying_System_String_
+  name: StartReplaying
+  nameWithType: IReplayTransport.StartReplaying
+  fullName: Netick.IReplayTransport.StartReplaying
+- uid: Netick.IReplayTransport.TryGetReplayMetadata*
+  commentId: Overload:Netick.IReplayTransport.TryGetReplayMetadata
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_TryGetReplayMetadata_System_Byte____
+  name: TryGetReplayMetadata
+  nameWithType: IReplayTransport.TryGetReplayMetadata
+  fullName: Netick.IReplayTransport.TryGetReplayMetadata
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Netick.IReplayTransport.UpdatePlayback*
+  commentId: Overload:Netick.IReplayTransport.UpdatePlayback
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_UpdatePlayback
+  name: UpdatePlayback
+  nameWithType: IReplayTransport.UpdatePlayback
+  fullName: Netick.IReplayTransport.UpdatePlayback
+- uid: Netick.IReplayTransport.Seek*
+  commentId: Overload:Netick.IReplayTransport.Seek
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_Seek_System_Int32_
+  name: Seek
+  nameWithType: IReplayTransport.Seek
+  fullName: Netick.IReplayTransport.Seek
+- uid: Netick.IReplayTransport.GetPlaybackState*
+  commentId: Overload:Netick.IReplayTransport.GetPlaybackState
+  isExternal: true
+  href: Netick.IReplayTransport.html#Netick_IReplayTransport_GetPlaybackState
+  name: GetPlaybackState
+  nameWithType: IReplayTransport.GetPlaybackState
+  fullName: Netick.IReplayTransport.GetPlaybackState
+- uid: Netick.ReplayPlaybackState
+  commentId: T:Netick.ReplayPlaybackState
+  parent: Netick
+  isExternal: true
+  href: Netick.ReplayPlaybackState.html
+  name: ReplayPlaybackState
+  nameWithType: ReplayPlaybackState
+  fullName: Netick.ReplayPlaybackState

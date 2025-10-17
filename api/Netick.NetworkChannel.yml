@@ -6,8 +6,7 @@ items:
   parent: Netick
   children:
   - Netick.NetworkChannel.#ctor(Netick.NetickEngine,Netick.NetworkConnection)
-  - Netick.NetworkChannel.PostSend
-  - Netick.NetworkChannel.Read(Netick.BitBuffer,Netick.Tick,Netick.Tick)
+  - Netick.NetworkChannel.Read(Netick.BitBuffer)
   - Netick.NetworkChannel.Reset
   - Netick.NetworkChannel.Write(Netick.BitBuffer)
   langs:
@@ -54,49 +53,27 @@ items:
       type: Netick.BitBuffer
     content.vb: Public MustOverride Sub Write(buffer As BitBuffer)
   overload: Netick.NetworkChannel.Write*
-- uid: Netick.NetworkChannel.Read(Netick.BitBuffer,Netick.Tick,Netick.Tick)
-  commentId: M:Netick.NetworkChannel.Read(Netick.BitBuffer,Netick.Tick,Netick.Tick)
-  id: Read(Netick.BitBuffer,Netick.Tick,Netick.Tick)
+- uid: Netick.NetworkChannel.Read(Netick.BitBuffer)
+  commentId: M:Netick.NetworkChannel.Read(Netick.BitBuffer)
+  id: Read(Netick.BitBuffer)
   parent: Netick.NetworkChannel
   langs:
   - csharp
   - vb
-  name: Read(BitBuffer, Tick, Tick)
-  nameWithType: NetworkChannel.Read(BitBuffer, Tick, Tick)
-  fullName: Netick.NetworkChannel.Read(Netick.BitBuffer, Netick.Tick, Netick.Tick)
+  name: Read(BitBuffer)
+  nameWithType: NetworkChannel.Read(BitBuffer)
+  fullName: Netick.NetworkChannel.Read(Netick.BitBuffer)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public abstract void Read(BitBuffer buffer, Tick senderTick, Tick lastTick)
+    content: public abstract void Read(BitBuffer buffer)
     parameters:
     - id: buffer
       type: Netick.BitBuffer
-    - id: senderTick
-      type: Netick.Tick
-    - id: lastTick
-      type: Netick.Tick
-    content.vb: Public MustOverride Sub Read(buffer As BitBuffer, senderTick As Tick, lastTick As Tick)
+    content.vb: Public MustOverride Sub Read(buffer As BitBuffer)
   overload: Netick.NetworkChannel.Read*
-- uid: Netick.NetworkChannel.PostSend
-  commentId: M:Netick.NetworkChannel.PostSend
-  id: PostSend
-  parent: Netick.NetworkChannel
-  langs:
-  - csharp
-  - vb
-  name: PostSend()
-  nameWithType: NetworkChannel.PostSend()
-  fullName: Netick.NetworkChannel.PostSend()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public abstract void PostSend()
-    content.vb: Public MustOverride Sub PostSend()
-  overload: Netick.NetworkChannel.PostSend*
 - uid: Netick.NetworkChannel.Reset
   commentId: M:Netick.NetworkChannel.Reset
   id: Reset
@@ -404,25 +381,10 @@ references:
 - uid: Netick.NetworkChannel.Read*
   commentId: Overload:Netick.NetworkChannel.Read
   isExternal: true
-  href: Netick.NetworkChannel.html#Netick_NetworkChannel_Read_Netick_BitBuffer_Netick_Tick_Netick_Tick_
+  href: Netick.NetworkChannel.html#Netick_NetworkChannel_Read_Netick_BitBuffer_
   name: Read
   nameWithType: NetworkChannel.Read
   fullName: Netick.NetworkChannel.Read
-- uid: Netick.Tick
-  commentId: T:Netick.Tick
-  parent: Netick
-  isExternal: true
-  href: Netick.Tick.html
-  name: Tick
-  nameWithType: Tick
-  fullName: Netick.Tick
-- uid: Netick.NetworkChannel.PostSend*
-  commentId: Overload:Netick.NetworkChannel.PostSend
-  isExternal: true
-  href: Netick.NetworkChannel.html#Netick_NetworkChannel_PostSend
-  name: PostSend
-  nameWithType: NetworkChannel.PostSend
-  fullName: Netick.NetworkChannel.PostSend
 - uid: Netick.NetworkChannel.Reset*
   commentId: Overload:Netick.NetworkChannel.Reset
   isExternal: true

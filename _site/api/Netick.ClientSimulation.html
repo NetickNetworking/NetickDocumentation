@@ -123,6 +123,36 @@ Class ClientSimulation
       <a class="xref" href="Netick.Simulation.html#Netick_Simulation_UnlinkedEntities">Simulation.UnlinkedEntities</a>
     </div>
     <div>
+      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_GetEntityByWorldIndex_System_Int32_">Simulation.GetEntityByWorldIndex(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_">Simulation.RemoveFromNetworkLoop(Entity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_ServerAddEntity_Netick_INetickEntity_Netick_NetworkPlayer_System_Boolean_">Simulation.ServerAddEntity(INetickEntity, NetworkPlayer, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_ClientAddEntity_Netick_INetickEntity_System_Int32_System_Int32_System_Boolean_Netick_NetickEntityMeta_">Simulation.ClientAddEntity(INetickEntity, int, int, bool, NetickEntityMeta)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_ClientCreateUnlinkedEntity_Netick_NetickEntityMeta_System_Int32_">Simulation.ClientCreateUnlinkedEntity(NetickEntityMeta, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_CreateAndLinkEntityLocal_Netick_INetickEntity_">Simulation.CreateAndLinkEntityLocal(INetickEntity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_LinkEntity_Netick_INetickEntity_Netick_Entity_">Simulation.LinkEntity(INetickEntity, Entity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_GetEntityMeta_Netick_Entity_">Simulation.GetEntityMeta(Entity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_GetEntityUserMeta_Netick_Entity_">Simulation.GetEntityUserMeta(Entity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_SetEntityUserMeta_Netick_Entity_System_Int32__">Simulation.SetEntityUserMeta(Entity, int*)</a>
+    </div>
+    <div>
       <a class="xref" href="Netick.Simulation.html#Netick_Simulation_FetchInput__1___0__System_Boolean__Netick_Entity_System_Int32_">Simulation.FetchInput&lt;T&gt;(out T, ref bool, Entity, int)</a>
     </div>
     <div>
@@ -133,21 +163,6 @@ Class ClientSimulation
     </div>
     <div>
       <a class="xref" href="Netick.Simulation.html#Netick_Simulation_SetInput__1___0_System_Int32_">Simulation.SetInput&lt;T&gt;(T, int)</a>
-    </div>
-    <div>
-      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_">Simulation.RemoveFromNetworkLoop(Entity)</a>
-    </div>
-    <div>
-      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_System_Int32_">Simulation.ClientAddUnlinkedEntity(Entity, int, int)</a>
-    </div>
-    <div>
-      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_CreateAndLinkEntityLocal_Netick_INetickEntity_">Simulation.CreateAndLinkEntityLocal(INetickEntity)</a>
-    </div>
-    <div>
-      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_CreateEntity_System_Int32_">Simulation.CreateEntity(int)</a>
-    </div>
-    <div>
-      <a class="xref" href="Netick.Simulation.html#Netick_Simulation_LinkEntity_Netick_INetickEntity_Netick_Entity_">Simulation.LinkEntity(INetickEntity, Entity)</a>
     </div>
     <div>
       <a class="xref" href="Netick.Simulation.html#Netick_Simulation_CurrentInput">Simulation.CurrentInput</a>
@@ -257,7 +272,7 @@ Class ClientSimulation
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsResimulating { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsResimulating { get; }</code></pre>
   </div>
 
 
@@ -288,7 +303,7 @@ Class ClientSimulation
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ResimulationCount { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int ResimulationCount { get; }</code></pre>
   </div>
 
 
@@ -319,7 +334,7 @@ Class ClientSimulation
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ResimulationStep { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int ResimulationStep { get; }</code></pre>
   </div>
 
 

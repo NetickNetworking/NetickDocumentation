@@ -30,8 +30,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: This interface is used to integrate Netick with a game engine entity.
-  example: []
   syntax:
     content: public interface INetickEntity
     content.vb: Public Interface INetickEntity
@@ -49,17 +47,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Used to initialize the user entity and assign Engine and Entity.
-  example: []
   syntax:
     content: void Initialize(NetickEngine netickEngine, Entity entity)
     parameters:
     - id: netickEngine
       type: Netick.NetickEngine
-      description: ''
     - id: entity
       type: Netick.Entity
-      description: ''
     content.vb: Sub Initialize(netickEngine As NetickEngine, entity As Entity)
   overload: Netick.INetickEntity.Initialize*
 - uid: Netick.INetickEntity.NetworkAwake

@@ -5,7 +5,7 @@ items:
   id: INetickComponent
   parent: Netick
   children:
-  - Netick.INetickComponent.Init(Netick.NetickEngine)
+  - Netick.INetickComponent.Initialize(Netick.NetickEngine)
   - Netick.INetickComponent.NetworkFixedUpdate
   - Netick.INetickComponent.NetworkRender
   - Netick.INetickComponent.Reset
@@ -19,32 +19,30 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: This interface is used to internal Netick systems.
-  example: []
   syntax:
     content: public interface INetickComponent
     content.vb: Public Interface INetickComponent
-- uid: Netick.INetickComponent.Init(Netick.NetickEngine)
-  commentId: M:Netick.INetickComponent.Init(Netick.NetickEngine)
-  id: Init(Netick.NetickEngine)
+- uid: Netick.INetickComponent.Initialize(Netick.NetickEngine)
+  commentId: M:Netick.INetickComponent.Initialize(Netick.NetickEngine)
+  id: Initialize(Netick.NetickEngine)
   parent: Netick.INetickComponent
   langs:
   - csharp
   - vb
-  name: Init(NetickEngine)
-  nameWithType: INetickComponent.Init(NetickEngine)
-  fullName: Netick.INetickComponent.Init(Netick.NetickEngine)
+  name: Initialize(NetickEngine)
+  nameWithType: INetickComponent.Initialize(NetickEngine)
+  fullName: Netick.INetickComponent.Initialize(Netick.NetickEngine)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: void Init(NetickEngine engine)
+    content: void Initialize(NetickEngine engine)
     parameters:
     - id: engine
       type: Netick.NetickEngine
-    content.vb: Sub Init(engine As NetickEngine)
-  overload: Netick.INetickComponent.Init*
+    content.vb: Sub Initialize(engine As NetickEngine)
+  overload: Netick.INetickComponent.Initialize*
 - uid: Netick.INetickComponent.Reset
   commentId: M:Netick.INetickComponent.Reset
   id: Reset
@@ -107,13 +105,13 @@ references:
   name: Netick
   nameWithType: Netick
   fullName: Netick
-- uid: Netick.INetickComponent.Init*
-  commentId: Overload:Netick.INetickComponent.Init
+- uid: Netick.INetickComponent.Initialize*
+  commentId: Overload:Netick.INetickComponent.Initialize
   isExternal: true
-  href: Netick.INetickComponent.html#Netick_INetickComponent_Init_Netick_NetickEngine_
-  name: Init
-  nameWithType: INetickComponent.Init
-  fullName: Netick.INetickComponent.Init
+  href: Netick.INetickComponent.html#Netick_INetickComponent_Initialize_Netick_NetickEngine_
+  name: Initialize
+  nameWithType: INetickComponent.Initialize
+  fullName: Netick.INetickComponent.Initialize
 - uid: Netick.NetickEngine
   commentId: T:Netick.NetickEngine
   parent: Netick

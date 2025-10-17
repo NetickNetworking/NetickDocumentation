@@ -56,8 +56,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Constructs a NotServerException
-  example: []
   syntax:
     content: public NotServerException()
     content.vb: Public Sub New()
@@ -79,14 +77,11 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Constructs a NotServerException with a message
-  example: []
   syntax:
     content: public NotServerException(string message)
     parameters:
     - id: message
       type: System.String
-      description: The exception message
     content.vb: Public Sub New(message As String)
   overload: Netick.NotServerException.#ctor*
   nameWithType.vb: NotServerException.New(String)
@@ -106,17 +101,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Constructs a NotServerException with a message and a inner exception
-  example: []
   syntax:
     content: public NotServerException(string message, Exception inner)
     parameters:
     - id: message
       type: System.String
-      description: The exception message
     - id: inner
       type: System.Exception
-      description: The inner exception
     content.vb: Public Sub New(message As String, inner As Exception)
   overload: Netick.NotServerException.#ctor*
   nameWithType.vb: NotServerException.New(String, Exception)

@@ -165,11 +165,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: >-
-    Sends data to this connection. 
-
-    <p>Note: the low-level transport must implement <xref href="Netick.TransportConnection.SendUserData(System.IntPtr%2cSystem.Int32%2cNetick.TransportDeliveryMethod)" data-throw-if-not-resolved="false"></xref> for this method to have an effect.</p>
-  example: []
   syntax:
     content: public void SendData(byte id, byte* data, int length, TransportDeliveryMethod deliveryMethod)
     parameters:
@@ -216,6 +211,48 @@ items:
   nameWithType.vb: NetworkConnection.SendData(Byte, Byte(), Integer, TransportDeliveryMethod)
   fullName.vb: Netick.NetworkConnection.SendData(Byte, Byte(), Integer, Netick.TransportDeliveryMethod)
   name.vb: SendData(Byte, Byte(), Integer, TransportDeliveryMethod)
+- uid: Netick.NetworkConnection.TransportConnection
+  commentId: P:Netick.NetworkConnection.TransportConnection
+  id: TransportConnection
+  parent: Netick.NetworkConnection
+  langs:
+  - csharp
+  - vb
+  name: TransportConnection
+  nameWithType: NetworkConnection.TransportConnection
+  fullName: Netick.NetworkConnection.TransportConnection
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public TransportConnection TransportConnection { get; }
+    parameters: []
+    return:
+      type: Netick.TransportConnection
+    content.vb: Public ReadOnly Property TransportConnection As TransportConnection
+  overload: Netick.NetworkConnection.TransportConnection*
+- uid: Netick.NetworkConnection.EndPoint
+  commentId: P:Netick.NetworkConnection.EndPoint
+  id: EndPoint
+  parent: Netick.NetworkConnection
+  langs:
+  - csharp
+  - vb
+  name: EndPoint
+  nameWithType: NetworkConnection.EndPoint
+  fullName: Netick.NetworkConnection.EndPoint
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public IEndPoint EndPoint { get; }
+    parameters: []
+    return:
+      type: Netick.IEndPoint
+    content.vb: Public ReadOnly Property EndPoint As IEndPoint
+  overload: Netick.NetworkConnection.EndPoint*
 - uid: Netick.NetworkConnection.Id
   commentId: P:Netick.NetworkConnection.Id
   id: Id
@@ -258,48 +295,6 @@ items:
       type: System.Boolean
     content.vb: Public Property ReplicateEntities As Boolean
   overload: Netick.NetworkConnection.ReplicateEntities*
-- uid: Netick.NetworkConnection.EndPoint
-  commentId: P:Netick.NetworkConnection.EndPoint
-  id: EndPoint
-  parent: Netick.NetworkConnection
-  langs:
-  - csharp
-  - vb
-  name: EndPoint
-  nameWithType: NetworkConnection.EndPoint
-  fullName: Netick.NetworkConnection.EndPoint
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public IEndPoint EndPoint { get; }
-    parameters: []
-    return:
-      type: Netick.IEndPoint
-    content.vb: Public ReadOnly Property EndPoint As IEndPoint
-  overload: Netick.NetworkConnection.EndPoint*
-- uid: Netick.NetworkConnection.TransportConnection
-  commentId: P:Netick.NetworkConnection.TransportConnection
-  id: TransportConnection
-  parent: Netick.NetworkConnection
-  langs:
-  - csharp
-  - vb
-  name: TransportConnection
-  nameWithType: NetworkConnection.TransportConnection
-  fullName: Netick.NetworkConnection.TransportConnection
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public TransportConnection TransportConnection { get; }
-    parameters: []
-    return:
-      type: Netick.TransportConnection
-    content.vb: Public ReadOnly Property TransportConnection As TransportConnection
-  overload: Netick.NetworkConnection.TransportConnection*
 - uid: Netick.NetworkConnection.BytesIn
   commentId: P:Netick.NetworkConnection.BytesIn
   id: BytesIn
@@ -356,8 +351,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: The longest inward packet loss burst (more than 2 packets lost in a row) in the last 10 seconds.
-  example: []
   syntax:
     content: public int InPacketLossBurst { get; }
     parameters: []
@@ -379,8 +372,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Estimation of incoming packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
-  example: []
   syntax:
     content: public float InPacketLoss { get; }
     parameters: []
@@ -402,8 +393,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Estimation of outgoing packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
-  example: []
   syntax:
     content: public float OutPacketLoss { get; }
     parameters: []
@@ -847,63 +836,6 @@ references:
     name: NetworkConnection
     isExternal: true
     href: Netick.NetworkConnection.html#Netick_NetworkConnection_Finalize
-- uid: Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
-  commentId: M:Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
-  parent: Netick.TransportConnection
-  isExternal: true
-  href: Netick.TransportConnection.html#Netick_TransportConnection_SendUserData_System_IntPtr_System_Int32_Netick_TransportDeliveryMethod_
-  name: SendUserData(nint, int, TransportDeliveryMethod)
-  nameWithType: TransportConnection.SendUserData(nint, int, TransportDeliveryMethod)
-  fullName: Netick.TransportConnection.SendUserData(nint, int, Netick.TransportDeliveryMethod)
-  nameWithType.vb: TransportConnection.SendUserData(IntPtr, Integer, TransportDeliveryMethod)
-  fullName.vb: Netick.TransportConnection.SendUserData(System.IntPtr, Integer, Netick.TransportDeliveryMethod)
-  name.vb: SendUserData(IntPtr, Integer, TransportDeliveryMethod)
-  spec.csharp:
-  - uid: Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
-    name: SendUserData
-    isExternal: true
-    href: Netick.TransportConnection.html#Netick_TransportConnection_SendUserData_System_IntPtr_System_Int32_Netick_TransportDeliveryMethod_
-  - name: (
-  - uid: System.IntPtr
-    name: nint
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.intptr
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: Netick.TransportDeliveryMethod
-    name: TransportDeliveryMethod
-    isExternal: true
-    href: Netick.TransportDeliveryMethod.html
-  - name: )
-  spec.vb:
-  - uid: Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
-    name: SendUserData
-    isExternal: true
-    href: Netick.TransportConnection.html#Netick_TransportConnection_SendUserData_System_IntPtr_System_Int32_Netick_TransportDeliveryMethod_
-  - name: (
-  - uid: System.IntPtr
-    name: IntPtr
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.intptr
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: Netick.TransportDeliveryMethod
-    name: TransportDeliveryMethod
-    isExternal: true
-    href: Netick.TransportDeliveryMethod.html
-  - name: )
 - uid: Netick.NetworkConnection.SendData*
   commentId: Overload:Netick.NetworkConnection.SendData
   isExternal: true
@@ -951,14 +883,6 @@ references:
   name: TransportDeliveryMethod
   nameWithType: TransportDeliveryMethod
   fullName: Netick.TransportDeliveryMethod
-- uid: Netick.TransportConnection
-  commentId: T:Netick.TransportConnection
-  parent: Netick
-  isExternal: true
-  href: Netick.TransportConnection.html
-  name: TransportConnection
-  nameWithType: TransportConnection
-  fullName: Netick.TransportConnection
 - uid: System.Byte[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.byte
@@ -982,6 +906,36 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: (
   - name: )
+- uid: Netick.NetworkConnection.TransportConnection*
+  commentId: Overload:Netick.NetworkConnection.TransportConnection
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_TransportConnection
+  name: TransportConnection
+  nameWithType: NetworkConnection.TransportConnection
+  fullName: Netick.NetworkConnection.TransportConnection
+- uid: Netick.TransportConnection
+  commentId: T:Netick.TransportConnection
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportConnection.html
+  name: TransportConnection
+  nameWithType: TransportConnection
+  fullName: Netick.TransportConnection
+- uid: Netick.NetworkConnection.EndPoint*
+  commentId: Overload:Netick.NetworkConnection.EndPoint
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_EndPoint
+  name: EndPoint
+  nameWithType: NetworkConnection.EndPoint
+  fullName: Netick.NetworkConnection.EndPoint
+- uid: Netick.IEndPoint
+  commentId: T:Netick.IEndPoint
+  parent: Netick
+  isExternal: true
+  href: Netick.IEndPoint.html
+  name: IEndPoint
+  nameWithType: IEndPoint
+  fullName: Netick.IEndPoint
 - uid: Netick.NetworkConnection.Id*
   commentId: Overload:Netick.NetworkConnection.Id
   isExternal: true
@@ -1007,28 +961,6 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Netick.NetworkConnection.EndPoint*
-  commentId: Overload:Netick.NetworkConnection.EndPoint
-  isExternal: true
-  href: Netick.NetworkConnection.html#Netick_NetworkConnection_EndPoint
-  name: EndPoint
-  nameWithType: NetworkConnection.EndPoint
-  fullName: Netick.NetworkConnection.EndPoint
-- uid: Netick.IEndPoint
-  commentId: T:Netick.IEndPoint
-  parent: Netick
-  isExternal: true
-  href: Netick.IEndPoint.html
-  name: IEndPoint
-  nameWithType: IEndPoint
-  fullName: Netick.IEndPoint
-- uid: Netick.NetworkConnection.TransportConnection*
-  commentId: Overload:Netick.NetworkConnection.TransportConnection
-  isExternal: true
-  href: Netick.NetworkConnection.html#Netick_NetworkConnection_TransportConnection
-  name: TransportConnection
-  nameWithType: NetworkConnection.TransportConnection
-  fullName: Netick.NetworkConnection.TransportConnection
 - uid: Netick.NetworkConnection.BytesIn*
   commentId: Overload:Netick.NetworkConnection.BytesIn
   isExternal: true

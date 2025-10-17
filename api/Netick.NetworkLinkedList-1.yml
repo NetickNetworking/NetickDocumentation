@@ -32,8 +32,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: A networked linked list collection. This is an ordered list meaning that the elements insertion order is maintained when iterating through the collection.
-  example: []
   syntax:
     content: 'public sealed class NetworkLinkedList<T> : NetworkLinkedList, INetworkCollection, IEnumerable<T>, IEnumerable where T : unmanaged'
     typeParameters:
@@ -158,17 +156,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Adds an item to the end of the linked list.
-  example: []
   syntax:
     content: public bool Add(T item)
     parameters:
     - id: item
       type: '{T}'
-      description: The item to add.
     return:
       type: System.Boolean
-      description: True if the item was added; otherwise, false.
     content.vb: Public Function Add(item As T) As Boolean
   overload: Netick.NetworkLinkedList`1.Add*
   nameWithType.vb: NetworkLinkedList(Of T).Add(T)
@@ -187,20 +181,15 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Adds an item as the first node in the linked list.
-  example: []
   syntax:
     content: public bool AddFirst(T item, out NetworkLinkedListNode<T> addedNode)
     parameters:
     - id: item
       type: '{T}'
-      description: The item to add.
     - id: addedNode
       type: Netick.NetworkLinkedListNode{{T}}
-      description: The node that was added.
     return:
       type: System.Boolean
-      description: True if the item was added; otherwise, false.
     content.vb: Public Function AddFirst(item As T, addedNode As NetworkLinkedListNode(Of T)) As Boolean
   overload: Netick.NetworkLinkedList`1.AddFirst*
   nameWithType.vb: NetworkLinkedList(Of T).AddFirst(T, NetworkLinkedListNode(Of T))
@@ -220,20 +209,15 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Adds an item as the last node in the linked list.
-  example: []
   syntax:
     content: public bool AddLast(T item, out NetworkLinkedListNode<T> addedNode)
     parameters:
     - id: item
       type: '{T}'
-      description: The item to add.
     - id: addedNode
       type: Netick.NetworkLinkedListNode{{T}}
-      description: The node that was added.
     return:
       type: System.Boolean
-      description: True if the item was added; otherwise, false.
     content.vb: Public Function AddLast(item As T, addedNode As NetworkLinkedListNode(Of T)) As Boolean
   overload: Netick.NetworkLinkedList`1.AddLast*
   nameWithType.vb: NetworkLinkedList(Of T).AddLast(T, NetworkLinkedListNode(Of T))
@@ -253,23 +237,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Adds an item before the specified node in the linked list.
-  example: []
   syntax:
     content: public bool AddBefore(NetworkLinkedListNode<T> beforeThisNode, T item, out NetworkLinkedListNode<T> addedNode)
     parameters:
     - id: beforeThisNode
       type: Netick.NetworkLinkedListNode{{T}}
-      description: The node before which to insert the new item.
     - id: item
       type: '{T}'
-      description: The item to add.
     - id: addedNode
       type: Netick.NetworkLinkedListNode{{T}}
-      description: The node that was added.
     return:
       type: System.Boolean
-      description: True if the item was added; otherwise, false.
     content.vb: Public Function AddBefore(beforeThisNode As NetworkLinkedListNode(Of T), item As T, addedNode As NetworkLinkedListNode(Of T)) As Boolean
   overload: Netick.NetworkLinkedList`1.AddBefore*
   nameWithType.vb: NetworkLinkedList(Of T).AddBefore(NetworkLinkedListNode(Of T), T, NetworkLinkedListNode(Of T))
@@ -289,23 +267,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Adds an item after the specified node in the linked list.
-  example: []
   syntax:
     content: public bool AddAfter(NetworkLinkedListNode<T> afterThisNode, T item, out NetworkLinkedListNode<T> addedNode)
     parameters:
     - id: afterThisNode
       type: Netick.NetworkLinkedListNode{{T}}
-      description: The node after which to insert the new item.
     - id: item
       type: '{T}'
-      description: The item to add.
     - id: addedNode
       type: Netick.NetworkLinkedListNode{{T}}
-      description: The node that was added.
     return:
       type: System.Boolean
-      description: True if the item was added; otherwise, false.
     content.vb: Public Function AddAfter(afterThisNode As NetworkLinkedListNode(Of T), item As T, addedNode As NetworkLinkedListNode(Of T)) As Boolean
   overload: Netick.NetworkLinkedList`1.AddAfter*
   nameWithType.vb: NetworkLinkedList(Of T).AddAfter(NetworkLinkedListNode(Of T), T, NetworkLinkedListNode(Of T))
@@ -325,17 +297,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Removes the first occurrence of the specified item from the linked list.
-  example: []
   syntax:
     content: public bool Remove(T item)
     parameters:
     - id: item
       type: '{T}'
-      description: The item to remove.
     return:
       type: System.Boolean
-      description: True if the item was removed; otherwise, false.
     content.vb: Public Function Remove(item As T) As Boolean
   overload: Netick.NetworkLinkedList`1.Remove*
   nameWithType.vb: NetworkLinkedList(Of T).Remove(T)
@@ -354,17 +322,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Removes the specified node from the linked list.
-  example: []
   syntax:
     content: public bool Remove(NetworkLinkedListNode<T> node)
     parameters:
     - id: node
       type: Netick.NetworkLinkedListNode{{T}}
-      description: The node to remove.
     return:
       type: System.Boolean
-      description: True if the node was removed; otherwise, false.
     content.vb: Public Function Remove(node As NetworkLinkedListNode(Of T)) As Boolean
   overload: Netick.NetworkLinkedList`1.Remove*
   nameWithType.vb: NetworkLinkedList(Of T).Remove(NetworkLinkedListNode(Of T))
@@ -384,8 +348,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Removes all items from the linked list.
-  example: []
   syntax:
     content: public void Clear()
     content.vb: Public Sub Clear()
@@ -455,8 +417,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets the first node in the linked list.
-  example: []
   syntax:
     content: public NetworkLinkedListNode<T> Head { get; }
     parameters: []
@@ -480,8 +440,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets the last node in the linked list.
-  example: []
   syntax:
     content: public NetworkLinkedListNode<T> Tail { get; }
     parameters: []
@@ -505,8 +463,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets the number of items contained in the linked list.
-  example: []
   syntax:
     content: public int Count { get; }
     parameters: []
@@ -530,8 +486,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets an enumerable collection of all nodes in the linked list.
-  example: []
   syntax:
     content: public IEnumerable<NetworkLinkedListNode<T>> Nodes { get; }
     parameters: []

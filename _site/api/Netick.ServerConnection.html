@@ -139,16 +139,16 @@ Class ServerConnection
       <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_SendData_System_Byte_System_Byte___System_Int32_Netick_TransportDeliveryMethod_">NetworkConnection.SendData(byte, byte[], int, TransportDeliveryMethod)</a>
     </div>
     <div>
-      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_Id">NetworkConnection.Id</a>
-    </div>
-    <div>
-      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_ReplicateEntities">NetworkConnection.ReplicateEntities</a>
+      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_TransportConnection">NetworkConnection.TransportConnection</a>
     </div>
     <div>
       <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_EndPoint">NetworkConnection.EndPoint</a>
     </div>
     <div>
-      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_TransportConnection">NetworkConnection.TransportConnection</a>
+      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_Id">NetworkConnection.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_ReplicateEntities">NetworkConnection.ReplicateEntities</a>
     </div>
     <div>
       <a class="xref" href="Netick.NetworkConnection.html#Netick_NetworkConnection_BytesIn">NetworkConnection.BytesIn</a>
@@ -214,8 +214,8 @@ Class ServerConnection
 
   <a id="Netick_ServerConnection__ctor_" data-uid="Netick.ServerConnection.#ctor*"></a>
 
-  <h3 id="Netick_ServerConnection__ctor_System_Int16_Netick_NetickEngine_" data-uid="Netick.ServerConnection.#ctor(System.Int16,Netick.NetickEngine)">
-  ServerConnection(short, NetickEngine)
+  <h3 id="Netick_ServerConnection__ctor_System_Int32_Netick_NetickEngine_" data-uid="Netick.ServerConnection.#ctor(System.Int32,Netick.NetickEngine)">
+  ServerConnection(int, NetickEngine)
   
   </h3>
 
@@ -223,12 +223,12 @@ Class ServerConnection
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ServerConnection(short clientIndex, NetickEngine engine)</code></pre>
+    <pre><code class="lang-csharp hljs">public ServerConnection(int clientIndex, NetickEngine engine)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>clientIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
+    <dt><code>clientIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>engine</code> <a class="xref" href="Netick.NetickEngine.html">NetickEngine</a></dt>
     <dd></dd>
@@ -332,39 +332,6 @@ Class ServerConnection
     <pre><code class="lang-csharp hljs">protected ~ServerConnection()</code></pre>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_ServerConnection_ProcessAck_" data-uid="Netick.ServerConnection.ProcessAck*"></a>
-
-  <h3 id="Netick_ServerConnection_ProcessAck_Netick_Tick_System_Boolean_" data-uid="Netick.ServerConnection.ProcessAck(Netick.Tick,System.Boolean)">
-  ProcessAck(Tick, bool)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void ProcessAck(Tick snapshotTick, bool wasLost)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>snapshotTick</code> <a class="xref" href="Netick.Tick.html">Tick</a></dt>
-    <dd></dd>
-    <dt><code>wasLost</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
 
 
 

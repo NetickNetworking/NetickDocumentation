@@ -18,8 +18,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: A snapshot of the state of a <xref href="Netick.NetworkHashSet%601" data-throw-if-not-resolved="false"></xref> collection. Note this must not be used outside the scope of an OnChanged call or a NetworkRender call.
-  example: []
   syntax:
     content: 'public struct NetworkHashSetSnapshot<T> : IEnumerable<T>, IEnumerable where T : unmanaged'
     typeParameters:
@@ -52,17 +50,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Determines whether the hashset snapshot contains a specific value.
-  example: []
   syntax:
     content: public bool Contains(T item)
     parameters:
     - id: item
       type: '{T}'
-      description: The object to locate in the snapshot.
     return:
       type: System.Boolean
-      description: true if item is found; otherwise, false.
     content.vb: Public Function Contains(item As T) As Boolean
   overload: Netick.NetworkHashSetSnapshot`1.Contains*
   nameWithType.vb: NetworkHashSetSnapshot(Of T).Contains(T)
@@ -116,34 +110,6 @@ items:
   nameWithType.vb: NetworkHashSetSnapshot(Of T).Count
   fullName.vb: Netick.NetworkHashSetSnapshot(Of T).Count
 references:
-- uid: Netick.NetworkHashSet`1
-  commentId: T:Netick.NetworkHashSet`1
-  isExternal: true
-  href: Netick.NetworkHashSet-1.html
-  name: NetworkHashSet<T>
-  nameWithType: NetworkHashSet<T>
-  fullName: Netick.NetworkHashSet<T>
-  nameWithType.vb: NetworkHashSet(Of T)
-  fullName.vb: Netick.NetworkHashSet(Of T)
-  name.vb: NetworkHashSet(Of T)
-  spec.csharp:
-  - uid: Netick.NetworkHashSet`1
-    name: NetworkHashSet
-    isExternal: true
-    href: Netick.NetworkHashSet-1.html
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: Netick.NetworkHashSet`1
-    name: NetworkHashSet
-    isExternal: true
-    href: Netick.NetworkHashSet-1.html
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
 - uid: Netick
   commentId: N:Netick
   isExternal: true

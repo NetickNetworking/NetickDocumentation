@@ -1,5 +1,5 @@
 # Full Game Replay
-## File Replay Backend
+## File Replay Transport
 
 The replay system in Netick allows for recording the *entire networked state* of a game (including all network objects, RPCs, and scene state) on the server. This data can later be used to replay the full game exactly as it happened.
 

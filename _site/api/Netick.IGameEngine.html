@@ -95,8 +95,7 @@ Interface IGameEngine
   <dl><dt>Assembly</dt><dd>Netick.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>This interface is used to integrate Netick with a game engine.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -126,8 +125,7 @@ Interface IGameEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Implements this to inform Netick about the size (in 32 bit words) of your connection meta data.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -158,8 +156,7 @@ Interface IGameEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Implements this to inform Netick about the size (in 32 bit words) of your entity meta data.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -183,6 +180,104 @@ Interface IGameEngine
 
 
 
+  <a id="Netick_IGameEngine_GetReplicateEntitiesOnReplay_" data-uid="Netick.IGameEngine.GetReplicateEntitiesOnReplay*"></a>
+
+  <h3 id="Netick_IGameEngine_GetReplicateEntitiesOnReplay_System_Int32__" data-uid="Netick.IGameEngine.GetReplicateEntitiesOnReplay(System.Int32*)">
+  GetReplicateEntitiesOnReplay(int*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool GetReplicateEntitiesOnReplay(int* replayServerConnectionRemoteUserData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>replayServerConnectionRemoteUserData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_GetTime_" data-uid="Netick.IGameEngine.GetTime*"></a>
+
+  <h3 id="Netick_IGameEngine_GetTime" data-uid="Netick.IGameEngine.GetTime">
+  GetTime()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">float GetTime()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_OnAfterReceive_" data-uid="Netick.IGameEngine.OnAfterReceive*"></a>
+
+  <h3 id="Netick_IGameEngine_OnAfterReceive_Netick_NetworkConnection_" data-uid="Netick.IGameEngine.OnAfterReceive(Netick.NetworkConnection)">
+  OnAfterReceive(NetworkConnection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnAfterReceive(NetworkConnection source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_IGameEngine_OnBeforeSend_" data-uid="Netick.IGameEngine.OnBeforeSend*"></a>
 
   <h3 id="Netick_IGameEngine_OnBeforeSend_Netick_NetworkConnection_" data-uid="Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)">
@@ -190,8 +285,7 @@ Interface IGameEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This is called before sending packets to the target connection.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -341,8 +435,7 @@ Interface IGameEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This is called when an entity has been removed from the simulation.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -366,20 +459,18 @@ Interface IGameEngine
 
 
 
-  <a id="Netick_IGameEngine_OnEntityMetaChanged1_" data-uid="Netick.IGameEngine.OnEntityMetaChanged1*"></a>
+  <a id="Netick_IGameEngine_OnEntityMetaChangedPhase1_" data-uid="Netick.IGameEngine.OnEntityMetaChangedPhase1*"></a>
 
-  <h3 id="Netick_IGameEngine_OnEntityMetaChanged1_Netick_NetickEntityMeta_System_Byte__System_Int32_" data-uid="Netick.IGameEngine.OnEntityMetaChanged1(Netick.NetickEntityMeta,System.Byte*,System.Int32)">
-  OnEntityMetaChanged1(NetickEntityMeta, byte*, int)
+  <h3 id="Netick_IGameEngine_OnEntityMetaChangedPhase1_Netick_NetickEntityMeta_System_Byte__System_Int32_" data-uid="Netick.IGameEngine.OnEntityMetaChangedPhase1(Netick.NetickEntityMeta,System.Byte*,System.Int32)">
+  OnEntityMetaChangedPhase1(NetickEntityMeta, byte*, int)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This method is called on the client when it receives new entity meta data. This must be used to create/setup network entities on the client. It can be called many times not only when the data has changed.</p>
-<p>Note: user entity meta data can be used for custom user data that might be used in creating entities.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void OnEntityMetaChanged1(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)</code></pre>
+    <pre><code class="lang-csharp hljs">void OnEntityMetaChangedPhase1(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -480,8 +571,7 @@ Interface IGameEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This is called when a new entity has been added to the simulation.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -548,38 +638,6 @@ Interface IGameEngine
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>sessions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.Session.html">Session</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_IGameEngine_OnPacketReceived_" data-uid="Netick.IGameEngine.OnPacketReceived*"></a>
-
-  <h3 id="Netick_IGameEngine_OnPacketReceived_Netick_NetworkConnection_" data-uid="Netick.IGameEngine.OnPacketReceived(Netick.NetworkConnection)">
-  OnPacketReceived(NetworkConnection)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>This is called when a full packet has been received.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void OnPacketReceived(NetworkConnection source)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>source</code> <a class="xref" href="Netick.NetworkConnection.html">NetworkConnection</a></dt>
     <dd></dd>
   </dl>
 
@@ -830,8 +888,7 @@ Interface IGameEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This is called when an unliked entity has been removed from the simulation.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -862,8 +919,7 @@ Interface IGameEngine
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This is used to populate the user meta data for an entity.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -887,10 +943,10 @@ Interface IGameEngine
 
 
 
-  <a id="Netick_IGameEngine_SyncTransformsToPhysics_" data-uid="Netick.IGameEngine.SyncTransformsToPhysics*"></a>
+  <a id="Netick_IGameEngine_SetLocalUserDataForReplayConnection_" data-uid="Netick.IGameEngine.SetLocalUserDataForReplayConnection*"></a>
 
-  <h3 id="Netick_IGameEngine_SyncTransformsToPhysics" data-uid="Netick.IGameEngine.SyncTransformsToPhysics">
-  SyncTransformsToPhysics()
+  <h3 id="Netick_IGameEngine_SetLocalUserDataForReplayConnection_System_Int32__" data-uid="Netick.IGameEngine.SetLocalUserDataForReplayConnection(System.Int32*)">
+  SetLocalUserDataForReplayConnection(int*)
   
   </h3>
 
@@ -898,7 +954,38 @@ Interface IGameEngine
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void SyncTransformsToPhysics()</code></pre>
+    <pre><code class="lang-csharp hljs">void SetLocalUserDataForReplayConnection(int* data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_IGameEngine_SyncTransformsToColliders_" data-uid="Netick.IGameEngine.SyncTransformsToColliders*"></a>
+
+  <h3 id="Netick_IGameEngine_SyncTransformsToColliders" data-uid="Netick.IGameEngine.SyncTransformsToColliders">
+  SyncTransformsToColliders()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SyncTransformsToColliders()</code></pre>
   </div>
 
 

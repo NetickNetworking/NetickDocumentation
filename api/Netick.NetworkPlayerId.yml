@@ -12,6 +12,7 @@ items:
   - Netick.NetworkPlayerId.Id
   - Netick.NetworkPlayerId.Invalid
   - Netick.NetworkPlayerId.IsValid
+  - Netick.NetworkPlayerId.ReplayPlayer
   - Netick.NetworkPlayerId.ToString
   - Netick.NetworkPlayerId.op_Equality(Netick.NetworkPlayerId,Netick.NetworkPlayerId)
   - Netick.NetworkPlayerId.op_Implicit(Netick.NetworkPlayerId)~System.Int32
@@ -26,8 +27,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Represents a networked struct identifier for a <xref href="Netick.NetworkPlayer" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: 'public struct NetworkPlayerId : IEquatable<NetworkPlayerId>'
     content.vb: Public Structure NetworkPlayerId Implements IEquatable(Of NetworkPlayerId)
@@ -283,6 +282,27 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsValid As Boolean
   overload: Netick.NetworkPlayerId.IsValid*
+- uid: Netick.NetworkPlayerId.ReplayPlayer
+  commentId: P:Netick.NetworkPlayerId.ReplayPlayer
+  id: ReplayPlayer
+  parent: Netick.NetworkPlayerId
+  langs:
+  - csharp
+  - vb
+  name: ReplayPlayer
+  nameWithType: NetworkPlayerId.ReplayPlayer
+  fullName: Netick.NetworkPlayerId.ReplayPlayer
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static NetworkPlayerId ReplayPlayer { get; }
+    parameters: []
+    return:
+      type: Netick.NetworkPlayerId
+    content.vb: Public Shared ReadOnly Property ReplayPlayer As NetworkPlayerId
+  overload: Netick.NetworkPlayerId.ReplayPlayer*
 - uid: Netick.NetworkPlayerId.Invalid
   commentId: P:Netick.NetworkPlayerId.Invalid
   id: Invalid
@@ -305,14 +325,6 @@ items:
     content.vb: Public Shared ReadOnly Property Invalid As NetworkPlayerId
   overload: Netick.NetworkPlayerId.Invalid*
 references:
-- uid: Netick.NetworkPlayer
-  commentId: T:Netick.NetworkPlayer
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkPlayer.html
-  name: NetworkPlayer
-  nameWithType: NetworkPlayer
-  fullName: Netick.NetworkPlayer
 - uid: Netick
   commentId: N:Netick
   isExternal: true
@@ -789,6 +801,13 @@ references:
   name: IsValid
   nameWithType: NetworkPlayerId.IsValid
   fullName: Netick.NetworkPlayerId.IsValid
+- uid: Netick.NetworkPlayerId.ReplayPlayer*
+  commentId: Overload:Netick.NetworkPlayerId.ReplayPlayer
+  isExternal: true
+  href: Netick.NetworkPlayerId.html#Netick_NetworkPlayerId_ReplayPlayer
+  name: ReplayPlayer
+  nameWithType: NetworkPlayerId.ReplayPlayer
+  fullName: Netick.NetworkPlayerId.ReplayPlayer
 - uid: Netick.NetworkPlayerId.Invalid*
   commentId: Overload:Netick.NetworkPlayerId.Invalid
   isExternal: true

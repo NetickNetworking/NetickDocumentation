@@ -95,8 +95,7 @@ Interface INetickScript
   <dl><dt>Assembly</dt><dd>Netick.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A script which can be added to Netick internal simulation loop.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -244,22 +243,23 @@ Interface INetickScript
 
   <a id="Netick_INetickScript_Initialize_" data-uid="Netick.INetickScript.Initialize*"></a>
 
-  <h3 id="Netick_INetickScript_Initialize_Netick_NetickEngine_" data-uid="Netick.INetickScript.Initialize(Netick.NetickEngine)">
-  Initialize(NetickEngine)
+  <h3 id="Netick_INetickScript_Initialize_Netick_NetickEngine_Netick_Entity_" data-uid="Netick.INetickScript.Initialize(Netick.NetickEngine,Netick.Entity)">
+  Initialize(NetickEngine, Entity)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Used to initialize the user script and assign Engine.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Initialize(NetickEngine netickEngine)</code></pre>
+    <pre><code class="lang-csharp hljs">void Initialize(NetickEngine netickEngine, Entity obj)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>netickEngine</code> <a class="xref" href="Netick.NetickEngine.html">NetickEngine</a></dt>
+    <dd></dd>
+    <dt><code>obj</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
     <dd></dd>
   </dl>
 
@@ -307,8 +307,7 @@ Interface INetickScript
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Called when this script has been removed from the simulation.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -334,9 +333,7 @@ Interface INetickScript
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.</p>
-<p>On the client, if you are the Input Source or if this Entity.PredictionMode is set to Global, it will be called several times in one update/tick during resimulations. To check for resimulations, use [<a class="xref" href="Netick.Entity.html#Netick_Entity_IsResimulating">IsResimulating</a>].</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -362,8 +359,7 @@ Interface INetickScript
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Called every frame. Executed after NetworkUpdate and NetworkFixedUpdate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -389,8 +385,7 @@ Interface INetickScript
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Called when this script has been added to the simulation.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -416,8 +411,7 @@ Interface INetickScript
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Called every frame. Executed before NetworkFixedUpdate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

@@ -5,8 +5,10 @@ items:
   id: INetickNetworkScript
   parent: Netick
   children:
+  - Netick.INetickNetworkScript.BehaviourId
   - Netick.INetickNetworkScript.Entity
-  - Netick.INetickNetworkScript.Index
+  - Netick.INetickNetworkScript.Initialize(System.Int32,System.Int32)
+  - Netick.INetickNetworkScript.InitializeStatePointer(System.Int32*)
   - Netick.INetickNetworkScript.InternalGetStateSizeWords
   - Netick.INetickNetworkScript.InternalInit
   - Netick.INetickNetworkScript.InternalReset
@@ -18,6 +20,7 @@ items:
   - Netick.INetickNetworkScript.OnInputSourceLeft
   - Netick.INetickNetworkScript.RelatedRpcs
   - Netick.INetickNetworkScript.State
+  - Netick.INetickNetworkScript.StateOffsetWord
   langs:
   - csharp
   - vb
@@ -28,13 +31,11 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: A script which can have networked properties and rpcs.
-  example: []
   syntax:
     content: 'public interface INetickNetworkScript : INetickScript'
     content.vb: Public Interface INetickNetworkScript Inherits INetickScript
   inheritedMembers:
-  - Netick.INetickScript.Initialize(Netick.NetickEngine)
+  - Netick.INetickScript.Initialize(Netick.NetickEngine,Netick.Entity)
   - Netick.INetickScript.NetworkStart
   - Netick.INetickScript.NetworkDestroy
   - Netick.INetickScript.NetworkUpdate
@@ -42,7 +43,58 @@ items:
   - Netick.INetickScript.NetworkRender
   - Netick.INetickScript.NetcodeIntoGameEngine
   - Netick.INetickScript.GameEngineIntoNetcode
+  - Netick.INetickScript.Index
   - Netick.INetickScript.Engine
+- uid: Netick.INetickNetworkScript.Initialize(System.Int32,System.Int32)
+  commentId: M:Netick.INetickNetworkScript.Initialize(System.Int32,System.Int32)
+  id: Initialize(System.Int32,System.Int32)
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: Initialize(int, int)
+  nameWithType: INetickNetworkScript.Initialize(int, int)
+  fullName: Netick.INetickNetworkScript.Initialize(int, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void Initialize(int id, int stateOffsetWord)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: stateOffsetWord
+      type: System.Int32
+    content.vb: Sub Initialize(id As Integer, stateOffsetWord As Integer)
+  overload: Netick.INetickNetworkScript.Initialize*
+  nameWithType.vb: INetickNetworkScript.Initialize(Integer, Integer)
+  fullName.vb: Netick.INetickNetworkScript.Initialize(Integer, Integer)
+  name.vb: Initialize(Integer, Integer)
+- uid: Netick.INetickNetworkScript.InitializeStatePointer(System.Int32*)
+  commentId: M:Netick.INetickNetworkScript.InitializeStatePointer(System.Int32*)
+  id: InitializeStatePointer(System.Int32*)
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: InitializeStatePointer(int*)
+  nameWithType: INetickNetworkScript.InitializeStatePointer(int*)
+  fullName: Netick.INetickNetworkScript.InitializeStatePointer(int*)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: void InitializeStatePointer(int* ptr)
+    parameters:
+    - id: ptr
+      type: System.Int32*
+    content.vb: Sub InitializeStatePointer(ptr As Integer*)
+  overload: Netick.INetickNetworkScript.InitializeStatePointer*
+  nameWithType.vb: INetickNetworkScript.InitializeStatePointer(Integer*)
+  fullName.vb: Netick.INetickNetworkScript.InitializeStatePointer(Integer*)
+  name.vb: InitializeStatePointer(Integer*)
 - uid: Netick.INetickNetworkScript.InternalGetStateSizeWords
   commentId: M:Netick.INetickNetworkScript.InternalGetStateSizeWords
   id: InternalGetStateSizeWords
@@ -252,27 +304,48 @@ items:
       type: System.Int32*
     content.vb: ReadOnly Property State As Integer*
   overload: Netick.INetickNetworkScript.State*
-- uid: Netick.INetickNetworkScript.Index
-  commentId: P:Netick.INetickNetworkScript.Index
-  id: Index
+- uid: Netick.INetickNetworkScript.StateOffsetWord
+  commentId: P:Netick.INetickNetworkScript.StateOffsetWord
+  id: StateOffsetWord
   parent: Netick.INetickNetworkScript
   langs:
   - csharp
   - vb
-  name: Index
-  nameWithType: INetickNetworkScript.Index
-  fullName: Netick.INetickNetworkScript.Index
+  name: StateOffsetWord
+  nameWithType: INetickNetworkScript.StateOffsetWord
+  fullName: Netick.INetickNetworkScript.StateOffsetWord
   type: Property
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: int Index { get; }
+    content: int StateOffsetWord { get; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: ReadOnly Property Index As Integer
-  overload: Netick.INetickNetworkScript.Index*
+    content.vb: ReadOnly Property StateOffsetWord As Integer
+  overload: Netick.INetickNetworkScript.StateOffsetWord*
+- uid: Netick.INetickNetworkScript.BehaviourId
+  commentId: P:Netick.INetickNetworkScript.BehaviourId
+  id: BehaviourId
+  parent: Netick.INetickNetworkScript
+  langs:
+  - csharp
+  - vb
+  name: BehaviourId
+  nameWithType: INetickNetworkScript.BehaviourId
+  fullName: Netick.INetickNetworkScript.BehaviourId
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: int BehaviourId { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property BehaviourId As Integer
+  overload: Netick.INetickNetworkScript.BehaviourId*
 - uid: Netick.INetickNetworkScript.RelatedRpcs
   commentId: P:Netick.INetickNetworkScript.RelatedRpcs
   id: RelatedRpcs
@@ -302,35 +375,47 @@ references:
   name: Netick
   nameWithType: Netick
   fullName: Netick
-- uid: Netick.INetickScript.Initialize(Netick.NetickEngine)
-  commentId: M:Netick.INetickScript.Initialize(Netick.NetickEngine)
+- uid: Netick.INetickScript.Initialize(Netick.NetickEngine,Netick.Entity)
+  commentId: M:Netick.INetickScript.Initialize(Netick.NetickEngine,Netick.Entity)
   parent: Netick.INetickScript
   isExternal: true
-  href: Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_
-  name: Initialize(NetickEngine)
-  nameWithType: INetickScript.Initialize(NetickEngine)
-  fullName: Netick.INetickScript.Initialize(Netick.NetickEngine)
+  href: Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_Netick_Entity_
+  name: Initialize(NetickEngine, Entity)
+  nameWithType: INetickScript.Initialize(NetickEngine, Entity)
+  fullName: Netick.INetickScript.Initialize(Netick.NetickEngine, Netick.Entity)
   spec.csharp:
-  - uid: Netick.INetickScript.Initialize(Netick.NetickEngine)
+  - uid: Netick.INetickScript.Initialize(Netick.NetickEngine,Netick.Entity)
     name: Initialize
     isExternal: true
-    href: Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_
+    href: Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_Netick_Entity_
   - name: (
   - uid: Netick.NetickEngine
     name: NetickEngine
     isExternal: true
     href: Netick.NetickEngine.html
+  - name: ','
+  - name: " "
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
   - name: )
   spec.vb:
-  - uid: Netick.INetickScript.Initialize(Netick.NetickEngine)
+  - uid: Netick.INetickScript.Initialize(Netick.NetickEngine,Netick.Entity)
     name: Initialize
     isExternal: true
-    href: Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_
+    href: Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_Netick_Entity_
   - name: (
   - uid: Netick.NetickEngine
     name: NetickEngine
     isExternal: true
     href: Netick.NetickEngine.html
+  - name: ','
+  - name: " "
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
   - name: )
 - uid: Netick.INetickScript.NetworkStart
   commentId: M:Netick.INetickScript.NetworkStart
@@ -486,6 +571,14 @@ references:
     href: Netick.INetickScript.html#Netick_INetickScript_GameEngineIntoNetcode
   - name: (
   - name: )
+- uid: Netick.INetickScript.Index
+  commentId: P:Netick.INetickScript.Index
+  parent: Netick.INetickScript
+  isExternal: true
+  href: Netick.INetickScript.html#Netick_INetickScript_Index
+  name: Index
+  nameWithType: INetickScript.Index
+  fullName: Netick.INetickScript.Index
 - uid: Netick.INetickScript.Engine
   commentId: P:Netick.INetickScript.Engine
   parent: Netick.INetickScript
@@ -502,13 +595,13 @@ references:
   name: INetickScript
   nameWithType: INetickScript
   fullName: Netick.INetickScript
-- uid: Netick.INetickNetworkScript.InternalGetStateSizeWords*
-  commentId: Overload:Netick.INetickNetworkScript.InternalGetStateSizeWords
+- uid: Netick.INetickNetworkScript.Initialize*
+  commentId: Overload:Netick.INetickNetworkScript.Initialize
   isExternal: true
-  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_InternalGetStateSizeWords
-  name: InternalGetStateSizeWords
-  nameWithType: INetickNetworkScript.InternalGetStateSizeWords
-  fullName: Netick.INetickNetworkScript.InternalGetStateSizeWords
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_Initialize_System_Int32_System_Int32_
+  name: Initialize
+  nameWithType: INetickNetworkScript.Initialize
+  fullName: Netick.INetickNetworkScript.Initialize
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -527,6 +620,41 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Netick.INetickNetworkScript.InitializeStatePointer*
+  commentId: Overload:Netick.INetickNetworkScript.InitializeStatePointer
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_InitializeStatePointer_System_Int32__
+  name: InitializeStatePointer
+  nameWithType: INetickNetworkScript.InitializeStatePointer
+  fullName: Netick.INetickNetworkScript.InitializeStatePointer
+- uid: System.Int32*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int*
+  nameWithType: int*
+  fullName: int*
+  nameWithType.vb: Integer*
+  fullName.vb: Integer*
+  name.vb: Integer*
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+- uid: Netick.INetickNetworkScript.InternalGetStateSizeWords*
+  commentId: Overload:Netick.INetickNetworkScript.InternalGetStateSizeWords
+  isExternal: true
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_InternalGetStateSizeWords
+  name: InternalGetStateSizeWords
+  nameWithType: INetickNetworkScript.InternalGetStateSizeWords
+  fullName: Netick.INetickNetworkScript.InternalGetStateSizeWords
 - uid: Netick.INetickNetworkScript.InternalInit*
   commentId: Overload:Netick.INetickNetworkScript.InternalInit
   isExternal: true
@@ -613,34 +741,20 @@ references:
   name: State
   nameWithType: INetickNetworkScript.State
   fullName: Netick.INetickNetworkScript.State
-- uid: System.Int32*
+- uid: Netick.INetickNetworkScript.StateOffsetWord*
+  commentId: Overload:Netick.INetickNetworkScript.StateOffsetWord
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int*
-  nameWithType: int*
-  fullName: int*
-  nameWithType.vb: Integer*
-  fullName.vb: Integer*
-  name.vb: Integer*
-  spec.csharp:
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '*'
-  spec.vb:
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '*'
-- uid: Netick.INetickNetworkScript.Index*
-  commentId: Overload:Netick.INetickNetworkScript.Index
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_StateOffsetWord
+  name: StateOffsetWord
+  nameWithType: INetickNetworkScript.StateOffsetWord
+  fullName: Netick.INetickNetworkScript.StateOffsetWord
+- uid: Netick.INetickNetworkScript.BehaviourId*
+  commentId: Overload:Netick.INetickNetworkScript.BehaviourId
   isExternal: true
-  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_Index
-  name: Index
-  nameWithType: INetickNetworkScript.Index
-  fullName: Netick.INetickNetworkScript.Index
+  href: Netick.INetickNetworkScript.html#Netick_INetickNetworkScript_BehaviourId
+  name: BehaviourId
+  nameWithType: INetickNetworkScript.BehaviourId
+  fullName: Netick.INetickNetworkScript.BehaviourId
 - uid: Netick.INetickNetworkScript.RelatedRpcs*
   commentId: Overload:Netick.INetickNetworkScript.RelatedRpcs
   isExternal: true

@@ -9,7 +9,7 @@ items:
   - Netick.INetickScript.Entity
   - Netick.INetickScript.GameEngineIntoNetcode
   - Netick.INetickScript.Index
-  - Netick.INetickScript.Initialize(Netick.NetickEngine)
+  - Netick.INetickScript.Initialize(Netick.NetickEngine,Netick.Entity)
   - Netick.INetickScript.NetcodeIntoGameEngine
   - Netick.INetickScript.NetworkDestroy
   - Netick.INetickScript.NetworkFixedUpdate
@@ -26,34 +26,31 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: A script which can be added to Netick internal simulation loop.
-  example: []
   syntax:
     content: public interface INetickScript
     content.vb: Public Interface INetickScript
-- uid: Netick.INetickScript.Initialize(Netick.NetickEngine)
-  commentId: M:Netick.INetickScript.Initialize(Netick.NetickEngine)
-  id: Initialize(Netick.NetickEngine)
+- uid: Netick.INetickScript.Initialize(Netick.NetickEngine,Netick.Entity)
+  commentId: M:Netick.INetickScript.Initialize(Netick.NetickEngine,Netick.Entity)
+  id: Initialize(Netick.NetickEngine,Netick.Entity)
   parent: Netick.INetickScript
   langs:
   - csharp
   - vb
-  name: Initialize(NetickEngine)
-  nameWithType: INetickScript.Initialize(NetickEngine)
-  fullName: Netick.INetickScript.Initialize(Netick.NetickEngine)
+  name: Initialize(NetickEngine, Entity)
+  nameWithType: INetickScript.Initialize(NetickEngine, Entity)
+  fullName: Netick.INetickScript.Initialize(Netick.NetickEngine, Netick.Entity)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
-  summary: Used to initialize the user script and assign Engine.
-  example: []
   syntax:
-    content: void Initialize(NetickEngine netickEngine)
+    content: void Initialize(NetickEngine netickEngine, Entity obj)
     parameters:
     - id: netickEngine
       type: Netick.NetickEngine
-      description: ''
-    content.vb: Sub Initialize(netickEngine As NetickEngine)
+    - id: obj
+      type: Netick.Entity
+    content.vb: Sub Initialize(netickEngine As NetickEngine, obj As Entity)
   overload: Netick.INetickScript.Initialize*
 - uid: Netick.INetickScript.NetworkStart
   commentId: M:Netick.INetickScript.NetworkStart
@@ -69,8 +66,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Called when this script has been added to the simulation.
-  example: []
   syntax:
     content: void NetworkStart()
     content.vb: Sub NetworkStart()
@@ -89,8 +84,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Called when this script has been removed from the simulation.
-  example: []
   syntax:
     content: void NetworkDestroy()
     content.vb: Sub NetworkDestroy()
@@ -109,8 +102,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Called every frame. Executed before NetworkFixedUpdate.
-  example: []
   syntax:
     content: void NetworkUpdate()
     content.vb: Sub NetworkUpdate()
@@ -129,11 +120,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: >-
-    Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.
-
-    <p>On the client, if you are the Input Source or if this Entity.PredictionMode is set to Global, it will be called several times in one update/tick during resimulations. To check for resimulations, use [<xref href="Netick.Entity.IsResimulating" data-throw-if-not-resolved="false"></xref>].</p>
-  example: []
   syntax:
     content: void NetworkFixedUpdate()
     content.vb: Sub NetworkFixedUpdate()
@@ -152,8 +138,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Called every frame. Executed after NetworkUpdate and NetworkFixedUpdate.
-  example: []
   syntax:
     content: void NetworkRender()
     content.vb: Sub NetworkRender()
@@ -268,7 +252,7 @@ references:
 - uid: Netick.INetickScript.Initialize*
   commentId: Overload:Netick.INetickScript.Initialize
   isExternal: true
-  href: Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_
+  href: Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_Netick_Entity_
   name: Initialize
   nameWithType: INetickScript.Initialize
   fullName: Netick.INetickScript.Initialize
@@ -280,6 +264,14 @@ references:
   name: NetickEngine
   nameWithType: NetickEngine
   fullName: Netick.NetickEngine
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
 - uid: Netick.INetickScript.NetworkStart*
   commentId: Overload:Netick.INetickScript.NetworkStart
   isExternal: true
@@ -301,13 +293,6 @@ references:
   name: NetworkUpdate
   nameWithType: INetickScript.NetworkUpdate
   fullName: Netick.INetickScript.NetworkUpdate
-- uid: Netick.Entity.IsResimulating
-  commentId: P:Netick.Entity.IsResimulating
-  isExternal: true
-  href: Netick.Entity.html#Netick_Entity_IsResimulating
-  name: IsResimulating
-  nameWithType: Entity.IsResimulating
-  fullName: Netick.Entity.IsResimulating
 - uid: Netick.INetickScript.NetworkFixedUpdate*
   commentId: Overload:Netick.INetickScript.NetworkFixedUpdate
   isExternal: true
@@ -368,14 +353,6 @@ references:
   name: Entity
   nameWithType: INetickScript.Entity
   fullName: Netick.INetickScript.Entity
-- uid: Netick.Entity
-  commentId: T:Netick.Entity
-  parent: Netick
-  isExternal: true
-  href: Netick.Entity.html
-  name: Entity
-  nameWithType: Entity
-  fullName: Netick.Entity
 - uid: Netick.INetickScript.Engine*
   commentId: Overload:Netick.INetickScript.Engine
   isExternal: true

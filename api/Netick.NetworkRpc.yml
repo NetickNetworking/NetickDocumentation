@@ -13,6 +13,7 @@ items:
   - Netick.NetworkRpc.InternalCreateRelayedRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
   - Netick.NetworkRpc.InternalCreateRpc(Netick.NetickEngine,System.Boolean,Netick.NetworkPlayerId,System.Int32,Netick.INetickNetworkScript,System.Boolean,Netick.RpcPeers,System.Int32)
   - Netick.NetworkRpc.InternalIsResim(Netick.NetickEngine)
+  - Netick.NetworkRpc.SizeBytes
   - Netick.NetworkRpc.SizeWords
   - Netick.NetworkRpc.Target
   langs:
@@ -25,8 +26,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Represents an RPC. Used internally only.
-  example: []
   syntax:
     content: public class NetworkRpc
     content.vb: Public Class NetworkRpc
@@ -130,8 +129,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Internal method. Never call this.
-  example: []
   syntax:
     content: public static bool InternalIsResim(NetickEngine engine)
     parameters:
@@ -155,8 +152,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Internal method. Never call this.
-  example: []
   syntax:
     content: public static NetworkRpc InternalCreateRpc(NetickEngine engine, bool isTargeted, NetworkPlayerId targetPlayer, int id, INetickNetworkScript behaviour, bool isReliable, RpcPeers target, int wordSize)
     parameters:
@@ -239,8 +234,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Internal method. Never call this.
-  example: []
   syntax:
     content: public static bool InternalCanSend(NetickEngine engine, Entity entity, RpcPeers source, RpcPeers target, int id)
     parameters:
@@ -315,8 +308,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Internal method. Never call this.
-  example: []
   syntax:
     content: public static bool InternalCanInvokeWithRID(NetickEngine engine, Entity obj, RpcPeers source, RpcPeers target, bool localInvoke, int rpcHash, bool isTargeted, NetworkPlayerId targetPlayer, ref RpcContext rpcContext)
     parameters:
@@ -345,6 +336,28 @@ items:
   nameWithType.vb: NetworkRpc.InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer, Boolean, NetworkPlayerId, RpcContext)
   fullName.vb: Netick.NetworkRpc.InternalCanInvokeWithRID(Netick.NetickEngine, Netick.Entity, Netick.RpcPeers, Netick.RpcPeers, Boolean, Integer, Boolean, Netick.NetworkPlayerId, Netick.RpcContext)
   name.vb: InternalCanInvokeWithRID(NetickEngine, Entity, RpcPeers, RpcPeers, Boolean, Integer, Boolean, NetworkPlayerId, RpcContext)
+- uid: Netick.NetworkRpc.SizeBytes
+  commentId: P:Netick.NetworkRpc.SizeBytes
+  id: SizeBytes
+  parent: Netick.NetworkRpc
+  langs:
+  - csharp
+  - vb
+  name: SizeBytes
+  nameWithType: NetworkRpc.SizeBytes
+  fullName: Netick.NetworkRpc.SizeBytes
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public int SizeBytes { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property SizeBytes As Integer
+  overload: Netick.NetworkRpc.SizeBytes*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -731,3 +744,10 @@ references:
   name: RpcContext
   nameWithType: RpcContext
   fullName: Netick.RpcContext
+- uid: Netick.NetworkRpc.SizeBytes*
+  commentId: Overload:Netick.NetworkRpc.SizeBytes
+  isExternal: true
+  href: Netick.NetworkRpc.html#Netick_NetworkRpc_SizeBytes
+  name: SizeBytes
+  nameWithType: NetworkRpc.SizeBytes
+  fullName: Netick.NetworkRpc.SizeBytes

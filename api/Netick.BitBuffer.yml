@@ -19,6 +19,7 @@ items:
   - Netick.BitBuffer.AddULong(System.UInt64)
   - Netick.BitBuffer.AlignReadPosToByte
   - Netick.BitBuffer.AlignWritePosToByte
+  - Netick.BitBuffer.BufferSizeBytes
   - Netick.BitBuffer.Clear
   - Netick.BitBuffer.Finalize
   - Netick.BitBuffer.FlexAddUInt(System.UInt32,System.UInt32,System.UInt32,System.Int32)
@@ -33,6 +34,7 @@ items:
   - Netick.BitBuffer.PeekLong
   - Netick.BitBuffer.PeekUInt
   - Netick.BitBuffer.PeekULong
+  - Netick.BitBuffer.Ptr
   - Netick.BitBuffer.Read(System.Int32)
   - Netick.BitBuffer.ReadBool
   - Netick.BitBuffer.ReadByte
@@ -45,8 +47,9 @@ items:
   - Netick.BitBuffer.ReadUInt2
   - Netick.BitBuffer.ReadUInt4
   - Netick.BitBuffer.ReadULong
+  - Netick.BitBuffer.ResizeIfNeeded(System.Int32)
   - Netick.BitBuffer.SetFrom(System.Byte*,System.Int32,System.Int32)
-  - Netick.BitBuffer.WritePos
+  - Netick.BitBuffer.WritePosition
   langs:
   - csharp
   - vb
@@ -88,25 +91,25 @@ items:
     return:
       type: System.Int32
     content.vb: Public ReadPosition As Integer
-- uid: Netick.BitBuffer.WritePos
-  commentId: F:Netick.BitBuffer.WritePos
-  id: WritePos
+- uid: Netick.BitBuffer.WritePosition
+  commentId: F:Netick.BitBuffer.WritePosition
+  id: WritePosition
   parent: Netick.BitBuffer
   langs:
   - csharp
   - vb
-  name: WritePos
-  nameWithType: BitBuffer.WritePos
-  fullName: Netick.BitBuffer.WritePos
+  name: WritePosition
+  nameWithType: BitBuffer.WritePosition
+  fullName: Netick.BitBuffer.WritePosition
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public int WritePos
+    content: public int WritePosition
     return:
       type: System.Int32
-    content.vb: Public WritePos As Integer
+    content.vb: Public WritePosition As Integer
 - uid: Netick.BitBuffer.#ctor(System.Int32,System.Boolean)
   commentId: M:Netick.BitBuffer.#ctor(System.Int32,System.Boolean)
   id: '#ctor(System.Int32,System.Boolean)'
@@ -154,6 +157,30 @@ items:
   nameWithType.vb: ''
   fullName.vb: ''
   name.vb: ''
+- uid: Netick.BitBuffer.ResizeIfNeeded(System.Int32)
+  commentId: M:Netick.BitBuffer.ResizeIfNeeded(System.Int32)
+  id: ResizeIfNeeded(System.Int32)
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: ResizeIfNeeded(int)
+  nameWithType: BitBuffer.ResizeIfNeeded(int)
+  fullName: Netick.BitBuffer.ResizeIfNeeded(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void ResizeIfNeeded(int dataToWriteBytes)
+    parameters:
+    - id: dataToWriteBytes
+      type: System.Int32
+    content.vb: Public Sub ResizeIfNeeded(dataToWriteBytes As Integer)
+  overload: Netick.BitBuffer.ResizeIfNeeded*
+  nameWithType.vb: BitBuffer.ResizeIfNeeded(Integer)
+  fullName.vb: Netick.BitBuffer.ResizeIfNeeded(Integer)
+  name.vb: ResizeIfNeeded(Integer)
 - uid: Netick.BitBuffer.SetFrom(System.Byte*,System.Int32,System.Int32)
   commentId: M:Netick.BitBuffer.SetFrom(System.Byte*,System.Int32,System.Int32)
   id: SetFrom(System.Byte*,System.Int32,System.Int32)
@@ -986,6 +1013,48 @@ items:
       type: System.Byte
     content.vb: Public Function PeekByte() As Byte
   overload: Netick.BitBuffer.PeekByte*
+- uid: Netick.BitBuffer.Ptr
+  commentId: P:Netick.BitBuffer.Ptr
+  id: Ptr
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: Ptr
+  nameWithType: BitBuffer.Ptr
+  fullName: Netick.BitBuffer.Ptr
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public uint* Ptr { get; }
+    parameters: []
+    return:
+      type: System.UInt32*
+    content.vb: Public ReadOnly Property Ptr As UInteger*
+  overload: Netick.BitBuffer.Ptr*
+- uid: Netick.BitBuffer.BufferSizeBytes
+  commentId: P:Netick.BitBuffer.BufferSizeBytes
+  id: BufferSizeBytes
+  parent: Netick.BitBuffer
+  langs:
+  - csharp
+  - vb
+  name: BufferSizeBytes
+  nameWithType: BitBuffer.BufferSizeBytes
+  fullName: Netick.BitBuffer.BufferSizeBytes
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int BufferSizeBytes { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property BufferSizeBytes As Integer
+  overload: Netick.BitBuffer.BufferSizeBytes*
 - uid: Netick.BitBuffer.IsFinished
   commentId: P:Netick.BitBuffer.IsFinished
   id: IsFinished
@@ -1273,6 +1342,13 @@ references:
     name: BitBuffer
     isExternal: true
     href: Netick.BitBuffer.html#Netick_BitBuffer_Finalize
+- uid: Netick.BitBuffer.ResizeIfNeeded*
+  commentId: Overload:Netick.BitBuffer.ResizeIfNeeded
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_ResizeIfNeeded_System_Int32_
+  name: ResizeIfNeeded
+  nameWithType: BitBuffer.ResizeIfNeeded
+  fullName: Netick.BitBuffer.ResizeIfNeeded
 - uid: Netick.BitBuffer.SetFrom*
   commentId: Overload:Netick.BitBuffer.SetFrom
   isExternal: true
@@ -1605,6 +1681,41 @@ references:
   name: PeekByte
   nameWithType: BitBuffer.PeekByte
   fullName: Netick.BitBuffer.PeekByte
+- uid: Netick.BitBuffer.Ptr*
+  commentId: Overload:Netick.BitBuffer.Ptr
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_Ptr
+  name: Ptr
+  nameWithType: BitBuffer.Ptr
+  fullName: Netick.BitBuffer.Ptr
+- uid: System.UInt32*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint*
+  nameWithType: uint*
+  fullName: uint*
+  nameWithType.vb: UInteger*
+  fullName.vb: UInteger*
+  name.vb: UInteger*
+  spec.csharp:
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '*'
+  spec.vb:
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '*'
+- uid: Netick.BitBuffer.BufferSizeBytes*
+  commentId: Overload:Netick.BitBuffer.BufferSizeBytes
+  isExternal: true
+  href: Netick.BitBuffer.html#Netick_BitBuffer_BufferSizeBytes
+  name: BufferSizeBytes
+  nameWithType: BitBuffer.BufferSizeBytes
+  fullName: Netick.BitBuffer.BufferSizeBytes
 - uid: Netick.BitBuffer.IsFinished*
   commentId: Overload:Netick.BitBuffer.IsFinished
   isExternal: true

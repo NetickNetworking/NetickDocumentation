@@ -21,8 +21,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: A snapshot of the state of a <xref href="Netick.NetworkDictionary%602" data-throw-if-not-resolved="false"></xref> collection. Note this must not be used outside the scope of an OnChanged call or a NetworkRender call.
-  example: []
   syntax:
     content: 'public struct NetworkDictionarySnapshot<TKey, TValue> : IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable where TKey : unmanaged where TValue : unmanaged'
     typeParameters:
@@ -84,17 +82,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Determines whether the dictionary contains the specified key.
-  example: []
   syntax:
     content: public bool ContainsKey(TKey key)
     parameters:
     - id: key
       type: '{TKey}'
-      description: The key to locate in the dictionary.
     return:
       type: System.Boolean
-      description: true if the dictionary contains an element with the specified key; otherwise, false.
     content.vb: Public Function ContainsKey(key As TKey) As Boolean
   overload: Netick.NetworkDictionarySnapshot`2.ContainsKey*
   nameWithType.vb: NetworkDictionarySnapshot(Of TKey, TValue).ContainsKey(TKey)
@@ -113,17 +107,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Determines whether the dictionary contains a specific value.
-  example: []
   syntax:
     content: public bool ContainsValue(TValue value)
     parameters:
     - id: value
       type: '{TValue}'
-      description: The value to locate in the dictionary.
     return:
       type: System.Boolean
-      description: true if the value is found; otherwise, false.
     content.vb: Public Function ContainsValue(value As TValue) As Boolean
   overload: Netick.NetworkDictionarySnapshot`2.ContainsValue*
   nameWithType.vb: NetworkDictionarySnapshot(Of TKey, TValue).ContainsValue(TValue)
@@ -203,40 +193,6 @@ items:
   fullName.vb: Netick.NetworkDictionarySnapshot(Of TKey, TValue).this[](TKey)
   name.vb: this[](TKey)
 references:
-- uid: Netick.NetworkDictionary`2
-  commentId: T:Netick.NetworkDictionary`2
-  isExternal: true
-  href: Netick.NetworkDictionary-2.html
-  name: NetworkDictionary<TKey, TValue>
-  nameWithType: NetworkDictionary<TKey, TValue>
-  fullName: Netick.NetworkDictionary<TKey, TValue>
-  nameWithType.vb: NetworkDictionary(Of TKey, TValue)
-  fullName.vb: Netick.NetworkDictionary(Of TKey, TValue)
-  name.vb: NetworkDictionary(Of TKey, TValue)
-  spec.csharp:
-  - uid: Netick.NetworkDictionary`2
-    name: NetworkDictionary
-    isExternal: true
-    href: Netick.NetworkDictionary-2.html
-  - name: <
-  - name: TKey
-  - name: ','
-  - name: " "
-  - name: TValue
-  - name: '>'
-  spec.vb:
-  - uid: Netick.NetworkDictionary`2
-    name: NetworkDictionary
-    isExternal: true
-    href: Netick.NetworkDictionary-2.html
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TKey
-  - name: ','
-  - name: " "
-  - name: TValue
-  - name: )
 - uid: Netick
   commentId: N:Netick
   isExternal: true

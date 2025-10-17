@@ -5,6 +5,7 @@ items:
   id: TransportDisconnectReason
   parent: Netick
   children:
+  - Netick.TransportDisconnectReason.DisconnectedByClient
   - Netick.TransportDisconnectReason.Kick
   - Netick.TransportDisconnectReason.Shutdown
   - Netick.TransportDisconnectReason.Timeout
@@ -73,6 +74,24 @@ items:
   namespace: Netick
   syntax:
     content: Shutdown = 2
+    return:
+      type: Netick.TransportDisconnectReason
+- uid: Netick.TransportDisconnectReason.DisconnectedByClient
+  commentId: F:Netick.TransportDisconnectReason.DisconnectedByClient
+  id: DisconnectedByClient
+  parent: Netick.TransportDisconnectReason
+  langs:
+  - csharp
+  - vb
+  name: DisconnectedByClient
+  nameWithType: TransportDisconnectReason.DisconnectedByClient
+  fullName: Netick.TransportDisconnectReason.DisconnectedByClient
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: DisconnectedByClient = 3
     return:
       type: Netick.TransportDisconnectReason
 references:

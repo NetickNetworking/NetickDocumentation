@@ -7,6 +7,7 @@ items:
   children:
   - Netick.NetickStartMode.Client
   - Netick.NetickStartMode.Host
+  - Netick.NetickStartMode.ReplayClient
   - Netick.NetickStartMode.Server
   - Netick.NetickStartMode.SinglePlayer
   langs:
@@ -58,6 +59,24 @@ items:
     content: Client = 1
     return:
       type: Netick.NetickStartMode
+- uid: Netick.NetickStartMode.ReplayClient
+  commentId: F:Netick.NetickStartMode.ReplayClient
+  id: ReplayClient
+  parent: Netick.NetickStartMode
+  langs:
+  - csharp
+  - vb
+  name: ReplayClient
+  nameWithType: NetickStartMode.ReplayClient
+  fullName: Netick.NetickStartMode.ReplayClient
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: ReplayClient = 2
+    return:
+      type: Netick.NetickStartMode
 - uid: Netick.NetickStartMode.Host
   commentId: F:Netick.NetickStartMode.Host
   id: Host
@@ -73,7 +92,7 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: Host = 2
+    content: Host = 3
     return:
       type: Netick.NetickStartMode
 - uid: Netick.NetickStartMode.SinglePlayer
@@ -91,7 +110,7 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: SinglePlayer = 3
+    content: SinglePlayer = 4
     return:
       type: Netick.NetickStartMode
 references:

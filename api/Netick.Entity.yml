@@ -15,11 +15,10 @@ items:
   - Netick.Entity.Id
   - Netick.Entity.InputSource
   - Netick.Entity.InputSourcePlayerId
-  - Netick.Entity.InstanceCounter
   - Netick.Entity.InterestGroup
   - Netick.Entity.InterestMarkAltered(System.Int32,System.Int32)
   - Netick.Entity.InternalDirtify(Netick.INetickNetworkScript,System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32)
-  - Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
+  - Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)
   - Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
   - Netick.Entity.InvokeGameEngineIntoNetcode
   - Netick.Entity.InvokeNetcodeIntoGameEngine
@@ -55,8 +54,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Represents an networked entity (object) in Netick.
-  example: []
   syntax:
     content: >-
       [IgnoreCodeGen]
@@ -174,25 +171,6 @@ items:
     return:
       type: System.Int32
     content.vb: Public UserId As Integer
-- uid: Netick.Entity.InstanceCounter
-  commentId: F:Netick.Entity.InstanceCounter
-  id: InstanceCounter
-  parent: Netick.Entity
-  langs:
-  - csharp
-  - vb
-  name: InstanceCounter
-  nameWithType: Entity.InstanceCounter
-  fullName: Netick.Entity.InstanceCounter
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int InstanceCounter
-    return:
-      type: System.Int32
-    content.vb: Public InstanceCounter As Integer
 - uid: Netick.Entity.Position
   commentId: F:Netick.Entity.Position
   id: Position
@@ -445,22 +423,22 @@ items:
   nameWithType.vb: Entity.InternalDirtify(INetickNetworkScript, Integer*, Integer*, Integer, Integer, Integer)
   fullName.vb: Netick.Entity.InternalDirtify(Netick.INetickNetworkScript, Integer*, Integer*, Integer, Integer, Integer)
   name.vb: InternalDirtify(INetickNetworkScript, Integer*, Integer*, Integer, Integer, Integer)
-- uid: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
-  commentId: M:Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
-  id: InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32*,System.Int32*,System.Int32,Netick.OnChangedEvent)
+- uid: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)
+  commentId: M:Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)
+  id: InternalRegOnChanged(Netick.INetickNetworkScript,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Netick.OnChangedEvent)
   parent: Netick.Entity
   langs:
   - csharp
   - vb
-  name: InternalRegOnChanged(INetickNetworkScript, int, int, int, int*, int*, int, OnChangedEvent)
-  nameWithType: Entity.InternalRegOnChanged(INetickNetworkScript, int, int, int, int*, int*, int, OnChangedEvent)
-  fullName: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript, int, int, int, int*, int*, int, Netick.OnChangedEvent)
+  name: InternalRegOnChanged(INetickNetworkScript, int, int, int, int, int, int, OnChangedEvent)
+  nameWithType: Entity.InternalRegOnChanged(INetickNetworkScript, int, int, int, int, int, int, OnChangedEvent)
+  fullName: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript, int, int, int, int, int, int, Netick.OnChangedEvent)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public static void InternalRegOnChanged(INetickNetworkScript script, int isArray, int invokeDuringResims, int inversePrecision, int* propertyStart, int* propertyPartIndex, int propertySizeWords, OnChangedEvent onChanged)
+    content: public static void InternalRegOnChanged(INetickNetworkScript script, int isArray, int invokeDuringResims, int inversePrecision, int propertyStart, int propertyPartIndex, int propertySizeWords, OnChangedEvent onChanged)
     parameters:
     - id: script
       type: Netick.INetickNetworkScript
@@ -471,18 +449,18 @@ items:
     - id: inversePrecision
       type: System.Int32
     - id: propertyStart
-      type: System.Int32*
+      type: System.Int32
     - id: propertyPartIndex
-      type: System.Int32*
+      type: System.Int32
     - id: propertySizeWords
       type: System.Int32
     - id: onChanged
       type: Netick.OnChangedEvent
-    content.vb: Public Shared Sub InternalRegOnChanged(script As INetickNetworkScript, isArray As Integer, invokeDuringResims As Integer, inversePrecision As Integer, propertyStart As Integer*, propertyPartIndex As Integer*, propertySizeWords As Integer, onChanged As OnChangedEvent)
+    content.vb: Public Shared Sub InternalRegOnChanged(script As INetickNetworkScript, isArray As Integer, invokeDuringResims As Integer, inversePrecision As Integer, propertyStart As Integer, propertyPartIndex As Integer, propertySizeWords As Integer, onChanged As OnChangedEvent)
   overload: Netick.Entity.InternalRegOnChanged*
-  nameWithType.vb: Entity.InternalRegOnChanged(INetickNetworkScript, Integer, Integer, Integer, Integer*, Integer*, Integer, OnChangedEvent)
-  fullName.vb: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript, Integer, Integer, Integer, Integer*, Integer*, Integer, Netick.OnChangedEvent)
-  name.vb: InternalRegOnChanged(INetickNetworkScript, Integer, Integer, Integer, Integer*, Integer*, Integer, OnChangedEvent)
+  nameWithType.vb: Entity.InternalRegOnChanged(INetickNetworkScript, Integer, Integer, Integer, Integer, Integer, Integer, OnChangedEvent)
+  fullName.vb: Netick.Entity.InternalRegOnChanged(Netick.INetickNetworkScript, Integer, Integer, Integer, Integer, Integer, Integer, Netick.OnChangedEvent)
+  name.vb: InternalRegOnChanged(INetickNetworkScript, Integer, Integer, Integer, Integer, Integer, Integer, OnChangedEvent)
 - uid: Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
   commentId: M:Netick.Entity.InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
   id: InternalRegSmooth(Netick.INetickNetworkScript,System.String,System.Int32,System.Single,System.Int32)
@@ -1354,7 +1332,7 @@ references:
 - uid: Netick.Entity.InternalRegOnChanged*
   commentId: Overload:Netick.Entity.InternalRegOnChanged
   isExternal: true
-  href: Netick.Entity.html#Netick_Entity_InternalRegOnChanged_Netick_INetickNetworkScript_System_Int32_System_Int32_System_Int32_System_Int32__System_Int32__System_Int32_Netick_OnChangedEvent_
+  href: Netick.Entity.html#Netick_Entity_InternalRegOnChanged_Netick_INetickNetworkScript_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_Netick_OnChangedEvent_
   name: InternalRegOnChanged
   nameWithType: Entity.InternalRegOnChanged
   fullName: Netick.Entity.InternalRegOnChanged

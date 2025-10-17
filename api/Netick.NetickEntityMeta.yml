@@ -5,11 +5,12 @@ items:
   id: NetickEntityMeta
   parent: Netick
   children:
+  - Netick.NetickEntityMeta.BlockIndex
   - Netick.NetickEntityMeta.GroupIndex
   - Netick.NetickEntityMeta.Id
   - Netick.NetickEntityMeta.InputSourceId
-  - Netick.NetickEntityMeta.InstanceCounter
   - Netick.NetickEntityMeta.IsDestroyed
+  - Netick.NetickEntityMeta.StateOffsetBytes
   - Netick.NetickEntityMeta.StateSizeWords
   langs:
   - csharp
@@ -69,25 +70,6 @@ items:
     return:
       type: System.Int32
     content.vb: Public InputSourceId As Integer
-- uid: Netick.NetickEntityMeta.InstanceCounter
-  commentId: F:Netick.NetickEntityMeta.InstanceCounter
-  id: InstanceCounter
-  parent: Netick.NetickEntityMeta
-  langs:
-  - csharp
-  - vb
-  name: InstanceCounter
-  nameWithType: NetickEntityMeta.InstanceCounter
-  fullName: Netick.NetickEntityMeta.InstanceCounter
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int InstanceCounter
-    return:
-      type: System.Int32
-    content.vb: Public InstanceCounter As Integer
 - uid: Netick.NetickEntityMeta.GroupIndex
   commentId: F:Netick.NetickEntityMeta.GroupIndex
   id: GroupIndex
@@ -126,6 +108,44 @@ items:
     return:
       type: System.Int32
     content.vb: Public Id As Integer
+- uid: Netick.NetickEntityMeta.BlockIndex
+  commentId: F:Netick.NetickEntityMeta.BlockIndex
+  id: BlockIndex
+  parent: Netick.NetickEntityMeta
+  langs:
+  - csharp
+  - vb
+  name: BlockIndex
+  nameWithType: NetickEntityMeta.BlockIndex
+  fullName: Netick.NetickEntityMeta.BlockIndex
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int BlockIndex
+    return:
+      type: System.Int32
+    content.vb: Public BlockIndex As Integer
+- uid: Netick.NetickEntityMeta.StateOffsetBytes
+  commentId: F:Netick.NetickEntityMeta.StateOffsetBytes
+  id: StateOffsetBytes
+  parent: Netick.NetickEntityMeta
+  langs:
+  - csharp
+  - vb
+  name: StateOffsetBytes
+  nameWithType: NetickEntityMeta.StateOffsetBytes
+  fullName: Netick.NetickEntityMeta.StateOffsetBytes
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int StateOffsetBytes
+    return:
+      type: System.Int32
+    content.vb: Public StateOffsetBytes As Integer
 - uid: Netick.NetickEntityMeta.IsDestroyed
   commentId: P:Netick.NetickEntityMeta.IsDestroyed
   id: IsDestroyed

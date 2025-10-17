@@ -95,8 +95,7 @@ Interface INetickNetworkScript
   <dl><dt>Assembly</dt><dd>Netick.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A script which can have networked properties and rpcs.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -113,7 +112,7 @@ Interface INetickNetworkScript
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_">INetickScript.Initialize(NetickEngine)</a>
+      <a class="xref" href="Netick.INetickScript.html#Netick_INetickScript_Initialize_Netick_NetickEngine_Netick_Entity_">INetickScript.Initialize(NetickEngine, Entity)</a>
     </div>
     <div>
       <a class="xref" href="Netick.INetickScript.html#Netick_INetickScript_NetworkStart">INetickScript.NetworkStart()</a>
@@ -137,6 +136,9 @@ Interface INetickNetworkScript
       <a class="xref" href="Netick.INetickScript.html#Netick_INetickScript_GameEngineIntoNetcode">INetickScript.GameEngineIntoNetcode()</a>
     </div>
     <div>
+      <a class="xref" href="Netick.INetickScript.html#Netick_INetickScript_Index">INetickScript.Index</a>
+    </div>
+    <div>
       <a class="xref" href="Netick.INetickScript.html#Netick_INetickScript_Engine">INetickScript.Engine</a>
     </div>
   </dd></dl>
@@ -148,6 +150,37 @@ Interface INetickNetworkScript
 
   <h2 class="section" id="properties">Properties
 </h2>
+
+
+  <a id="Netick_INetickNetworkScript_BehaviourId_" data-uid="Netick.INetickNetworkScript.BehaviourId*"></a>
+
+  <h3 id="Netick_INetickNetworkScript_BehaviourId" data-uid="Netick.INetickNetworkScript.BehaviourId">
+  BehaviourId
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int BehaviourId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="Netick_INetickNetworkScript_Entity_" data-uid="Netick.INetickNetworkScript.Entity*"></a>
@@ -171,37 +204,6 @@ Interface INetickNetworkScript
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.Entity.html">Entity</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Netick_INetickNetworkScript_Index_" data-uid="Netick.INetickNetworkScript.Index*"></a>
-
-  <h3 id="Netick_INetickNetworkScript_Index" data-uid="Netick.INetickNetworkScript.Index">
-  Index
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int Index { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -274,8 +276,103 @@ Interface INetickNetworkScript
 
 
 
+  <a id="Netick_INetickNetworkScript_StateOffsetWord_" data-uid="Netick.INetickNetworkScript.StateOffsetWord*"></a>
+
+  <h3 id="Netick_INetickNetworkScript_StateOffsetWord" data-uid="Netick.INetickNetworkScript.StateOffsetWord">
+  StateOffsetWord
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int StateOffsetWord { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="Netick_INetickNetworkScript_Initialize_" data-uid="Netick.INetickNetworkScript.Initialize*"></a>
+
+  <h3 id="Netick_INetickNetworkScript_Initialize_System_Int32_System_Int32_" data-uid="Netick.INetickNetworkScript.Initialize(System.Int32,System.Int32)">
+  Initialize(int, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Initialize(int id, int stateOffsetWord)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>stateOffsetWord</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_INetickNetworkScript_InitializeStatePointer_" data-uid="Netick.INetickNetworkScript.InitializeStatePointer*"></a>
+
+  <h3 id="Netick_INetickNetworkScript_InitializeStatePointer_System_Int32__" data-uid="Netick.INetickNetworkScript.InitializeStatePointer(System.Int32*)">
+  InitializeStatePointer(int*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void InitializeStatePointer(int* ptr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ptr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Netick_INetickNetworkScript_InternalGetStateSizeWords_" data-uid="Netick.INetickNetworkScript.InternalGetStateSizeWords*"></a>

@@ -25,15 +25,20 @@ items:
   - Netick.Simulation
   inheritedMembers:
   - Netick.Simulation.UnlinkedEntities
+  - Netick.Simulation.GetEntityByWorldIndex(System.Int32)
+  - Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+  - Netick.Simulation.ServerAddEntity(Netick.INetickEntity,Netick.NetworkPlayer,System.Boolean)
+  - Netick.Simulation.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,System.Boolean,Netick.NetickEntityMeta)
+  - Netick.Simulation.ClientCreateUnlinkedEntity(Netick.NetickEntityMeta,System.Int32)
+  - Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
+  - Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
+  - Netick.Simulation.GetEntityMeta(Netick.Entity)
+  - Netick.Simulation.GetEntityUserMeta(Netick.Entity)
+  - Netick.Simulation.SetEntityUserMeta(Netick.Entity,System.Int32*)
   - Netick.Simulation.FetchInput``1({T}@,System.Boolean@,Netick.Entity,System.Int32)
   - Netick.Simulation.FetchInputLocal``1({T}@,System.Boolean@,System.Int32)
   - Netick.Simulation.GetInput``1(System.Int32)
   - Netick.Simulation.SetInput``1({T},System.Int32)
-  - Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
-  - Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
-  - Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
-  - Netick.Simulation.CreateEntity(System.Int32)
-  - Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
   - Netick.Simulation.CurrentInput
   - System.Object.GetType
   - System.Object.ToString
@@ -140,6 +145,431 @@ references:
   name: UnlinkedEntities
   nameWithType: Simulation.UnlinkedEntities
   fullName: Netick.Simulation.UnlinkedEntities
+- uid: Netick.Simulation.GetEntityByWorldIndex(System.Int32)
+  commentId: M:Netick.Simulation.GetEntityByWorldIndex(System.Int32)
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_GetEntityByWorldIndex_System_Int32_
+  name: GetEntityByWorldIndex(int)
+  nameWithType: Simulation.GetEntityByWorldIndex(int)
+  fullName: Netick.Simulation.GetEntityByWorldIndex(int)
+  nameWithType.vb: Simulation.GetEntityByWorldIndex(Integer)
+  fullName.vb: Netick.Simulation.GetEntityByWorldIndex(Integer)
+  name.vb: GetEntityByWorldIndex(Integer)
+  spec.csharp:
+  - uid: Netick.Simulation.GetEntityByWorldIndex(System.Int32)
+    name: GetEntityByWorldIndex
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_GetEntityByWorldIndex_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Netick.Simulation.GetEntityByWorldIndex(System.Int32)
+    name: GetEntityByWorldIndex
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_GetEntityByWorldIndex_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+  commentId: M:Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_
+  name: RemoveFromNetworkLoop(Entity)
+  nameWithType: Simulation.RemoveFromNetworkLoop(Entity)
+  fullName: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+  spec.csharp:
+  - uid: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+    name: RemoveFromNetworkLoop
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_
+  - name: (
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
+    name: RemoveFromNetworkLoop
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_
+  - name: (
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+- uid: Netick.Simulation.ServerAddEntity(Netick.INetickEntity,Netick.NetworkPlayer,System.Boolean)
+  commentId: M:Netick.Simulation.ServerAddEntity(Netick.INetickEntity,Netick.NetworkPlayer,System.Boolean)
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_ServerAddEntity_Netick_INetickEntity_Netick_NetworkPlayer_System_Boolean_
+  name: ServerAddEntity(INetickEntity, NetworkPlayer, bool)
+  nameWithType: Simulation.ServerAddEntity(INetickEntity, NetworkPlayer, bool)
+  fullName: Netick.Simulation.ServerAddEntity(Netick.INetickEntity, Netick.NetworkPlayer, bool)
+  nameWithType.vb: Simulation.ServerAddEntity(INetickEntity, NetworkPlayer, Boolean)
+  fullName.vb: Netick.Simulation.ServerAddEntity(Netick.INetickEntity, Netick.NetworkPlayer, Boolean)
+  name.vb: ServerAddEntity(INetickEntity, NetworkPlayer, Boolean)
+  spec.csharp:
+  - uid: Netick.Simulation.ServerAddEntity(Netick.INetickEntity,Netick.NetworkPlayer,System.Boolean)
+    name: ServerAddEntity
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_ServerAddEntity_Netick_INetickEntity_Netick_NetworkPlayer_System_Boolean_
+  - name: (
+  - uid: Netick.INetickEntity
+    name: INetickEntity
+    isExternal: true
+    href: Netick.INetickEntity.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkPlayer
+    name: NetworkPlayer
+    isExternal: true
+    href: Netick.NetworkPlayer.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Netick.Simulation.ServerAddEntity(Netick.INetickEntity,Netick.NetworkPlayer,System.Boolean)
+    name: ServerAddEntity
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_ServerAddEntity_Netick_INetickEntity_Netick_NetworkPlayer_System_Boolean_
+  - name: (
+  - uid: Netick.INetickEntity
+    name: INetickEntity
+    isExternal: true
+    href: Netick.INetickEntity.html
+  - name: ','
+  - name: " "
+  - uid: Netick.NetworkPlayer
+    name: NetworkPlayer
+    isExternal: true
+    href: Netick.NetworkPlayer.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Netick.Simulation.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,System.Boolean,Netick.NetickEntityMeta)
+  commentId: M:Netick.Simulation.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,System.Boolean,Netick.NetickEntityMeta)
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_ClientAddEntity_Netick_INetickEntity_System_Int32_System_Int32_System_Boolean_Netick_NetickEntityMeta_
+  name: ClientAddEntity(INetickEntity, int, int, bool, NetickEntityMeta)
+  nameWithType: Simulation.ClientAddEntity(INetickEntity, int, int, bool, NetickEntityMeta)
+  fullName: Netick.Simulation.ClientAddEntity(Netick.INetickEntity, int, int, bool, Netick.NetickEntityMeta)
+  nameWithType.vb: Simulation.ClientAddEntity(INetickEntity, Integer, Integer, Boolean, NetickEntityMeta)
+  fullName.vb: Netick.Simulation.ClientAddEntity(Netick.INetickEntity, Integer, Integer, Boolean, Netick.NetickEntityMeta)
+  name.vb: ClientAddEntity(INetickEntity, Integer, Integer, Boolean, NetickEntityMeta)
+  spec.csharp:
+  - uid: Netick.Simulation.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,System.Boolean,Netick.NetickEntityMeta)
+    name: ClientAddEntity
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_ClientAddEntity_Netick_INetickEntity_System_Int32_System_Int32_System_Boolean_Netick_NetickEntityMeta_
+  - name: (
+  - uid: Netick.INetickEntity
+    name: INetickEntity
+    isExternal: true
+    href: Netick.INetickEntity.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: Netick.NetickEntityMeta
+    name: NetickEntityMeta
+    isExternal: true
+    href: Netick.NetickEntityMeta.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Simulation.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,System.Boolean,Netick.NetickEntityMeta)
+    name: ClientAddEntity
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_ClientAddEntity_Netick_INetickEntity_System_Int32_System_Int32_System_Boolean_Netick_NetickEntityMeta_
+  - name: (
+  - uid: Netick.INetickEntity
+    name: INetickEntity
+    isExternal: true
+    href: Netick.INetickEntity.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: Netick.NetickEntityMeta
+    name: NetickEntityMeta
+    isExternal: true
+    href: Netick.NetickEntityMeta.html
+  - name: )
+- uid: Netick.Simulation.ClientCreateUnlinkedEntity(Netick.NetickEntityMeta,System.Int32)
+  commentId: M:Netick.Simulation.ClientCreateUnlinkedEntity(Netick.NetickEntityMeta,System.Int32)
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_ClientCreateUnlinkedEntity_Netick_NetickEntityMeta_System_Int32_
+  name: ClientCreateUnlinkedEntity(NetickEntityMeta, int)
+  nameWithType: Simulation.ClientCreateUnlinkedEntity(NetickEntityMeta, int)
+  fullName: Netick.Simulation.ClientCreateUnlinkedEntity(Netick.NetickEntityMeta, int)
+  nameWithType.vb: Simulation.ClientCreateUnlinkedEntity(NetickEntityMeta, Integer)
+  fullName.vb: Netick.Simulation.ClientCreateUnlinkedEntity(Netick.NetickEntityMeta, Integer)
+  name.vb: ClientCreateUnlinkedEntity(NetickEntityMeta, Integer)
+  spec.csharp:
+  - uid: Netick.Simulation.ClientCreateUnlinkedEntity(Netick.NetickEntityMeta,System.Int32)
+    name: ClientCreateUnlinkedEntity
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_ClientCreateUnlinkedEntity_Netick_NetickEntityMeta_System_Int32_
+  - name: (
+  - uid: Netick.NetickEntityMeta
+    name: NetickEntityMeta
+    isExternal: true
+    href: Netick.NetickEntityMeta.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Netick.Simulation.ClientCreateUnlinkedEntity(Netick.NetickEntityMeta,System.Int32)
+    name: ClientCreateUnlinkedEntity
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_ClientCreateUnlinkedEntity_Netick_NetickEntityMeta_System_Int32_
+  - name: (
+  - uid: Netick.NetickEntityMeta
+    name: NetickEntityMeta
+    isExternal: true
+    href: Netick.NetickEntityMeta.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
+  commentId: M:Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_CreateAndLinkEntityLocal_Netick_INetickEntity_
+  name: CreateAndLinkEntityLocal(INetickEntity)
+  nameWithType: Simulation.CreateAndLinkEntityLocal(INetickEntity)
+  fullName: Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
+  spec.csharp:
+  - uid: Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
+    name: CreateAndLinkEntityLocal
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_CreateAndLinkEntityLocal_Netick_INetickEntity_
+  - name: (
+  - uid: Netick.INetickEntity
+    name: INetickEntity
+    isExternal: true
+    href: Netick.INetickEntity.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
+    name: CreateAndLinkEntityLocal
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_CreateAndLinkEntityLocal_Netick_INetickEntity_
+  - name: (
+  - uid: Netick.INetickEntity
+    name: INetickEntity
+    isExternal: true
+    href: Netick.INetickEntity.html
+  - name: )
+- uid: Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
+  commentId: M:Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_LinkEntity_Netick_INetickEntity_Netick_Entity_
+  name: LinkEntity(INetickEntity, Entity)
+  nameWithType: Simulation.LinkEntity(INetickEntity, Entity)
+  fullName: Netick.Simulation.LinkEntity(Netick.INetickEntity, Netick.Entity)
+  spec.csharp:
+  - uid: Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
+    name: LinkEntity
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_LinkEntity_Netick_INetickEntity_Netick_Entity_
+  - name: (
+  - uid: Netick.INetickEntity
+    name: INetickEntity
+    isExternal: true
+    href: Netick.INetickEntity.html
+  - name: ','
+  - name: " "
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
+    name: LinkEntity
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_LinkEntity_Netick_INetickEntity_Netick_Entity_
+  - name: (
+  - uid: Netick.INetickEntity
+    name: INetickEntity
+    isExternal: true
+    href: Netick.INetickEntity.html
+  - name: ','
+  - name: " "
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+- uid: Netick.Simulation.GetEntityMeta(Netick.Entity)
+  commentId: M:Netick.Simulation.GetEntityMeta(Netick.Entity)
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_GetEntityMeta_Netick_Entity_
+  name: GetEntityMeta(Entity)
+  nameWithType: Simulation.GetEntityMeta(Entity)
+  fullName: Netick.Simulation.GetEntityMeta(Netick.Entity)
+  spec.csharp:
+  - uid: Netick.Simulation.GetEntityMeta(Netick.Entity)
+    name: GetEntityMeta
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_GetEntityMeta_Netick_Entity_
+  - name: (
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Simulation.GetEntityMeta(Netick.Entity)
+    name: GetEntityMeta
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_GetEntityMeta_Netick_Entity_
+  - name: (
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+- uid: Netick.Simulation.GetEntityUserMeta(Netick.Entity)
+  commentId: M:Netick.Simulation.GetEntityUserMeta(Netick.Entity)
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_GetEntityUserMeta_Netick_Entity_
+  name: GetEntityUserMeta(Entity)
+  nameWithType: Simulation.GetEntityUserMeta(Entity)
+  fullName: Netick.Simulation.GetEntityUserMeta(Netick.Entity)
+  spec.csharp:
+  - uid: Netick.Simulation.GetEntityUserMeta(Netick.Entity)
+    name: GetEntityUserMeta
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_GetEntityUserMeta_Netick_Entity_
+  - name: (
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+  spec.vb:
+  - uid: Netick.Simulation.GetEntityUserMeta(Netick.Entity)
+    name: GetEntityUserMeta
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_GetEntityUserMeta_Netick_Entity_
+  - name: (
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: )
+- uid: Netick.Simulation.SetEntityUserMeta(Netick.Entity,System.Int32*)
+  commentId: M:Netick.Simulation.SetEntityUserMeta(Netick.Entity,System.Int32*)
+  parent: Netick.Simulation
+  isExternal: true
+  href: Netick.Simulation.html#Netick_Simulation_SetEntityUserMeta_Netick_Entity_System_Int32__
+  name: SetEntityUserMeta(Entity, int*)
+  nameWithType: Simulation.SetEntityUserMeta(Entity, int*)
+  fullName: Netick.Simulation.SetEntityUserMeta(Netick.Entity, int*)
+  nameWithType.vb: Simulation.SetEntityUserMeta(Entity, Integer*)
+  fullName.vb: Netick.Simulation.SetEntityUserMeta(Netick.Entity, Integer*)
+  name.vb: SetEntityUserMeta(Entity, Integer*)
+  spec.csharp:
+  - uid: Netick.Simulation.SetEntityUserMeta(Netick.Entity,System.Int32*)
+    name: SetEntityUserMeta
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_SetEntityUserMeta_Netick_Entity_System_Int32__
+  - name: (
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  - name: )
+  spec.vb:
+  - uid: Netick.Simulation.SetEntityUserMeta(Netick.Entity,System.Int32*)
+    name: SetEntityUserMeta
+    isExternal: true
+    href: Netick.Simulation.html#Netick_Simulation_SetEntityUserMeta_Netick_Entity_System_Int32__
+  - name: (
+  - uid: Netick.Entity
+    name: Entity
+    isExternal: true
+    href: Netick.Entity.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  - name: )
 - uid: Netick.Simulation.FetchInput``1({T}@,System.Boolean@,Netick.Entity,System.Int32)
   commentId: M:Netick.Simulation.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
   parent: Netick.Simulation
@@ -365,198 +795,6 @@ references:
     name: Integer
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-- uid: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
-  commentId: M:Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
-  parent: Netick.Simulation
-  isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_
-  name: RemoveFromNetworkLoop(Entity)
-  nameWithType: Simulation.RemoveFromNetworkLoop(Entity)
-  fullName: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
-  spec.csharp:
-  - uid: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
-    name: RemoveFromNetworkLoop
-    isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_
-  - name: (
-  - uid: Netick.Entity
-    name: Entity
-    isExternal: true
-    href: Netick.Entity.html
-  - name: )
-  spec.vb:
-  - uid: Netick.Simulation.RemoveFromNetworkLoop(Netick.Entity)
-    name: RemoveFromNetworkLoop
-    isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_RemoveFromNetworkLoop_Netick_Entity_
-  - name: (
-  - uid: Netick.Entity
-    name: Entity
-    isExternal: true
-    href: Netick.Entity.html
-  - name: )
-- uid: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
-  commentId: M:Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
-  parent: Netick.Simulation
-  isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_System_Int32_
-  name: ClientAddUnlinkedEntity(Entity, int, int)
-  nameWithType: Simulation.ClientAddUnlinkedEntity(Entity, int, int)
-  fullName: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity, int, int)
-  nameWithType.vb: Simulation.ClientAddUnlinkedEntity(Entity, Integer, Integer)
-  fullName.vb: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity, Integer, Integer)
-  name.vb: ClientAddUnlinkedEntity(Entity, Integer, Integer)
-  spec.csharp:
-  - uid: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
-    name: ClientAddUnlinkedEntity
-    isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_System_Int32_
-  - name: (
-  - uid: Netick.Entity
-    name: Entity
-    isExternal: true
-    href: Netick.Entity.html
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-  spec.vb:
-  - uid: Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
-    name: ClientAddUnlinkedEntity
-    isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_System_Int32_
-  - name: (
-  - uid: Netick.Entity
-    name: Entity
-    isExternal: true
-    href: Netick.Entity.html
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-- uid: Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
-  commentId: M:Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
-  parent: Netick.Simulation
-  isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_CreateAndLinkEntityLocal_Netick_INetickEntity_
-  name: CreateAndLinkEntityLocal(INetickEntity)
-  nameWithType: Simulation.CreateAndLinkEntityLocal(INetickEntity)
-  fullName: Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
-  spec.csharp:
-  - uid: Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
-    name: CreateAndLinkEntityLocal
-    isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_CreateAndLinkEntityLocal_Netick_INetickEntity_
-  - name: (
-  - uid: Netick.INetickEntity
-    name: INetickEntity
-    isExternal: true
-    href: Netick.INetickEntity.html
-  - name: )
-  spec.vb:
-  - uid: Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
-    name: CreateAndLinkEntityLocal
-    isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_CreateAndLinkEntityLocal_Netick_INetickEntity_
-  - name: (
-  - uid: Netick.INetickEntity
-    name: INetickEntity
-    isExternal: true
-    href: Netick.INetickEntity.html
-  - name: )
-- uid: Netick.Simulation.CreateEntity(System.Int32)
-  commentId: M:Netick.Simulation.CreateEntity(System.Int32)
-  parent: Netick.Simulation
-  isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_CreateEntity_System_Int32_
-  name: CreateEntity(int)
-  nameWithType: Simulation.CreateEntity(int)
-  fullName: Netick.Simulation.CreateEntity(int)
-  nameWithType.vb: Simulation.CreateEntity(Integer)
-  fullName.vb: Netick.Simulation.CreateEntity(Integer)
-  name.vb: CreateEntity(Integer)
-  spec.csharp:
-  - uid: Netick.Simulation.CreateEntity(System.Int32)
-    name: CreateEntity
-    isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_CreateEntity_System_Int32_
-  - name: (
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-  spec.vb:
-  - uid: Netick.Simulation.CreateEntity(System.Int32)
-    name: CreateEntity
-    isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_CreateEntity_System_Int32_
-  - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-- uid: Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
-  commentId: M:Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
-  parent: Netick.Simulation
-  isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_LinkEntity_Netick_INetickEntity_Netick_Entity_
-  name: LinkEntity(INetickEntity, Entity)
-  nameWithType: Simulation.LinkEntity(INetickEntity, Entity)
-  fullName: Netick.Simulation.LinkEntity(Netick.INetickEntity, Netick.Entity)
-  spec.csharp:
-  - uid: Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
-    name: LinkEntity
-    isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_LinkEntity_Netick_INetickEntity_Netick_Entity_
-  - name: (
-  - uid: Netick.INetickEntity
-    name: INetickEntity
-    isExternal: true
-    href: Netick.INetickEntity.html
-  - name: ','
-  - name: " "
-  - uid: Netick.Entity
-    name: Entity
-    isExternal: true
-    href: Netick.Entity.html
-  - name: )
-  spec.vb:
-  - uid: Netick.Simulation.LinkEntity(Netick.INetickEntity,Netick.Entity)
-    name: LinkEntity
-    isExternal: true
-    href: Netick.Simulation.html#Netick_Simulation_LinkEntity_Netick_INetickEntity_Netick_Entity_
-  - name: (
-  - uid: Netick.INetickEntity
-    name: INetickEntity
-    isExternal: true
-    href: Netick.INetickEntity.html
-  - name: ','
-  - name: " "
-  - uid: Netick.Entity
-    name: Entity
-    isExternal: true
-    href: Netick.Entity.html
   - name: )
 - uid: Netick.Simulation.CurrentInput
   commentId: P:Netick.Simulation.CurrentInput

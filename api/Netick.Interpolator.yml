@@ -20,8 +20,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: A struct that is used to obtain interpolation data for a network variable.
-  example: []
   syntax:
     content: public struct Interpolator
     content.vb: Public Structure Interpolator
@@ -97,8 +95,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Tries to obtain interpolation data for this frame.
-  example: []
   syntax:
     content: 'public bool GetInterpolationData<T>(InterpolationSource interpolationSource, out T from, out T to, out float alpha) where T : unmanaged'
     parameters:
@@ -114,7 +110,6 @@ items:
     - id: T
     return:
       type: System.Boolean
-      description: Returns true if there was interpolation data for this frame.
     content.vb: Public Function GetInterpolationData(Of T As Structure)(interpolationSource As InterpolationSource, from As T, [to] As T, alpha As Single) As Boolean
   overload: Netick.Interpolator.GetInterpolationData*
   nameWithType.vb: Interpolator.GetInterpolationData(Of T)(InterpolationSource, T, T, Single)
@@ -166,8 +161,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Tries to obtain interpolation data for this frame. This is the array version.
-  example: []
   syntax:
     content: 'public bool GetInterpolationData<T>(InterpolationSource interpolationSource, int index, out T from, out T to, out float alpha) where T : unmanaged'
     parameters:
@@ -185,7 +178,6 @@ items:
     - id: T
     return:
       type: System.Boolean
-      description: Returns true if there was interpolation data for this frame.
     content.vb: Public Function GetInterpolationData(Of T As Structure)(interpolationSource As InterpolationSource, index As Integer, from As T, [to] As T, alpha As Single) As Boolean
   overload: Netick.Interpolator.GetInterpolationData*
   nameWithType.vb: Interpolator.GetInterpolationData(Of T)(InterpolationSource, Integer, T, T, Single)

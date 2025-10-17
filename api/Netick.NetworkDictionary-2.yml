@@ -28,8 +28,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: A networked <xref href="System.Collections.Generic.Dictionary%602" data-throw-if-not-resolved="false"></xref> collection.
-  example: []
   syntax:
     content: 'public sealed class NetworkDictionary<TKey, TValue> : NetworkDictionary, INetworkCollection, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable where TKey : unmanaged where TValue : unmanaged'
     typeParameters:
@@ -151,8 +149,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Removes all keys and values from the dictionary.
-  example: []
   syntax:
     content: public void Clear()
     content.vb: Public Sub Clear()
@@ -173,20 +169,15 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Adds the specified key and value to the dictionary.
-  example: []
   syntax:
     content: public bool Add(TKey key, TValue value)
     parameters:
     - id: key
       type: '{TKey}'
-      description: The key of the element to add.
     - id: value
       type: '{TValue}'
-      description: The value of the element to add.
     return:
       type: System.Boolean
-      description: true if the key/value pair was added; false if the key already exists or the dictionary is full.
     content.vb: Public Function Add(key As TKey, value As TValue) As Boolean
   overload: Netick.NetworkDictionary`2.Add*
   nameWithType.vb: NetworkDictionary(Of TKey, TValue).Add(TKey, TValue)
@@ -205,17 +196,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Removes the value with the specified key from the dictionary.
-  example: []
   syntax:
     content: public bool Remove(TKey key)
     parameters:
     - id: key
       type: '{TKey}'
-      description: The key of the element to remove.
     return:
       type: System.Boolean
-      description: true if the element is successfully removed; otherwise, false.
     content.vb: Public Function Remove(key As TKey) As Boolean
   overload: Netick.NetworkDictionary`2.Remove*
   nameWithType.vb: NetworkDictionary(Of TKey, TValue).Remove(TKey)
@@ -234,20 +221,15 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Tries to get the value associated with the specified key.
-  example: []
   syntax:
     content: public bool TryGetValue(TKey key, out TValue value)
     parameters:
     - id: key
       type: '{TKey}'
-      description: The key whose value to get.
     - id: value
       type: '{TValue}'
-      description: When this method returns, contains the value associated with the specified key, if the key is found; otherwise, the default value for the type of the value parameter.
     return:
       type: System.Boolean
-      description: true if the key was found; otherwise, false.
     content.vb: Public Function TryGetValue(key As TKey, value As TValue) As Boolean
   overload: Netick.NetworkDictionary`2.TryGetValue*
   nameWithType.vb: NetworkDictionary(Of TKey, TValue).TryGetValue(TKey, TValue)
@@ -267,11 +249,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: >-
-    Sets the value associated with the specified key if it exists in the dictionary.
-
-    If the key is found, updates its value.
-  example: []
   syntax:
     content: public bool SetKeyValue(TKey key, TValue value)
     parameters:
@@ -281,7 +258,6 @@ items:
       type: '{TValue}'
     return:
       type: System.Boolean
-      description: true if the key was found and updated; otherwise, false
     content.vb: Public Function SetKeyValue(key As TKey, value As TValue) As Boolean
   overload: Netick.NetworkDictionary`2.SetKeyValue*
   nameWithType.vb: NetworkDictionary(Of TKey, TValue).SetKeyValue(TKey, TValue)
@@ -300,17 +276,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Determines whether the dictionary contains the specified key.
-  example: []
   syntax:
     content: public bool ContainsKey(TKey key)
     parameters:
     - id: key
       type: '{TKey}'
-      description: The key to locate in the dictionary.
     return:
       type: System.Boolean
-      description: true if the dictionary contains an element with the specified key; otherwise, false.
     content.vb: Public Function ContainsKey(key As TKey) As Boolean
   overload: Netick.NetworkDictionary`2.ContainsKey*
   nameWithType.vb: NetworkDictionary(Of TKey, TValue).ContainsKey(TKey)
@@ -329,17 +301,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Determines whether the dictionary contains a specific value.
-  example: []
   syntax:
     content: public bool ContainsValue(TValue value)
     parameters:
     - id: value
       type: '{TValue}'
-      description: The value to locate in the dictionary.
     return:
       type: System.Boolean
-      description: true if the value is found; otherwise, false.
     content.vb: Public Function ContainsValue(value As TValue) As Boolean
   overload: Netick.NetworkDictionary`2.ContainsValue*
   nameWithType.vb: NetworkDictionary(Of TKey, TValue).ContainsValue(TValue)
@@ -383,23 +351,15 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets or sets the value associated with the specified key.
-  example: []
   syntax:
     content: public TValue this[TKey key] { get; set; }
     parameters:
     - id: key
       type: '{TKey}'
-      description: The key whose value to get or set.
     return:
       type: '{TValue}'
-      description: The value associated with the specified key.
     content.vb: Public Default Property this[](key As TKey) As TValue
   overload: Netick.NetworkDictionary`2.Item*
-  exceptions:
-  - type: System.Collections.Generic.KeyNotFoundException
-    commentId: T:System.Collections.Generic.KeyNotFoundException
-    description: Thrown when the key does not exist in the dictionary.
   nameWithType.vb: NetworkDictionary(Of TKey, TValue).this[](TKey)
   fullName.vb: Netick.NetworkDictionary(Of TKey, TValue).this[](TKey)
   name.vb: this[](TKey)
@@ -417,8 +377,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets the number of elements contained in the dictionary.
-  example: []
   syntax:
     content: public int Count { get; }
     parameters: []
@@ -429,40 +387,6 @@ items:
   nameWithType.vb: NetworkDictionary(Of TKey, TValue).Count
   fullName.vb: Netick.NetworkDictionary(Of TKey, TValue).Count
 references:
-- uid: System.Collections.Generic.Dictionary`2
-  commentId: T:System.Collections.Generic.Dictionary`2
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  name: Dictionary<TKey, TValue>
-  nameWithType: Dictionary<TKey, TValue>
-  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
-  nameWithType.vb: Dictionary(Of TKey, TValue)
-  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
-  name.vb: Dictionary(Of TKey, TValue)
-  spec.csharp:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  - name: <
-  - name: TKey
-  - name: ','
-  - name: " "
-  - name: TValue
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TKey
-  - name: ','
-  - name: " "
-  - name: TValue
-  - name: )
 - uid: Netick
   commentId: N:Netick
   isExternal: true
@@ -1345,13 +1269,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: System.Collections.Generic.KeyNotFoundException
-  commentId: T:System.Collections.Generic.KeyNotFoundException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception
-  name: KeyNotFoundException
-  nameWithType: KeyNotFoundException
-  fullName: System.Collections.Generic.KeyNotFoundException
 - uid: Netick.NetworkDictionary`2.Item*
   commentId: Overload:Netick.NetworkDictionary`2.Item
   isExternal: true

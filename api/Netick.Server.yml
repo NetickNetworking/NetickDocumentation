@@ -120,33 +120,6 @@ items:
   nameWithType.vb: Server.OnConnectRequest(Byte(), Integer, IEndPoint)
   fullName.vb: Netick.Server.OnConnectRequest(Byte(), Integer, Netick.IEndPoint)
   name.vb: OnConnectRequest(Byte(), Integer, IEndPoint)
-- uid: Netick.Server.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
-  commentId: M:Netick.Server.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
-  id: Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
-  parent: Netick.Server
-  langs:
-  - csharp
-  - vb
-  name: Receive(TransportConnection, BitBuffer, TransportDeliveryMethod)
-  nameWithType: Server.Receive(TransportConnection, BitBuffer, TransportDeliveryMethod)
-  fullName: Netick.Server.Receive(Netick.TransportConnection, Netick.BitBuffer, Netick.TransportDeliveryMethod)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  example: []
-  syntax:
-    content: public override void Receive(TransportConnection connection, BitBuffer buffer, TransportDeliveryMethod transportDeliveryMethod)
-    parameters:
-    - id: connection
-      type: Netick.TransportConnection
-    - id: buffer
-      type: Netick.BitBuffer
-    - id: transportDeliveryMethod
-      type: Netick.TransportDeliveryMethod
-    content.vb: Public Overrides Sub Receive(connection As TransportConnection, buffer As BitBuffer, transportDeliveryMethod As TransportDeliveryMethod)
-  overridden: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
-  overload: Netick.Server.Receive*
 - uid: Netick.Server.OnConnected(Netick.TransportConnection)
   commentId: M:Netick.Server.OnConnected(Netick.TransportConnection)
   id: OnConnected(Netick.TransportConnection)
@@ -195,6 +168,33 @@ items:
     content.vb: Public Overrides Sub OnDisconnected(peer As TransportConnection, transportDisconnectReason As TransportDisconnectReason)
   overridden: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
   overload: Netick.Server.OnDisconnected*
+- uid: Netick.Server.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
+  commentId: M:Netick.Server.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
+  id: Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
+  parent: Netick.Server
+  langs:
+  - csharp
+  - vb
+  name: Receive(TransportConnection, BitBuffer, TransportDeliveryMethod)
+  nameWithType: Server.Receive(TransportConnection, BitBuffer, TransportDeliveryMethod)
+  fullName: Netick.Server.Receive(Netick.TransportConnection, Netick.BitBuffer, Netick.TransportDeliveryMethod)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override void Receive(TransportConnection connection, BitBuffer buffer, TransportDeliveryMethod transportDeliveryMethod)
+    parameters:
+    - id: connection
+      type: Netick.TransportConnection
+    - id: buffer
+      type: Netick.BitBuffer
+    - id: transportDeliveryMethod
+      type: Netick.TransportDeliveryMethod
+    content.vb: Public Overrides Sub Receive(connection As TransportConnection, buffer As BitBuffer, transportDeliveryMethod As TransportDeliveryMethod)
+  overridden: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
+  overload: Netick.Server.Receive*
 - uid: Netick.Server.InKBps
   commentId: P:Netick.Server.InKBps
   id: InKBps
@@ -797,6 +797,108 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
+  commentId: M:Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
+  parent: Netick.NetworkPeer
+  isExternal: true
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnected_Netick_TransportConnection_
+  name: OnConnected(TransportConnection)
+  nameWithType: NetworkPeer.OnConnected(TransportConnection)
+  fullName: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
+  spec.csharp:
+  - uid: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
+    name: OnConnected
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnected_Netick_TransportConnection_
+  - name: (
+  - uid: Netick.TransportConnection
+    name: TransportConnection
+    isExternal: true
+    href: Netick.TransportConnection.html
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
+    name: OnConnected
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnected_Netick_TransportConnection_
+  - name: (
+  - uid: Netick.TransportConnection
+    name: TransportConnection
+    isExternal: true
+    href: Netick.TransportConnection.html
+  - name: )
+- uid: Netick.Server.OnConnected*
+  commentId: Overload:Netick.Server.OnConnected
+  isExternal: true
+  href: Netick.Server.html#Netick_Server_OnConnected_Netick_TransportConnection_
+  name: OnConnected
+  nameWithType: Server.OnConnected
+  fullName: Netick.Server.OnConnected
+- uid: Netick.TransportConnection
+  commentId: T:Netick.TransportConnection
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportConnection.html
+  name: TransportConnection
+  nameWithType: TransportConnection
+  fullName: Netick.TransportConnection
+- uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  commentId: M:Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  parent: Netick.NetworkPeer
+  isExternal: true
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+  name: OnDisconnected(TransportConnection, TransportDisconnectReason)
+  nameWithType: NetworkPeer.OnDisconnected(TransportConnection, TransportDisconnectReason)
+  fullName: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason)
+  spec.csharp:
+  - uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+    name: OnDisconnected
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+  - name: (
+  - uid: Netick.TransportConnection
+    name: TransportConnection
+    isExternal: true
+    href: Netick.TransportConnection.html
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDisconnectReason
+    name: TransportDisconnectReason
+    isExternal: true
+    href: Netick.TransportDisconnectReason.html
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+    name: OnDisconnected
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+  - name: (
+  - uid: Netick.TransportConnection
+    name: TransportConnection
+    isExternal: true
+    href: Netick.TransportConnection.html
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDisconnectReason
+    name: TransportDisconnectReason
+    isExternal: true
+    href: Netick.TransportDisconnectReason.html
+  - name: )
+- uid: Netick.Server.OnDisconnected*
+  commentId: Overload:Netick.Server.OnDisconnected
+  isExternal: true
+  href: Netick.Server.html#Netick_Server_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+  name: OnDisconnected
+  nameWithType: Server.OnDisconnected
+  fullName: Netick.Server.OnDisconnected
+- uid: Netick.TransportDisconnectReason
+  commentId: T:Netick.TransportDisconnectReason
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportDisconnectReason.html
+  name: TransportDisconnectReason
+  nameWithType: TransportDisconnectReason
+  fullName: Netick.TransportDisconnectReason
 - uid: Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
   commentId: M:Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
   parent: Netick.NetworkPeer
@@ -858,14 +960,6 @@ references:
   name: Receive
   nameWithType: Server.Receive
   fullName: Netick.Server.Receive
-- uid: Netick.TransportConnection
-  commentId: T:Netick.TransportConnection
-  parent: Netick
-  isExternal: true
-  href: Netick.TransportConnection.html
-  name: TransportConnection
-  nameWithType: TransportConnection
-  fullName: Netick.TransportConnection
 - uid: Netick.BitBuffer
   commentId: T:Netick.BitBuffer
   parent: Netick
@@ -882,100 +976,6 @@ references:
   name: TransportDeliveryMethod
   nameWithType: TransportDeliveryMethod
   fullName: Netick.TransportDeliveryMethod
-- uid: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
-  commentId: M:Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
-  parent: Netick.NetworkPeer
-  isExternal: true
-  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnected_Netick_TransportConnection_
-  name: OnConnected(TransportConnection)
-  nameWithType: NetworkPeer.OnConnected(TransportConnection)
-  fullName: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
-  spec.csharp:
-  - uid: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
-    name: OnConnected
-    isExternal: true
-    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnected_Netick_TransportConnection_
-  - name: (
-  - uid: Netick.TransportConnection
-    name: TransportConnection
-    isExternal: true
-    href: Netick.TransportConnection.html
-  - name: )
-  spec.vb:
-  - uid: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
-    name: OnConnected
-    isExternal: true
-    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnected_Netick_TransportConnection_
-  - name: (
-  - uid: Netick.TransportConnection
-    name: TransportConnection
-    isExternal: true
-    href: Netick.TransportConnection.html
-  - name: )
-- uid: Netick.Server.OnConnected*
-  commentId: Overload:Netick.Server.OnConnected
-  isExternal: true
-  href: Netick.Server.html#Netick_Server_OnConnected_Netick_TransportConnection_
-  name: OnConnected
-  nameWithType: Server.OnConnected
-  fullName: Netick.Server.OnConnected
-- uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
-  commentId: M:Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
-  parent: Netick.NetworkPeer
-  isExternal: true
-  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
-  name: OnDisconnected(TransportConnection, TransportDisconnectReason)
-  nameWithType: NetworkPeer.OnDisconnected(TransportConnection, TransportDisconnectReason)
-  fullName: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason)
-  spec.csharp:
-  - uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
-    name: OnDisconnected
-    isExternal: true
-    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
-  - name: (
-  - uid: Netick.TransportConnection
-    name: TransportConnection
-    isExternal: true
-    href: Netick.TransportConnection.html
-  - name: ','
-  - name: " "
-  - uid: Netick.TransportDisconnectReason
-    name: TransportDisconnectReason
-    isExternal: true
-    href: Netick.TransportDisconnectReason.html
-  - name: )
-  spec.vb:
-  - uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
-    name: OnDisconnected
-    isExternal: true
-    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
-  - name: (
-  - uid: Netick.TransportConnection
-    name: TransportConnection
-    isExternal: true
-    href: Netick.TransportConnection.html
-  - name: ','
-  - name: " "
-  - uid: Netick.TransportDisconnectReason
-    name: TransportDisconnectReason
-    isExternal: true
-    href: Netick.TransportDisconnectReason.html
-  - name: )
-- uid: Netick.Server.OnDisconnected*
-  commentId: Overload:Netick.Server.OnDisconnected
-  isExternal: true
-  href: Netick.Server.html#Netick_Server_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
-  name: OnDisconnected
-  nameWithType: Server.OnDisconnected
-  fullName: Netick.Server.OnDisconnected
-- uid: Netick.TransportDisconnectReason
-  commentId: T:Netick.TransportDisconnectReason
-  parent: Netick
-  isExternal: true
-  href: Netick.TransportDisconnectReason.html
-  name: TransportDisconnectReason
-  nameWithType: TransportDisconnectReason
-  fullName: Netick.TransportDisconnectReason
 - uid: Netick.NetworkPeer.InKBps
   commentId: P:Netick.NetworkPeer.InKBps
   parent: Netick.NetworkPeer

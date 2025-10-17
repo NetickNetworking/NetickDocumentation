@@ -188,8 +188,8 @@ Class Simulation
 
 
 
-  <h3 id="Netick_Simulation__addedEntitiesList" data-uid="Netick.Simulation._addedEntitiesList">
-  _addedEntitiesList
+  <h3 id="Netick_Simulation__addedEntities" data-uid="Netick.Simulation._addedEntities">
+  _addedEntities
   
   </h3>
 
@@ -197,7 +197,7 @@ Class Simulation
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected List&lt;Entity&gt; _addedEntitiesList</code></pre>
+    <pre><code class="lang-csharp hljs">protected List&lt;Entity&gt; _addedEntities</code></pre>
   </div>
 
 
@@ -406,10 +406,10 @@ Class Simulation
 </h2>
 
 
-  <a id="Netick_Simulation_ClientAddUnlinkedEntity_" data-uid="Netick.Simulation.ClientAddUnlinkedEntity*"></a>
+  <a id="Netick_Simulation_ClientAddEntity_" data-uid="Netick.Simulation.ClientAddEntity*"></a>
 
-  <h3 id="Netick_Simulation_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_System_Int32_" data-uid="Netick.Simulation.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)">
-  ClientAddUnlinkedEntity(Entity, int, int)
+  <h3 id="Netick_Simulation_ClientAddEntity_Netick_INetickEntity_System_Int32_System_Int32_System_Boolean_Netick_NetickEntityMeta_" data-uid="Netick.Simulation.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,System.Boolean,Netick.NetickEntityMeta)">
+  ClientAddEntity(INetickEntity, int, int, bool, NetickEntityMeta)
   
   </h3>
 
@@ -417,19 +417,61 @@ Class Simulation
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ClientAddUnlinkedEntity(Entity entity, int id, int worldIndex)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ClientAddEntity(INetickEntity entity, int id, int worldIndex, bool wasUnliked, NetickEntityMeta meta)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dt><code>entity</code> <a class="xref" href="Netick.INetickEntity.html">INetickEntity</a></dt>
     <dd></dd>
     <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>worldIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
+    <dt><code>wasUnliked</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>meta</code> <a class="xref" href="Netick.NetickEntityMeta.html">NetickEntityMeta</a></dt>
+    <dd></dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_ClientCreateUnlinkedEntity_" data-uid="Netick.Simulation.ClientCreateUnlinkedEntity*"></a>
+
+  <h3 id="Netick_Simulation_ClientCreateUnlinkedEntity_Netick_NetickEntityMeta_System_Int32_" data-uid="Netick.Simulation.ClientCreateUnlinkedEntity(Netick.NetickEntityMeta,System.Int32)">
+  ClientCreateUnlinkedEntity(NetickEntityMeta, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Entity ClientCreateUnlinkedEntity(NetickEntityMeta meta, int worldIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>meta</code> <a class="xref" href="Netick.NetickEntityMeta.html">NetickEntityMeta</a></dt>
+    <dd></dd>
+    <dt><code>worldIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -458,42 +500,6 @@ Class Simulation
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>userEntity</code> <a class="xref" href="Netick.INetickEntity.html">INetickEntity</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Netick.Entity.html">Entity</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_Simulation_CreateEntity_" data-uid="Netick.Simulation.CreateEntity*"></a>
-
-  <h3 id="Netick_Simulation_CreateEntity_System_Int32_" data-uid="Netick.Simulation.CreateEntity(System.Int32)">
-  CreateEntity(int)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Entity CreateEntity(int stateSizeWords)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>stateSizeWords</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -595,6 +601,114 @@ Class Simulation
     <dt><code>T</code></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_GetEntityByWorldIndex_" data-uid="Netick.Simulation.GetEntityByWorldIndex*"></a>
+
+  <h3 id="Netick_Simulation_GetEntityByWorldIndex_System_Int32_" data-uid="Netick.Simulation.GetEntityByWorldIndex(System.Int32)">
+  GetEntityByWorldIndex(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Entity GetEntityByWorldIndex(int worldIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>worldIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_GetEntityMeta_" data-uid="Netick.Simulation.GetEntityMeta*"></a>
+
+  <h3 id="Netick_Simulation_GetEntityMeta_Netick_Entity_" data-uid="Netick.Simulation.GetEntityMeta(Netick.Entity)">
+  GetEntityMeta(Entity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetickEntityMeta* GetEntityMeta(Entity entity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickEntityMeta.html">NetickEntityMeta</a>*</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_GetEntityUserMeta_" data-uid="Netick.Simulation.GetEntityUserMeta*"></a>
+
+  <h3 id="Netick_Simulation_GetEntityUserMeta_Netick_Entity_" data-uid="Netick.Simulation.GetEntityUserMeta(Netick.Entity)">
+  GetEntityUserMeta(Entity)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte* GetEntityUserMeta(Entity entity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>*</dt>
+    <dd></dd>
+  </dl>
+
 
 
 
@@ -805,6 +919,74 @@ Class Simulation
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_ServerAddEntity_" data-uid="Netick.Simulation.ServerAddEntity*"></a>
+
+  <h3 id="Netick_Simulation_ServerAddEntity_Netick_INetickEntity_Netick_NetworkPlayer_System_Boolean_" data-uid="Netick.Simulation.ServerAddEntity(Netick.INetickEntity,Netick.NetworkPlayer,System.Boolean)">
+  ServerAddEntity(INetickEntity, NetworkPlayer, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ServerAddEntity(INetickEntity obj, NetworkPlayer inputSource, bool invokeAwake)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="Netick.INetickEntity.html">INetickEntity</a></dt>
+    <dd></dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+    <dt><code>invokeAwake</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Simulation_SetEntityUserMeta_" data-uid="Netick.Simulation.SetEntityUserMeta*"></a>
+
+  <h3 id="Netick_Simulation_SetEntityUserMeta_Netick_Entity_System_Int32__" data-uid="Netick.Simulation.SetEntityUserMeta(Netick.Entity,System.Int32*)">
+  SetEntityUserMeta(Entity, int*)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetEntityUserMeta(Entity entity, int* userData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
+    <dd></dd>
+    <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>*</dt>
     <dd></dd>
   </dl>
 

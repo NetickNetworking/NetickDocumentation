@@ -54,8 +54,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets a snapshot of the previous state of a NetworkDictionary collection.
-  example: []
   syntax:
     content: 'public NetworkDictionarySnapshot<TKey, TValue> GetPreviousNetworkDictionary<TKey, TValue>(NetworkDictionary<TKey, TValue> collection) where TKey : unmanaged where TValue : unmanaged'
     parameters:
@@ -66,7 +64,6 @@ items:
     - id: TValue
     return:
       type: Netick.NetworkDictionarySnapshot{{TKey},{TValue}}
-      description: ''
     content.vb: Public Function GetPreviousNetworkDictionary(Of TKey As Structure, TValue As Structure)(collection As NetworkDictionary(Of TKey, TValue)) As NetworkDictionarySnapshot(Of TKey, TValue)
   overload: Netick.OnChangedData.GetPreviousNetworkDictionary*
   nameWithType.vb: OnChangedData.GetPreviousNetworkDictionary(Of TKey, TValue)(NetworkDictionary(Of TKey, TValue))
@@ -86,8 +83,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets a snapshot of the previous state of a NetworkHashSet collection.
-  example: []
   syntax:
     content: 'public NetworkHashSetSnapshot<T> GetPreviousNetworkHashSet<T>(NetworkHashSet<T> collection) where T : unmanaged'
     parameters:
@@ -97,7 +92,6 @@ items:
     - id: T
     return:
       type: Netick.NetworkHashSetSnapshot{{T}}
-      description: ''
     content.vb: Public Function GetPreviousNetworkHashSet(Of T As Structure)(collection As NetworkHashSet(Of T)) As NetworkHashSetSnapshot(Of T)
   overload: Netick.OnChangedData.GetPreviousNetworkHashSet*
   nameWithType.vb: OnChangedData.GetPreviousNetworkHashSet(Of T)(NetworkHashSet(Of T))
@@ -117,8 +111,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets a snapshot of the previous state of a NetworkLinkedList collection.
-  example: []
   syntax:
     content: 'public NetworkLinkedListSnapshot<T> GetPreviousNetworkLinkedList<T>(NetworkLinkedList<T> collection) where T : unmanaged'
     parameters:
@@ -128,7 +120,6 @@ items:
     - id: T
     return:
       type: Netick.NetworkLinkedListSnapshot{{T}}
-      description: ''
     content.vb: Public Function GetPreviousNetworkLinkedList(Of T As Structure)(collection As NetworkLinkedList(Of T)) As NetworkLinkedListSnapshot(Of T)
   overload: Netick.OnChangedData.GetPreviousNetworkLinkedList*
   nameWithType.vb: OnChangedData.GetPreviousNetworkLinkedList(Of T)(NetworkLinkedList(Of T))
@@ -148,8 +139,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets a snapshot of the previous state of a NetworkUnorderedList collection.
-  example: []
   syntax:
     content: 'public NetworkUnorderedListSnapshot<T> GetPreviousNetworkUnorderedList<T>(NetworkUnorderedList<T> collection) where T : unmanaged'
     parameters:
@@ -159,7 +148,6 @@ items:
     - id: T
     return:
       type: Netick.NetworkUnorderedListSnapshot{{T}}
-      description: ''
     content.vb: Public Function GetPreviousNetworkUnorderedList(Of T As Structure)(collection As NetworkUnorderedList(Of T)) As NetworkUnorderedListSnapshot(Of T)
   overload: Netick.OnChangedData.GetPreviousNetworkUnorderedList*
   nameWithType.vb: OnChangedData.GetPreviousNetworkUnorderedList(Of T)(NetworkUnorderedList(Of T))
@@ -179,8 +167,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets a snapshot of the previous state of a NetworkQueue collection.
-  example: []
   syntax:
     content: 'public NetworkQueueSnapshot<T> GetPreviousNetworkQueue<T>(NetworkQueue<T> collection) where T : unmanaged'
     parameters:
@@ -190,7 +176,6 @@ items:
     - id: T
     return:
       type: Netick.NetworkQueueSnapshot{{T}}
-      description: ''
     content.vb: Public Function GetPreviousNetworkQueue(Of T As Structure)(collection As NetworkQueue(Of T)) As NetworkQueueSnapshot(Of T)
   overload: Netick.OnChangedData.GetPreviousNetworkQueue*
   nameWithType.vb: OnChangedData.GetPreviousNetworkQueue(Of T)(NetworkQueue(Of T))
@@ -210,8 +195,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets a snapshot of the previous state of a NetworkStack collection.
-  example: []
   syntax:
     content: 'public NetworkStackSnapshot<T> GetPreviousNetworkStack<T>(NetworkStack<T> collection) where T : unmanaged'
     parameters:
@@ -221,7 +204,6 @@ items:
     - id: T
     return:
       type: Netick.NetworkStackSnapshot{{T}}
-      description: ''
     content.vb: Public Function GetPreviousNetworkStack(Of T As Structure)(collection As NetworkStack(Of T)) As NetworkStackSnapshot(Of T)
   overload: Netick.OnChangedData.GetPreviousNetworkStack*
   nameWithType.vb: OnChangedData.GetPreviousNetworkStack(Of T)(NetworkStack(Of T))
@@ -241,19 +223,12 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: >-
-    Gets previous value for the changed network property. 
-
-    <p>Note: this must only be used with non-array network properties. For arrays, use <xref href="Netick.OnChangedData.GetArrayPreviousElementValue%60%601(System.Int32)" data-throw-if-not-resolved="false"></xref> instead. </p>
-  example: []
   syntax:
     content: 'public T GetPreviousValue<T>() where T : unmanaged'
     typeParameters:
     - id: T
-      description: ''
     return:
       type: '{T}'
-      description: ''
     content.vb: Public Function GetPreviousValue(Of T As Structure)() As T
   overload: Netick.OnChangedData.GetPreviousValue*
   nameWithType.vb: OnChangedData.GetPreviousValue(Of T)()
@@ -273,13 +248,10 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets a pointer to the previous value
-  example: []
   syntax:
     content: public int* GetPreviousValueAsPointer()
     return:
       type: System.Int32*
-      description: ''
     content.vb: Public Function GetPreviousValueAsPointer() As Integer*
   overload: Netick.OnChangedData.GetPreviousValueAsPointer*
 - uid: Netick.OnChangedData.GetArrayChangedElementIndex
@@ -296,13 +268,10 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets the index of the changed element of the array.
-  example: []
   syntax:
     content: public int GetArrayChangedElementIndex()
     return:
       type: System.Int32
-      description: ''
     content.vb: Public Function GetArrayChangedElementIndex() As Integer
   overload: Netick.OnChangedData.GetArrayChangedElementIndex*
 - uid: Netick.OnChangedData.GetArrayPreviousElementValue``1(System.Int32)
@@ -319,8 +288,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets the value of the changed element of the array. This is an unsafe method, use it carefully and make sure to never go outside range to avoid a crash.
-  example: []
   syntax:
     content: 'public T GetArrayPreviousElementValue<T>(int index) where T : unmanaged'
     parameters:
@@ -330,7 +297,6 @@ items:
     - id: T
     return:
       type: '{T}'
-      description: ''
     content.vb: Public Function GetArrayPreviousElementValue(Of T As Structure)(index As Integer) As T
   overload: Netick.OnChangedData.GetArrayPreviousElementValue*
   nameWithType.vb: OnChangedData.GetArrayPreviousElementValue(Of T)(Integer)
@@ -350,16 +316,12 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Gets the index of the changed element of the array.
-  example: []
   syntax:
     content: 'public T GetArrayPreviousElementValue<T>() where T : unmanaged'
     typeParameters:
     - id: T
-      description: ''
     return:
       type: '{T}'
-      description: ''
     content.vb: Public Function GetArrayPreviousElementValue(Of T As Structure)() As T
   overload: Netick.OnChangedData.GetArrayPreviousElementValue*
   nameWithType.vb: OnChangedData.GetArrayPreviousElementValue(Of T)()
@@ -455,8 +417,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Returns true if this OnChanged callback is due to a mismatch between the state of this variable before rollback, and the state after rollback and resimulation.
-  example: []
   syntax:
     content: public bool InvokedForMisprediction { get; }
     parameters: []
@@ -1446,46 +1406,6 @@ references:
   - name: Of
   - name: " "
   - name: T
-  - name: )
-- uid: Netick.OnChangedData.GetArrayPreviousElementValue``1(System.Int32)
-  commentId: M:Netick.OnChangedData.GetArrayPreviousElementValue``1(System.Int32)
-  isExternal: true
-  href: Netick.OnChangedData.html#Netick_OnChangedData_GetArrayPreviousElementValue__1_System_Int32_
-  name: GetArrayPreviousElementValue<T>(int)
-  nameWithType: OnChangedData.GetArrayPreviousElementValue<T>(int)
-  fullName: Netick.OnChangedData.GetArrayPreviousElementValue<T>(int)
-  nameWithType.vb: OnChangedData.GetArrayPreviousElementValue(Of T)(Integer)
-  fullName.vb: Netick.OnChangedData.GetArrayPreviousElementValue(Of T)(Integer)
-  name.vb: GetArrayPreviousElementValue(Of T)(Integer)
-  spec.csharp:
-  - uid: Netick.OnChangedData.GetArrayPreviousElementValue``1(System.Int32)
-    name: GetArrayPreviousElementValue
-    isExternal: true
-    href: Netick.OnChangedData.html#Netick_OnChangedData_GetArrayPreviousElementValue__1_System_Int32_
-  - name: <
-  - name: T
-  - name: '>'
-  - name: (
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-  spec.vb:
-  - uid: Netick.OnChangedData.GetArrayPreviousElementValue``1(System.Int32)
-    name: GetArrayPreviousElementValue
-    isExternal: true
-    href: Netick.OnChangedData.html#Netick_OnChangedData_GetArrayPreviousElementValue__1_System_Int32_
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-  - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
 - uid: Netick.OnChangedData.GetPreviousValue*
   commentId: Overload:Netick.OnChangedData.GetPreviousValue

@@ -10,8 +10,6 @@ items:
   - Netick.NetickEngine.AttachBehaviour(Netick.INetickScript,System.Boolean)
   - Netick.NetickEngine.AuthoritativeTick
   - Netick.NetickEngine.Client
-  - Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,System.Boolean,Netick.NetickEntityMeta)
-  - Netick.NetickEngine.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
   - Netick.NetickEngine.ClientSimulation
   - Netick.NetickEngine.ClientSimulationCallbacks
   - Netick.NetickEngine.Config
@@ -22,8 +20,6 @@ items:
   - Netick.NetickEngine.ContainsPlayer(Netick.NetworkPlayerId)
   - Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte*)
   - Netick.NetickEngine.CopyWorldStateTo(System.Int32,System.Byte[])
-  - Netick.NetickEngine.CreateAndLinkEntityLocal(Netick.INetickEntity)
-  - Netick.NetickEngine.CreateEntity(System.Int32)
   - Netick.NetickEngine.CurrentRpcCaller
   - Netick.NetickEngine.CurrentRpcSource
   - Netick.NetickEngine.DestroyEntity(Netick.Entity,System.Boolean,System.Boolean)
@@ -33,11 +29,9 @@ items:
   - Netick.NetickEngine.Entities
   - Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
   - Netick.NetickEngine.FixedDeltaTime
+  - Netick.NetickEngine.GameVersion
   - Netick.NetickEngine.GetBehaviourOrder(System.Type)
   - Netick.NetickEngine.GetBehavioursOfType``1(System.Collections.Generic.List{``0})
-  - Netick.NetickEngine.GetEntityByWorldIndex(System.Int32)
-  - Netick.NetickEngine.GetEntityMeta(Netick.Entity)
-  - Netick.NetickEngine.GetEntityUserMeta(Netick.Entity)
   - Netick.NetickEngine.GetInput``1(System.Int32)
   - Netick.NetickEngine.GetPlayerById(Netick.NetworkPlayerId)
   - Netick.NetickEngine.GetPlayerEntity(Netick.NetworkPlayerId)
@@ -46,21 +40,27 @@ items:
   - Netick.NetickEngine.GetWorldStateTotalSize
   - Netick.NetickEngine.InKBps
   - Netick.NetickEngine.InPacketLoss
-  - Netick.NetickEngine.InputEnabled
   - Netick.NetickEngine.InterestManagement
   - Netick.NetickEngine.InterpolationDelay
   - Netick.NetickEngine.IsClient
   - Netick.NetickEngine.IsConnected
   - Netick.NetickEngine.IsFirstNetworkFixedUpdateCall
   - Netick.NetickEngine.IsIMEnabled
+  - Netick.NetickEngine.IsInputEnabled
   - Netick.NetickEngine.IsInvokingNetworkRender
+  - Netick.NetickEngine.IsLagCompensationDebugEnabled
   - Netick.NetickEngine.IsLastNetworkFixedUpdateCall
+  - Netick.NetickEngine.IsLoggingEnabled
+  - Netick.NetickEngine.IsOffline
+  - Netick.NetickEngine.IsProfilingEnabled
+  - Netick.NetickEngine.IsRecording
+  - Netick.NetickEngine.IsReplayEnabled
+  - Netick.NetickEngine.IsReplaying
   - Netick.NetickEngine.IsResimulating
   - Netick.NetickEngine.IsRunning
   - Netick.NetickEngine.IsServer
   - Netick.NetickEngine.Kick(Netick.ServerConnection)
   - Netick.NetickEngine.LagCompensation
-  - Netick.NetickEngine.LinkEntity(Netick.INetickEntity,Netick.Entity)
   - Netick.NetickEngine.LocalInterpolation
   - Netick.NetickEngine.LocalPeer
   - Netick.NetickEngine.LocalPlayer
@@ -88,12 +88,11 @@ items:
   - Netick.NetickEngine.RTT
   - Netick.NetickEngine.RemoteInterpolation
   - Netick.NetickEngine.Render
+  - Netick.NetickEngine.Replay
   - Netick.NetickEngine.ResetForSceneSwitch
   - Netick.NetickEngine.Server
-  - Netick.NetickEngine.ServerAddEntity(Netick.INetickEntity,Netick.NetworkPlayer,System.Boolean)
   - Netick.NetickEngine.ServerEndPoint
   - Netick.NetickEngine.ServerSimulation
-  - Netick.NetickEngine.SetEntityUserMetaDirty(Netick.Entity,System.Int32*)
   - Netick.NetickEngine.SetInput``1(``0,System.Int32)
   - Netick.NetickEngine.SetPlayerEntity(Netick.NetworkPlayerId,Netick.Entity)
   - Netick.NetickEngine.Shutdown
@@ -102,8 +101,11 @@ items:
   - Netick.NetickEngine.Simulation
   - Netick.NetickEngine.SimulationTick
   - Netick.NetickEngine.SnapshotTick
-  - Netick.NetickEngine.Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
+  - Netick.NetickEngine.Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.IReplayTransport,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,Netick.MismatchChecker,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
   - Netick.NetickEngine.StartMode
+  - Netick.NetickEngine.StartPlayback(System.String)
+  - Netick.NetickEngine.StartRecordingReplay(System.String)
+  - Netick.NetickEngine.StopRecordingReplay
   - Netick.NetickEngine.Tick
   - Netick.NetickEngine.Timer
   - Netick.NetickEngine.Transport
@@ -119,8 +121,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: The NetickEngine class is the core of Netick, managing networking, simulation, interpolation, replication, etc.
-  example: []
   syntax:
     content: public sealed class NetickEngine
     content.vb: Public NotInheritable Class NetickEngine
@@ -133,6 +133,63 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+- uid: Netick.NetickEngine.IsProfilingEnabled
+  commentId: F:Netick.NetickEngine.IsProfilingEnabled
+  id: IsProfilingEnabled
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsProfilingEnabled
+  nameWithType: NetickEngine.IsProfilingEnabled
+  fullName: Netick.NetickEngine.IsProfilingEnabled
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsProfilingEnabled
+    return:
+      type: System.Boolean
+    content.vb: Public IsProfilingEnabled As Boolean
+- uid: Netick.NetickEngine.IsLoggingEnabled
+  commentId: F:Netick.NetickEngine.IsLoggingEnabled
+  id: IsLoggingEnabled
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsLoggingEnabled
+  nameWithType: NetickEngine.IsLoggingEnabled
+  fullName: Netick.NetickEngine.IsLoggingEnabled
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsLoggingEnabled
+    return:
+      type: System.Boolean
+    content.vb: Public IsLoggingEnabled As Boolean
+- uid: Netick.NetickEngine.IsLagCompensationDebugEnabled
+  commentId: F:Netick.NetickEngine.IsLagCompensationDebugEnabled
+  id: IsLagCompensationDebugEnabled
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsLagCompensationDebugEnabled
+  nameWithType: NetickEngine.IsLagCompensationDebugEnabled
+  fullName: Netick.NetickEngine.IsLagCompensationDebugEnabled
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsLagCompensationDebugEnabled
+    return:
+      type: System.Boolean
+    content.vb: Public IsLagCompensationDebugEnabled As Boolean
 - uid: Netick.NetickEngine.ClientSimulationCallbacks
   commentId: F:Netick.NetickEngine.ClientSimulationCallbacks
   id: ClientSimulationCallbacks
@@ -190,6 +247,148 @@ items:
     return:
       type: System.Single
     content.vb: Public SimulatedLossIn As Single
+- uid: Netick.NetickEngine.Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.IReplayTransport,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,Netick.MismatchChecker,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:Netick.NetickEngine.Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.IReplayTransport,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,Netick.MismatchChecker,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  id: Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.IReplayTransport,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,Netick.MismatchChecker,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: Start(object, string, int, NetickStartMode, IGameEngine, IReplayTransport, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, MismatchChecker, int, int, bool, bool, bool, bool, bool)
+  nameWithType: NetickEngine.Start(object, string, int, NetickStartMode, IGameEngine, IReplayTransport, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, MismatchChecker, int, int, bool, bool, bool, bool, bool)
+  fullName: Netick.NetickEngine.Start(object, string, int, Netick.NetickStartMode, Netick.IGameEngine, Netick.IReplayTransport, Netick.NetickConfigData, Netick.NetworkTransport, Netick.ReflectionData, Netick.INetickLogger, Netick.IMemoryAllocator, Netick.MismatchChecker, int, int, bool, bool, bool, bool, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Start(object userObject, string name, int serverPort, NetickStartMode startMode, IGameEngine gameEngine, IReplayTransport replayBackend, NetickConfigData config, NetworkTransport transport, ReflectionData reflectionData, INetickLogger logger, IMemoryAllocator allocator, MismatchChecker mismatchChecker, int gameVersion, int numberOfThreads, bool aggressivePreAllocation, bool fastSerialization, bool isArm32Bit, bool isProfilingEnabled, bool isLoggingEnabled)
+    parameters:
+    - id: userObject
+      type: System.Object
+    - id: name
+      type: System.String
+    - id: serverPort
+      type: System.Int32
+    - id: startMode
+      type: Netick.NetickStartMode
+    - id: gameEngine
+      type: Netick.IGameEngine
+    - id: replayBackend
+      type: Netick.IReplayTransport
+    - id: config
+      type: Netick.NetickConfigData
+    - id: transport
+      type: Netick.NetworkTransport
+    - id: reflectionData
+      type: Netick.ReflectionData
+    - id: logger
+      type: Netick.INetickLogger
+    - id: allocator
+      type: Netick.IMemoryAllocator
+    - id: mismatchChecker
+      type: Netick.MismatchChecker
+    - id: gameVersion
+      type: System.Int32
+    - id: numberOfThreads
+      type: System.Int32
+    - id: aggressivePreAllocation
+      type: System.Boolean
+    - id: fastSerialization
+      type: System.Boolean
+    - id: isArm32Bit
+      type: System.Boolean
+    - id: isProfilingEnabled
+      type: System.Boolean
+    - id: isLoggingEnabled
+      type: System.Boolean
+    content.vb: Public Sub Start(userObject As Object, name As String, serverPort As Integer, startMode As NetickStartMode, gameEngine As IGameEngine, replayBackend As IReplayTransport, config As NetickConfigData, transport As NetworkTransport, reflectionData As ReflectionData, logger As INetickLogger, allocator As IMemoryAllocator, mismatchChecker As MismatchChecker, gameVersion As Integer, numberOfThreads As Integer, aggressivePreAllocation As Boolean, fastSerialization As Boolean, isArm32Bit As Boolean, isProfilingEnabled As Boolean, isLoggingEnabled As Boolean)
+  overload: Netick.NetickEngine.Start*
+  nameWithType.vb: NetickEngine.Start(Object, String, Integer, NetickStartMode, IGameEngine, IReplayTransport, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, MismatchChecker, Integer, Integer, Boolean, Boolean, Boolean, Boolean, Boolean)
+  fullName.vb: Netick.NetickEngine.Start(Object, String, Integer, Netick.NetickStartMode, Netick.IGameEngine, Netick.IReplayTransport, Netick.NetickConfigData, Netick.NetworkTransport, Netick.ReflectionData, Netick.INetickLogger, Netick.IMemoryAllocator, Netick.MismatchChecker, Integer, Integer, Boolean, Boolean, Boolean, Boolean, Boolean)
+  name.vb: Start(Object, String, Integer, NetickStartMode, IGameEngine, IReplayTransport, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, MismatchChecker, Integer, Integer, Boolean, Boolean, Boolean, Boolean, Boolean)
+- uid: Netick.NetickEngine.Shutdown
+  commentId: M:Netick.NetickEngine.Shutdown
+  id: Shutdown
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: Shutdown()
+  nameWithType: NetickEngine.Shutdown()
+  fullName: Netick.NetickEngine.Shutdown()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Shutdown()
+    content.vb: Public Sub Shutdown()
+  overload: Netick.NetickEngine.Shutdown*
+- uid: Netick.NetickEngine.ResetForSceneSwitch
+  commentId: M:Netick.NetickEngine.ResetForSceneSwitch
+  id: ResetForSceneSwitch
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: ResetForSceneSwitch()
+  nameWithType: NetickEngine.ResetForSceneSwitch()
+  fullName: Netick.NetickEngine.ResetForSceneSwitch()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void ResetForSceneSwitch()
+    content.vb: Public Sub ResetForSceneSwitch()
+  overload: Netick.NetickEngine.ResetForSceneSwitch*
+- uid: Netick.NetickEngine.Update(System.Single,System.Single,System.Boolean)
+  commentId: M:Netick.NetickEngine.Update(System.Single,System.Single,System.Boolean)
+  id: Update(System.Single,System.Single,System.Boolean)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: Update(float, float, bool)
+  nameWithType: NetickEngine.Update(float, float, bool)
+  fullName: Netick.NetickEngine.Update(float, float, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Update(float deltaTime, float timeScale, bool simulate)
+    parameters:
+    - id: deltaTime
+      type: System.Single
+    - id: timeScale
+      type: System.Single
+    - id: simulate
+      type: System.Boolean
+    content.vb: Public Sub Update(deltaTime As Single, timeScale As Single, simulate As Boolean)
+  overload: Netick.NetickEngine.Update*
+  nameWithType.vb: NetickEngine.Update(Single, Single, Boolean)
+  fullName.vb: Netick.NetickEngine.Update(Single, Single, Boolean)
+  name.vb: Update(Single, Single, Boolean)
+- uid: Netick.NetickEngine.Render
+  commentId: M:Netick.NetickEngine.Render
+  id: Render
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: Render()
+  nameWithType: NetickEngine.Render()
+  fullName: Netick.NetickEngine.Render()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Render()
+    content.vb: Public Sub Render()
+  overload: Netick.NetickEngine.Render*
 - uid: Netick.NetickEngine.Connect(System.Int32,System.String,System.Byte[],System.Int32)
   commentId: M:Netick.NetickEngine.Connect(System.Int32,System.String,System.Byte[],System.Int32)
   id: Connect(System.Int32,System.String,System.Byte[],System.Int32)
@@ -255,8 +454,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: <code><b>[Client Only]</b></code> Disconnects this client from the server.
-  example: []
   syntax:
     content: public void DisconnectFromServer()
     content.vb: Public Sub DisconnectFromServer()
@@ -297,6 +494,285 @@ items:
     content: public void DisconnectHost()
     content.vb: Public Sub DisconnectHost()
   overload: Netick.NetickEngine.DisconnectHost*
+- uid: Netick.NetickEngine.StartRecordingReplay(System.String)
+  commentId: M:Netick.NetickEngine.StartRecordingReplay(System.String)
+  id: StartRecordingReplay(System.String)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: StartRecordingReplay(string)
+  nameWithType: NetickEngine.StartRecordingReplay(string)
+  fullName: Netick.NetickEngine.StartRecordingReplay(string)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void StartRecordingReplay(string replayAddress)
+    parameters:
+    - id: replayAddress
+      type: System.String
+    content.vb: Public Sub StartRecordingReplay(replayAddress As String)
+  overload: Netick.NetickEngine.StartRecordingReplay*
+  nameWithType.vb: NetickEngine.StartRecordingReplay(String)
+  fullName.vb: Netick.NetickEngine.StartRecordingReplay(String)
+  name.vb: StartRecordingReplay(String)
+- uid: Netick.NetickEngine.StopRecordingReplay
+  commentId: M:Netick.NetickEngine.StopRecordingReplay
+  id: StopRecordingReplay
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: StopRecordingReplay()
+  nameWithType: NetickEngine.StopRecordingReplay()
+  fullName: Netick.NetickEngine.StopRecordingReplay()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Task StopRecordingReplay()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function StopRecordingReplay() As Task
+  overload: Netick.NetickEngine.StopRecordingReplay*
+- uid: Netick.NetickEngine.StartPlayback(System.String)
+  commentId: M:Netick.NetickEngine.StartPlayback(System.String)
+  id: StartPlayback(System.String)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: StartPlayback(string)
+  nameWithType: NetickEngine.StartPlayback(string)
+  fullName: Netick.NetickEngine.StartPlayback(string)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void StartPlayback(string replayAddress)
+    parameters:
+    - id: replayAddress
+      type: System.String
+    content.vb: Public Sub StartPlayback(replayAddress As String)
+  overload: Netick.NetickEngine.StartPlayback*
+  nameWithType.vb: NetickEngine.StartPlayback(String)
+  fullName.vb: Netick.NetickEngine.StartPlayback(String)
+  name.vb: StartPlayback(String)
+- uid: Netick.NetickEngine.GetInput``1(System.Int32)
+  commentId: M:Netick.NetickEngine.GetInput``1(System.Int32)
+  id: GetInput``1(System.Int32)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: GetInput<T>(int)
+  nameWithType: NetickEngine.GetInput<T>(int)
+  fullName: Netick.NetickEngine.GetInput<T>(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: 'public T GetInput<T>(int index = 0) where T : unmanaged'
+    parameters:
+    - id: index
+      type: System.Int32
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Function GetInput(Of T As Structure)(index As Integer = 0) As T
+  overload: Netick.NetickEngine.GetInput*
+  nameWithType.vb: NetickEngine.GetInput(Of T)(Integer)
+  fullName.vb: Netick.NetickEngine.GetInput(Of T)(Integer)
+  name.vb: GetInput(Of T)(Integer)
+- uid: Netick.NetickEngine.SetInput``1(``0,System.Int32)
+  commentId: M:Netick.NetickEngine.SetInput``1(``0,System.Int32)
+  id: SetInput``1(``0,System.Int32)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: SetInput<T>(T, int)
+  nameWithType: NetickEngine.SetInput<T>(T, int)
+  fullName: Netick.NetickEngine.SetInput<T>(T, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: 'public void SetInput<T>(T input, int index = 0) where T : unmanaged'
+    parameters:
+    - id: input
+      type: '{T}'
+    - id: index
+      type: System.Int32
+    typeParameters:
+    - id: T
+    content.vb: Public Sub SetInput(Of T As Structure)(input As T, index As Integer = 0)
+  overload: Netick.NetickEngine.SetInput*
+  nameWithType.vb: NetickEngine.SetInput(Of T)(T, Integer)
+  fullName.vb: Netick.NetickEngine.SetInput(Of T)(T, Integer)
+  name.vb: SetInput(Of T)(T, Integer)
+- uid: Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
+  commentId: M:Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
+  id: FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: FetchInput<T>(out T, ref bool, Entity, int)
+  nameWithType: NetickEngine.FetchInput<T>(out T, ref bool, Entity, int)
+  fullName: Netick.NetickEngine.FetchInput<T>(out T, ref bool, Netick.Entity, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: 'public bool FetchInput<T>(out T input, ref bool isDuplicated, Entity entity, int localPlayerIndex) where T : unmanaged'
+    parameters:
+    - id: input
+      type: '{T}'
+    - id: isDuplicated
+      type: System.Boolean
+    - id: entity
+      type: Netick.Entity
+    - id: localPlayerIndex
+      type: System.Int32
+    typeParameters:
+    - id: T
+    return:
+      type: System.Boolean
+    content.vb: Public Function FetchInput(Of T As Structure)(input As T, isDuplicated As Boolean, entity As Entity, localPlayerIndex As Integer) As Boolean
+  overload: Netick.NetickEngine.FetchInput*
+  nameWithType.vb: NetickEngine.FetchInput(Of T)(T, Boolean, Entity, Integer)
+  fullName.vb: Netick.NetickEngine.FetchInput(Of T)(T, Boolean, Netick.Entity, Integer)
+  name.vb: FetchInput(Of T)(T, Boolean, Entity, Integer)
+- uid: Netick.NetickEngine.GetPlayerEntity(Netick.NetworkPlayerId)
+  commentId: M:Netick.NetickEngine.GetPlayerEntity(Netick.NetworkPlayerId)
+  id: GetPlayerEntity(Netick.NetworkPlayerId)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: GetPlayerEntity(NetworkPlayerId)
+  nameWithType: NetickEngine.GetPlayerEntity(NetworkPlayerId)
+  fullName: Netick.NetickEngine.GetPlayerEntity(Netick.NetworkPlayerId)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Entity GetPlayerEntity(NetworkPlayerId playerId)
+    parameters:
+    - id: playerId
+      type: Netick.NetworkPlayerId
+    return:
+      type: Netick.Entity
+    content.vb: Public Function GetPlayerEntity(playerId As NetworkPlayerId) As Entity
+  overload: Netick.NetickEngine.GetPlayerEntity*
+- uid: Netick.NetickEngine.SetPlayerEntity(Netick.NetworkPlayerId,Netick.Entity)
+  commentId: M:Netick.NetickEngine.SetPlayerEntity(Netick.NetworkPlayerId,Netick.Entity)
+  id: SetPlayerEntity(Netick.NetworkPlayerId,Netick.Entity)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: SetPlayerEntity(NetworkPlayerId, Entity)
+  nameWithType: NetickEngine.SetPlayerEntity(NetworkPlayerId, Entity)
+  fullName: Netick.NetickEngine.SetPlayerEntity(Netick.NetworkPlayerId, Netick.Entity)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void SetPlayerEntity(NetworkPlayerId playerId, Entity entity)
+    parameters:
+    - id: playerId
+      type: Netick.NetworkPlayerId
+    - id: entity
+      type: Netick.Entity
+    content.vb: Public Sub SetPlayerEntity(playerId As NetworkPlayerId, entity As Entity)
+  overload: Netick.NetickEngine.SetPlayerEntity*
+- uid: Netick.NetickEngine.DestroyEntity(Netick.Entity,System.Boolean,System.Boolean)
+  commentId: M:Netick.NetickEngine.DestroyEntity(Netick.Entity,System.Boolean,System.Boolean)
+  id: DestroyEntity(Netick.Entity,System.Boolean,System.Boolean)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: DestroyEntity(Entity, bool, bool)
+  nameWithType: NetickEngine.DestroyEntity(Entity, bool, bool)
+  fullName: Netick.NetickEngine.DestroyEntity(Netick.Entity, bool, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void DestroyEntity(Entity entity, bool instant, bool freeMemory)
+    parameters:
+    - id: entity
+      type: Netick.Entity
+    - id: instant
+      type: System.Boolean
+    - id: freeMemory
+      type: System.Boolean
+    content.vb: Public Sub DestroyEntity(entity As Entity, instant As Boolean, freeMemory As Boolean)
+  overload: Netick.NetickEngine.DestroyEntity*
+  nameWithType.vb: NetickEngine.DestroyEntity(Entity, Boolean, Boolean)
+  fullName.vb: Netick.NetickEngine.DestroyEntity(Netick.Entity, Boolean, Boolean)
+  name.vb: DestroyEntity(Entity, Boolean, Boolean)
+- uid: Netick.NetickEngine.AttachBehaviour(Netick.INetickScript,System.Boolean)
+  commentId: M:Netick.NetickEngine.AttachBehaviour(Netick.INetickScript,System.Boolean)
+  id: AttachBehaviour(Netick.INetickScript,System.Boolean)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: AttachBehaviour(INetickScript, bool)
+  nameWithType: NetickEngine.AttachBehaviour(INetickScript, bool)
+  fullName: Netick.NetickEngine.AttachBehaviour(Netick.INetickScript, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AttachBehaviour(INetickScript behaviour, bool addToResimulationLoop = true)
+    parameters:
+    - id: behaviour
+      type: Netick.INetickScript
+    - id: addToResimulationLoop
+      type: System.Boolean
+    content.vb: Public Sub AttachBehaviour(behaviour As INetickScript, addToResimulationLoop As Boolean = True)
+  overload: Netick.NetickEngine.AttachBehaviour*
+  nameWithType.vb: NetickEngine.AttachBehaviour(INetickScript, Boolean)
+  fullName.vb: Netick.NetickEngine.AttachBehaviour(Netick.INetickScript, Boolean)
+  name.vb: AttachBehaviour(INetickScript, Boolean)
+- uid: Netick.NetickEngine.DetachBehaviour(Netick.INetickScript)
+  commentId: M:Netick.NetickEngine.DetachBehaviour(Netick.INetickScript)
+  id: DetachBehaviour(Netick.INetickScript)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: DetachBehaviour(INetickScript)
+  nameWithType: NetickEngine.DetachBehaviour(INetickScript)
+  fullName: Netick.NetickEngine.DetachBehaviour(Netick.INetickScript)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void DetachBehaviour(INetickScript behaviour)
+    parameters:
+    - id: behaviour
+      type: Netick.INetickScript
+    content.vb: Public Sub DetachBehaviour(behaviour As INetickScript)
+  overload: Netick.NetickEngine.DetachBehaviour*
 - uid: Netick.NetickEngine.GetWorldStateTotalSize
   commentId: M:Netick.NetickEngine.GetWorldStateTotalSize
   id: GetWorldStateTotalSize
@@ -311,13 +787,10 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Returns the size of the entirety of the game's networked state snapshot size, in bytes. This includes the sizes of all allocated blocks.
-  example: []
   syntax:
     content: public long GetWorldStateTotalSize()
     return:
       type: System.Int64
-      description: ''
     content.vb: Public Function GetWorldStateTotalSize() As Long
   overload: Netick.NetickEngine.GetWorldStateTotalSize*
 - uid: Netick.NetickEngine.GetWorldStateBlockSize
@@ -412,29 +885,6 @@ items:
   nameWithType.vb: NetickEngine.CopyWorldStateTo(Integer, Byte())
   fullName.vb: Netick.NetickEngine.CopyWorldStateTo(Integer, Byte())
   name.vb: CopyWorldStateTo(Integer, Byte())
-- uid: Netick.NetickEngine.GetBehaviourOrder(System.Type)
-  commentId: M:Netick.NetickEngine.GetBehaviourOrder(System.Type)
-  id: GetBehaviourOrder(System.Type)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: GetBehaviourOrder(Type)
-  nameWithType: NetickEngine.GetBehaviourOrder(Type)
-  fullName: Netick.NetickEngine.GetBehaviourOrder(System.Type)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int GetBehaviourOrder(Type type)
-    parameters:
-    - id: type
-      type: System.Type
-    return:
-      type: System.Int32
-    content.vb: Public Function GetBehaviourOrder(type As Type) As Integer
-  overload: Netick.NetickEngine.GetBehaviourOrder*
 - uid: Netick.NetickEngine.ContainsPlayer(Netick.NetworkPlayerId)
   commentId: M:Netick.NetickEngine.ContainsPlayer(Netick.NetworkPlayerId)
   id: ContainsPlayer(Netick.NetworkPlayerId)
@@ -481,6 +931,29 @@ items:
       type: Netick.NetworkPlayer
     content.vb: Public Function GetPlayerById(playerId As NetworkPlayerId) As NetworkPlayer
   overload: Netick.NetickEngine.GetPlayerById*
+- uid: Netick.NetickEngine.GetBehaviourOrder(System.Type)
+  commentId: M:Netick.NetickEngine.GetBehaviourOrder(System.Type)
+  id: GetBehaviourOrder(System.Type)
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: GetBehaviourOrder(Type)
+  nameWithType: NetickEngine.GetBehaviourOrder(Type)
+  fullName: Netick.NetickEngine.GetBehaviourOrder(System.Type)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int GetBehaviourOrder(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+    return:
+      type: System.Int32
+    content.vb: Public Function GetBehaviourOrder(type As Type) As Integer
+  overload: Netick.NetickEngine.GetBehaviourOrder*
 - uid: Netick.NetickEngine.GetBehavioursOfType``1(System.Collections.Generic.List{``0})
   commentId: M:Netick.NetickEngine.GetBehavioursOfType``1(System.Collections.Generic.List{``0})
   id: GetBehavioursOfType``1(System.Collections.Generic.List{``0})
@@ -507,611 +980,6 @@ items:
   nameWithType.vb: NetickEngine.GetBehavioursOfType(Of T)(List(Of T))
   fullName.vb: Netick.NetickEngine.GetBehavioursOfType(Of T)(System.Collections.Generic.List(Of T))
   name.vb: GetBehavioursOfType(Of T)(List(Of T))
-- uid: Netick.NetickEngine.AttachBehaviour(Netick.INetickScript,System.Boolean)
-  commentId: M:Netick.NetickEngine.AttachBehaviour(Netick.INetickScript,System.Boolean)
-  id: AttachBehaviour(Netick.INetickScript,System.Boolean)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: AttachBehaviour(INetickScript, bool)
-  nameWithType: NetickEngine.AttachBehaviour(INetickScript, bool)
-  fullName: Netick.NetickEngine.AttachBehaviour(Netick.INetickScript, bool)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  summary: Attaches a <xref href="Netick.INetickScript" data-throw-if-not-resolved="false"></xref> to the simulation.
-  example: []
-  syntax:
-    content: public void AttachBehaviour(INetickScript behaviour, bool addToResimulationLoop = true)
-    parameters:
-    - id: behaviour
-      type: Netick.INetickScript
-    - id: addToResimulationLoop
-      type: System.Boolean
-    content.vb: Public Sub AttachBehaviour(behaviour As INetickScript, addToResimulationLoop As Boolean = True)
-  overload: Netick.NetickEngine.AttachBehaviour*
-  nameWithType.vb: NetickEngine.AttachBehaviour(INetickScript, Boolean)
-  fullName.vb: Netick.NetickEngine.AttachBehaviour(Netick.INetickScript, Boolean)
-  name.vb: AttachBehaviour(INetickScript, Boolean)
-- uid: Netick.NetickEngine.DetachBehaviour(Netick.INetickScript)
-  commentId: M:Netick.NetickEngine.DetachBehaviour(Netick.INetickScript)
-  id: DetachBehaviour(Netick.INetickScript)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: DetachBehaviour(INetickScript)
-  nameWithType: NetickEngine.DetachBehaviour(INetickScript)
-  fullName: Netick.NetickEngine.DetachBehaviour(Netick.INetickScript)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  summary: Detaches a <xref href="Netick.INetickScript" data-throw-if-not-resolved="false"></xref> from the simulation.
-  example: []
-  syntax:
-    content: public void DetachBehaviour(INetickScript behaviour)
-    parameters:
-    - id: behaviour
-      type: Netick.INetickScript
-    content.vb: Public Sub DetachBehaviour(behaviour As INetickScript)
-  overload: Netick.NetickEngine.DetachBehaviour*
-- uid: Netick.NetickEngine.GetPlayerEntity(Netick.NetworkPlayerId)
-  commentId: M:Netick.NetickEngine.GetPlayerEntity(Netick.NetworkPlayerId)
-  id: GetPlayerEntity(Netick.NetworkPlayerId)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: GetPlayerEntity(NetworkPlayerId)
-  nameWithType: NetickEngine.GetPlayerEntity(NetworkPlayerId)
-  fullName: Netick.NetickEngine.GetPlayerEntity(Netick.NetworkPlayerId)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public Entity GetPlayerEntity(NetworkPlayerId playerId)
-    parameters:
-    - id: playerId
-      type: Netick.NetworkPlayerId
-    return:
-      type: Netick.Entity
-    content.vb: Public Function GetPlayerEntity(playerId As NetworkPlayerId) As Entity
-  overload: Netick.NetickEngine.GetPlayerEntity*
-- uid: Netick.NetickEngine.SetPlayerEntity(Netick.NetworkPlayerId,Netick.Entity)
-  commentId: M:Netick.NetickEngine.SetPlayerEntity(Netick.NetworkPlayerId,Netick.Entity)
-  id: SetPlayerEntity(Netick.NetworkPlayerId,Netick.Entity)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: SetPlayerEntity(NetworkPlayerId, Entity)
-  nameWithType: NetickEngine.SetPlayerEntity(NetworkPlayerId, Entity)
-  fullName: Netick.NetickEngine.SetPlayerEntity(Netick.NetworkPlayerId, Netick.Entity)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void SetPlayerEntity(NetworkPlayerId playerId, Entity entity)
-    parameters:
-    - id: playerId
-      type: Netick.NetworkPlayerId
-    - id: entity
-      type: Netick.Entity
-    content.vb: Public Sub SetPlayerEntity(playerId As NetworkPlayerId, entity As Entity)
-  overload: Netick.NetickEngine.SetPlayerEntity*
-- uid: Netick.NetickEngine.CreateEntity(System.Int32)
-  commentId: M:Netick.NetickEngine.CreateEntity(System.Int32)
-  id: CreateEntity(System.Int32)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: CreateEntity(int)
-  nameWithType: NetickEngine.CreateEntity(int)
-  fullName: Netick.NetickEngine.CreateEntity(int)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public Entity CreateEntity(int stateSizeWords)
-    parameters:
-    - id: stateSizeWords
-      type: System.Int32
-    return:
-      type: Netick.Entity
-    content.vb: Public Function CreateEntity(stateSizeWords As Integer) As Entity
-  overload: Netick.NetickEngine.CreateEntity*
-  nameWithType.vb: NetickEngine.CreateEntity(Integer)
-  fullName.vb: Netick.NetickEngine.CreateEntity(Integer)
-  name.vb: CreateEntity(Integer)
-- uid: Netick.NetickEngine.LinkEntity(Netick.INetickEntity,Netick.Entity)
-  commentId: M:Netick.NetickEngine.LinkEntity(Netick.INetickEntity,Netick.Entity)
-  id: LinkEntity(Netick.INetickEntity,Netick.Entity)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: LinkEntity(INetickEntity, Entity)
-  nameWithType: NetickEngine.LinkEntity(INetickEntity, Entity)
-  fullName: Netick.NetickEngine.LinkEntity(Netick.INetickEntity, Netick.Entity)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public Entity LinkEntity(INetickEntity userEntity, Entity entity)
-    parameters:
-    - id: userEntity
-      type: Netick.INetickEntity
-    - id: entity
-      type: Netick.Entity
-    return:
-      type: Netick.Entity
-    content.vb: Public Function LinkEntity(userEntity As INetickEntity, entity As Entity) As Entity
-  overload: Netick.NetickEngine.LinkEntity*
-- uid: Netick.NetickEngine.CreateAndLinkEntityLocal(Netick.INetickEntity)
-  commentId: M:Netick.NetickEngine.CreateAndLinkEntityLocal(Netick.INetickEntity)
-  id: CreateAndLinkEntityLocal(Netick.INetickEntity)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: CreateAndLinkEntityLocal(INetickEntity)
-  nameWithType: NetickEngine.CreateAndLinkEntityLocal(INetickEntity)
-  fullName: Netick.NetickEngine.CreateAndLinkEntityLocal(Netick.INetickEntity)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public Entity CreateAndLinkEntityLocal(INetickEntity userEntity)
-    parameters:
-    - id: userEntity
-      type: Netick.INetickEntity
-    return:
-      type: Netick.Entity
-    content.vb: Public Function CreateAndLinkEntityLocal(userEntity As INetickEntity) As Entity
-  overload: Netick.NetickEngine.CreateAndLinkEntityLocal*
-- uid: Netick.NetickEngine.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
-  commentId: M:Netick.NetickEngine.ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
-  id: ClientAddUnlinkedEntity(Netick.Entity,System.Int32,System.Int32)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: ClientAddUnlinkedEntity(Entity, int, int)
-  nameWithType: NetickEngine.ClientAddUnlinkedEntity(Entity, int, int)
-  fullName: Netick.NetickEngine.ClientAddUnlinkedEntity(Netick.Entity, int, int)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void ClientAddUnlinkedEntity(Entity entity, int id, int worldIndex)
-    parameters:
-    - id: entity
-      type: Netick.Entity
-    - id: id
-      type: System.Int32
-    - id: worldIndex
-      type: System.Int32
-    content.vb: Public Sub ClientAddUnlinkedEntity(entity As Entity, id As Integer, worldIndex As Integer)
-  overload: Netick.NetickEngine.ClientAddUnlinkedEntity*
-  nameWithType.vb: NetickEngine.ClientAddUnlinkedEntity(Entity, Integer, Integer)
-  fullName.vb: Netick.NetickEngine.ClientAddUnlinkedEntity(Netick.Entity, Integer, Integer)
-  name.vb: ClientAddUnlinkedEntity(Entity, Integer, Integer)
-- uid: Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,System.Boolean,Netick.NetickEntityMeta)
-  commentId: M:Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,System.Boolean,Netick.NetickEntityMeta)
-  id: ClientAddEntity(Netick.INetickEntity,System.Int32,System.Int32,System.Boolean,Netick.NetickEntityMeta)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: ClientAddEntity(INetickEntity, int, int, bool, NetickEntityMeta)
-  nameWithType: NetickEngine.ClientAddEntity(INetickEntity, int, int, bool, NetickEntityMeta)
-  fullName: Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity, int, int, bool, Netick.NetickEntityMeta)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void ClientAddEntity(INetickEntity entity, int id, int worldIndex, bool wasUnliked, NetickEntityMeta meta)
-    parameters:
-    - id: entity
-      type: Netick.INetickEntity
-    - id: id
-      type: System.Int32
-    - id: worldIndex
-      type: System.Int32
-    - id: wasUnliked
-      type: System.Boolean
-    - id: meta
-      type: Netick.NetickEntityMeta
-    content.vb: Public Sub ClientAddEntity(entity As INetickEntity, id As Integer, worldIndex As Integer, wasUnliked As Boolean, meta As NetickEntityMeta)
-  overload: Netick.NetickEngine.ClientAddEntity*
-  nameWithType.vb: NetickEngine.ClientAddEntity(INetickEntity, Integer, Integer, Boolean, NetickEntityMeta)
-  fullName.vb: Netick.NetickEngine.ClientAddEntity(Netick.INetickEntity, Integer, Integer, Boolean, Netick.NetickEntityMeta)
-  name.vb: ClientAddEntity(INetickEntity, Integer, Integer, Boolean, NetickEntityMeta)
-- uid: Netick.NetickEngine.ServerAddEntity(Netick.INetickEntity,Netick.NetworkPlayer,System.Boolean)
-  commentId: M:Netick.NetickEngine.ServerAddEntity(Netick.INetickEntity,Netick.NetworkPlayer,System.Boolean)
-  id: ServerAddEntity(Netick.INetickEntity,Netick.NetworkPlayer,System.Boolean)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: ServerAddEntity(INetickEntity, NetworkPlayer, bool)
-  nameWithType: NetickEngine.ServerAddEntity(INetickEntity, NetworkPlayer, bool)
-  fullName: Netick.NetickEngine.ServerAddEntity(Netick.INetickEntity, Netick.NetworkPlayer, bool)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void ServerAddEntity(INetickEntity obj, NetworkPlayer inputSource, bool invokeAwake)
-    parameters:
-    - id: obj
-      type: Netick.INetickEntity
-    - id: inputSource
-      type: Netick.NetworkPlayer
-    - id: invokeAwake
-      type: System.Boolean
-    content.vb: Public Sub ServerAddEntity(obj As INetickEntity, inputSource As NetworkPlayer, invokeAwake As Boolean)
-  overload: Netick.NetickEngine.ServerAddEntity*
-  nameWithType.vb: NetickEngine.ServerAddEntity(INetickEntity, NetworkPlayer, Boolean)
-  fullName.vb: Netick.NetickEngine.ServerAddEntity(Netick.INetickEntity, Netick.NetworkPlayer, Boolean)
-  name.vb: ServerAddEntity(INetickEntity, NetworkPlayer, Boolean)
-- uid: Netick.NetickEngine.DestroyEntity(Netick.Entity,System.Boolean,System.Boolean)
-  commentId: M:Netick.NetickEngine.DestroyEntity(Netick.Entity,System.Boolean,System.Boolean)
-  id: DestroyEntity(Netick.Entity,System.Boolean,System.Boolean)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: DestroyEntity(Entity, bool, bool)
-  nameWithType: NetickEngine.DestroyEntity(Entity, bool, bool)
-  fullName: Netick.NetickEngine.DestroyEntity(Netick.Entity, bool, bool)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void DestroyEntity(Entity entity, bool instant, bool freeMemory)
-    parameters:
-    - id: entity
-      type: Netick.Entity
-    - id: instant
-      type: System.Boolean
-    - id: freeMemory
-      type: System.Boolean
-    content.vb: Public Sub DestroyEntity(entity As Entity, instant As Boolean, freeMemory As Boolean)
-  overload: Netick.NetickEngine.DestroyEntity*
-  nameWithType.vb: NetickEngine.DestroyEntity(Entity, Boolean, Boolean)
-  fullName.vb: Netick.NetickEngine.DestroyEntity(Netick.Entity, Boolean, Boolean)
-  name.vb: DestroyEntity(Entity, Boolean, Boolean)
-- uid: Netick.NetickEngine.GetEntityByWorldIndex(System.Int32)
-  commentId: M:Netick.NetickEngine.GetEntityByWorldIndex(System.Int32)
-  id: GetEntityByWorldIndex(System.Int32)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: GetEntityByWorldIndex(int)
-  nameWithType: NetickEngine.GetEntityByWorldIndex(int)
-  fullName: Netick.NetickEngine.GetEntityByWorldIndex(int)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public Entity GetEntityByWorldIndex(int worldIndex)
-    parameters:
-    - id: worldIndex
-      type: System.Int32
-    return:
-      type: Netick.Entity
-    content.vb: Public Function GetEntityByWorldIndex(worldIndex As Integer) As Entity
-  overload: Netick.NetickEngine.GetEntityByWorldIndex*
-  nameWithType.vb: NetickEngine.GetEntityByWorldIndex(Integer)
-  fullName.vb: Netick.NetickEngine.GetEntityByWorldIndex(Integer)
-  name.vb: GetEntityByWorldIndex(Integer)
-- uid: Netick.NetickEngine.GetEntityMeta(Netick.Entity)
-  commentId: M:Netick.NetickEngine.GetEntityMeta(Netick.Entity)
-  id: GetEntityMeta(Netick.Entity)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: GetEntityMeta(Entity)
-  nameWithType: NetickEngine.GetEntityMeta(Entity)
-  fullName: Netick.NetickEngine.GetEntityMeta(Netick.Entity)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public NetickEntityMeta* GetEntityMeta(Entity entity)
-    parameters:
-    - id: entity
-      type: Netick.Entity
-    return:
-      type: Netick.NetickEntityMeta*
-    content.vb: Public Function GetEntityMeta(entity As Entity) As NetickEntityMeta*
-  overload: Netick.NetickEngine.GetEntityMeta*
-- uid: Netick.NetickEngine.GetEntityUserMeta(Netick.Entity)
-  commentId: M:Netick.NetickEngine.GetEntityUserMeta(Netick.Entity)
-  id: GetEntityUserMeta(Netick.Entity)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: GetEntityUserMeta(Entity)
-  nameWithType: NetickEngine.GetEntityUserMeta(Entity)
-  fullName: Netick.NetickEngine.GetEntityUserMeta(Netick.Entity)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public byte* GetEntityUserMeta(Entity entity)
-    parameters:
-    - id: entity
-      type: Netick.Entity
-    return:
-      type: System.Byte*
-    content.vb: Public Function GetEntityUserMeta(entity As Entity) As Byte*
-  overload: Netick.NetickEngine.GetEntityUserMeta*
-- uid: Netick.NetickEngine.SetEntityUserMetaDirty(Netick.Entity,System.Int32*)
-  commentId: M:Netick.NetickEngine.SetEntityUserMetaDirty(Netick.Entity,System.Int32*)
-  id: SetEntityUserMetaDirty(Netick.Entity,System.Int32*)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: SetEntityUserMetaDirty(Entity, int*)
-  nameWithType: NetickEngine.SetEntityUserMetaDirty(Entity, int*)
-  fullName: Netick.NetickEngine.SetEntityUserMetaDirty(Netick.Entity, int*)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void SetEntityUserMetaDirty(Entity entity, int* userData)
-    parameters:
-    - id: entity
-      type: Netick.Entity
-    - id: userData
-      type: System.Int32*
-    content.vb: Public Sub SetEntityUserMetaDirty(entity As Entity, userData As Integer*)
-  overload: Netick.NetickEngine.SetEntityUserMetaDirty*
-  nameWithType.vb: NetickEngine.SetEntityUserMetaDirty(Entity, Integer*)
-  fullName.vb: Netick.NetickEngine.SetEntityUserMetaDirty(Netick.Entity, Integer*)
-  name.vb: SetEntityUserMetaDirty(Entity, Integer*)
-- uid: Netick.NetickEngine.GetInput``1(System.Int32)
-  commentId: M:Netick.NetickEngine.GetInput``1(System.Int32)
-  id: GetInput``1(System.Int32)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: GetInput<T>(int)
-  nameWithType: NetickEngine.GetInput<T>(int)
-  fullName: Netick.NetickEngine.GetInput<T>(int)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: 'public T GetInput<T>(int index = 0) where T : unmanaged'
-    parameters:
-    - id: index
-      type: System.Int32
-    typeParameters:
-    - id: T
-    return:
-      type: '{T}'
-    content.vb: Public Function GetInput(Of T As Structure)(index As Integer = 0) As T
-  overload: Netick.NetickEngine.GetInput*
-  nameWithType.vb: NetickEngine.GetInput(Of T)(Integer)
-  fullName.vb: Netick.NetickEngine.GetInput(Of T)(Integer)
-  name.vb: GetInput(Of T)(Integer)
-- uid: Netick.NetickEngine.SetInput``1(``0,System.Int32)
-  commentId: M:Netick.NetickEngine.SetInput``1(``0,System.Int32)
-  id: SetInput``1(``0,System.Int32)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: SetInput<T>(T, int)
-  nameWithType: NetickEngine.SetInput<T>(T, int)
-  fullName: Netick.NetickEngine.SetInput<T>(T, int)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: 'public void SetInput<T>(T input, int index = 0) where T : unmanaged'
-    parameters:
-    - id: input
-      type: '{T}'
-    - id: index
-      type: System.Int32
-    typeParameters:
-    - id: T
-    content.vb: Public Sub SetInput(Of T As Structure)(input As T, index As Integer = 0)
-  overload: Netick.NetickEngine.SetInput*
-  nameWithType.vb: NetickEngine.SetInput(Of T)(T, Integer)
-  fullName.vb: Netick.NetickEngine.SetInput(Of T)(T, Integer)
-  name.vb: SetInput(Of T)(T, Integer)
-- uid: Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
-  commentId: M:Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
-  id: FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: FetchInput<T>(out T, ref bool, Entity, int)
-  nameWithType: NetickEngine.FetchInput<T>(out T, ref bool, Entity, int)
-  fullName: Netick.NetickEngine.FetchInput<T>(out T, ref bool, Netick.Entity, int)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: 'public bool FetchInput<T>(out T input, ref bool isDuplicated, Entity entity, int localPlayerIndex) where T : unmanaged'
-    parameters:
-    - id: input
-      type: '{T}'
-    - id: isDuplicated
-      type: System.Boolean
-    - id: entity
-      type: Netick.Entity
-    - id: localPlayerIndex
-      type: System.Int32
-    typeParameters:
-    - id: T
-    return:
-      type: System.Boolean
-    content.vb: Public Function FetchInput(Of T As Structure)(input As T, isDuplicated As Boolean, entity As Entity, localPlayerIndex As Integer) As Boolean
-  overload: Netick.NetickEngine.FetchInput*
-  nameWithType.vb: NetickEngine.FetchInput(Of T)(T, Boolean, Entity, Integer)
-  fullName.vb: Netick.NetickEngine.FetchInput(Of T)(T, Boolean, Netick.Entity, Integer)
-  name.vb: FetchInput(Of T)(T, Boolean, Entity, Integer)
-- uid: Netick.NetickEngine.Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
-  commentId: M:Netick.NetickEngine.Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
-  id: Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,System.Int32)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: Start(object, string, int, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, int)
-  nameWithType: NetickEngine.Start(object, string, int, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, int)
-  fullName: Netick.NetickEngine.Start(object, string, int, Netick.NetickStartMode, Netick.IGameEngine, Netick.NetickConfigData, Netick.NetworkTransport, Netick.ReflectionData, Netick.INetickLogger, Netick.IMemoryAllocator, int)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void Start(object userObject, string name, int serverPort, NetickStartMode startMode, IGameEngine gameEngine, NetickConfigData config, NetworkTransport transport, ReflectionData reflectionData, INetickLogger logger, IMemoryAllocator allocator, int numberOfThreads)
-    parameters:
-    - id: userObject
-      type: System.Object
-    - id: name
-      type: System.String
-    - id: serverPort
-      type: System.Int32
-    - id: startMode
-      type: Netick.NetickStartMode
-    - id: gameEngine
-      type: Netick.IGameEngine
-    - id: config
-      type: Netick.NetickConfigData
-    - id: transport
-      type: Netick.NetworkTransport
-    - id: reflectionData
-      type: Netick.ReflectionData
-    - id: logger
-      type: Netick.INetickLogger
-    - id: allocator
-      type: Netick.IMemoryAllocator
-    - id: numberOfThreads
-      type: System.Int32
-    content.vb: Public Sub Start(userObject As Object, name As String, serverPort As Integer, startMode As NetickStartMode, gameEngine As IGameEngine, config As NetickConfigData, transport As NetworkTransport, reflectionData As ReflectionData, logger As INetickLogger, allocator As IMemoryAllocator, numberOfThreads As Integer)
-  overload: Netick.NetickEngine.Start*
-  nameWithType.vb: NetickEngine.Start(Object, String, Integer, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, Integer)
-  fullName.vb: Netick.NetickEngine.Start(Object, String, Integer, Netick.NetickStartMode, Netick.IGameEngine, Netick.NetickConfigData, Netick.NetworkTransport, Netick.ReflectionData, Netick.INetickLogger, Netick.IMemoryAllocator, Integer)
-  name.vb: Start(Object, String, Integer, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, Integer)
-- uid: Netick.NetickEngine.Shutdown
-  commentId: M:Netick.NetickEngine.Shutdown
-  id: Shutdown
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: Shutdown()
-  nameWithType: NetickEngine.Shutdown()
-  fullName: Netick.NetickEngine.Shutdown()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void Shutdown()
-    content.vb: Public Sub Shutdown()
-  overload: Netick.NetickEngine.Shutdown*
-- uid: Netick.NetickEngine.ResetForSceneSwitch
-  commentId: M:Netick.NetickEngine.ResetForSceneSwitch
-  id: ResetForSceneSwitch
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: ResetForSceneSwitch()
-  nameWithType: NetickEngine.ResetForSceneSwitch()
-  fullName: Netick.NetickEngine.ResetForSceneSwitch()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void ResetForSceneSwitch()
-    content.vb: Public Sub ResetForSceneSwitch()
-  overload: Netick.NetickEngine.ResetForSceneSwitch*
-- uid: Netick.NetickEngine.Update(System.Single,System.Single,System.Boolean)
-  commentId: M:Netick.NetickEngine.Update(System.Single,System.Single,System.Boolean)
-  id: Update(System.Single,System.Single,System.Boolean)
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: Update(float, float, bool)
-  nameWithType: NetickEngine.Update(float, float, bool)
-  fullName: Netick.NetickEngine.Update(float, float, bool)
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  summary: Updates Netick logic.
-  example: []
-  syntax:
-    content: public void Update(float deltaTime, float timeScale, bool simulate)
-    parameters:
-    - id: deltaTime
-      type: System.Single
-    - id: timeScale
-      type: System.Single
-    - id: simulate
-      type: System.Boolean
-    content.vb: Public Sub Update(deltaTime As Single, timeScale As Single, simulate As Boolean)
-  overload: Netick.NetickEngine.Update*
-  nameWithType.vb: NetickEngine.Update(Single, Single, Boolean)
-  fullName.vb: Netick.NetickEngine.Update(Single, Single, Boolean)
-  name.vb: Update(Single, Single, Boolean)
-- uid: Netick.NetickEngine.Render
-  commentId: M:Netick.NetickEngine.Render
-  id: Render
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: Render()
-  nameWithType: NetickEngine.Render()
-  fullName: Netick.NetickEngine.Render()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  summary: Call this to invoke NetworkRender on simulated entities. This might not be needed if you are running a headless build.
-  example: []
-  syntax:
-    content: public void Render()
-    content.vb: Public Sub Render()
-  overload: Netick.NetickEngine.Render*
 - uid: Netick.NetickEngine.#ctor
   commentId: M:Netick.NetickEngine.#ctor
   id: '#ctor'
@@ -1133,6 +1001,321 @@ items:
   nameWithType.vb: NetickEngine.New()
   fullName.vb: Netick.NetickEngine.New()
   name.vb: New()
+- uid: Netick.NetickEngine.UserObject
+  commentId: P:Netick.NetickEngine.UserObject
+  id: UserObject
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: UserObject
+  nameWithType: NetickEngine.UserObject
+  fullName: Netick.NetickEngine.UserObject
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public object UserObject { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property UserObject As Object
+  overload: Netick.NetickEngine.UserObject*
+- uid: Netick.NetickEngine.Name
+  commentId: P:Netick.NetickEngine.Name
+  id: Name
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: NetickEngine.Name
+  fullName: Netick.NetickEngine.Name
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: Netick.NetickEngine.Name*
+- uid: Netick.NetickEngine.StartMode
+  commentId: P:Netick.NetickEngine.StartMode
+  id: StartMode
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: StartMode
+  nameWithType: NetickEngine.StartMode
+  fullName: Netick.NetickEngine.StartMode
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetickStartMode StartMode { get; }
+    parameters: []
+    return:
+      type: Netick.NetickStartMode
+    content.vb: Public ReadOnly Property StartMode As NetickStartMode
+  overload: Netick.NetickEngine.StartMode*
+- uid: Netick.NetickEngine.IsRunning
+  commentId: P:Netick.NetickEngine.IsRunning
+  id: IsRunning
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsRunning
+  nameWithType: NetickEngine.IsRunning
+  fullName: Netick.NetickEngine.IsRunning
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsRunning { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsRunning As Boolean
+  overload: Netick.NetickEngine.IsRunning*
+- uid: Netick.NetickEngine.IsOffline
+  commentId: P:Netick.NetickEngine.IsOffline
+  id: IsOffline
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsOffline
+  nameWithType: NetickEngine.IsOffline
+  fullName: Netick.NetickEngine.IsOffline
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsOffline { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsOffline As Boolean
+  overload: Netick.NetickEngine.IsOffline*
+- uid: Netick.NetickEngine.IsServer
+  commentId: P:Netick.NetickEngine.IsServer
+  id: IsServer
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsServer
+  nameWithType: NetickEngine.IsServer
+  fullName: Netick.NetickEngine.IsServer
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsServer { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsServer As Boolean
+  overload: Netick.NetickEngine.IsServer*
+- uid: Netick.NetickEngine.IsClient
+  commentId: P:Netick.NetickEngine.IsClient
+  id: IsClient
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsClient
+  nameWithType: NetickEngine.IsClient
+  fullName: Netick.NetickEngine.IsClient
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsClient { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsClient As Boolean
+  overload: Netick.NetickEngine.IsClient*
+- uid: Netick.NetickEngine.IsReplaying
+  commentId: P:Netick.NetickEngine.IsReplaying
+  id: IsReplaying
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsReplaying
+  nameWithType: NetickEngine.IsReplaying
+  fullName: Netick.NetickEngine.IsReplaying
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsReplaying { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReplaying As Boolean
+  overload: Netick.NetickEngine.IsReplaying*
+- uid: Netick.NetickEngine.IsRecording
+  commentId: P:Netick.NetickEngine.IsRecording
+  id: IsRecording
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsRecording
+  nameWithType: NetickEngine.IsRecording
+  fullName: Netick.NetickEngine.IsRecording
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsRecording { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsRecording As Boolean
+  overload: Netick.NetickEngine.IsRecording*
+- uid: Netick.NetickEngine.Port
+  commentId: P:Netick.NetickEngine.Port
+  id: Port
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: Port
+  nameWithType: NetickEngine.Port
+  fullName: Netick.NetickEngine.Port
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int Port { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Port As Integer
+  overload: Netick.NetickEngine.Port*
+- uid: Netick.NetickEngine.MaxClients
+  commentId: P:Netick.NetickEngine.MaxClients
+  id: MaxClients
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: MaxClients
+  nameWithType: NetickEngine.MaxClients
+  fullName: Netick.NetickEngine.MaxClients
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int MaxClients { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxClients As Integer
+  overload: Netick.NetickEngine.MaxClients*
+- uid: Netick.NetickEngine.MaxPlayers
+  commentId: P:Netick.NetickEngine.MaxPlayers
+  id: MaxPlayers
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: MaxPlayers
+  nameWithType: NetickEngine.MaxPlayers
+  fullName: Netick.NetickEngine.MaxPlayers
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int MaxPlayers { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxPlayers As Integer
+  overload: Netick.NetickEngine.MaxPlayers*
+- uid: Netick.NetickEngine.GameVersion
+  commentId: P:Netick.NetickEngine.GameVersion
+  id: GameVersion
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: GameVersion
+  nameWithType: NetickEngine.GameVersion
+  fullName: Netick.NetickEngine.GameVersion
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int GameVersion { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property GameVersion As Integer
+  overload: Netick.NetickEngine.GameVersion*
+- uid: Netick.NetickEngine.IsReplayEnabled
+  commentId: P:Netick.NetickEngine.IsReplayEnabled
+  id: IsReplayEnabled
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsReplayEnabled
+  nameWithType: NetickEngine.IsReplayEnabled
+  fullName: Netick.NetickEngine.IsReplayEnabled
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsReplayEnabled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReplayEnabled As Boolean
+  overload: Netick.NetickEngine.IsReplayEnabled*
+- uid: Netick.NetickEngine.IsInputEnabled
+  commentId: P:Netick.NetickEngine.IsInputEnabled
+  id: IsInputEnabled
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsInputEnabled
+  nameWithType: NetickEngine.IsInputEnabled
+  fullName: Netick.NetickEngine.IsInputEnabled
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsInputEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsInputEnabled As Boolean
+  overload: Netick.NetickEngine.IsInputEnabled*
 - uid: Netick.NetickEngine.Config
   commentId: P:Netick.NetickEngine.Config
   id: Config
@@ -1406,6 +1589,27 @@ items:
       type: Netick.INetickComponent
     content.vb: Public ReadOnly Property LagCompensation As INetickComponent
   overload: Netick.NetickEngine.LagCompensation*
+- uid: Netick.NetickEngine.Replay
+  commentId: P:Netick.NetickEngine.Replay
+  id: Replay
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: Replay
+  nameWithType: NetickEngine.Replay
+  fullName: Netick.NetickEngine.Replay
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public Replay Replay { get; }
+    parameters: []
+    return:
+      type: Netick.Replay
+    content.vb: Public ReadOnly Property Replay As Replay
+  overload: Netick.NetickEngine.Replay*
 - uid: Netick.NetickEngine.Timer
   commentId: P:Netick.NetickEngine.Timer
   id: Timer
@@ -1546,8 +1750,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: <code><b>[Client Only]</b></code> The <xref href="System.Net.IPEndPoint" data-throw-if-not-resolved="false"></xref> of the server you are connected to. Returns null if you are not connected to any server, or if you are the server.
-  example: []
   syntax:
     content: public IEndPoint ServerEndPoint { get; }
     parameters: []
@@ -1569,8 +1771,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: <code><b>[Client Only]</b></code> Returns true if this client is currently connected to a server.
-  example: []
   syntax:
     content: public bool IsConnected { get; }
     parameters: []
@@ -1592,8 +1792,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Time period between simulation ticks.
-  example: []
   syntax:
     content: public float FixedDeltaTime { get; }
     parameters: []
@@ -1720,8 +1918,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Returns true if we are currently resimulating a previous input/tick of the past. On the server, it always returns false since <b>only the clients resimulate</b>.
-  example: []
   syntax:
     content: public bool IsResimulating { get; }
     parameters: []
@@ -1743,8 +1939,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Incoming data in kilobytes per second (KBps).
-  example: []
   syntax:
     content: public float InKBps { get; }
     parameters: []
@@ -1766,8 +1960,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Outgoing data in kilobytes per second (KBps).
-  example: []
   syntax:
     content: public float OutKBps { get; }
     parameters: []
@@ -1789,8 +1981,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: <code><b>[Client Only]</b></code> Estimation of incoming packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
-  example: []
   syntax:
     content: public float InPacketLoss { get; }
     parameters: []
@@ -1812,8 +2002,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: <code><b>[Client Only]</b></code> Estimation of outgoing packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
-  example: []
   syntax:
     content: public float OutPacketLoss { get; }
     parameters: []
@@ -1835,8 +2023,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: <code><b>[Client Only]</b></code> Interpolation delay in seconds.
-  example: []
   syntax:
     content: public float InterpolationDelay { get; }
     parameters: []
@@ -1858,8 +2044,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: <code><b>[Client Only]</b></code> The round-trip time (RTT) of the client in seconds.
-  example: []
   syntax:
     content: public double RTT { get; }
     parameters: []
@@ -2238,11 +2422,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: >-
-    A list containing all connected clients currently.
-
-    <p>Note: if you want the clients + the server, use <xref href="Netick.NetickEngine.ConnectedPlayers" data-throw-if-not-resolved="false"></xref>.</p>
-  example: []
   syntax:
     content: >-
       [Obsolete("This will be removed in the future, please use Players instead.")]
@@ -2276,11 +2455,6 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: >-
-    <p>A list containing all connected clients currently, in addition to the server.</p>
-
-    <p>Note: if you only want the clients, use <xref href="Netick.NetickEngine.ConnectedClients" data-throw-if-not-resolved="false"></xref>.</p>
-  example: []
   syntax:
     content: >-
       [Obsolete("This will be removed in the future, please use Players instead.")]
@@ -2300,216 +2474,6 @@ items:
     arguments:
     - type: System.String
       value: This will be removed in the future, please use Players instead.
-- uid: Netick.NetickEngine.UserObject
-  commentId: P:Netick.NetickEngine.UserObject
-  id: UserObject
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: UserObject
-  nameWithType: NetickEngine.UserObject
-  fullName: Netick.NetickEngine.UserObject
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public object UserObject { get; set; }
-    parameters: []
-    return:
-      type: System.Object
-    content.vb: Public Property UserObject As Object
-  overload: Netick.NetickEngine.UserObject*
-- uid: Netick.NetickEngine.Name
-  commentId: P:Netick.NetickEngine.Name
-  id: Name
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: Name
-  nameWithType: NetickEngine.Name
-  fullName: Netick.NetickEngine.Name
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public string Name { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public ReadOnly Property Name As String
-  overload: Netick.NetickEngine.Name*
-- uid: Netick.NetickEngine.StartMode
-  commentId: P:Netick.NetickEngine.StartMode
-  id: StartMode
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: StartMode
-  nameWithType: NetickEngine.StartMode
-  fullName: Netick.NetickEngine.StartMode
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public NetickStartMode StartMode { get; }
-    parameters: []
-    return:
-      type: Netick.NetickStartMode
-    content.vb: Public ReadOnly Property StartMode As NetickStartMode
-  overload: Netick.NetickEngine.StartMode*
-- uid: Netick.NetickEngine.IsRunning
-  commentId: P:Netick.NetickEngine.IsRunning
-  id: IsRunning
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: IsRunning
-  nameWithType: NetickEngine.IsRunning
-  fullName: Netick.NetickEngine.IsRunning
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool IsRunning { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public ReadOnly Property IsRunning As Boolean
-  overload: Netick.NetickEngine.IsRunning*
-- uid: Netick.NetickEngine.IsServer
-  commentId: P:Netick.NetickEngine.IsServer
-  id: IsServer
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: IsServer
-  nameWithType: NetickEngine.IsServer
-  fullName: Netick.NetickEngine.IsServer
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool IsServer { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public ReadOnly Property IsServer As Boolean
-  overload: Netick.NetickEngine.IsServer*
-- uid: Netick.NetickEngine.IsClient
-  commentId: P:Netick.NetickEngine.IsClient
-  id: IsClient
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: IsClient
-  nameWithType: NetickEngine.IsClient
-  fullName: Netick.NetickEngine.IsClient
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool IsClient { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public ReadOnly Property IsClient As Boolean
-  overload: Netick.NetickEngine.IsClient*
-- uid: Netick.NetickEngine.Port
-  commentId: P:Netick.NetickEngine.Port
-  id: Port
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: Port
-  nameWithType: NetickEngine.Port
-  fullName: Netick.NetickEngine.Port
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int Port { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property Port As Integer
-  overload: Netick.NetickEngine.Port*
-- uid: Netick.NetickEngine.MaxClients
-  commentId: P:Netick.NetickEngine.MaxClients
-  id: MaxClients
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: MaxClients
-  nameWithType: NetickEngine.MaxClients
-  fullName: Netick.NetickEngine.MaxClients
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int MaxClients { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property MaxClients As Integer
-  overload: Netick.NetickEngine.MaxClients*
-- uid: Netick.NetickEngine.MaxPlayers
-  commentId: P:Netick.NetickEngine.MaxPlayers
-  id: MaxPlayers
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: MaxPlayers
-  nameWithType: NetickEngine.MaxPlayers
-  fullName: Netick.NetickEngine.MaxPlayers
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public int MaxPlayers { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property MaxPlayers As Integer
-  overload: Netick.NetickEngine.MaxPlayers*
-- uid: Netick.NetickEngine.InputEnabled
-  commentId: P:Netick.NetickEngine.InputEnabled
-  id: InputEnabled
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: InputEnabled
-  nameWithType: NetickEngine.InputEnabled
-  fullName: Netick.NetickEngine.InputEnabled
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public bool InputEnabled { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property InputEnabled As Boolean
-  overload: Netick.NetickEngine.InputEnabled*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -2731,6 +2695,17 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: System.Collections.Generic.List{Netick.IClientSimulationCallbacks}
   commentId: T:System.Collections.Generic.List{Netick.IClientSimulationCallbacks}
   parent: System.Collections.Generic
@@ -2842,24 +2817,13 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
-- uid: Netick.NetickEngine.Connect*
-  commentId: Overload:Netick.NetickEngine.Connect
+- uid: Netick.NetickEngine.Start*
+  commentId: Overload:Netick.NetickEngine.Start
   isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_Connect_System_Int32_System_String_System_Byte___System_Int32_
-  name: Connect
-  nameWithType: NetickEngine.Connect
-  fullName: Netick.NetickEngine.Connect
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
+  href: Netick.NetickEngine.html#Netick_NetickEngine_Start_System_Object_System_String_System_Int32_Netick_NetickStartMode_Netick_IGameEngine_Netick_IReplayTransport_Netick_NetickConfigData_Netick_NetworkTransport_Netick_ReflectionData_Netick_INetickLogger_Netick_IMemoryAllocator_Netick_MismatchChecker_System_Int32_System_Int32_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_
+  name: Start
+  nameWithType: NetickEngine.Start
+  fullName: Netick.NetickEngine.Start
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -2871,6 +2835,124 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.NetickStartMode
+  commentId: T:Netick.NetickStartMode
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickStartMode.html
+  name: NetickStartMode
+  nameWithType: NetickStartMode
+  fullName: Netick.NetickStartMode
+- uid: Netick.IGameEngine
+  commentId: T:Netick.IGameEngine
+  parent: Netick
+  isExternal: true
+  href: Netick.IGameEngine.html
+  name: IGameEngine
+  nameWithType: IGameEngine
+  fullName: Netick.IGameEngine
+- uid: Netick.IReplayTransport
+  commentId: T:Netick.IReplayTransport
+  parent: Netick
+  isExternal: true
+  href: Netick.IReplayTransport.html
+  name: IReplayTransport
+  nameWithType: IReplayTransport
+  fullName: Netick.IReplayTransport
+- uid: Netick.NetickConfigData
+  commentId: T:Netick.NetickConfigData
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickConfigData.html
+  name: NetickConfigData
+  nameWithType: NetickConfigData
+  fullName: Netick.NetickConfigData
+- uid: Netick.NetworkTransport
+  commentId: T:Netick.NetworkTransport
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkTransport.html
+  name: NetworkTransport
+  nameWithType: NetworkTransport
+  fullName: Netick.NetworkTransport
+- uid: Netick.ReflectionData
+  commentId: T:Netick.ReflectionData
+  parent: Netick
+  isExternal: true
+  href: Netick.ReflectionData.html
+  name: ReflectionData
+  nameWithType: ReflectionData
+  fullName: Netick.ReflectionData
+- uid: Netick.INetickLogger
+  commentId: T:Netick.INetickLogger
+  parent: Netick
+  isExternal: true
+  href: Netick.INetickLogger.html
+  name: INetickLogger
+  nameWithType: INetickLogger
+  fullName: Netick.INetickLogger
+- uid: Netick.IMemoryAllocator
+  commentId: T:Netick.IMemoryAllocator
+  parent: Netick
+  isExternal: true
+  href: Netick.IMemoryAllocator.html
+  name: IMemoryAllocator
+  nameWithType: IMemoryAllocator
+  fullName: Netick.IMemoryAllocator
+- uid: Netick.MismatchChecker
+  commentId: T:Netick.MismatchChecker
+  parent: Netick
+  isExternal: true
+  href: Netick.MismatchChecker.html
+  name: MismatchChecker
+  nameWithType: MismatchChecker
+  fullName: Netick.MismatchChecker
+- uid: Netick.NetickEngine.Shutdown*
+  commentId: Overload:Netick.NetickEngine.Shutdown
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_Shutdown
+  name: Shutdown
+  nameWithType: NetickEngine.Shutdown
+  fullName: Netick.NetickEngine.Shutdown
+- uid: Netick.NetickEngine.ResetForSceneSwitch*
+  commentId: Overload:Netick.NetickEngine.ResetForSceneSwitch
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_ResetForSceneSwitch
+  name: ResetForSceneSwitch
+  nameWithType: NetickEngine.ResetForSceneSwitch
+  fullName: Netick.NetickEngine.ResetForSceneSwitch
+- uid: Netick.NetickEngine.Update*
+  commentId: Overload:Netick.NetickEngine.Update
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_Update_System_Single_System_Single_System_Boolean_
+  name: Update
+  nameWithType: NetickEngine.Update
+  fullName: Netick.NetickEngine.Update
+- uid: Netick.NetickEngine.Render*
+  commentId: Overload:Netick.NetickEngine.Render
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_Render
+  name: Render
+  nameWithType: NetickEngine.Render
+  fullName: Netick.NetickEngine.Render
+- uid: Netick.NetickEngine.Connect*
+  commentId: Overload:Netick.NetickEngine.Connect
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_Connect_System_Int32_System_String_System_Byte___System_Int32_
+  name: Connect
+  nameWithType: NetickEngine.Connect
+  fullName: Netick.NetickEngine.Connect
 - uid: System.Byte[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.byte
@@ -2930,6 +3012,162 @@ references:
   name: DisconnectHost
   nameWithType: NetickEngine.DisconnectHost
   fullName: Netick.NetickEngine.DisconnectHost
+- uid: Netick.NetickEngine.StartRecordingReplay*
+  commentId: Overload:Netick.NetickEngine.StartRecordingReplay
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_StartRecordingReplay_System_String_
+  name: StartRecordingReplay
+  nameWithType: NetickEngine.StartRecordingReplay
+  fullName: Netick.NetickEngine.StartRecordingReplay
+- uid: Netick.NetickEngine.StopRecordingReplay*
+  commentId: Overload:Netick.NetickEngine.StopRecordingReplay
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_StopRecordingReplay
+  name: StopRecordingReplay
+  nameWithType: NetickEngine.StopRecordingReplay
+  fullName: Netick.NetickEngine.StopRecordingReplay
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Netick.NetickEngine.StartPlayback*
+  commentId: Overload:Netick.NetickEngine.StartPlayback
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_StartPlayback_System_String_
+  name: StartPlayback
+  nameWithType: NetickEngine.StartPlayback
+  fullName: Netick.NetickEngine.StartPlayback
+- uid: Netick.NetickEngine.GetInput*
+  commentId: Overload:Netick.NetickEngine.GetInput
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_GetInput__1_System_Int32_
+  name: GetInput
+  nameWithType: NetickEngine.GetInput
+  fullName: Netick.NetickEngine.GetInput
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Netick.NetickEngine.SetInput*
+  commentId: Overload:Netick.NetickEngine.SetInput
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_SetInput__1___0_System_Int32_
+  name: SetInput
+  nameWithType: NetickEngine.SetInput
+  fullName: Netick.NetickEngine.SetInput
+- uid: Netick.NetickEngine.FetchInput*
+  commentId: Overload:Netick.NetickEngine.FetchInput
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_FetchInput__1___0__System_Boolean__Netick_Entity_System_Int32_
+  name: FetchInput
+  nameWithType: NetickEngine.FetchInput
+  fullName: Netick.NetickEngine.FetchInput
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
+- uid: Netick.NetickEngine.GetPlayerEntity*
+  commentId: Overload:Netick.NetickEngine.GetPlayerEntity
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_GetPlayerEntity_Netick_NetworkPlayerId_
+  name: GetPlayerEntity
+  nameWithType: NetickEngine.GetPlayerEntity
+  fullName: Netick.NetickEngine.GetPlayerEntity
+- uid: Netick.NetworkPlayerId
+  commentId: T:Netick.NetworkPlayerId
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayerId.html
+  name: NetworkPlayerId
+  nameWithType: NetworkPlayerId
+  fullName: Netick.NetworkPlayerId
+- uid: Netick.NetickEngine.SetPlayerEntity*
+  commentId: Overload:Netick.NetickEngine.SetPlayerEntity
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_SetPlayerEntity_Netick_NetworkPlayerId_Netick_Entity_
+  name: SetPlayerEntity
+  nameWithType: NetickEngine.SetPlayerEntity
+  fullName: Netick.NetickEngine.SetPlayerEntity
+- uid: Netick.NetickEngine.DestroyEntity*
+  commentId: Overload:Netick.NetickEngine.DestroyEntity
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_DestroyEntity_Netick_Entity_System_Boolean_System_Boolean_
+  name: DestroyEntity
+  nameWithType: NetickEngine.DestroyEntity
+  fullName: Netick.NetickEngine.DestroyEntity
+- uid: Netick.NetickEngine.AttachBehaviour*
+  commentId: Overload:Netick.NetickEngine.AttachBehaviour
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_AttachBehaviour_Netick_INetickScript_System_Boolean_
+  name: AttachBehaviour
+  nameWithType: NetickEngine.AttachBehaviour
+  fullName: Netick.NetickEngine.AttachBehaviour
+- uid: Netick.INetickScript
+  commentId: T:Netick.INetickScript
+  parent: Netick
+  isExternal: true
+  href: Netick.INetickScript.html
+  name: INetickScript
+  nameWithType: INetickScript
+  fullName: Netick.INetickScript
+- uid: Netick.NetickEngine.DetachBehaviour*
+  commentId: Overload:Netick.NetickEngine.DetachBehaviour
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_DetachBehaviour_Netick_INetickScript_
+  name: DetachBehaviour
+  nameWithType: NetickEngine.DetachBehaviour
+  fullName: Netick.NetickEngine.DetachBehaviour
 - uid: Netick.NetickEngine.GetWorldStateTotalSize*
   commentId: Overload:Netick.NetickEngine.GetWorldStateTotalSize
   isExternal: true
@@ -2990,21 +3228,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: '*'
-- uid: Netick.NetickEngine.GetBehaviourOrder*
-  commentId: Overload:Netick.NetickEngine.GetBehaviourOrder
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_GetBehaviourOrder_System_Type_
-  name: GetBehaviourOrder
-  nameWithType: NetickEngine.GetBehaviourOrder
-  fullName: Netick.NetickEngine.GetBehaviourOrder
-- uid: System.Type
-  commentId: T:System.Type
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.type
-  name: Type
-  nameWithType: Type
-  fullName: System.Type
 - uid: Netick.NetickEngine.ContainsPlayer*
   commentId: Overload:Netick.NetickEngine.ContainsPlayer
   isExternal: true
@@ -3012,25 +3235,6 @@ references:
   name: ContainsPlayer
   nameWithType: NetickEngine.ContainsPlayer
   fullName: Netick.NetickEngine.ContainsPlayer
-- uid: Netick.NetworkPlayerId
-  commentId: T:Netick.NetworkPlayerId
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkPlayerId.html
-  name: NetworkPlayerId
-  nameWithType: NetworkPlayerId
-  fullName: Netick.NetworkPlayerId
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: Netick.NetickEngine.GetPlayerById*
   commentId: Overload:Netick.NetickEngine.GetPlayerById
   isExternal: true
@@ -3046,6 +3250,21 @@ references:
   name: NetworkPlayer
   nameWithType: NetworkPlayer
   fullName: Netick.NetworkPlayer
+- uid: Netick.NetickEngine.GetBehaviourOrder*
+  commentId: Overload:Netick.NetickEngine.GetBehaviourOrder
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_GetBehaviourOrder_System_Type_
+  name: GetBehaviourOrder
+  nameWithType: NetickEngine.GetBehaviourOrder
+  fullName: Netick.NetickEngine.GetBehaviourOrder
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
 - uid: Netick.NetickEngine.GetBehavioursOfType*
   commentId: Overload:Netick.NetickEngine.GetBehavioursOfType
   isExternal: true
@@ -3082,304 +3301,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: Netick.INetickScript
-  commentId: T:Netick.INetickScript
-  parent: Netick
-  isExternal: true
-  href: Netick.INetickScript.html
-  name: INetickScript
-  nameWithType: INetickScript
-  fullName: Netick.INetickScript
-- uid: Netick.NetickEngine.AttachBehaviour*
-  commentId: Overload:Netick.NetickEngine.AttachBehaviour
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_AttachBehaviour_Netick_INetickScript_System_Boolean_
-  name: AttachBehaviour
-  nameWithType: NetickEngine.AttachBehaviour
-  fullName: Netick.NetickEngine.AttachBehaviour
-- uid: Netick.NetickEngine.DetachBehaviour*
-  commentId: Overload:Netick.NetickEngine.DetachBehaviour
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_DetachBehaviour_Netick_INetickScript_
-  name: DetachBehaviour
-  nameWithType: NetickEngine.DetachBehaviour
-  fullName: Netick.NetickEngine.DetachBehaviour
-- uid: Netick.NetickEngine.GetPlayerEntity*
-  commentId: Overload:Netick.NetickEngine.GetPlayerEntity
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_GetPlayerEntity_Netick_NetworkPlayerId_
-  name: GetPlayerEntity
-  nameWithType: NetickEngine.GetPlayerEntity
-  fullName: Netick.NetickEngine.GetPlayerEntity
-- uid: Netick.Entity
-  commentId: T:Netick.Entity
-  parent: Netick
-  isExternal: true
-  href: Netick.Entity.html
-  name: Entity
-  nameWithType: Entity
-  fullName: Netick.Entity
-- uid: Netick.NetickEngine.SetPlayerEntity*
-  commentId: Overload:Netick.NetickEngine.SetPlayerEntity
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_SetPlayerEntity_Netick_NetworkPlayerId_Netick_Entity_
-  name: SetPlayerEntity
-  nameWithType: NetickEngine.SetPlayerEntity
-  fullName: Netick.NetickEngine.SetPlayerEntity
-- uid: Netick.NetickEngine.CreateEntity*
-  commentId: Overload:Netick.NetickEngine.CreateEntity
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_CreateEntity_System_Int32_
-  name: CreateEntity
-  nameWithType: NetickEngine.CreateEntity
-  fullName: Netick.NetickEngine.CreateEntity
-- uid: Netick.NetickEngine.LinkEntity*
-  commentId: Overload:Netick.NetickEngine.LinkEntity
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_LinkEntity_Netick_INetickEntity_Netick_Entity_
-  name: LinkEntity
-  nameWithType: NetickEngine.LinkEntity
-  fullName: Netick.NetickEngine.LinkEntity
-- uid: Netick.INetickEntity
-  commentId: T:Netick.INetickEntity
-  parent: Netick
-  isExternal: true
-  href: Netick.INetickEntity.html
-  name: INetickEntity
-  nameWithType: INetickEntity
-  fullName: Netick.INetickEntity
-- uid: Netick.NetickEngine.CreateAndLinkEntityLocal*
-  commentId: Overload:Netick.NetickEngine.CreateAndLinkEntityLocal
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_CreateAndLinkEntityLocal_Netick_INetickEntity_
-  name: CreateAndLinkEntityLocal
-  nameWithType: NetickEngine.CreateAndLinkEntityLocal
-  fullName: Netick.NetickEngine.CreateAndLinkEntityLocal
-- uid: Netick.NetickEngine.ClientAddUnlinkedEntity*
-  commentId: Overload:Netick.NetickEngine.ClientAddUnlinkedEntity
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_ClientAddUnlinkedEntity_Netick_Entity_System_Int32_System_Int32_
-  name: ClientAddUnlinkedEntity
-  nameWithType: NetickEngine.ClientAddUnlinkedEntity
-  fullName: Netick.NetickEngine.ClientAddUnlinkedEntity
-- uid: Netick.NetickEngine.ClientAddEntity*
-  commentId: Overload:Netick.NetickEngine.ClientAddEntity
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_ClientAddEntity_Netick_INetickEntity_System_Int32_System_Int32_System_Boolean_Netick_NetickEntityMeta_
-  name: ClientAddEntity
-  nameWithType: NetickEngine.ClientAddEntity
-  fullName: Netick.NetickEngine.ClientAddEntity
-- uid: Netick.NetickEntityMeta
-  commentId: T:Netick.NetickEntityMeta
-  parent: Netick
-  isExternal: true
-  href: Netick.NetickEntityMeta.html
-  name: NetickEntityMeta
-  nameWithType: NetickEntityMeta
-  fullName: Netick.NetickEntityMeta
-- uid: Netick.NetickEngine.ServerAddEntity*
-  commentId: Overload:Netick.NetickEngine.ServerAddEntity
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_ServerAddEntity_Netick_INetickEntity_Netick_NetworkPlayer_System_Boolean_
-  name: ServerAddEntity
-  nameWithType: NetickEngine.ServerAddEntity
-  fullName: Netick.NetickEngine.ServerAddEntity
-- uid: Netick.NetickEngine.DestroyEntity*
-  commentId: Overload:Netick.NetickEngine.DestroyEntity
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_DestroyEntity_Netick_Entity_System_Boolean_System_Boolean_
-  name: DestroyEntity
-  nameWithType: NetickEngine.DestroyEntity
-  fullName: Netick.NetickEngine.DestroyEntity
-- uid: Netick.NetickEngine.GetEntityByWorldIndex*
-  commentId: Overload:Netick.NetickEngine.GetEntityByWorldIndex
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_GetEntityByWorldIndex_System_Int32_
-  name: GetEntityByWorldIndex
-  nameWithType: NetickEngine.GetEntityByWorldIndex
-  fullName: Netick.NetickEngine.GetEntityByWorldIndex
-- uid: Netick.NetickEngine.GetEntityMeta*
-  commentId: Overload:Netick.NetickEngine.GetEntityMeta
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_GetEntityMeta_Netick_Entity_
-  name: GetEntityMeta
-  nameWithType: NetickEngine.GetEntityMeta
-  fullName: Netick.NetickEngine.GetEntityMeta
-- uid: Netick.NetickEntityMeta*
-  isExternal: true
-  href: Netick.NetickEntityMeta.html
-  name: NetickEntityMeta*
-  nameWithType: NetickEntityMeta*
-  fullName: Netick.NetickEntityMeta*
-  spec.csharp:
-  - uid: Netick.NetickEntityMeta
-    name: NetickEntityMeta
-    isExternal: true
-    href: Netick.NetickEntityMeta.html
-  - name: '*'
-  spec.vb:
-  - uid: Netick.NetickEntityMeta
-    name: NetickEntityMeta
-    isExternal: true
-    href: Netick.NetickEntityMeta.html
-  - name: '*'
-- uid: Netick.NetickEngine.GetEntityUserMeta*
-  commentId: Overload:Netick.NetickEngine.GetEntityUserMeta
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_GetEntityUserMeta_Netick_Entity_
-  name: GetEntityUserMeta
-  nameWithType: NetickEngine.GetEntityUserMeta
-  fullName: Netick.NetickEngine.GetEntityUserMeta
-- uid: Netick.NetickEngine.SetEntityUserMetaDirty*
-  commentId: Overload:Netick.NetickEngine.SetEntityUserMetaDirty
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_SetEntityUserMetaDirty_Netick_Entity_System_Int32__
-  name: SetEntityUserMetaDirty
-  nameWithType: NetickEngine.SetEntityUserMetaDirty
-  fullName: Netick.NetickEngine.SetEntityUserMetaDirty
-- uid: System.Int32*
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int*
-  nameWithType: int*
-  fullName: int*
-  nameWithType.vb: Integer*
-  fullName.vb: Integer*
-  name.vb: Integer*
-  spec.csharp:
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '*'
-  spec.vb:
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '*'
-- uid: Netick.NetickEngine.GetInput*
-  commentId: Overload:Netick.NetickEngine.GetInput
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_GetInput__1_System_Int32_
-  name: GetInput
-  nameWithType: NetickEngine.GetInput
-  fullName: Netick.NetickEngine.GetInput
-- uid: '{T}'
-  commentId: '!:T'
-  definition: T
-  name: T
-  nameWithType: T
-  fullName: T
-- uid: T
-  name: T
-  nameWithType: T
-  fullName: T
-- uid: Netick.NetickEngine.SetInput*
-  commentId: Overload:Netick.NetickEngine.SetInput
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_SetInput__1___0_System_Int32_
-  name: SetInput
-  nameWithType: NetickEngine.SetInput
-  fullName: Netick.NetickEngine.SetInput
-- uid: Netick.NetickEngine.FetchInput*
-  commentId: Overload:Netick.NetickEngine.FetchInput
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_FetchInput__1___0__System_Boolean__Netick_Entity_System_Int32_
-  name: FetchInput
-  nameWithType: NetickEngine.FetchInput
-  fullName: Netick.NetickEngine.FetchInput
-- uid: Netick.NetickEngine.Start*
-  commentId: Overload:Netick.NetickEngine.Start
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_Start_System_Object_System_String_System_Int32_Netick_NetickStartMode_Netick_IGameEngine_Netick_NetickConfigData_Netick_NetworkTransport_Netick_ReflectionData_Netick_INetickLogger_Netick_IMemoryAllocator_System_Int32_
-  name: Start
-  nameWithType: NetickEngine.Start
-  fullName: Netick.NetickEngine.Start
-- uid: Netick.NetickStartMode
-  commentId: T:Netick.NetickStartMode
-  parent: Netick
-  isExternal: true
-  href: Netick.NetickStartMode.html
-  name: NetickStartMode
-  nameWithType: NetickStartMode
-  fullName: Netick.NetickStartMode
-- uid: Netick.IGameEngine
-  commentId: T:Netick.IGameEngine
-  parent: Netick
-  isExternal: true
-  href: Netick.IGameEngine.html
-  name: IGameEngine
-  nameWithType: IGameEngine
-  fullName: Netick.IGameEngine
-- uid: Netick.NetickConfigData
-  commentId: T:Netick.NetickConfigData
-  parent: Netick
-  isExternal: true
-  href: Netick.NetickConfigData.html
-  name: NetickConfigData
-  nameWithType: NetickConfigData
-  fullName: Netick.NetickConfigData
-- uid: Netick.NetworkTransport
-  commentId: T:Netick.NetworkTransport
-  parent: Netick
-  isExternal: true
-  href: Netick.NetworkTransport.html
-  name: NetworkTransport
-  nameWithType: NetworkTransport
-  fullName: Netick.NetworkTransport
-- uid: Netick.ReflectionData
-  commentId: T:Netick.ReflectionData
-  parent: Netick
-  isExternal: true
-  href: Netick.ReflectionData.html
-  name: ReflectionData
-  nameWithType: ReflectionData
-  fullName: Netick.ReflectionData
-- uid: Netick.INetickLogger
-  commentId: T:Netick.INetickLogger
-  parent: Netick
-  isExternal: true
-  href: Netick.INetickLogger.html
-  name: INetickLogger
-  nameWithType: INetickLogger
-  fullName: Netick.INetickLogger
-- uid: Netick.IMemoryAllocator
-  commentId: T:Netick.IMemoryAllocator
-  parent: Netick
-  isExternal: true
-  href: Netick.IMemoryAllocator.html
-  name: IMemoryAllocator
-  nameWithType: IMemoryAllocator
-  fullName: Netick.IMemoryAllocator
-- uid: Netick.NetickEngine.Shutdown*
-  commentId: Overload:Netick.NetickEngine.Shutdown
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_Shutdown
-  name: Shutdown
-  nameWithType: NetickEngine.Shutdown
-  fullName: Netick.NetickEngine.Shutdown
-- uid: Netick.NetickEngine.ResetForSceneSwitch*
-  commentId: Overload:Netick.NetickEngine.ResetForSceneSwitch
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_ResetForSceneSwitch
-  name: ResetForSceneSwitch
-  nameWithType: NetickEngine.ResetForSceneSwitch
-  fullName: Netick.NetickEngine.ResetForSceneSwitch
-- uid: Netick.NetickEngine.Update*
-  commentId: Overload:Netick.NetickEngine.Update
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_Update_System_Single_System_Single_System_Boolean_
-  name: Update
-  nameWithType: NetickEngine.Update
-  fullName: Netick.NetickEngine.Update
-- uid: Netick.NetickEngine.Render*
-  commentId: Overload:Netick.NetickEngine.Render
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_Render
-  name: Render
-  nameWithType: NetickEngine.Render
-  fullName: Netick.NetickEngine.Render
 - uid: Netick.NetickEngine.#ctor*
   commentId: Overload:Netick.NetickEngine.#ctor
   isExternal: true
@@ -3390,6 +3311,111 @@ references:
   nameWithType.vb: NetickEngine.New
   fullName.vb: Netick.NetickEngine.New
   name.vb: New
+- uid: Netick.NetickEngine.UserObject*
+  commentId: Overload:Netick.NetickEngine.UserObject
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_UserObject
+  name: UserObject
+  nameWithType: NetickEngine.UserObject
+  fullName: Netick.NetickEngine.UserObject
+- uid: Netick.NetickEngine.Name*
+  commentId: Overload:Netick.NetickEngine.Name
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_Name
+  name: Name
+  nameWithType: NetickEngine.Name
+  fullName: Netick.NetickEngine.Name
+- uid: Netick.NetickEngine.StartMode*
+  commentId: Overload:Netick.NetickEngine.StartMode
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_StartMode
+  name: StartMode
+  nameWithType: NetickEngine.StartMode
+  fullName: Netick.NetickEngine.StartMode
+- uid: Netick.NetickEngine.IsRunning*
+  commentId: Overload:Netick.NetickEngine.IsRunning
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_IsRunning
+  name: IsRunning
+  nameWithType: NetickEngine.IsRunning
+  fullName: Netick.NetickEngine.IsRunning
+- uid: Netick.NetickEngine.IsOffline*
+  commentId: Overload:Netick.NetickEngine.IsOffline
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_IsOffline
+  name: IsOffline
+  nameWithType: NetickEngine.IsOffline
+  fullName: Netick.NetickEngine.IsOffline
+- uid: Netick.NetickEngine.IsServer*
+  commentId: Overload:Netick.NetickEngine.IsServer
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_IsServer
+  name: IsServer
+  nameWithType: NetickEngine.IsServer
+  fullName: Netick.NetickEngine.IsServer
+- uid: Netick.NetickEngine.IsClient*
+  commentId: Overload:Netick.NetickEngine.IsClient
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_IsClient
+  name: IsClient
+  nameWithType: NetickEngine.IsClient
+  fullName: Netick.NetickEngine.IsClient
+- uid: Netick.NetickEngine.IsReplaying*
+  commentId: Overload:Netick.NetickEngine.IsReplaying
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_IsReplaying
+  name: IsReplaying
+  nameWithType: NetickEngine.IsReplaying
+  fullName: Netick.NetickEngine.IsReplaying
+- uid: Netick.NetickEngine.IsRecording*
+  commentId: Overload:Netick.NetickEngine.IsRecording
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_IsRecording
+  name: IsRecording
+  nameWithType: NetickEngine.IsRecording
+  fullName: Netick.NetickEngine.IsRecording
+- uid: Netick.NetickEngine.Port*
+  commentId: Overload:Netick.NetickEngine.Port
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_Port
+  name: Port
+  nameWithType: NetickEngine.Port
+  fullName: Netick.NetickEngine.Port
+- uid: Netick.NetickEngine.MaxClients*
+  commentId: Overload:Netick.NetickEngine.MaxClients
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_MaxClients
+  name: MaxClients
+  nameWithType: NetickEngine.MaxClients
+  fullName: Netick.NetickEngine.MaxClients
+- uid: Netick.NetickEngine.MaxPlayers*
+  commentId: Overload:Netick.NetickEngine.MaxPlayers
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_MaxPlayers
+  name: MaxPlayers
+  nameWithType: NetickEngine.MaxPlayers
+  fullName: Netick.NetickEngine.MaxPlayers
+- uid: Netick.NetickEngine.GameVersion*
+  commentId: Overload:Netick.NetickEngine.GameVersion
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_GameVersion
+  name: GameVersion
+  nameWithType: NetickEngine.GameVersion
+  fullName: Netick.NetickEngine.GameVersion
+- uid: Netick.NetickEngine.IsReplayEnabled*
+  commentId: Overload:Netick.NetickEngine.IsReplayEnabled
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_IsReplayEnabled
+  name: IsReplayEnabled
+  nameWithType: NetickEngine.IsReplayEnabled
+  fullName: Netick.NetickEngine.IsReplayEnabled
+- uid: Netick.NetickEngine.IsInputEnabled*
+  commentId: Overload:Netick.NetickEngine.IsInputEnabled
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_IsInputEnabled
+  name: IsInputEnabled
+  nameWithType: NetickEngine.IsInputEnabled
+  fullName: Netick.NetickEngine.IsInputEnabled
 - uid: Netick.NetickEngine.Config*
   commentId: Overload:Netick.NetickEngine.Config
   isExternal: true
@@ -3553,6 +3579,21 @@ references:
   name: INetickComponent
   nameWithType: INetickComponent
   fullName: Netick.INetickComponent
+- uid: Netick.NetickEngine.Replay*
+  commentId: Overload:Netick.NetickEngine.Replay
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_Replay
+  name: Replay
+  nameWithType: NetickEngine.Replay
+  fullName: Netick.NetickEngine.Replay
+- uid: Netick.Replay
+  commentId: T:Netick.Replay
+  parent: Netick
+  isExternal: true
+  href: Netick.Replay.html
+  name: Replay
+  nameWithType: Replay
+  fullName: Netick.Replay
 - uid: Netick.NetickEngine.Timer*
   commentId: Overload:Netick.NetickEngine.Timer
   isExternal: true
@@ -3763,14 +3804,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: System.Net.IPEndPoint
-  commentId: T:System.Net.IPEndPoint
-  parent: System.Net
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.net.ipendpoint
-  name: IPEndPoint
-  nameWithType: IPEndPoint
-  fullName: System.Net.IPEndPoint
 - uid: Netick.NetickEngine.ServerEndPoint*
   commentId: Overload:Netick.NetickEngine.ServerEndPoint
   isExternal: true
@@ -3786,33 +3819,6 @@ references:
   name: IEndPoint
   nameWithType: IEndPoint
   fullName: Netick.IEndPoint
-- uid: System.Net
-  commentId: N:System.Net
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Net
-  nameWithType: System.Net
-  fullName: System.Net
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Net
-    name: Net
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.net
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.Net
-    name: Net
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.net
 - uid: Netick.NetickEngine.IsConnected*
   commentId: Overload:Netick.NetickEngine.IsConnected
   isExternal: true
@@ -4065,13 +4071,6 @@ references:
   name: OnTickStart
   nameWithType: NetickEngine.OnTickStart
   fullName: Netick.NetickEngine.OnTickStart
-- uid: Netick.NetickEngine.ConnectedPlayers
-  commentId: P:Netick.NetickEngine.ConnectedPlayers
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_ConnectedPlayers
-  name: ConnectedPlayers
-  nameWithType: NetickEngine.ConnectedPlayers
-  fullName: Netick.NetickEngine.ConnectedPlayers
 - uid: Netick.NetickEngine.ConnectedClients*
   commentId: Overload:Netick.NetickEngine.ConnectedClients
   isExternal: true
@@ -4114,13 +4113,6 @@ references:
     isExternal: true
     href: Netick.ServerConnection.html
   - name: )
-- uid: Netick.NetickEngine.ConnectedClients
-  commentId: P:Netick.NetickEngine.ConnectedClients
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_ConnectedClients
-  name: ConnectedClients
-  nameWithType: NetickEngine.ConnectedClients
-  fullName: Netick.NetickEngine.ConnectedClients
 - uid: Netick.NetickEngine.ConnectedPlayers*
   commentId: Overload:Netick.NetickEngine.ConnectedPlayers
   isExternal: true
@@ -4163,73 +4155,3 @@ references:
     isExternal: true
     href: Netick.NetworkPlayer.html
   - name: )
-- uid: Netick.NetickEngine.UserObject*
-  commentId: Overload:Netick.NetickEngine.UserObject
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_UserObject
-  name: UserObject
-  nameWithType: NetickEngine.UserObject
-  fullName: Netick.NetickEngine.UserObject
-- uid: Netick.NetickEngine.Name*
-  commentId: Overload:Netick.NetickEngine.Name
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_Name
-  name: Name
-  nameWithType: NetickEngine.Name
-  fullName: Netick.NetickEngine.Name
-- uid: Netick.NetickEngine.StartMode*
-  commentId: Overload:Netick.NetickEngine.StartMode
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_StartMode
-  name: StartMode
-  nameWithType: NetickEngine.StartMode
-  fullName: Netick.NetickEngine.StartMode
-- uid: Netick.NetickEngine.IsRunning*
-  commentId: Overload:Netick.NetickEngine.IsRunning
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_IsRunning
-  name: IsRunning
-  nameWithType: NetickEngine.IsRunning
-  fullName: Netick.NetickEngine.IsRunning
-- uid: Netick.NetickEngine.IsServer*
-  commentId: Overload:Netick.NetickEngine.IsServer
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_IsServer
-  name: IsServer
-  nameWithType: NetickEngine.IsServer
-  fullName: Netick.NetickEngine.IsServer
-- uid: Netick.NetickEngine.IsClient*
-  commentId: Overload:Netick.NetickEngine.IsClient
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_IsClient
-  name: IsClient
-  nameWithType: NetickEngine.IsClient
-  fullName: Netick.NetickEngine.IsClient
-- uid: Netick.NetickEngine.Port*
-  commentId: Overload:Netick.NetickEngine.Port
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_Port
-  name: Port
-  nameWithType: NetickEngine.Port
-  fullName: Netick.NetickEngine.Port
-- uid: Netick.NetickEngine.MaxClients*
-  commentId: Overload:Netick.NetickEngine.MaxClients
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_MaxClients
-  name: MaxClients
-  nameWithType: NetickEngine.MaxClients
-  fullName: Netick.NetickEngine.MaxClients
-- uid: Netick.NetickEngine.MaxPlayers*
-  commentId: Overload:Netick.NetickEngine.MaxPlayers
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_MaxPlayers
-  name: MaxPlayers
-  nameWithType: NetickEngine.MaxPlayers
-  fullName: Netick.NetickEngine.MaxPlayers
-- uid: Netick.NetickEngine.InputEnabled*
-  commentId: Overload:Netick.NetickEngine.InputEnabled
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_InputEnabled
-  name: InputEnabled
-  nameWithType: NetickEngine.InputEnabled
-  fullName: Netick.NetickEngine.InputEnabled
