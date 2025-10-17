@@ -86,14 +86,15 @@
 <h1 id="full-game-replay">Full Game Replay</h1>
 
 <h2 id="file-replay-backend">File Replay Backend</h2>
-<p>The replay system in Netick allows for recording the <em>entire networked state</em> of a game (including all network objects, RPCs, and scene state) directly on the server. This data can later be used to replay the full game exactly as it happened.</p>
+<p>The replay system in Netick allows for recording the <em>entire networked state</em> of a game (including all network objects, RPCs, and scene state) on the server. This data can later be used to replay the full game exactly as it happened.</p>
 <p>Unlike replay systems in games such as Counter-Strike, which store raw network packets and must process every packet sequentially to reach a target frame (making seeking very slow), Netick records snapshots of the full game state.
 This approach is conceptually similar to video compression formats, allowing for instant seeking without needing to apply all previous data.</p>
 <h3 id="use-cases">Use Cases</h3>
 <ul>
-<li>Player improvement: Let players review full matches to learn from mistakes or study better players.</li>
-<li>Cheat review: Let admins investigate potential cheating (e.g., wallhacks, aimbots) by replaying suspicious matches.</li>
+<li>Game Analysis: Let players review full matches and analyze them.</li>
+<li>Cheat Review: Let admins investigate potential cheating (e.g., wallhacks, aimbots) by replaying suspicious matches.</li>
 <li>Debugging: Simulate late-joins or extended packet loss by skipping through the replay timeline.</li>
+<li>Videos: Both developers and players can screen record replays to create videos for various purposes. Unlike regular screen recording alone, replays are actual replays of the game, so it's possible to change the camera location and capture things not possible with regular screen recording alone.</li>
 </ul>
 <h3 id="overview">Overview</h3>
 <p>Recording in Netick’s replay system is <strong>entirely server-side</strong>.
@@ -108,8 +109,8 @@ To replay a recording, Netick must be started in a special mode called <strong>R
 <p>Replays recorded on older versions of the game are incompatible and can't be replayed on newer versions. This limitation exists on all replay systems. While it's rarely done, one way to deal with this is to keep older builds of the game and use them to play older replays. However, Netick does not handle any of this and is up to the developer if needed.</p>
 <hr>
 <h2 id="replay-safety">Replay-Safety</h2>
-<p>In most cases, achieving replay safety (making a project fully compatible with Netick’s Replay System) is straightforward</p>
-<p>During replay playback, the game logic operates on recorded snapshots rather than live network packets. To handle any special cases, you can check whether the current session is a replay using:</p>
+<p>In most cases, achieving replay safety (making a project fully compatible with Netick’s Replay System) is straightforward.
+During replay playback, the game logic operates on recorded snapshots rather than live network packets. To handle any special cases, you can check whether the current session is a replay using:</p>
 <pre><code class="lang-cs">if (Sandbox.IsReplaying)
 {
     // Logic specific to replay mode
@@ -135,13 +136,13 @@ To replay a recording, Netick must be started in a special mode called <strong>R
 <p><strong>Stop recording:</strong></p>
 <pre><code class="lang-csharp">Sandbox.StopRecording();
 </code></pre>
-<p>If no path is provided, Netick automatically records to:</p>
+<p>If no path is provided, Netick automatically records to a file (named with the current date and time) inside:</p>
 <pre><code class="lang-csharp">Path.Combine(Application.persistentDataPath, &quot;replays&quot;, Network.GameVersion.ToString());
 </code></pre>
 <p><strong>Example (Windows path):</strong></p>
 <pre><code>C:\Users\&lt;username&gt;\AppData\LocalLow\&lt;CompanyName&gt;\&lt;ProjectName&gt;\replays\&lt;gameVersionHash&gt;\&lt;replayFileName&gt;
 </code></pre>
-<h3 id="replay-metadata">Replay Metadata</h3>
+<h4 id="replay-metadata">Replay Metadata</h4>
 <p>Including metadata in a replay file is often useful for capturing additional game-specific information, such as round start and end times, special events, or custom markers.</p>
 <p>Netick provides a simple API for this purpose:</p>
 <pre><code class="lang-cs">Sandbox.Replay.Record.SetReplayMetadata(metaDataByteArray);

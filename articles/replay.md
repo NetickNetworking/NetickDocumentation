@@ -1,16 +1,17 @@
 # Full Game Replay
 ## File Replay Backend
 
-The replay system in Netick allows for recording the *entire networked state* of a game (including all network objects, RPCs, and scene state) directly on the server. This data can later be used to replay the full game exactly as it happened.
+The replay system in Netick allows for recording the *entire networked state* of a game (including all network objects, RPCs, and scene state) on the server. This data can later be used to replay the full game exactly as it happened.
 
 Unlike replay systems in games such as Counter-Strike, which store raw network packets and must process every packet sequentially to reach a target frame (making seeking very slow), Netick records snapshots of the full game state.
 This approach is conceptually similar to video compression formats, allowing for instant seeking without needing to apply all previous data.
 
 ### Use Cases
 
-* Player improvement: Let players review full matches to learn from mistakes or study better players.
-* Cheat review: Let admins investigate potential cheating (e.g., wallhacks, aimbots) by replaying suspicious matches.
+* Game Analysis: Let players review full matches and analyze them.
+* Cheat Review: Let admins investigate potential cheating (e.g., wallhacks, aimbots) by replaying suspicious matches.
 * Debugging: Simulate late-joins or extended packet loss by skipping through the replay timeline.
+* Videos: Both developers and players can screen record replays to create videos for various purposes. Unlike regular screen recording alone, replays are actual replays of the game, so it's possible to change the camera location and capture things not possible with regular screen recording alone.
 
 ### Overview
 
@@ -30,8 +31,7 @@ Replays recorded on older versions of the game are incompatible and can't be rep
 
 ## Replay-Safety
 
-In most cases, achieving replay safety (making a project fully compatible with Netick’s Replay System) is straightforward
-
+In most cases, achieving replay safety (making a project fully compatible with Netick’s Replay System) is straightforward. 
 During replay playback, the game logic operates on recorded snapshots rather than live network packets. To handle any special cases, you can check whether the current session is a replay using:
 
 ```cs
@@ -71,7 +71,7 @@ Sandbox.StartRecording(replayPath);
 Sandbox.StopRecording();
 ```
 
-If no path is provided, Netick automatically records to:
+If no path is provided, Netick automatically records to a file (named with the current date and time) inside:
 
 ```csharp
 Path.Combine(Application.persistentDataPath, "replays", Network.GameVersion.ToString());
@@ -83,7 +83,7 @@ Path.Combine(Application.persistentDataPath, "replays", Network.GameVersion.ToSt
 C:\Users\<username>\AppData\LocalLow\<CompanyName>\<ProjectName>\replays\<gameVersionHash>\<replayFileName>
 ```
 
-### Replay Metadata
+#### Replay Metadata
 
 Including metadata in a replay file is often useful for capturing additional game-specific information, such as round start and end times, special events, or custom markers.
 
