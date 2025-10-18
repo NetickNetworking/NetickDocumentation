@@ -1,5 +1,5 @@
 # Full Game Replay
-## File Replay Transport
+## File ReplayTransport
 
 The replay system in Netick allows for recording the *entire networked state* of a game (including all network objects, RPCs, and scene state) on the server. This data can later be used to replay the full game exactly as it happened.
 
@@ -129,16 +129,17 @@ Sandbox.Replay.Playback.TryGetReplayMetadata(out byte[] data);
 
 #### Validating Replay Files
 
-Always check replay validity before starting playback:
+Always check replay file info before starting playback:
 
 ```csharp
-var replayValidationResult = await FileReplayBackend.ValidateReplayFileAsync(path);
+var replayFileInfo   = await FileReplayTransport.GetReplayFileInfoAsync(path);
+var replayFileStatus = replayFileInfo.Status;
 ```
 
-This asynchronous method returns a `ReplayValidationResult` enum:
+This asynchronous method returns a `ReplayFileInfo` struct, with a `Status` variable indicating the status of the replay file.
 
 ```csharp
-public enum ReplayValidationResult
+public enum ReplayFileStatus
 {
     Ok,
     NotFound,
