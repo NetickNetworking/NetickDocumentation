@@ -111,7 +111,7 @@ To replay a recording, Netick must be started in a special mode called <strong>R
 <h2 id="replay-safety">Replay-Safety</h2>
 <p>In most cases, achieving replay safety (making a project fully compatible with Netick’s Replay System) is straightforward.
 During replay playback, the game logic operates on recorded snapshots rather than live network packets. To handle any special cases, you can check whether the current session is a replay using:</p>
-<pre><code class="lang-cs">if (Sandbox.IsReplaying)
+<pre><code class="lang-cs">if (Sandbox.IsReplay)
 {
     // Logic specific to replay mode
 }

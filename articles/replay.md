@@ -35,7 +35,7 @@ In most cases, achieving replay safety (making a project fully compatible with N
 During replay playback, the game logic operates on recorded snapshots rather than live network packets. To handle any special cases, you can check whether the current session is a replay using:
 
 ```cs
-if (Sandbox.IsReplaying)
+if (Sandbox.IsReplay)
 {
     // Logic specific to replay mode
 }
