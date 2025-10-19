@@ -19,6 +19,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: " Use this attribute on any method you want to make an RPC. Must have the return type of void.\r\n<p> * Use the parameter \"source\" to specify who is allowed to send this RPC.</p>\r\n<p> * Use the parameter \"target\" to specify who is allowed to receive and execute this RPC.</p>\r\n<p> * Use the parameter \"isReliable\" to specify if this Rpc should be reliable or not, meaning it won't be lost (due to packet loss).</p>\r\n<p> * Use the parameter \"localInvoke\" to specify if this Rpc should be executed on the machine it was called from.</p>"
+  example: []
   syntax:
     content: >-
       [AttributeUsage(AttributeTargets.Method, Inherited = true, AllowMultiple = false)]

@@ -54,8 +54,8 @@ items:
   - Netick.NetickEngine.IsOffline
   - Netick.NetickEngine.IsProfilingEnabled
   - Netick.NetickEngine.IsRecording
+  - Netick.NetickEngine.IsReplay
   - Netick.NetickEngine.IsReplayEnabled
-  - Netick.NetickEngine.IsReplaying
   - Netick.NetickEngine.IsResimulating
   - Netick.NetickEngine.IsRunning
   - Netick.NetickEngine.IsServer
@@ -121,6 +121,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: The NetickEngine class is the core of Netick, managing networking, simulation, interpolation, replication, etc.
+  example: []
   syntax:
     content: public sealed class NetickEngine
     content.vb: Public NotInheritable Class NetickEngine
@@ -357,6 +359,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Updates Netick logic.
+  example: []
   syntax:
     content: public void Update(float deltaTime, float timeScale, bool simulate)
     parameters:
@@ -385,6 +389,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Call this to invoke NetworkRender on simulated entities. This might not be needed if you are running a headless build.
+  example: []
   syntax:
     content: public void Render()
     content.vb: Public Sub Render()
@@ -454,6 +460,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: <code><b>[Client Only]</b></code> Disconnects this client from the server.
+  example: []
   syntax:
     content: public void DisconnectFromServer()
     content.vb: Public Sub DisconnectFromServer()
@@ -625,15 +633,15 @@ items:
   langs:
   - csharp
   - vb
-  name: FetchInput<T>(out T, ref bool, Entity, int)
-  nameWithType: NetickEngine.FetchInput<T>(out T, ref bool, Entity, int)
-  fullName: Netick.NetickEngine.FetchInput<T>(out T, ref bool, Netick.Entity, int)
+  name: FetchInput<T>(out T, out bool, Entity, int)
+  nameWithType: NetickEngine.FetchInput<T>(out T, out bool, Entity, int)
+  fullName: Netick.NetickEngine.FetchInput<T>(out T, out bool, Netick.Entity, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: 'public bool FetchInput<T>(out T input, ref bool isDuplicated, Entity entity, int localPlayerIndex) where T : unmanaged'
+    content: 'public bool FetchInput<T>(out T input, out bool isDuplicated, Entity entity, int localPlayerIndex) where T : unmanaged'
     parameters:
     - id: input
       type: '{T}'
@@ -740,6 +748,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Attaches a <xref href="Netick.INetickScript" data-throw-if-not-resolved="false"></xref> to the simulation.
+  example: []
   syntax:
     content: public void AttachBehaviour(INetickScript behaviour, bool addToResimulationLoop = true)
     parameters:
@@ -766,6 +776,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Detaches a <xref href="Netick.INetickScript" data-throw-if-not-resolved="false"></xref> from the simulation.
+  example: []
   syntax:
     content: public void DetachBehaviour(INetickScript behaviour)
     parameters:
@@ -787,10 +799,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Returns the size of the entirety of the game's networked state snapshot size, in bytes. This includes the sizes of all allocated blocks.
+  example: []
   syntax:
     content: public long GetWorldStateTotalSize()
     return:
       type: System.Int64
+      description: ''
     content.vb: Public Function GetWorldStateTotalSize() As Long
   overload: Netick.NetickEngine.GetWorldStateTotalSize*
 - uid: Netick.NetickEngine.GetWorldStateBlockSize
@@ -1148,27 +1163,27 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsClient As Boolean
   overload: Netick.NetickEngine.IsClient*
-- uid: Netick.NetickEngine.IsReplaying
-  commentId: P:Netick.NetickEngine.IsReplaying
-  id: IsReplaying
+- uid: Netick.NetickEngine.IsReplay
+  commentId: P:Netick.NetickEngine.IsReplay
+  id: IsReplay
   parent: Netick.NetickEngine
   langs:
   - csharp
   - vb
-  name: IsReplaying
-  nameWithType: NetickEngine.IsReplaying
-  fullName: Netick.NetickEngine.IsReplaying
+  name: IsReplay
+  nameWithType: NetickEngine.IsReplay
+  fullName: Netick.NetickEngine.IsReplay
   type: Property
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool IsReplaying { get; }
+    content: public bool IsReplay { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public ReadOnly Property IsReplaying As Boolean
-  overload: Netick.NetickEngine.IsReplaying*
+    content.vb: Public ReadOnly Property IsReplay As Boolean
+  overload: Netick.NetickEngine.IsReplay*
 - uid: Netick.NetickEngine.IsRecording
   commentId: P:Netick.NetickEngine.IsRecording
   id: IsRecording
@@ -1750,6 +1765,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: <code><b>[Client Only]</b></code> The <xref href="Netick.IEndPoint" data-throw-if-not-resolved="false"></xref> of the server you are connected to. Returns null if you are not connected to any server, or if you are the server.
+  example: []
   syntax:
     content: public IEndPoint ServerEndPoint { get; }
     parameters: []
@@ -1771,6 +1788,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: <code><b>[Client Only]</b></code> Returns true if this client is currently connected to a server.
+  example: []
   syntax:
     content: public bool IsConnected { get; }
     parameters: []
@@ -1792,6 +1811,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Time period between simulation ticks.
+  example: []
   syntax:
     content: public float FixedDeltaTime { get; }
     parameters: []
@@ -1918,6 +1939,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Returns true if we are currently resimulating a previous input/tick of the past. On the server, it always returns false since <b>only the clients resimulate</b>.
+  example: []
   syntax:
     content: public bool IsResimulating { get; }
     parameters: []
@@ -1939,6 +1962,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Incoming data in kilobytes per second (KBps).
+  example: []
   syntax:
     content: public float InKBps { get; }
     parameters: []
@@ -1960,6 +1985,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Outgoing data in kilobytes per second (KBps).
+  example: []
   syntax:
     content: public float OutKBps { get; }
     parameters: []
@@ -1981,6 +2008,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: <code><b>[Client Only]</b></code> Estimation of incoming packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
+  example: []
   syntax:
     content: public float InPacketLoss { get; }
     parameters: []
@@ -2002,6 +2031,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: <code><b>[Client Only]</b></code> Estimation of outgoing packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
+  example: []
   syntax:
     content: public float OutPacketLoss { get; }
     parameters: []
@@ -2023,6 +2054,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: <code><b>[Client Only]</b></code> Interpolation delay in seconds.
+  example: []
   syntax:
     content: public float InterpolationDelay { get; }
     parameters: []
@@ -2044,6 +2077,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: <code><b>[Client Only]</b></code> The round-trip time (RTT) of the client in seconds.
+  example: []
   syntax:
     content: public double RTT { get; }
     parameters: []
@@ -2422,6 +2457,11 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: >-
+    A list containing all connected clients currently.
+
+    <p>Note: if you want the clients + the server, use <xref href="Netick.NetickEngine.ConnectedPlayers" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
   syntax:
     content: >-
       [Obsolete("This will be removed in the future, please use Players instead.")]
@@ -2455,6 +2495,11 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: >-
+    <p>A list containing all connected clients currently, in addition to the server.</p>
+
+    <p>Note: if you only want the clients, use <xref href="Netick.NetickEngine.ConnectedClients" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
   syntax:
     content: >-
       [Obsolete("This will be removed in the future, please use Players instead.")]
@@ -3146,13 +3191,6 @@ references:
   name: DestroyEntity
   nameWithType: NetickEngine.DestroyEntity
   fullName: Netick.NetickEngine.DestroyEntity
-- uid: Netick.NetickEngine.AttachBehaviour*
-  commentId: Overload:Netick.NetickEngine.AttachBehaviour
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_AttachBehaviour_Netick_INetickScript_System_Boolean_
-  name: AttachBehaviour
-  nameWithType: NetickEngine.AttachBehaviour
-  fullName: Netick.NetickEngine.AttachBehaviour
 - uid: Netick.INetickScript
   commentId: T:Netick.INetickScript
   parent: Netick
@@ -3161,6 +3199,13 @@ references:
   name: INetickScript
   nameWithType: INetickScript
   fullName: Netick.INetickScript
+- uid: Netick.NetickEngine.AttachBehaviour*
+  commentId: Overload:Netick.NetickEngine.AttachBehaviour
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_AttachBehaviour_Netick_INetickScript_System_Boolean_
+  name: AttachBehaviour
+  nameWithType: NetickEngine.AttachBehaviour
+  fullName: Netick.NetickEngine.AttachBehaviour
 - uid: Netick.NetickEngine.DetachBehaviour*
   commentId: Overload:Netick.NetickEngine.DetachBehaviour
   isExternal: true
@@ -3360,13 +3405,13 @@ references:
   name: IsClient
   nameWithType: NetickEngine.IsClient
   fullName: Netick.NetickEngine.IsClient
-- uid: Netick.NetickEngine.IsReplaying*
-  commentId: Overload:Netick.NetickEngine.IsReplaying
+- uid: Netick.NetickEngine.IsReplay*
+  commentId: Overload:Netick.NetickEngine.IsReplay
   isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_IsReplaying
-  name: IsReplaying
-  nameWithType: NetickEngine.IsReplaying
-  fullName: Netick.NetickEngine.IsReplaying
+  href: Netick.NetickEngine.html#Netick_NetickEngine_IsReplay
+  name: IsReplay
+  nameWithType: NetickEngine.IsReplay
+  fullName: Netick.NetickEngine.IsReplay
 - uid: Netick.NetickEngine.IsRecording*
   commentId: Overload:Netick.NetickEngine.IsRecording
   isExternal: true
@@ -3804,13 +3849,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: Netick.NetickEngine.ServerEndPoint*
-  commentId: Overload:Netick.NetickEngine.ServerEndPoint
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_ServerEndPoint
-  name: ServerEndPoint
-  nameWithType: NetickEngine.ServerEndPoint
-  fullName: Netick.NetickEngine.ServerEndPoint
 - uid: Netick.IEndPoint
   commentId: T:Netick.IEndPoint
   parent: Netick
@@ -3819,6 +3857,13 @@ references:
   name: IEndPoint
   nameWithType: IEndPoint
   fullName: Netick.IEndPoint
+- uid: Netick.NetickEngine.ServerEndPoint*
+  commentId: Overload:Netick.NetickEngine.ServerEndPoint
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_ServerEndPoint
+  name: ServerEndPoint
+  nameWithType: NetickEngine.ServerEndPoint
+  fullName: Netick.NetickEngine.ServerEndPoint
 - uid: Netick.NetickEngine.IsConnected*
   commentId: Overload:Netick.NetickEngine.IsConnected
   isExternal: true
@@ -4071,6 +4116,13 @@ references:
   name: OnTickStart
   nameWithType: NetickEngine.OnTickStart
   fullName: Netick.NetickEngine.OnTickStart
+- uid: Netick.NetickEngine.ConnectedPlayers
+  commentId: P:Netick.NetickEngine.ConnectedPlayers
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_ConnectedPlayers
+  name: ConnectedPlayers
+  nameWithType: NetickEngine.ConnectedPlayers
+  fullName: Netick.NetickEngine.ConnectedPlayers
 - uid: Netick.NetickEngine.ConnectedClients*
   commentId: Overload:Netick.NetickEngine.ConnectedClients
   isExternal: true
@@ -4113,6 +4165,13 @@ references:
     isExternal: true
     href: Netick.ServerConnection.html
   - name: )
+- uid: Netick.NetickEngine.ConnectedClients
+  commentId: P:Netick.NetickEngine.ConnectedClients
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_ConnectedClients
+  name: ConnectedClients
+  nameWithType: NetickEngine.ConnectedClients
+  fullName: Netick.NetickEngine.ConnectedClients
 - uid: Netick.NetickEngine.ConnectedPlayers*
   commentId: Overload:Netick.NetickEngine.ConnectedPlayers
   isExternal: true

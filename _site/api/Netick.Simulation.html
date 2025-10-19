@@ -519,10 +519,10 @@ Class Simulation
 
 
 
-  <a id="Netick_Simulation_FetchInputLocal_" data-uid="Netick.Simulation.FetchInputLocal*"></a>
+  <a id="Netick_Simulation_FetchInputFor_" data-uid="Netick.Simulation.FetchInputFor*"></a>
 
-  <h3 id="Netick_Simulation_FetchInputLocal__1___0__System_Boolean__System_Int32_" data-uid="Netick.Simulation.FetchInputLocal``1(``0@,System.Boolean@,System.Int32)">
-  FetchInputLocal&lt;T&gt;(out T, ref bool, int)
+  <h3 id="Netick_Simulation_FetchInputFor__1_Netick_NetworkPlayerId_Netick_SimulationInput__System_Boolean__System_Int32_" data-uid="Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,Netick.SimulationInput@,System.Boolean@,System.Int32)">
+  FetchInputFor&lt;T&gt;(NetworkPlayerId, out SimulationInput, out bool, int)
   
   </h3>
 
@@ -530,16 +530,18 @@ Class Simulation
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool FetchInputLocal&lt;T&gt;(out T input, ref bool isDuplicated, int localPlayerIndex) where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public bool FetchInputFor&lt;T&gt;(NetworkPlayerId playerId, out SimulationInput input, out bool isDuplicated, int index = 0) where T : unmanaged</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>input</code> <span class="xref">T</span></dt>
+    <dt><code>playerId</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
+    <dt><code>input</code> <a class="xref" href="Netick.SimulationInput.html">SimulationInput</a></dt>
     <dd></dd>
     <dt><code>isDuplicated</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
-    <dt><code>localPlayerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -564,10 +566,10 @@ Class Simulation
 
 
 
-  <a id="Netick_Simulation_FetchInput_" data-uid="Netick.Simulation.FetchInput*"></a>
+  <a id="Netick_Simulation_FetchInputFor_" data-uid="Netick.Simulation.FetchInputFor*"></a>
 
-  <h3 id="Netick_Simulation_FetchInput__1___0__System_Boolean__Netick_Entity_System_Int32_" data-uid="Netick.Simulation.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)">
-  FetchInput&lt;T&gt;(out T, ref bool, Entity, int)
+  <h3 id="Netick_Simulation_FetchInputFor__1_Netick_NetworkPlayerId___0__System_Boolean__System_Int32_" data-uid="Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,``0@,System.Boolean@,System.Int32)">
+  FetchInputFor&lt;T&gt;(NetworkPlayerId, out T, out bool, int)
   
   </h3>
 
@@ -575,18 +577,18 @@ Class Simulation
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool FetchInput&lt;T&gt;(out T input, ref bool isDuplicated, Entity entity, int localPlayerIndex) where T : unmanaged</code></pre>
+    <pre><code class="lang-csharp hljs">public bool FetchInputFor&lt;T&gt;(NetworkPlayerId playerId, out T input, out bool isDuplicated, int index = 0) where T : unmanaged</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
+    <dt><code>playerId</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
+    <dd></dd>
     <dt><code>input</code> <span class="xref">T</span></dt>
     <dd></dd>
     <dt><code>isDuplicated</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
-    <dt><code>entity</code> <a class="xref" href="Netick.Entity.html">Entity</a></dt>
-    <dd></dd>
-    <dt><code>localPlayerIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 

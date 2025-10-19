@@ -1,0 +1,888 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Unity.FileReplayTransport
+  commentId: T:Netick.Unity.FileReplayTransport
+  id: FileReplayTransport
+  parent: Netick.Unity
+  children:
+  - Netick.Unity.FileReplayTransport.#ctor
+  - Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  - Netick.Unity.FileReplayTransport.Engine
+  - Netick.Unity.FileReplayTransport.Finalize
+  - Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+  - Netick.Unity.FileReplayTransport.GetReplayFileInfo(System.String)
+  - Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(System.String)
+  - Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
+  - Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
+  - Netick.Unity.FileReplayTransport.Sandbox
+  - Netick.Unity.FileReplayTransport.Seek(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: FileReplayTransport
+  nameWithType: FileReplayTransport
+  fullName: Netick.Unity.FileReplayTransport
+  type: Class
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: >-
+      [IgnoreCodeGen]
+
+      public class FileReplayTransport : IReplayTransport
+    content.vb: >-
+      <IgnoreCodeGen>
+
+      Public Class FileReplayTransport Implements IReplayTransport
+  inheritance:
+  - System.Object
+  implements:
+  - Netick.IReplayTransport
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: Netick.IgnoreCodeGen
+    ctor: Netick.IgnoreCodeGen.#ctor
+    arguments: []
+- uid: Netick.Unity.FileReplayTransport.Finalize
+  commentId: M:Netick.Unity.FileReplayTransport.Finalize
+  id: Finalize
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: ~FileReplayTransport()
+  nameWithType: FileReplayTransport.~FileReplayTransport()
+  fullName: Netick.Unity.FileReplayTransport.~FileReplayTransport()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: protected ~FileReplayTransport()
+    content.vb: 'Protected '
+  overload: Netick.Unity.FileReplayTransport.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: Netick.Unity.FileReplayTransport.Seek(System.Int32)
+  commentId: M:Netick.Unity.FileReplayTransport.Seek(System.Int32)
+  id: Seek(System.Int32)
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: Seek(int)
+  nameWithType: FileReplayTransport.Seek(int)
+  fullName: Netick.Unity.FileReplayTransport.Seek(int)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  example: []
+  syntax:
+    content: public void Seek(int frameIndex)
+    parameters:
+    - id: frameIndex
+      type: System.Int32
+    content.vb: Public Sub Seek(frameIndex As Integer)
+  overload: Netick.Unity.FileReplayTransport.Seek*
+  implements:
+  - Netick.IReplayTransport.Seek(System.Int32)
+  nameWithType.vb: FileReplayTransport.Seek(Integer)
+  fullName.vb: Netick.Unity.FileReplayTransport.Seek(Integer)
+  name.vb: Seek(Integer)
+- uid: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(System.String)
+  commentId: M:Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(System.String)
+  id: GetReplayFileInfoAsync(System.String)
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: GetReplayFileInfoAsync(string)
+  nameWithType: FileReplayTransport.GetReplayFileInfoAsync(string)
+  fullName: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(string)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Task<ReplayFileInfo> GetReplayFileInfoAsync(string path)
+    parameters:
+    - id: path
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{Netick.Unity.ReplayFileInfo}
+    content.vb: Public Shared Function GetReplayFileInfoAsync(path As String) As Task(Of ReplayFileInfo)
+  overload: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync*
+  nameWithType.vb: FileReplayTransport.GetReplayFileInfoAsync(String)
+  fullName.vb: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(String)
+  name.vb: GetReplayFileInfoAsync(String)
+- uid: Netick.Unity.FileReplayTransport.GetReplayFileInfo(System.String)
+  commentId: M:Netick.Unity.FileReplayTransport.GetReplayFileInfo(System.String)
+  id: GetReplayFileInfo(System.String)
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: GetReplayFileInfo(string)
+  nameWithType: FileReplayTransport.GetReplayFileInfo(string)
+  fullName: Netick.Unity.FileReplayTransport.GetReplayFileInfo(string)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static ReplayFileInfo GetReplayFileInfo(string path)
+    parameters:
+    - id: path
+      type: System.String
+    return:
+      type: Netick.Unity.ReplayFileInfo
+    content.vb: Public Shared Function GetReplayFileInfo(path As String) As ReplayFileInfo
+  overload: Netick.Unity.FileReplayTransport.GetReplayFileInfo*
+  nameWithType.vb: FileReplayTransport.GetReplayFileInfo(String)
+  fullName.vb: Netick.Unity.FileReplayTransport.GetReplayFileInfo(String)
+  name.vb: GetReplayFileInfo(String)
+- uid: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+  commentId: M:Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+  id: GetLatestReplayPathAsync
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: GetLatestReplayPathAsync()
+  nameWithType: FileReplayTransport.GetLatestReplayPathAsync()
+  fullName: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Task<string> GetLatestReplayPathAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Public Shared Function GetLatestReplayPathAsync() As Task(Of String)
+  overload: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync*
+- uid: Netick.Unity.FileReplayTransport.#ctor
+  commentId: M:Netick.Unity.FileReplayTransport.#ctor
+  id: '#ctor'
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: FileReplayTransport()
+  nameWithType: FileReplayTransport.FileReplayTransport()
+  fullName: Netick.Unity.FileReplayTransport.FileReplayTransport()
+  type: Constructor
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public FileReplayTransport()
+    content.vb: Public Sub New()
+  overload: Netick.Unity.FileReplayTransport.#ctor*
+  nameWithType.vb: FileReplayTransport.New()
+  fullName.vb: Netick.Unity.FileReplayTransport.New()
+  name.vb: New()
+- uid: Netick.Unity.FileReplayTransport.Engine
+  commentId: P:Netick.Unity.FileReplayTransport.Engine
+  id: Engine
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: Engine
+  nameWithType: FileReplayTransport.Engine
+  fullName: Netick.Unity.FileReplayTransport.Engine
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public NetickEngine Engine { get; }
+    parameters: []
+    return:
+      type: Netick.NetickEngine
+    content.vb: Public ReadOnly Property Engine As NetickEngine
+  overload: Netick.Unity.FileReplayTransport.Engine*
+- uid: Netick.Unity.FileReplayTransport.Sandbox
+  commentId: P:Netick.Unity.FileReplayTransport.Sandbox
+  id: Sandbox
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: Sandbox
+  nameWithType: FileReplayTransport.Sandbox
+  fullName: Netick.Unity.FileReplayTransport.Sandbox
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public NetworkSandbox Sandbox { get; }
+    parameters: []
+    return:
+      type: Netick.Unity.NetworkSandbox
+    content.vb: Public ReadOnly Property Sandbox As NetworkSandbox
+  overload: Netick.Unity.FileReplayTransport.Sandbox*
+- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
+  commentId: P:Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
+  id: KeyframeIntervalFrames
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: KeyframeIntervalFrames
+  nameWithType: FileReplayTransport.KeyframeIntervalFrames
+  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public int KeyframeIntervalFrames { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property KeyframeIntervalFrames As Integer
+  overload: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames*
+- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
+  commentId: P:Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
+  id: KeyframeIntervalSeconds
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: KeyframeIntervalSeconds
+  nameWithType: FileReplayTransport.KeyframeIntervalSeconds
+  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public float KeyframeIntervalSeconds { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property KeyframeIntervalSeconds As Single
+  overload: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds*
+- uid: Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  commentId: P:Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  id: DefaultReplaysLocation
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: DefaultReplaysLocation
+  nameWithType: FileReplayTransport.DefaultReplaysLocation
+  fullName: Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static string DefaultReplaysLocation { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property DefaultReplaysLocation As String
+  overload: Netick.Unity.FileReplayTransport.DefaultReplaysLocation*
+references:
+- uid: Netick.Unity
+  commentId: N:Netick.Unity
+  isExternal: true
+  href: Netick.html
+  name: Netick.Unity
+  nameWithType: Netick.Unity
+  fullName: Netick.Unity
+  spec.csharp:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+  spec.vb:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Netick.IReplayTransport
+  commentId: T:Netick.IReplayTransport
+  parent: Netick
+  isExternal: true
+  href: Netick.IReplayTransport.html
+  name: IReplayTransport
+  nameWithType: IReplayTransport
+  fullName: Netick.IReplayTransport
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: Netick.Unity.FileReplayTransport.Finalize*
+  commentId: Overload:Netick.Unity.FileReplayTransport.Finalize
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Finalize
+  name: ~FileReplayTransport
+  nameWithType: FileReplayTransport.~FileReplayTransport
+  fullName: Netick.Unity.FileReplayTransport.~FileReplayTransport
+  spec.csharp:
+  - name: "~"
+  - uid: Netick.Unity.FileReplayTransport.Finalize*
+    name: FileReplayTransport
+    isExternal: true
+    href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Finalize
+- uid: Netick.Unity.FileReplayTransport.Seek*
+  commentId: Overload:Netick.Unity.FileReplayTransport.Seek
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Seek_System_Int32_
+  name: Seek
+  nameWithType: FileReplayTransport.Seek
+  fullName: Netick.Unity.FileReplayTransport.Seek
+- uid: Netick.IReplayTransport.Seek(System.Int32)
+  commentId: M:Netick.IReplayTransport.Seek(System.Int32)
+  parent: Netick.IReplayTransport
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: Seek(int)
+  nameWithType: IReplayTransport.Seek(int)
+  fullName: Netick.IReplayTransport.Seek(int)
+  nameWithType.vb: IReplayTransport.Seek(Integer)
+  fullName.vb: Netick.IReplayTransport.Seek(Integer)
+  name.vb: Seek(Integer)
+  spec.csharp:
+  - uid: Netick.IReplayTransport.Seek(System.Int32)
+    name: Seek
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Netick.IReplayTransport.Seek(System.Int32)
+    name: Seek
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync*
+  commentId: Overload:Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetReplayFileInfoAsync_System_String_
+  name: GetReplayFileInfoAsync
+  nameWithType: FileReplayTransport.GetReplayFileInfoAsync
+  fullName: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{Netick.Unity.ReplayFileInfo}
+  commentId: T:System.Threading.Tasks.Task{Netick.Unity.ReplayFileInfo}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ReplayFileInfo>
+  nameWithType: Task<ReplayFileInfo>
+  fullName: System.Threading.Tasks.Task<Netick.Unity.ReplayFileInfo>
+  nameWithType.vb: Task(Of ReplayFileInfo)
+  fullName.vb: System.Threading.Tasks.Task(Of Netick.Unity.ReplayFileInfo)
+  name.vb: Task(Of ReplayFileInfo)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Netick.Unity.ReplayFileInfo
+    name: ReplayFileInfo
+    isExternal: true
+    href: Netick.Unity.ReplayFileInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Unity.ReplayFileInfo
+    name: ReplayFileInfo
+    isExternal: true
+    href: Netick.Unity.ReplayFileInfo.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Netick.Unity.FileReplayTransport.GetReplayFileInfo*
+  commentId: Overload:Netick.Unity.FileReplayTransport.GetReplayFileInfo
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetReplayFileInfo_System_String_
+  name: GetReplayFileInfo
+  nameWithType: FileReplayTransport.GetReplayFileInfo
+  fullName: Netick.Unity.FileReplayTransport.GetReplayFileInfo
+- uid: Netick.Unity.ReplayFileInfo
+  commentId: T:Netick.Unity.ReplayFileInfo
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.ReplayFileInfo.html
+  name: ReplayFileInfo
+  nameWithType: ReplayFileInfo
+  fullName: Netick.Unity.ReplayFileInfo
+- uid: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync*
+  commentId: Overload:Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetLatestReplayPathAsync
+  name: GetLatestReplayPathAsync
+  nameWithType: FileReplayTransport.GetLatestReplayPathAsync
+  fullName: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Netick.Unity.FileReplayTransport.#ctor*
+  commentId: Overload:Netick.Unity.FileReplayTransport.#ctor
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport__ctor
+  name: FileReplayTransport
+  nameWithType: FileReplayTransport.FileReplayTransport
+  fullName: Netick.Unity.FileReplayTransport.FileReplayTransport
+  nameWithType.vb: FileReplayTransport.New
+  fullName.vb: Netick.Unity.FileReplayTransport.New
+  name.vb: New
+- uid: Netick.Unity.FileReplayTransport.Engine*
+  commentId: Overload:Netick.Unity.FileReplayTransport.Engine
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Engine
+  name: Engine
+  nameWithType: FileReplayTransport.Engine
+  fullName: Netick.Unity.FileReplayTransport.Engine
+- uid: Netick.NetickEngine
+  commentId: T:Netick.NetickEngine
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickEngine.html
+  name: NetickEngine
+  nameWithType: NetickEngine
+  fullName: Netick.NetickEngine
+- uid: Netick.Unity.FileReplayTransport.Sandbox*
+  commentId: Overload:Netick.Unity.FileReplayTransport.Sandbox
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Sandbox
+  name: Sandbox
+  nameWithType: FileReplayTransport.Sandbox
+  fullName: Netick.Unity.FileReplayTransport.Sandbox
+- uid: Netick.Unity.NetworkSandbox
+  commentId: T:Netick.Unity.NetworkSandbox
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html
+  name: NetworkSandbox
+  nameWithType: NetworkSandbox
+  fullName: Netick.Unity.NetworkSandbox
+- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames*
+  commentId: Overload:Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_KeyframeIntervalFrames
+  name: KeyframeIntervalFrames
+  nameWithType: FileReplayTransport.KeyframeIntervalFrames
+  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
+- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds*
+  commentId: Overload:Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_KeyframeIntervalSeconds
+  name: KeyframeIntervalSeconds
+  nameWithType: FileReplayTransport.KeyframeIntervalSeconds
+  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Netick.Unity.FileReplayTransport.DefaultReplaysLocation*
+  commentId: Overload:Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_DefaultReplaysLocation
+  name: DefaultReplaysLocation
+  nameWithType: FileReplayTransport.DefaultReplaysLocation
+  fullName: Netick.Unity.FileReplayTransport.DefaultReplaysLocation

@@ -165,6 +165,11 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: >-
+    Sends data to this connection. 
+
+    <p>Note: the low-level transport must implement <xref href="Netick.TransportConnection.SendUserData(System.IntPtr%2cSystem.Int32%2cNetick.TransportDeliveryMethod)" data-throw-if-not-resolved="false"></xref> for this method to have an effect.</p>
+  example: []
   syntax:
     content: public void SendData(byte id, byte* data, int length, TransportDeliveryMethod deliveryMethod)
     parameters:
@@ -351,6 +356,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: The longest inward packet loss burst (more than 2 packets lost in a row) in the last 10 seconds.
+  example: []
   syntax:
     content: public int InPacketLossBurst { get; }
     parameters: []
@@ -372,6 +379,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Estimation of incoming packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
+  example: []
   syntax:
     content: public float InPacketLoss { get; }
     parameters: []
@@ -393,6 +402,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Estimation of outgoing packets that are being lost. Value ranges between 0.0 and 1.0, with 1.0 meaning all packets are being lost.
+  example: []
   syntax:
     content: public float OutPacketLoss { get; }
     parameters: []
@@ -836,6 +847,63 @@ references:
     name: NetworkConnection
     isExternal: true
     href: Netick.NetworkConnection.html#Netick_NetworkConnection_Finalize
+- uid: Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
+  commentId: M:Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
+  parent: Netick.TransportConnection
+  isExternal: true
+  href: Netick.TransportConnection.html#Netick_TransportConnection_SendUserData_System_IntPtr_System_Int32_Netick_TransportDeliveryMethod_
+  name: SendUserData(nint, int, TransportDeliveryMethod)
+  nameWithType: TransportConnection.SendUserData(nint, int, TransportDeliveryMethod)
+  fullName: Netick.TransportConnection.SendUserData(nint, int, Netick.TransportDeliveryMethod)
+  nameWithType.vb: TransportConnection.SendUserData(IntPtr, Integer, TransportDeliveryMethod)
+  fullName.vb: Netick.TransportConnection.SendUserData(System.IntPtr, Integer, Netick.TransportDeliveryMethod)
+  name.vb: SendUserData(IntPtr, Integer, TransportDeliveryMethod)
+  spec.csharp:
+  - uid: Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
+    name: SendUserData
+    isExternal: true
+    href: Netick.TransportConnection.html#Netick_TransportConnection_SendUserData_System_IntPtr_System_Int32_Netick_TransportDeliveryMethod_
+  - name: (
+  - uid: System.IntPtr
+    name: nint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDeliveryMethod
+    name: TransportDeliveryMethod
+    isExternal: true
+    href: Netick.TransportDeliveryMethod.html
+  - name: )
+  spec.vb:
+  - uid: Netick.TransportConnection.SendUserData(System.IntPtr,System.Int32,Netick.TransportDeliveryMethod)
+    name: SendUserData
+    isExternal: true
+    href: Netick.TransportConnection.html#Netick_TransportConnection_SendUserData_System_IntPtr_System_Int32_Netick_TransportDeliveryMethod_
+  - name: (
+  - uid: System.IntPtr
+    name: IntPtr
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.intptr
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: Netick.TransportDeliveryMethod
+    name: TransportDeliveryMethod
+    isExternal: true
+    href: Netick.TransportDeliveryMethod.html
+  - name: )
 - uid: Netick.NetworkConnection.SendData*
   commentId: Overload:Netick.NetworkConnection.SendData
   isExternal: true
@@ -883,6 +951,14 @@ references:
   name: TransportDeliveryMethod
   nameWithType: TransportDeliveryMethod
   fullName: Netick.TransportDeliveryMethod
+- uid: Netick.TransportConnection
+  commentId: T:Netick.TransportConnection
+  parent: Netick
+  isExternal: true
+  href: Netick.TransportConnection.html
+  name: TransportConnection
+  nameWithType: TransportConnection
+  fullName: Netick.TransportConnection
 - uid: System.Byte[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.byte
@@ -913,14 +989,6 @@ references:
   name: TransportConnection
   nameWithType: NetworkConnection.TransportConnection
   fullName: Netick.NetworkConnection.TransportConnection
-- uid: Netick.TransportConnection
-  commentId: T:Netick.TransportConnection
-  parent: Netick
-  isExternal: true
-  href: Netick.TransportConnection.html
-  name: TransportConnection
-  nameWithType: TransportConnection
-  fullName: Netick.TransportConnection
 - uid: Netick.NetworkConnection.EndPoint*
   commentId: Overload:Netick.NetworkConnection.EndPoint
   isExternal: true

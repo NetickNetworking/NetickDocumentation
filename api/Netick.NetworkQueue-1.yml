@@ -27,6 +27,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: A networked <xref href="System.Collections.Generic.Queue%601" data-throw-if-not-resolved="false"></xref> collection.
+  example: []
   syntax:
     content: 'public sealed class NetworkQueue<T> : NetworkQueue, INetworkCollection, IEnumerable<T>, IEnumerable where T : unmanaged'
     typeParameters:
@@ -148,6 +150,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Removes all elements from the queue.
+  example: []
   syntax:
     content: public void Clear()
     content.vb: Public Sub Clear()
@@ -168,13 +172,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Adds an item to the end of the queue if there is capacity.
+  example: []
   syntax:
     content: public bool Enqueue(T item)
     parameters:
     - id: item
       type: '{T}'
+      description: The item to add.
     return:
       type: System.Boolean
+      description: <code>true</code> if the item was added; otherwise, <code>false</code> if the queue is full.
     content.vb: Public Function Enqueue(item As T) As Boolean
   overload: Netick.NetworkQueue`1.Enqueue*
   nameWithType.vb: NetworkQueue(Of T).Enqueue(T)
@@ -193,12 +201,19 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Removes and returns the item at the beginning of the queue.
+  example: []
   syntax:
     content: public T Dequeue()
     return:
       type: '{T}'
+      description: The item removed from the beginning of the queue.
     content.vb: Public Function Dequeue() As T
   overload: Netick.NetworkQueue`1.Dequeue*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the queue is empty.
   nameWithType.vb: NetworkQueue(Of T).Dequeue()
   fullName.vb: Netick.NetworkQueue(Of T).Dequeue()
 - uid: Netick.NetworkQueue`1.TryDequeue(`0@)
@@ -215,13 +230,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Attempts to remove and return the item at the beginning of the queue.
+  example: []
   syntax:
     content: public bool TryDequeue(out T result)
     parameters:
     - id: result
       type: '{T}'
+      description: When this method returns, contains the object removed from the queue, or the default value if the queue is empty.
     return:
       type: System.Boolean
+      description: <code>true</code> if an item was dequeued; otherwise, <code>false</code>.
     content.vb: Public Function TryDequeue(result As T) As Boolean
   overload: Netick.NetworkQueue`1.TryDequeue*
   nameWithType.vb: NetworkQueue(Of T).TryDequeue(T)
@@ -241,12 +260,19 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Returns the item at the beginning of the queue without removing it.
+  example: []
   syntax:
     content: public T Peek()
     return:
       type: '{T}'
+      description: The item at the beginning of the queue.
     content.vb: Public Function Peek() As T
   overload: Netick.NetworkQueue`1.Peek*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the queue is empty.
   nameWithType.vb: NetworkQueue(Of T).Peek()
   fullName.vb: Netick.NetworkQueue(Of T).Peek()
 - uid: Netick.NetworkQueue`1.TryPeek(`0@)
@@ -263,13 +289,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Attempts to return the item at the beginning of the queue without removing it.
+  example: []
   syntax:
     content: public bool TryPeek(out T result)
     parameters:
     - id: result
       type: '{T}'
+      description: When this method returns, contains the object at the beginning of the queue, or the default value if the queue is empty.
     return:
       type: System.Boolean
+      description: <code>true</code> if an item was found; otherwise, <code>false</code>.
     content.vb: Public Function TryPeek(result As T) As Boolean
   overload: Netick.NetworkQueue`1.TryPeek*
   nameWithType.vb: NetworkQueue(Of T).TryPeek(T)
@@ -289,11 +319,14 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Adds an item to the underlying original queue. Used for local operations.
+  example: []
   syntax:
     content: public void Add(T item)
     parameters:
     - id: item
       type: '{T}'
+      description: The item to add.
     content.vb: Public Sub Add(item As T)
   overload: Netick.NetworkQueue`1.Add*
   nameWithType.vb: NetworkQueue(Of T).Add(T)
@@ -336,6 +369,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Gets the number of elements contained in the queue.
+  example: []
   syntax:
     content: public int Count { get; }
     parameters: []
@@ -346,6 +381,34 @@ items:
   nameWithType.vb: NetworkQueue(Of T).Count
   fullName.vb: Netick.NetworkQueue(Of T).Count
 references:
+- uid: System.Collections.Generic.Queue`1
+  commentId: T:System.Collections.Generic.Queue`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  name: Queue<T>
+  nameWithType: Queue<T>
+  fullName: System.Collections.Generic.Queue<T>
+  nameWithType.vb: Queue(Of T)
+  fullName.vb: System.Collections.Generic.Queue(Of T)
+  name.vb: Queue(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick
   commentId: N:Netick
   isExternal: true
@@ -1080,6 +1143,13 @@ references:
   name: T
   nameWithType: T
   fullName: T
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
 - uid: Netick.NetworkQueue`1.Dequeue*
   commentId: Overload:Netick.NetworkQueue`1.Dequeue
   isExternal: true

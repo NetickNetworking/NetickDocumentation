@@ -20,6 +20,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: A snapshot of the state of a <xref href="Netick.NetworkLinkedList%601" data-throw-if-not-resolved="false"></xref> collection. Note this must not be used outside the scope of an OnChanged call or a NetworkRender call.
+  example: []
   syntax:
     content: 'public struct NetworkLinkedListSnapshot<T> : IEnumerable<T>, IEnumerable where T : unmanaged'
     typeParameters:
@@ -52,6 +54,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Gets the node at the specified index in the snapshot.
+  example: []
   syntax:
     content: public NetworkLinkedListNode<T> GetNode(int index)
     parameters:
@@ -126,6 +130,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Gets the first node in the linked list snapshot.
+  example: []
   syntax:
     content: public NetworkLinkedListNode<T> Head { get; }
     parameters: []
@@ -149,6 +155,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Gets the last node in the linked list snapshot.
+  example: []
   syntax:
     content: public NetworkLinkedListNode<T> Tail { get; }
     parameters: []
@@ -159,6 +167,34 @@ items:
   nameWithType.vb: NetworkLinkedListSnapshot(Of T).Tail
   fullName.vb: Netick.NetworkLinkedListSnapshot(Of T).Tail
 references:
+- uid: Netick.NetworkLinkedList`1
+  commentId: T:Netick.NetworkLinkedList`1
+  isExternal: true
+  href: Netick.NetworkLinkedList-1.html
+  name: NetworkLinkedList<T>
+  nameWithType: NetworkLinkedList<T>
+  fullName: Netick.NetworkLinkedList<T>
+  nameWithType.vb: NetworkLinkedList(Of T)
+  fullName.vb: Netick.NetworkLinkedList(Of T)
+  name.vb: NetworkLinkedList(Of T)
+  spec.csharp:
+  - uid: Netick.NetworkLinkedList`1
+    name: NetworkLinkedList
+    isExternal: true
+    href: Netick.NetworkLinkedList-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Netick.NetworkLinkedList`1
+    name: NetworkLinkedList
+    isExternal: true
+    href: Netick.NetworkLinkedList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick
   commentId: N:Netick
   isExternal: true

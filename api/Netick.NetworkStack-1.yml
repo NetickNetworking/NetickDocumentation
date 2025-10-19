@@ -27,6 +27,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: A networked <xref href="System.Collections.Generic.Stack%601" data-throw-if-not-resolved="false"></xref> collection.
+  example: []
   syntax:
     content: 'public sealed class NetworkStack<T> : NetworkStack, INetworkCollection, IEnumerable<T>, IEnumerable where T : unmanaged'
     typeParameters:
@@ -148,6 +150,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Removes all items from the stack.
+  example: []
   syntax:
     content: public void Clear()
     content.vb: Public Sub Clear()
@@ -168,13 +172,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Pushes an item onto the top of the stack.
+  example: []
   syntax:
     content: public bool Push(T item)
     parameters:
     - id: item
       type: '{T}'
+      description: The item to push onto the stack.
     return:
       type: System.Boolean
+      description: True if the item was pushed; false if the stack is full.
     content.vb: Public Function Push(item As T) As Boolean
   overload: Netick.NetworkStack`1.Push*
   nameWithType.vb: NetworkStack(Of T).Push(T)
@@ -193,10 +201,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Removes and returns the item at the top of the stack.
+  example: []
   syntax:
     content: public T Pop()
     return:
       type: '{T}'
+      description: The item removed from the top of the stack, or default if the stack is empty.
     content.vb: Public Function Pop() As T
   overload: Netick.NetworkStack`1.Pop*
   nameWithType.vb: NetworkStack(Of T).Pop()
@@ -215,13 +226,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Attempts to remove and return the item at the top of the stack.
+  example: []
   syntax:
     content: public bool TryPop(out T result)
     parameters:
     - id: result
       type: '{T}'
+      description: The item removed from the top of the stack, or default if the stack is empty.
     return:
       type: System.Boolean
+      description: True if an item was removed; otherwise, false.
     content.vb: Public Function TryPop(result As T) As Boolean
   overload: Netick.NetworkStack`1.TryPop*
   nameWithType.vb: NetworkStack(Of T).TryPop(T)
@@ -241,10 +256,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Returns the item at the top of the stack without removing it.
+  example: []
   syntax:
     content: public T Peek()
     return:
       type: '{T}'
+      description: The item at the top of the stack, or default if the stack is empty.
     content.vb: Public Function Peek() As T
   overload: Netick.NetworkStack`1.Peek*
   nameWithType.vb: NetworkStack(Of T).Peek()
@@ -263,13 +281,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Attempts to return the item at the top of the stack without removing it.
+  example: []
   syntax:
     content: public bool TryPeek(out T result)
     parameters:
     - id: result
       type: '{T}'
+      description: The item at the top of the stack, or default if the stack is empty.
     return:
       type: System.Boolean
+      description: True if an item was returned; otherwise, false.
     content.vb: Public Function TryPeek(result As T) As Boolean
   overload: Netick.NetworkStack`1.TryPeek*
   nameWithType.vb: NetworkStack(Of T).TryPeek(T)
@@ -289,11 +311,14 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Adds an item to the original stack (used for internal state).
+  example: []
   syntax:
     content: public void Add(T item)
     parameters:
     - id: item
       type: '{T}'
+      description: The element to add.
     content.vb: Public Sub Add(item As T)
   overload: Netick.NetworkStack`1.Add*
   nameWithType.vb: NetworkStack(Of T).Add(T)
@@ -336,6 +361,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Gets the number of items contained in the stack.
+  example: []
   syntax:
     content: public int Count { get; }
     parameters: []
@@ -346,6 +373,34 @@ items:
   nameWithType.vb: NetworkStack(Of T).Count
   fullName.vb: Netick.NetworkStack(Of T).Count
 references:
+- uid: System.Collections.Generic.Stack`1
+  commentId: T:System.Collections.Generic.Stack`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.stack-1
+  name: Stack<T>
+  nameWithType: Stack<T>
+  fullName: System.Collections.Generic.Stack<T>
+  nameWithType.vb: Stack(Of T)
+  fullName.vb: System.Collections.Generic.Stack(Of T)
+  name.vb: Stack(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.Stack`1
+    name: Stack
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.stack-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Stack`1
+    name: Stack
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.stack-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick
   commentId: N:Netick
   isExternal: true

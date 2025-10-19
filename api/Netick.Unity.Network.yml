@@ -8,6 +8,7 @@ items:
   - Netick.Unity.Network.CloneDefaultConfig
   - Netick.Unity.Network.Config
   - Netick.Unity.Network.Focus(Netick.Unity.NetworkSandbox)
+  - Netick.Unity.Network.GameVersion
   - Netick.Unity.Network.Init(Netick.Unity.NetickConfig)
   - Netick.Unity.Network.Instance
   - Netick.Unity.Network.IsHeadless
@@ -23,6 +24,7 @@ items:
   - Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider,UnityEngine.GameObject,Netick.Unity.NetickConfig)
   - Netick.Unity.Network.StartAsHost(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,Netick.Unity.NetickConfig)
   - Netick.Unity.Network.StartAsMultiplePeers(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Boolean,System.Boolean,System.Int32,Netick.Unity.NetickConfig)
+  - Netick.Unity.Network.StartAsReplayClient(UnityEngine.GameObject,Netick.Unity.NetickConfig)
   - Netick.Unity.Network.StartAsServer(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,Netick.Unity.NetickConfig)
   - Netick.Unity.Network.StartAsServerAndClient(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,System.Int32)
   - Netick.Unity.Network.StartAsSinglePlayer(UnityEngine.GameObject,Netick.Unity.NetickConfig)
@@ -62,10 +64,10 @@ items:
   summary: The version of Netick.
   example: []
   syntax:
-    content: public const string Version = "0.14.49"
+    content: public const string Version = "0.15.3"
     return:
       type: System.String
-    content.vb: Public Const Version As String = "0.14.49"
+    content.vb: Public Const Version As String = "0.15.3"
 - uid: Netick.Unity.Network.Init(Netick.Unity.NetickConfig)
   commentId: M:Netick.Unity.Network.Init(Netick.Unity.NetickConfig)
   id: Init(Netick.Unity.NetickConfig)
@@ -374,6 +376,34 @@ items:
   nameWithType.vb: Network.StartAsClient(NetworkTransportProvider, Integer, GameObject, NetickConfig)
   fullName.vb: Netick.Unity.Network.StartAsClient(Netick.Unity.NetworkTransportProvider, Integer, UnityEngine.GameObject, Netick.Unity.NetickConfig)
   name.vb: StartAsClient(NetworkTransportProvider, Integer, GameObject, NetickConfig)
+- uid: Netick.Unity.Network.StartAsReplayClient(UnityEngine.GameObject,Netick.Unity.NetickConfig)
+  commentId: M:Netick.Unity.Network.StartAsReplayClient(UnityEngine.GameObject,Netick.Unity.NetickConfig)
+  id: StartAsReplayClient(UnityEngine.GameObject,Netick.Unity.NetickConfig)
+  parent: Netick.Unity.Network
+  langs:
+  - csharp
+  - vb
+  name: StartAsReplayClient(GameObject, NetickConfig)
+  nameWithType: Network.StartAsReplayClient(GameObject, NetickConfig)
+  fullName: Netick.Unity.Network.StartAsReplayClient(UnityEngine.GameObject, Netick.Unity.NetickConfig)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Starts Netick as a replay client.
+  example: []
+  syntax:
+    content: public static NetworkSandbox StartAsReplayClient(GameObject sandboxPrefab = null, NetickConfig config = null)
+    parameters:
+    - id: sandboxPrefab
+      type: UnityEngine.GameObject
+    - id: config
+      type: Netick.Unity.NetickConfig
+    return:
+      type: Netick.Unity.NetworkSandbox
+      description: The sandbox representing the client
+    content.vb: Public Shared Function StartAsReplayClient(sandboxPrefab As GameObject = Nothing, config As NetickConfig = Nothing) As NetworkSandbox
+  overload: Netick.Unity.Network.StartAsReplayClient*
 - uid: Netick.Unity.Network.StartAsSinglePlayer(UnityEngine.GameObject,Netick.Unity.NetickConfig)
   commentId: M:Netick.Unity.Network.StartAsSinglePlayer(UnityEngine.GameObject,Netick.Unity.NetickConfig)
   id: StartAsSinglePlayer(UnityEngine.GameObject,Netick.Unity.NetickConfig)
@@ -548,6 +578,27 @@ items:
   nameWithType.vb: Network.Launch(List(Of SandboxLaunchData))
   fullName.vb: Netick.Unity.Network.Launch(System.Collections.Generic.List(Of Netick.Unity.SandboxLaunchData))
   name.vb: Launch(List(Of SandboxLaunchData))
+- uid: Netick.Unity.Network.GameVersion
+  commentId: P:Netick.Unity.Network.GameVersion
+  id: GameVersion
+  parent: Netick.Unity.Network
+  langs:
+  - csharp
+  - vb
+  name: GameVersion
+  nameWithType: Network.GameVersion
+  fullName: Netick.Unity.Network.GameVersion
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static int GameVersion { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Shared ReadOnly Property GameVersion As Integer
+  overload: Netick.Unity.Network.GameVersion*
 - uid: Netick.Unity.Network.StartMode
   commentId: P:Netick.Unity.Network.StartMode
   id: StartMode
@@ -917,6 +968,13 @@ references:
   name: StartAsClient
   nameWithType: Network.StartAsClient
   fullName: Netick.Unity.Network.StartAsClient
+- uid: Netick.Unity.Network.StartAsReplayClient*
+  commentId: Overload:Netick.Unity.Network.StartAsReplayClient
+  isExternal: true
+  href: Netick.Unity.Network.html#Netick_Unity_Network_StartAsReplayClient_UnityEngine_GameObject_Netick_Unity_NetickConfig_
+  name: StartAsReplayClient
+  nameWithType: Network.StartAsReplayClient
+  fullName: Netick.Unity.Network.StartAsReplayClient
 - uid: Netick.Unity.Network.StartAsSinglePlayer*
   commentId: Overload:Netick.Unity.Network.StartAsSinglePlayer
   isExternal: true
@@ -1104,6 +1162,13 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Netick.Unity.Network.GameVersion*
+  commentId: Overload:Netick.Unity.Network.GameVersion
+  isExternal: true
+  href: Netick.Unity.Network.html#Netick_Unity_Network_GameVersion
+  name: GameVersion
+  nameWithType: Network.GameVersion
+  fullName: Netick.Unity.Network.GameVersion
 - uid: Netick.Unity.Network.StartMode*
   commentId: Overload:Netick.Unity.Network.StartMode
   isExternal: true

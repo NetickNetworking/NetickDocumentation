@@ -8118,13 +8118,13 @@ references:
   fullName: Netick.NetickEngine.FetchInput
   nameWithType: NetickEngine.FetchInput
 - uid: Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
-  name: FetchInput<T>(out T, ref bool, Entity, int)
+  name: FetchInput<T>(out T, out bool, Entity, int)
   href: api/Netick.NetickEngine.html#Netick_NetickEngine_FetchInput__1___0__System_Boolean__Netick_Entity_System_Int32_
   commentId: M:Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
   name.vb: FetchInput(Of T)(T, Boolean, Entity, Integer)
-  fullName: Netick.NetickEngine.FetchInput<T>(out T, ref bool, Netick.Entity, int)
+  fullName: Netick.NetickEngine.FetchInput<T>(out T, out bool, Netick.Entity, int)
   fullName.vb: Netick.NetickEngine.FetchInput(Of T)(T, Boolean, Netick.Entity, Integer)
-  nameWithType: NetickEngine.FetchInput<T>(out T, ref bool, Entity, int)
+  nameWithType: NetickEngine.FetchInput<T>(out T, out bool, Entity, int)
   nameWithType.vb: NetickEngine.FetchInput(Of T)(T, Boolean, Entity, Integer)
 - uid: Netick.NetickEngine.FixedDeltaTime
   name: FixedDeltaTime
@@ -8426,6 +8426,18 @@ references:
   commentId: Overload:Netick.NetickEngine.IsRecording
   fullName: Netick.NetickEngine.IsRecording
   nameWithType: NetickEngine.IsRecording
+- uid: Netick.NetickEngine.IsReplay
+  name: IsReplay
+  href: api/Netick.NetickEngine.html#Netick_NetickEngine_IsReplay
+  commentId: P:Netick.NetickEngine.IsReplay
+  fullName: Netick.NetickEngine.IsReplay
+  nameWithType: NetickEngine.IsReplay
+- uid: Netick.NetickEngine.IsReplay*
+  name: IsReplay
+  href: api/Netick.NetickEngine.html#Netick_NetickEngine_IsReplay_
+  commentId: Overload:Netick.NetickEngine.IsReplay
+  fullName: Netick.NetickEngine.IsReplay
+  nameWithType: NetickEngine.IsReplay
 - uid: Netick.NetickEngine.IsReplayEnabled
   name: IsReplayEnabled
   href: api/Netick.NetickEngine.html#Netick_NetickEngine_IsReplayEnabled
@@ -8438,18 +8450,6 @@ references:
   commentId: Overload:Netick.NetickEngine.IsReplayEnabled
   fullName: Netick.NetickEngine.IsReplayEnabled
   nameWithType: NetickEngine.IsReplayEnabled
-- uid: Netick.NetickEngine.IsReplaying
-  name: IsReplaying
-  href: api/Netick.NetickEngine.html#Netick_NetickEngine_IsReplaying
-  commentId: P:Netick.NetickEngine.IsReplaying
-  fullName: Netick.NetickEngine.IsReplaying
-  nameWithType: NetickEngine.IsReplaying
-- uid: Netick.NetickEngine.IsReplaying*
-  name: IsReplaying
-  href: api/Netick.NetickEngine.html#Netick_NetickEngine_IsReplaying_
-  commentId: Overload:Netick.NetickEngine.IsReplaying
-  fullName: Netick.NetickEngine.IsReplaying
-  nameWithType: NetickEngine.IsReplaying
 - uid: Netick.NetickEngine.IsResimulating
   name: IsResimulating
   href: api/Netick.NetickEngine.html#Netick_NetickEngine_IsResimulating
@@ -22108,30 +22108,6 @@ references:
   commentId: F:Netick.ServerSimulation.ClientData.CurrentInput
   fullName: Netick.ServerSimulation.ClientData.CurrentInput
   nameWithType: ServerSimulation.ClientData.CurrentInput
-- uid: Netick.ServerSimulation.FetchInputFor(System.Int32,Netick.SimulationInput@,System.Boolean@)
-  name: FetchInputFor(int, out SimulationInput, ref bool)
-  href: api/Netick.ServerSimulation.html#Netick_ServerSimulation_FetchInputFor_System_Int32_Netick_SimulationInput__System_Boolean__
-  commentId: M:Netick.ServerSimulation.FetchInputFor(System.Int32,Netick.SimulationInput@,System.Boolean@)
-  name.vb: FetchInputFor(Integer, SimulationInput, Boolean)
-  fullName: Netick.ServerSimulation.FetchInputFor(int, out Netick.SimulationInput, ref bool)
-  fullName.vb: Netick.ServerSimulation.FetchInputFor(Integer, Netick.SimulationInput, Boolean)
-  nameWithType: ServerSimulation.FetchInputFor(int, out SimulationInput, ref bool)
-  nameWithType.vb: ServerSimulation.FetchInputFor(Integer, SimulationInput, Boolean)
-- uid: Netick.ServerSimulation.FetchInputFor*
-  name: FetchInputFor
-  href: api/Netick.ServerSimulation.html#Netick_ServerSimulation_FetchInputFor_
-  commentId: Overload:Netick.ServerSimulation.FetchInputFor
-  fullName: Netick.ServerSimulation.FetchInputFor
-  nameWithType: ServerSimulation.FetchInputFor
-- uid: Netick.ServerSimulation.FetchInputFor``1(System.Int32,``0@,System.Boolean@,System.Int32)
-  name: FetchInputFor<T>(int, out T, ref bool, int)
-  href: api/Netick.ServerSimulation.html#Netick_ServerSimulation_FetchInputFor__1_System_Int32___0__System_Boolean__System_Int32_
-  commentId: M:Netick.ServerSimulation.FetchInputFor``1(System.Int32,``0@,System.Boolean@,System.Int32)
-  name.vb: FetchInputFor(Of T)(Integer, T, Boolean, Integer)
-  fullName: Netick.ServerSimulation.FetchInputFor<T>(int, out T, ref bool, int)
-  fullName.vb: Netick.ServerSimulation.FetchInputFor(Of T)(Integer, T, Boolean, Integer)
-  nameWithType: ServerSimulation.FetchInputFor<T>(int, out T, ref bool, int)
-  nameWithType.vb: ServerSimulation.FetchInputFor(Of T)(Integer, T, Boolean, Integer)
 - uid: Netick.Session
   name: Session
   href: api/Netick.Session.html
@@ -22357,36 +22333,30 @@ references:
   commentId: Overload:Netick.Simulation.EntityRemove.GetHashCode
   fullName: Netick.Simulation.EntityRemove.GetHashCode
   nameWithType: Simulation.EntityRemove.GetHashCode
-- uid: Netick.Simulation.FetchInput*
-  name: FetchInput
-  href: api/Netick.Simulation.html#Netick_Simulation_FetchInput_
-  commentId: Overload:Netick.Simulation.FetchInput
-  fullName: Netick.Simulation.FetchInput
-  nameWithType: Simulation.FetchInput
-- uid: Netick.Simulation.FetchInputLocal*
-  name: FetchInputLocal
-  href: api/Netick.Simulation.html#Netick_Simulation_FetchInputLocal_
-  commentId: Overload:Netick.Simulation.FetchInputLocal
-  fullName: Netick.Simulation.FetchInputLocal
-  nameWithType: Simulation.FetchInputLocal
-- uid: Netick.Simulation.FetchInputLocal``1(``0@,System.Boolean@,System.Int32)
-  name: FetchInputLocal<T>(out T, ref bool, int)
-  href: api/Netick.Simulation.html#Netick_Simulation_FetchInputLocal__1___0__System_Boolean__System_Int32_
-  commentId: M:Netick.Simulation.FetchInputLocal``1(``0@,System.Boolean@,System.Int32)
-  name.vb: FetchInputLocal(Of T)(T, Boolean, Integer)
-  fullName: Netick.Simulation.FetchInputLocal<T>(out T, ref bool, int)
-  fullName.vb: Netick.Simulation.FetchInputLocal(Of T)(T, Boolean, Integer)
-  nameWithType: Simulation.FetchInputLocal<T>(out T, ref bool, int)
-  nameWithType.vb: Simulation.FetchInputLocal(Of T)(T, Boolean, Integer)
-- uid: Netick.Simulation.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
-  name: FetchInput<T>(out T, ref bool, Entity, int)
-  href: api/Netick.Simulation.html#Netick_Simulation_FetchInput__1___0__System_Boolean__Netick_Entity_System_Int32_
-  commentId: M:Netick.Simulation.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
-  name.vb: FetchInput(Of T)(T, Boolean, Entity, Integer)
-  fullName: Netick.Simulation.FetchInput<T>(out T, ref bool, Netick.Entity, int)
-  fullName.vb: Netick.Simulation.FetchInput(Of T)(T, Boolean, Netick.Entity, Integer)
-  nameWithType: Simulation.FetchInput<T>(out T, ref bool, Entity, int)
-  nameWithType.vb: Simulation.FetchInput(Of T)(T, Boolean, Entity, Integer)
+- uid: Netick.Simulation.FetchInputFor*
+  name: FetchInputFor
+  href: api/Netick.Simulation.html#Netick_Simulation_FetchInputFor_
+  commentId: Overload:Netick.Simulation.FetchInputFor
+  fullName: Netick.Simulation.FetchInputFor
+  nameWithType: Simulation.FetchInputFor
+- uid: Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,Netick.SimulationInput@,System.Boolean@,System.Int32)
+  name: FetchInputFor<T>(NetworkPlayerId, out SimulationInput, out bool, int)
+  href: api/Netick.Simulation.html#Netick_Simulation_FetchInputFor__1_Netick_NetworkPlayerId_Netick_SimulationInput__System_Boolean__System_Int32_
+  commentId: M:Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,Netick.SimulationInput@,System.Boolean@,System.Int32)
+  name.vb: FetchInputFor(Of T)(NetworkPlayerId, SimulationInput, Boolean, Integer)
+  fullName: Netick.Simulation.FetchInputFor<T>(Netick.NetworkPlayerId, out Netick.SimulationInput, out bool, int)
+  fullName.vb: Netick.Simulation.FetchInputFor(Of T)(Netick.NetworkPlayerId, Netick.SimulationInput, Boolean, Integer)
+  nameWithType: Simulation.FetchInputFor<T>(NetworkPlayerId, out SimulationInput, out bool, int)
+  nameWithType.vb: Simulation.FetchInputFor(Of T)(NetworkPlayerId, SimulationInput, Boolean, Integer)
+- uid: Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,``0@,System.Boolean@,System.Int32)
+  name: FetchInputFor<T>(NetworkPlayerId, out T, out bool, int)
+  href: api/Netick.Simulation.html#Netick_Simulation_FetchInputFor__1_Netick_NetworkPlayerId___0__System_Boolean__System_Int32_
+  commentId: M:Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,``0@,System.Boolean@,System.Int32)
+  name.vb: FetchInputFor(Of T)(NetworkPlayerId, T, Boolean, Integer)
+  fullName: Netick.Simulation.FetchInputFor<T>(Netick.NetworkPlayerId, out T, out bool, int)
+  fullName.vb: Netick.Simulation.FetchInputFor(Of T)(Netick.NetworkPlayerId, T, Boolean, Integer)
+  nameWithType: Simulation.FetchInputFor<T>(NetworkPlayerId, out T, out bool, int)
+  nameWithType.vb: Simulation.FetchInputFor(Of T)(NetworkPlayerId, T, Boolean, Integer)
 - uid: Netick.Simulation.GetEntityByWorldIndex(System.Int32)
   name: GetEntityByWorldIndex(int)
   href: api/Netick.Simulation.html#Netick_Simulation_GetEntityByWorldIndex_System_Int32_
@@ -24051,6 +24021,162 @@ references:
   commentId: Overload:Netick.Unity.DefaultSceneHandler.UnloadCustomSceneAsync
   fullName: Netick.Unity.DefaultSceneHandler.UnloadCustomSceneAsync
   nameWithType: DefaultSceneHandler.UnloadCustomSceneAsync
+- uid: Netick.Unity.FileReplayTransport
+  name: FileReplayTransport
+  href: api/Netick.Unity.FileReplayTransport.html
+  commentId: T:Netick.Unity.FileReplayTransport
+  fullName: Netick.Unity.FileReplayTransport
+  nameWithType: FileReplayTransport
+- uid: Netick.Unity.FileReplayTransport.#ctor
+  name: FileReplayTransport()
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport__ctor
+  commentId: M:Netick.Unity.FileReplayTransport.#ctor
+  name.vb: New()
+  fullName: Netick.Unity.FileReplayTransport.FileReplayTransport()
+  fullName.vb: Netick.Unity.FileReplayTransport.New()
+  nameWithType: FileReplayTransport.FileReplayTransport()
+  nameWithType.vb: FileReplayTransport.New()
+- uid: Netick.Unity.FileReplayTransport.#ctor*
+  name: FileReplayTransport
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport__ctor_
+  commentId: Overload:Netick.Unity.FileReplayTransport.#ctor
+  name.vb: New
+  fullName: Netick.Unity.FileReplayTransport.FileReplayTransport
+  fullName.vb: Netick.Unity.FileReplayTransport.New
+  nameWithType: FileReplayTransport.FileReplayTransport
+  nameWithType.vb: FileReplayTransport.New
+- uid: Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  name: DefaultReplaysLocation
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_DefaultReplaysLocation
+  commentId: P:Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  fullName: Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  nameWithType: FileReplayTransport.DefaultReplaysLocation
+- uid: Netick.Unity.FileReplayTransport.DefaultReplaysLocation*
+  name: DefaultReplaysLocation
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_DefaultReplaysLocation_
+  commentId: Overload:Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  fullName: Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  nameWithType: FileReplayTransport.DefaultReplaysLocation
+- uid: Netick.Unity.FileReplayTransport.Engine
+  name: Engine
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Engine
+  commentId: P:Netick.Unity.FileReplayTransport.Engine
+  fullName: Netick.Unity.FileReplayTransport.Engine
+  nameWithType: FileReplayTransport.Engine
+- uid: Netick.Unity.FileReplayTransport.Engine*
+  name: Engine
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Engine_
+  commentId: Overload:Netick.Unity.FileReplayTransport.Engine
+  fullName: Netick.Unity.FileReplayTransport.Engine
+  nameWithType: FileReplayTransport.Engine
+- uid: Netick.Unity.FileReplayTransport.Finalize
+  name: ~FileReplayTransport()
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Finalize
+  commentId: M:Netick.Unity.FileReplayTransport.Finalize
+  name.vb: ''
+  fullName: Netick.Unity.FileReplayTransport.~FileReplayTransport()
+  fullName.vb: ''
+  nameWithType: FileReplayTransport.~FileReplayTransport()
+  nameWithType.vb: ''
+- uid: Netick.Unity.FileReplayTransport.Finalize*
+  name: ~FileReplayTransport
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Finalize_
+  commentId: Overload:Netick.Unity.FileReplayTransport.Finalize
+  fullName: Netick.Unity.FileReplayTransport.~FileReplayTransport
+  nameWithType: FileReplayTransport.~FileReplayTransport
+- uid: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+  name: GetLatestReplayPathAsync()
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetLatestReplayPathAsync
+  commentId: M:Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+  fullName: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync()
+  nameWithType: FileReplayTransport.GetLatestReplayPathAsync()
+- uid: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync*
+  name: GetLatestReplayPathAsync
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetLatestReplayPathAsync_
+  commentId: Overload:Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+  fullName: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+  nameWithType: FileReplayTransport.GetLatestReplayPathAsync
+- uid: Netick.Unity.FileReplayTransport.GetReplayFileInfo(System.String)
+  name: GetReplayFileInfo(string)
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetReplayFileInfo_System_String_
+  commentId: M:Netick.Unity.FileReplayTransport.GetReplayFileInfo(System.String)
+  name.vb: GetReplayFileInfo(String)
+  fullName: Netick.Unity.FileReplayTransport.GetReplayFileInfo(string)
+  fullName.vb: Netick.Unity.FileReplayTransport.GetReplayFileInfo(String)
+  nameWithType: FileReplayTransport.GetReplayFileInfo(string)
+  nameWithType.vb: FileReplayTransport.GetReplayFileInfo(String)
+- uid: Netick.Unity.FileReplayTransport.GetReplayFileInfo*
+  name: GetReplayFileInfo
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetReplayFileInfo_
+  commentId: Overload:Netick.Unity.FileReplayTransport.GetReplayFileInfo
+  fullName: Netick.Unity.FileReplayTransport.GetReplayFileInfo
+  nameWithType: FileReplayTransport.GetReplayFileInfo
+- uid: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(System.String)
+  name: GetReplayFileInfoAsync(string)
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetReplayFileInfoAsync_System_String_
+  commentId: M:Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(System.String)
+  name.vb: GetReplayFileInfoAsync(String)
+  fullName: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(string)
+  fullName.vb: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(String)
+  nameWithType: FileReplayTransport.GetReplayFileInfoAsync(string)
+  nameWithType.vb: FileReplayTransport.GetReplayFileInfoAsync(String)
+- uid: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync*
+  name: GetReplayFileInfoAsync
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetReplayFileInfoAsync_
+  commentId: Overload:Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync
+  fullName: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync
+  nameWithType: FileReplayTransport.GetReplayFileInfoAsync
+- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
+  name: KeyframeIntervalFrames
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_KeyframeIntervalFrames
+  commentId: P:Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
+  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
+  nameWithType: FileReplayTransport.KeyframeIntervalFrames
+- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames*
+  name: KeyframeIntervalFrames
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_KeyframeIntervalFrames_
+  commentId: Overload:Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
+  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
+  nameWithType: FileReplayTransport.KeyframeIntervalFrames
+- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
+  name: KeyframeIntervalSeconds
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_KeyframeIntervalSeconds
+  commentId: P:Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
+  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
+  nameWithType: FileReplayTransport.KeyframeIntervalSeconds
+- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds*
+  name: KeyframeIntervalSeconds
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_KeyframeIntervalSeconds_
+  commentId: Overload:Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
+  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
+  nameWithType: FileReplayTransport.KeyframeIntervalSeconds
+- uid: Netick.Unity.FileReplayTransport.Sandbox
+  name: Sandbox
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Sandbox
+  commentId: P:Netick.Unity.FileReplayTransport.Sandbox
+  fullName: Netick.Unity.FileReplayTransport.Sandbox
+  nameWithType: FileReplayTransport.Sandbox
+- uid: Netick.Unity.FileReplayTransport.Sandbox*
+  name: Sandbox
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Sandbox_
+  commentId: Overload:Netick.Unity.FileReplayTransport.Sandbox
+  fullName: Netick.Unity.FileReplayTransport.Sandbox
+  nameWithType: FileReplayTransport.Sandbox
+- uid: Netick.Unity.FileReplayTransport.Seek(System.Int32)
+  name: Seek(int)
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Seek_System_Int32_
+  commentId: M:Netick.Unity.FileReplayTransport.Seek(System.Int32)
+  name.vb: Seek(Integer)
+  fullName: Netick.Unity.FileReplayTransport.Seek(int)
+  fullName.vb: Netick.Unity.FileReplayTransport.Seek(Integer)
+  nameWithType: FileReplayTransport.Seek(int)
+  nameWithType.vb: FileReplayTransport.Seek(Integer)
+- uid: Netick.Unity.FileReplayTransport.Seek*
+  name: Seek
+  href: api/Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Seek_
+  commentId: Overload:Netick.Unity.FileReplayTransport.Seek
+  fullName: Netick.Unity.FileReplayTransport.Seek
+  nameWithType: FileReplayTransport.Seek
 - uid: Netick.Unity.FloatErrorCorrector
   name: FloatErrorCorrector
   href: api/Netick.Unity.FloatErrorCorrector.html
@@ -24891,6 +25017,12 @@ references:
   commentId: F:Netick.Unity.NetickConfig.EnableProfiling
   fullName: Netick.Unity.NetickConfig.EnableProfiling
   nameWithType: NetickConfig.EnableProfiling
+- uid: Netick.Unity.NetickConfig.EnableReplay
+  name: EnableReplay
+  href: api/Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_EnableReplay
+  commentId: F:Netick.Unity.NetickConfig.EnableReplay
+  fullName: Netick.Unity.NetickConfig.EnableReplay
+  nameWithType: NetickConfig.EnableReplay
 - uid: Netick.Unity.NetickConfig.ExtraInterpolationDelay
   name: ExtraInterpolationDelay
   href: api/Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_ExtraInterpolationDelay
@@ -24909,12 +25041,12 @@ references:
   commentId: F:Netick.Unity.NetickConfig.IncludeInactiveObjects
   fullName: Netick.Unity.NetickConfig.IncludeInactiveObjects
   nameWithType: NetickConfig.IncludeInactiveObjects
-- uid: Netick.Unity.NetickConfig.InputReuseAtLowFPS
-  name: InputReuseAtLowFPS
-  href: api/Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_InputReuseAtLowFPS
-  commentId: F:Netick.Unity.NetickConfig.InputReuseAtLowFPS
-  fullName: Netick.Unity.NetickConfig.InputReuseAtLowFPS
-  nameWithType: NetickConfig.InputReuseAtLowFPS
+- uid: Netick.Unity.NetickConfig.InputReuseOnLowFPS
+  name: InputReuseOnLowFPS
+  href: api/Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_InputReuseOnLowFPS
+  commentId: F:Netick.Unity.NetickConfig.InputReuseOnLowFPS
+  fullName: Netick.Unity.NetickConfig.InputReuseOnLowFPS
+  nameWithType: NetickConfig.InputReuseOnLowFPS
 - uid: Netick.Unity.NetickConfig.InvokeRenderInHeadless
   name: InvokeRenderInHeadless
   href: api/Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_InvokeRenderInHeadless
@@ -25011,6 +25143,30 @@ references:
   commentId: F:Netick.Unity.NetickConfig.RenderedLayer
   fullName: Netick.Unity.NetickConfig.RenderedLayer
   nameWithType: NetickConfig.RenderedLayer
+- uid: Netick.Unity.NetickConfig.ReplayFileExtension
+  name: ReplayFileExtension
+  href: api/Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_ReplayFileExtension
+  commentId: F:Netick.Unity.NetickConfig.ReplayFileExtension
+  fullName: Netick.Unity.NetickConfig.ReplayFileExtension
+  nameWithType: NetickConfig.ReplayFileExtension
+- uid: Netick.Unity.NetickConfig.ReplayFileSignature
+  name: ReplayFileSignature
+  href: api/Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_ReplayFileSignature
+  commentId: F:Netick.Unity.NetickConfig.ReplayFileSignature
+  fullName: Netick.Unity.NetickConfig.ReplayFileSignature
+  nameWithType: NetickConfig.ReplayFileSignature
+- uid: Netick.Unity.NetickConfig.ReplayKeyframeInterval
+  name: ReplayKeyframeInterval
+  href: api/Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_ReplayKeyframeInterval
+  commentId: F:Netick.Unity.NetickConfig.ReplayKeyframeInterval
+  fullName: Netick.Unity.NetickConfig.ReplayKeyframeInterval
+  nameWithType: NetickConfig.ReplayKeyframeInterval
+- uid: Netick.Unity.NetickConfig.ReplayRecordOnStartup
+  name: ReplayRecordOnStartup
+  href: api/Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_ReplayRecordOnStartup
+  commentId: F:Netick.Unity.NetickConfig.ReplayRecordOnStartup
+  fullName: Netick.Unity.NetickConfig.ReplayRecordOnStartup
+  nameWithType: NetickConfig.ReplayRecordOnStartup
 - uid: Netick.Unity.NetickConfig.ServerDivisor
   name: ServerDivisor
   href: api/Netick.Unity.NetickConfig.html#Netick_Unity_NetickConfig_ServerDivisor
@@ -25761,6 +25917,18 @@ references:
   commentId: Overload:Netick.Unity.Network.Focus
   fullName: Netick.Unity.Network.Focus
   nameWithType: Network.Focus
+- uid: Netick.Unity.Network.GameVersion
+  name: GameVersion
+  href: api/Netick.Unity.Network.html#Netick_Unity_Network_GameVersion
+  commentId: P:Netick.Unity.Network.GameVersion
+  fullName: Netick.Unity.Network.GameVersion
+  nameWithType: Network.GameVersion
+- uid: Netick.Unity.Network.GameVersion*
+  name: GameVersion
+  href: api/Netick.Unity.Network.html#Netick_Unity_Network_GameVersion_
+  commentId: Overload:Netick.Unity.Network.GameVersion
+  fullName: Netick.Unity.Network.GameVersion
+  nameWithType: Network.GameVersion
 - uid: Netick.Unity.Network.Init(Netick.Unity.NetickConfig)
   name: Init(NetickConfig)
   href: api/Netick.Unity.Network.html#Netick_Unity_Network_Init_Netick_Unity_NetickConfig_
@@ -25980,6 +26148,18 @@ references:
   commentId: Overload:Netick.Unity.Network.StartAsMultiplePeers
   fullName: Netick.Unity.Network.StartAsMultiplePeers
   nameWithType: Network.StartAsMultiplePeers
+- uid: Netick.Unity.Network.StartAsReplayClient(UnityEngine.GameObject,Netick.Unity.NetickConfig)
+  name: StartAsReplayClient(GameObject, NetickConfig)
+  href: api/Netick.Unity.Network.html#Netick_Unity_Network_StartAsReplayClient_UnityEngine_GameObject_Netick_Unity_NetickConfig_
+  commentId: M:Netick.Unity.Network.StartAsReplayClient(UnityEngine.GameObject,Netick.Unity.NetickConfig)
+  fullName: Netick.Unity.Network.StartAsReplayClient(UnityEngine.GameObject, Netick.Unity.NetickConfig)
+  nameWithType: Network.StartAsReplayClient(GameObject, NetickConfig)
+- uid: Netick.Unity.Network.StartAsReplayClient*
+  name: StartAsReplayClient
+  href: api/Netick.Unity.Network.html#Netick_Unity_Network_StartAsReplayClient_
+  commentId: Overload:Netick.Unity.Network.StartAsReplayClient
+  fullName: Netick.Unity.Network.StartAsReplayClient
+  nameWithType: Network.StartAsReplayClient
 - uid: Netick.Unity.Network.StartAsServer(Netick.Unity.NetworkTransportProvider,System.Int32,UnityEngine.GameObject,Netick.Unity.NetickConfig)
   name: StartAsServer(NetworkTransportProvider, int, GameObject, NetickConfig)
   href: api/Netick.Unity.Network.html#Netick_Unity_Network_StartAsServer_Netick_Unity_NetworkTransportProvider_System_Int32_UnityEngine_GameObject_Netick_Unity_NetickConfig_
@@ -29429,6 +29609,12 @@ references:
   commentId: Overload:Netick.Unity.NetworkSandbox.Destroy
   fullName: Netick.Unity.NetworkSandbox.Destroy
   nameWithType: NetworkSandbox.Destroy
+- uid: Netick.Unity.NetworkSandbox.DestroyPool(Netick.Unity.NetworkObject)
+  name: DestroyPool(NetworkObject)
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_DestroyPool_Netick_Unity_NetworkObject_
+  commentId: M:Netick.Unity.NetworkSandbox.DestroyPool(Netick.Unity.NetworkObject)
+  fullName: Netick.Unity.NetworkSandbox.DestroyPool(Netick.Unity.NetworkObject)
+  nameWithType: NetworkSandbox.DestroyPool(NetworkObject)
 - uid: Netick.Unity.NetworkSandbox.DestroyPool(UnityEngine.GameObject)
   name: DestroyPool(GameObject)
   href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_DestroyPool_UnityEngine_GameObject_
@@ -29858,6 +30044,15 @@ references:
   commentId: Overload:Netick.Unity.NetworkSandbox.InPacketLoss
   fullName: Netick.Unity.NetworkSandbox.InPacketLoss
   nameWithType: NetworkSandbox.InPacketLoss
+- uid: Netick.Unity.NetworkSandbox.InitializePool(Netick.Unity.NetworkObject,System.Int32,System.Boolean)
+  name: InitializePool(NetworkObject, int, bool)
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_InitializePool_Netick_Unity_NetworkObject_System_Int32_System_Boolean_
+  commentId: M:Netick.Unity.NetworkSandbox.InitializePool(Netick.Unity.NetworkObject,System.Int32,System.Boolean)
+  name.vb: InitializePool(NetworkObject, Integer, Boolean)
+  fullName: Netick.Unity.NetworkSandbox.InitializePool(Netick.Unity.NetworkObject, int, bool)
+  fullName.vb: Netick.Unity.NetworkSandbox.InitializePool(Netick.Unity.NetworkObject, Integer, Boolean)
+  nameWithType: NetworkSandbox.InitializePool(NetworkObject, int, bool)
+  nameWithType.vb: NetworkSandbox.InitializePool(NetworkObject, Integer, Boolean)
 - uid: Netick.Unity.NetworkSandbox.InitializePool(UnityEngine.GameObject,System.Int32,System.Boolean)
   name: InitializePool(GameObject, int, bool)
   href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_InitializePool_UnityEngine_GameObject_System_Int32_System_Boolean_
@@ -30002,6 +30197,30 @@ references:
   commentId: Overload:Netick.Unity.NetworkSandbox.IsPlayer
   fullName: Netick.Unity.NetworkSandbox.IsPlayer
   nameWithType: NetworkSandbox.IsPlayer
+- uid: Netick.Unity.NetworkSandbox.IsRecording
+  name: IsRecording
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_IsRecording
+  commentId: P:Netick.Unity.NetworkSandbox.IsRecording
+  fullName: Netick.Unity.NetworkSandbox.IsRecording
+  nameWithType: NetworkSandbox.IsRecording
+- uid: Netick.Unity.NetworkSandbox.IsRecording*
+  name: IsRecording
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_IsRecording_
+  commentId: Overload:Netick.Unity.NetworkSandbox.IsRecording
+  fullName: Netick.Unity.NetworkSandbox.IsRecording
+  nameWithType: NetworkSandbox.IsRecording
+- uid: Netick.Unity.NetworkSandbox.IsReplay
+  name: IsReplay
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_IsReplay
+  commentId: P:Netick.Unity.NetworkSandbox.IsReplay
+  fullName: Netick.Unity.NetworkSandbox.IsReplay
+  nameWithType: NetworkSandbox.IsReplay
+- uid: Netick.Unity.NetworkSandbox.IsReplay*
+  name: IsReplay
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_IsReplay_
+  commentId: Overload:Netick.Unity.NetworkSandbox.IsReplay
+  fullName: Netick.Unity.NetworkSandbox.IsReplay
+  nameWithType: NetworkSandbox.IsReplay
 - uid: Netick.Unity.NetworkSandbox.IsResimulating
   name: IsResimulating
   href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_IsResimulating
@@ -30131,6 +30350,18 @@ references:
   commentId: Overload:Netick.Unity.NetworkSandbox.LoadSceneAsync
   fullName: Netick.Unity.NetworkSandbox.LoadSceneAsync
   nameWithType: NetworkSandbox.LoadSceneAsync
+- uid: Netick.Unity.NetworkSandbox.LocalAlpha
+  name: LocalAlpha
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_LocalAlpha
+  commentId: P:Netick.Unity.NetworkSandbox.LocalAlpha
+  fullName: Netick.Unity.NetworkSandbox.LocalAlpha
+  nameWithType: NetworkSandbox.LocalAlpha
+- uid: Netick.Unity.NetworkSandbox.LocalAlpha*
+  name: LocalAlpha
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_LocalAlpha_
+  commentId: Overload:Netick.Unity.NetworkSandbox.LocalAlpha
+  fullName: Netick.Unity.NetworkSandbox.LocalAlpha
+  nameWithType: NetworkSandbox.LocalAlpha
 - uid: Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject)
   name: LocalInstantiate(GameObject)
   href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_LocalInstantiate_UnityEngine_GameObject_
@@ -30590,6 +30821,30 @@ references:
   commentId: Overload:Netick.Unity.NetworkSandbox.RemoveFromLoop
   fullName: Netick.Unity.NetworkSandbox.RemoveFromLoop
   nameWithType: NetworkSandbox.RemoveFromLoop
+- uid: Netick.Unity.NetworkSandbox.Replay
+  name: Replay
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Replay
+  commentId: P:Netick.Unity.NetworkSandbox.Replay
+  fullName: Netick.Unity.NetworkSandbox.Replay
+  nameWithType: NetworkSandbox.Replay
+- uid: Netick.Unity.NetworkSandbox.Replay*
+  name: Replay
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Replay_
+  commentId: Overload:Netick.Unity.NetworkSandbox.Replay
+  fullName: Netick.Unity.NetworkSandbox.Replay
+  nameWithType: NetworkSandbox.Replay
+- uid: Netick.Unity.NetworkSandbox.ReplayTransport
+  name: ReplayTransport
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_ReplayTransport
+  commentId: P:Netick.Unity.NetworkSandbox.ReplayTransport
+  fullName: Netick.Unity.NetworkSandbox.ReplayTransport
+  nameWithType: NetworkSandbox.ReplayTransport
+- uid: Netick.Unity.NetworkSandbox.ReplayTransport*
+  name: ReplayTransport
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_ReplayTransport_
+  commentId: Overload:Netick.Unity.NetworkSandbox.ReplayTransport
+  fullName: Netick.Unity.NetworkSandbox.ReplayTransport
+  nameWithType: NetworkSandbox.ReplayTransport
 - uid: Netick.Unity.NetworkSandbox.ResimulationCount
   name: ResimulationCount
   href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_ResimulationCount
@@ -30722,6 +30977,36 @@ references:
   commentId: Overload:Netick.Unity.NetworkSandbox.StartMode
   fullName: Netick.Unity.NetworkSandbox.StartMode
   nameWithType: NetworkSandbox.StartMode
+- uid: Netick.Unity.NetworkSandbox.StartPlayback(System.String)
+  name: StartPlayback(string)
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StartPlayback_System_String_
+  commentId: M:Netick.Unity.NetworkSandbox.StartPlayback(System.String)
+  name.vb: StartPlayback(String)
+  fullName: Netick.Unity.NetworkSandbox.StartPlayback(string)
+  fullName.vb: Netick.Unity.NetworkSandbox.StartPlayback(String)
+  nameWithType: NetworkSandbox.StartPlayback(string)
+  nameWithType.vb: NetworkSandbox.StartPlayback(String)
+- uid: Netick.Unity.NetworkSandbox.StartPlayback*
+  name: StartPlayback
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StartPlayback_
+  commentId: Overload:Netick.Unity.NetworkSandbox.StartPlayback
+  fullName: Netick.Unity.NetworkSandbox.StartPlayback
+  nameWithType: NetworkSandbox.StartPlayback
+- uid: Netick.Unity.NetworkSandbox.StartRecordingReplay(System.String)
+  name: StartRecordingReplay(string)
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StartRecordingReplay_System_String_
+  commentId: M:Netick.Unity.NetworkSandbox.StartRecordingReplay(System.String)
+  name.vb: StartRecordingReplay(String)
+  fullName: Netick.Unity.NetworkSandbox.StartRecordingReplay(string)
+  fullName.vb: Netick.Unity.NetworkSandbox.StartRecordingReplay(String)
+  nameWithType: NetworkSandbox.StartRecordingReplay(string)
+  nameWithType.vb: NetworkSandbox.StartRecordingReplay(String)
+- uid: Netick.Unity.NetworkSandbox.StartRecordingReplay*
+  name: StartRecordingReplay
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StartRecordingReplay_
+  commentId: Overload:Netick.Unity.NetworkSandbox.StartRecordingReplay
+  fullName: Netick.Unity.NetworkSandbox.StartRecordingReplay
+  nameWithType: NetworkSandbox.StartRecordingReplay
 - uid: Netick.Unity.NetworkSandbox.StartTimer(System.Single,System.Boolean)
   name: StartTimer(float, bool)
   href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StartTimer_System_Single_System_Boolean_
@@ -30737,6 +31022,18 @@ references:
   commentId: Overload:Netick.Unity.NetworkSandbox.StartTimer
   fullName: Netick.Unity.NetworkSandbox.StartTimer
   nameWithType: NetworkSandbox.StartTimer
+- uid: Netick.Unity.NetworkSandbox.StopRecordingReplay
+  name: StopRecordingReplay()
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay
+  commentId: M:Netick.Unity.NetworkSandbox.StopRecordingReplay
+  fullName: Netick.Unity.NetworkSandbox.StopRecordingReplay()
+  nameWithType: NetworkSandbox.StopRecordingReplay()
+- uid: Netick.Unity.NetworkSandbox.StopRecordingReplay*
+  name: StopRecordingReplay
+  href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay_
+  commentId: Overload:Netick.Unity.NetworkSandbox.StopRecordingReplay
+  fullName: Netick.Unity.NetworkSandbox.StopRecordingReplay
+  nameWithType: NetworkSandbox.StopRecordingReplay
 - uid: Netick.Unity.NetworkSandbox.SwitchScene(System.Int32)
   name: SwitchScene(int)
   href: api/Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_SwitchScene_System_Int32_
@@ -31481,6 +31778,15 @@ references:
   fullName.vb: Netick.Unity.NetworkTransform.GetInterpolatedPosRot(UnityEngine.Vector3, UnityEngine.Quaternion)
   nameWithType: NetworkTransform.GetInterpolatedPosRot(out Vector3, out Quaternion)
   nameWithType.vb: NetworkTransform.GetInterpolatedPosRot(Vector3, Quaternion)
+- uid: Netick.Unity.NetworkTransform.GetInterpolatedPosRot(UnityEngine.Vector3@,UnityEngine.Quaternion@,Netick.InterpolationSource)
+  name: GetInterpolatedPosRot(out Vector3, out Quaternion, InterpolationSource)
+  href: api/Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_GetInterpolatedPosRot_UnityEngine_Vector3__UnityEngine_Quaternion__Netick_InterpolationSource_
+  commentId: M:Netick.Unity.NetworkTransform.GetInterpolatedPosRot(UnityEngine.Vector3@,UnityEngine.Quaternion@,Netick.InterpolationSource)
+  name.vb: GetInterpolatedPosRot(Vector3, Quaternion, InterpolationSource)
+  fullName: Netick.Unity.NetworkTransform.GetInterpolatedPosRot(out UnityEngine.Vector3, out UnityEngine.Quaternion, Netick.InterpolationSource)
+  fullName.vb: Netick.Unity.NetworkTransform.GetInterpolatedPosRot(UnityEngine.Vector3, UnityEngine.Quaternion, Netick.InterpolationSource)
+  nameWithType: NetworkTransform.GetInterpolatedPosRot(out Vector3, out Quaternion, InterpolationSource)
+  nameWithType.vb: NetworkTransform.GetInterpolatedPosRot(Vector3, Quaternion, InterpolationSource)
 - uid: Netick.Unity.NetworkTransform.GetInterpolatedPosRot*
   name: GetInterpolatedPosRot
   href: api/Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_GetInterpolatedPosRot_
@@ -31607,18 +31913,6 @@ references:
   commentId: Overload:Netick.Unity.NetworkTransform.Position
   fullName: Netick.Unity.NetworkTransform.Position
   nameWithType: NetworkTransform.Position
-- uid: Netick.Unity.NetworkTransform.Render
-  name: Render()
-  href: api/Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Render
-  commentId: M:Netick.Unity.NetworkTransform.Render
-  fullName: Netick.Unity.NetworkTransform.Render()
-  nameWithType: NetworkTransform.Render()
-- uid: Netick.Unity.NetworkTransform.Render*
-  name: Render
-  href: api/Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_Render_
-  commentId: Overload:Netick.Unity.NetworkTransform.Render
-  fullName: Netick.Unity.NetworkTransform.Render
-  nameWithType: NetworkTransform.Render
 - uid: Netick.Unity.NetworkTransform.RenderTransform
   name: RenderTransform
   href: api/Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_RenderTransform
@@ -34193,6 +34487,282 @@ references:
   commentId: Overload:Netick.Unity.QuaternionErrorCorrector.Render
   fullName: Netick.Unity.QuaternionErrorCorrector.Render
   nameWithType: QuaternionErrorCorrector.Render
+- uid: Netick.Unity.ReplayFileInfo
+  name: ReplayFileInfo
+  href: api/Netick.Unity.ReplayFileInfo.html
+  commentId: T:Netick.Unity.ReplayFileInfo
+  fullName: Netick.Unity.ReplayFileInfo
+  nameWithType: ReplayFileInfo
+- uid: Netick.Unity.ReplayFileInfo.#ctor(Netick.Unity.ReplayFileStatus,System.Int32)
+  name: ReplayFileInfo(ReplayFileStatus, int)
+  href: api/Netick.Unity.ReplayFileInfo.html#Netick_Unity_ReplayFileInfo__ctor_Netick_Unity_ReplayFileStatus_System_Int32_
+  commentId: M:Netick.Unity.ReplayFileInfo.#ctor(Netick.Unity.ReplayFileStatus,System.Int32)
+  name.vb: New(ReplayFileStatus, Integer)
+  fullName: Netick.Unity.ReplayFileInfo.ReplayFileInfo(Netick.Unity.ReplayFileStatus, int)
+  fullName.vb: Netick.Unity.ReplayFileInfo.New(Netick.Unity.ReplayFileStatus, Integer)
+  nameWithType: ReplayFileInfo.ReplayFileInfo(ReplayFileStatus, int)
+  nameWithType.vb: ReplayFileInfo.New(ReplayFileStatus, Integer)
+- uid: Netick.Unity.ReplayFileInfo.#ctor*
+  name: ReplayFileInfo
+  href: api/Netick.Unity.ReplayFileInfo.html#Netick_Unity_ReplayFileInfo__ctor_
+  commentId: Overload:Netick.Unity.ReplayFileInfo.#ctor
+  name.vb: New
+  fullName: Netick.Unity.ReplayFileInfo.ReplayFileInfo
+  fullName.vb: Netick.Unity.ReplayFileInfo.New
+  nameWithType: ReplayFileInfo.ReplayFileInfo
+  nameWithType.vb: ReplayFileInfo.New
+- uid: Netick.Unity.ReplayFileInfo.GameVersion
+  name: GameVersion
+  href: api/Netick.Unity.ReplayFileInfo.html#Netick_Unity_ReplayFileInfo_GameVersion
+  commentId: F:Netick.Unity.ReplayFileInfo.GameVersion
+  fullName: Netick.Unity.ReplayFileInfo.GameVersion
+  nameWithType: ReplayFileInfo.GameVersion
+- uid: Netick.Unity.ReplayFileInfo.Status
+  name: Status
+  href: api/Netick.Unity.ReplayFileInfo.html#Netick_Unity_ReplayFileInfo_Status
+  commentId: F:Netick.Unity.ReplayFileInfo.Status
+  fullName: Netick.Unity.ReplayFileInfo.Status
+  nameWithType: ReplayFileInfo.Status
+- uid: Netick.Unity.ReplayFileReader
+  name: ReplayFileReader
+  href: api/Netick.Unity.ReplayFileReader.html
+  commentId: T:Netick.Unity.ReplayFileReader
+  fullName: Netick.Unity.ReplayFileReader
+  nameWithType: ReplayFileReader
+- uid: Netick.Unity.ReplayFileReader.#ctor(System.Int32)
+  name: ReplayFileReader(int)
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader__ctor_System_Int32_
+  commentId: M:Netick.Unity.ReplayFileReader.#ctor(System.Int32)
+  name.vb: New(Integer)
+  fullName: Netick.Unity.ReplayFileReader.ReplayFileReader(int)
+  fullName.vb: Netick.Unity.ReplayFileReader.New(Integer)
+  nameWithType: ReplayFileReader.ReplayFileReader(int)
+  nameWithType.vb: ReplayFileReader.New(Integer)
+- uid: Netick.Unity.ReplayFileReader.#ctor*
+  name: ReplayFileReader
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader__ctor_
+  commentId: Overload:Netick.Unity.ReplayFileReader.#ctor
+  name.vb: New
+  fullName: Netick.Unity.ReplayFileReader.ReplayFileReader
+  fullName.vb: Netick.Unity.ReplayFileReader.New
+  nameWithType: ReplayFileReader.ReplayFileReader
+  nameWithType.vb: ReplayFileReader.New
+- uid: Netick.Unity.ReplayFileReader.Block
+  name: ReplayFileReader.Block
+  href: api/Netick.Unity.ReplayFileReader.Block.html
+  commentId: T:Netick.Unity.ReplayFileReader.Block
+  fullName: Netick.Unity.ReplayFileReader.Block
+  nameWithType: ReplayFileReader.Block
+- uid: Netick.Unity.ReplayFileReader.Block.Data
+  name: Data
+  href: api/Netick.Unity.ReplayFileReader.Block.html#Netick_Unity_ReplayFileReader_Block_Data
+  commentId: F:Netick.Unity.ReplayFileReader.Block.Data
+  fullName: Netick.Unity.ReplayFileReader.Block.Data
+  nameWithType: ReplayFileReader.Block.Data
+- uid: Netick.Unity.ReplayFileReader.Block.SizeBytes
+  name: SizeBytes
+  href: api/Netick.Unity.ReplayFileReader.Block.html#Netick_Unity_ReplayFileReader_Block_SizeBytes
+  commentId: F:Netick.Unity.ReplayFileReader.Block.SizeBytes
+  fullName: Netick.Unity.ReplayFileReader.Block.SizeBytes
+  nameWithType: ReplayFileReader.Block.SizeBytes
+- uid: Netick.Unity.ReplayFileReader.CacheLock
+  name: CacheLock
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_CacheLock
+  commentId: P:Netick.Unity.ReplayFileReader.CacheLock
+  fullName: Netick.Unity.ReplayFileReader.CacheLock
+  nameWithType: ReplayFileReader.CacheLock
+- uid: Netick.Unity.ReplayFileReader.CacheLock*
+  name: CacheLock
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_CacheLock_
+  commentId: Overload:Netick.Unity.ReplayFileReader.CacheLock
+  fullName: Netick.Unity.ReplayFileReader.CacheLock
+  nameWithType: ReplayFileReader.CacheLock
+- uid: Netick.Unity.ReplayFileReader.Fetch(System.Int64,System.Int32)
+  name: Fetch(long, int)
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Fetch_System_Int64_System_Int32_
+  commentId: M:Netick.Unity.ReplayFileReader.Fetch(System.Int64,System.Int32)
+  name.vb: Fetch(Long, Integer)
+  fullName: Netick.Unity.ReplayFileReader.Fetch(long, int)
+  fullName.vb: Netick.Unity.ReplayFileReader.Fetch(Long, Integer)
+  nameWithType: ReplayFileReader.Fetch(long, int)
+  nameWithType.vb: ReplayFileReader.Fetch(Long, Integer)
+- uid: Netick.Unity.ReplayFileReader.Fetch*
+  name: Fetch
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Fetch_
+  commentId: Overload:Netick.Unity.ReplayFileReader.Fetch
+  fullName: Netick.Unity.ReplayFileReader.Fetch
+  nameWithType: ReplayFileReader.Fetch
+- uid: Netick.Unity.ReplayFileReader.Start(System.IO.FileStream)
+  name: Start(FileStream)
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Start_System_IO_FileStream_
+  commentId: M:Netick.Unity.ReplayFileReader.Start(System.IO.FileStream)
+  fullName: Netick.Unity.ReplayFileReader.Start(System.IO.FileStream)
+  nameWithType: ReplayFileReader.Start(FileStream)
+- uid: Netick.Unity.ReplayFileReader.Start*
+  name: Start
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Start_
+  commentId: Overload:Netick.Unity.ReplayFileReader.Start
+  fullName: Netick.Unity.ReplayFileReader.Start
+  nameWithType: ReplayFileReader.Start
+- uid: Netick.Unity.ReplayFileReader.Stop
+  name: Stop()
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Stop
+  commentId: M:Netick.Unity.ReplayFileReader.Stop
+  fullName: Netick.Unity.ReplayFileReader.Stop()
+  nameWithType: ReplayFileReader.Stop()
+- uid: Netick.Unity.ReplayFileReader.Stop*
+  name: Stop
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Stop_
+  commentId: Overload:Netick.Unity.ReplayFileReader.Stop
+  fullName: Netick.Unity.ReplayFileReader.Stop
+  nameWithType: ReplayFileReader.Stop
+- uid: Netick.Unity.ReplayFileReader.Stream
+  name: Stream
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Stream
+  commentId: P:Netick.Unity.ReplayFileReader.Stream
+  fullName: Netick.Unity.ReplayFileReader.Stream
+  nameWithType: ReplayFileReader.Stream
+- uid: Netick.Unity.ReplayFileReader.Stream*
+  name: Stream
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Stream_
+  commentId: Overload:Netick.Unity.ReplayFileReader.Stream
+  fullName: Netick.Unity.ReplayFileReader.Stream
+  nameWithType: ReplayFileReader.Stream
+- uid: Netick.Unity.ReplayFileReader.TryGet(System.Int64,Netick.Unity.ReplayFileReader.Block@)
+  name: TryGet(long, out Block)
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_TryGet_System_Int64_Netick_Unity_ReplayFileReader_Block__
+  commentId: M:Netick.Unity.ReplayFileReader.TryGet(System.Int64,Netick.Unity.ReplayFileReader.Block@)
+  name.vb: TryGet(Long, Block)
+  fullName: Netick.Unity.ReplayFileReader.TryGet(long, out Netick.Unity.ReplayFileReader.Block)
+  fullName.vb: Netick.Unity.ReplayFileReader.TryGet(Long, Netick.Unity.ReplayFileReader.Block)
+  nameWithType: ReplayFileReader.TryGet(long, out ReplayFileReader.Block)
+  nameWithType.vb: ReplayFileReader.TryGet(Long, ReplayFileReader.Block)
+- uid: Netick.Unity.ReplayFileReader.TryGet*
+  name: TryGet
+  href: api/Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_TryGet_
+  commentId: Overload:Netick.Unity.ReplayFileReader.TryGet
+  fullName: Netick.Unity.ReplayFileReader.TryGet
+  nameWithType: ReplayFileReader.TryGet
+- uid: Netick.Unity.ReplayFileStatus
+  name: ReplayFileStatus
+  href: api/Netick.Unity.ReplayFileStatus.html
+  commentId: T:Netick.Unity.ReplayFileStatus
+  fullName: Netick.Unity.ReplayFileStatus
+  nameWithType: ReplayFileStatus
+- uid: Netick.Unity.ReplayFileStatus.Invalid
+  name: Invalid
+  href: api/Netick.Unity.ReplayFileStatus.html#Netick_Unity_ReplayFileStatus_Invalid
+  commentId: F:Netick.Unity.ReplayFileStatus.Invalid
+  fullName: Netick.Unity.ReplayFileStatus.Invalid
+  nameWithType: ReplayFileStatus.Invalid
+- uid: Netick.Unity.ReplayFileStatus.NotFound
+  name: NotFound
+  href: api/Netick.Unity.ReplayFileStatus.html#Netick_Unity_ReplayFileStatus_NotFound
+  commentId: F:Netick.Unity.ReplayFileStatus.NotFound
+  fullName: Netick.Unity.ReplayFileStatus.NotFound
+  nameWithType: ReplayFileStatus.NotFound
+- uid: Netick.Unity.ReplayFileStatus.Ok
+  name: Ok
+  href: api/Netick.Unity.ReplayFileStatus.html#Netick_Unity_ReplayFileStatus_Ok
+  commentId: F:Netick.Unity.ReplayFileStatus.Ok
+  fullName: Netick.Unity.ReplayFileStatus.Ok
+  nameWithType: ReplayFileStatus.Ok
+- uid: Netick.Unity.ReplayFileStatus.VersionMismatch
+  name: VersionMismatch
+  href: api/Netick.Unity.ReplayFileStatus.html#Netick_Unity_ReplayFileStatus_VersionMismatch
+  commentId: F:Netick.Unity.ReplayFileStatus.VersionMismatch
+  fullName: Netick.Unity.ReplayFileStatus.VersionMismatch
+  nameWithType: ReplayFileStatus.VersionMismatch
+- uid: Netick.Unity.ReplayFileWriter
+  name: ReplayFileWriter
+  href: api/Netick.Unity.ReplayFileWriter.html
+  commentId: T:Netick.Unity.ReplayFileWriter
+  fullName: Netick.Unity.ReplayFileWriter
+  nameWithType: ReplayFileWriter
+- uid: Netick.Unity.ReplayFileWriter.#ctor(System.String)
+  name: ReplayFileWriter(string)
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter__ctor_System_String_
+  commentId: M:Netick.Unity.ReplayFileWriter.#ctor(System.String)
+  name.vb: New(String)
+  fullName: Netick.Unity.ReplayFileWriter.ReplayFileWriter(string)
+  fullName.vb: Netick.Unity.ReplayFileWriter.New(String)
+  nameWithType: ReplayFileWriter.ReplayFileWriter(string)
+  nameWithType.vb: ReplayFileWriter.New(String)
+- uid: Netick.Unity.ReplayFileWriter.#ctor*
+  name: ReplayFileWriter
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter__ctor_
+  commentId: Overload:Netick.Unity.ReplayFileWriter.#ctor
+  name.vb: New
+  fullName: Netick.Unity.ReplayFileWriter.ReplayFileWriter
+  fullName.vb: Netick.Unity.ReplayFileWriter.New
+  nameWithType: ReplayFileWriter.ReplayFileWriter
+  nameWithType.vb: ReplayFileWriter.New
+- uid: Netick.Unity.ReplayFileWriter.Finish(System.Boolean)
+  name: Finish(bool)
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter_Finish_System_Boolean_
+  commentId: M:Netick.Unity.ReplayFileWriter.Finish(System.Boolean)
+  name.vb: Finish(Boolean)
+  fullName: Netick.Unity.ReplayFileWriter.Finish(bool)
+  fullName.vb: Netick.Unity.ReplayFileWriter.Finish(Boolean)
+  nameWithType: ReplayFileWriter.Finish(bool)
+  nameWithType.vb: ReplayFileWriter.Finish(Boolean)
+- uid: Netick.Unity.ReplayFileWriter.Finish*
+  name: Finish
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter_Finish_
+  commentId: Overload:Netick.Unity.ReplayFileWriter.Finish
+  fullName: Netick.Unity.ReplayFileWriter.Finish
+  nameWithType: ReplayFileWriter.Finish
+- uid: Netick.Unity.ReplayFileWriter.IsFinished
+  name: IsFinished
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter_IsFinished
+  commentId: P:Netick.Unity.ReplayFileWriter.IsFinished
+  fullName: Netick.Unity.ReplayFileWriter.IsFinished
+  nameWithType: ReplayFileWriter.IsFinished
+- uid: Netick.Unity.ReplayFileWriter.IsFinished*
+  name: IsFinished
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter_IsFinished_
+  commentId: Overload:Netick.Unity.ReplayFileWriter.IsFinished
+  fullName: Netick.Unity.ReplayFileWriter.IsFinished
+  nameWithType: ReplayFileWriter.IsFinished
+- uid: Netick.Unity.ReplayFileWriter.ReplayPath
+  name: ReplayPath
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter_ReplayPath
+  commentId: P:Netick.Unity.ReplayFileWriter.ReplayPath
+  fullName: Netick.Unity.ReplayFileWriter.ReplayPath
+  nameWithType: ReplayFileWriter.ReplayPath
+- uid: Netick.Unity.ReplayFileWriter.ReplayPath*
+  name: ReplayPath
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter_ReplayPath_
+  commentId: Overload:Netick.Unity.ReplayFileWriter.ReplayPath
+  fullName: Netick.Unity.ReplayFileWriter.ReplayPath
+  nameWithType: ReplayFileWriter.ReplayPath
+- uid: Netick.Unity.ReplayFileWriter.Write(System.Void*,System.Int32)
+  name: Write(void*, int)
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter_Write_System_Void__System_Int32_
+  commentId: M:Netick.Unity.ReplayFileWriter.Write(System.Void*,System.Int32)
+  name.vb: Write(Void*, Integer)
+  fullName: Netick.Unity.ReplayFileWriter.Write(void*, int)
+  fullName.vb: Netick.Unity.ReplayFileWriter.Write(Void*, Integer)
+  nameWithType: ReplayFileWriter.Write(void*, int)
+  nameWithType.vb: ReplayFileWriter.Write(Void*, Integer)
+- uid: Netick.Unity.ReplayFileWriter.Write*
+  name: Write
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter_Write_
+  commentId: Overload:Netick.Unity.ReplayFileWriter.Write
+  fullName: Netick.Unity.ReplayFileWriter.Write
+  nameWithType: ReplayFileWriter.Write
+- uid: Netick.Unity.ReplayFileWriter.WritePosition
+  name: WritePosition
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter_WritePosition
+  commentId: P:Netick.Unity.ReplayFileWriter.WritePosition
+  fullName: Netick.Unity.ReplayFileWriter.WritePosition
+  nameWithType: ReplayFileWriter.WritePosition
+- uid: Netick.Unity.ReplayFileWriter.WritePosition*
+  name: WritePosition
+  href: api/Netick.Unity.ReplayFileWriter.html#Netick_Unity_ReplayFileWriter_WritePosition_
+  commentId: Overload:Netick.Unity.ReplayFileWriter.WritePosition
+  fullName: Netick.Unity.ReplayFileWriter.WritePosition
+  nameWithType: ReplayFileWriter.WritePosition
 - uid: Netick.Unity.ResetOnSceneSwitch
   name: ResetOnSceneSwitch
   href: api/Netick.Unity.ResetOnSceneSwitch.html
@@ -34343,6 +34913,12 @@ references:
   commentId: F:Netick.Unity.StartMode.MultiplePeers
   fullName: Netick.Unity.StartMode.MultiplePeers
   nameWithType: StartMode.MultiplePeers
+- uid: Netick.Unity.StartMode.ReplayClient
+  name: ReplayClient
+  href: api/Netick.Unity.StartMode.html#Netick_Unity_StartMode_ReplayClient
+  commentId: F:Netick.Unity.StartMode.ReplayClient
+  fullName: Netick.Unity.StartMode.ReplayClient
+  nameWithType: StartMode.ReplayClient
 - uid: Netick.Unity.StartMode.Server
   name: Server
   href: api/Netick.Unity.StartMode.html#Netick_Unity_StartMode_Server

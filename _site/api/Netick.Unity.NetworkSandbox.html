@@ -872,6 +872,70 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
 
 
 
+  <a id="Netick_Unity_NetworkSandbox_IsRecording_" data-uid="Netick.Unity.NetworkSandbox.IsRecording*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_IsRecording" data-uid="Netick.Unity.NetworkSandbox.IsRecording">
+  IsRecording
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if Netick is recording for replay.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRecording { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_IsReplay_" data-uid="Netick.Unity.NetworkSandbox.IsReplay*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_IsReplay" data-uid="Netick.Unity.NetworkSandbox.IsReplay">
+  IsReplay
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true if Netick is running in ReplayClient mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReplay { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_IsResimulating_" data-uid="Netick.Unity.NetworkSandbox.IsResimulating*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_IsResimulating" data-uid="Netick.Unity.NetworkSandbox.IsResimulating">
@@ -990,6 +1054,39 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_LocalAlpha_" data-uid="Netick.Unity.NetworkSandbox.LocalAlpha*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_LocalAlpha" data-uid="Netick.Unity.NetworkSandbox.LocalAlpha">
+  LocalAlpha
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the progress of this sandbox between the current and next tick.
+A value of 0 represents the start of the current tick, and 1 represents the end of the tick (start of the next tick). Same as <a class="xref" href="Netick.LocalInterpolation.html#Netick_LocalInterpolation_Alpha">Alpha</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float LocalAlpha { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
   </dl>
 
@@ -1483,6 +1580,70 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
 
 
 
+  <a id="Netick_Unity_NetworkSandbox_Replay_" data-uid="Netick.Unity.NetworkSandbox.Replay*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_Replay" data-uid="Netick.Unity.NetworkSandbox.Replay">
+  Replay
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Use this to manage the replay system. Returns null when replay is not enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Replay Replay { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.Replay.html">Replay</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_ReplayTransport_" data-uid="Netick.Unity.NetworkSandbox.ReplayTransport*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_ReplayTransport" data-uid="Netick.Unity.NetworkSandbox.ReplayTransport">
+  ReplayTransport
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The underlying transport used replay data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReplayTransport ReplayTransport { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.IReplayTransport.html">IReplayTransport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_ResimulationCount_" data-uid="Netick.Unity.NetworkSandbox.ResimulationCount*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_ResimulationCount" data-uid="Netick.Unity.NetworkSandbox.ResimulationCount">
@@ -1650,7 +1811,7 @@ public int Resimulations { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> The IPEndPoint of the server you are connected to. Returns null if you are not connected to any server, or if you are the server.</p>
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> The <a class="xref" href="Netick.IEndPoint.html">IEndPoint</a> of the server you are connected to. Returns null if you are not connected to any server, or if you are the server.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2100,6 +2261,37 @@ public int Resimulations { get; }</code></pre>
     <dt><code>obj</code> <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
     <dd><p>The object to destroy.</p>
 </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_DestroyPool_" data-uid="Netick.Unity.NetworkSandbox.DestroyPool*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_DestroyPool_Netick_Unity_NetworkObject_" data-uid="Netick.Unity.NetworkSandbox.DestroyPool(Netick.Unity.NetworkObject)">
+  DestroyPool(NetworkObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DestroyPool(NetworkObject networkedPrefab)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkedPrefab</code> <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
+    <dd></dd>
   </dl>
 
 
@@ -3273,14 +3465,52 @@ On the server, this method can return any player by their ID. On the client, it 
 
   <a id="Netick_Unity_NetworkSandbox_InitializePool_" data-uid="Netick.Unity.NetworkSandbox.InitializePool*"></a>
 
+  <h3 id="Netick_Unity_NetworkSandbox_InitializePool_Netick_Unity_NetworkObject_System_Int32_System_Boolean_" data-uid="Netick.Unity.NetworkSandbox.InitializePool(Netick.Unity.NetworkObject,System.Int32,System.Boolean)">
+  InitializePool(NetworkObject, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the pool for the specified prefab. After this method has been called for a certain prefab, all instances of that prefab will be recycled and reset when created/destroyed.</p>
+<p>Note: this method should be called on <a class="xref" href="Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnStartup_Netick_Unity_NetworkSandbox_">OnStartup(NetworkSandbox)</a>, in other words, just after Netick has been started. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InitializePool(NetworkObject networkedPrefab, int preloadedAmount, bool hideInactiveMembers = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>networkedPrefab</code> <a class="xref" href="Netick.Unity.NetworkObject.html">NetworkObject</a></dt>
+    <dd><p>Prefab to enable pooling for.</p>
+</dd>
+    <dt><code>preloadedAmount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>How many instances to be preloaded.</p>
+</dd>
+    <dt><code>hideInactiveMembers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Pass true to hide inactive pool members.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_InitializePool_" data-uid="Netick.Unity.NetworkSandbox.InitializePool*"></a>
+
   <h3 id="Netick_Unity_NetworkSandbox_InitializePool_UnityEngine_GameObject_System_Int32_System_Boolean_" data-uid="Netick.Unity.NetworkSandbox.InitializePool(UnityEngine.GameObject,System.Int32,System.Boolean)">
   InitializePool(GameObject, int, bool)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes the pool for the specified prefab. After this method has been called for a certain prefab, all instances of that prefab will be recycled and reset when created/destroyed.</p>
-<p>Note: this method should only be called on <a class="xref" href="Netick.Unity.NetworkEventsListener.html#Netick_Unity_NetworkEventsListener_OnStartup_Netick_Unity_NetworkSandbox_">OnStartup(NetworkSandbox)</a>, in other words, just after Netick has been started. </p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -3290,14 +3520,11 @@ On the server, this method can return any player by their ID. On the client, it 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>networkedPrefab</code> <span class="xref">GameObject</span></dt>
-    <dd><p>Prefab to enable pooling for.</p>
-</dd>
+    <dd></dd>
     <dt><code>preloadedAmount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>How many instances to be preloaded.</p>
-</dd>
+    <dd></dd>
     <dt><code>hideInactiveMembers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>Pass true to hide inactive pool members.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -3599,7 +3826,7 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
   
   </h3>
 
-  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i>  Loads a scene asynchronously. This should only be called for scenes included in the build of the game.</p>
+  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i> Loads a scene asynchronously. This should only be called for scenes included in the build of the game.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -4819,6 +5046,71 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
 
 
 
+  <a id="Netick_Unity_NetworkSandbox_StartPlayback_" data-uid="Netick.Unity.NetworkSandbox.StartPlayback*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_StartPlayback_System_String_" data-uid="Netick.Unity.NetworkSandbox.StartPlayback(System.String)">
+  StartPlayback(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Client Only]</b></i> Starts replaying. When not passed any address, Netick will automatically use the latest created file in <code>Application.persistentDataPath/replays/gameVersion/</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StartPlayback(string replayAddress = &quot;&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>replayAddress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_StartRecordingReplay_" data-uid="Netick.Unity.NetworkSandbox.StartRecordingReplay*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_StartRecordingReplay_System_String_" data-uid="Netick.Unity.NetworkSandbox.StartRecordingReplay(System.String)">
+  StartRecordingReplay(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i> Starts recording replay data. When not passed any address, Netick will use the current date and time for the replay file name, and the file will be stored in <code>Application.persistentDataPath/replays/gameVersion/</code>.</p>
+<p>Note: to stop recording, use <a class="xref" href="Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay">StopRecordingReplay()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StartRecordingReplay(string replayAddress = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>replayAddress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_NetworkSandbox_StartTimer_" data-uid="Netick.Unity.NetworkSandbox.StartTimer*"></a>
 
   <h3 id="Netick_Unity_NetworkSandbox_StartTimer_System_Single_System_Boolean_" data-uid="Netick.Unity.NetworkSandbox.StartTimer(System.Single,System.Boolean)">
@@ -4844,6 +5136,38 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="Netick.NetworkTimer.html">NetworkTimer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_StopRecordingReplay_" data-uid="Netick.Unity.NetworkSandbox.StopRecordingReplay*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_StopRecordingReplay" data-uid="Netick.Unity.NetworkSandbox.StopRecordingReplay">
+  StopRecordingReplay()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops the current recording session. Awaiting this method ensures that recording has fully finished.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task StopRecordingReplay()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
     <dd></dd>
   </dl>
 
@@ -5513,7 +5837,7 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
   
   </h3>
 
-  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i>  Unloads a scene asynchronously.</p>
+  <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i> Unloads a scene asynchronously.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

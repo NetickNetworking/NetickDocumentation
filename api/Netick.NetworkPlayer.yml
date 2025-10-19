@@ -22,6 +22,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Represents a network player, which can be either a local player (representing this player) or a remote connection (representing a connected client)).
+  example: []
   syntax:
     content: public abstract class NetworkPlayer
     content.vb: Public MustInherit Class NetworkPlayer
@@ -163,6 +165,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: >-
+    The networked index of this player. 
+
+    <p>Note: it returns -1 on the client for the local player when not connected to a server.</p>
+
+    <p>Note: the server player always has Id 0.</p>
+  example: []
   syntax:
     content: public NetworkPlayerId PlayerId { get; }
     parameters: []
@@ -184,6 +193,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Use this to associate an object with this player. This is a local variable that is not synced.
+  example: []
   syntax:
     content: >-
       [Obsolete("This will be removed in the future.")]

@@ -561,11 +561,23 @@ items:
   namespace: Netick.Unity
   example: []
   syntax:
-    content: public virtual void NetworkReset()
-    content.vb: Public Overridable Sub NetworkReset()
+    content: >-
+      [Obsolete("Use NetworkStart/NetworkAwake instead.")]
+
+      public virtual void NetworkReset()
+    content.vb: >-
+      <Obsolete("Use NetworkStart/NetworkAwake instead.")>
+
+      Public Overridable Sub NetworkReset()
   overload: Netick.Unity.NetworkBehaviour.NetworkReset*
   implements:
   - Netick.INetickNetworkScript.NetworkReset
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use NetworkStart/NetworkAwake instead.
 - uid: Netick.Unity.NetworkBehaviour.InternalInit
   commentId: M:Netick.Unity.NetworkBehaviour.InternalInit
   id: InternalInit

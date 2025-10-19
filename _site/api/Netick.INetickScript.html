@@ -95,7 +95,8 @@ Interface INetickScript
   <dl><dt>Assembly</dt><dd>Netick.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>A script which can be added to Netick internal simulation loop.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -307,7 +308,8 @@ Interface INetickScript
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when this script has been removed from the simulation.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -333,7 +335,9 @@ Interface INetickScript
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called every fixed-time network update/tick. Any changes/updates to the network state must happen here.</p>
+<p>On the client, if you are the Input Source or if this Entity.PredictionMode is set to Global, it will be called several times in one update/tick during resimulations. To check for resimulations, use [<a class="xref" href="Netick.Entity.html#Netick_Entity_IsResimulating">IsResimulating</a>].</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -359,7 +363,8 @@ Interface INetickScript
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called every frame. Executed after NetworkUpdate and NetworkFixedUpdate.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -385,7 +390,8 @@ Interface INetickScript
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when this script has been added to the simulation.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -411,7 +417,8 @@ Interface INetickScript
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called every frame. Executed before NetworkFixedUpdate.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

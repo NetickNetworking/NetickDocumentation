@@ -8,6 +8,7 @@ items:
   - Netick.Unity.StartMode.Client
   - Netick.Unity.StartMode.Host
   - Netick.Unity.StartMode.MultiplePeers
+  - Netick.Unity.StartMode.ReplayClient
   - Netick.Unity.StartMode.Server
   - Netick.Unity.StartMode.SinglePlayer
   langs:
@@ -61,6 +62,24 @@ items:
     content: Client = 1
     return:
       type: Netick.Unity.StartMode
+- uid: Netick.Unity.StartMode.ReplayClient
+  commentId: F:Netick.Unity.StartMode.ReplayClient
+  id: ReplayClient
+  parent: Netick.Unity.StartMode
+  langs:
+  - csharp
+  - vb
+  name: ReplayClient
+  nameWithType: StartMode.ReplayClient
+  fullName: Netick.Unity.StartMode.ReplayClient
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: ReplayClient = 2
+    return:
+      type: Netick.Unity.StartMode
 - uid: Netick.Unity.StartMode.Host
   commentId: F:Netick.Unity.StartMode.Host
   id: Host
@@ -76,7 +95,7 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: Host = 2
+    content: Host = 3
     return:
       type: Netick.Unity.StartMode
 - uid: Netick.Unity.StartMode.SinglePlayer
@@ -94,7 +113,7 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: SinglePlayer = 3
+    content: SinglePlayer = 4
     return:
       type: Netick.Unity.StartMode
 - uid: Netick.Unity.StartMode.MultiplePeers
@@ -112,7 +131,7 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: MultiplePeers = 4
+    content: MultiplePeers = 5
     return:
       type: Netick.Unity.StartMode
 references:

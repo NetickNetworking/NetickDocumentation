@@ -21,10 +21,11 @@ items:
   - Netick.Unity.NetickConfig.EnableMultithreading
   - Netick.Unity.NetickConfig.EnableNarrowphaseFiltering
   - Netick.Unity.NetickConfig.EnableProfiling
+  - Netick.Unity.NetickConfig.EnableReplay
   - Netick.Unity.NetickConfig.ExtraInterpolationDelay
   - Netick.Unity.NetickConfig.FastSerialization
   - Netick.Unity.NetickConfig.IncludeInactiveObjects
-  - Netick.Unity.NetickConfig.InputReuseAtLowFPS
+  - Netick.Unity.NetickConfig.InputReuseOnLowFPS
   - Netick.Unity.NetickConfig.InvokeRenderInHeadless
   - Netick.Unity.NetickConfig.InvokeUpdate
   - Netick.Unity.NetickConfig.LagCompensationDebug
@@ -41,6 +42,10 @@ items:
   - Netick.Unity.NetickConfig.RenderInvokeOrder
   - Netick.Unity.NetickConfig.RenderWorldGrid
   - Netick.Unity.NetickConfig.RenderedLayer
+  - Netick.Unity.NetickConfig.ReplayFileExtension
+  - Netick.Unity.NetickConfig.ReplayFileSignature
+  - Netick.Unity.NetickConfig.ReplayKeyframeInterval
+  - Netick.Unity.NetickConfig.ReplayRecordOnStartup
   - Netick.Unity.NetickConfig.ServerDivisor
   - Netick.Unity.NetickConfig.StateAllocatorBlockSize
   - Netick.Unity.NetickConfig.SyncTransformOnSpawn
@@ -56,7 +61,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Config class for Netick.
+  summary: Config of Netick.
   example: []
   syntax:
     content: 'public class NetickConfig : ScriptableObject'
@@ -386,25 +391,25 @@ items:
     return:
       type: System.Int32
     content.vb: Public MaxAdditiveScenes As Integer
-- uid: Netick.Unity.NetickConfig.InputReuseAtLowFPS
-  commentId: F:Netick.Unity.NetickConfig.InputReuseAtLowFPS
-  id: InputReuseAtLowFPS
+- uid: Netick.Unity.NetickConfig.InputReuseOnLowFPS
+  commentId: F:Netick.Unity.NetickConfig.InputReuseOnLowFPS
+  id: InputReuseOnLowFPS
   parent: Netick.Unity.NetickConfig
   langs:
   - csharp
   - vb
-  name: InputReuseAtLowFPS
-  nameWithType: NetickConfig.InputReuseAtLowFPS
-  fullName: Netick.Unity.NetickConfig.InputReuseAtLowFPS
+  name: InputReuseOnLowFPS
+  nameWithType: NetickConfig.InputReuseOnLowFPS
+  fullName: Netick.Unity.NetickConfig.InputReuseOnLowFPS
   type: Field
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public bool InputReuseAtLowFPS
+    content: public bool InputReuseOnLowFPS
     return:
       type: System.Boolean
-    content.vb: Public InputReuseAtLowFPS As Boolean
+    content.vb: Public InputReuseOnLowFPS As Boolean
 - uid: Netick.Unity.NetickConfig.ExtraInterpolationDelay
   commentId: F:Netick.Unity.NetickConfig.ExtraInterpolationDelay
   id: ExtraInterpolationDelay
@@ -519,25 +524,6 @@ items:
     return:
       type: System.Boolean
     content.vb: Public EnableLagCompensation As Boolean
-- uid: Netick.Unity.NetickConfig.FastSerialization
-  commentId: F:Netick.Unity.NetickConfig.FastSerialization
-  id: FastSerialization
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: FastSerialization
-  nameWithType: NetickConfig.FastSerialization
-  fullName: Netick.Unity.NetickConfig.FastSerialization
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public bool FastSerialization
-    return:
-      type: System.Boolean
-    content.vb: Public FastSerialization As Boolean
 - uid: Netick.Unity.NetickConfig.EnableInterestManagement
   commentId: F:Netick.Unity.NetickConfig.EnableInterestManagement
   id: EnableInterestManagement
@@ -557,25 +543,6 @@ items:
     return:
       type: System.Boolean
     content.vb: Public EnableInterestManagement As Boolean
-- uid: Netick.Unity.NetickConfig.SyncTransformOnSpawn
-  commentId: F:Netick.Unity.NetickConfig.SyncTransformOnSpawn
-  id: SyncTransformOnSpawn
-  parent: Netick.Unity.NetickConfig
-  langs:
-  - csharp
-  - vb
-  name: SyncTransformOnSpawn
-  nameWithType: NetickConfig.SyncTransformOnSpawn
-  fullName: Netick.Unity.NetickConfig.SyncTransformOnSpawn
-  type: Field
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public bool SyncTransformOnSpawn
-    return:
-      type: System.Boolean
-    content.vb: Public SyncTransformOnSpawn As Boolean
 - uid: Netick.Unity.NetickConfig.EnableNarrowphaseFiltering
   commentId: F:Netick.Unity.NetickConfig.EnableNarrowphaseFiltering
   id: EnableNarrowphaseFiltering
@@ -652,6 +619,44 @@ items:
     return:
       type: UnityEngine.Vector3
     content.vb: Public WorldSize As Vector3
+- uid: Netick.Unity.NetickConfig.FastSerialization
+  commentId: F:Netick.Unity.NetickConfig.FastSerialization
+  id: FastSerialization
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: FastSerialization
+  nameWithType: NetickConfig.FastSerialization
+  fullName: Netick.Unity.NetickConfig.FastSerialization
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool FastSerialization
+    return:
+      type: System.Boolean
+    content.vb: Public FastSerialization As Boolean
+- uid: Netick.Unity.NetickConfig.SyncTransformOnSpawn
+  commentId: F:Netick.Unity.NetickConfig.SyncTransformOnSpawn
+  id: SyncTransformOnSpawn
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: SyncTransformOnSpawn
+  nameWithType: NetickConfig.SyncTransformOnSpawn
+  fullName: Netick.Unity.NetickConfig.SyncTransformOnSpawn
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool SyncTransformOnSpawn
+    return:
+      type: System.Boolean
+    content.vb: Public SyncTransformOnSpawn As Boolean
 - uid: Netick.Unity.NetickConfig.IncludeInactiveObjects
   commentId: F:Netick.Unity.NetickConfig.IncludeInactiveObjects
   id: IncludeInactiveObjects
@@ -671,6 +676,101 @@ items:
     return:
       type: System.Boolean
     content.vb: Public IncludeInactiveObjects As Boolean
+- uid: Netick.Unity.NetickConfig.EnableReplay
+  commentId: F:Netick.Unity.NetickConfig.EnableReplay
+  id: EnableReplay
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: EnableReplay
+  nameWithType: NetickConfig.EnableReplay
+  fullName: Netick.Unity.NetickConfig.EnableReplay
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool EnableReplay
+    return:
+      type: System.Boolean
+    content.vb: Public EnableReplay As Boolean
+- uid: Netick.Unity.NetickConfig.ReplayRecordOnStartup
+  commentId: F:Netick.Unity.NetickConfig.ReplayRecordOnStartup
+  id: ReplayRecordOnStartup
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: ReplayRecordOnStartup
+  nameWithType: NetickConfig.ReplayRecordOnStartup
+  fullName: Netick.Unity.NetickConfig.ReplayRecordOnStartup
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool ReplayRecordOnStartup
+    return:
+      type: System.Boolean
+    content.vb: Public ReplayRecordOnStartup As Boolean
+- uid: Netick.Unity.NetickConfig.ReplayKeyframeInterval
+  commentId: F:Netick.Unity.NetickConfig.ReplayKeyframeInterval
+  id: ReplayKeyframeInterval
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: ReplayKeyframeInterval
+  nameWithType: NetickConfig.ReplayKeyframeInterval
+  fullName: Netick.Unity.NetickConfig.ReplayKeyframeInterval
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public float ReplayKeyframeInterval
+    return:
+      type: System.Single
+    content.vb: Public ReplayKeyframeInterval As Single
+- uid: Netick.Unity.NetickConfig.ReplayFileSignature
+  commentId: F:Netick.Unity.NetickConfig.ReplayFileSignature
+  id: ReplayFileSignature
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: ReplayFileSignature
+  nameWithType: NetickConfig.ReplayFileSignature
+  fullName: Netick.Unity.NetickConfig.ReplayFileSignature
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public int ReplayFileSignature
+    return:
+      type: System.Int32
+    content.vb: Public ReplayFileSignature As Integer
+- uid: Netick.Unity.NetickConfig.ReplayFileExtension
+  commentId: F:Netick.Unity.NetickConfig.ReplayFileExtension
+  id: ReplayFileExtension
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: ReplayFileExtension
+  nameWithType: NetickConfig.ReplayFileExtension
+  fullName: Netick.Unity.NetickConfig.ReplayFileExtension
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public string ReplayFileExtension
+    return:
+      type: System.String
+    content.vb: Public ReplayFileExtension As String
 - uid: Netick.Unity.NetickConfig.AoILayer0CellSize
   commentId: F:Netick.Unity.NetickConfig.AoILayer0CellSize
   id: AoILayer0CellSize
@@ -1044,6 +1144,17 @@ references:
   name: Vector3
   nameWithType: Vector3
   fullName: UnityEngine.Vector3
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: Netick.Unity.NetickConfig.#ctor*
   commentId: Overload:Netick.Unity.NetickConfig.#ctor
   isExternal: true

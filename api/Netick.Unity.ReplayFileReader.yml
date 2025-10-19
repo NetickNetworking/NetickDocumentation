@@ -1,0 +1,609 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Unity.ReplayFileReader
+  commentId: T:Netick.Unity.ReplayFileReader
+  id: ReplayFileReader
+  parent: Netick.Unity
+  children:
+  - Netick.Unity.ReplayFileReader.#ctor(System.Int32)
+  - Netick.Unity.ReplayFileReader.CacheLock
+  - Netick.Unity.ReplayFileReader.Fetch(System.Int64,System.Int32)
+  - Netick.Unity.ReplayFileReader.Start(System.IO.FileStream)
+  - Netick.Unity.ReplayFileReader.Stop
+  - Netick.Unity.ReplayFileReader.Stream
+  - Netick.Unity.ReplayFileReader.TryGet(System.Int64,Netick.Unity.ReplayFileReader.Block@)
+  langs:
+  - csharp
+  - vb
+  name: ReplayFileReader
+  nameWithType: ReplayFileReader
+  fullName: Netick.Unity.ReplayFileReader
+  type: Class
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public class ReplayFileReader
+    content.vb: Public Class ReplayFileReader
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: Netick.Unity.ReplayFileReader.#ctor(System.Int32)
+  commentId: M:Netick.Unity.ReplayFileReader.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: Netick.Unity.ReplayFileReader
+  langs:
+  - csharp
+  - vb
+  name: ReplayFileReader(int)
+  nameWithType: ReplayFileReader.ReplayFileReader(int)
+  fullName: Netick.Unity.ReplayFileReader.ReplayFileReader(int)
+  type: Constructor
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public ReplayFileReader(int cacheCapacity = 256)
+    parameters:
+    - id: cacheCapacity
+      type: System.Int32
+    content.vb: Public Sub New(cacheCapacity As Integer = 256)
+  overload: Netick.Unity.ReplayFileReader.#ctor*
+  nameWithType.vb: ReplayFileReader.New(Integer)
+  fullName.vb: Netick.Unity.ReplayFileReader.New(Integer)
+  name.vb: New(Integer)
+- uid: Netick.Unity.ReplayFileReader.Start(System.IO.FileStream)
+  commentId: M:Netick.Unity.ReplayFileReader.Start(System.IO.FileStream)
+  id: Start(System.IO.FileStream)
+  parent: Netick.Unity.ReplayFileReader
+  langs:
+  - csharp
+  - vb
+  name: Start(FileStream)
+  nameWithType: ReplayFileReader.Start(FileStream)
+  fullName: Netick.Unity.ReplayFileReader.Start(System.IO.FileStream)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void Start(FileStream stream)
+    parameters:
+    - id: stream
+      type: System.IO.FileStream
+    content.vb: Public Sub Start(stream As FileStream)
+  overload: Netick.Unity.ReplayFileReader.Start*
+- uid: Netick.Unity.ReplayFileReader.Stop
+  commentId: M:Netick.Unity.ReplayFileReader.Stop
+  id: Stop
+  parent: Netick.Unity.ReplayFileReader
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: ReplayFileReader.Stop()
+  fullName: Netick.Unity.ReplayFileReader.Stop()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void Stop()
+    content.vb: Public Sub [Stop]()
+  overload: Netick.Unity.ReplayFileReader.Stop*
+- uid: Netick.Unity.ReplayFileReader.Fetch(System.Int64,System.Int32)
+  commentId: M:Netick.Unity.ReplayFileReader.Fetch(System.Int64,System.Int32)
+  id: Fetch(System.Int64,System.Int32)
+  parent: Netick.Unity.ReplayFileReader
+  langs:
+  - csharp
+  - vb
+  name: Fetch(long, int)
+  nameWithType: ReplayFileReader.Fetch(long, int)
+  fullName: Netick.Unity.ReplayFileReader.Fetch(long, int)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void Fetch(long offset, int size)
+    parameters:
+    - id: offset
+      type: System.Int64
+    - id: size
+      type: System.Int32
+    content.vb: Public Sub Fetch(offset As Long, size As Integer)
+  overload: Netick.Unity.ReplayFileReader.Fetch*
+  nameWithType.vb: ReplayFileReader.Fetch(Long, Integer)
+  fullName.vb: Netick.Unity.ReplayFileReader.Fetch(Long, Integer)
+  name.vb: Fetch(Long, Integer)
+- uid: Netick.Unity.ReplayFileReader.TryGet(System.Int64,Netick.Unity.ReplayFileReader.Block@)
+  commentId: M:Netick.Unity.ReplayFileReader.TryGet(System.Int64,Netick.Unity.ReplayFileReader.Block@)
+  id: TryGet(System.Int64,Netick.Unity.ReplayFileReader.Block@)
+  parent: Netick.Unity.ReplayFileReader
+  langs:
+  - csharp
+  - vb
+  name: TryGet(long, out Block)
+  nameWithType: ReplayFileReader.TryGet(long, out ReplayFileReader.Block)
+  fullName: Netick.Unity.ReplayFileReader.TryGet(long, out Netick.Unity.ReplayFileReader.Block)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool TryGet(long offset, out ReplayFileReader.Block buffer)
+    parameters:
+    - id: offset
+      type: System.Int64
+    - id: buffer
+      type: Netick.Unity.ReplayFileReader.Block
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGet(offset As Long, buffer As ReplayFileReader.Block) As Boolean
+  overload: Netick.Unity.ReplayFileReader.TryGet*
+  nameWithType.vb: ReplayFileReader.TryGet(Long, ReplayFileReader.Block)
+  fullName.vb: Netick.Unity.ReplayFileReader.TryGet(Long, Netick.Unity.ReplayFileReader.Block)
+  name.vb: TryGet(Long, Block)
+- uid: Netick.Unity.ReplayFileReader.CacheLock
+  commentId: P:Netick.Unity.ReplayFileReader.CacheLock
+  id: CacheLock
+  parent: Netick.Unity.ReplayFileReader
+  langs:
+  - csharp
+  - vb
+  name: CacheLock
+  nameWithType: ReplayFileReader.CacheLock
+  fullName: Netick.Unity.ReplayFileReader.CacheLock
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public object CacheLock { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public ReadOnly Property CacheLock As Object
+  overload: Netick.Unity.ReplayFileReader.CacheLock*
+- uid: Netick.Unity.ReplayFileReader.Stream
+  commentId: P:Netick.Unity.ReplayFileReader.Stream
+  id: Stream
+  parent: Netick.Unity.ReplayFileReader
+  langs:
+  - csharp
+  - vb
+  name: Stream
+  nameWithType: ReplayFileReader.Stream
+  fullName: Netick.Unity.ReplayFileReader.Stream
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public FileStream Stream { get; }
+    parameters: []
+    return:
+      type: System.IO.FileStream
+    content.vb: Public ReadOnly Property Stream As FileStream
+  overload: Netick.Unity.ReplayFileReader.Stream*
+references:
+- uid: Netick.Unity
+  commentId: N:Netick.Unity
+  isExternal: true
+  href: Netick.html
+  name: Netick.Unity
+  nameWithType: Netick.Unity
+  fullName: Netick.Unity
+  spec.csharp:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+  spec.vb:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.Unity.ReplayFileReader.#ctor*
+  commentId: Overload:Netick.Unity.ReplayFileReader.#ctor
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader__ctor_System_Int32_
+  name: ReplayFileReader
+  nameWithType: ReplayFileReader.ReplayFileReader
+  fullName: Netick.Unity.ReplayFileReader.ReplayFileReader
+  nameWithType.vb: ReplayFileReader.New
+  fullName.vb: Netick.Unity.ReplayFileReader.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.Unity.ReplayFileReader.Start*
+  commentId: Overload:Netick.Unity.ReplayFileReader.Start
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Start_System_IO_FileStream_
+  name: Start
+  nameWithType: ReplayFileReader.Start
+  fullName: Netick.Unity.ReplayFileReader.Start
+- uid: System.IO.FileStream
+  commentId: T:System.IO.FileStream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filestream
+  name: FileStream
+  nameWithType: FileStream
+  fullName: System.IO.FileStream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: Netick.Unity.ReplayFileReader.Stop*
+  commentId: Overload:Netick.Unity.ReplayFileReader.Stop
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Stop
+  name: Stop
+  nameWithType: ReplayFileReader.Stop
+  fullName: Netick.Unity.ReplayFileReader.Stop
+- uid: Netick.Unity.ReplayFileReader.Fetch*
+  commentId: Overload:Netick.Unity.ReplayFileReader.Fetch
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Fetch_System_Int64_System_Int32_
+  name: Fetch
+  nameWithType: ReplayFileReader.Fetch
+  fullName: Netick.Unity.ReplayFileReader.Fetch
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Netick.Unity.ReplayFileReader.TryGet*
+  commentId: Overload:Netick.Unity.ReplayFileReader.TryGet
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_TryGet_System_Int64_Netick_Unity_ReplayFileReader_Block__
+  name: TryGet
+  nameWithType: ReplayFileReader.TryGet
+  fullName: Netick.Unity.ReplayFileReader.TryGet
+- uid: Netick.Unity.ReplayFileReader.Block
+  commentId: T:Netick.Unity.ReplayFileReader.Block
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html
+  name: ReplayFileReader.Block
+  nameWithType: ReplayFileReader.Block
+  fullName: Netick.Unity.ReplayFileReader.Block
+  spec.csharp:
+  - uid: Netick.Unity.ReplayFileReader
+    name: ReplayFileReader
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.html
+  - name: .
+  - uid: Netick.Unity.ReplayFileReader.Block
+    name: Block
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.Block.html
+  spec.vb:
+  - uid: Netick.Unity.ReplayFileReader
+    name: ReplayFileReader
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.html
+  - name: .
+  - uid: Netick.Unity.ReplayFileReader.Block
+    name: Block
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.Block.html
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Netick.Unity.ReplayFileReader.CacheLock*
+  commentId: Overload:Netick.Unity.ReplayFileReader.CacheLock
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_CacheLock
+  name: CacheLock
+  nameWithType: ReplayFileReader.CacheLock
+  fullName: Netick.Unity.ReplayFileReader.CacheLock
+- uid: Netick.Unity.ReplayFileReader.Stream*
+  commentId: Overload:Netick.Unity.ReplayFileReader.Stream
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Stream
+  name: Stream
+  nameWithType: ReplayFileReader.Stream
+  fullName: Netick.Unity.ReplayFileReader.Stream

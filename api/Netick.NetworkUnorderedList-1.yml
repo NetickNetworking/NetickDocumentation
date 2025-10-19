@@ -23,6 +23,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: A networked list collection. This is an unordered list meaning that the order of the elements during iteration is undefined.
+  example: []
   syntax:
     content: 'public sealed class NetworkUnorderedList<T> : NetworkUnorderedList, INetworkCollection, IEnumerable<T>, IEnumerable where T : unmanaged'
     typeParameters:
@@ -144,6 +146,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Removes all elements from the list.
+  example: []
   syntax:
     content: public void Clear()
     content.vb: Public Sub Clear()
@@ -164,13 +168,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Adds an item to the list.
+  example: []
   syntax:
     content: public bool Add(T item)
     parameters:
     - id: item
       type: '{T}'
+      description: The item to add.
     return:
       type: System.Boolean
+      description: True if the item was added; otherwise, false.
     content.vb: Public Function Add(item As T) As Boolean
   overload: Netick.NetworkUnorderedList`1.Add*
   nameWithType.vb: NetworkUnorderedList(Of T).Add(T)
@@ -189,13 +197,17 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Removes an item from the list.
+  example: []
   syntax:
     content: public bool Remove(T item)
     parameters:
     - id: item
       type: '{T}'
+      description: The item to add.
     return:
       type: System.Boolean
+      description: True if the item was removed; otherwise, false.
     content.vb: Public Function Remove(item As T) As Boolean
   overload: Netick.NetworkUnorderedList`1.Remove*
   nameWithType.vb: NetworkUnorderedList(Of T).Remove(T)
@@ -238,6 +250,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Gets the number of items contained in the list.
+  example: []
   syntax:
     content: public int Count { get; }
     parameters: []

@@ -9,8 +9,8 @@ items:
   - Netick.Simulation.ClientCreateUnlinkedEntity(Netick.NetickEntityMeta,System.Int32)
   - Netick.Simulation.CreateAndLinkEntityLocal(Netick.INetickEntity)
   - Netick.Simulation.CurrentInput
-  - Netick.Simulation.FetchInputLocal``1(``0@,System.Boolean@,System.Int32)
-  - Netick.Simulation.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
+  - Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,Netick.SimulationInput@,System.Boolean@,System.Int32)
+  - Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,``0@,System.Boolean@,System.Int32)
   - Netick.Simulation.GetEntityByWorldIndex(System.Int32)
   - Netick.Simulation.GetEntityMeta(Netick.Entity)
   - Netick.Simulation.GetEntityUserMeta(Netick.Entity)
@@ -517,72 +517,74 @@ items:
     content: protected void InvokePostResimulation()
     content.vb: Protected Sub InvokePostResimulation()
   overload: Netick.Simulation.InvokePostResimulation*
-- uid: Netick.Simulation.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
-  commentId: M:Netick.Simulation.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
-  id: FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
+- uid: Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,Netick.SimulationInput@,System.Boolean@,System.Int32)
+  commentId: M:Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,Netick.SimulationInput@,System.Boolean@,System.Int32)
+  id: FetchInputFor``1(Netick.NetworkPlayerId,Netick.SimulationInput@,System.Boolean@,System.Int32)
   parent: Netick.Simulation
   langs:
   - csharp
   - vb
-  name: FetchInput<T>(out T, ref bool, Entity, int)
-  nameWithType: Simulation.FetchInput<T>(out T, ref bool, Entity, int)
-  fullName: Netick.Simulation.FetchInput<T>(out T, ref bool, Netick.Entity, int)
+  name: FetchInputFor<T>(NetworkPlayerId, out SimulationInput, out bool, int)
+  nameWithType: Simulation.FetchInputFor<T>(NetworkPlayerId, out SimulationInput, out bool, int)
+  fullName: Netick.Simulation.FetchInputFor<T>(Netick.NetworkPlayerId, out Netick.SimulationInput, out bool, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: 'public bool FetchInput<T>(out T input, ref bool isDuplicated, Entity entity, int localPlayerIndex) where T : unmanaged'
+    content: 'public bool FetchInputFor<T>(NetworkPlayerId playerId, out SimulationInput input, out bool isDuplicated, int index = 0) where T : unmanaged'
     parameters:
+    - id: playerId
+      type: Netick.NetworkPlayerId
     - id: input
-      type: '{T}'
+      type: Netick.SimulationInput
     - id: isDuplicated
       type: System.Boolean
-    - id: entity
-      type: Netick.Entity
-    - id: localPlayerIndex
+    - id: index
       type: System.Int32
     typeParameters:
     - id: T
     return:
       type: System.Boolean
-    content.vb: Public Function FetchInput(Of T As Structure)(input As T, isDuplicated As Boolean, entity As Entity, localPlayerIndex As Integer) As Boolean
-  overload: Netick.Simulation.FetchInput*
-  nameWithType.vb: Simulation.FetchInput(Of T)(T, Boolean, Entity, Integer)
-  fullName.vb: Netick.Simulation.FetchInput(Of T)(T, Boolean, Netick.Entity, Integer)
-  name.vb: FetchInput(Of T)(T, Boolean, Entity, Integer)
-- uid: Netick.Simulation.FetchInputLocal``1(``0@,System.Boolean@,System.Int32)
-  commentId: M:Netick.Simulation.FetchInputLocal``1(``0@,System.Boolean@,System.Int32)
-  id: FetchInputLocal``1(``0@,System.Boolean@,System.Int32)
+    content.vb: Public Function FetchInputFor(Of T As Structure)(playerId As NetworkPlayerId, input As SimulationInput, isDuplicated As Boolean, index As Integer = 0) As Boolean
+  overload: Netick.Simulation.FetchInputFor*
+  nameWithType.vb: Simulation.FetchInputFor(Of T)(NetworkPlayerId, SimulationInput, Boolean, Integer)
+  fullName.vb: Netick.Simulation.FetchInputFor(Of T)(Netick.NetworkPlayerId, Netick.SimulationInput, Boolean, Integer)
+  name.vb: FetchInputFor(Of T)(NetworkPlayerId, SimulationInput, Boolean, Integer)
+- uid: Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,``0@,System.Boolean@,System.Int32)
+  commentId: M:Netick.Simulation.FetchInputFor``1(Netick.NetworkPlayerId,``0@,System.Boolean@,System.Int32)
+  id: FetchInputFor``1(Netick.NetworkPlayerId,``0@,System.Boolean@,System.Int32)
   parent: Netick.Simulation
   langs:
   - csharp
   - vb
-  name: FetchInputLocal<T>(out T, ref bool, int)
-  nameWithType: Simulation.FetchInputLocal<T>(out T, ref bool, int)
-  fullName: Netick.Simulation.FetchInputLocal<T>(out T, ref bool, int)
+  name: FetchInputFor<T>(NetworkPlayerId, out T, out bool, int)
+  nameWithType: Simulation.FetchInputFor<T>(NetworkPlayerId, out T, out bool, int)
+  fullName: Netick.Simulation.FetchInputFor<T>(Netick.NetworkPlayerId, out T, out bool, int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: 'public bool FetchInputLocal<T>(out T input, ref bool isDuplicated, int localPlayerIndex) where T : unmanaged'
+    content: 'public bool FetchInputFor<T>(NetworkPlayerId playerId, out T input, out bool isDuplicated, int index = 0) where T : unmanaged'
     parameters:
+    - id: playerId
+      type: Netick.NetworkPlayerId
     - id: input
       type: '{T}'
     - id: isDuplicated
       type: System.Boolean
-    - id: localPlayerIndex
+    - id: index
       type: System.Int32
     typeParameters:
     - id: T
     return:
       type: System.Boolean
-    content.vb: Public Function FetchInputLocal(Of T As Structure)(input As T, isDuplicated As Boolean, localPlayerIndex As Integer) As Boolean
-  overload: Netick.Simulation.FetchInputLocal*
-  nameWithType.vb: Simulation.FetchInputLocal(Of T)(T, Boolean, Integer)
-  fullName.vb: Netick.Simulation.FetchInputLocal(Of T)(T, Boolean, Integer)
-  name.vb: FetchInputLocal(Of T)(T, Boolean, Integer)
+    content.vb: Public Function FetchInputFor(Of T As Structure)(playerId As NetworkPlayerId, input As T, isDuplicated As Boolean, index As Integer = 0) As Boolean
+  overload: Netick.Simulation.FetchInputFor*
+  nameWithType.vb: Simulation.FetchInputFor(Of T)(NetworkPlayerId, T, Boolean, Integer)
+  fullName.vb: Netick.Simulation.FetchInputFor(Of T)(Netick.NetworkPlayerId, T, Boolean, Integer)
+  name.vb: FetchInputFor(Of T)(NetworkPlayerId, T, Boolean, Integer)
 - uid: Netick.Simulation.GetInput``1(System.Int32)
   commentId: M:Netick.Simulation.GetInput``1(System.Int32)
   id: GetInput``1(System.Int32)
@@ -1532,13 +1534,29 @@ references:
   name: InvokePostResimulation
   nameWithType: Simulation.InvokePostResimulation
   fullName: Netick.Simulation.InvokePostResimulation
-- uid: Netick.Simulation.FetchInput*
-  commentId: Overload:Netick.Simulation.FetchInput
+- uid: Netick.Simulation.FetchInputFor*
+  commentId: Overload:Netick.Simulation.FetchInputFor
   isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_FetchInput__1___0__System_Boolean__Netick_Entity_System_Int32_
-  name: FetchInput
-  nameWithType: Simulation.FetchInput
-  fullName: Netick.Simulation.FetchInput
+  href: Netick.Simulation.html#Netick_Simulation_FetchInputFor__1_Netick_NetworkPlayerId_Netick_SimulationInput__System_Boolean__System_Int32_
+  name: FetchInputFor
+  nameWithType: Simulation.FetchInputFor
+  fullName: Netick.Simulation.FetchInputFor
+- uid: Netick.NetworkPlayerId
+  commentId: T:Netick.NetworkPlayerId
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayerId.html
+  name: NetworkPlayerId
+  nameWithType: NetworkPlayerId
+  fullName: Netick.NetworkPlayerId
+- uid: Netick.SimulationInput
+  commentId: T:Netick.SimulationInput
+  parent: Netick
+  isExternal: true
+  href: Netick.SimulationInput.html
+  name: SimulationInput
+  nameWithType: SimulationInput
+  fullName: Netick.SimulationInput
 - uid: '{T}'
   commentId: '!:T'
   definition: T
@@ -1549,13 +1567,6 @@ references:
   name: T
   nameWithType: T
   fullName: T
-- uid: Netick.Simulation.FetchInputLocal*
-  commentId: Overload:Netick.Simulation.FetchInputLocal
-  isExternal: true
-  href: Netick.Simulation.html#Netick_Simulation_FetchInputLocal__1___0__System_Boolean__System_Int32_
-  name: FetchInputLocal
-  nameWithType: Simulation.FetchInputLocal
-  fullName: Netick.Simulation.FetchInputLocal
 - uid: Netick.Simulation.GetInput*
   commentId: Overload:Netick.Simulation.GetInput
   isExternal: true
@@ -1577,11 +1588,3 @@ references:
   name: CurrentInput
   nameWithType: Simulation.CurrentInput
   fullName: Netick.Simulation.CurrentInput
-- uid: Netick.SimulationInput
-  commentId: T:Netick.SimulationInput
-  parent: Netick
-  isExternal: true
-  href: Netick.SimulationInput.html
-  name: SimulationInput
-  nameWithType: SimulationInput
-  fullName: Netick.SimulationInput

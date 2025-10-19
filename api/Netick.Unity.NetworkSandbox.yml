@@ -22,6 +22,7 @@ items:
   - Netick.Unity.NetworkSandbox.CurrentRpcSource
   - Netick.Unity.NetworkSandbox.DeltaTime
   - Netick.Unity.NetworkSandbox.Destroy(Netick.Unity.NetworkObject)
+  - Netick.Unity.NetworkSandbox.DestroyPool(Netick.Unity.NetworkObject)
   - Netick.Unity.NetworkSandbox.DestroyPool(UnityEngine.GameObject)
   - Netick.Unity.NetworkSandbox.DetachBehaviour(Netick.Unity.NetickBehaviour)
   - Netick.Unity.NetworkSandbox.DetachGameObject(UnityEngine.GameObject)
@@ -59,6 +60,7 @@ items:
   - Netick.Unity.NetworkSandbox.GetPrefab(System.String)
   - Netick.Unity.NetworkSandbox.InKBps
   - Netick.Unity.NetworkSandbox.InPacketLoss
+  - Netick.Unity.NetworkSandbox.InitializePool(Netick.Unity.NetworkObject,System.Int32,System.Boolean)
   - Netick.Unity.NetworkSandbox.InitializePool(UnityEngine.GameObject,System.Int32,System.Boolean)
   - Netick.Unity.NetworkSandbox.InputEnabled
   - Netick.Unity.NetworkSandbox.Instantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -71,6 +73,8 @@ items:
   - Netick.Unity.NetworkSandbox.IsHost
   - Netick.Unity.NetworkSandbox.IsLastNetworkFixedUpdateCall
   - Netick.Unity.NetworkSandbox.IsPlayer
+  - Netick.Unity.NetworkSandbox.IsRecording
+  - Netick.Unity.NetworkSandbox.IsReplay
   - Netick.Unity.NetworkSandbox.IsResimulating
   - Netick.Unity.NetworkSandbox.IsRunning
   - Netick.Unity.NetworkSandbox.IsServer
@@ -83,6 +87,7 @@ items:
   - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
   - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneMode)
   - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.String,UnityEngine.SceneManagement.LoadSceneParameters)
+  - Netick.Unity.NetworkSandbox.LocalAlpha
   - Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject)
   - Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3)
   - Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3,UnityEngine.Quaternion)
@@ -130,6 +135,8 @@ items:
   - Netick.Unity.NetworkSandbox.RefreshMatchList
   - Netick.Unity.NetworkSandbox.RemoteInterpolation
   - Netick.Unity.NetworkSandbox.RemoveFromLoop(Netick.Unity.NetworkObject)
+  - Netick.Unity.NetworkSandbox.Replay
+  - Netick.Unity.NetworkSandbox.ReplayTransport
   - Netick.Unity.NetworkSandbox.ResimulationCount
   - Netick.Unity.NetworkSandbox.ResimulationStep
   - Netick.Unity.NetworkSandbox.Resimulations
@@ -141,7 +148,10 @@ items:
   - Netick.Unity.NetworkSandbox.SetPlayerObject(Netick.NetworkPlayer,Netick.Unity.NetworkObject)
   - Netick.Unity.NetworkSandbox.SetPlayerObject(Netick.NetworkPlayerId,Netick.Unity.NetworkObject)
   - Netick.Unity.NetworkSandbox.StartMode
+  - Netick.Unity.NetworkSandbox.StartPlayback(System.String)
+  - Netick.Unity.NetworkSandbox.StartRecordingReplay(System.String)
   - Netick.Unity.NetworkSandbox.StartTimer(System.Single,System.Boolean)
+  - Netick.Unity.NetworkSandbox.StopRecordingReplay
   - Netick.Unity.NetworkSandbox.SwitchScene(System.Int32)
   - Netick.Unity.NetworkSandbox.SwitchScene(System.String)
   - Netick.Unity.NetworkSandbox.Tick
@@ -292,6 +302,27 @@ items:
   nameWithType.vb: NetworkSandbox.SetComponentEnabled(Component, Boolean)
   fullName.vb: Netick.Unity.NetworkSandbox.SetComponentEnabled(UnityEngine.Component, Boolean)
   name.vb: SetComponentEnabled(Component, Boolean)
+- uid: Netick.Unity.NetworkSandbox.RemoveFromLoop(Netick.Unity.NetworkObject)
+  commentId: M:Netick.Unity.NetworkSandbox.RemoveFromLoop(Netick.Unity.NetworkObject)
+  id: RemoveFromLoop(Netick.Unity.NetworkObject)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: RemoveFromLoop(NetworkObject)
+  nameWithType: NetworkSandbox.RemoveFromLoop(NetworkObject)
+  fullName: Netick.Unity.NetworkSandbox.RemoveFromLoop(Netick.Unity.NetworkObject)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void RemoveFromLoop(NetworkObject obj)
+    parameters:
+    - id: obj
+      type: Netick.Unity.NetworkObject
+    content.vb: Public Sub RemoveFromLoop(obj As NetworkObject)
+  overload: Netick.Unity.NetworkSandbox.RemoveFromLoop*
 - uid: Netick.Unity.NetworkSandbox.AttachGameObject(UnityEngine.GameObject)
   commentId: M:Netick.Unity.NetworkSandbox.AttachGameObject(UnityEngine.GameObject)
   id: AttachGameObject(UnityEngine.GameObject)
@@ -466,27 +497,6 @@ items:
       type: UnityEngine.GameObject
     content.vb: Public Sub DetachNonNetworkedRigidbody(rigidbodyGameObject As GameObject)
   overload: Netick.Unity.NetworkSandbox.DetachNonNetworkedRigidbody*
-- uid: Netick.Unity.NetworkSandbox.RemoveFromLoop(Netick.Unity.NetworkObject)
-  commentId: M:Netick.Unity.NetworkSandbox.RemoveFromLoop(Netick.Unity.NetworkObject)
-  id: RemoveFromLoop(Netick.Unity.NetworkObject)
-  parent: Netick.Unity.NetworkSandbox
-  langs:
-  - csharp
-  - vb
-  name: RemoveFromLoop(NetworkObject)
-  nameWithType: NetworkSandbox.RemoveFromLoop(NetworkObject)
-  fullName: Netick.Unity.NetworkSandbox.RemoveFromLoop(Netick.Unity.NetworkObject)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public void RemoveFromLoop(NetworkObject obj)
-    parameters:
-    - id: obj
-      type: Netick.Unity.NetworkObject
-    content.vb: Public Sub RemoveFromLoop(obj As NetworkObject)
-  overload: Netick.Unity.NetworkSandbox.RemoveFromLoop*
 - uid: Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3)
   commentId: M:Netick.Unity.NetworkSandbox.LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3)
   id: LocalInstantiate(UnityEngine.GameObject,UnityEngine.Vector3)
@@ -2173,6 +2183,42 @@ items:
   nameWithType.vb: NetworkSandbox.Instantiate(Of T)(T, Vector3, Quaternion)
   fullName.vb: Netick.Unity.NetworkSandbox.Instantiate(Of T)(T, UnityEngine.Vector3, UnityEngine.Quaternion)
   name.vb: Instantiate(Of T)(T, Vector3, Quaternion)
+- uid: Netick.Unity.NetworkSandbox.InitializePool(Netick.Unity.NetworkObject,System.Int32,System.Boolean)
+  commentId: M:Netick.Unity.NetworkSandbox.InitializePool(Netick.Unity.NetworkObject,System.Int32,System.Boolean)
+  id: InitializePool(Netick.Unity.NetworkObject,System.Int32,System.Boolean)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: InitializePool(NetworkObject, int, bool)
+  nameWithType: NetworkSandbox.InitializePool(NetworkObject, int, bool)
+  fullName: Netick.Unity.NetworkSandbox.InitializePool(Netick.Unity.NetworkObject, int, bool)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: >-
+    Initializes the pool for the specified prefab. After this method has been called for a certain prefab, all instances of that prefab will be recycled and reset when created/destroyed.
+
+    <p>Note: this method should be called on <xref href="Netick.Unity.NetworkEventsListener.OnStartup(Netick.Unity.NetworkSandbox)" data-throw-if-not-resolved="false"></xref>, in other words, just after Netick has been started. </p>
+  example: []
+  syntax:
+    content: public void InitializePool(NetworkObject networkedPrefab, int preloadedAmount, bool hideInactiveMembers = false)
+    parameters:
+    - id: networkedPrefab
+      type: Netick.Unity.NetworkObject
+      description: Prefab to enable pooling for.
+    - id: preloadedAmount
+      type: System.Int32
+      description: How many instances to be preloaded.
+    - id: hideInactiveMembers
+      type: System.Boolean
+      description: Pass true to hide inactive pool members.
+    content.vb: Public Sub InitializePool(networkedPrefab As NetworkObject, preloadedAmount As Integer, hideInactiveMembers As Boolean = False)
+  overload: Netick.Unity.NetworkSandbox.InitializePool*
+  nameWithType.vb: NetworkSandbox.InitializePool(NetworkObject, Integer, Boolean)
+  fullName.vb: Netick.Unity.NetworkSandbox.InitializePool(Netick.Unity.NetworkObject, Integer, Boolean)
+  name.vb: InitializePool(NetworkObject, Integer, Boolean)
 - uid: Netick.Unity.NetworkSandbox.InitializePool(UnityEngine.GameObject,System.Int32,System.Boolean)
   commentId: M:Netick.Unity.NetworkSandbox.InitializePool(UnityEngine.GameObject,System.Int32,System.Boolean)
   id: InitializePool(UnityEngine.GameObject,System.Int32,System.Boolean)
@@ -2187,28 +2233,41 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: >-
-    Initializes the pool for the specified prefab. After this method has been called for a certain prefab, all instances of that prefab will be recycled and reset when created/destroyed.
-
-    <p>Note: this method should only be called on <xref href="Netick.Unity.NetworkEventsListener.OnStartup(Netick.Unity.NetworkSandbox)" data-throw-if-not-resolved="false"></xref>, in other words, just after Netick has been started. </p>
-  example: []
   syntax:
     content: public void InitializePool(GameObject networkedPrefab, int preloadedAmount, bool hideInactiveMembers = false)
     parameters:
     - id: networkedPrefab
       type: UnityEngine.GameObject
-      description: Prefab to enable pooling for.
     - id: preloadedAmount
       type: System.Int32
-      description: How many instances to be preloaded.
     - id: hideInactiveMembers
       type: System.Boolean
-      description: Pass true to hide inactive pool members.
     content.vb: Public Sub InitializePool(networkedPrefab As GameObject, preloadedAmount As Integer, hideInactiveMembers As Boolean = False)
   overload: Netick.Unity.NetworkSandbox.InitializePool*
   nameWithType.vb: NetworkSandbox.InitializePool(GameObject, Integer, Boolean)
   fullName.vb: Netick.Unity.NetworkSandbox.InitializePool(UnityEngine.GameObject, Integer, Boolean)
   name.vb: InitializePool(GameObject, Integer, Boolean)
+- uid: Netick.Unity.NetworkSandbox.DestroyPool(Netick.Unity.NetworkObject)
+  commentId: M:Netick.Unity.NetworkSandbox.DestroyPool(Netick.Unity.NetworkObject)
+  id: DestroyPool(Netick.Unity.NetworkObject)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: DestroyPool(NetworkObject)
+  nameWithType: NetworkSandbox.DestroyPool(NetworkObject)
+  fullName: Netick.Unity.NetworkSandbox.DestroyPool(Netick.Unity.NetworkObject)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void DestroyPool(NetworkObject networkedPrefab)
+    parameters:
+    - id: networkedPrefab
+      type: Netick.Unity.NetworkObject
+    content.vb: Public Sub DestroyPool(networkedPrefab As NetworkObject)
+  overload: Netick.Unity.NetworkSandbox.DestroyPool*
 - uid: Netick.Unity.NetworkSandbox.DestroyPool(UnityEngine.GameObject)
   commentId: M:Netick.Unity.NetworkSandbox.DestroyPool(UnityEngine.GameObject)
   id: DestroyPool(UnityEngine.GameObject)
@@ -2755,7 +2814,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: <i><b>[Server Only]</b></i>  Loads a scene asynchronously. This should only be called for scenes included in the build of the game.
+  summary: <i><b>[Server Only]</b></i> Loads a scene asynchronously. This should only be called for scenes included in the build of the game.
   example: []
   syntax:
     content: public void LoadSceneAsync(string sceneName, LoadSceneMode loadSceneMode)
@@ -2861,7 +2920,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: <i><b>[Server Only]</b></i>  Unloads a scene asynchronously.
+  summary: <i><b>[Server Only]</b></i> Unloads a scene asynchronously.
   example: []
   syntax:
     content: public void UnloadSceneAsync(string sceneName)
@@ -2968,6 +3027,83 @@ items:
   nameWithType.vb: NetworkSandbox.UnloadCustomSceneAsync(Integer)
   fullName.vb: Netick.Unity.NetworkSandbox.UnloadCustomSceneAsync(Integer)
   name.vb: UnloadCustomSceneAsync(Integer)
+- uid: Netick.Unity.NetworkSandbox.StartRecordingReplay(System.String)
+  commentId: M:Netick.Unity.NetworkSandbox.StartRecordingReplay(System.String)
+  id: StartRecordingReplay(System.String)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: StartRecordingReplay(string)
+  nameWithType: NetworkSandbox.StartRecordingReplay(string)
+  fullName: Netick.Unity.NetworkSandbox.StartRecordingReplay(string)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: >-
+    <i><b>[Server Only]</b></i> Starts recording replay data. When not passed any address, Netick will use the current date and time for the replay file name, and the file will be stored in `Application.persistentDataPath/replays/gameVersion/`.
+
+    <p>Note: to stop recording, use <xref href="Netick.Unity.NetworkSandbox.StopRecordingReplay" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public void StartRecordingReplay(string replayAddress = null)
+    parameters:
+    - id: replayAddress
+      type: System.String
+    content.vb: Public Sub StartRecordingReplay(replayAddress As String = Nothing)
+  overload: Netick.Unity.NetworkSandbox.StartRecordingReplay*
+  nameWithType.vb: NetworkSandbox.StartRecordingReplay(String)
+  fullName.vb: Netick.Unity.NetworkSandbox.StartRecordingReplay(String)
+  name.vb: StartRecordingReplay(String)
+- uid: Netick.Unity.NetworkSandbox.StopRecordingReplay
+  commentId: M:Netick.Unity.NetworkSandbox.StopRecordingReplay
+  id: StopRecordingReplay
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: StopRecordingReplay()
+  nameWithType: NetworkSandbox.StopRecordingReplay()
+  fullName: Netick.Unity.NetworkSandbox.StopRecordingReplay()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Stops the current recording session. Awaiting this method ensures that recording has fully finished.
+  example: []
+  syntax:
+    content: public Task StopRecordingReplay()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function StopRecordingReplay() As Task
+  overload: Netick.Unity.NetworkSandbox.StopRecordingReplay*
+- uid: Netick.Unity.NetworkSandbox.StartPlayback(System.String)
+  commentId: M:Netick.Unity.NetworkSandbox.StartPlayback(System.String)
+  id: StartPlayback(System.String)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: StartPlayback(string)
+  nameWithType: NetworkSandbox.StartPlayback(string)
+  fullName: Netick.Unity.NetworkSandbox.StartPlayback(string)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: <i><b>[Client Only]</b></i> Starts replaying. When not passed any address, Netick will automatically use the latest created file in `Application.persistentDataPath/replays/gameVersion/`.
+  example: []
+  syntax:
+    content: public void StartPlayback(string replayAddress = "")
+    parameters:
+    - id: replayAddress
+      type: System.String
+    content.vb: Public Sub StartPlayback(replayAddress As String = "")
+  overload: Netick.Unity.NetworkSandbox.StartPlayback*
+  nameWithType.vb: NetworkSandbox.StartPlayback(String)
+  fullName.vb: Netick.Unity.NetworkSandbox.StartPlayback(String)
+  name.vb: StartPlayback(String)
 - uid: Netick.Unity.NetworkSandbox.#ctor
   commentId: M:Netick.Unity.NetworkSandbox.#ctor
   id: '#ctor'
@@ -3550,7 +3686,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: <i><b>[Client Only]</b></i> The IPEndPoint of the server you are connected to. Returns null if you are not connected to any server, or if you are the server.
+  summary: <i><b>[Client Only]</b></i> The <xref href="Netick.IEndPoint" data-throw-if-not-resolved="false"></xref> of the server you are connected to. Returns null if you are not connected to any server, or if you are the server.
   example: []
   syntax:
     content: public IEndPoint ServerEndPoint { get; }
@@ -3605,6 +3741,29 @@ items:
       type: Netick.NetworkTransport
     content.vb: Public ReadOnly Property Transport As NetworkTransport
   overload: Netick.Unity.NetworkSandbox.Transport*
+- uid: Netick.Unity.NetworkSandbox.ReplayTransport
+  commentId: P:Netick.Unity.NetworkSandbox.ReplayTransport
+  id: ReplayTransport
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: ReplayTransport
+  nameWithType: NetworkSandbox.ReplayTransport
+  fullName: Netick.Unity.NetworkSandbox.ReplayTransport
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: The underlying transport used replay data.
+  example: []
+  syntax:
+    content: public IReplayTransport ReplayTransport { get; }
+    parameters: []
+    return:
+      type: Netick.IReplayTransport
+    content.vb: Public ReadOnly Property ReplayTransport As IReplayTransport
+  overload: Netick.Unity.NetworkSandbox.ReplayTransport*
 - uid: Netick.Unity.NetworkSandbox.Players
   commentId: P:Netick.Unity.NetworkSandbox.Players
   id: Players
@@ -3697,6 +3856,29 @@ items:
       type: Netick.InterestManagement
     content.vb: Public ReadOnly Property InterestManagement As InterestManagement
   overload: Netick.Unity.NetworkSandbox.InterestManagement*
+- uid: Netick.Unity.NetworkSandbox.Replay
+  commentId: P:Netick.Unity.NetworkSandbox.Replay
+  id: Replay
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: Replay
+  nameWithType: NetworkSandbox.Replay
+  fullName: Netick.Unity.NetworkSandbox.Replay
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Use this to manage the replay system. Returns null when replay is not enabled.
+  example: []
+  syntax:
+    content: public Replay Replay { get; }
+    parameters: []
+    return:
+      type: Netick.Replay
+    content.vb: Public ReadOnly Property Replay As Replay
+  overload: Netick.Unity.NetworkSandbox.Replay*
 - uid: Netick.Unity.NetworkSandbox.LocalPlayer
   commentId: P:Netick.Unity.NetworkSandbox.LocalPlayer
   id: LocalPlayer
@@ -3792,6 +3974,32 @@ items:
       type: Netick.SimulationClock
     content.vb: Public ReadOnly Property Timer As SimulationClock
   overload: Netick.Unity.NetworkSandbox.Timer*
+- uid: Netick.Unity.NetworkSandbox.LocalAlpha
+  commentId: P:Netick.Unity.NetworkSandbox.LocalAlpha
+  id: LocalAlpha
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: LocalAlpha
+  nameWithType: NetworkSandbox.LocalAlpha
+  fullName: Netick.Unity.NetworkSandbox.LocalAlpha
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: >-
+    Returns the progress of this sandbox between the current and next tick.
+
+    A value of 0 represents the start of the current tick, and 1 represents the end of the tick (start of the next tick). Same as <xref href="Netick.LocalInterpolation.Alpha" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public float LocalAlpha { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property LocalAlpha As Single
+  overload: Netick.Unity.NetworkSandbox.LocalAlpha*
 - uid: Netick.Unity.NetworkSandbox.FixedDeltaTime
   commentId: P:Netick.Unity.NetworkSandbox.FixedDeltaTime
   id: FixedDeltaTime
@@ -3986,6 +4194,52 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsResimulating As Boolean
   overload: Netick.Unity.NetworkSandbox.IsResimulating*
+- uid: Netick.Unity.NetworkSandbox.IsRecording
+  commentId: P:Netick.Unity.NetworkSandbox.IsRecording
+  id: IsRecording
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: IsRecording
+  nameWithType: NetworkSandbox.IsRecording
+  fullName: Netick.Unity.NetworkSandbox.IsRecording
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns true if Netick is recording for replay.
+  example: []
+  syntax:
+    content: public bool IsRecording { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsRecording As Boolean
+  overload: Netick.Unity.NetworkSandbox.IsRecording*
+- uid: Netick.Unity.NetworkSandbox.IsReplay
+  commentId: P:Netick.Unity.NetworkSandbox.IsReplay
+  id: IsReplay
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: IsReplay
+  nameWithType: NetworkSandbox.IsReplay
+  fullName: Netick.Unity.NetworkSandbox.IsReplay
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns true if Netick is running in ReplayClient mode.
+  example: []
+  syntax:
+    content: public bool IsReplay { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReplay As Boolean
+  overload: Netick.Unity.NetworkSandbox.IsReplay*
 - uid: Netick.Unity.NetworkSandbox.ResimulationCount
   commentId: P:Netick.Unity.NetworkSandbox.ResimulationCount
   id: ResimulationCount
@@ -4517,6 +4771,21 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Netick.Unity.NetworkSandbox.RemoveFromLoop*
+  commentId: Overload:Netick.Unity.NetworkSandbox.RemoveFromLoop
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_RemoveFromLoop_Netick_Unity_NetworkObject_
+  name: RemoveFromLoop
+  nameWithType: NetworkSandbox.RemoveFromLoop
+  fullName: Netick.Unity.NetworkSandbox.RemoveFromLoop
+- uid: Netick.Unity.NetworkObject
+  commentId: T:Netick.Unity.NetworkObject
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html
+  name: NetworkObject
+  nameWithType: NetworkObject
+  fullName: Netick.Unity.NetworkObject
 - uid: Netick.Unity.NetworkSandbox.AttachGameObject*
   commentId: Overload:Netick.Unity.NetworkSandbox.AttachGameObject
   isExternal: true
@@ -4577,21 +4846,6 @@ references:
   name: DetachNonNetworkedRigidbody
   nameWithType: NetworkSandbox.DetachNonNetworkedRigidbody
   fullName: Netick.Unity.NetworkSandbox.DetachNonNetworkedRigidbody
-- uid: Netick.Unity.NetworkSandbox.RemoveFromLoop*
-  commentId: Overload:Netick.Unity.NetworkSandbox.RemoveFromLoop
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_RemoveFromLoop_Netick_Unity_NetworkObject_
-  name: RemoveFromLoop
-  nameWithType: NetworkSandbox.RemoveFromLoop
-  fullName: Netick.Unity.NetworkSandbox.RemoveFromLoop
-- uid: Netick.Unity.NetworkObject
-  commentId: T:Netick.Unity.NetworkObject
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html
-  name: NetworkObject
-  nameWithType: NetworkObject
-  fullName: Netick.Unity.NetworkObject
 - uid: UnityEngine.Object.Instantiate(UnityEngine.Object)
   commentId: M:UnityEngine.Object.Instantiate(UnityEngine.Object)
   isExternal: true
@@ -5039,7 +5293,7 @@ references:
 - uid: Netick.Unity.NetworkSandbox.InitializePool*
   commentId: Overload:Netick.Unity.NetworkSandbox.InitializePool
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_InitializePool_UnityEngine_GameObject_System_Int32_System_Boolean_
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_InitializePool_Netick_Unity_NetworkObject_System_Int32_System_Boolean_
   name: InitializePool
   nameWithType: NetworkSandbox.InitializePool
   fullName: Netick.Unity.NetworkSandbox.InitializePool
@@ -5054,7 +5308,7 @@ references:
 - uid: Netick.Unity.NetworkSandbox.DestroyPool*
   commentId: Overload:Netick.Unity.NetworkSandbox.DestroyPool
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_DestroyPool_UnityEngine_GameObject_
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_DestroyPool_Netick_Unity_NetworkObject_
   name: DestroyPool
   nameWithType: NetworkSandbox.DestroyPool
   fullName: Netick.Unity.NetworkSandbox.DestroyPool
@@ -5279,6 +5533,93 @@ references:
   name: UnloadCustomSceneAsync
   nameWithType: NetworkSandbox.UnloadCustomSceneAsync
   fullName: Netick.Unity.NetworkSandbox.UnloadCustomSceneAsync
+- uid: Netick.Unity.NetworkSandbox.StopRecordingReplay
+  commentId: M:Netick.Unity.NetworkSandbox.StopRecordingReplay
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay
+  name: StopRecordingReplay()
+  nameWithType: NetworkSandbox.StopRecordingReplay()
+  fullName: Netick.Unity.NetworkSandbox.StopRecordingReplay()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkSandbox.StopRecordingReplay
+    name: StopRecordingReplay
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkSandbox.StopRecordingReplay
+    name: StopRecordingReplay
+    isExternal: true
+    href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetworkSandbox.StartRecordingReplay*
+  commentId: Overload:Netick.Unity.NetworkSandbox.StartRecordingReplay
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StartRecordingReplay_System_String_
+  name: StartRecordingReplay
+  nameWithType: NetworkSandbox.StartRecordingReplay
+  fullName: Netick.Unity.NetworkSandbox.StartRecordingReplay
+- uid: Netick.Unity.NetworkSandbox.StopRecordingReplay*
+  commentId: Overload:Netick.Unity.NetworkSandbox.StopRecordingReplay
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay
+  name: StopRecordingReplay
+  nameWithType: NetworkSandbox.StopRecordingReplay
+  fullName: Netick.Unity.NetworkSandbox.StopRecordingReplay
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Netick.Unity.NetworkSandbox.StartPlayback*
+  commentId: Overload:Netick.Unity.NetworkSandbox.StartPlayback
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StartPlayback_System_String_
+  name: StartPlayback
+  nameWithType: NetworkSandbox.StartPlayback
+  fullName: Netick.Unity.NetworkSandbox.StartPlayback
 - uid: Netick.Unity.NetworkSandbox.#ctor*
   commentId: Overload:Netick.Unity.NetworkSandbox.#ctor
   isExternal: true
@@ -5605,13 +5946,6 @@ references:
   name: PhysicsPrediction
   nameWithType: NetworkSandbox.PhysicsPrediction
   fullName: Netick.Unity.NetworkSandbox.PhysicsPrediction
-- uid: Netick.Unity.NetworkSandbox.ServerEndPoint*
-  commentId: Overload:Netick.Unity.NetworkSandbox.ServerEndPoint
-  isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_ServerEndPoint
-  name: ServerEndPoint
-  nameWithType: NetworkSandbox.ServerEndPoint
-  fullName: Netick.Unity.NetworkSandbox.ServerEndPoint
 - uid: Netick.IEndPoint
   commentId: T:Netick.IEndPoint
   parent: Netick
@@ -5620,6 +5954,13 @@ references:
   name: IEndPoint
   nameWithType: IEndPoint
   fullName: Netick.IEndPoint
+- uid: Netick.Unity.NetworkSandbox.ServerEndPoint*
+  commentId: Overload:Netick.Unity.NetworkSandbox.ServerEndPoint
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_ServerEndPoint
+  name: ServerEndPoint
+  nameWithType: NetworkSandbox.ServerEndPoint
+  fullName: Netick.Unity.NetworkSandbox.ServerEndPoint
 - uid: Netick.Unity.NetworkSandbox.IsConnected*
   commentId: Overload:Netick.Unity.NetworkSandbox.IsConnected
   isExternal: true
@@ -5642,6 +5983,21 @@ references:
   name: NetworkTransport
   nameWithType: NetworkTransport
   fullName: Netick.NetworkTransport
+- uid: Netick.Unity.NetworkSandbox.ReplayTransport*
+  commentId: Overload:Netick.Unity.NetworkSandbox.ReplayTransport
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_ReplayTransport
+  name: ReplayTransport
+  nameWithType: NetworkSandbox.ReplayTransport
+  fullName: Netick.Unity.NetworkSandbox.ReplayTransport
+- uid: Netick.IReplayTransport
+  commentId: T:Netick.IReplayTransport
+  parent: Netick
+  isExternal: true
+  href: Netick.IReplayTransport.html
+  name: IReplayTransport
+  nameWithType: IReplayTransport
+  fullName: Netick.IReplayTransport
 - uid: Netick.Unity.NetworkSandbox.Players*
   commentId: Overload:Netick.Unity.NetworkSandbox.Players
   isExternal: true
@@ -5794,6 +6150,21 @@ references:
   name: InterestManagement
   nameWithType: InterestManagement
   fullName: Netick.InterestManagement
+- uid: Netick.Unity.NetworkSandbox.Replay*
+  commentId: Overload:Netick.Unity.NetworkSandbox.Replay
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Replay
+  name: Replay
+  nameWithType: NetworkSandbox.Replay
+  fullName: Netick.Unity.NetworkSandbox.Replay
+- uid: Netick.Replay
+  commentId: T:Netick.Replay
+  parent: Netick
+  isExternal: true
+  href: Netick.Replay.html
+  name: Replay
+  nameWithType: Replay
+  fullName: Netick.Replay
 - uid: Netick.Unity.NetworkSandbox.LocalPlayer*
   commentId: Overload:Netick.Unity.NetworkSandbox.LocalPlayer
   isExternal: true
@@ -5846,6 +6217,19 @@ references:
   name: SimulationClock
   nameWithType: SimulationClock
   fullName: Netick.SimulationClock
+- uid: Netick.LocalInterpolation.Alpha
+  commentId: P:Netick.LocalInterpolation.Alpha
+  isExternal: true
+  name: Alpha
+  nameWithType: LocalInterpolation.Alpha
+  fullName: Netick.LocalInterpolation.Alpha
+- uid: Netick.Unity.NetworkSandbox.LocalAlpha*
+  commentId: Overload:Netick.Unity.NetworkSandbox.LocalAlpha
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_LocalAlpha
+  name: LocalAlpha
+  nameWithType: NetworkSandbox.LocalAlpha
+  fullName: Netick.Unity.NetworkSandbox.LocalAlpha
 - uid: UnityEngine.Time.fixedDeltaTime
   commentId: P:UnityEngine.Time.fixedDeltaTime
   isExternal: true
@@ -5924,6 +6308,20 @@ references:
   name: IsResimulating
   nameWithType: NetworkSandbox.IsResimulating
   fullName: Netick.Unity.NetworkSandbox.IsResimulating
+- uid: Netick.Unity.NetworkSandbox.IsRecording*
+  commentId: Overload:Netick.Unity.NetworkSandbox.IsRecording
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_IsRecording
+  name: IsRecording
+  nameWithType: NetworkSandbox.IsRecording
+  fullName: Netick.Unity.NetworkSandbox.IsRecording
+- uid: Netick.Unity.NetworkSandbox.IsReplay*
+  commentId: Overload:Netick.Unity.NetworkSandbox.IsReplay
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_IsReplay
+  name: IsReplay
+  nameWithType: NetworkSandbox.IsReplay
+  fullName: Netick.Unity.NetworkSandbox.IsReplay
 - uid: Netick.Unity.NetworkSandbox.ResimulationCount*
   commentId: Overload:Netick.Unity.NetworkSandbox.ResimulationCount
   isExternal: true

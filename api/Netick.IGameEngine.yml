@@ -43,6 +43,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: This interface is used to integrate Netick with a game engine.
+  example: []
   syntax:
     content: public interface IGameEngine
     content.vb: Public Interface IGameEngine
@@ -148,10 +150,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Implements this to inform Netick about the size (in 32 bit words) of your connection meta data.
+  example: []
   syntax:
     content: int GetConnectionMetaSizeWords()
     return:
       type: System.Int32
+      description: ''
     content.vb: Function GetConnectionMetaSizeWords() As Integer
   overload: Netick.IGameEngine.GetConnectionMetaSizeWords*
 - uid: Netick.IGameEngine.GetEntityMetaSizeWords
@@ -168,10 +173,13 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Implements this to inform Netick about the size (in 32 bit words) of your entity meta data.
+  example: []
   syntax:
     content: int GetEntityMetaSizeWords()
     return:
       type: System.Int32
+      description: ''
     content.vb: Function GetEntityMetaSizeWords() As Integer
   overload: Netick.IGameEngine.GetEntityMetaSizeWords*
 - uid: Netick.IGameEngine.OnEntitySpawned(Netick.Entity)
@@ -188,6 +196,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: This is called when a new entity has been added to the simulation.
+  example: []
   syntax:
     content: void OnEntitySpawned(Entity entity)
     parameters:
@@ -209,6 +219,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: This is called when an entity has been removed from the simulation.
+  example: []
   syntax:
     content: void OnEntityDespawned(Entity entity)
     parameters:
@@ -230,6 +242,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: This is called when an unliked entity has been removed from the simulation.
+  example: []
   syntax:
     content: void OnUnlinkedEntityDespawned(Entity entity)
     parameters:
@@ -251,6 +265,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: This is used to populate the user meta data for an entity.
+  example: []
   syntax:
     content: void PopulateEntityMeta(Entity entity)
     parameters:
@@ -272,6 +288,11 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: >-
+    This method is called on the client when it receives new entity meta data. This must be used to create/setup network entities on the client. It can be called many times not only when the data has changed.
+
+    <p>Note: user entity meta data can be used for custom user data that might be used in creating entities.</p>
+  example: []
   syntax:
     content: void OnEntityMetaChangedPhase1(NetickEntityMeta netickMeta, byte* userMetaData, int worldIndex)
     parameters:
@@ -356,6 +377,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: This is called before sending packets to the target connection.
+  example: []
   syntax:
     content: void OnBeforeSend(NetworkConnection target)
     parameters:
@@ -377,6 +400,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: This is called when a full packet has been received.
+  example: []
   syntax:
     content: void OnAfterReceive(NetworkConnection source)
     parameters:
