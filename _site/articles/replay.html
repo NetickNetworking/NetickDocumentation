@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../pdf/toc.html">
       
       <meta name="docfx:rel" content="../">
       
@@ -222,6 +222,8 @@ Replay validation checks the value of <code> Netick.Unity.Network.GameVersion</c
 </table>
 <p>Slowing down or speeding up the playback is done by simply increasing/decreasing <code>Time.timeScale</code>. Pausing the playback is accomplished by setting <code>Time.timeScale</code> to <code>0</code>.</p>
 <p><code>Sandbox.Replay.Playback.OnSeeked</code> event can be used for clean up or similar actions when seeking.</p>
+<h4 id="replay-timeline-ui">Replay Timeline UI</h4>
+<p>Netick includes a built-in helper script, <code>ReplayTimeline.cs</code>, that provides a timeline UI for replay playback.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>In the replay system, the term “Frame” refers to snapshots of the game, not rendering frames. These replay frames correspond to ticks in the simulation, but are labeled as frames within the context of replays.</p>

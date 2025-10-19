@@ -178,6 +178,10 @@ Slowing down or speeding up the playback is done by simply increasing/decreasing
 
 `Sandbox.Replay.Playback.OnSeeked` event can be used for clean up or similar actions when seeking.
 
+#### Replay Timeline UI
+
+Netick includes a built-in helper script, `ReplayTimeline.cs`, that provides a timeline UI for replay playback.
+
 > [!Note]
 > In the replay system, the term “Frame” refers to snapshots of the game, not rendering frames. These replay frames correspond to ticks in the simulation, but are labeled as frames within the context of replays.
 
