@@ -65,13 +65,13 @@ Recording is only supported on the **server**.
 **Start recording:**
 
 ```csharp
-Sandbox.StartRecording(replayPath);
+Sandbox.StartReplayRecording(replayPath);
 ```
 
 **Stop recording:**
 
 ```csharp
-Sandbox.StopRecording();
+Sandbox.StopReplayRecording();
 ```
 
 If no path is provided, Netick automatically records to a file (named with the current date and time) inside:
@@ -113,7 +113,7 @@ var sandbox = Netick.Unity.Network.StartAsReplayClient();
 Then begin playback:
 
 ```csharp
-sandbox.StartPlayback(replayPath);
+sandbox.StartReplayPlayback(replayPath);
 ```
 
 If no path is specified (`sandbox.StartPlayback()`), Netick automatically loads the **most recent replay file** from:

@@ -132,10 +132,10 @@ During replay playback, the game logic operates on recorded snapshots rather tha
 <h3 id="recording">Recording</h3>
 <p>Recording is only supported on the <strong>server</strong>.</p>
 <p><strong>Start recording:</strong></p>
-<pre><code class="lang-csharp">Sandbox.StartRecording(replayPath);
+<pre><code class="lang-csharp">Sandbox.StartReplayRecording(replayPath);
 </code></pre>
 <p><strong>Stop recording:</strong></p>
-<pre><code class="lang-csharp">Sandbox.StopRecording();
+<pre><code class="lang-csharp">Sandbox.StopReplayRecording();
 </code></pre>
 <p>If no path is provided, Netick automatically records to a file (named with the current date and time) inside:</p>
 <pre><code class="lang-csharp">Path.Combine(Application.persistentDataPath, &quot;replays&quot;, Network.GameVersion.ToString());
@@ -156,7 +156,7 @@ During replay playback, the game logic operates on recorded snapshots rather tha
 <pre><code class="lang-csharp">var sandbox = Netick.Unity.Network.StartAsReplayClient();
 </code></pre>
 <p>Then begin playback:</p>
-<pre><code class="lang-csharp">sandbox.StartPlayback(replayPath);
+<pre><code class="lang-csharp">sandbox.StartReplayPlayback(replayPath);
 </code></pre>
 <p>If no path is specified (<code>sandbox.StartPlayback()</code>), Netick automatically loads the <strong>most recent replay file</strong> from:</p>
 <pre><code>C:\Users\&lt;username&gt;\AppData\LocalLow\&lt;CompanyName&gt;\&lt;ProjectName&gt;\replays\&lt;gameVersionHash&gt;\
