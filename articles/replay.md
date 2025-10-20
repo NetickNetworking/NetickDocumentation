@@ -174,7 +174,7 @@ Once playback begins with `Sandbox.StartPlayback(replayPath)`, you can control p
 | Seek / Skip (by time)                   | `Sandbox.Replay.Playback.SeekToTime(time);`   |
 | Seek / Skip (by frame)                  | `Sandbox.Replay.Playback.SeekToFrame(frame);` |
 | Get total duration (seconds)            | `Sandbox.Replay.Playback.Duration;`           |
-| Get total frame count                   | `Sandbox.Replay.Playback.TotalFrames;`        |
+| Get total frame count                   | `Sandbox.Replay.Playback.FrameCount;`         |
 | Set / Get time scale                    | `Time.timeScale;`                             |
 
 Slowing down or speeding up the playback is done by simply increasing/decreasing `Time.timeScale`. Pausing the playback is accomplished by setting `Time.timeScale` to `0`.
