@@ -33,7 +33,7 @@ Tick tickValue = Sandbox.TimeToTick(timeInSeconds);
 
 ## Using NetworkTimer
 
-Netick provides a `NetworkTimer` class that makes it easier to work with time-based events in your networked game. The `NetworkTimer` class offers methods to check if a timer is running, if it has stopped, and how much time remains.
+Netick provides a `NetworkTimer` struct that makes it easier to work with time-based events in your networked game. The `NetworkTimer` struct offers methods to check if a timer is running, if it has stopped, and how much time remains.
 
 ### Starting a Timer
 
