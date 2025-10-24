@@ -131,13 +131,69 @@
 </code></pre>
 <h2 id="connecting-to-the-server">Connecting to the Server</h2>
 <p>To connect the client to the server:</p>
-<pre><code class="lang-csharp">sandbox.Connect(serverIPAddress);
+<pre><code class="lang-csharp">sandbox.Connect(port, serverIPAddress);
 </code></pre>
-<h2 id="disconnecting-from-the-server">Disconnecting From the Server</h2>
-<p>To disconnect the client:</p>
-<pre><code class="lang-csharp">sandbox.Disconnect();
+<h3 id="sending-request-data">Sending Request Data</h3>
+<p>You can send a payload with the connection request. This is useful for authentication, or custom client information. For example:</p>
+<pre><code class="lang-cs">sandbox.Connect(port, serverIPAddress, authData);
 </code></pre>
-<p>You are advised to have a game starting scene used for server finding/matchmaking.</p>
+<h2 id="connection-request-handling">Connection Request Handling</h2>
+<p>When a client attempts to connect, the server can inspect and respond to the request before accepting or refusing it.
+This is done via <code>OnConnectRequest</code> on <code>NetworkEventListener</code> or by subscribing manually to <code>Sandbox.Events.OnConnectRequest</code>.</p>
+<pre><code class="lang-cs">// Option 1: Using a NetworkEventListener
+public override async void OnConnectRequest(NetworkSandbox sandbox, NetworkConnectionRequest request)
+{
+    request.Defer();
+
+    ArraySegment&lt;byte&gt; requestData = new ArraySegment&lt;byte&gt;(request.Data, 0, request.DataLength);
+    bool allow = await ValidateClient(requestData);
+
+    if (allow)
+        request.Accept();
+    else
+        request.Refuse(); // or request.Refuse(customData);
+}
+
+// Option 2: Subscribing manually
+Sandbox.Events.OnConnectRequest += MyOnConnectRequest;
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>You must call <code>Defer</code> on the request if you intend to process it in a non-synchronous manner. Otherwise, Netick will auto-accept the request when leaving the scope of this call.</p>
+</div>
+<h3 id="handling-refusal-data-on-the-client">Handling Refusal Data on the Client</h3>
+<p>If the server refuses a connection and includes custom data:</p>
+<pre><code class="lang-cs">public override void OnConnectFailed(NetworkSandbox sandbox, ConnectionFailedReason reason)
+{
+    if (sandbox.TryGetConnectionRefusalData(out ArraySegment&lt;byte&gt; data))
+    {
+        // Handle refusal data here (e.g. display a reason)
+    }
+}
+</code></pre>
+<h2 id="disconnecting-and-kicking-clients">Disconnecting and Kicking Clients</h2>
+<h3 id="disconnecting-from-the-server-client-only">Disconnecting from the Server (Client-only)</h3>
+<pre><code class="lang-cs">Sandbox.Disconnect();
+</code></pre>
+<h3 id="kicking-clients-server-only">Kicking Clients (Server-only)</h3>
+<p>The server can disconnect clients and optionally include custom data, such as a reason:</p>
+<pre><code class="lang-cs">byte[] kickMessage = Encoding.UTF8.GetBytes(&quot;You were idle too long.&quot;);
+Sandbox.Kick(someClient, kickMessage);
+</code></pre>
+<p>On the client, this data is accessible in <code>OnDisconnectedFromServer</code>:</p>
+<pre><code class="lang-cs">public override void OnDisconnectedFromServer(NetworkSandbox sandbox, NetworkConnection server, TransportDisconnectReason reason)
+{
+    if (sandbox.TryGetKickData(out var kickData))
+    {
+        // Handle custom kick message
+        string message = Encoding.UTF8.GetString(kickData);
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Support for async request handling, custom refusal data, and custom kick data must be implemented on the transport used in the game, otherwise they will not function.</p>
+</div>
 
 </article>
 
