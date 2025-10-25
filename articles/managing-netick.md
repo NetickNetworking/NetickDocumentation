@@ -77,7 +77,7 @@ Netick.Unity.Network.Shutdown();
 To connect the client to the server:
 
 ```csharp
-sandbox.Connect(port, serverIPAddress);
+Sandbox.Connect(port, serverIPAddress);
 ```
 
 ### Sending Request Data
@@ -85,7 +85,7 @@ sandbox.Connect(port, serverIPAddress);
 You can send a payload with the connection request. This is useful for authentication, or custom client information. For example:
 
 ```cs
-sandbox.Connect(port, serverIPAddress, authData);
+Sandbox.Connect(port, serverIPAddress, authData);
 ```
 
 ## Connection Request Handling
@@ -114,48 +114,56 @@ Sandbox.Events.OnConnectRequest += MyOnConnectRequest;
 ```
 
 > [!WARNING]
-> You must call `Defer` on the request if you intend to process it in a non-synchronous manner. Otherwise, Netick will auto-accept the request when leaving the scope of this call.
+> If your validation or decision isn’t made immediately within `OnConnectRequest`, call `Defer` first. This applies even if you’re not using async/await - any delayed handling counts. Without `Defer`, Netick will automatically accept the request once the callback returns.
 
+## Handling Connection Failures (Client-side)
 
-### Handling Refusal Data on the Client
-If the server refuses a connection and includes custom data:
+If the connection fails (for example, if the server is unreachable or refuses the connection),
+`OnConnectFailed` network event will be invoked on the client.
 
 ```cs
 public override void OnConnectFailed(NetworkSandbox sandbox, ConnectionFailedReason reason)
 {
-    if (sandbox.TryGetConnectionRefusalData(out ArraySegment<byte> data))
+    // Handle failed connection (e.g., show a retry option or an error message)
+
+    if (sandbox.TryGetConnectionRefusalData(out var data))
     {
-        // Handle refusal data here (e.g. display a reason)
+        // Optional: process custom refusal data from the server
     }
 }
 ```
 
+## Disconnecting from the Server (Client-side)
 
-## Disconnecting and Kicking Clients
-
-### Disconnecting from the Server (Client-only)
-
+A connected client can disconnect at any time:
 ```cs
 Sandbox.Disconnect();
 ```
 
-### Kicking Clients (Server-only)
-The server can disconnect clients and optionally include custom data, such as a reason:
+## Kicking Clients (Server-side)
+
+The server can disconnect a specific client through the `Kick` method.
+This is useful for enforcing rules, timeouts, or admin actions.
 
 ```cs
-byte[] kickMessage = Encoding.UTF8.GetBytes("You were idle too long.");
-Sandbox.Kick(someClient, kickMessage);
+Sandbox.Kick(someClient);
 ```
 
-On the client, this data is accessible in `OnDisconnectedFromServer`:
+You may also include optional data with the kick (for example, a reason message):
+```cs
+byte[] message = Encoding.UTF8.GetBytes("You were idle too long.");
+Sandbox.Kick(someClient, message);
+```
+
+On the client, you can handle this in `OnDisconnectedFromServer`:
 
 ```cs
 public override void OnDisconnectedFromServer(NetworkSandbox sandbox, NetworkConnection server, TransportDisconnectReason reason)
 {
     if (sandbox.TryGetKickData(out var kickData))
     {
-        // Handle custom kick message
-        string message = Encoding.UTF8.GetString(kickData);
+        string msg = Encoding.UTF8.GetString(kickData);
+        // Display message to user
     }
 }
 ```

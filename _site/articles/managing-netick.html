@@ -131,11 +131,11 @@
 </code></pre>
 <h2 id="connecting-to-the-server">Connecting to the Server</h2>
 <p>To connect the client to the server:</p>
-<pre><code class="lang-csharp">sandbox.Connect(port, serverIPAddress);
+<pre><code class="lang-csharp">Sandbox.Connect(port, serverIPAddress);
 </code></pre>
 <h3 id="sending-request-data">Sending Request Data</h3>
 <p>You can send a payload with the connection request. This is useful for authentication, or custom client information. For example:</p>
-<pre><code class="lang-cs">sandbox.Connect(port, serverIPAddress, authData);
+<pre><code class="lang-cs">Sandbox.Connect(port, serverIPAddress, authData);
 </code></pre>
 <h2 id="connection-request-handling">Connection Request Handling</h2>
 <p>When a client attempts to connect, the server can inspect and respond to the request before accepting or refusing it.
@@ -159,34 +159,41 @@ Sandbox.Events.OnConnectRequest += MyOnConnectRequest;
 </code></pre>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>You must call <code>Defer</code> on the request if you intend to process it in a non-synchronous manner. Otherwise, Netick will auto-accept the request when leaving the scope of this call.</p>
+<p>If your validation or decision isn’t made immediately within <code>OnConnectRequest</code>, call <code>Defer</code> first. This applies even if you’re not using async/await - any delayed handling counts. Without <code>Defer</code>, Netick will automatically accept the request once the callback returns.</p>
 </div>
-<h3 id="handling-refusal-data-on-the-client">Handling Refusal Data on the Client</h3>
-<p>If the server refuses a connection and includes custom data:</p>
+<h2 id="handling-connection-failures-client-side">Handling Connection Failures (Client-side)</h2>
+<p>If the connection fails (for example, if the server is unreachable or refuses the connection),
+<code>OnConnectFailed</code> network event will be invoked on the client.</p>
 <pre><code class="lang-cs">public override void OnConnectFailed(NetworkSandbox sandbox, ConnectionFailedReason reason)
 {
-    if (sandbox.TryGetConnectionRefusalData(out ArraySegment&lt;byte&gt; data))
+    // Handle failed connection (e.g., show a retry option or an error message)
+
+    if (sandbox.TryGetConnectionRefusalData(out var data))
     {
-        // Handle refusal data here (e.g. display a reason)
+        // Optional: process custom refusal data from the server
     }
 }
 </code></pre>
-<h2 id="disconnecting-and-kicking-clients">Disconnecting and Kicking Clients</h2>
-<h3 id="disconnecting-from-the-server-client-only">Disconnecting from the Server (Client-only)</h3>
+<h2 id="disconnecting-from-the-server-client-side">Disconnecting from the Server (Client-side)</h2>
+<p>A connected client can disconnect at any time:</p>
 <pre><code class="lang-cs">Sandbox.Disconnect();
 </code></pre>
-<h3 id="kicking-clients-server-only">Kicking Clients (Server-only)</h3>
-<p>The server can disconnect clients and optionally include custom data, such as a reason:</p>
-<pre><code class="lang-cs">byte[] kickMessage = Encoding.UTF8.GetBytes(&quot;You were idle too long.&quot;);
-Sandbox.Kick(someClient, kickMessage);
+<h2 id="kicking-clients-server-side">Kicking Clients (Server-side)</h2>
+<p>The server can disconnect a specific client through the <code>Kick</code> method.
+This is useful for enforcing rules, timeouts, or admin actions.</p>
+<pre><code class="lang-cs">Sandbox.Kick(someClient);
 </code></pre>
-<p>On the client, this data is accessible in <code>OnDisconnectedFromServer</code>:</p>
+<p>You may also include optional data with the kick (for example, a reason message):</p>
+<pre><code class="lang-cs">byte[] message = Encoding.UTF8.GetBytes(&quot;You were idle too long.&quot;);
+Sandbox.Kick(someClient, message);
+</code></pre>
+<p>On the client, you can handle this in <code>OnDisconnectedFromServer</code>:</p>
 <pre><code class="lang-cs">public override void OnDisconnectedFromServer(NetworkSandbox sandbox, NetworkConnection server, TransportDisconnectReason reason)
 {
     if (sandbox.TryGetKickData(out var kickData))
     {
-        // Handle custom kick message
-        string message = Encoding.UTF8.GetString(kickData);
+        string msg = Encoding.UTF8.GetString(kickData);
+        // Display message to user
     }
 }
 </code></pre>

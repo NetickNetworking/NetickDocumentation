@@ -205,7 +205,7 @@ When the framerate drops below the tickrate, multiple simulation ticks must be p
 
 If this scenario is not handled correctly, it can lead to inconsistent simulation results—most notably, player characters may appear to move slower at very low framerates due to insufficient input sampling.
 
-### Enabling `Input Reuse At Low FPS` in Netick Settings
+### Enabling `Input Reuse on Low FPS` in Netick Settings
 
 Enabling this option would automatically let Netick reuse/duplicate the same input of one frame to one or more ticks. You can also know if the input fetched is a duplicated input or not as follows:
 
