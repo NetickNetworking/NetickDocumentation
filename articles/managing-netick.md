@@ -128,7 +128,7 @@ public override void OnConnectFailed(NetworkSandbox sandbox, ConnectionFailedRea
 
     if (sandbox.TryGetConnectionRefusalData(out var data))
     {
-        // Optional: process custom refusal data from the server
+      // Handle refusal data here (e.g. display a reason)
     }
 }
 ```
