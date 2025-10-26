@@ -116,7 +116,7 @@ Then begin playback:
 sandbox.StartReplayPlayback(replayPath);
 ```
 
-If no path is specified (`sandbox.StartPlayback()`), Netick automatically loads the **most recent replay file** from:
+If no path is specified (`sandbox.StartReplayPlayback()`), Netick automatically loads the **most recent replay file** from:
 
 ```
 C:\Users\<username>\AppData\LocalLow\<CompanyName>\<ProjectName>\replays\<gameVersionHash>\
@@ -167,7 +167,7 @@ If either version changes, existing replay files become incompatible.
 
 ### Playback Control
 
-Once playback begins with `Sandbox.StartPlayback(replayPath)`, you can control playback via the **Playback API**:
+Once playback begins with `Sandbox.StartReplayPlayback(replayPath)`, you can control playback via the **Playback API**:
 
 | Action                                  | API                                           |
 | ----------------------------            | --------------------------------------------- |
