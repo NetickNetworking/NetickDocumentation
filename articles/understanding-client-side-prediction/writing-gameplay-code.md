@@ -203,7 +203,7 @@ FetchInput(localPlayerIndex, out MyInput input);
 
 When the framerate drops below the tickrate, multiple simulation ticks must be processed within a single rendered frame. In such cases, the same input must be reused across multiple ticks.
 
-If this scenario is not handled correctly, it can lead to inconsistent simulation results—most notably, player characters may appear to move slower at very low framerates due to insufficient input sampling.
+If this scenario is not handled correctly, it can lead to inconsistent simulation results—most notably, player characters may appear to move slower at very low framerates.
 
 ### Enabling `Input Reuse on Low FPS` in Netick Settings
 

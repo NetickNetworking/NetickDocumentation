@@ -243,7 +243,7 @@ Then, you can set it inside <code>NetworkUpdate</code> on <code>NetworkBehaviour
 </code></pre>
 <h2 id="framerate-lower-than-tickrate">Framerate Lower than Tickrate</h2>
 <p>When the framerate drops below the tickrate, multiple simulation ticks must be processed within a single rendered frame. In such cases, the same input must be reused across multiple ticks.</p>
-<p>If this scenario is not handled correctly, it can lead to inconsistent simulation results—most notably, player characters may appear to move slower at very low framerates due to insufficient input sampling.</p>
+<p>If this scenario is not handled correctly, it can lead to inconsistent simulation results—most notably, player characters may appear to move slower at very low framerates.</p>
 <h3 id="enabling-input-reuse-on-low-fps-in-netick-settings">Enabling <code>Input Reuse on Low FPS</code> in Netick Settings</h3>
 <p>Enabling this option would automatically let Netick reuse/duplicate the same input of one frame to one or more ticks. You can also know if the input fetched is a duplicated input or not as follows:</p>
 <pre><code class="lang-csharp">public override void NetworkFixedUpdate()
