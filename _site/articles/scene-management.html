@@ -120,6 +120,10 @@
 <h2 id="scene-events">Scene Events</h2>
 <p>When you call <code>Sandbox.LoadSceneAsync</code> in the server, for instance, <code>OnSceneOperationBegan</code> event will be invoked in both the client and the server. You can use the <code>NetworkSceneOperation</code> parameter to know information about the scene load/unload operation like the current progress.</p>
 <p><code>OnSceneOperationDone</code> will be invoked when that scene operation finishes. <code>NetworkSceneOperation</code> struct includes a <code>Scene</code> getter you can use to access the <code> UnityEngine.SceneManagement.Scene</code> struct.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Avoid checking <code>NetworkSceneOperation.IsLoadOperation</code> or <code>NetworkSceneOperation.IsUnloadOperation</code> for scene switches or <code>LoadSceneMode.Single</code> loads — these operations perform both loading and unloading, so those properties are not assigned.</p>
+</div>
 <h3 id="using-networkeventslistener">Using <code>NetworkEventsListener</code></h3>
 <p>On a script inheriting from <code>NetworkEventsListener</code>, you can run code for when a certain scene operation has began and when it has finished.</p>
 <pre><code class="lang-cs">public override void OnSceneOperationBegan(NetworkSandbox sandbox, NetworkSceneOperation sceneOperation)

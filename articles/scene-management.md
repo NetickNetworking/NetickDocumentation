@@ -49,6 +49,8 @@ When you call `Sandbox.LoadSceneAsync` in the server, for instance, `OnSceneOper
 
 `OnSceneOperationDone` will be invoked when that scene operation finishes. `NetworkSceneOperation` struct includes a `Scene` getter you can use to access the ` UnityEngine.SceneManagement.Scene` struct.
 
+> [!WARNING]
+> Avoid checking `NetworkSceneOperation.IsLoadOperation` or `NetworkSceneOperation.IsUnloadOperation` for scene switches or `LoadSceneMode.Single` loads — these operations perform both loading and unloading, so those properties are not assigned.
 
 ### Using `NetworkEventsListener`
 
