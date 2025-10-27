@@ -124,7 +124,7 @@ If the connection fails (for example, if the server is unreachable or refuses th
 ```cs
 public override void OnConnectFailed(NetworkSandbox sandbox, ConnectionFailedReason reason)
 {
-    // Handle failed connection (e.g., show a retry option or an error message)
+    // Handle failed connection (e.g., show an error message and switch to menu scene)
 
     if (sandbox.TryGetConnectionRefusalData(out var data))
     {
