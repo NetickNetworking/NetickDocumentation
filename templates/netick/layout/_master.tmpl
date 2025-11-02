@@ -14,6 +14,21 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="{{#title}}{{title}}{{/title}}{{^title}}{{>partials/title}}{{/title}} {{#_appTitle}}| {{_appTitle}} {{/_appTitle}}">
       {{#_description}}<meta name="description" content="{{_description}}">{{/_description}}
+      
+      <meta property="og:title" content="{{#title}}{{title}}{{/title}}{{^title}}{{>partials/title}}{{/title}} {{#_appTitle}}| {{_appTitle}} {{/_appTitle}}">
+      <meta property="og:description" content="{{_description}}">
+      <meta property="og:type" content="article">
+      <meta property="og:url" content="https://netick.net/{{_path}}">
+      <meta property="og:image" content="https://netick.net/imgs/netick_card.png">
+
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="{{#title}}{{title}}{{/title}}{{^title}}{{>partials/title}}{{/title}} {{#_appTitle}}| {{_appTitle}} {{/_appTitle}}">
+      <meta name="twitter:description" content="{{_description}}">
+      <meta name="twitter:image" content="https://netick.net/imgs/netick_card.png">
+
+      <link rel="canonical" href="https://netick.net/{{_path}}">
+      
+      
       <link rel="icon" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicon.ico{{/_appFaviconPath}}">
       <link rel="stylesheet" href="{{_rel}}public/docfx.min.css">
       <link rel="stylesheet" href="{{_rel}}public/main.css">
