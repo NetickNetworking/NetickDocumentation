@@ -185,12 +185,3 @@ Netick includes a built-in helper script, `ReplayTimeline.cs`, that provides a t
 
 > [!Note]
 > In the replay system, the term “Frame” refers to snapshots of the game, not rendering frames. These replay frames correspond to ticks in the simulation, but are labeled as frames within the context of replays.
-
-
----
-
-## Replay Compression
-
-By default, Netick applies delta compression to replay snapshots. This allows for instant recording and playback with minimal processing overhead.
-
-Despite that, developers can apply additional compression using generic algorithms (e.g., zlib, LZ4, Brotli). This can significantly reduce the size of replay files. However, it adds processing delay before being able to start playback when decompressing the replay file, and after recording is finished when compressing the file. Because delta compression alone already does a reasonable job at compressing the data, Netick does not internally do generic compression on the replay file. However, if needed, doing it is straightforward.
