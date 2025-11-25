@@ -44,6 +44,9 @@ Sandboxes panel can be accessed by going to `Netick > Sandboxes`
 
 Running any project in multiple-peers mode does not always work, because of how some projects are set up. We call scripts or projects that can work with multiple sandboxes without issues as sandbox-safe.
 
+> [!NOTE]
+> You only need to make your project sandbox-safe if you plan to run more than one sandbox instance (use Netick in multi-peer mode). If you never intend to do that, you can safely skip this section.
+
 Notes on how to make your project sandbox-safe:
 
 - Try to completely avoid using `static` variables. This is because you will run more than one instance of the game and the `static` variable will conflict between the different Netick instances, since each Netick instance must have its own copy of that variable. If you were using `static` for singleton types, you can do the same by using a Sandbox Prefab. Attach all your singleton-like components to your sandbox prefab and you can access them from any network behaviour using `var mySingleton = Sandbox.GetComponent<TypeOfScript>();`. This way each Netick instance will have its own singleton-like scripts.
