@@ -9,7 +9,7 @@ Netick provides several ways to work with time in your networked game.
 Sometimes you need to convert between ticks and time (in seconds).
 Netick provides methods to do this conversion.
 
-### Sandbox.TickToTime()
+### `Sandbox.TickToTime()`
 
 The `TickToTime()` method converts ticks to time in seconds. This is
 useful when you need to check if a certain amount of time has passed
@@ -29,7 +29,7 @@ is the tick when the object was spawned, and `ExplosionDelay` is the
 delay in seconds before the explosion. The tick difference is converted
 to seconds using `TickToTime()`.
 
-### Sandbox.TimeToTick()
+### `Sandbox.TimeToTick()`
 
 `TimeToTick()` performs the opposite conversion:
 
