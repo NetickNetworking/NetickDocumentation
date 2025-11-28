@@ -103,54 +103,101 @@
 <hr>
 <p>Netick provides several ways to work with time in your networked game.</p>
 <h2 id="converting-between-ticks-and-time">Converting Between Ticks and Time</h2>
-<p>Sometimes you need to convert between ticks and time (in seconds). Netick provides methods to do this conversion:</p>
+<p>Sometimes you need to convert between ticks and time (in seconds).
+Netick provides methods to do this conversion.</p>
 <h3 id="sandboxticktotime">Sandbox.TickToTime()</h3>
-<p>The <code>TickToTime()</code> method converts ticks to time in seconds. This is useful when you need to check if a certain amount of time has passed since an event occurred. For example, if you want to explode a bomb after a delay:</p>
+<p>The <code>TickToTime()</code> method converts ticks to time in seconds. This is
+useful when you need to check if a certain amount of time has passed
+since an event occurred. For example, if you want to explode a bomb
+after a delay:</p>
 <pre><code class="lang-csharp">public override void NetworkFixedUpdate()
 {
     if (Sandbox.TickToTime(Sandbox.Tick - Object.SpawnTick) &gt;= ExplosionDelay)
         Explode();
 }
 </code></pre>
-<p>In this example, <code>Sandbox.Tick</code> is the current tick, <code>Object.SpawnTick</code> is the tick when the object was spawned, and <code>ExplosionDelay</code> is the delay in seconds before the explosion. The difference between the current tick and spawn tick determines the number of ticks that have passed since the object was spawned, which is then converted to seconds using <code>TickToTime()</code>.</p>
+<p>In this example, <code>Sandbox.Tick</code> is the current tick, <code>Object.SpawnTick</code>
+is the tick when the object was spawned, and <code>ExplosionDelay</code> is the
+delay in seconds before the explosion. The tick difference is converted
+to seconds using <code>TickToTime()</code>.</p>
 <h3 id="sandboxtimetotick">Sandbox.TimeToTick()</h3>
-<p>The <code>TimeToTick()</code> method does the opposite conversion, from time in seconds to ticks:</p>
-<pre><code class="lang-csharp">// Convert time in seconds to ticks
-Tick tickValue = Sandbox.TimeToTick(timeInSeconds);
+<p><code>TimeToTick()</code> performs the opposite conversion:</p>
+<pre><code class="lang-csharp">Tick tickValue = Sandbox.TimeToTick(timeInSeconds);
 </code></pre>
-<h2 id="using-networktimer">Using NetworkTimer</h2>
-<p>Netick provides a <code>NetworkTimer</code> struct that makes it easier to work with time-based events in your networked game. The <code>NetworkTimer</code> struct offers methods to check if a timer is running, if it has stopped, and how much time remains.</p>
+<h2 id="using-networktimer">Using <code>NetworkTimer</code></h2>
+<p><code>NetworkTimer</code> is a utility struct type for simplifying time-based
+actions in a networked game. It can be
+used to implement both <strong>countdown timers</strong> (timers with a duration that
+finish) and <strong>stopwatch timers</strong> (timers that measure time since a start
+moment).</p>
+<p>Network Property Example:</p>
+<pre><code class="lang-csharp">[Networked]
+public NetworkTimer Timer { get; set; }
+</code></pre>
+<h3 id="countdown-timers-vs-stopwatch-timers">Countdown Timers vs Stopwatch Timers</h3>
+<ul>
+<li>A <strong>countdown timer</strong> is created by starting a timer with a positive
+duration.</li>
+<li>A <strong>stopwatch timer</strong> is effectively a countdown timer started with
+<strong>0 duration</strong> --- it never &quot;finishes&quot;, so you only care about the
+elapsed time since it started.</li>
+</ul>
+<p>Because of this:</p>
+<ul>
+<li><code>GetRemainingTime()</code> only makes sense for countdown timers (duration &gt; 0).</li>
+<li><code>GetElapsedTime()</code> works for both timer types:
+<ul>
+<li>For countdowns: it returns the time since the timer started. If
+the timer has finished, it continues increasing, giving you
+&quot;time since it finished.&quot;</li>
+<li>For stopwatches: it returns the time since the stopwatch
+started.</li>
+</ul>
+</li>
+</ul>
 <h3 id="starting-a-timer">Starting a Timer</h3>
-<p>You can start a timer using the <code>Sandbox.StartTimer()</code> method:</p>
-<pre><code class="lang-csharp">// Start a 5-seconds timer
-NetworkTimer myNetworkTimer = Sandbox.StartTimer(5.0f);
+<p>You can start a timer using <code>Sandbox.StartTimer()</code>:</p>
+<pre><code class="lang-csharp">// Start a 5-second countdown timer
+CountdownTimer = Sandbox.StartTimer(5.0f);
+
+// Start a stopwatch timer
+StopwatchTimer = Sandbox.StartTimer(0.0f);
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>By default, the system uses predicted timing. You can use <code>usePredictedTiming: false</code> to opt out of this feature: <code>Sandbox.StartTimer(duration, usePredictedTiming: false)</code>.</p>
+<p>By default, the timer uses predicted timing. You can disable this by passing false to <code>usePredictedTiming</code>: <code>Sandbox.StartTimer(duration, usePredictedTiming: false);</code></p>
 </div>
 <h3 id="checking-timer-status">Checking Timer Status</h3>
-<p>You can check the status of a timer using the following methods:</p>
-<pre><code class="lang-csharp">// Check if the timer is still running
-if (myNetworkTimer.IsRunning(Sandbox))
+<pre><code class="lang-csharp">// Check if the timer is still running (only relevant for countdown timers)
+if (CountdownTimer.IsRunning(Sandbox))
 {
-    // Timer is still running
+    // Timer has not yet reached its duration
 }
 
-// Check if the timer has stopped
-if (myNetworkTimer.IsStopped(Sandbox))
+if (StopwatchTimer.IsStopped(Sandbox))
 {
-    // Timer has stopped/finished
+    // Timer finished (for countdown timers)
+    // For stopwatches (duration = 0), this is always true immediately
 }
 </code></pre>
 <h3 id="getting-remaining-and-elapsed-time">Getting Remaining and Elapsed Time</h3>
-<p>You can get the remaining time and elapsed time of a timer:</p>
-<pre><code class="lang-csharp">// Get the remaining time in seconds
-float remainingTime = myNetworkTimer.GetRemainingTime(Sandbox);
+<pre><code class="lang-csharp">// Remaining time (countdown timers only)
+float remainingTime = CountdownTimer.GetRemainingTime(Sandbox);
 
-// Get the elapsed time in seconds
-float elapsedTime = myNetworkTimer.GetElapsedTime(Sandbox);
+// Elapsed time (valid for both countdown and stopwatch timers)
+float elapsedTime = StopwatchTimer.GetElapsedTime(Sandbox);
 </code></pre>
+<p>For countdowns:</p>
+<ul>
+<li><code>GetRemainingTime</code> decreases until it reaches zero.</li>
+<li><code>GetElapsedTime</code> increases beyond the duration, allowing you to track
+&quot;time since completion.&quot;</li>
+</ul>
+<p>For stopwatches (duration = 0):</p>
+<ul>
+<li><code>GetRemainingTime</code> is always zero.</li>
+<li><code>GetElapsedTime</code> is the time since the stopwatch started.</li>
+</ul>
 
 </article>
 
