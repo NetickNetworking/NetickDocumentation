@@ -82,9 +82,6 @@ CountdownTimer = Sandbox.StartTimer(5.0f);
 StopwatchTimer = Sandbox.StartTimer(0.0f);
 ```
 
-> [!Note] 
-> By default, the timer uses predicted timing. You can disable this by passing false to `usePredictedTiming`: `Sandbox.StartTimer(duration, usePredictedTiming: false);`
-
 ### Checking Timer Status
 
 ``` csharp
