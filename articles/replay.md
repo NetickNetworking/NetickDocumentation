@@ -94,7 +94,7 @@ Netick provides a simple API for this purpose:
 Sandbox.Replay.Record.SetReplayMetadata(metaDataByteArray);
 ```
 
-The data here can be in a JSON format, for instance. When collecting this metadata, you can use `Sandbox.Replay.Record.FrameIndex` to determine the current replay frame being recorded. This allows you to associate metadata precisely with a specific moment in the replay timeline.
+When getting this data, you can use `Sandbox.Replay.Record.FrameIndex` to determine the current replay frame being recorded. This allows you to associate metadata precisely with a specific moment in the replay timeline.
 
 ---
 

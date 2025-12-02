@@ -162,7 +162,7 @@ During replay playback, the game logic operates on recorded snapshots rather tha
 <p>Netick provides a simple API for this purpose:</p>
 <pre><code class="lang-cs">Sandbox.Replay.Record.SetReplayMetadata(metaDataByteArray);
 </code></pre>
-<p>The data here can be in a JSON format, for instance. When collecting this metadata, you can use <code>Sandbox.Replay.Record.FrameIndex</code> to determine the current replay frame being recorded. This allows you to associate metadata precisely with a specific moment in the replay timeline.</p>
+<p>When getting this data, you can use <code>Sandbox.Replay.Record.FrameIndex</code> to determine the current replay frame being recorded. This allows you to associate metadata precisely with a specific moment in the replay timeline.</p>
 <hr>
 <h3 id="playback">Playback</h3>
 <h4 id="starting-a-replay">Starting a Replay</h4>
