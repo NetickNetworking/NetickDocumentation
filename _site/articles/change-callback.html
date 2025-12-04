@@ -156,6 +156,38 @@ private void OnMyNetworkDictionaryChanged(OnChangedData onChangedData)
 <h5>Warning</h5>
 <p>Be careful when using these methods on <code>OnChangedData</code>, since they are unsafe and can cause a crash if you go outside array range or use an incorrect type.</p>
 </div>
+<h2 id="handling-initial-replication-with-iscatchingup">Handling Initial Replication with <code>IsCatchingUp</code></h2>
+<p><code>OnChangedData.IsCatchingUp</code> flag allows you to cull events/side-effects that should only occur when a change is &quot;fresh,&quot; and not during the initial process (when late-joining) where the server synchronizes the object's state to the client for the first time, where the change may not be relevant anymore.</p>
+<p>The flag is set to <strong><code>true</code></strong> in two cases:</p>
+<ol>
+<li><strong>Late-Joining:</strong> When the client joins the game and is applying the first state data for an object.</li>
+<li><strong>Gaining/Regaining Interest:</strong> When an object enters the client's interest and the client begins receiving the object's current state.</li>
+</ol>
+<h3 id="usage-example">Usage Example</h3>
+<p>You can use <code>IsCatchingUp</code> within your <code>[OnChanged]</code> callback to immediately return and skip logic that you don't want to run during those two cases. This is useful to prevent audio, particle effects, or other non-essential visual feedback from triggering when an object is merely being initialized or brought back into view.</p>
+<pre><code class="lang-csharp">[OnChanged(nameof(SomeAudioTrigger))]
+private void OnSomeAudioTriggerChanged(OnChangedData dat)
+{
+    // Return early when &quot;catching up&quot;
+    if (dat.IsCatchingUp)
+        return;
+
+    // ...
+    // The rest of the logic only runs for &quot;live&quot; changes.
+}
+</code></pre>
+<h2 id="invoke-behavior-of-onchanged-callbacks">Invoke Behavior of <code>[OnChanged]</code> Callbacks</h2>
+<ul>
+<li><p>When you change a variable in the server or in the client (on a predicted object), the <code>[OnChanged]</code> method will be invoked from the setter of the networked variable, therefore it's immediately invoked when changing the variable.</p>
+</li>
+<li><p>In the client, when the client receives data for a networked variable that was changed in the server, the client will also invoke the callback, but only if the received value is different from the current value or when there was a misprediction. A misprediction means the value of the variable before rollback is not equal to the value after rollback and resimulation. Read the <a href="understanding-client-side-prediction/understanding-client-side-prediction.html">article</a> on Client-Side Prediction to learn more.</p>
+</li>
+<li><p>If the server changes a variable multiple times, but then back to the original value before all of this, the client will not invoke the callback, because to the client that networked variable never changed, but to the server it did but it eventually went back to the same value at the start of the tick. Therefore it's important to realize that in this case the callback is invoked multiple times in the server but never in the client.</p>
+</li>
+</ul>
+<h2 id="invoking-onchanged-callbacks-during-rollback--resimulation">Invoking <code>[OnChanged]</code> Callbacks During Rollback &amp; Resimulation</h2>
+<p>Read the <a href="understanding-client-side-prediction/understanding-client-side-prediction.html">article</a> on Client-Side Prediction before reading this section.</p>
+<p>By default, Netick will not invoke <code>[OnChanged]</code> callbacks when the client rolls back to the latest received server state, and neither during the resimulation stage of prediction. This is usually the desired behaviour because you only want the callback to fire when the value is changed for the first time (usually in the client, on predicted objects). However, sometimes you want the <code>[OnChanged]</code> callback to always be in sync with the value of the networked variable and have it also get invoked during rollback and during resimulation. This is easily possible by simply passing true to <code>invokeDuringResimulation</code> optional parameter of <code>[OnChanged]</code>.</p>
 <h2 id="finding-removed-and-added-items-to-collections">Finding Removed and Added Items to Collections</h2>
 <p>Using the previous snapshot (version) of the collection, we are able to compare the current collection against the previous snapshot to find the items that were added and the items that were removed.</p>
 <h3 id="example">Example:</h3>
@@ -180,18 +212,6 @@ private void OnMyNetworkDictionaryChanged(OnChangedData onChangedData)
        Debug.Log($&quot;{item} was removed!&quot;);
  }
 </code></pre>
-<h2 id="invoke-behavior-of-onchanged-callbacks">Invoke Behavior of <code>[OnChanged]</code> Callbacks</h2>
-<ul>
-<li><p>When you change a variable in the server or in the client (on a predicted object), the <code>[OnChanged]</code> method will be invoked from the setter of the networked variable, therefore it's immediately invoked when changing the variable.</p>
-</li>
-<li><p>In the client, when the client receives data for a networked variable that was changed in the server, the client will also invoke the callback, but only if the received value is different from the current value or when there was a misprediction. A misprediction means the value of the variable before rollback is not equal to the value after rollback and resimulation. Read the <a href="understanding-client-side-prediction/understanding-client-side-prediction.html">article</a> on Client-Side Prediction to learn more.</p>
-</li>
-<li><p>If the server changes a variable multiple times, but then back to the original value before all of this, the client will not invoke the callback, because to the client that networked variable never changed, but to the server it did but it eventually went back to the same value at the start of the tick. Therefore it's important to realize that in this case the callback is invoked multiple times in the server but never in the client.</p>
-</li>
-</ul>
-<h2 id="invoking-onchanged-callbacks-during-rollback--resimulation">Invoking <code>[OnChanged]</code> Callbacks During Rollback &amp; Resimulation</h2>
-<p>Read the <a href="understanding-client-side-prediction/understanding-client-side-prediction.html">article</a> on Client-Side Prediction before reading this section.</p>
-<p>By default, Netick will not invoke <code>[OnChanged]</code> callbacks when the client rolls back to the latest received server state, and neither during the resimulation stage of prediction. This is usually the desired behaviour because you only want the callback to fire when the value is changed for the first time (usually in the client, on predicted objects). However, sometimes you want the <code>[OnChanged]</code> callback to always be in sync with the value of the networked variable and have it also get invoked during rollback and during resimulation. This is easily possible by simply passing true to <code>invokeDuringResimulation</code> optional parameter of <code>[OnChanged]</code>.</p>
 
 </article>
 
