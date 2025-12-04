@@ -83,9 +83,11 @@ items:
   - Netick.Unity.PhysicsSimulationStep
   - Netick.Unity.PhysicsType
   - Netick.Unity.QuaternionErrorCorrector
+  - Netick.Unity.ReplayEncoding
   - Netick.Unity.ReplayFileInfo
   - Netick.Unity.ReplayFileReader
   - Netick.Unity.ReplayFileReader.Block
+  - Netick.Unity.ReplayFileReader.Frame
   - Netick.Unity.ReplayFileStatus
   - Netick.Unity.ReplayFileWriter
   - Netick.Unity.SandboxLaunchData
@@ -108,6 +110,13 @@ items:
   assemblies:
   - Netick.Unity
 references:
+- uid: Netick.Unity.TrackedRigidbody2D
+  commentId: T:Netick.Unity.TrackedRigidbody2D
+  isExternal: true
+  href: Netick.Unity.TrackedRigidbody2D.html
+  name: TrackedRigidbody2D
+  nameWithType: TrackedRigidbody2D
+  fullName: Netick.Unity.TrackedRigidbody2D
 - uid: Netick.Unity.NetworkEventsListener
   commentId: T:Netick.Unity.NetworkEventsListener
   parent: Netick.Unity
@@ -299,13 +308,6 @@ references:
   name: NetworkCallbacks
   nameWithType: NetworkCallbacks
   fullName: Netick.Unity.NetworkCallbacks
-- uid: Netick.Unity.TrackedRigidbody2D
-  commentId: T:Netick.Unity.TrackedRigidbody2D
-  isExternal: true
-  href: Netick.Unity.TrackedRigidbody2D.html
-  name: TrackedRigidbody2D
-  nameWithType: TrackedRigidbody2D
-  fullName: Netick.Unity.TrackedRigidbody2D
 - uid: Netick.Unity.GridRenderer
   commentId: T:Netick.Unity.GridRenderer
   isExternal: true
@@ -329,6 +331,14 @@ references:
   name: NetworkTransportProvider
   nameWithType: NetworkTransportProvider
   fullName: Netick.Unity.NetworkTransportProvider
+- uid: Netick.Unity.ReplayEncoding
+  commentId: T:Netick.Unity.ReplayEncoding
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.ReplayEncoding.html
+  name: ReplayEncoding
+  nameWithType: ReplayEncoding
+  fullName: Netick.Unity.ReplayEncoding
 - uid: Netick.Unity.PhysicsType
   commentId: T:Netick.Unity.PhysicsType
   parent: Netick.Unity
@@ -1021,6 +1031,13 @@ references:
   name: Angle
   nameWithType: Angle
   fullName: Netick.Unity.Angle
+- uid: Netick.Unity.ReplayFileWriter
+  commentId: T:Netick.Unity.ReplayFileWriter
+  isExternal: true
+  href: Netick.Unity.ReplayFileWriter.html
+  name: ReplayFileWriter
+  nameWithType: ReplayFileWriter
+  fullName: Netick.Unity.ReplayFileWriter
 - uid: Netick.Unity.SingleInstanceEnforcer
   commentId: T:Netick.Unity.SingleInstanceEnforcer
   isExternal: true
@@ -1028,6 +1045,68 @@ references:
   name: SingleInstanceEnforcer
   nameWithType: SingleInstanceEnforcer
   fullName: Netick.Unity.SingleInstanceEnforcer
+- uid: Netick.Unity.ReplayFileReader
+  commentId: T:Netick.Unity.ReplayFileReader
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html
+  name: ReplayFileReader
+  nameWithType: ReplayFileReader
+  fullName: Netick.Unity.ReplayFileReader
+- uid: Netick.Unity.ReplayFileReader.Block
+  commentId: T:Netick.Unity.ReplayFileReader.Block
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html
+  name: ReplayFileReader.Block
+  nameWithType: ReplayFileReader.Block
+  fullName: Netick.Unity.ReplayFileReader.Block
+  spec.csharp:
+  - uid: Netick.Unity.ReplayFileReader
+    name: ReplayFileReader
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.html
+  - name: .
+  - uid: Netick.Unity.ReplayFileReader.Block
+    name: Block
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.Block.html
+  spec.vb:
+  - uid: Netick.Unity.ReplayFileReader
+    name: ReplayFileReader
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.html
+  - name: .
+  - uid: Netick.Unity.ReplayFileReader.Block
+    name: Block
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.Block.html
+- uid: Netick.Unity.ReplayFileReader.Frame
+  commentId: T:Netick.Unity.ReplayFileReader.Frame
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html
+  name: ReplayFileReader.Frame
+  nameWithType: ReplayFileReader.Frame
+  fullName: Netick.Unity.ReplayFileReader.Frame
+  spec.csharp:
+  - uid: Netick.Unity.ReplayFileReader
+    name: ReplayFileReader
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.html
+  - name: .
+  - uid: Netick.Unity.ReplayFileReader.Frame
+    name: Frame
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.Frame.html
+  spec.vb:
+  - uid: Netick.Unity.ReplayFileReader
+    name: ReplayFileReader
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.html
+  - name: .
+  - uid: Netick.Unity.ReplayFileReader.Frame
+    name: Frame
+    isExternal: true
+    href: Netick.Unity.ReplayFileReader.Frame.html
 - uid: Netick.Unity.BuildSceneOperation
   commentId: T:Netick.Unity.BuildSceneOperation
   isExternal: true
@@ -1165,43 +1244,9 @@ references:
   name: NetickConfig
   nameWithType: NetickConfig
   fullName: Netick.Unity.NetickConfig
-- uid: Netick.Unity.ReplayFileReader
-  commentId: T:Netick.Unity.ReplayFileReader
-  isExternal: true
-  href: Netick.Unity.ReplayFileReader.html
-  name: ReplayFileReader
-  nameWithType: ReplayFileReader
-  fullName: Netick.Unity.ReplayFileReader
-- uid: Netick.Unity.ReplayFileReader.Block
-  commentId: T:Netick.Unity.ReplayFileReader.Block
-  parent: Netick.Unity
-  isExternal: true
-  href: Netick.Unity.ReplayFileReader.html
-  name: ReplayFileReader.Block
-  nameWithType: ReplayFileReader.Block
-  fullName: Netick.Unity.ReplayFileReader.Block
-  spec.csharp:
-  - uid: Netick.Unity.ReplayFileReader
-    name: ReplayFileReader
-    isExternal: true
-    href: Netick.Unity.ReplayFileReader.html
-  - name: .
-  - uid: Netick.Unity.ReplayFileReader.Block
-    name: Block
-    isExternal: true
-    href: Netick.Unity.ReplayFileReader.Block.html
-  spec.vb:
-  - uid: Netick.Unity.ReplayFileReader
-    name: ReplayFileReader
-    isExternal: true
-    href: Netick.Unity.ReplayFileReader.html
-  - name: .
-  - uid: Netick.Unity.ReplayFileReader.Block
-    name: Block
-    isExternal: true
-    href: Netick.Unity.ReplayFileReader.Block.html
 - uid: Netick.Unity.FileReplayTransport
   commentId: T:Netick.Unity.FileReplayTransport
+  parent: Netick.Unity
   isExternal: true
   href: Netick.Unity.FileReplayTransport.html
   name: FileReplayTransport
@@ -1223,13 +1268,6 @@ references:
   name: ReplayFileStatus
   nameWithType: ReplayFileStatus
   fullName: Netick.Unity.ReplayFileStatus
-- uid: Netick.Unity.ReplayFileWriter
-  commentId: T:Netick.Unity.ReplayFileWriter
-  isExternal: true
-  href: Netick.Unity.ReplayFileWriter.html
-  name: ReplayFileWriter
-  nameWithType: ReplayFileWriter
-  fullName: Netick.Unity.ReplayFileWriter
 - uid: Netick.Unity.NetworkObject
   commentId: T:Netick.Unity.NetworkObject
   parent: Netick.Unity

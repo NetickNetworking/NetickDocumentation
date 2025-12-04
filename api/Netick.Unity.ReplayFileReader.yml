@@ -5,13 +5,15 @@ items:
   id: ReplayFileReader
   parent: Netick.Unity
   children:
-  - Netick.Unity.ReplayFileReader.#ctor(System.Int32)
-  - Netick.Unity.ReplayFileReader.CacheLock
-  - Netick.Unity.ReplayFileReader.Fetch(System.Int64,System.Int32)
+  - Netick.Unity.ReplayFileReader.#ctor(Netick.Unity.FileReplayTransport)
+  - Netick.Unity.ReplayFileReader.IsInitialized
+  - Netick.Unity.ReplayFileReader.Request(System.Int32)
   - Netick.Unity.ReplayFileReader.Start(System.IO.FileStream)
   - Netick.Unity.ReplayFileReader.Stop
   - Netick.Unity.ReplayFileReader.Stream
-  - Netick.Unity.ReplayFileReader.TryGet(System.Int64,Netick.Unity.ReplayFileReader.Block@)
+  - Netick.Unity.ReplayFileReader.TryGet(System.Int32,Netick.Unity.ReplayFileReader.Frame@)
+  - Netick.Unity.ReplayFileReader.UncompressedStream
+  - Netick.Unity.ReplayFileReader.ValidFile
   langs:
   - csharp
   - vb
@@ -35,30 +37,30 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: Netick.Unity.ReplayFileReader.#ctor(System.Int32)
-  commentId: M:Netick.Unity.ReplayFileReader.#ctor(System.Int32)
-  id: '#ctor(System.Int32)'
+- uid: Netick.Unity.ReplayFileReader.#ctor(Netick.Unity.FileReplayTransport)
+  commentId: M:Netick.Unity.ReplayFileReader.#ctor(Netick.Unity.FileReplayTransport)
+  id: '#ctor(Netick.Unity.FileReplayTransport)'
   parent: Netick.Unity.ReplayFileReader
   langs:
   - csharp
   - vb
-  name: ReplayFileReader(int)
-  nameWithType: ReplayFileReader.ReplayFileReader(int)
-  fullName: Netick.Unity.ReplayFileReader.ReplayFileReader(int)
+  name: ReplayFileReader(FileReplayTransport)
+  nameWithType: ReplayFileReader.ReplayFileReader(FileReplayTransport)
+  fullName: Netick.Unity.ReplayFileReader.ReplayFileReader(Netick.Unity.FileReplayTransport)
   type: Constructor
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public ReplayFileReader(int cacheCapacity = 256)
+    content: public ReplayFileReader(FileReplayTransport transport)
     parameters:
-    - id: cacheCapacity
-      type: System.Int32
-    content.vb: Public Sub New(cacheCapacity As Integer = 256)
+    - id: transport
+      type: Netick.Unity.FileReplayTransport
+    content.vb: Public Sub New(transport As FileReplayTransport)
   overload: Netick.Unity.ReplayFileReader.#ctor*
-  nameWithType.vb: ReplayFileReader.New(Integer)
-  fullName.vb: Netick.Unity.ReplayFileReader.New(Integer)
-  name.vb: New(Integer)
+  nameWithType.vb: ReplayFileReader.New(FileReplayTransport)
+  fullName.vb: Netick.Unity.ReplayFileReader.New(Netick.Unity.FileReplayTransport)
+  name.vb: New(FileReplayTransport)
 - uid: Netick.Unity.ReplayFileReader.Start(System.IO.FileStream)
   commentId: M:Netick.Unity.ReplayFileReader.Start(System.IO.FileStream)
   id: Start(System.IO.FileStream)
@@ -98,81 +100,100 @@ items:
     content: public void Stop()
     content.vb: Public Sub [Stop]()
   overload: Netick.Unity.ReplayFileReader.Stop*
-- uid: Netick.Unity.ReplayFileReader.Fetch(System.Int64,System.Int32)
-  commentId: M:Netick.Unity.ReplayFileReader.Fetch(System.Int64,System.Int32)
-  id: Fetch(System.Int64,System.Int32)
+- uid: Netick.Unity.ReplayFileReader.Request(System.Int32)
+  commentId: M:Netick.Unity.ReplayFileReader.Request(System.Int32)
+  id: Request(System.Int32)
   parent: Netick.Unity.ReplayFileReader
   langs:
   - csharp
   - vb
-  name: Fetch(long, int)
-  nameWithType: ReplayFileReader.Fetch(long, int)
-  fullName: Netick.Unity.ReplayFileReader.Fetch(long, int)
+  name: Request(int)
+  nameWithType: ReplayFileReader.Request(int)
+  fullName: Netick.Unity.ReplayFileReader.Request(int)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public void Fetch(long offset, int size)
+    content: public void Request(int frameId)
     parameters:
-    - id: offset
-      type: System.Int64
-    - id: size
+    - id: frameId
       type: System.Int32
-    content.vb: Public Sub Fetch(offset As Long, size As Integer)
-  overload: Netick.Unity.ReplayFileReader.Fetch*
-  nameWithType.vb: ReplayFileReader.Fetch(Long, Integer)
-  fullName.vb: Netick.Unity.ReplayFileReader.Fetch(Long, Integer)
-  name.vb: Fetch(Long, Integer)
-- uid: Netick.Unity.ReplayFileReader.TryGet(System.Int64,Netick.Unity.ReplayFileReader.Block@)
-  commentId: M:Netick.Unity.ReplayFileReader.TryGet(System.Int64,Netick.Unity.ReplayFileReader.Block@)
-  id: TryGet(System.Int64,Netick.Unity.ReplayFileReader.Block@)
+    content.vb: Public Sub Request(frameId As Integer)
+  overload: Netick.Unity.ReplayFileReader.Request*
+  nameWithType.vb: ReplayFileReader.Request(Integer)
+  fullName.vb: Netick.Unity.ReplayFileReader.Request(Integer)
+  name.vb: Request(Integer)
+- uid: Netick.Unity.ReplayFileReader.TryGet(System.Int32,Netick.Unity.ReplayFileReader.Frame@)
+  commentId: M:Netick.Unity.ReplayFileReader.TryGet(System.Int32,Netick.Unity.ReplayFileReader.Frame@)
+  id: TryGet(System.Int32,Netick.Unity.ReplayFileReader.Frame@)
   parent: Netick.Unity.ReplayFileReader
   langs:
   - csharp
   - vb
-  name: TryGet(long, out Block)
-  nameWithType: ReplayFileReader.TryGet(long, out ReplayFileReader.Block)
-  fullName: Netick.Unity.ReplayFileReader.TryGet(long, out Netick.Unity.ReplayFileReader.Block)
+  name: TryGet(int, out Frame)
+  nameWithType: ReplayFileReader.TryGet(int, out ReplayFileReader.Frame)
+  fullName: Netick.Unity.ReplayFileReader.TryGet(int, out Netick.Unity.ReplayFileReader.Frame)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public bool TryGet(long offset, out ReplayFileReader.Block buffer)
+    content: public bool TryGet(int frameId, out ReplayFileReader.Frame buffer)
     parameters:
-    - id: offset
-      type: System.Int64
+    - id: frameId
+      type: System.Int32
     - id: buffer
-      type: Netick.Unity.ReplayFileReader.Block
+      type: Netick.Unity.ReplayFileReader.Frame
     return:
       type: System.Boolean
-    content.vb: Public Function TryGet(offset As Long, buffer As ReplayFileReader.Block) As Boolean
+    content.vb: Public Function TryGet(frameId As Integer, buffer As ReplayFileReader.Frame) As Boolean
   overload: Netick.Unity.ReplayFileReader.TryGet*
-  nameWithType.vb: ReplayFileReader.TryGet(Long, ReplayFileReader.Block)
-  fullName.vb: Netick.Unity.ReplayFileReader.TryGet(Long, Netick.Unity.ReplayFileReader.Block)
-  name.vb: TryGet(Long, Block)
-- uid: Netick.Unity.ReplayFileReader.CacheLock
-  commentId: P:Netick.Unity.ReplayFileReader.CacheLock
-  id: CacheLock
+  nameWithType.vb: ReplayFileReader.TryGet(Integer, ReplayFileReader.Frame)
+  fullName.vb: Netick.Unity.ReplayFileReader.TryGet(Integer, Netick.Unity.ReplayFileReader.Frame)
+  name.vb: TryGet(Integer, Frame)
+- uid: Netick.Unity.ReplayFileReader.ValidFile
+  commentId: P:Netick.Unity.ReplayFileReader.ValidFile
+  id: ValidFile
   parent: Netick.Unity.ReplayFileReader
   langs:
   - csharp
   - vb
-  name: CacheLock
-  nameWithType: ReplayFileReader.CacheLock
-  fullName: Netick.Unity.ReplayFileReader.CacheLock
+  name: ValidFile
+  nameWithType: ReplayFileReader.ValidFile
+  fullName: Netick.Unity.ReplayFileReader.ValidFile
   type: Property
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public object CacheLock { get; }
+    content: public bool ValidFile { get; }
     parameters: []
     return:
-      type: System.Object
-    content.vb: Public ReadOnly Property CacheLock As Object
-  overload: Netick.Unity.ReplayFileReader.CacheLock*
+      type: System.Boolean
+    content.vb: Public ReadOnly Property ValidFile As Boolean
+  overload: Netick.Unity.ReplayFileReader.ValidFile*
+- uid: Netick.Unity.ReplayFileReader.IsInitialized
+  commentId: P:Netick.Unity.ReplayFileReader.IsInitialized
+  id: IsInitialized
+  parent: Netick.Unity.ReplayFileReader
+  langs:
+  - csharp
+  - vb
+  name: IsInitialized
+  nameWithType: ReplayFileReader.IsInitialized
+  fullName: Netick.Unity.ReplayFileReader.IsInitialized
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool IsInitialized { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInitialized As Boolean
+  overload: Netick.Unity.ReplayFileReader.IsInitialized*
 - uid: Netick.Unity.ReplayFileReader.Stream
   commentId: P:Netick.Unity.ReplayFileReader.Stream
   id: Stream
@@ -194,6 +215,27 @@ items:
       type: System.IO.FileStream
     content.vb: Public ReadOnly Property Stream As FileStream
   overload: Netick.Unity.ReplayFileReader.Stream*
+- uid: Netick.Unity.ReplayFileReader.UncompressedStream
+  commentId: P:Netick.Unity.ReplayFileReader.UncompressedStream
+  id: UncompressedStream
+  parent: Netick.Unity.ReplayFileReader
+  langs:
+  - csharp
+  - vb
+  name: UncompressedStream
+  nameWithType: ReplayFileReader.UncompressedStream
+  fullName: Netick.Unity.ReplayFileReader.UncompressedStream
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public FileStream UncompressedStream { get; }
+    parameters: []
+    return:
+      type: System.IO.FileStream
+    content.vb: Public ReadOnly Property UncompressedStream As FileStream
+  overload: Netick.Unity.ReplayFileReader.UncompressedStream*
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -462,24 +504,21 @@ references:
 - uid: Netick.Unity.ReplayFileReader.#ctor*
   commentId: Overload:Netick.Unity.ReplayFileReader.#ctor
   isExternal: true
-  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader__ctor_System_Int32_
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader__ctor_Netick_Unity_FileReplayTransport_
   name: ReplayFileReader
   nameWithType: ReplayFileReader.ReplayFileReader
   fullName: Netick.Unity.ReplayFileReader.ReplayFileReader
   nameWithType.vb: ReplayFileReader.New
   fullName.vb: Netick.Unity.ReplayFileReader.New
   name.vb: New
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
+- uid: Netick.Unity.FileReplayTransport
+  commentId: T:Netick.Unity.FileReplayTransport
+  parent: Netick.Unity
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
+  href: Netick.Unity.FileReplayTransport.html
+  name: FileReplayTransport
+  nameWithType: FileReplayTransport
+  fullName: Netick.Unity.FileReplayTransport
 - uid: Netick.Unity.ReplayFileReader.Start*
   commentId: Overload:Netick.Unity.ReplayFileReader.Start
   isExternal: true
@@ -529,59 +568,59 @@ references:
   name: Stop
   nameWithType: ReplayFileReader.Stop
   fullName: Netick.Unity.ReplayFileReader.Stop
-- uid: Netick.Unity.ReplayFileReader.Fetch*
-  commentId: Overload:Netick.Unity.ReplayFileReader.Fetch
+- uid: Netick.Unity.ReplayFileReader.Request*
+  commentId: Overload:Netick.Unity.ReplayFileReader.Request
   isExternal: true
-  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Fetch_System_Int64_System_Int32_
-  name: Fetch
-  nameWithType: ReplayFileReader.Fetch
-  fullName: Netick.Unity.ReplayFileReader.Fetch
-- uid: System.Int64
-  commentId: T:System.Int64
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_Request_System_Int32_
+  name: Request
+  nameWithType: ReplayFileReader.Request
+  fullName: Netick.Unity.ReplayFileReader.Request
+- uid: System.Int32
+  commentId: T:System.Int32
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int64
-  name: long
-  nameWithType: long
-  fullName: long
-  nameWithType.vb: Long
-  fullName.vb: Long
-  name.vb: Long
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: Netick.Unity.ReplayFileReader.TryGet*
   commentId: Overload:Netick.Unity.ReplayFileReader.TryGet
   isExternal: true
-  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_TryGet_System_Int64_Netick_Unity_ReplayFileReader_Block__
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_TryGet_System_Int32_Netick_Unity_ReplayFileReader_Frame__
   name: TryGet
   nameWithType: ReplayFileReader.TryGet
   fullName: Netick.Unity.ReplayFileReader.TryGet
-- uid: Netick.Unity.ReplayFileReader.Block
-  commentId: T:Netick.Unity.ReplayFileReader.Block
+- uid: Netick.Unity.ReplayFileReader.Frame
+  commentId: T:Netick.Unity.ReplayFileReader.Frame
   parent: Netick.Unity
   isExternal: true
   href: Netick.Unity.ReplayFileReader.html
-  name: ReplayFileReader.Block
-  nameWithType: ReplayFileReader.Block
-  fullName: Netick.Unity.ReplayFileReader.Block
+  name: ReplayFileReader.Frame
+  nameWithType: ReplayFileReader.Frame
+  fullName: Netick.Unity.ReplayFileReader.Frame
   spec.csharp:
   - uid: Netick.Unity.ReplayFileReader
     name: ReplayFileReader
     isExternal: true
     href: Netick.Unity.ReplayFileReader.html
   - name: .
-  - uid: Netick.Unity.ReplayFileReader.Block
-    name: Block
+  - uid: Netick.Unity.ReplayFileReader.Frame
+    name: Frame
     isExternal: true
-    href: Netick.Unity.ReplayFileReader.Block.html
+    href: Netick.Unity.ReplayFileReader.Frame.html
   spec.vb:
   - uid: Netick.Unity.ReplayFileReader
     name: ReplayFileReader
     isExternal: true
     href: Netick.Unity.ReplayFileReader.html
   - name: .
-  - uid: Netick.Unity.ReplayFileReader.Block
-    name: Block
+  - uid: Netick.Unity.ReplayFileReader.Frame
+    name: Frame
     isExternal: true
-    href: Netick.Unity.ReplayFileReader.Block.html
+    href: Netick.Unity.ReplayFileReader.Frame.html
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -593,13 +632,20 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Netick.Unity.ReplayFileReader.CacheLock*
-  commentId: Overload:Netick.Unity.ReplayFileReader.CacheLock
+- uid: Netick.Unity.ReplayFileReader.ValidFile*
+  commentId: Overload:Netick.Unity.ReplayFileReader.ValidFile
   isExternal: true
-  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_CacheLock
-  name: CacheLock
-  nameWithType: ReplayFileReader.CacheLock
-  fullName: Netick.Unity.ReplayFileReader.CacheLock
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_ValidFile
+  name: ValidFile
+  nameWithType: ReplayFileReader.ValidFile
+  fullName: Netick.Unity.ReplayFileReader.ValidFile
+- uid: Netick.Unity.ReplayFileReader.IsInitialized*
+  commentId: Overload:Netick.Unity.ReplayFileReader.IsInitialized
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_IsInitialized
+  name: IsInitialized
+  nameWithType: ReplayFileReader.IsInitialized
+  fullName: Netick.Unity.ReplayFileReader.IsInitialized
 - uid: Netick.Unity.ReplayFileReader.Stream*
   commentId: Overload:Netick.Unity.ReplayFileReader.Stream
   isExternal: true
@@ -607,3 +653,10 @@ references:
   name: Stream
   nameWithType: ReplayFileReader.Stream
   fullName: Netick.Unity.ReplayFileReader.Stream
+- uid: Netick.Unity.ReplayFileReader.UncompressedStream*
+  commentId: Overload:Netick.Unity.ReplayFileReader.UncompressedStream
+  isExternal: true
+  href: Netick.Unity.ReplayFileReader.html#Netick_Unity_ReplayFileReader_UncompressedStream
+  name: UncompressedStream
+  nameWithType: ReplayFileReader.UncompressedStream
+  fullName: Netick.Unity.ReplayFileReader.UncompressedStream

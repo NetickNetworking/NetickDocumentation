@@ -142,6 +142,9 @@ Class Client
       <a class="xref" href="Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectRequest_System_Byte___System_Int32_Netick_IEndPoint_">NetworkPeer.OnConnectRequest(byte[], int, IEndPoint)</a>
     </div>
     <div>
+      <a class="xref" href="Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectRequest_Netick_IConnectionRequest_System_ReadOnlySpan_System_Byte__">NetworkPeer.OnConnectRequest(IConnectionRequest, ReadOnlySpan&lt;byte&gt;)</a>
+    </div>
+    <div>
       <a class="xref" href="Netick.NetworkPlayer.html#Netick_NetworkPlayer_Engine">NetworkPlayer.Engine</a>
     </div>
     <div>
@@ -422,8 +425,8 @@ Class Client
 
   <a id="Netick_Client_OnConnectFailed_" data-uid="Netick.Client.OnConnectFailed*"></a>
 
-  <h3 id="Netick_Client_OnConnectFailed_Netick_ConnectionFailedReason_" data-uid="Netick.Client.OnConnectFailed(Netick.ConnectionFailedReason)">
-  OnConnectFailed(ConnectionFailedReason)
+  <h3 id="Netick_Client_OnConnectFailed_Netick_ConnectionFailedReason_System_ReadOnlySpan_System_Byte__" data-uid="Netick.Client.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})">
+  OnConnectFailed(ConnectionFailedReason, ReadOnlySpan&lt;byte&gt;)
   
   </h3>
 
@@ -431,12 +434,14 @@ Class Client
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void OnConnectFailed(ConnectionFailedReason reason)</code></pre>
+    <pre><code class="lang-csharp hljs">public override void OnConnectFailed(ConnectionFailedReason reason, ReadOnlySpan&lt;byte&gt; refusalData)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>reason</code> <a class="xref" href="Netick.ConnectionFailedReason.html">ConnectionFailedReason</a></dt>
+    <dd></dd>
+    <dt><code>refusalData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -484,8 +489,8 @@ Class Client
 
   <a id="Netick_Client_OnDisconnected_" data-uid="Netick.Client.OnDisconnected*"></a>
 
-  <h3 id="Netick_Client_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_" data-uid="Netick.Client.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)">
-  OnDisconnected(TransportConnection, TransportDisconnectReason)
+  <h3 id="Netick_Client_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_System_ReadOnlySpan_System_Byte__" data-uid="Netick.Client.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})">
+  OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan&lt;byte&gt;)
   
   </h3>
 
@@ -493,7 +498,7 @@ Class Client
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void OnDisconnected(TransportConnection peer, TransportDisconnectReason transportDisconnectReason)</code></pre>
+    <pre><code class="lang-csharp hljs">public override void OnDisconnected(TransportConnection peer, TransportDisconnectReason transportDisconnectReason, ReadOnlySpan&lt;byte&gt; kickData = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -501,6 +506,8 @@ Class Client
     <dt><code>peer</code> <a class="xref" href="Netick.TransportConnection.html">TransportConnection</a></dt>
     <dd></dd>
     <dt><code>transportDisconnectReason</code> <a class="xref" href="Netick.TransportDisconnectReason.html">TransportDisconnectReason</a></dt>
+    <dd></dd>
+    <dt><code>kickData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -539,6 +546,78 @@ Class Client
     <dd></dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Client_TryGetConnectionRefusalData_" data-uid="Netick.Client.TryGetConnectionRefusalData*"></a>
+
+  <h3 id="Netick_Client_TryGetConnectionRefusalData_System_ArraySegment_System_Byte___" data-uid="Netick.Client.TryGetConnectionRefusalData(System.ArraySegment{System.Byte}@)">
+  TryGetConnectionRefusalData(out ArraySegment&lt;byte&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetConnectionRefusalData(out ArraySegment&lt;byte&gt; data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.arraysegment-1">ArraySegment</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Client_TryGetKickData_" data-uid="Netick.Client.TryGetKickData*"></a>
+
+  <h3 id="Netick_Client_TryGetKickData_System_ArraySegment_System_Byte___" data-uid="Netick.Client.TryGetKickData(System.ArraySegment{System.Byte}@)">
+  TryGetKickData(out ArraySegment&lt;byte&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetKickData(out ArraySegment&lt;byte&gt; data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.arraysegment-1">ArraySegment</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
 
 
 

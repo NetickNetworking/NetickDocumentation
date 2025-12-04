@@ -29,6 +29,7 @@ items:
   - Netick.Unity.NetworkBehaviour.IsPlayer
   - Netick.Unity.NetworkBehaviour.IsPredicted
   - Netick.Unity.NetworkBehaviour.IsProxy
+  - Netick.Unity.NetworkBehaviour.IsReplay
   - Netick.Unity.NetworkBehaviour.IsResimulating
   - Netick.Unity.NetworkBehaviour.IsServer
   - Netick.Unity.NetworkBehaviour.NetworkAwake
@@ -825,6 +826,29 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsPlayer As Boolean
   overload: Netick.Unity.NetworkBehaviour.IsPlayer*
+- uid: Netick.Unity.NetworkBehaviour.IsReplay
+  commentId: P:Netick.Unity.NetworkBehaviour.IsReplay
+  id: IsReplay
+  parent: Netick.Unity.NetworkBehaviour
+  langs:
+  - csharp
+  - vb
+  name: IsReplay
+  nameWithType: NetworkBehaviour.IsReplay
+  fullName: Netick.Unity.NetworkBehaviour.IsReplay
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns true if this <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref> is running in ReplayClient mode.
+  example: []
+  syntax:
+    content: public bool IsReplay { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReplay As Boolean
+  overload: Netick.Unity.NetworkBehaviour.IsReplay*
 - uid: Netick.Unity.NetworkBehaviour.IsInputSource
   commentId: P:Netick.Unity.NetworkBehaviour.IsInputSource
   id: IsInputSource
@@ -1839,6 +1863,13 @@ references:
   name: IsPlayer
   nameWithType: NetworkBehaviour.IsPlayer
   fullName: Netick.Unity.NetworkBehaviour.IsPlayer
+- uid: Netick.Unity.NetworkBehaviour.IsReplay*
+  commentId: Overload:Netick.Unity.NetworkBehaviour.IsReplay
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsReplay
+  name: IsReplay
+  nameWithType: NetworkBehaviour.IsReplay
+  fullName: Netick.Unity.NetworkBehaviour.IsReplay
 - uid: Netick.Unity.NetworkSandbox.LocalPlayer
   commentId: P:Netick.Unity.NetworkSandbox.LocalPlayer
   isExternal: true

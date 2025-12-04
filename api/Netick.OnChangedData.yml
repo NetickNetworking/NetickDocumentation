@@ -20,6 +20,7 @@ items:
   - Netick.OnChangedData.GetPreviousValueAsPointer
   - Netick.OnChangedData.GetPreviousValue``1
   - Netick.OnChangedData.InvokedForMisprediction
+  - Netick.OnChangedData.IsCatchingUp
   langs:
   - csharp
   - vb
@@ -441,6 +442,44 @@ items:
     content.vb: Public Overrides Function GetHashCode() As Integer
   overridden: System.ValueType.GetHashCode
   overload: Netick.OnChangedData.GetHashCode*
+- uid: Netick.OnChangedData.IsCatchingUp
+  commentId: P:Netick.OnChangedData.IsCatchingUp
+  id: IsCatchingUp
+  parent: Netick.OnChangedData
+  langs:
+  - csharp
+  - vb
+  name: IsCatchingUp
+  nameWithType: OnChangedData.IsCatchingUp
+  fullName: Netick.OnChangedData.IsCatchingUp
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: >-
+    <p>Returns true during the server-authoritative tick in which this client is catching up on an
+
+    already-existing object — either because the client has just late-joined,
+
+    or because it has just gained/regained interest in this object.</p>
+
+
+    <p>This flag is only set for existing objects; it is not set for objects (ones that the client has interest in at spawn time) spawned after the client has joined. 
+
+    It is true only during the "catching up" tick in which the object becomes relevant, 
+
+    and false afterward.</p>
+
+
+    <p>This flag always returns false on the server.</p>
+  example: []
+  syntax:
+    content: public bool IsCatchingUp { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsCatchingUp As Boolean
+  overload: Netick.OnChangedData.IsCatchingUp*
 - uid: Netick.OnChangedData.InvokedForMisprediction
   commentId: P:Netick.OnChangedData.InvokedForMisprediction
   id: InvokedForMisprediction
@@ -455,7 +494,10 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  summary: Returns true if this OnChanged callback is due to a mismatch between the state of this variable before rollback, and the state after rollback and resimulation.
+  summary: >-
+    Returns true if this OnChanged callback is due to a mismatch between the state of this variable before rollback, and the state after rollback and resimulation.
+
+    <p>This flag always returns false on the server.</p>
   example: []
   syntax:
     content: public bool InvokedForMisprediction { get; }
@@ -776,6 +818,7 @@ references:
   - name: )
 - uid: Netick.NetworkDictionary`2
   commentId: T:Netick.NetworkDictionary`2
+  parent: Netick
   isExternal: true
   href: Netick.NetworkDictionary-2.html
   name: NetworkDictionary<TKey, TValue>
@@ -810,6 +853,7 @@ references:
   - name: )
 - uid: Netick.NetworkDictionarySnapshot`2
   commentId: T:Netick.NetworkDictionarySnapshot`2
+  parent: Netick
   isExternal: true
   href: Netick.NetworkDictionarySnapshot-2.html
   name: NetworkDictionarySnapshot<TKey, TValue>
@@ -909,6 +953,7 @@ references:
   - name: )
 - uid: Netick.NetworkHashSet`1
   commentId: T:Netick.NetworkHashSet`1
+  parent: Netick
   isExternal: true
   href: Netick.NetworkHashSet-1.html
   name: NetworkHashSet<T>
@@ -937,6 +982,7 @@ references:
   - name: )
 - uid: Netick.NetworkHashSetSnapshot`1
   commentId: T:Netick.NetworkHashSetSnapshot`1
+  parent: Netick
   isExternal: true
   href: Netick.NetworkHashSetSnapshot-1.html
   name: NetworkHashSetSnapshot<T>
@@ -1030,6 +1076,7 @@ references:
   - name: )
 - uid: Netick.NetworkLinkedList`1
   commentId: T:Netick.NetworkLinkedList`1
+  parent: Netick
   isExternal: true
   href: Netick.NetworkLinkedList-1.html
   name: NetworkLinkedList<T>
@@ -1058,6 +1105,7 @@ references:
   - name: )
 - uid: Netick.NetworkLinkedListSnapshot`1
   commentId: T:Netick.NetworkLinkedListSnapshot`1
+  parent: Netick
   isExternal: true
   href: Netick.NetworkLinkedListSnapshot-1.html
   name: NetworkLinkedListSnapshot<T>
@@ -1151,6 +1199,7 @@ references:
   - name: )
 - uid: Netick.NetworkUnorderedList`1
   commentId: T:Netick.NetworkUnorderedList`1
+  parent: Netick
   isExternal: true
   href: Netick.NetworkUnorderedList-1.html
   name: NetworkUnorderedList<T>
@@ -1179,6 +1228,7 @@ references:
   - name: )
 - uid: Netick.NetworkUnorderedListSnapshot`1
   commentId: T:Netick.NetworkUnorderedListSnapshot`1
+  parent: Netick
   isExternal: true
   href: Netick.NetworkUnorderedListSnapshot-1.html
   name: NetworkUnorderedListSnapshot<T>
@@ -1272,6 +1322,7 @@ references:
   - name: )
 - uid: Netick.NetworkQueue`1
   commentId: T:Netick.NetworkQueue`1
+  parent: Netick
   isExternal: true
   href: Netick.NetworkQueue-1.html
   name: NetworkQueue<T>
@@ -1300,6 +1351,7 @@ references:
   - name: )
 - uid: Netick.NetworkQueueSnapshot`1
   commentId: T:Netick.NetworkQueueSnapshot`1
+  parent: Netick
   isExternal: true
   href: Netick.NetworkQueueSnapshot-1.html
   name: NetworkQueueSnapshot<T>
@@ -1393,6 +1445,7 @@ references:
   - name: )
 - uid: Netick.NetworkStack`1
   commentId: T:Netick.NetworkStack`1
+  parent: Netick
   isExternal: true
   href: Netick.NetworkStack-1.html
   name: NetworkStack<T>
@@ -1421,6 +1474,7 @@ references:
   - name: )
 - uid: Netick.NetworkStackSnapshot`1
   commentId: T:Netick.NetworkStackSnapshot`1
+  parent: Netick
   isExternal: true
   href: Netick.NetworkStackSnapshot-1.html
   name: NetworkStackSnapshot<T>
@@ -1702,6 +1756,13 @@ references:
   name: GetHashCode
   nameWithType: OnChangedData.GetHashCode
   fullName: Netick.OnChangedData.GetHashCode
+- uid: Netick.OnChangedData.IsCatchingUp*
+  commentId: Overload:Netick.OnChangedData.IsCatchingUp
+  isExternal: true
+  href: Netick.OnChangedData.html#Netick_OnChangedData_IsCatchingUp
+  name: IsCatchingUp
+  nameWithType: OnChangedData.IsCatchingUp
+  fullName: Netick.OnChangedData.IsCatchingUp
 - uid: Netick.OnChangedData.InvokedForMisprediction*
   commentId: Overload:Netick.OnChangedData.InvokedForMisprediction
   isExternal: true

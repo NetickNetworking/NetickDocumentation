@@ -12,6 +12,8 @@ items:
   - Netick.Unity.NetworkSandbox.AttachNonNetworkedRigidbody(UnityEngine.Rigidbody)
   - Netick.Unity.NetworkSandbox.AuthoritativeTick
   - Netick.Unity.NetworkSandbox.Config
+  - Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String)
+  - Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String,System.ArraySegment{System.Byte})
   - Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String,System.Byte[],System.Int32)
   - Netick.Unity.NetworkSandbox.ConnectedClients
   - Netick.Unity.NetworkSandbox.ConnectedPlayers
@@ -39,6 +41,7 @@ items:
   - Netick.Unity.NetworkSandbox.FindObjectOfType``1(System.Boolean)
   - Netick.Unity.NetworkSandbox.FindObjectsOfType``1(System.Boolean)
   - Netick.Unity.NetworkSandbox.FindObjectsOfType``1(System.Collections.Generic.List{``0},System.Boolean)
+  - Netick.Unity.NetworkSandbox.FindPlayerByEndPoint(Netick.IEndPoint)
   - Netick.Unity.NetworkSandbox.FindSandboxOf(UnityEngine.GameObject)
   - Netick.Unity.NetworkSandbox.FindSandboxOf(UnityEngine.MonoBehaviour)
   - Netick.Unity.NetworkSandbox.FixedDeltaTime
@@ -79,9 +82,9 @@ items:
   - Netick.Unity.NetworkSandbox.IsRunning
   - Netick.Unity.NetworkSandbox.IsServer
   - Netick.Unity.NetworkSandbox.IsVisible
-  - Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer)
-  - Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId)
-  - Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)
+  - Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer,System.ReadOnlySpan{System.Byte})
+  - Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId,System.ReadOnlySpan{System.Byte})
+  - Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection,System.ReadOnlySpan{System.Byte})
   - Netick.Unity.NetworkSandbox.LoadCustomSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
   - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneMode)
   - Netick.Unity.NetworkSandbox.LoadSceneAsync(System.Int32,UnityEngine.SceneManagement.LoadSceneParameters)
@@ -148,10 +151,10 @@ items:
   - Netick.Unity.NetworkSandbox.SetPlayerObject(Netick.NetworkPlayer,Netick.Unity.NetworkObject)
   - Netick.Unity.NetworkSandbox.SetPlayerObject(Netick.NetworkPlayerId,Netick.Unity.NetworkObject)
   - Netick.Unity.NetworkSandbox.StartMode
-  - Netick.Unity.NetworkSandbox.StartPlayback(System.String)
-  - Netick.Unity.NetworkSandbox.StartRecordingReplay(System.String)
+  - Netick.Unity.NetworkSandbox.StartReplayPlayback(System.String)
+  - Netick.Unity.NetworkSandbox.StartReplayRecording(System.String)
   - Netick.Unity.NetworkSandbox.StartTimer(System.Single,System.Boolean)
-  - Netick.Unity.NetworkSandbox.StopRecordingReplay
+  - Netick.Unity.NetworkSandbox.StopReplayRecording
   - Netick.Unity.NetworkSandbox.SwitchScene(System.Int32)
   - Netick.Unity.NetworkSandbox.SwitchScene(System.String)
   - Netick.Unity.NetworkSandbox.Tick
@@ -162,6 +165,8 @@ items:
   - Netick.Unity.NetworkSandbox.Transport
   - Netick.Unity.NetworkSandbox.TryGetBehaviour``1(Netick.Unity.NetworkBehaviourRef{``0},``0@)
   - Netick.Unity.NetworkSandbox.TryGetBehaviour``1(System.Int32,``0@)
+  - Netick.Unity.NetworkSandbox.TryGetConnectionRefusalData(System.ArraySegment{System.Byte}@)
+  - Netick.Unity.NetworkSandbox.TryGetKickData(System.ArraySegment{System.Byte}@)
   - Netick.Unity.NetworkSandbox.TryGetLocalPlayerObject(Netick.Unity.NetworkObject@)
   - Netick.Unity.NetworkSandbox.TryGetLocalPlayerObject``1(``0@)
   - Netick.Unity.NetworkSandbox.TryGetObject(Netick.Unity.NetworkObjectRef,Netick.Unity.NetworkObject@)
@@ -185,7 +190,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: NetworkSandbox represents a networked game instance in Netick. It encapsulates the entire simulation state for that instance.
+  summary: NetworkSandbox represents a networked game instance in Netick.
   example: []
   syntax:
     content: 'public class NetworkSandbox : MonoBehaviour, IGameEngine'
@@ -1057,6 +1062,29 @@ items:
   nameWithType.vb: NetworkSandbox.NetworkInstantiate(Of T)(T, NetworkPlayerId)
   fullName.vb: Netick.Unity.NetworkSandbox.NetworkInstantiate(Of T)(T, Netick.NetworkPlayerId)
   name.vb: NetworkInstantiate(Of T)(T, NetworkPlayerId)
+- uid: Netick.Unity.NetworkSandbox.FindPlayerByEndPoint(Netick.IEndPoint)
+  commentId: M:Netick.Unity.NetworkSandbox.FindPlayerByEndPoint(Netick.IEndPoint)
+  id: FindPlayerByEndPoint(Netick.IEndPoint)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: FindPlayerByEndPoint(IEndPoint)
+  nameWithType: NetworkSandbox.FindPlayerByEndPoint(IEndPoint)
+  fullName: Netick.Unity.NetworkSandbox.FindPlayerByEndPoint(Netick.IEndPoint)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public NetworkPlayer FindPlayerByEndPoint(IEndPoint endPoint)
+    parameters:
+    - id: endPoint
+      type: Netick.IEndPoint
+    return:
+      type: Netick.NetworkPlayer
+    content.vb: Public Function FindPlayerByEndPoint(endPoint As IEndPoint) As NetworkPlayer
+  overload: Netick.Unity.NetworkSandbox.FindPlayerByEndPoint*
 - uid: Netick.Unity.NetworkSandbox.GetPlayerObject(Netick.NetworkPlayer)
   commentId: M:Netick.Unity.NetworkSandbox.GetPlayerObject(Netick.NetworkPlayer)
   id: GetPlayerObject(Netick.NetworkPlayer)
@@ -2574,6 +2602,41 @@ items:
   nameWithType.vb: NetworkSandbox.FindObjectsOfType(Of T)(List(Of T), Boolean)
   fullName.vb: Netick.Unity.NetworkSandbox.FindObjectsOfType(Of T)(System.Collections.Generic.List(Of T), Boolean)
   name.vb: FindObjectsOfType(Of T)(List(Of T), Boolean)
+- uid: Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String)
+  commentId: M:Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String)
+  id: Connect(System.Int32,System.String)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: Connect(int, string)
+  nameWithType: NetworkSandbox.Connect(int, string)
+  fullName: Netick.Unity.NetworkSandbox.Connect(int, string)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: >-
+    <i><b>[Client Only]</b></i> Connects to a remote server. 
+
+    <p>Note: if you are already connected to a server, and you want to connect to a different one, you have to disconnect before calling this. Otherwise this method does nothing.</p>
+
+    <p>Note: connectionData array length should not be more than 300 if you are using Netick Transport.</p>
+  example: []
+  syntax:
+    content: public void Connect(int port, string ip)
+    parameters:
+    - id: port
+      type: System.Int32
+      description: Port of the server.
+    - id: ip
+      type: System.String
+      description: IP address of the server.
+    content.vb: Public Sub Connect(port As Integer, ip As String)
+  overload: Netick.Unity.NetworkSandbox.Connect*
+  nameWithType.vb: NetworkSandbox.Connect(Integer, String)
+  fullName.vb: Netick.Unity.NetworkSandbox.Connect(Integer, String)
+  name.vb: Connect(Integer, String)
 - uid: Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String,System.Byte[],System.Int32)
   commentId: M:Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String,System.Byte[],System.Int32)
   id: Connect(System.Int32,System.String,System.Byte[],System.Int32)
@@ -2588,32 +2651,50 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: >-
-    <i><b>[Client Only]</b></i> Connects to a remote server. 
-
-    <p>Note: if you are already connected to a server, and you want to connect to a different one, you have to disconnect before calling this. Otherwise this method does nothing.</p>
-
-    <p>Note: connectionData array length should not be more than 300 if you are using Netick Transport.</p>
-  example: []
   syntax:
-    content: public void Connect(int port, string ip, byte[] connectionData = null, int connectionDataLength = 0)
+    content: public void Connect(int port, string ip, byte[] connectionData, int connectionDataLength)
     parameters:
     - id: port
       type: System.Int32
-      description: Port of the server.
     - id: ip
       type: System.String
-      description: IP address of the server.
     - id: connectionData
       type: System.Byte[]
-      description: RawValue sent with the connection request. Could be used to decide whether or not to allow the connection.
     - id: connectionDataLength
       type: System.Int32
-    content.vb: Public Sub Connect(port As Integer, ip As String, connectionData As Byte() = Nothing, connectionDataLength As Integer = 0)
+    content.vb: Public Sub Connect(port As Integer, ip As String, connectionData As Byte(), connectionDataLength As Integer)
   overload: Netick.Unity.NetworkSandbox.Connect*
   nameWithType.vb: NetworkSandbox.Connect(Integer, String, Byte(), Integer)
   fullName.vb: Netick.Unity.NetworkSandbox.Connect(Integer, String, Byte(), Integer)
   name.vb: Connect(Integer, String, Byte(), Integer)
+- uid: Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String,System.ArraySegment{System.Byte})
+  commentId: M:Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String,System.ArraySegment{System.Byte})
+  id: Connect(System.Int32,System.String,System.ArraySegment{System.Byte})
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: Connect(int, string, ArraySegment<byte>)
+  nameWithType: NetworkSandbox.Connect(int, string, ArraySegment<byte>)
+  fullName: Netick.Unity.NetworkSandbox.Connect(int, string, System.ArraySegment<byte>)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void Connect(int port, string ip, ArraySegment<byte> data)
+    parameters:
+    - id: port
+      type: System.Int32
+    - id: ip
+      type: System.String
+    - id: data
+      type: System.ArraySegment{System.Byte}
+    content.vb: Public Sub Connect(port As Integer, ip As String, data As ArraySegment(Of Byte))
+  overload: Netick.Unity.NetworkSandbox.Connect*
+  nameWithType.vb: NetworkSandbox.Connect(Integer, String, ArraySegment(Of Byte))
+  fullName.vb: Netick.Unity.NetworkSandbox.Connect(Integer, String, System.ArraySegment(Of Byte))
+  name.vb: Connect(Integer, String, ArraySegment(Of Byte))
 - uid: Netick.Unity.NetworkSandbox.DisconnectFromServer
   commentId: M:Netick.Unity.NetworkSandbox.DisconnectFromServer
   id: DisconnectFromServer
@@ -2634,16 +2715,68 @@ items:
     content: public void DisconnectFromServer()
     content.vb: Public Sub DisconnectFromServer()
   overload: Netick.Unity.NetworkSandbox.DisconnectFromServer*
-- uid: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId)
-  commentId: M:Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId)
-  id: Kick(Netick.NetworkPlayerId)
+- uid: Netick.Unity.NetworkSandbox.TryGetConnectionRefusalData(System.ArraySegment{System.Byte}@)
+  commentId: M:Netick.Unity.NetworkSandbox.TryGetConnectionRefusalData(System.ArraySegment{System.Byte}@)
+  id: TryGetConnectionRefusalData(System.ArraySegment{System.Byte}@)
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: Kick(NetworkPlayerId)
-  nameWithType: NetworkSandbox.Kick(NetworkPlayerId)
-  fullName: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId)
+  name: TryGetConnectionRefusalData(out ArraySegment<byte>)
+  nameWithType: NetworkSandbox.TryGetConnectionRefusalData(out ArraySegment<byte>)
+  fullName: Netick.Unity.NetworkSandbox.TryGetConnectionRefusalData(out System.ArraySegment<byte>)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool TryGetConnectionRefusalData(out ArraySegment<byte> data)
+    parameters:
+    - id: data
+      type: System.ArraySegment{System.Byte}
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetConnectionRefusalData(data As ArraySegment(Of Byte)) As Boolean
+  overload: Netick.Unity.NetworkSandbox.TryGetConnectionRefusalData*
+  nameWithType.vb: NetworkSandbox.TryGetConnectionRefusalData(ArraySegment(Of Byte))
+  fullName.vb: Netick.Unity.NetworkSandbox.TryGetConnectionRefusalData(System.ArraySegment(Of Byte))
+  name.vb: TryGetConnectionRefusalData(ArraySegment(Of Byte))
+- uid: Netick.Unity.NetworkSandbox.TryGetKickData(System.ArraySegment{System.Byte}@)
+  commentId: M:Netick.Unity.NetworkSandbox.TryGetKickData(System.ArraySegment{System.Byte}@)
+  id: TryGetKickData(System.ArraySegment{System.Byte}@)
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: TryGetKickData(out ArraySegment<byte>)
+  nameWithType: NetworkSandbox.TryGetKickData(out ArraySegment<byte>)
+  fullName: Netick.Unity.NetworkSandbox.TryGetKickData(out System.ArraySegment<byte>)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool TryGetKickData(out ArraySegment<byte> data)
+    parameters:
+    - id: data
+      type: System.ArraySegment{System.Byte}
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetKickData(data As ArraySegment(Of Byte)) As Boolean
+  overload: Netick.Unity.NetworkSandbox.TryGetKickData*
+  nameWithType.vb: NetworkSandbox.TryGetKickData(ArraySegment(Of Byte))
+  fullName.vb: Netick.Unity.NetworkSandbox.TryGetKickData(System.ArraySegment(Of Byte))
+  name.vb: TryGetKickData(ArraySegment(Of Byte))
+- uid: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId,System.ReadOnlySpan{System.Byte})
+  id: Kick(Netick.NetworkPlayerId,System.ReadOnlySpan{System.Byte})
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: Kick(NetworkPlayerId, ReadOnlySpan<byte>)
+  nameWithType: NetworkSandbox.Kick(NetworkPlayerId, ReadOnlySpan<byte>)
+  fullName: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId, System.ReadOnlySpan<byte>)
   type: Method
   assemblies:
   - Netick.Unity
@@ -2651,55 +2784,70 @@ items:
   summary: <i><b>[Server Only]</b></i> Disconnects a client from the server.
   example: []
   syntax:
-    content: public void Kick(NetworkPlayerId client)
+    content: public void Kick(NetworkPlayerId client, ReadOnlySpan<byte> kickData = default)
     parameters:
     - id: client
       type: Netick.NetworkPlayerId
       description: The client to be disconnected.
-    content.vb: Public Sub Kick(client As NetworkPlayerId)
+    - id: kickData
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Sub Kick(client As NetworkPlayerId, kickData As ReadOnlySpan(Of Byte) = Nothing)
   overload: Netick.Unity.NetworkSandbox.Kick*
-- uid: Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)
-  commentId: M:Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)
-  id: Kick(Netick.ServerConnection)
+  nameWithType.vb: NetworkSandbox.Kick(NetworkPlayerId, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId, System.ReadOnlySpan(Of Byte))
+  name.vb: Kick(NetworkPlayerId, ReadOnlySpan(Of Byte))
+- uid: Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection,System.ReadOnlySpan{System.Byte})
+  id: Kick(Netick.ServerConnection,System.ReadOnlySpan{System.Byte})
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: Kick(ServerConnection)
-  nameWithType: NetworkSandbox.Kick(ServerConnection)
-  fullName: Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)
+  name: Kick(ServerConnection, ReadOnlySpan<byte>)
+  nameWithType: NetworkSandbox.Kick(ServerConnection, ReadOnlySpan<byte>)
+  fullName: Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection, System.ReadOnlySpan<byte>)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public void Kick(ServerConnection client)
+    content: public void Kick(ServerConnection client, ReadOnlySpan<byte> kickData = default)
     parameters:
     - id: client
       type: Netick.ServerConnection
-    content.vb: Public Sub Kick(client As ServerConnection)
+    - id: kickData
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Sub Kick(client As ServerConnection, kickData As ReadOnlySpan(Of Byte) = Nothing)
   overload: Netick.Unity.NetworkSandbox.Kick*
-- uid: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer)
-  commentId: M:Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer)
-  id: Kick(Netick.NetworkPlayer)
+  nameWithType.vb: NetworkSandbox.Kick(ServerConnection, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection, System.ReadOnlySpan(Of Byte))
+  name.vb: Kick(ServerConnection, ReadOnlySpan(Of Byte))
+- uid: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer,System.ReadOnlySpan{System.Byte})
+  id: Kick(Netick.NetworkPlayer,System.ReadOnlySpan{System.Byte})
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: Kick(NetworkPlayer)
-  nameWithType: NetworkSandbox.Kick(NetworkPlayer)
-  fullName: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer)
+  name: Kick(NetworkPlayer, ReadOnlySpan<byte>)
+  nameWithType: NetworkSandbox.Kick(NetworkPlayer, ReadOnlySpan<byte>)
+  fullName: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer, System.ReadOnlySpan<byte>)
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public void Kick(NetworkPlayer client)
+    content: public void Kick(NetworkPlayer client, ReadOnlySpan<byte> kickData = default)
     parameters:
     - id: client
       type: Netick.NetworkPlayer
-    content.vb: Public Sub Kick(client As NetworkPlayer)
+    - id: kickData
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Sub Kick(client As NetworkPlayer, kickData As ReadOnlySpan(Of Byte) = Nothing)
   overload: Netick.Unity.NetworkSandbox.Kick*
+  nameWithType.vb: NetworkSandbox.Kick(NetworkPlayer, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer, System.ReadOnlySpan(Of Byte))
+  name.vb: Kick(NetworkPlayer, ReadOnlySpan(Of Byte))
 - uid: Netick.Unity.NetworkSandbox.CreateMatch(System.String)
   commentId: M:Netick.Unity.NetworkSandbox.CreateMatch(System.String)
   id: CreateMatch(System.String)
@@ -3027,16 +3175,16 @@ items:
   nameWithType.vb: NetworkSandbox.UnloadCustomSceneAsync(Integer)
   fullName.vb: Netick.Unity.NetworkSandbox.UnloadCustomSceneAsync(Integer)
   name.vb: UnloadCustomSceneAsync(Integer)
-- uid: Netick.Unity.NetworkSandbox.StartRecordingReplay(System.String)
-  commentId: M:Netick.Unity.NetworkSandbox.StartRecordingReplay(System.String)
-  id: StartRecordingReplay(System.String)
+- uid: Netick.Unity.NetworkSandbox.StartReplayRecording(System.String)
+  commentId: M:Netick.Unity.NetworkSandbox.StartReplayRecording(System.String)
+  id: StartReplayRecording(System.String)
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: StartRecordingReplay(string)
-  nameWithType: NetworkSandbox.StartRecordingReplay(string)
-  fullName: Netick.Unity.NetworkSandbox.StartRecordingReplay(string)
+  name: StartReplayRecording(string)
+  nameWithType: NetworkSandbox.StartReplayRecording(string)
+  fullName: Netick.Unity.NetworkSandbox.StartReplayRecording(string)
   type: Method
   assemblies:
   - Netick.Unity
@@ -3044,28 +3192,28 @@ items:
   summary: >-
     <i><b>[Server Only]</b></i> Starts recording replay data. When not passed any address, Netick will use the current date and time for the replay file name, and the file will be stored in `Application.persistentDataPath/replays/gameVersion/`.
 
-    <p>Note: to stop recording, use <xref href="Netick.Unity.NetworkSandbox.StopRecordingReplay" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>Note: to stop recording, use <xref href="Netick.Unity.NetworkSandbox.StopReplayRecording" data-throw-if-not-resolved="false"></xref>.</p>
   example: []
   syntax:
-    content: public void StartRecordingReplay(string replayAddress = null)
+    content: public void StartReplayRecording(string replayAddress = null)
     parameters:
     - id: replayAddress
       type: System.String
-    content.vb: Public Sub StartRecordingReplay(replayAddress As String = Nothing)
-  overload: Netick.Unity.NetworkSandbox.StartRecordingReplay*
-  nameWithType.vb: NetworkSandbox.StartRecordingReplay(String)
-  fullName.vb: Netick.Unity.NetworkSandbox.StartRecordingReplay(String)
-  name.vb: StartRecordingReplay(String)
-- uid: Netick.Unity.NetworkSandbox.StopRecordingReplay
-  commentId: M:Netick.Unity.NetworkSandbox.StopRecordingReplay
-  id: StopRecordingReplay
+    content.vb: Public Sub StartReplayRecording(replayAddress As String = Nothing)
+  overload: Netick.Unity.NetworkSandbox.StartReplayRecording*
+  nameWithType.vb: NetworkSandbox.StartReplayRecording(String)
+  fullName.vb: Netick.Unity.NetworkSandbox.StartReplayRecording(String)
+  name.vb: StartReplayRecording(String)
+- uid: Netick.Unity.NetworkSandbox.StopReplayRecording
+  commentId: M:Netick.Unity.NetworkSandbox.StopReplayRecording
+  id: StopReplayRecording
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: StopRecordingReplay()
-  nameWithType: NetworkSandbox.StopRecordingReplay()
-  fullName: Netick.Unity.NetworkSandbox.StopRecordingReplay()
+  name: StopReplayRecording()
+  nameWithType: NetworkSandbox.StopReplayRecording()
+  fullName: Netick.Unity.NetworkSandbox.StopReplayRecording()
   type: Method
   assemblies:
   - Netick.Unity
@@ -3073,21 +3221,21 @@ items:
   summary: Stops the current recording session. Awaiting this method ensures that recording has fully finished.
   example: []
   syntax:
-    content: public Task StopRecordingReplay()
+    content: public Task StopReplayRecording()
     return:
       type: System.Threading.Tasks.Task
-    content.vb: Public Function StopRecordingReplay() As Task
-  overload: Netick.Unity.NetworkSandbox.StopRecordingReplay*
-- uid: Netick.Unity.NetworkSandbox.StartPlayback(System.String)
-  commentId: M:Netick.Unity.NetworkSandbox.StartPlayback(System.String)
-  id: StartPlayback(System.String)
+    content.vb: Public Function StopReplayRecording() As Task
+  overload: Netick.Unity.NetworkSandbox.StopReplayRecording*
+- uid: Netick.Unity.NetworkSandbox.StartReplayPlayback(System.String)
+  commentId: M:Netick.Unity.NetworkSandbox.StartReplayPlayback(System.String)
+  id: StartReplayPlayback(System.String)
   parent: Netick.Unity.NetworkSandbox
   langs:
   - csharp
   - vb
-  name: StartPlayback(string)
-  nameWithType: NetworkSandbox.StartPlayback(string)
-  fullName: Netick.Unity.NetworkSandbox.StartPlayback(string)
+  name: StartReplayPlayback(string)
+  nameWithType: NetworkSandbox.StartReplayPlayback(string)
+  fullName: Netick.Unity.NetworkSandbox.StartReplayPlayback(string)
   type: Method
   assemblies:
   - Netick.Unity
@@ -3095,15 +3243,15 @@ items:
   summary: <i><b>[Client Only]</b></i> Starts replaying. When not passed any address, Netick will automatically use the latest created file in `Application.persistentDataPath/replays/gameVersion/`.
   example: []
   syntax:
-    content: public void StartPlayback(string replayAddress = "")
+    content: public void StartReplayPlayback(string replayAddress = "")
     parameters:
     - id: replayAddress
       type: System.String
-    content.vb: Public Sub StartPlayback(replayAddress As String = "")
-  overload: Netick.Unity.NetworkSandbox.StartPlayback*
-  nameWithType.vb: NetworkSandbox.StartPlayback(String)
-  fullName.vb: Netick.Unity.NetworkSandbox.StartPlayback(String)
-  name.vb: StartPlayback(String)
+    content.vb: Public Sub StartReplayPlayback(replayAddress As String = "")
+  overload: Netick.Unity.NetworkSandbox.StartReplayPlayback*
+  nameWithType.vb: NetworkSandbox.StartReplayPlayback(String)
+  fullName.vb: Netick.Unity.NetworkSandbox.StartReplayPlayback(String)
+  name.vb: StartReplayPlayback(String)
 - uid: Netick.Unity.NetworkSandbox.#ctor
   commentId: M:Netick.Unity.NetworkSandbox.#ctor
   id: '#ctor'
@@ -3755,7 +3903,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: The underlying transport used replay data.
+  summary: The underlying transport used for replay.
   example: []
   syntax:
     content: public IReplayTransport ReplayTransport { get; }
@@ -4346,7 +4494,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Incoming data in kilobytes per second (KBps).
+  summary: Average incoming data in kilobytes per second (KBps).
   example: []
   syntax:
     content: public float InKBps { get; }
@@ -4369,7 +4517,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Outgoing data in kilobytes per second (KBps).
+  summary: Average outgoing data in kilobytes per second (KBps).
   example: []
   syntax:
     content: public float OutKBps { get; }
@@ -4902,6 +5050,21 @@ references:
   name: NetworkPlayerId
   nameWithType: NetworkPlayerId
   fullName: Netick.NetworkPlayerId
+- uid: Netick.Unity.NetworkSandbox.FindPlayerByEndPoint*
+  commentId: Overload:Netick.Unity.NetworkSandbox.FindPlayerByEndPoint
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_FindPlayerByEndPoint_Netick_IEndPoint_
+  name: FindPlayerByEndPoint
+  nameWithType: NetworkSandbox.FindPlayerByEndPoint
+  fullName: Netick.Unity.NetworkSandbox.FindPlayerByEndPoint
+- uid: Netick.IEndPoint
+  commentId: T:Netick.IEndPoint
+  parent: Netick
+  isExternal: true
+  href: Netick.IEndPoint.html
+  name: IEndPoint
+  nameWithType: IEndPoint
+  fullName: Netick.IEndPoint
 - uid: Netick.Unity.NetworkSandbox.GetPlayerObject*
   commentId: Overload:Netick.Unity.NetworkSandbox.GetPlayerObject
   isExternal: true
@@ -5422,7 +5585,7 @@ references:
 - uid: Netick.Unity.NetworkSandbox.Connect*
   commentId: Overload:Netick.Unity.NetworkSandbox.Connect
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Connect_System_Int32_System_String_System_Byte___System_Int32_
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Connect_System_Int32_System_String_
   name: Connect
   nameWithType: NetworkSandbox.Connect
   fullName: Netick.Unity.NetworkSandbox.Connect
@@ -5449,6 +5612,69 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: (
   - name: )
+- uid: System.ArraySegment{System.Byte}
+  commentId: T:System.ArraySegment{System.Byte}
+  parent: System
+  definition: System.ArraySegment`1
+  href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  name: ArraySegment<byte>
+  nameWithType: ArraySegment<byte>
+  fullName: System.ArraySegment<byte>
+  nameWithType.vb: ArraySegment(Of Byte)
+  fullName.vb: System.ArraySegment(Of Byte)
+  name.vb: ArraySegment(Of Byte)
+  spec.csharp:
+  - uid: System.ArraySegment`1
+    name: ArraySegment
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ArraySegment`1
+    name: ArraySegment
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ArraySegment`1
+  commentId: T:System.ArraySegment`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  name: ArraySegment<T>
+  nameWithType: ArraySegment<T>
+  fullName: System.ArraySegment<T>
+  nameWithType.vb: ArraySegment(Of T)
+  fullName.vb: System.ArraySegment(Of T)
+  name.vb: ArraySegment(Of T)
+  spec.csharp:
+  - uid: System.ArraySegment`1
+    name: ArraySegment
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ArraySegment`1
+    name: ArraySegment
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick.Unity.NetworkSandbox.DisconnectFromServer*
   commentId: Overload:Netick.Unity.NetworkSandbox.DisconnectFromServer
   isExternal: true
@@ -5456,13 +5682,90 @@ references:
   name: DisconnectFromServer
   nameWithType: NetworkSandbox.DisconnectFromServer
   fullName: Netick.Unity.NetworkSandbox.DisconnectFromServer
+- uid: Netick.Unity.NetworkSandbox.TryGetConnectionRefusalData*
+  commentId: Overload:Netick.Unity.NetworkSandbox.TryGetConnectionRefusalData
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_TryGetConnectionRefusalData_System_ArraySegment_System_Byte___
+  name: TryGetConnectionRefusalData
+  nameWithType: NetworkSandbox.TryGetConnectionRefusalData
+  fullName: Netick.Unity.NetworkSandbox.TryGetConnectionRefusalData
+- uid: Netick.Unity.NetworkSandbox.TryGetKickData*
+  commentId: Overload:Netick.Unity.NetworkSandbox.TryGetKickData
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_TryGetKickData_System_ArraySegment_System_Byte___
+  name: TryGetKickData
+  nameWithType: NetworkSandbox.TryGetKickData
+  fullName: Netick.Unity.NetworkSandbox.TryGetKickData
 - uid: Netick.Unity.NetworkSandbox.Kick*
   commentId: Overload:Netick.Unity.NetworkSandbox.Kick
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Kick_Netick_NetworkPlayerId_
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_Kick_Netick_NetworkPlayerId_System_ReadOnlySpan_System_Byte__
   name: Kick
   nameWithType: NetworkSandbox.Kick
   fullName: Netick.Unity.NetworkSandbox.Kick
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick.ServerConnection
   commentId: T:Netick.ServerConnection
   parent: Netick
@@ -5533,41 +5836,41 @@ references:
   name: UnloadCustomSceneAsync
   nameWithType: NetworkSandbox.UnloadCustomSceneAsync
   fullName: Netick.Unity.NetworkSandbox.UnloadCustomSceneAsync
-- uid: Netick.Unity.NetworkSandbox.StopRecordingReplay
-  commentId: M:Netick.Unity.NetworkSandbox.StopRecordingReplay
+- uid: Netick.Unity.NetworkSandbox.StopReplayRecording
+  commentId: M:Netick.Unity.NetworkSandbox.StopReplayRecording
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay
-  name: StopRecordingReplay()
-  nameWithType: NetworkSandbox.StopRecordingReplay()
-  fullName: Netick.Unity.NetworkSandbox.StopRecordingReplay()
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopReplayRecording
+  name: StopReplayRecording()
+  nameWithType: NetworkSandbox.StopReplayRecording()
+  fullName: Netick.Unity.NetworkSandbox.StopReplayRecording()
   spec.csharp:
-  - uid: Netick.Unity.NetworkSandbox.StopRecordingReplay
-    name: StopRecordingReplay
+  - uid: Netick.Unity.NetworkSandbox.StopReplayRecording
+    name: StopReplayRecording
     isExternal: true
-    href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay
+    href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopReplayRecording
   - name: (
   - name: )
   spec.vb:
-  - uid: Netick.Unity.NetworkSandbox.StopRecordingReplay
-    name: StopRecordingReplay
+  - uid: Netick.Unity.NetworkSandbox.StopReplayRecording
+    name: StopReplayRecording
     isExternal: true
-    href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay
+    href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopReplayRecording
   - name: (
   - name: )
-- uid: Netick.Unity.NetworkSandbox.StartRecordingReplay*
-  commentId: Overload:Netick.Unity.NetworkSandbox.StartRecordingReplay
+- uid: Netick.Unity.NetworkSandbox.StartReplayRecording*
+  commentId: Overload:Netick.Unity.NetworkSandbox.StartReplayRecording
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StartRecordingReplay_System_String_
-  name: StartRecordingReplay
-  nameWithType: NetworkSandbox.StartRecordingReplay
-  fullName: Netick.Unity.NetworkSandbox.StartRecordingReplay
-- uid: Netick.Unity.NetworkSandbox.StopRecordingReplay*
-  commentId: Overload:Netick.Unity.NetworkSandbox.StopRecordingReplay
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StartReplayRecording_System_String_
+  name: StartReplayRecording
+  nameWithType: NetworkSandbox.StartReplayRecording
+  fullName: Netick.Unity.NetworkSandbox.StartReplayRecording
+- uid: Netick.Unity.NetworkSandbox.StopReplayRecording*
+  commentId: Overload:Netick.Unity.NetworkSandbox.StopReplayRecording
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay
-  name: StopRecordingReplay
-  nameWithType: NetworkSandbox.StopRecordingReplay
-  fullName: Netick.Unity.NetworkSandbox.StopRecordingReplay
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopReplayRecording
+  name: StopReplayRecording
+  nameWithType: NetworkSandbox.StopReplayRecording
+  fullName: Netick.Unity.NetworkSandbox.StopReplayRecording
 - uid: System.Threading.Tasks.Task
   commentId: T:System.Threading.Tasks.Task
   parent: System.Threading.Tasks
@@ -5613,13 +5916,13 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
-- uid: Netick.Unity.NetworkSandbox.StartPlayback*
-  commentId: Overload:Netick.Unity.NetworkSandbox.StartPlayback
+- uid: Netick.Unity.NetworkSandbox.StartReplayPlayback*
+  commentId: Overload:Netick.Unity.NetworkSandbox.StartReplayPlayback
   isExternal: true
-  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StartPlayback_System_String_
-  name: StartPlayback
-  nameWithType: NetworkSandbox.StartPlayback
-  fullName: Netick.Unity.NetworkSandbox.StartPlayback
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StartReplayPlayback_System_String_
+  name: StartReplayPlayback
+  nameWithType: NetworkSandbox.StartReplayPlayback
+  fullName: Netick.Unity.NetworkSandbox.StartReplayPlayback
 - uid: Netick.Unity.NetworkSandbox.#ctor*
   commentId: Overload:Netick.Unity.NetworkSandbox.#ctor
   isExternal: true
@@ -5946,14 +6249,6 @@ references:
   name: PhysicsPrediction
   nameWithType: NetworkSandbox.PhysicsPrediction
   fullName: Netick.Unity.NetworkSandbox.PhysicsPrediction
-- uid: Netick.IEndPoint
-  commentId: T:Netick.IEndPoint
-  parent: Netick
-  isExternal: true
-  href: Netick.IEndPoint.html
-  name: IEndPoint
-  nameWithType: IEndPoint
-  fullName: Netick.IEndPoint
 - uid: Netick.Unity.NetworkSandbox.ServerEndPoint*
   commentId: Overload:Netick.Unity.NetworkSandbox.ServerEndPoint
   isExternal: true

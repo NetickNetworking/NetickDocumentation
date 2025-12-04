@@ -8,6 +8,7 @@ items:
   - Netick.NetworkTransport.#ctor
   - Netick.NetworkTransport.Connect(System.String,System.Int32,System.Byte[],System.Int32)
   - Netick.NetworkTransport.Disconnect(Netick.TransportConnection)
+  - Netick.NetworkTransport.DisconnectWithData(Netick.TransportConnection,System.ReadOnlySpan{System.Byte})
   - Netick.NetworkTransport.Engine
   - Netick.NetworkTransport.ForceUpdate
   - Netick.NetworkTransport.HostMatch(System.String)
@@ -112,6 +113,32 @@ items:
       type: Netick.TransportConnection
     content.vb: Public MustOverride Sub Disconnect(connection As TransportConnection)
   overload: Netick.NetworkTransport.Disconnect*
+- uid: Netick.NetworkTransport.DisconnectWithData(Netick.TransportConnection,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.NetworkTransport.DisconnectWithData(Netick.TransportConnection,System.ReadOnlySpan{System.Byte})
+  id: DisconnectWithData(Netick.TransportConnection,System.ReadOnlySpan{System.Byte})
+  parent: Netick.NetworkTransport
+  langs:
+  - csharp
+  - vb
+  name: DisconnectWithData(TransportConnection, ReadOnlySpan<byte>)
+  nameWithType: NetworkTransport.DisconnectWithData(TransportConnection, ReadOnlySpan<byte>)
+  fullName: Netick.NetworkTransport.DisconnectWithData(Netick.TransportConnection, System.ReadOnlySpan<byte>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public virtual void DisconnectWithData(TransportConnection connection, ReadOnlySpan<byte> data)
+    parameters:
+    - id: connection
+      type: Netick.TransportConnection
+    - id: data
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Overridable Sub DisconnectWithData(connection As TransportConnection, data As ReadOnlySpan(Of Byte))
+  overload: Netick.NetworkTransport.DisconnectWithData*
+  nameWithType.vb: NetworkTransport.DisconnectWithData(TransportConnection, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.NetworkTransport.DisconnectWithData(Netick.TransportConnection, System.ReadOnlySpan(Of Byte))
+  name.vb: DisconnectWithData(TransportConnection, ReadOnlySpan(Of Byte))
 - uid: Netick.NetworkTransport.Run(Netick.RunMode,System.Int32)
   commentId: M:Netick.NetworkTransport.Run(Netick.RunMode,System.Int32)
   id: Run(Netick.RunMode,System.Int32)
@@ -640,6 +667,76 @@ references:
   name: TransportConnection
   nameWithType: TransportConnection
   fullName: Netick.TransportConnection
+- uid: Netick.NetworkTransport.DisconnectWithData*
+  commentId: Overload:Netick.NetworkTransport.DisconnectWithData
+  isExternal: true
+  href: Netick.NetworkTransport.html#Netick_NetworkTransport_DisconnectWithData_Netick_TransportConnection_System_ReadOnlySpan_System_Byte__
+  name: DisconnectWithData
+  nameWithType: NetworkTransport.DisconnectWithData
+  fullName: Netick.NetworkTransport.DisconnectWithData
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick.NetworkTransport.Run*
   commentId: Overload:Netick.NetworkTransport.Run
   isExternal: true

@@ -42,6 +42,8 @@ items:
   - Netick.Unity.NetickConfig.RenderInvokeOrder
   - Netick.Unity.NetickConfig.RenderWorldGrid
   - Netick.Unity.NetickConfig.RenderedLayer
+  - Netick.Unity.NetickConfig.ReplayEncoding
+  - Netick.Unity.NetickConfig.ReplayFileCompression
   - Netick.Unity.NetickConfig.ReplayFileExtension
   - Netick.Unity.NetickConfig.ReplayFileSignature
   - Netick.Unity.NetickConfig.ReplayKeyframeInterval
@@ -771,6 +773,44 @@ items:
     return:
       type: System.String
     content.vb: Public ReplayFileExtension As String
+- uid: Netick.Unity.NetickConfig.ReplayFileCompression
+  commentId: F:Netick.Unity.NetickConfig.ReplayFileCompression
+  id: ReplayFileCompression
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: ReplayFileCompression
+  nameWithType: NetickConfig.ReplayFileCompression
+  fullName: Netick.Unity.NetickConfig.ReplayFileCompression
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool ReplayFileCompression
+    return:
+      type: System.Boolean
+    content.vb: Public ReplayFileCompression As Boolean
+- uid: Netick.Unity.NetickConfig.ReplayEncoding
+  commentId: F:Netick.Unity.NetickConfig.ReplayEncoding
+  id: ReplayEncoding
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: ReplayEncoding
+  nameWithType: NetickConfig.ReplayEncoding
+  fullName: Netick.Unity.NetickConfig.ReplayEncoding
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public ReplayEncoding ReplayEncoding
+    return:
+      type: Netick.Unity.ReplayEncoding
+    content.vb: Public ReplayEncoding As ReplayEncoding
 - uid: Netick.Unity.NetickConfig.AoILayer0CellSize
   commentId: F:Netick.Unity.NetickConfig.AoILayer0CellSize
   id: AoILayer0CellSize
@@ -1155,6 +1195,14 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: Netick.Unity.ReplayEncoding
+  commentId: T:Netick.Unity.ReplayEncoding
+  parent: Netick.Unity
+  isExternal: true
+  href: Netick.Unity.ReplayEncoding.html
+  name: ReplayEncoding
+  nameWithType: ReplayEncoding
+  fullName: Netick.Unity.ReplayEncoding
 - uid: Netick.Unity.NetickConfig.#ctor*
   commentId: Overload:Netick.Unity.NetickConfig.#ctor
   isExternal: true

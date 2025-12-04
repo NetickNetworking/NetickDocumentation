@@ -10,10 +10,12 @@ items:
   - Netick.NetworkConnection.EndPoint
   - Netick.NetworkConnection.Finalize
   - Netick.NetworkConnection.Id
+  - Netick.NetworkConnection.InKBps
   - Netick.NetworkConnection.InPacketLoss
   - Netick.NetworkConnection.InPacketLossBurst
   - Netick.NetworkConnection.LocalUserData
   - Netick.NetworkConnection.MaxOutgoingDataPerTickInBytes
+  - Netick.NetworkConnection.OutKBps
   - Netick.NetworkConnection.OutPacketLoss
   - Netick.NetworkConnection.RTT
   - Netick.NetworkConnection.RemoteUserData
@@ -31,6 +33,8 @@ items:
   assemblies:
   - Netick
   namespace: Netick
+  summary: Represents a network connection between a client and a server.
+  example: []
   syntax:
     content: 'public abstract class NetworkConnection : NetworkPlayer'
     content.vb: Public MustInherit Class NetworkConnection Inherits NetworkPlayer
@@ -342,6 +346,52 @@ items:
       type: Netick.DataAccumulator
     content.vb: Public ReadOnly Property BytesOut As DataAccumulator
   overload: Netick.NetworkConnection.BytesOut*
+- uid: Netick.NetworkConnection.InKBps
+  commentId: P:Netick.NetworkConnection.InKBps
+  id: InKBps
+  parent: Netick.NetworkConnection
+  langs:
+  - csharp
+  - vb
+  name: InKBps
+  nameWithType: NetworkConnection.InKBps
+  fullName: Netick.NetworkConnection.InKBps
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Average incoming data in kilobytes per second (KBps).
+  example: []
+  syntax:
+    content: public float InKBps { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property InKBps As Single
+  overload: Netick.NetworkConnection.InKBps*
+- uid: Netick.NetworkConnection.OutKBps
+  commentId: P:Netick.NetworkConnection.OutKBps
+  id: OutKBps
+  parent: Netick.NetworkConnection
+  langs:
+  - csharp
+  - vb
+  name: OutKBps
+  nameWithType: NetworkConnection.OutKBps
+  fullName: Netick.NetworkConnection.OutKBps
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Average outgoing data in kilobytes per second (KBps).
+  example: []
+  syntax:
+    content: public float OutKBps { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property OutKBps As Single
+  overload: Netick.NetworkConnection.OutKBps*
 - uid: Netick.NetworkConnection.InPacketLossBurst
   commentId: P:Netick.NetworkConnection.InPacketLossBurst
   id: InPacketLossBurst
@@ -1051,6 +1101,31 @@ references:
   name: BytesOut
   nameWithType: NetworkConnection.BytesOut
   fullName: Netick.NetworkConnection.BytesOut
+- uid: Netick.NetworkConnection.InKBps*
+  commentId: Overload:Netick.NetworkConnection.InKBps
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_InKBps
+  name: InKBps
+  nameWithType: NetworkConnection.InKBps
+  fullName: Netick.NetworkConnection.InKBps
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Netick.NetworkConnection.OutKBps*
+  commentId: Overload:Netick.NetworkConnection.OutKBps
+  isExternal: true
+  href: Netick.NetworkConnection.html#Netick_NetworkConnection_OutKBps
+  name: OutKBps
+  nameWithType: NetworkConnection.OutKBps
+  fullName: Netick.NetworkConnection.OutKBps
 - uid: Netick.NetworkConnection.InPacketLossBurst*
   commentId: Overload:Netick.NetworkConnection.InPacketLossBurst
   isExternal: true
@@ -1065,17 +1140,6 @@ references:
   name: InPacketLoss
   nameWithType: NetworkConnection.InPacketLoss
   fullName: Netick.NetworkConnection.InPacketLoss
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
 - uid: Netick.NetworkConnection.OutPacketLoss*
   commentId: Overload:Netick.NetworkConnection.OutPacketLoss
   isExternal: true

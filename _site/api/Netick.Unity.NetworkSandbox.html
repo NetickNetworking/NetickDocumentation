@@ -110,7 +110,7 @@ Class NetworkSandbox
   <dl><dt>Assembly</dt><dd>Netick.Unity.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>NetworkSandbox represents a networked game instance in Netick. It encapsulates the entire simulation state for that instance.</p>
+  <div class="markdown summary"><p>NetworkSandbox represents a networked game instance in Netick.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -542,7 +542,7 @@ public NetworkConnection CurrentRpcSource { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Incoming data in kilobytes per second (KBps).</p>
+  <div class="markdown level1 summary"><p>Average incoming data in kilobytes per second (KBps).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1311,7 +1311,7 @@ A value of 0 represents the start of the current tick, and 1 represents the end 
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Outgoing data in kilobytes per second (KBps).</p>
+  <div class="markdown level1 summary"><p>Average outgoing data in kilobytes per second (KBps).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1634,7 +1634,7 @@ A value of 0 represents the start of the current tick, and 1 represents the end 
   
   </h3>
 
-  <div class="markdown level1 summary"><p>The underlying transport used replay data.</p>
+  <div class="markdown level1 summary"><p>The underlying transport used for replay.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2144,8 +2144,8 @@ public int Resimulations { get; }</code></pre>
 
   <a id="Netick_Unity_NetworkSandbox_Connect_" data-uid="Netick.Unity.NetworkSandbox.Connect*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_Connect_System_Int32_System_String_System_Byte___System_Int32_" data-uid="Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String,System.Byte[],System.Int32)">
-  Connect(int, string, byte[], int)
+  <h3 id="Netick_Unity_NetworkSandbox_Connect_System_Int32_System_String_" data-uid="Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String)">
+  Connect(int, string)
   
   </h3>
 
@@ -2156,7 +2156,7 @@ public int Resimulations { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Connect(int port, string ip, byte[] connectionData = null, int connectionDataLength = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Connect(int port, string ip)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2167,9 +2167,76 @@ public int Resimulations { get; }</code></pre>
     <dt><code>ip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>IP address of the server.</p>
 </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_Connect_" data-uid="Netick.Unity.NetworkSandbox.Connect*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_Connect_System_Int32_System_String_System_ArraySegment_System_Byte__" data-uid="Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String,System.ArraySegment{System.Byte})">
+  Connect(int, string, ArraySegment&lt;byte&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Connect(int port, string ip, ArraySegment&lt;byte&gt; data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>ip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.arraysegment-1">ArraySegment</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_Connect_" data-uid="Netick.Unity.NetworkSandbox.Connect*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_Connect_System_Int32_System_String_System_Byte___System_Int32_" data-uid="Netick.Unity.NetworkSandbox.Connect(System.Int32,System.String,System.Byte[],System.Int32)">
+  Connect(int, string, byte[], int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Connect(int port, string ip, byte[] connectionData, int connectionDataLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>ip</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
     <dt><code>connectionData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
-    <dd><p>RawValue sent with the connection request. Could be used to decide whether or not to allow the connection.</p>
-</dd>
+    <dd></dd>
     <dt><code>connectionDataLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
@@ -2791,6 +2858,42 @@ public int Resimulations { get; }</code></pre>
     <dt><code>T</code></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_FindPlayerByEndPoint_" data-uid="Netick.Unity.NetworkSandbox.FindPlayerByEndPoint*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_FindPlayerByEndPoint_Netick_IEndPoint_" data-uid="Netick.Unity.NetworkSandbox.FindPlayerByEndPoint(Netick.IEndPoint)">
+  FindPlayerByEndPoint(IEndPoint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkPlayer FindPlayerByEndPoint(IEndPoint endPoint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endPoint</code> <a class="xref" href="Netick.IEndPoint.html">IEndPoint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
 
 
 
@@ -3642,8 +3745,8 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
 
   <a id="Netick_Unity_NetworkSandbox_Kick_" data-uid="Netick.Unity.NetworkSandbox.Kick*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_Kick_Netick_NetworkPlayer_" data-uid="Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer)">
-  Kick(NetworkPlayer)
+  <h3 id="Netick_Unity_NetworkSandbox_Kick_Netick_NetworkPlayer_System_ReadOnlySpan_System_Byte__" data-uid="Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer,System.ReadOnlySpan{System.Byte})">
+  Kick(NetworkPlayer, ReadOnlySpan&lt;byte&gt;)
   
   </h3>
 
@@ -3651,12 +3754,14 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Kick(NetworkPlayer client)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Kick(NetworkPlayer client, ReadOnlySpan&lt;byte&gt; kickData = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>client</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+    <dt><code>kickData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -3673,8 +3778,8 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
 
   <a id="Netick_Unity_NetworkSandbox_Kick_" data-uid="Netick.Unity.NetworkSandbox.Kick*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_Kick_Netick_NetworkPlayerId_" data-uid="Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId)">
-  Kick(NetworkPlayerId)
+  <h3 id="Netick_Unity_NetworkSandbox_Kick_Netick_NetworkPlayerId_System_ReadOnlySpan_System_Byte__" data-uid="Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId,System.ReadOnlySpan{System.Byte})">
+  Kick(NetworkPlayerId, ReadOnlySpan&lt;byte&gt;)
   
   </h3>
 
@@ -3683,7 +3788,7 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Kick(NetworkPlayerId client)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Kick(NetworkPlayerId client, ReadOnlySpan&lt;byte&gt; kickData = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3691,6 +3796,8 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
     <dt><code>client</code> <a class="xref" href="Netick.NetworkPlayerId.html">NetworkPlayerId</a></dt>
     <dd><p>The client to be disconnected.</p>
 </dd>
+    <dt><code>kickData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
   </dl>
 
 
@@ -3706,8 +3813,8 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
 
   <a id="Netick_Unity_NetworkSandbox_Kick_" data-uid="Netick.Unity.NetworkSandbox.Kick*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_Kick_Netick_ServerConnection_" data-uid="Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection)">
-  Kick(ServerConnection)
+  <h3 id="Netick_Unity_NetworkSandbox_Kick_Netick_ServerConnection_System_ReadOnlySpan_System_Byte__" data-uid="Netick.Unity.NetworkSandbox.Kick(Netick.ServerConnection,System.ReadOnlySpan{System.Byte})">
+  Kick(ServerConnection, ReadOnlySpan&lt;byte&gt;)
   
   </h3>
 
@@ -3715,12 +3822,14 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Kick(ServerConnection client)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Kick(ServerConnection client, ReadOnlySpan&lt;byte&gt; kickData = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>client</code> <a class="xref" href="Netick.ServerConnection.html">ServerConnection</a></dt>
+    <dd></dd>
+    <dt><code>kickData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -5061,10 +5170,10 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
 
 
 
-  <a id="Netick_Unity_NetworkSandbox_StartPlayback_" data-uid="Netick.Unity.NetworkSandbox.StartPlayback*"></a>
+  <a id="Netick_Unity_NetworkSandbox_StartReplayPlayback_" data-uid="Netick.Unity.NetworkSandbox.StartReplayPlayback*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_StartPlayback_System_String_" data-uid="Netick.Unity.NetworkSandbox.StartPlayback(System.String)">
-  StartPlayback(string)
+  <h3 id="Netick_Unity_NetworkSandbox_StartReplayPlayback_System_String_" data-uid="Netick.Unity.NetworkSandbox.StartReplayPlayback(System.String)">
+  StartReplayPlayback(string)
   
   </h3>
 
@@ -5073,7 +5182,7 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void StartPlayback(string replayAddress = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public void StartReplayPlayback(string replayAddress = &quot;&quot;)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -5093,20 +5202,20 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
 
 
 
-  <a id="Netick_Unity_NetworkSandbox_StartRecordingReplay_" data-uid="Netick.Unity.NetworkSandbox.StartRecordingReplay*"></a>
+  <a id="Netick_Unity_NetworkSandbox_StartReplayRecording_" data-uid="Netick.Unity.NetworkSandbox.StartReplayRecording*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_StartRecordingReplay_System_String_" data-uid="Netick.Unity.NetworkSandbox.StartRecordingReplay(System.String)">
-  StartRecordingReplay(string)
+  <h3 id="Netick_Unity_NetworkSandbox_StartReplayRecording_System_String_" data-uid="Netick.Unity.NetworkSandbox.StartReplayRecording(System.String)">
+  StartReplayRecording(string)
   
   </h3>
 
   <div class="markdown level1 summary"><p><i><b>[Server Only]</b></i> Starts recording replay data. When not passed any address, Netick will use the current date and time for the replay file name, and the file will be stored in <code>Application.persistentDataPath/replays/gameVersion/</code>.</p>
-<p>Note: to stop recording, use <a class="xref" href="Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopRecordingReplay">StopRecordingReplay()</a>.</p>
+<p>Note: to stop recording, use <a class="xref" href="Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_StopReplayRecording">StopReplayRecording()</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void StartRecordingReplay(string replayAddress = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public void StartReplayRecording(string replayAddress = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -5164,10 +5273,10 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
 
 
 
-  <a id="Netick_Unity_NetworkSandbox_StopRecordingReplay_" data-uid="Netick.Unity.NetworkSandbox.StopRecordingReplay*"></a>
+  <a id="Netick_Unity_NetworkSandbox_StopReplayRecording_" data-uid="Netick.Unity.NetworkSandbox.StopReplayRecording*"></a>
 
-  <h3 id="Netick_Unity_NetworkSandbox_StopRecordingReplay" data-uid="Netick.Unity.NetworkSandbox.StopRecordingReplay">
-  StopRecordingReplay()
+  <h3 id="Netick_Unity_NetworkSandbox_StopReplayRecording" data-uid="Netick.Unity.NetworkSandbox.StopReplayRecording">
+  StopReplayRecording()
   
   </h3>
 
@@ -5176,7 +5285,7 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task StopRecordingReplay()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task StopReplayRecording()</code></pre>
   </div>
 
 
@@ -5450,6 +5559,78 @@ public T Instantiate&lt;T&gt;(T prefab, Vector3 position, Quaternion rotation) w
     <dt><code>T</code></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_TryGetConnectionRefusalData_" data-uid="Netick.Unity.NetworkSandbox.TryGetConnectionRefusalData*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_TryGetConnectionRefusalData_System_ArraySegment_System_Byte___" data-uid="Netick.Unity.NetworkSandbox.TryGetConnectionRefusalData(System.ArraySegment{System.Byte}@)">
+  TryGetConnectionRefusalData(out ArraySegment&lt;byte&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetConnectionRefusalData(out ArraySegment&lt;byte&gt; data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.arraysegment-1">ArraySegment</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_NetworkSandbox_TryGetKickData_" data-uid="Netick.Unity.NetworkSandbox.TryGetKickData*"></a>
+
+  <h3 id="Netick_Unity_NetworkSandbox_TryGetKickData_System_ArraySegment_System_Byte___" data-uid="Netick.Unity.NetworkSandbox.TryGetKickData(System.ArraySegment{System.Byte}@)">
+  TryGetKickData(out ArraySegment&lt;byte&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetKickData(out ArraySegment&lt;byte&gt; data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.arraysegment-1">ArraySegment</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
 
 
 

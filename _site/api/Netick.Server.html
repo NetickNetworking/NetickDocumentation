@@ -253,8 +253,8 @@ Class Server
 
   <a id="Netick_Server_Kick_" data-uid="Netick.Server.Kick*"></a>
 
-  <h3 id="Netick_Server_Kick_Netick_ServerConnection_" data-uid="Netick.Server.Kick(Netick.ServerConnection)">
-  Kick(ServerConnection)
+  <h3 id="Netick_Server_Kick_Netick_ServerConnection_System_ReadOnlySpan_System_Byte__" data-uid="Netick.Server.Kick(Netick.ServerConnection,System.ReadOnlySpan{System.Byte})">
+  Kick(ServerConnection, ReadOnlySpan&lt;byte&gt;)
   
   </h3>
 
@@ -262,12 +262,14 @@ Class Server
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Kick(ServerConnection client)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Kick(ServerConnection client, ReadOnlySpan&lt;byte&gt; data = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>client</code> <a class="xref" href="Netick.ServerConnection.html">ServerConnection</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -284,8 +286,8 @@ Class Server
 
   <a id="Netick_Server_OnConnectFailed_" data-uid="Netick.Server.OnConnectFailed*"></a>
 
-  <h3 id="Netick_Server_OnConnectFailed_Netick_ConnectionFailedReason_" data-uid="Netick.Server.OnConnectFailed(Netick.ConnectionFailedReason)">
-  OnConnectFailed(ConnectionFailedReason)
+  <h3 id="Netick_Server_OnConnectFailed_Netick_ConnectionFailedReason_System_ReadOnlySpan_System_Byte__" data-uid="Netick.Server.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})">
+  OnConnectFailed(ConnectionFailedReason, ReadOnlySpan&lt;byte&gt;)
   
   </h3>
 
@@ -293,12 +295,47 @@ Class Server
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void OnConnectFailed(ConnectionFailedReason reason)</code></pre>
+    <pre><code class="lang-csharp hljs">public override void OnConnectFailed(ConnectionFailedReason reason, ReadOnlySpan&lt;byte&gt; refuseData = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>reason</code> <a class="xref" href="Netick.ConnectionFailedReason.html">ConnectionFailedReason</a></dt>
+    <dd></dd>
+    <dt><code>refuseData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Server_OnConnectRequest_" data-uid="Netick.Server.OnConnectRequest*"></a>
+
+  <h3 id="Netick_Server_OnConnectRequest_Netick_IConnectionRequest_System_ReadOnlySpan_System_Byte__" data-uid="Netick.Server.OnConnectRequest(Netick.IConnectionRequest,System.ReadOnlySpan{System.Byte})">
+  OnConnectRequest(IConnectionRequest, ReadOnlySpan&lt;byte&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnConnectRequest(IConnectionRequest transportRequest, ReadOnlySpan&lt;byte&gt; requestData = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transportRequest</code> <a class="xref" href="Netick.IConnectionRequest.html">IConnectionRequest</a></dt>
+    <dd></dd>
+    <dt><code>requestData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -386,8 +423,8 @@ Class Server
 
   <a id="Netick_Server_OnDisconnected_" data-uid="Netick.Server.OnDisconnected*"></a>
 
-  <h3 id="Netick_Server_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_" data-uid="Netick.Server.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)">
-  OnDisconnected(TransportConnection, TransportDisconnectReason)
+  <h3 id="Netick_Server_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_System_ReadOnlySpan_System_Byte__" data-uid="Netick.Server.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})">
+  OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan&lt;byte&gt;)
   
   </h3>
 
@@ -395,7 +432,7 @@ Class Server
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void OnDisconnected(TransportConnection peer, TransportDisconnectReason transportDisconnectReason)</code></pre>
+    <pre><code class="lang-csharp hljs">public override void OnDisconnected(TransportConnection peer, TransportDisconnectReason transportDisconnectReason, ReadOnlySpan&lt;byte&gt; kickData = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -403,6 +440,8 @@ Class Server
     <dt><code>peer</code> <a class="xref" href="Netick.TransportConnection.html">TransportConnection</a></dt>
     <dd></dd>
     <dt><code>transportDisconnectReason</code> <a class="xref" href="Netick.TransportDisconnectReason.html">TransportDisconnectReason</a></dt>
+    <dd></dd>
+    <dt><code>kickData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
     <dd></dd>
   </dl>
 

@@ -142,15 +142,12 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  example: []
   syntax:
-    content: public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
+    content: public NetworkDictionarySnapshot<TKey, TValue>.Enumerator GetEnumerator()
     return:
-      type: System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}
-    content.vb: Public Function GetEnumerator() As IEnumerator(Of KeyValuePair(Of TKey, TValue))
+      type: Netick.NetworkDictionarySnapshot`2.Enumerator
+    content.vb: Public Function GetEnumerator() As NetworkDictionarySnapshot(Of TKey, TValue).Enumerator
   overload: Netick.NetworkDictionarySnapshot`2.GetEnumerator*
-  implements:
-  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}.GetEnumerator
   nameWithType.vb: NetworkDictionarySnapshot(Of TKey, TValue).GetEnumerator()
   fullName.vb: Netick.NetworkDictionarySnapshot(Of TKey, TValue).GetEnumerator()
 - uid: Netick.NetworkDictionarySnapshot`2.Count
@@ -205,6 +202,7 @@ items:
 references:
 - uid: Netick.NetworkDictionary`2
   commentId: T:Netick.NetworkDictionary`2
+  parent: Netick
   isExternal: true
   href: Netick.NetworkDictionary-2.html
   name: NetworkDictionary<TKey, TValue>
@@ -677,70 +675,38 @@ references:
   fullName: Netick.NetworkDictionarySnapshot<TKey, TValue>.GetEnumerator
   nameWithType.vb: NetworkDictionarySnapshot(Of TKey, TValue).GetEnumerator
   fullName.vb: Netick.NetworkDictionarySnapshot(Of TKey, TValue).GetEnumerator
-- uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}.GetEnumerator
-  commentId: M:System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}}.GetEnumerator
-  parent: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}
-  definition: System.Collections.Generic.IEnumerable`1.GetEnumerator
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  name: GetEnumerator()
-  nameWithType: IEnumerable<KeyValuePair<TKey, TValue>>.GetEnumerator()
-  fullName: System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<TKey, TValue>>.GetEnumerator()
-  nameWithType.vb: IEnumerable(Of KeyValuePair(Of TKey, TValue)).GetEnumerator()
-  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of TKey, TValue)).GetEnumerator()
+- uid: Netick.NetworkDictionarySnapshot`2.Enumerator
+  commentId: T:Netick.NetworkDictionarySnapshot`2.Enumerator
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkDictionarySnapshot-2.html
+  name: NetworkDictionarySnapshot<TKey, TValue>.Enumerator
+  nameWithType: NetworkDictionarySnapshot<TKey, TValue>.Enumerator
+  fullName: Netick.NetworkDictionarySnapshot<TKey, TValue>.Enumerator
+  nameWithType.vb: NetworkDictionarySnapshot(Of TKey, TValue).Enumerator
+  fullName.vb: Netick.NetworkDictionarySnapshot(Of TKey, TValue).Enumerator
+  name.vb: NetworkDictionarySnapshot(Of TKey, TValue).Enumerator
   spec.csharp:
-  - uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}}.GetEnumerator
-    name: GetEnumerator
+  - uid: Netick.NetworkDictionarySnapshot`2
+    name: NetworkDictionarySnapshot
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}}.GetEnumerator
-    name: GetEnumerator
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  - name: (
-  - name: )
-- uid: System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}
-  commentId: T:System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{`0,`1}}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IEnumerator`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
-  name: IEnumerator<KeyValuePair<TKey, TValue>>
-  nameWithType: IEnumerator<KeyValuePair<TKey, TValue>>
-  fullName: System.Collections.Generic.IEnumerator<System.Collections.Generic.KeyValuePair<TKey, TValue>>
-  nameWithType.vb: IEnumerator(Of KeyValuePair(Of TKey, TValue))
-  fullName.vb: System.Collections.Generic.IEnumerator(Of System.Collections.Generic.KeyValuePair(Of TKey, TValue))
-  name.vb: IEnumerator(Of KeyValuePair(Of TKey, TValue))
-  spec.csharp:
-  - uid: System.Collections.Generic.IEnumerator`1
-    name: IEnumerator
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
-  - name: <
-  - uid: System.Collections.Generic.KeyValuePair`2
-    name: KeyValuePair
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+    href: Netick.NetworkDictionarySnapshot-2.html
   - name: <
   - name: TKey
   - name: ','
   - name: " "
   - name: TValue
   - name: '>'
-  - name: '>'
+  - name: .
+  - uid: Netick.NetworkDictionarySnapshot`2.Enumerator
+    name: Enumerator
+    isExternal: true
+    href: Netick.NetworkDictionarySnapshot-2.Enumerator.html
   spec.vb:
-  - uid: System.Collections.Generic.IEnumerator`1
-    name: IEnumerator
+  - uid: Netick.NetworkDictionarySnapshot`2
+    name: NetworkDictionarySnapshot
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Collections.Generic.KeyValuePair`2
-    name: KeyValuePair
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+    href: Netick.NetworkDictionarySnapshot-2.html
   - name: (
   - name: Of
   - name: " "
@@ -749,58 +715,11 @@ references:
   - name: " "
   - name: TValue
   - name: )
-  - name: )
-- uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
-  commentId: M:System.Collections.Generic.IEnumerable`1.GetEnumerator
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  name: GetEnumerator()
-  nameWithType: IEnumerable<T>.GetEnumerator()
-  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
-  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
-  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
-  spec.csharp:
-  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
-    name: GetEnumerator
+  - name: .
+  - uid: Netick.NetworkDictionarySnapshot`2.Enumerator
+    name: Enumerator
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
-    name: GetEnumerator
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  - name: (
-  - name: )
-- uid: System.Collections.Generic.IEnumerator`1
-  commentId: T:System.Collections.Generic.IEnumerator`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
-  name: IEnumerator<T>
-  nameWithType: IEnumerator<T>
-  fullName: System.Collections.Generic.IEnumerator<T>
-  nameWithType.vb: IEnumerator(Of T)
-  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
-  name.vb: IEnumerator(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.IEnumerator`1
-    name: IEnumerator
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IEnumerator`1
-    name: IEnumerator
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
+    href: Netick.NetworkDictionarySnapshot-2.Enumerator.html
 - uid: Netick.NetworkDictionarySnapshot`2.Count*
   commentId: Overload:Netick.NetworkDictionarySnapshot`2.Count
   isExternal: true

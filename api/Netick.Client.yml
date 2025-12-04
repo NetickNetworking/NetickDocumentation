@@ -11,11 +11,13 @@ items:
   - Netick.Client.Disconnect
   - Netick.Client.InKBps
   - Netick.Client.IsConnected
-  - Netick.Client.OnConnectFailed(Netick.ConnectionFailedReason)
+  - Netick.Client.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
   - Netick.Client.OnConnected(Netick.TransportConnection)
-  - Netick.Client.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  - Netick.Client.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
   - Netick.Client.OutKBps
   - Netick.Client.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
+  - Netick.Client.TryGetConnectionRefusalData(System.ArraySegment{System.Byte}@)
+  - Netick.Client.TryGetKickData(System.ArraySegment{System.Byte}@)
   langs:
   - csharp
   - vb
@@ -36,6 +38,7 @@ items:
   inheritedMembers:
   - Netick.NetworkPeer.Transport
   - Netick.NetworkPeer.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
+  - Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest,System.ReadOnlySpan{System.Byte})
   - Netick.NetworkPlayer.Engine
   - Netick.NetworkPlayer.AddInterestGroup(System.Int32)
   - Netick.NetworkPlayer.AddInterestGroup(Netick.InterestManagementGroup)
@@ -140,29 +143,86 @@ items:
     content: public void Disconnect()
     content.vb: Public Sub Disconnect()
   overload: Netick.Client.Disconnect*
-- uid: Netick.Client.OnConnectFailed(Netick.ConnectionFailedReason)
-  commentId: M:Netick.Client.OnConnectFailed(Netick.ConnectionFailedReason)
-  id: OnConnectFailed(Netick.ConnectionFailedReason)
+- uid: Netick.Client.TryGetConnectionRefusalData(System.ArraySegment{System.Byte}@)
+  commentId: M:Netick.Client.TryGetConnectionRefusalData(System.ArraySegment{System.Byte}@)
+  id: TryGetConnectionRefusalData(System.ArraySegment{System.Byte}@)
   parent: Netick.Client
   langs:
   - csharp
   - vb
-  name: OnConnectFailed(ConnectionFailedReason)
-  nameWithType: Client.OnConnectFailed(ConnectionFailedReason)
-  fullName: Netick.Client.OnConnectFailed(Netick.ConnectionFailedReason)
+  name: TryGetConnectionRefusalData(out ArraySegment<byte>)
+  nameWithType: Client.TryGetConnectionRefusalData(out ArraySegment<byte>)
+  fullName: Netick.Client.TryGetConnectionRefusalData(out System.ArraySegment<byte>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool TryGetConnectionRefusalData(out ArraySegment<byte> data)
+    parameters:
+    - id: data
+      type: System.ArraySegment{System.Byte}
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetConnectionRefusalData(data As ArraySegment(Of Byte)) As Boolean
+  overload: Netick.Client.TryGetConnectionRefusalData*
+  nameWithType.vb: Client.TryGetConnectionRefusalData(ArraySegment(Of Byte))
+  fullName.vb: Netick.Client.TryGetConnectionRefusalData(System.ArraySegment(Of Byte))
+  name.vb: TryGetConnectionRefusalData(ArraySegment(Of Byte))
+- uid: Netick.Client.TryGetKickData(System.ArraySegment{System.Byte}@)
+  commentId: M:Netick.Client.TryGetKickData(System.ArraySegment{System.Byte}@)
+  id: TryGetKickData(System.ArraySegment{System.Byte}@)
+  parent: Netick.Client
+  langs:
+  - csharp
+  - vb
+  name: TryGetKickData(out ArraySegment<byte>)
+  nameWithType: Client.TryGetKickData(out ArraySegment<byte>)
+  fullName: Netick.Client.TryGetKickData(out System.ArraySegment<byte>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool TryGetKickData(out ArraySegment<byte> data)
+    parameters:
+    - id: data
+      type: System.ArraySegment{System.Byte}
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetKickData(data As ArraySegment(Of Byte)) As Boolean
+  overload: Netick.Client.TryGetKickData*
+  nameWithType.vb: Client.TryGetKickData(ArraySegment(Of Byte))
+  fullName.vb: Netick.Client.TryGetKickData(System.ArraySegment(Of Byte))
+  name.vb: TryGetKickData(ArraySegment(Of Byte))
+- uid: Netick.Client.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.Client.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
+  id: OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
+  parent: Netick.Client
+  langs:
+  - csharp
+  - vb
+  name: OnConnectFailed(ConnectionFailedReason, ReadOnlySpan<byte>)
+  nameWithType: Client.OnConnectFailed(ConnectionFailedReason, ReadOnlySpan<byte>)
+  fullName: Netick.Client.OnConnectFailed(Netick.ConnectionFailedReason, System.ReadOnlySpan<byte>)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   example: []
   syntax:
-    content: public override void OnConnectFailed(ConnectionFailedReason reason)
+    content: public override void OnConnectFailed(ConnectionFailedReason reason, ReadOnlySpan<byte> refusalData)
     parameters:
     - id: reason
       type: Netick.ConnectionFailedReason
-    content.vb: Public Overrides Sub OnConnectFailed(reason As ConnectionFailedReason)
-  overridden: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+    - id: refusalData
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Overrides Sub OnConnectFailed(reason As ConnectionFailedReason, refusalData As ReadOnlySpan(Of Byte))
+  overridden: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
   overload: Netick.Client.OnConnectFailed*
+  nameWithType.vb: Client.OnConnectFailed(ConnectionFailedReason, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.Client.OnConnectFailed(Netick.ConnectionFailedReason, System.ReadOnlySpan(Of Byte))
+  name.vb: OnConnectFailed(ConnectionFailedReason, ReadOnlySpan(Of Byte))
 - uid: Netick.Client.OnConnected(Netick.TransportConnection)
   commentId: M:Netick.Client.OnConnected(Netick.TransportConnection)
   id: OnConnected(Netick.TransportConnection)
@@ -186,31 +246,36 @@ items:
     content.vb: Public Overrides Sub OnConnected(peer As TransportConnection)
   overridden: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
   overload: Netick.Client.OnConnected*
-- uid: Netick.Client.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
-  commentId: M:Netick.Client.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
-  id: OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+- uid: Netick.Client.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.Client.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
+  id: OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
   parent: Netick.Client
   langs:
   - csharp
   - vb
-  name: OnDisconnected(TransportConnection, TransportDisconnectReason)
-  nameWithType: Client.OnDisconnected(TransportConnection, TransportDisconnectReason)
-  fullName: Netick.Client.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason)
+  name: OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan<byte>)
+  nameWithType: Client.OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan<byte>)
+  fullName: Netick.Client.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason, System.ReadOnlySpan<byte>)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   example: []
   syntax:
-    content: public override void OnDisconnected(TransportConnection peer, TransportDisconnectReason transportDisconnectReason)
+    content: public override void OnDisconnected(TransportConnection peer, TransportDisconnectReason transportDisconnectReason, ReadOnlySpan<byte> kickData = default)
     parameters:
     - id: peer
       type: Netick.TransportConnection
     - id: transportDisconnectReason
       type: Netick.TransportDisconnectReason
-    content.vb: Public Overrides Sub OnDisconnected(peer As TransportConnection, transportDisconnectReason As TransportDisconnectReason)
-  overridden: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+    - id: kickData
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Overrides Sub OnDisconnected(peer As TransportConnection, transportDisconnectReason As TransportDisconnectReason, kickData As ReadOnlySpan(Of Byte) = Nothing)
+  overridden: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
   overload: Netick.Client.OnDisconnected*
+  nameWithType.vb: Client.OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.Client.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason, System.ReadOnlySpan(Of Byte))
+  name.vb: OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan(Of Byte))
 - uid: Netick.Client.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
   commentId: M:Netick.Client.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
   id: Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
@@ -408,6 +473,65 @@ references:
     name: IEndPoint
     isExternal: true
     href: Netick.IEndPoint.html
+  - name: )
+- uid: Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest,System.ReadOnlySpan{System.Byte})
+  parent: Netick.NetworkPeer
+  isExternal: true
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectRequest_Netick_IConnectionRequest_System_ReadOnlySpan_System_Byte__
+  name: OnConnectRequest(IConnectionRequest, ReadOnlySpan<byte>)
+  nameWithType: NetworkPeer.OnConnectRequest(IConnectionRequest, ReadOnlySpan<byte>)
+  fullName: Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest, System.ReadOnlySpan<byte>)
+  nameWithType.vb: NetworkPeer.OnConnectRequest(IConnectionRequest, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest, System.ReadOnlySpan(Of Byte))
+  name.vb: OnConnectRequest(IConnectionRequest, ReadOnlySpan(Of Byte))
+  spec.csharp:
+  - uid: Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest,System.ReadOnlySpan{System.Byte})
+    name: OnConnectRequest
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectRequest_Netick_IConnectionRequest_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: Netick.IConnectionRequest
+    name: IConnectionRequest
+    isExternal: true
+    href: Netick.IConnectionRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest,System.ReadOnlySpan{System.Byte})
+    name: OnConnectRequest
+    isExternal: true
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectRequest_Netick_IConnectionRequest_System_ReadOnlySpan_System_Byte__
+  - name: (
+  - uid: Netick.IConnectionRequest
+    name: IConnectionRequest
+    isExternal: true
+    href: Netick.IConnectionRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
   - name: )
 - uid: Netick.NetworkPlayer.Engine
   commentId: F:Netick.NetworkPlayer.Engine
@@ -850,40 +974,157 @@ references:
   name: Disconnect
   nameWithType: Client.Disconnect
   fullName: Netick.Client.Disconnect
-- uid: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
-  commentId: M:Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+- uid: Netick.Client.TryGetConnectionRefusalData*
+  commentId: Overload:Netick.Client.TryGetConnectionRefusalData
+  isExternal: true
+  href: Netick.Client.html#Netick_Client_TryGetConnectionRefusalData_System_ArraySegment_System_Byte___
+  name: TryGetConnectionRefusalData
+  nameWithType: Client.TryGetConnectionRefusalData
+  fullName: Netick.Client.TryGetConnectionRefusalData
+- uid: System.ArraySegment{System.Byte}
+  commentId: T:System.ArraySegment{System.Byte}
+  parent: System
+  definition: System.ArraySegment`1
+  href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  name: ArraySegment<byte>
+  nameWithType: ArraySegment<byte>
+  fullName: System.ArraySegment<byte>
+  nameWithType.vb: ArraySegment(Of Byte)
+  fullName.vb: System.ArraySegment(Of Byte)
+  name.vb: ArraySegment(Of Byte)
+  spec.csharp:
+  - uid: System.ArraySegment`1
+    name: ArraySegment
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ArraySegment`1
+    name: ArraySegment
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.ArraySegment`1
+  commentId: T:System.ArraySegment`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  name: ArraySegment<T>
+  nameWithType: ArraySegment<T>
+  fullName: System.ArraySegment<T>
+  nameWithType.vb: ArraySegment(Of T)
+  fullName.vb: System.ArraySegment(Of T)
+  name.vb: ArraySegment(Of T)
+  spec.csharp:
+  - uid: System.ArraySegment`1
+    name: ArraySegment
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ArraySegment`1
+    name: ArraySegment
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.arraysegment-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.Client.TryGetKickData*
+  commentId: Overload:Netick.Client.TryGetKickData
+  isExternal: true
+  href: Netick.Client.html#Netick_Client_TryGetKickData_System_ArraySegment_System_Byte___
+  name: TryGetKickData
+  nameWithType: Client.TryGetKickData
+  fullName: Netick.Client.TryGetKickData
+- uid: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
   parent: Netick.NetworkPeer
   isExternal: true
-  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_
-  name: OnConnectFailed(ConnectionFailedReason)
-  nameWithType: NetworkPeer.OnConnectFailed(ConnectionFailedReason)
-  fullName: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_System_ReadOnlySpan_System_Byte__
+  name: OnConnectFailed(ConnectionFailedReason, ReadOnlySpan<byte>)
+  nameWithType: NetworkPeer.OnConnectFailed(ConnectionFailedReason, ReadOnlySpan<byte>)
+  fullName: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason, System.ReadOnlySpan<byte>)
+  nameWithType.vb: NetworkPeer.OnConnectFailed(ConnectionFailedReason, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason, System.ReadOnlySpan(Of Byte))
+  name.vb: OnConnectFailed(ConnectionFailedReason, ReadOnlySpan(Of Byte))
   spec.csharp:
-  - uid: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+  - uid: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
     name: OnConnectFailed
     isExternal: true
-    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_System_ReadOnlySpan_System_Byte__
   - name: (
   - uid: Netick.ConnectionFailedReason
     name: ConnectionFailedReason
     isExternal: true
     href: Netick.ConnectionFailedReason.html
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
   - name: )
   spec.vb:
-  - uid: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+  - uid: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
     name: OnConnectFailed
     isExternal: true
-    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_System_ReadOnlySpan_System_Byte__
   - name: (
   - uid: Netick.ConnectionFailedReason
     name: ConnectionFailedReason
     isExternal: true
     href: Netick.ConnectionFailedReason.html
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
   - name: )
 - uid: Netick.Client.OnConnectFailed*
   commentId: Overload:Netick.Client.OnConnectFailed
   isExternal: true
-  href: Netick.Client.html#Netick_Client_OnConnectFailed_Netick_ConnectionFailedReason_
+  href: Netick.Client.html#Netick_Client_OnConnectFailed_Netick_ConnectionFailedReason_System_ReadOnlySpan_System_Byte__
   name: OnConnectFailed
   nameWithType: Client.OnConnectFailed
   fullName: Netick.Client.OnConnectFailed
@@ -895,6 +1136,69 @@ references:
   name: ConnectionFailedReason
   nameWithType: ConnectionFailedReason
   fullName: Netick.ConnectionFailedReason
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
   commentId: M:Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
   parent: Netick.NetworkPeer
@@ -940,19 +1244,22 @@ references:
   name: TransportConnection
   nameWithType: TransportConnection
   fullName: Netick.TransportConnection
-- uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
-  commentId: M:Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+- uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
   parent: Netick.NetworkPeer
   isExternal: true
-  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
-  name: OnDisconnected(TransportConnection, TransportDisconnectReason)
-  nameWithType: NetworkPeer.OnDisconnected(TransportConnection, TransportDisconnectReason)
-  fullName: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason)
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_System_ReadOnlySpan_System_Byte__
+  name: OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan<byte>)
+  nameWithType: NetworkPeer.OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan<byte>)
+  fullName: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason, System.ReadOnlySpan<byte>)
+  nameWithType.vb: NetworkPeer.OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason, System.ReadOnlySpan(Of Byte))
+  name.vb: OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan(Of Byte))
   spec.csharp:
-  - uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  - uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
     name: OnDisconnected
     isExternal: true
-    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_System_ReadOnlySpan_System_Byte__
   - name: (
   - uid: Netick.TransportConnection
     name: TransportConnection
@@ -964,12 +1271,24 @@ references:
     name: TransportDisconnectReason
     isExternal: true
     href: Netick.TransportDisconnectReason.html
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
   - name: )
   spec.vb:
-  - uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  - uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
     name: OnDisconnected
     isExternal: true
-    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+    href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_System_ReadOnlySpan_System_Byte__
   - name: (
   - uid: Netick.TransportConnection
     name: TransportConnection
@@ -981,11 +1300,25 @@ references:
     name: TransportDisconnectReason
     isExternal: true
     href: Netick.TransportDisconnectReason.html
+  - name: ','
+  - name: " "
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
   - name: )
 - uid: Netick.Client.OnDisconnected*
   commentId: Overload:Netick.Client.OnDisconnected
   isExternal: true
-  href: Netick.Client.html#Netick_Client_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+  href: Netick.Client.html#Netick_Client_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_System_ReadOnlySpan_System_Byte__
   name: OnDisconnected
   nameWithType: Client.OnDisconnected
   fullName: Netick.Client.OnDisconnected
@@ -1122,14 +1455,3 @@ references:
   name: IsConnected
   nameWithType: Client.IsConnected
   fullName: Netick.Client.IsConnected
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean

@@ -9,8 +9,12 @@ items:
   - Netick.NetworkConnectionRequest.AllowConnection
   - Netick.NetworkConnectionRequest.Data
   - Netick.NetworkConnectionRequest.DataLength
-  - Netick.NetworkConnectionRequest.Refuse
+  - Netick.NetworkConnectionRequest.Defer
+  - Netick.NetworkConnectionRequest.Engine
+  - Netick.NetworkConnectionRequest.Refuse(System.Byte[],System.Int32)
+  - Netick.NetworkConnectionRequest.Refuse(System.ReadOnlySpan{System.Byte})
   - Netick.NetworkConnectionRequest.Source
+  - Netick.NetworkConnectionRequest.TransportRequest
   langs:
   - csharp
   - vb
@@ -33,25 +37,24 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: Netick.NetworkConnectionRequest.AllowConnection
-  commentId: F:Netick.NetworkConnectionRequest.AllowConnection
-  id: AllowConnection
+- uid: Netick.NetworkConnectionRequest.Defer
+  commentId: M:Netick.NetworkConnectionRequest.Defer
+  id: Defer
   parent: Netick.NetworkConnectionRequest
   langs:
   - csharp
   - vb
-  name: AllowConnection
-  nameWithType: NetworkConnectionRequest.AllowConnection
-  fullName: Netick.NetworkConnectionRequest.AllowConnection
-  type: Field
+  name: Defer()
+  nameWithType: NetworkConnectionRequest.Defer()
+  fullName: Netick.NetworkConnectionRequest.Defer()
+  type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool AllowConnection
-    return:
-      type: System.Boolean
-    content.vb: Public AllowConnection As Boolean
+    content: public void Defer()
+    content.vb: Public Sub Defer()
+  overload: Netick.NetworkConnectionRequest.Defer*
 - uid: Netick.NetworkConnectionRequest.Accept
   commentId: M:Netick.NetworkConnectionRequest.Accept
   id: Accept
@@ -70,24 +73,98 @@ items:
     content: public void Accept()
     content.vb: Public Sub Accept()
   overload: Netick.NetworkConnectionRequest.Accept*
-- uid: Netick.NetworkConnectionRequest.Refuse
-  commentId: M:Netick.NetworkConnectionRequest.Refuse
-  id: Refuse
+- uid: Netick.NetworkConnectionRequest.Refuse(System.Byte[],System.Int32)
+  commentId: M:Netick.NetworkConnectionRequest.Refuse(System.Byte[],System.Int32)
+  id: Refuse(System.Byte[],System.Int32)
   parent: Netick.NetworkConnectionRequest
   langs:
   - csharp
   - vb
-  name: Refuse()
-  nameWithType: NetworkConnectionRequest.Refuse()
-  fullName: Netick.NetworkConnectionRequest.Refuse()
+  name: Refuse(byte[], int)
+  nameWithType: NetworkConnectionRequest.Refuse(byte[], int)
+  fullName: Netick.NetworkConnectionRequest.Refuse(byte[], int)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public void Refuse()
-    content.vb: Public Sub Refuse()
+    content: public void Refuse(byte[] data, int dataLength)
+    parameters:
+    - id: data
+      type: System.Byte[]
+    - id: dataLength
+      type: System.Int32
+    content.vb: Public Sub Refuse(data As Byte(), dataLength As Integer)
   overload: Netick.NetworkConnectionRequest.Refuse*
+  nameWithType.vb: NetworkConnectionRequest.Refuse(Byte(), Integer)
+  fullName.vb: Netick.NetworkConnectionRequest.Refuse(Byte(), Integer)
+  name.vb: Refuse(Byte(), Integer)
+- uid: Netick.NetworkConnectionRequest.Refuse(System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.NetworkConnectionRequest.Refuse(System.ReadOnlySpan{System.Byte})
+  id: Refuse(System.ReadOnlySpan{System.Byte})
+  parent: Netick.NetworkConnectionRequest
+  langs:
+  - csharp
+  - vb
+  name: Refuse(ReadOnlySpan<byte>)
+  nameWithType: NetworkConnectionRequest.Refuse(ReadOnlySpan<byte>)
+  fullName: Netick.NetworkConnectionRequest.Refuse(System.ReadOnlySpan<byte>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Refuse(ReadOnlySpan<byte> refusalData = default)
+    parameters:
+    - id: refusalData
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Sub Refuse(refusalData As ReadOnlySpan(Of Byte) = Nothing)
+  overload: Netick.NetworkConnectionRequest.Refuse*
+  nameWithType.vb: NetworkConnectionRequest.Refuse(ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.NetworkConnectionRequest.Refuse(System.ReadOnlySpan(Of Byte))
+  name.vb: Refuse(ReadOnlySpan(Of Byte))
+- uid: Netick.NetworkConnectionRequest.Engine
+  commentId: P:Netick.NetworkConnectionRequest.Engine
+  id: Engine
+  parent: Netick.NetworkConnectionRequest
+  langs:
+  - csharp
+  - vb
+  name: Engine
+  nameWithType: NetworkConnectionRequest.Engine
+  fullName: Netick.NetworkConnectionRequest.Engine
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public NetickEngine Engine { get; }
+    parameters: []
+    return:
+      type: Netick.NetickEngine
+    content.vb: Public ReadOnly Property Engine As NetickEngine
+  overload: Netick.NetworkConnectionRequest.Engine*
+- uid: Netick.NetworkConnectionRequest.TransportRequest
+  commentId: P:Netick.NetworkConnectionRequest.TransportRequest
+  id: TransportRequest
+  parent: Netick.NetworkConnectionRequest
+  langs:
+  - csharp
+  - vb
+  name: TransportRequest
+  nameWithType: NetworkConnectionRequest.TransportRequest
+  fullName: Netick.NetworkConnectionRequest.TransportRequest
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public IConnectionRequest TransportRequest { get; }
+    parameters: []
+    return:
+      type: Netick.IConnectionRequest
+    content.vb: Public ReadOnly Property TransportRequest As IConnectionRequest
+  overload: Netick.NetworkConnectionRequest.TransportRequest*
 - uid: Netick.NetworkConnectionRequest.Source
   commentId: P:Netick.NetworkConnectionRequest.Source
   id: Source
@@ -145,12 +222,33 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public int DataLength { get; set; }
+    content: public int DataLength { get; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property DataLength As Integer
+    content.vb: Public ReadOnly Property DataLength As Integer
   overload: Netick.NetworkConnectionRequest.DataLength*
+- uid: Netick.NetworkConnectionRequest.AllowConnection
+  commentId: P:Netick.NetworkConnectionRequest.AllowConnection
+  id: AllowConnection
+  parent: Netick.NetworkConnectionRequest
+  langs:
+  - csharp
+  - vb
+  name: AllowConnection
+  nameWithType: NetworkConnectionRequest.AllowConnection
+  fullName: Netick.NetworkConnectionRequest.AllowConnection
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool AllowConnection { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property AllowConnection As Boolean
+  overload: Netick.NetworkConnectionRequest.AllowConnection*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -372,17 +470,13 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
+- uid: Netick.NetworkConnectionRequest.Defer*
+  commentId: Overload:Netick.NetworkConnectionRequest.Defer
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
+  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_Defer
+  name: Defer
+  nameWithType: NetworkConnectionRequest.Defer
+  fullName: Netick.NetworkConnectionRequest.Defer
 - uid: Netick.NetworkConnectionRequest.Accept*
   commentId: Overload:Netick.NetworkConnectionRequest.Accept
   isExternal: true
@@ -393,32 +487,10 @@ references:
 - uid: Netick.NetworkConnectionRequest.Refuse*
   commentId: Overload:Netick.NetworkConnectionRequest.Refuse
   isExternal: true
-  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_Refuse
+  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_Refuse_System_Byte___System_Int32_
   name: Refuse
   nameWithType: NetworkConnectionRequest.Refuse
   fullName: Netick.NetworkConnectionRequest.Refuse
-- uid: Netick.NetworkConnectionRequest.Source*
-  commentId: Overload:Netick.NetworkConnectionRequest.Source
-  isExternal: true
-  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_Source
-  name: Source
-  nameWithType: NetworkConnectionRequest.Source
-  fullName: Netick.NetworkConnectionRequest.Source
-- uid: Netick.IEndPoint
-  commentId: T:Netick.IEndPoint
-  parent: Netick
-  isExternal: true
-  href: Netick.IEndPoint.html
-  name: IEndPoint
-  nameWithType: IEndPoint
-  fullName: Netick.IEndPoint
-- uid: Netick.NetworkConnectionRequest.Data*
-  commentId: Overload:Netick.NetworkConnectionRequest.Data
-  isExternal: true
-  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_Data
-  name: Data
-  nameWithType: NetworkConnectionRequest.Data
-  fullName: Netick.NetworkConnectionRequest.Data
 - uid: System.Byte[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.byte
@@ -442,13 +514,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: (
   - name: )
-- uid: Netick.NetworkConnectionRequest.DataLength*
-  commentId: Overload:Netick.NetworkConnectionRequest.DataLength
-  isExternal: true
-  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_DataLength
-  name: DataLength
-  nameWithType: NetworkConnectionRequest.DataLength
-  fullName: Netick.NetworkConnectionRequest.DataLength
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -460,3 +525,143 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetworkConnectionRequest.Engine*
+  commentId: Overload:Netick.NetworkConnectionRequest.Engine
+  isExternal: true
+  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_Engine
+  name: Engine
+  nameWithType: NetworkConnectionRequest.Engine
+  fullName: Netick.NetworkConnectionRequest.Engine
+- uid: Netick.NetickEngine
+  commentId: T:Netick.NetickEngine
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickEngine.html
+  name: NetickEngine
+  nameWithType: NetickEngine
+  fullName: Netick.NetickEngine
+- uid: Netick.NetworkConnectionRequest.TransportRequest*
+  commentId: Overload:Netick.NetworkConnectionRequest.TransportRequest
+  isExternal: true
+  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_TransportRequest
+  name: TransportRequest
+  nameWithType: NetworkConnectionRequest.TransportRequest
+  fullName: Netick.NetworkConnectionRequest.TransportRequest
+- uid: Netick.IConnectionRequest
+  commentId: T:Netick.IConnectionRequest
+  parent: Netick
+  isExternal: true
+  href: Netick.IConnectionRequest.html
+  name: IConnectionRequest
+  nameWithType: IConnectionRequest
+  fullName: Netick.IConnectionRequest
+- uid: Netick.NetworkConnectionRequest.Source*
+  commentId: Overload:Netick.NetworkConnectionRequest.Source
+  isExternal: true
+  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_Source
+  name: Source
+  nameWithType: NetworkConnectionRequest.Source
+  fullName: Netick.NetworkConnectionRequest.Source
+- uid: Netick.IEndPoint
+  commentId: T:Netick.IEndPoint
+  parent: Netick
+  isExternal: true
+  href: Netick.IEndPoint.html
+  name: IEndPoint
+  nameWithType: IEndPoint
+  fullName: Netick.IEndPoint
+- uid: Netick.NetworkConnectionRequest.Data*
+  commentId: Overload:Netick.NetworkConnectionRequest.Data
+  isExternal: true
+  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_Data
+  name: Data
+  nameWithType: NetworkConnectionRequest.Data
+  fullName: Netick.NetworkConnectionRequest.Data
+- uid: Netick.NetworkConnectionRequest.DataLength*
+  commentId: Overload:Netick.NetworkConnectionRequest.DataLength
+  isExternal: true
+  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_DataLength
+  name: DataLength
+  nameWithType: NetworkConnectionRequest.DataLength
+  fullName: Netick.NetworkConnectionRequest.DataLength
+- uid: Netick.NetworkConnectionRequest.AllowConnection*
+  commentId: Overload:Netick.NetworkConnectionRequest.AllowConnection
+  isExternal: true
+  href: Netick.NetworkConnectionRequest.html#Netick_NetworkConnectionRequest_AllowConnection
+  name: AllowConnection
+  nameWithType: NetworkConnectionRequest.AllowConnection
+  fullName: Netick.NetworkConnectionRequest.AllowConnection
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

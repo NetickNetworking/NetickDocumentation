@@ -483,22 +483,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Obsolete("This method will be removed. Use OnPlayerJoined instead.")]
-
-      public event OnClientConnectedDelegate OnClientConnected
+    content: public event OnClientConnectedDelegate OnClientConnected
     return:
       type: Netick.Unity.OnClientConnectedDelegate
-    content.vb: >-
-      <Obsolete("This method will be removed. Use OnPlayerJoined instead.")>
-
-      Public Event OnClientConnected As OnClientConnectedDelegate
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: This method will be removed. Use OnPlayerJoined instead.
+    content.vb: Public Event OnClientConnected As OnClientConnectedDelegate
 - uid: Netick.Unity.NetworkCallbacks.OnClientDisconnected
   commentId: E:Netick.Unity.NetworkCallbacks.OnClientDisconnected
   id: OnClientDisconnected
@@ -514,22 +502,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: >-
-      [Obsolete("This method will be removed. Use OnPlayerLeft instead.")]
-
-      public event OnClientDisconnectedDelegate OnClientDisconnected
+    content: public event OnClientDisconnectedDelegate OnClientDisconnected
     return:
       type: Netick.Unity.OnClientDisconnectedDelegate
-    content.vb: >-
-      <Obsolete("This method will be removed. Use OnPlayerLeft instead.")>
-
-      Public Event OnClientDisconnected As OnClientDisconnectedDelegate
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: This method will be removed. Use OnPlayerLeft instead.
+    content.vb: Public Event OnClientDisconnected As OnClientDisconnectedDelegate
 - uid: Netick.Unity.NetworkCallbacks.OnPlayerConnected
   commentId: E:Netick.Unity.NetworkCallbacks.OnPlayerConnected
   id: OnPlayerConnected

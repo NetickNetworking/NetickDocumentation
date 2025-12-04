@@ -8,14 +8,10 @@ items:
   - Netick.Unity.FileReplayTransport.#ctor
   - Netick.Unity.FileReplayTransport.DefaultReplaysLocation
   - Netick.Unity.FileReplayTransport.Engine
-  - Netick.Unity.FileReplayTransport.Finalize
-  - Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+  - Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync
   - Netick.Unity.FileReplayTransport.GetReplayFileInfo(System.String)
   - Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(System.String)
-  - Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
-  - Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
   - Netick.Unity.FileReplayTransport.Sandbox
-  - Netick.Unity.FileReplayTransport.Seek(System.Int32)
   langs:
   - csharp
   - vb
@@ -51,54 +47,6 @@ items:
   - type: Netick.IgnoreCodeGen
     ctor: Netick.IgnoreCodeGen.#ctor
     arguments: []
-- uid: Netick.Unity.FileReplayTransport.Finalize
-  commentId: M:Netick.Unity.FileReplayTransport.Finalize
-  id: Finalize
-  parent: Netick.Unity.FileReplayTransport
-  langs:
-  - csharp
-  - vb
-  name: ~FileReplayTransport()
-  nameWithType: FileReplayTransport.~FileReplayTransport()
-  fullName: Netick.Unity.FileReplayTransport.~FileReplayTransport()
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: protected ~FileReplayTransport()
-    content.vb: 'Protected '
-  overload: Netick.Unity.FileReplayTransport.Finalize*
-  nameWithType.vb: ''
-  fullName.vb: ''
-  name.vb: ''
-- uid: Netick.Unity.FileReplayTransport.Seek(System.Int32)
-  commentId: M:Netick.Unity.FileReplayTransport.Seek(System.Int32)
-  id: Seek(System.Int32)
-  parent: Netick.Unity.FileReplayTransport
-  langs:
-  - csharp
-  - vb
-  name: Seek(int)
-  nameWithType: FileReplayTransport.Seek(int)
-  fullName: Netick.Unity.FileReplayTransport.Seek(int)
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  example: []
-  syntax:
-    content: public void Seek(int frameIndex)
-    parameters:
-    - id: frameIndex
-      type: System.Int32
-    content.vb: Public Sub Seek(frameIndex As Integer)
-  overload: Netick.Unity.FileReplayTransport.Seek*
-  implements:
-  - Netick.IReplayTransport.Seek(System.Int32)
-  nameWithType.vb: FileReplayTransport.Seek(Integer)
-  fullName.vb: Netick.Unity.FileReplayTransport.Seek(Integer)
-  name.vb: Seek(Integer)
 - uid: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(System.String)
   commentId: M:Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(System.String)
   id: GetReplayFileInfoAsync(System.String)
@@ -151,26 +99,26 @@ items:
   nameWithType.vb: FileReplayTransport.GetReplayFileInfo(String)
   fullName.vb: Netick.Unity.FileReplayTransport.GetReplayFileInfo(String)
   name.vb: GetReplayFileInfo(String)
-- uid: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
-  commentId: M:Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
-  id: GetLatestReplayPathAsync
+- uid: Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync
+  commentId: M:Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync
+  id: GetLatestReplayFilePathAsync
   parent: Netick.Unity.FileReplayTransport
   langs:
   - csharp
   - vb
-  name: GetLatestReplayPathAsync()
-  nameWithType: FileReplayTransport.GetLatestReplayPathAsync()
-  fullName: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync()
+  name: GetLatestReplayFilePathAsync()
+  nameWithType: FileReplayTransport.GetLatestReplayFilePathAsync()
+  fullName: Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync()
   type: Method
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public static Task<string> GetLatestReplayPathAsync()
+    content: public static Task<string> GetLatestReplayFilePathAsync()
     return:
       type: System.Threading.Tasks.Task{System.String}
-    content.vb: Public Shared Function GetLatestReplayPathAsync() As Task(Of String)
-  overload: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync*
+    content.vb: Public Shared Function GetLatestReplayFilePathAsync() As Task(Of String)
+  overload: Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync*
 - uid: Netick.Unity.FileReplayTransport.#ctor
   commentId: M:Netick.Unity.FileReplayTransport.#ctor
   id: '#ctor'
@@ -192,6 +140,27 @@ items:
   nameWithType.vb: FileReplayTransport.New()
   fullName.vb: Netick.Unity.FileReplayTransport.New()
   name.vb: New()
+- uid: Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  commentId: P:Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  id: DefaultReplaysLocation
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: DefaultReplaysLocation
+  nameWithType: FileReplayTransport.DefaultReplaysLocation
+  fullName: Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static string DefaultReplaysLocation { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property DefaultReplaysLocation As String
+  overload: Netick.Unity.FileReplayTransport.DefaultReplaysLocation*
 - uid: Netick.Unity.FileReplayTransport.Engine
   commentId: P:Netick.Unity.FileReplayTransport.Engine
   id: Engine
@@ -234,69 +203,6 @@ items:
       type: Netick.Unity.NetworkSandbox
     content.vb: Public ReadOnly Property Sandbox As NetworkSandbox
   overload: Netick.Unity.FileReplayTransport.Sandbox*
-- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
-  commentId: P:Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
-  id: KeyframeIntervalFrames
-  parent: Netick.Unity.FileReplayTransport
-  langs:
-  - csharp
-  - vb
-  name: KeyframeIntervalFrames
-  nameWithType: FileReplayTransport.KeyframeIntervalFrames
-  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public int KeyframeIntervalFrames { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property KeyframeIntervalFrames As Integer
-  overload: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames*
-- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
-  commentId: P:Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
-  id: KeyframeIntervalSeconds
-  parent: Netick.Unity.FileReplayTransport
-  langs:
-  - csharp
-  - vb
-  name: KeyframeIntervalSeconds
-  nameWithType: FileReplayTransport.KeyframeIntervalSeconds
-  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public float KeyframeIntervalSeconds { get; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public ReadOnly Property KeyframeIntervalSeconds As Single
-  overload: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds*
-- uid: Netick.Unity.FileReplayTransport.DefaultReplaysLocation
-  commentId: P:Netick.Unity.FileReplayTransport.DefaultReplaysLocation
-  id: DefaultReplaysLocation
-  parent: Netick.Unity.FileReplayTransport
-  langs:
-  - csharp
-  - vb
-  name: DefaultReplaysLocation
-  nameWithType: FileReplayTransport.DefaultReplaysLocation
-  fullName: Netick.Unity.FileReplayTransport.DefaultReplaysLocation
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public static string DefaultReplaysLocation { get; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Shared ReadOnly Property DefaultReplaysLocation As String
-  overload: Netick.Unity.FileReplayTransport.DefaultReplaysLocation*
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -577,68 +483,6 @@ references:
   name: Netick
   nameWithType: Netick
   fullName: Netick
-- uid: Netick.Unity.FileReplayTransport.Finalize*
-  commentId: Overload:Netick.Unity.FileReplayTransport.Finalize
-  isExternal: true
-  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Finalize
-  name: ~FileReplayTransport
-  nameWithType: FileReplayTransport.~FileReplayTransport
-  fullName: Netick.Unity.FileReplayTransport.~FileReplayTransport
-  spec.csharp:
-  - name: "~"
-  - uid: Netick.Unity.FileReplayTransport.Finalize*
-    name: FileReplayTransport
-    isExternal: true
-    href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Finalize
-- uid: Netick.Unity.FileReplayTransport.Seek*
-  commentId: Overload:Netick.Unity.FileReplayTransport.Seek
-  isExternal: true
-  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_Seek_System_Int32_
-  name: Seek
-  nameWithType: FileReplayTransport.Seek
-  fullName: Netick.Unity.FileReplayTransport.Seek
-- uid: Netick.IReplayTransport.Seek(System.Int32)
-  commentId: M:Netick.IReplayTransport.Seek(System.Int32)
-  parent: Netick.IReplayTransport
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: Seek(int)
-  nameWithType: IReplayTransport.Seek(int)
-  fullName: Netick.IReplayTransport.Seek(int)
-  nameWithType.vb: IReplayTransport.Seek(Integer)
-  fullName.vb: Netick.IReplayTransport.Seek(Integer)
-  name.vb: Seek(Integer)
-  spec.csharp:
-  - uid: Netick.IReplayTransport.Seek(System.Int32)
-    name: Seek
-    isExternal: true
-  - name: (
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-  spec.vb:
-  - uid: Netick.IReplayTransport.Seek(System.Int32)
-    name: Seek
-    isExternal: true
-  - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync*
   commentId: Overload:Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync
   isExternal: true
@@ -772,13 +616,13 @@ references:
   name: ReplayFileInfo
   nameWithType: ReplayFileInfo
   fullName: Netick.Unity.ReplayFileInfo
-- uid: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync*
-  commentId: Overload:Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+- uid: Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync*
+  commentId: Overload:Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync
   isExternal: true
-  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetLatestReplayPathAsync
-  name: GetLatestReplayPathAsync
-  nameWithType: FileReplayTransport.GetLatestReplayPathAsync
-  fullName: Netick.Unity.FileReplayTransport.GetLatestReplayPathAsync
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetLatestReplayFilePathAsync
+  name: GetLatestReplayFilePathAsync
+  nameWithType: FileReplayTransport.GetLatestReplayFilePathAsync
+  fullName: Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync
 - uid: System.Threading.Tasks.Task{System.String}
   commentId: T:System.Threading.Tasks.Task{System.String}
   parent: System.Threading.Tasks
@@ -824,6 +668,13 @@ references:
   nameWithType.vb: FileReplayTransport.New
   fullName.vb: Netick.Unity.FileReplayTransport.New
   name.vb: New
+- uid: Netick.Unity.FileReplayTransport.DefaultReplaysLocation*
+  commentId: Overload:Netick.Unity.FileReplayTransport.DefaultReplaysLocation
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_DefaultReplaysLocation
+  name: DefaultReplaysLocation
+  nameWithType: FileReplayTransport.DefaultReplaysLocation
+  fullName: Netick.Unity.FileReplayTransport.DefaultReplaysLocation
 - uid: Netick.Unity.FileReplayTransport.Engine*
   commentId: Overload:Netick.Unity.FileReplayTransport.Engine
   isExternal: true
@@ -854,35 +705,3 @@ references:
   name: NetworkSandbox
   nameWithType: NetworkSandbox
   fullName: Netick.Unity.NetworkSandbox
-- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames*
-  commentId: Overload:Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
-  isExternal: true
-  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_KeyframeIntervalFrames
-  name: KeyframeIntervalFrames
-  nameWithType: FileReplayTransport.KeyframeIntervalFrames
-  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalFrames
-- uid: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds*
-  commentId: Overload:Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
-  isExternal: true
-  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_KeyframeIntervalSeconds
-  name: KeyframeIntervalSeconds
-  nameWithType: FileReplayTransport.KeyframeIntervalSeconds
-  fullName: Netick.Unity.FileReplayTransport.KeyframeIntervalSeconds
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
-- uid: Netick.Unity.FileReplayTransport.DefaultReplaysLocation*
-  commentId: Overload:Netick.Unity.FileReplayTransport.DefaultReplaysLocation
-  isExternal: true
-  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_DefaultReplaysLocation
-  name: DefaultReplaysLocation
-  nameWithType: FileReplayTransport.DefaultReplaysLocation
-  fullName: Netick.Unity.FileReplayTransport.DefaultReplaysLocation

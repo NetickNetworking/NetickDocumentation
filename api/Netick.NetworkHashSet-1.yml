@@ -383,15 +383,12 @@ items:
   assemblies:
   - Netick
   namespace: Netick
-  example: []
   syntax:
-    content: public IEnumerator<T> GetEnumerator()
+    content: public NetworkHashSet<T>.Enumerator GetEnumerator()
     return:
-      type: System.Collections.Generic.IEnumerator{{T}}
-    content.vb: Public Function GetEnumerator() As IEnumerator(Of T)
+      type: Netick.NetworkHashSet`1.Enumerator
+    content.vb: Public Function GetEnumerator() As NetworkHashSet(Of T).Enumerator
   overload: Netick.NetworkHashSet`1.GetEnumerator*
-  implements:
-  - System.Collections.Generic.IEnumerable{{T}}.GetEnumerator
   nameWithType.vb: NetworkHashSet(Of T).GetEnumerator()
   fullName.vb: Netick.NetworkHashSet(Of T).GetEnumerator()
 - uid: Netick.NetworkHashSet`1.Count
@@ -1227,110 +1224,45 @@ references:
   fullName: Netick.NetworkHashSet<T>.GetEnumerator
   nameWithType.vb: NetworkHashSet(Of T).GetEnumerator
   fullName.vb: Netick.NetworkHashSet(Of T).GetEnumerator
-- uid: System.Collections.Generic.IEnumerable{{T}}.GetEnumerator
-  commentId: M:System.Collections.Generic.IEnumerable{`0}.GetEnumerator
-  parent: System.Collections.Generic.IEnumerable{{T}}
-  definition: System.Collections.Generic.IEnumerable`1.GetEnumerator
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  name: GetEnumerator()
-  nameWithType: IEnumerable<T>.GetEnumerator()
-  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
-  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
-  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
+- uid: Netick.NetworkHashSet`1.Enumerator
+  commentId: T:Netick.NetworkHashSet`1.Enumerator
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkHashSet-1.html
+  name: NetworkHashSet<T>.Enumerator
+  nameWithType: NetworkHashSet<T>.Enumerator
+  fullName: Netick.NetworkHashSet<T>.Enumerator
+  nameWithType.vb: NetworkHashSet(Of T).Enumerator
+  fullName.vb: Netick.NetworkHashSet(Of T).Enumerator
+  name.vb: NetworkHashSet(Of T).Enumerator
   spec.csharp:
-  - uid: System.Collections.Generic.IEnumerable{`0}.GetEnumerator
-    name: GetEnumerator
+  - uid: Netick.NetworkHashSet`1
+    name: NetworkHashSet
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Collections.Generic.IEnumerable{`0}.GetEnumerator
-    name: GetEnumerator
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  - name: (
-  - name: )
-- uid: System.Collections.Generic.IEnumerator{{T}}
-  commentId: T:System.Collections.Generic.IEnumerator{`0}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.IEnumerator`1
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
-  name: IEnumerator<T>
-  nameWithType: IEnumerator<T>
-  fullName: System.Collections.Generic.IEnumerator<T>
-  nameWithType.vb: IEnumerator(Of T)
-  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
-  name.vb: IEnumerator(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.IEnumerator`1
-    name: IEnumerator
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+    href: Netick.NetworkHashSet-1.html
   - name: <
   - name: T
   - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IEnumerator`1
-    name: IEnumerator
+  - name: .
+  - uid: Netick.NetworkHashSet`1.Enumerator
+    name: Enumerator
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+    href: Netick.NetworkHashSet-1.Enumerator.html
+  spec.vb:
+  - uid: Netick.NetworkHashSet`1
+    name: NetworkHashSet
+    isExternal: true
+    href: Netick.NetworkHashSet-1.html
   - name: (
   - name: Of
   - name: " "
   - name: T
   - name: )
-- uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
-  commentId: M:System.Collections.Generic.IEnumerable`1.GetEnumerator
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  name: GetEnumerator()
-  nameWithType: IEnumerable<T>.GetEnumerator()
-  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
-  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
-  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
-  spec.csharp:
-  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
-    name: GetEnumerator
+  - name: .
+  - uid: Netick.NetworkHashSet`1.Enumerator
+    name: Enumerator
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
-    name: GetEnumerator
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
-  - name: (
-  - name: )
-- uid: System.Collections.Generic.IEnumerator`1
-  commentId: T:System.Collections.Generic.IEnumerator`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
-  name: IEnumerator<T>
-  nameWithType: IEnumerator<T>
-  fullName: System.Collections.Generic.IEnumerator<T>
-  nameWithType.vb: IEnumerator(Of T)
-  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
-  name.vb: IEnumerator(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.IEnumerator`1
-    name: IEnumerator
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.IEnumerator`1
-    name: IEnumerator
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
+    href: Netick.NetworkHashSet-1.Enumerator.html
 - uid: Netick.NetworkHashSet`1.Count*
   commentId: Overload:Netick.NetworkHashSet`1.Count
   isExternal: true

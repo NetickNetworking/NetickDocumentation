@@ -167,8 +167,8 @@ Class ReplayFileReader
 
   <a id="Netick_Unity_ReplayFileReader__ctor_" data-uid="Netick.Unity.ReplayFileReader.#ctor*"></a>
 
-  <h3 id="Netick_Unity_ReplayFileReader__ctor_System_Int32_" data-uid="Netick.Unity.ReplayFileReader.#ctor(System.Int32)">
-  ReplayFileReader(int)
+  <h3 id="Netick_Unity_ReplayFileReader__ctor_Netick_Unity_FileReplayTransport_" data-uid="Netick.Unity.ReplayFileReader.#ctor(Netick.Unity.FileReplayTransport)">
+  ReplayFileReader(FileReplayTransport)
   
   </h3>
 
@@ -176,12 +176,12 @@ Class ReplayFileReader
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ReplayFileReader(int cacheCapacity = 256)</code></pre>
+    <pre><code class="lang-csharp hljs">public ReplayFileReader(FileReplayTransport transport)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>cacheCapacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>transport</code> <a class="xref" href="Netick.Unity.FileReplayTransport.html">FileReplayTransport</a></dt>
     <dd></dd>
   </dl>
 
@@ -200,10 +200,10 @@ Class ReplayFileReader
 </h2>
 
 
-  <a id="Netick_Unity_ReplayFileReader_CacheLock_" data-uid="Netick.Unity.ReplayFileReader.CacheLock*"></a>
+  <a id="Netick_Unity_ReplayFileReader_IsInitialized_" data-uid="Netick.Unity.ReplayFileReader.IsInitialized*"></a>
 
-  <h3 id="Netick_Unity_ReplayFileReader_CacheLock" data-uid="Netick.Unity.ReplayFileReader.CacheLock">
-  CacheLock
+  <h3 id="Netick_Unity_ReplayFileReader_IsInitialized" data-uid="Netick.Unity.ReplayFileReader.IsInitialized">
+  IsInitialized
   
   </h3>
 
@@ -211,7 +211,7 @@ Class ReplayFileReader
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object CacheLock { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsInitialized { get; }</code></pre>
   </div>
 
 
@@ -220,7 +220,7 @@ Class ReplayFileReader
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -262,14 +262,10 @@ Class ReplayFileReader
 
 
 
-  <h2 class="section" id="methods">Methods
-</h2>
+  <a id="Netick_Unity_ReplayFileReader_UncompressedStream_" data-uid="Netick.Unity.ReplayFileReader.UncompressedStream*"></a>
 
-
-  <a id="Netick_Unity_ReplayFileReader_Fetch_" data-uid="Netick.Unity.ReplayFileReader.Fetch*"></a>
-
-  <h3 id="Netick_Unity_ReplayFileReader_Fetch_System_Int64_System_Int32_" data-uid="Netick.Unity.ReplayFileReader.Fetch(System.Int64,System.Int32)">
-  Fetch(long, int)
+  <h3 id="Netick_Unity_ReplayFileReader_UncompressedStream" data-uid="Netick.Unity.ReplayFileReader.UncompressedStream">
+  UncompressedStream
   
   </h3>
 
@@ -277,14 +273,78 @@ Class ReplayFileReader
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Fetch(long offset, int size)</code></pre>
+    <pre><code class="lang-csharp hljs">public FileStream UncompressedStream { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_ReplayFileReader_ValidFile_" data-uid="Netick.Unity.ReplayFileReader.ValidFile*"></a>
+
+  <h3 id="Netick_Unity_ReplayFileReader_ValidFile" data-uid="Netick.Unity.ReplayFileReader.ValidFile">
+  ValidFile
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ValidFile { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Netick_Unity_ReplayFileReader_Request_" data-uid="Netick.Unity.ReplayFileReader.Request*"></a>
+
+  <h3 id="Netick_Unity_ReplayFileReader_Request_System_Int32_" data-uid="Netick.Unity.ReplayFileReader.Request(System.Int32)">
+  Request(int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Request(int frameId)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd></dd>
-    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>frameId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -358,8 +418,8 @@ Class ReplayFileReader
 
   <a id="Netick_Unity_ReplayFileReader_TryGet_" data-uid="Netick.Unity.ReplayFileReader.TryGet*"></a>
 
-  <h3 id="Netick_Unity_ReplayFileReader_TryGet_System_Int64_Netick_Unity_ReplayFileReader_Block__" data-uid="Netick.Unity.ReplayFileReader.TryGet(System.Int64,Netick.Unity.ReplayFileReader.Block@)">
-  TryGet(long, out Block)
+  <h3 id="Netick_Unity_ReplayFileReader_TryGet_System_Int32_Netick_Unity_ReplayFileReader_Frame__" data-uid="Netick.Unity.ReplayFileReader.TryGet(System.Int32,Netick.Unity.ReplayFileReader.Frame@)">
+  TryGet(int, out Frame)
   
   </h3>
 
@@ -367,14 +427,14 @@ Class ReplayFileReader
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool TryGet(long offset, out ReplayFileReader.Block buffer)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool TryGet(int frameId, out ReplayFileReader.Frame buffer)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dt><code>frameId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>buffer</code> <a class="xref" href="Netick.Unity.ReplayFileReader.html">ReplayFileReader</a>.<a class="xref" href="Netick.Unity.ReplayFileReader.Block.html">Block</a></dt>
+    <dt><code>buffer</code> <a class="xref" href="Netick.Unity.ReplayFileReader.html">ReplayFileReader</a>.<a class="xref" href="Netick.Unity.ReplayFileReader.Frame.html">Frame</a></dt>
     <dd></dd>
   </dl>
 

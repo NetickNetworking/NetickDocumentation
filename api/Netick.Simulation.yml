@@ -25,12 +25,12 @@ items:
   - Netick.Simulation.SetEntityUserMeta(Netick.Entity,System.Int32*)
   - Netick.Simulation.SetInput``1(``0,System.Int32)
   - Netick.Simulation.UnlinkedEntities
-  - Netick.Simulation._addedEntities
-  - Netick.Simulation._networkStartExecutionList
+  - Netick.Simulation._addedEntitiesCache
+  - Netick.Simulation._networkStartExecutionListCache
   - Netick.Simulation._pendingAddedEntities
   - Netick.Simulation._pendingBehaviours
   - Netick.Simulation._pendingRemovedEntities
-  - Netick.Simulation._removedEntitiesList
+  - Netick.Simulation._removedEntitiesListCache
   langs:
   - csharp
   - vb
@@ -133,63 +133,63 @@ items:
     return:
       type: System.Collections.Generic.HashSet{Netick.Simulation.EntityRemove}
     content.vb: Protected _pendingRemovedEntities As HashSet(Of Simulation.EntityRemove)
-- uid: Netick.Simulation._networkStartExecutionList
-  commentId: F:Netick.Simulation._networkStartExecutionList
-  id: _networkStartExecutionList
+- uid: Netick.Simulation._networkStartExecutionListCache
+  commentId: F:Netick.Simulation._networkStartExecutionListCache
+  id: _networkStartExecutionListCache
   parent: Netick.Simulation
   langs:
   - csharp
   - vb
-  name: _networkStartExecutionList
-  nameWithType: Simulation._networkStartExecutionList
-  fullName: Netick.Simulation._networkStartExecutionList
+  name: _networkStartExecutionListCache
+  nameWithType: Simulation._networkStartExecutionListCache
+  fullName: Netick.Simulation._networkStartExecutionListCache
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: protected ExecutionList _networkStartExecutionList
+    content: protected ExecutionList _networkStartExecutionListCache
     return:
       type: Netick.ExecutionList
-    content.vb: Protected _networkStartExecutionList As ExecutionList
-- uid: Netick.Simulation._addedEntities
-  commentId: F:Netick.Simulation._addedEntities
-  id: _addedEntities
+    content.vb: Protected _networkStartExecutionListCache As ExecutionList
+- uid: Netick.Simulation._addedEntitiesCache
+  commentId: F:Netick.Simulation._addedEntitiesCache
+  id: _addedEntitiesCache
   parent: Netick.Simulation
   langs:
   - csharp
   - vb
-  name: _addedEntities
-  nameWithType: Simulation._addedEntities
-  fullName: Netick.Simulation._addedEntities
+  name: _addedEntitiesCache
+  nameWithType: Simulation._addedEntitiesCache
+  fullName: Netick.Simulation._addedEntitiesCache
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: protected List<Entity> _addedEntities
+    content: protected List<Entity> _addedEntitiesCache
     return:
       type: System.Collections.Generic.List{Netick.Entity}
-    content.vb: Protected _addedEntities As List(Of Entity)
-- uid: Netick.Simulation._removedEntitiesList
-  commentId: F:Netick.Simulation._removedEntitiesList
-  id: _removedEntitiesList
+    content.vb: Protected _addedEntitiesCache As List(Of Entity)
+- uid: Netick.Simulation._removedEntitiesListCache
+  commentId: F:Netick.Simulation._removedEntitiesListCache
+  id: _removedEntitiesListCache
   parent: Netick.Simulation
   langs:
   - csharp
   - vb
-  name: _removedEntitiesList
-  nameWithType: Simulation._removedEntitiesList
-  fullName: Netick.Simulation._removedEntitiesList
+  name: _removedEntitiesListCache
+  nameWithType: Simulation._removedEntitiesListCache
+  fullName: Netick.Simulation._removedEntitiesListCache
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: protected List<Simulation.EntityRemove> _removedEntitiesList
+    content: protected List<Simulation.EntityRemove> _removedEntitiesListCache
     return:
       type: System.Collections.Generic.List{Netick.Simulation.EntityRemove}
-    content.vb: Protected _removedEntitiesList As List(Of Simulation.EntityRemove)
+    content.vb: Protected _removedEntitiesListCache As List(Of Simulation.EntityRemove)
 - uid: Netick.Simulation.GetEntityByWorldIndex(System.Int32)
   commentId: M:Netick.Simulation.GetEntityByWorldIndex(System.Int32)
   id: GetEntityByWorldIndex(System.Int32)

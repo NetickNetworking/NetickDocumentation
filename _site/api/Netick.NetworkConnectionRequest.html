@@ -158,10 +158,11 @@ Class NetworkConnectionRequest
 
 
 
-  <h2 class="section" id="fields">Fields
+  <h2 class="section" id="properties">Properties
 </h2>
 
 
+  <a id="Netick_NetworkConnectionRequest_AllowConnection_" data-uid="Netick.NetworkConnectionRequest.AllowConnection*"></a>
 
   <h3 id="Netick_NetworkConnectionRequest_AllowConnection" data-uid="Netick.NetworkConnectionRequest.AllowConnection">
   AllowConnection
@@ -172,13 +173,14 @@ Class NetworkConnectionRequest
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool AllowConnection</code></pre>
+    <pre><code class="lang-csharp hljs">public bool AllowConnection { get; }</code></pre>
   </div>
 
 
 
 
-  <h4 class="section">Field Value</h4>
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
@@ -189,11 +191,6 @@ Class NetworkConnectionRequest
 
 
 
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
 
 
   <a id="Netick_NetworkConnectionRequest_Data_" data-uid="Netick.NetworkConnectionRequest.Data*"></a>
@@ -238,7 +235,7 @@ Class NetworkConnectionRequest
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int DataLength { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int DataLength { get; }</code></pre>
   </div>
 
 
@@ -248,6 +245,37 @@ Class NetworkConnectionRequest
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkConnectionRequest_Engine_" data-uid="Netick.NetworkConnectionRequest.Engine*"></a>
+
+  <h3 id="Netick_NetworkConnectionRequest_Engine" data-uid="Netick.NetworkConnectionRequest.Engine">
+  Engine
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetickEngine Engine { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetickEngine.html">NetickEngine</a></dt>
     <dd></dd>
   </dl>
 
@@ -289,6 +317,37 @@ Class NetworkConnectionRequest
 
 
 
+  <a id="Netick_NetworkConnectionRequest_TransportRequest_" data-uid="Netick.NetworkConnectionRequest.TransportRequest*"></a>
+
+  <h3 id="Netick_NetworkConnectionRequest_TransportRequest" data-uid="Netick.NetworkConnectionRequest.TransportRequest">
+  TransportRequest
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IConnectionRequest TransportRequest { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.IConnectionRequest.html">IConnectionRequest</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -319,10 +378,10 @@ Class NetworkConnectionRequest
 
 
 
-  <a id="Netick_NetworkConnectionRequest_Refuse_" data-uid="Netick.NetworkConnectionRequest.Refuse*"></a>
+  <a id="Netick_NetworkConnectionRequest_Defer_" data-uid="Netick.NetworkConnectionRequest.Defer*"></a>
 
-  <h3 id="Netick_NetworkConnectionRequest_Refuse" data-uid="Netick.NetworkConnectionRequest.Refuse">
-  Refuse()
+  <h3 id="Netick_NetworkConnectionRequest_Defer" data-uid="Netick.NetworkConnectionRequest.Defer">
+  Defer()
   
   </h3>
 
@@ -330,9 +389,73 @@ Class NetworkConnectionRequest
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Refuse()</code></pre>
+    <pre><code class="lang-csharp hljs">public void Defer()</code></pre>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkConnectionRequest_Refuse_" data-uid="Netick.NetworkConnectionRequest.Refuse*"></a>
+
+  <h3 id="Netick_NetworkConnectionRequest_Refuse_System_Byte___System_Int32_" data-uid="Netick.NetworkConnectionRequest.Refuse(System.Byte[],System.Int32)">
+  Refuse(byte[], int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Refuse(byte[] data, int dataLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>dataLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkConnectionRequest_Refuse_" data-uid="Netick.NetworkConnectionRequest.Refuse*"></a>
+
+  <h3 id="Netick_NetworkConnectionRequest_Refuse_System_ReadOnlySpan_System_Byte__" data-uid="Netick.NetworkConnectionRequest.Refuse(System.ReadOnlySpan{System.Byte})">
+  Refuse(ReadOnlySpan&lt;byte&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Refuse(ReadOnlySpan&lt;byte&gt; refusalData = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>refusalData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
 
 
 

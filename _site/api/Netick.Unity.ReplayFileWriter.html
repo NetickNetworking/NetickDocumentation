@@ -164,8 +164,8 @@ Class ReplayFileWriter
 
   <a id="Netick_Unity_ReplayFileWriter__ctor_" data-uid="Netick.Unity.ReplayFileWriter.#ctor*"></a>
 
-  <h3 id="Netick_Unity_ReplayFileWriter__ctor_System_String_" data-uid="Netick.Unity.ReplayFileWriter.#ctor(System.String)">
-  ReplayFileWriter(string)
+  <h3 id="Netick_Unity_ReplayFileWriter__ctor_System_String_System_Boolean_" data-uid="Netick.Unity.ReplayFileWriter.#ctor(System.String,System.Boolean)">
+  ReplayFileWriter(string, bool)
   
   </h3>
 
@@ -173,17 +173,53 @@ Class ReplayFileWriter
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ReplayFileWriter(string replayFilePath)</code></pre>
+    <pre><code class="lang-csharp hljs">public ReplayFileWriter(string replayFilePath, bool compress)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>replayFilePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
+    <dt><code>compress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
   </dl>
 
 
 
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Netick_Unity_ReplayFileWriter_SizeBytes" data-uid="Netick.Unity.ReplayFileWriter.SizeBytes">
+  SizeBytes
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long SizeBytes</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -332,8 +368,8 @@ Class ReplayFileWriter
 
   <a id="Netick_Unity_ReplayFileWriter_Write_" data-uid="Netick.Unity.ReplayFileWriter.Write*"></a>
 
-  <h3 id="Netick_Unity_ReplayFileWriter_Write_System_Void__System_Int32_" data-uid="Netick.Unity.ReplayFileWriter.Write(System.Void*,System.Int32)">
-  Write(void*, int)
+  <h3 id="Netick_Unity_ReplayFileWriter_Write_System_Void__System_Int32_System_Int64_" data-uid="Netick.Unity.ReplayFileWriter.Write(System.Void*,System.Int32,System.Int64)">
+  Write(void*, int, long)
   
   </h3>
 
@@ -341,7 +377,7 @@ Class ReplayFileWriter
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Write(void* srcPtr, int length)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Write(void* srcPtr, int length, long offset = -1)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -349,6 +385,8 @@ Class ReplayFileWriter
     <dt><code>srcPtr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>*</dt>
     <dd></dd>
     <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
     <dd></dd>
   </dl>
 

@@ -293,8 +293,8 @@ Class NetworkPeer
 
   <a id="Netick_NetworkPeer_OnConnectFailed_" data-uid="Netick.NetworkPeer.OnConnectFailed*"></a>
 
-  <h3 id="Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_" data-uid="Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)">
-  OnConnectFailed(ConnectionFailedReason)
+  <h3 id="Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_System_ReadOnlySpan_System_Byte__" data-uid="Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})">
+  OnConnectFailed(ConnectionFailedReason, ReadOnlySpan&lt;byte&gt;)
   
   </h3>
 
@@ -302,12 +302,47 @@ Class NetworkPeer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void OnConnectFailed(ConnectionFailedReason reason)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract void OnConnectFailed(ConnectionFailedReason reason, ReadOnlySpan&lt;byte&gt; refusalData = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>reason</code> <a class="xref" href="Netick.ConnectionFailedReason.html">ConnectionFailedReason</a></dt>
+    <dd></dd>
+    <dt><code>refusalData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetworkPeer_OnConnectRequest_" data-uid="Netick.NetworkPeer.OnConnectRequest*"></a>
+
+  <h3 id="Netick_NetworkPeer_OnConnectRequest_Netick_IConnectionRequest_System_ReadOnlySpan_System_Byte__" data-uid="Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest,System.ReadOnlySpan{System.Byte})">
+  OnConnectRequest(IConnectionRequest, ReadOnlySpan&lt;byte&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnConnectRequest(IConnectionRequest request, ReadOnlySpan&lt;byte&gt; requestData = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>request</code> <a class="xref" href="Netick.IConnectionRequest.html">IConnectionRequest</a></dt>
+    <dd></dd>
+    <dt><code>requestData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -395,8 +430,8 @@ Class NetworkPeer
 
   <a id="Netick_NetworkPeer_OnDisconnected_" data-uid="Netick.NetworkPeer.OnDisconnected*"></a>
 
-  <h3 id="Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_" data-uid="Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)">
-  OnDisconnected(TransportConnection, TransportDisconnectReason)
+  <h3 id="Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_System_ReadOnlySpan_System_Byte__" data-uid="Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})">
+  OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan&lt;byte&gt;)
   
   </h3>
 
@@ -404,7 +439,7 @@ Class NetworkPeer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void OnDisconnected(TransportConnection peer, TransportDisconnectReason transportDisconnectReason)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract void OnDisconnected(TransportConnection peer, TransportDisconnectReason transportDisconnectReason, ReadOnlySpan&lt;byte&gt; kickData = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -412,6 +447,8 @@ Class NetworkPeer
     <dt><code>peer</code> <a class="xref" href="Netick.TransportConnection.html">TransportConnection</a></dt>
     <dd></dd>
     <dt><code>transportDisconnectReason</code> <a class="xref" href="Netick.TransportDisconnectReason.html">TransportDisconnectReason</a></dt>
+    <dd></dd>
+    <dt><code>kickData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
     <dd></dd>
   </dl>
 

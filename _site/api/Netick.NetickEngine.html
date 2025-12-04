@@ -224,96 +224,6 @@ Class NetickEngine
 
 
 
-  <h3 id="Netick_NetickEngine_IsLagCompensationDebugEnabled" data-uid="Netick.NetickEngine.IsLagCompensationDebugEnabled">
-  IsLagCompensationDebugEnabled
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsLagCompensationDebugEnabled</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Netick_NetickEngine_IsLoggingEnabled" data-uid="Netick.NetickEngine.IsLoggingEnabled">
-  IsLoggingEnabled
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsLoggingEnabled</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Netick_NetickEngine_IsProfilingEnabled" data-uid="Netick.NetickEngine.IsProfilingEnabled">
-  IsProfilingEnabled
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsProfilingEnabled</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <h3 id="Netick_NetickEngine_SimulatedLossIn" data-uid="Netick.NetickEngine.SimulatedLossIn">
   SimulatedLossIn
   
@@ -763,7 +673,7 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Incoming data in kilobytes per second (KBps).</p>
+  <div class="markdown level1 summary"><p>Average incoming data in kilobytes per second (KBps).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1667,7 +1577,7 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Outgoing data in kilobytes per second (KBps).</p>
+  <div class="markdown level1 summary"><p>Average outgoing data in kilobytes per second (KBps).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2902,6 +2812,42 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
 
 
+  <a id="Netick_NetickEngine_FindPlayerByEndPoint_" data-uid="Netick.NetickEngine.FindPlayerByEndPoint*"></a>
+
+  <h3 id="Netick_NetickEngine_FindPlayerByEndPoint_Netick_IEndPoint_" data-uid="Netick.NetickEngine.FindPlayerByEndPoint(Netick.IEndPoint)">
+  FindPlayerByEndPoint(IEndPoint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkPlayer FindPlayerByEndPoint(IEndPoint endPoint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>endPoint</code> <a class="xref" href="Netick.IEndPoint.html">IEndPoint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_NetickEngine_GetBehaviourOrder_" data-uid="Netick.NetickEngine.GetBehaviourOrder*"></a>
 
   <h3 id="Netick_NetickEngine_GetBehaviourOrder_System_Type_" data-uid="Netick.NetickEngine.GetBehaviourOrder(System.Type)">
@@ -3183,8 +3129,8 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
   <a id="Netick_NetickEngine_Kick_" data-uid="Netick.NetickEngine.Kick*"></a>
 
-  <h3 id="Netick_NetickEngine_Kick_Netick_ServerConnection_" data-uid="Netick.NetickEngine.Kick(Netick.ServerConnection)">
-  Kick(ServerConnection)
+  <h3 id="Netick_NetickEngine_Kick_Netick_ServerConnection_System_ReadOnlySpan_System_Byte__" data-uid="Netick.NetickEngine.Kick(Netick.ServerConnection,System.ReadOnlySpan{System.Byte})">
+  Kick(ServerConnection, ReadOnlySpan&lt;byte&gt;)
   
   </h3>
 
@@ -3192,12 +3138,14 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Kick(ServerConnection connection)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Kick(ServerConnection connection, ReadOnlySpan&lt;byte&gt; kickData = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>connection</code> <a class="xref" href="Netick.ServerConnection.html">ServerConnection</a></dt>
+    <dd></dd>
+    <dt><code>kickData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -3364,8 +3312,8 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
   <a id="Netick_NetickEngine_Start_" data-uid="Netick.NetickEngine.Start*"></a>
 
-  <h3 id="Netick_NetickEngine_Start_System_Object_System_String_System_Int32_Netick_NetickStartMode_Netick_IGameEngine_Netick_IReplayTransport_Netick_NetickConfigData_Netick_NetworkTransport_Netick_ReflectionData_Netick_INetickLogger_Netick_IMemoryAllocator_Netick_MismatchChecker_System_Int32_System_Int32_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_" data-uid="Netick.NetickEngine.Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.IReplayTransport,Netick.NetickConfigData,Netick.NetworkTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,Netick.MismatchChecker,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
-  Start(object, string, int, NetickStartMode, IGameEngine, IReplayTransport, NetickConfigData, NetworkTransport, ReflectionData, INetickLogger, IMemoryAllocator, MismatchChecker, int, int, bool, bool, bool, bool, bool)
+  <h3 id="Netick_NetickEngine_Start_System_Object_System_String_System_Int32_Netick_NetickStartMode_Netick_IGameEngine_Netick_NetickConfigData_Netick_NetworkTransport_Netick_IReplayTransport_Netick_ReflectionData_Netick_INetickLogger_Netick_IMemoryAllocator_Netick_MismatchChecker_System_Int32_System_Int32_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_" data-uid="Netick.NetickEngine.Start(System.Object,System.String,System.Int32,Netick.NetickStartMode,Netick.IGameEngine,Netick.NetickConfigData,Netick.NetworkTransport,Netick.IReplayTransport,Netick.ReflectionData,Netick.INetickLogger,Netick.IMemoryAllocator,Netick.MismatchChecker,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+  Start(object, string, int, NetickStartMode, IGameEngine, NetickConfigData, NetworkTransport, IReplayTransport, ReflectionData, INetickLogger, IMemoryAllocator, MismatchChecker, int, int, bool, bool, bool, bool, bool)
   
   </h3>
 
@@ -3373,7 +3321,7 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Start(object userObject, string name, int serverPort, NetickStartMode startMode, IGameEngine gameEngine, IReplayTransport replayBackend, NetickConfigData config, NetworkTransport transport, ReflectionData reflectionData, INetickLogger logger, IMemoryAllocator allocator, MismatchChecker mismatchChecker, int gameVersion, int numberOfThreads, bool aggressivePreAllocation, bool fastSerialization, bool isArm32Bit, bool isProfilingEnabled, bool isLoggingEnabled)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Start(object userObject, string name, int serverPort, NetickStartMode startMode, IGameEngine gameEngine, NetickConfigData config, NetworkTransport networkTransport, IReplayTransport replayTransport, ReflectionData reflectionData, INetickLogger logger, IMemoryAllocator allocator, MismatchChecker mismatchChecker, int gameVersion, int numberOfThreads, bool aggressivePreAllocation, bool fastSerialization, bool isArm32Bit, bool isProfilingEnabled, bool isLoggingEnabled)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3388,11 +3336,11 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
     <dd></dd>
     <dt><code>gameEngine</code> <a class="xref" href="Netick.IGameEngine.html">IGameEngine</a></dt>
     <dd></dd>
-    <dt><code>replayBackend</code> <a class="xref" href="Netick.IReplayTransport.html">IReplayTransport</a></dt>
-    <dd></dd>
     <dt><code>config</code> <a class="xref" href="Netick.NetickConfigData.html">NetickConfigData</a></dt>
     <dd></dd>
-    <dt><code>transport</code> <a class="xref" href="Netick.NetworkTransport.html">NetworkTransport</a></dt>
+    <dt><code>networkTransport</code> <a class="xref" href="Netick.NetworkTransport.html">NetworkTransport</a></dt>
+    <dd></dd>
+    <dt><code>replayTransport</code> <a class="xref" href="Netick.IReplayTransport.html">IReplayTransport</a></dt>
     <dd></dd>
     <dt><code>reflectionData</code> <a class="xref" href="Netick.ReflectionData.html">ReflectionData</a></dt>
     <dd></dd>
@@ -3429,10 +3377,10 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
 
 
-  <a id="Netick_NetickEngine_StartPlayback_" data-uid="Netick.NetickEngine.StartPlayback*"></a>
+  <a id="Netick_NetickEngine_StartReplayPlayback_" data-uid="Netick.NetickEngine.StartReplayPlayback*"></a>
 
-  <h3 id="Netick_NetickEngine_StartPlayback_System_String_" data-uid="Netick.NetickEngine.StartPlayback(System.String)">
-  StartPlayback(string)
+  <h3 id="Netick_NetickEngine_StartReplayPlayback_System_String_" data-uid="Netick.NetickEngine.StartReplayPlayback(System.String)">
+  StartReplayPlayback(string)
   
   </h3>
 
@@ -3440,7 +3388,7 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void StartPlayback(string replayAddress)</code></pre>
+    <pre><code class="lang-csharp hljs">public void StartReplayPlayback(string replayAddress)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -3460,10 +3408,10 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
 
 
-  <a id="Netick_NetickEngine_StartRecordingReplay_" data-uid="Netick.NetickEngine.StartRecordingReplay*"></a>
+  <a id="Netick_NetickEngine_StartReplayRecording_" data-uid="Netick.NetickEngine.StartReplayRecording*"></a>
 
-  <h3 id="Netick_NetickEngine_StartRecordingReplay_System_String_" data-uid="Netick.NetickEngine.StartRecordingReplay(System.String)">
-  StartRecordingReplay(string)
+  <h3 id="Netick_NetickEngine_StartReplayRecording_System_String_" data-uid="Netick.NetickEngine.StartReplayRecording(System.String)">
+  StartReplayRecording(string)
   
   </h3>
 
@@ -3471,7 +3419,7 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void StartRecordingReplay(string replayAddress)</code></pre>
+    <pre><code class="lang-csharp hljs">public void StartReplayRecording(string replayAddress)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>

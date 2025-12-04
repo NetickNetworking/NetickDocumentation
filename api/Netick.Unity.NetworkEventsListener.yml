@@ -503,28 +503,14 @@ items:
   summary: Called on the server when a specific client has connected.
   example: []
   syntax:
-    content: >-
-      [Obsolete("This method will be removed. Use OnPlayerJoined instead.")]
-
-      public virtual void OnClientConnected(NetworkSandbox sandbox, NetworkConnection client)
+    content: public virtual void OnClientConnected(NetworkSandbox sandbox, NetworkConnection client)
     parameters:
     - id: sandbox
       type: Netick.Unity.NetworkSandbox
-      description: ''
     - id: client
       type: Netick.NetworkConnection
-      description: ''
-    content.vb: >-
-      <Obsolete("This method will be removed. Use OnPlayerJoined instead.")>
-
-      Public Overridable Sub OnClientConnected(sandbox As NetworkSandbox, client As NetworkConnection)
+    content.vb: Public Overridable Sub OnClientConnected(sandbox As NetworkSandbox, client As NetworkConnection)
   overload: Netick.Unity.NetworkEventsListener.OnClientConnected*
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: This method will be removed. Use OnPlayerJoined instead.
 - uid: Netick.Unity.NetworkEventsListener.OnClientDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
   commentId: M:Netick.Unity.NetworkEventsListener.OnClientDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
   id: OnClientDisconnected(Netick.Unity.NetworkSandbox,Netick.NetworkConnection,Netick.TransportDisconnectReason)
@@ -542,30 +528,16 @@ items:
   summary: Called on the server when a specific client has disconnected.
   example: []
   syntax:
-    content: >-
-      [Obsolete("This method will be removed. Use OnPlayerLeft instead.")]
-
-      public virtual void OnClientDisconnected(NetworkSandbox sandbox, NetworkConnection client, TransportDisconnectReason transportDisconnectReason)
+    content: public virtual void OnClientDisconnected(NetworkSandbox sandbox, NetworkConnection client, TransportDisconnectReason transportDisconnectReason)
     parameters:
     - id: sandbox
       type: Netick.Unity.NetworkSandbox
-      description: ''
     - id: client
       type: Netick.NetworkConnection
-      description: ''
     - id: transportDisconnectReason
       type: Netick.TransportDisconnectReason
-    content.vb: >-
-      <Obsolete("This method will be removed. Use OnPlayerLeft instead.")>
-
-      Public Overridable Sub OnClientDisconnected(sandbox As NetworkSandbox, client As NetworkConnection, transportDisconnectReason As TransportDisconnectReason)
+    content.vb: Public Overridable Sub OnClientDisconnected(sandbox As NetworkSandbox, client As NetworkConnection, transportDisconnectReason As TransportDisconnectReason)
   overload: Netick.Unity.NetworkEventsListener.OnClientDisconnected*
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String)
-    arguments:
-    - type: System.String
-      value: This method will be removed. Use OnPlayerLeft instead.
 - uid: Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)
   commentId: M:Netick.Unity.NetworkEventsListener.OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)
   id: OnPlayerConnected(Netick.Unity.NetworkSandbox,Netick.NetworkPlayer)

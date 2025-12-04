@@ -1,0 +1,796 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Replay.ReplaySnapshot
+  commentId: T:Netick.Replay.ReplaySnapshot
+  id: Replay.ReplaySnapshot
+  parent: Netick
+  children:
+  - Netick.Replay.ReplaySnapshot.AddAllocator(Netick.NetickAllocator)
+  - Netick.Replay.ReplaySnapshot.AddData(System.Int32*,System.Int64)
+  - Netick.Replay.ReplaySnapshot.AddEntity(Netick.Entity)
+  - Netick.Replay.ReplaySnapshot.AddInt(System.Int32)
+  - Netick.Replay.ReplaySnapshot.Allocate(System.Int32)
+  - Netick.Replay.ReplaySnapshot.BufferSizeBytes
+  - Netick.Replay.ReplaySnapshot.BufferSizeWords
+  - Netick.Replay.ReplaySnapshot.Clear
+  - Netick.Replay.ReplaySnapshot.CopyTo(Netick.Replay.ReplaySnapshot@)
+  - Netick.Replay.ReplaySnapshot.CountWords
+  - Netick.Replay.ReplaySnapshot.FrameId
+  - Netick.Replay.ReplaySnapshot.Free
+  - Netick.Replay.ReplaySnapshot.InsertInt(System.Int32,System.Int32)
+  - Netick.Replay.ReplaySnapshot.Position
+  - Netick.Replay.ReplaySnapshot.Ptr
+  - Netick.Replay.ReplaySnapshot.ResizeIfRequired(System.Int64,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: Replay.ReplaySnapshot
+  nameWithType: Replay.ReplaySnapshot
+  fullName: Netick.Replay.ReplaySnapshot
+  type: Struct
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public struct Replay.ReplaySnapshot
+    content.vb: Public Structure Replay.ReplaySnapshot
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Netick.Replay.ReplaySnapshot.Ptr
+  commentId: F:Netick.Replay.ReplaySnapshot.Ptr
+  id: Ptr
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: Ptr
+  nameWithType: Replay.ReplaySnapshot.Ptr
+  fullName: Netick.Replay.ReplaySnapshot.Ptr
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int* Ptr
+    return:
+      type: System.Int32*
+    content.vb: Public Ptr As Integer*
+- uid: Netick.Replay.ReplaySnapshot.FrameId
+  commentId: F:Netick.Replay.ReplaySnapshot.FrameId
+  id: FrameId
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: FrameId
+  nameWithType: Replay.ReplaySnapshot.FrameId
+  fullName: Netick.Replay.ReplaySnapshot.FrameId
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int FrameId
+    return:
+      type: System.Int32
+    content.vb: Public FrameId As Integer
+- uid: Netick.Replay.ReplaySnapshot.Position
+  commentId: F:Netick.Replay.ReplaySnapshot.Position
+  id: Position
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: Replay.ReplaySnapshot.Position
+  fullName: Netick.Replay.ReplaySnapshot.Position
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int Position
+    return:
+      type: System.Int32
+    content.vb: Public Position As Integer
+- uid: Netick.Replay.ReplaySnapshot.BufferSizeWords
+  commentId: F:Netick.Replay.ReplaySnapshot.BufferSizeWords
+  id: BufferSizeWords
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: BufferSizeWords
+  nameWithType: Replay.ReplaySnapshot.BufferSizeWords
+  fullName: Netick.Replay.ReplaySnapshot.BufferSizeWords
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public long BufferSizeWords
+    return:
+      type: System.Int64
+    content.vb: Public BufferSizeWords As Long
+- uid: Netick.Replay.ReplaySnapshot.Allocate(System.Int32)
+  commentId: M:Netick.Replay.ReplaySnapshot.Allocate(System.Int32)
+  id: Allocate(System.Int32)
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: Allocate(int)
+  nameWithType: Replay.ReplaySnapshot.Allocate(int)
+  fullName: Netick.Replay.ReplaySnapshot.Allocate(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Allocate(int sizeBytes)
+    parameters:
+    - id: sizeBytes
+      type: System.Int32
+    content.vb: Public Sub Allocate(sizeBytes As Integer)
+  overload: Netick.Replay.ReplaySnapshot.Allocate*
+  nameWithType.vb: Replay.ReplaySnapshot.Allocate(Integer)
+  fullName.vb: Netick.Replay.ReplaySnapshot.Allocate(Integer)
+  name.vb: Allocate(Integer)
+- uid: Netick.Replay.ReplaySnapshot.Free
+  commentId: M:Netick.Replay.ReplaySnapshot.Free
+  id: Free
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: Free()
+  nameWithType: Replay.ReplaySnapshot.Free()
+  fullName: Netick.Replay.ReplaySnapshot.Free()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Free()
+    content.vb: Public Sub Free()
+  overload: Netick.Replay.ReplaySnapshot.Free*
+- uid: Netick.Replay.ReplaySnapshot.ResizeIfRequired(System.Int64,System.Boolean)
+  commentId: M:Netick.Replay.ReplaySnapshot.ResizeIfRequired(System.Int64,System.Boolean)
+  id: ResizeIfRequired(System.Int64,System.Boolean)
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: ResizeIfRequired(long, bool)
+  nameWithType: Replay.ReplaySnapshot.ResizeIfRequired(long, bool)
+  fullName: Netick.Replay.ReplaySnapshot.ResizeIfRequired(long, bool)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void ResizeIfRequired(long sizeWordsToWrite, bool copyFromPrevious)
+    parameters:
+    - id: sizeWordsToWrite
+      type: System.Int64
+    - id: copyFromPrevious
+      type: System.Boolean
+    content.vb: Public Sub ResizeIfRequired(sizeWordsToWrite As Long, copyFromPrevious As Boolean)
+  overload: Netick.Replay.ReplaySnapshot.ResizeIfRequired*
+  nameWithType.vb: Replay.ReplaySnapshot.ResizeIfRequired(Long, Boolean)
+  fullName.vb: Netick.Replay.ReplaySnapshot.ResizeIfRequired(Long, Boolean)
+  name.vb: ResizeIfRequired(Long, Boolean)
+- uid: Netick.Replay.ReplaySnapshot.CopyTo(Netick.Replay.ReplaySnapshot@)
+  commentId: M:Netick.Replay.ReplaySnapshot.CopyTo(Netick.Replay.ReplaySnapshot@)
+  id: CopyTo(Netick.Replay.ReplaySnapshot@)
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(ref ReplaySnapshot)
+  nameWithType: Replay.ReplaySnapshot.CopyTo(ref Replay.ReplaySnapshot)
+  fullName: Netick.Replay.ReplaySnapshot.CopyTo(ref Netick.Replay.ReplaySnapshot)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void CopyTo(ref Replay.ReplaySnapshot buffer)
+    parameters:
+    - id: buffer
+      type: Netick.Replay.ReplaySnapshot
+    content.vb: Public Sub CopyTo(buffer As Replay.ReplaySnapshot)
+  overload: Netick.Replay.ReplaySnapshot.CopyTo*
+  nameWithType.vb: Replay.ReplaySnapshot.CopyTo(Replay.ReplaySnapshot)
+  fullName.vb: Netick.Replay.ReplaySnapshot.CopyTo(Netick.Replay.ReplaySnapshot)
+  name.vb: CopyTo(ReplaySnapshot)
+- uid: Netick.Replay.ReplaySnapshot.Clear
+  commentId: M:Netick.Replay.ReplaySnapshot.Clear
+  id: Clear
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: Replay.ReplaySnapshot.Clear()
+  fullName: Netick.Replay.ReplaySnapshot.Clear()
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: Netick.Replay.ReplaySnapshot.Clear*
+- uid: Netick.Replay.ReplaySnapshot.AddInt(System.Int32)
+  commentId: M:Netick.Replay.ReplaySnapshot.AddInt(System.Int32)
+  id: AddInt(System.Int32)
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: AddInt(int)
+  nameWithType: Replay.ReplaySnapshot.AddInt(int)
+  fullName: Netick.Replay.ReplaySnapshot.AddInt(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AddInt(int value)
+    parameters:
+    - id: value
+      type: System.Int32
+    content.vb: Public Sub AddInt(value As Integer)
+  overload: Netick.Replay.ReplaySnapshot.AddInt*
+  nameWithType.vb: Replay.ReplaySnapshot.AddInt(Integer)
+  fullName.vb: Netick.Replay.ReplaySnapshot.AddInt(Integer)
+  name.vb: AddInt(Integer)
+- uid: Netick.Replay.ReplaySnapshot.InsertInt(System.Int32,System.Int32)
+  commentId: M:Netick.Replay.ReplaySnapshot.InsertInt(System.Int32,System.Int32)
+  id: InsertInt(System.Int32,System.Int32)
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: InsertInt(int, int)
+  nameWithType: Replay.ReplaySnapshot.InsertInt(int, int)
+  fullName: Netick.Replay.ReplaySnapshot.InsertInt(int, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void InsertInt(int value, int offset)
+    parameters:
+    - id: value
+      type: System.Int32
+    - id: offset
+      type: System.Int32
+    content.vb: Public Sub InsertInt(value As Integer, offset As Integer)
+  overload: Netick.Replay.ReplaySnapshot.InsertInt*
+  nameWithType.vb: Replay.ReplaySnapshot.InsertInt(Integer, Integer)
+  fullName.vb: Netick.Replay.ReplaySnapshot.InsertInt(Integer, Integer)
+  name.vb: InsertInt(Integer, Integer)
+- uid: Netick.Replay.ReplaySnapshot.AddData(System.Int32*,System.Int64)
+  commentId: M:Netick.Replay.ReplaySnapshot.AddData(System.Int32*,System.Int64)
+  id: AddData(System.Int32*,System.Int64)
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: AddData(int*, long)
+  nameWithType: Replay.ReplaySnapshot.AddData(int*, long)
+  fullName: Netick.Replay.ReplaySnapshot.AddData(int*, long)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AddData(int* data, long sizeWords)
+    parameters:
+    - id: data
+      type: System.Int32*
+    - id: sizeWords
+      type: System.Int64
+    content.vb: Public Sub AddData(data As Integer*, sizeWords As Long)
+  overload: Netick.Replay.ReplaySnapshot.AddData*
+  nameWithType.vb: Replay.ReplaySnapshot.AddData(Integer*, Long)
+  fullName.vb: Netick.Replay.ReplaySnapshot.AddData(Integer*, Long)
+  name.vb: AddData(Integer*, Long)
+- uid: Netick.Replay.ReplaySnapshot.AddEntity(Netick.Entity)
+  commentId: M:Netick.Replay.ReplaySnapshot.AddEntity(Netick.Entity)
+  id: AddEntity(Netick.Entity)
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: AddEntity(Entity)
+  nameWithType: Replay.ReplaySnapshot.AddEntity(Entity)
+  fullName: Netick.Replay.ReplaySnapshot.AddEntity(Netick.Entity)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AddEntity(Entity entity)
+    parameters:
+    - id: entity
+      type: Netick.Entity
+    content.vb: Public Sub AddEntity(entity As Entity)
+  overload: Netick.Replay.ReplaySnapshot.AddEntity*
+- uid: Netick.Replay.ReplaySnapshot.AddAllocator(Netick.NetickAllocator)
+  commentId: M:Netick.Replay.ReplaySnapshot.AddAllocator(Netick.NetickAllocator)
+  id: AddAllocator(Netick.NetickAllocator)
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: AddAllocator(NetickAllocator)
+  nameWithType: Replay.ReplaySnapshot.AddAllocator(NetickAllocator)
+  fullName: Netick.Replay.ReplaySnapshot.AddAllocator(Netick.NetickAllocator)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void AddAllocator(NetickAllocator netickAllocator)
+    parameters:
+    - id: netickAllocator
+      type: Netick.NetickAllocator
+    content.vb: Public Sub AddAllocator(netickAllocator As NetickAllocator)
+  overload: Netick.Replay.ReplaySnapshot.AddAllocator*
+- uid: Netick.Replay.ReplaySnapshot.CountWords
+  commentId: P:Netick.Replay.ReplaySnapshot.CountWords
+  id: CountWords
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: CountWords
+  nameWithType: Replay.ReplaySnapshot.CountWords
+  fullName: Netick.Replay.ReplaySnapshot.CountWords
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int CountWords { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property CountWords As Integer
+  overload: Netick.Replay.ReplaySnapshot.CountWords*
+- uid: Netick.Replay.ReplaySnapshot.BufferSizeBytes
+  commentId: P:Netick.Replay.ReplaySnapshot.BufferSizeBytes
+  id: BufferSizeBytes
+  parent: Netick.Replay.ReplaySnapshot
+  langs:
+  - csharp
+  - vb
+  name: BufferSizeBytes
+  nameWithType: Replay.ReplaySnapshot.BufferSizeBytes
+  fullName: Netick.Replay.ReplaySnapshot.BufferSizeBytes
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public long BufferSizeBytes { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property BufferSizeBytes As Long
+  overload: Netick.Replay.ReplaySnapshot.BufferSizeBytes*
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int*
+  nameWithType: int*
+  fullName: int*
+  nameWithType.vb: Integer*
+  fullName.vb: Integer*
+  name.vb: Integer*
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '*'
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Netick.Replay.ReplaySnapshot.Allocate*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.Allocate
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_Allocate_System_Int32_
+  name: Allocate
+  nameWithType: Replay.ReplaySnapshot.Allocate
+  fullName: Netick.Replay.ReplaySnapshot.Allocate
+- uid: Netick.Replay.ReplaySnapshot.Free*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.Free
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_Free
+  name: Free
+  nameWithType: Replay.ReplaySnapshot.Free
+  fullName: Netick.Replay.ReplaySnapshot.Free
+- uid: Netick.Replay.ReplaySnapshot.ResizeIfRequired*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.ResizeIfRequired
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_ResizeIfRequired_System_Int64_System_Boolean_
+  name: ResizeIfRequired
+  nameWithType: Replay.ReplaySnapshot.ResizeIfRequired
+  fullName: Netick.Replay.ReplaySnapshot.ResizeIfRequired
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Netick.Replay.ReplaySnapshot.CopyTo*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.CopyTo
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_CopyTo_Netick_Replay_ReplaySnapshot__
+  name: CopyTo
+  nameWithType: Replay.ReplaySnapshot.CopyTo
+  fullName: Netick.Replay.ReplaySnapshot.CopyTo
+- uid: Netick.Replay.ReplaySnapshot
+  commentId: T:Netick.Replay.ReplaySnapshot
+  parent: Netick
+  isExternal: true
+  href: Netick.Replay.html
+  name: Replay.ReplaySnapshot
+  nameWithType: Replay.ReplaySnapshot
+  fullName: Netick.Replay.ReplaySnapshot
+  spec.csharp:
+  - uid: Netick.Replay
+    name: Replay
+    isExternal: true
+    href: Netick.Replay.html
+  - name: .
+  - uid: Netick.Replay.ReplaySnapshot
+    name: ReplaySnapshot
+    isExternal: true
+    href: Netick.Replay.ReplaySnapshot.html
+  spec.vb:
+  - uid: Netick.Replay
+    name: Replay
+    isExternal: true
+    href: Netick.Replay.html
+  - name: .
+  - uid: Netick.Replay.ReplaySnapshot
+    name: ReplaySnapshot
+    isExternal: true
+    href: Netick.Replay.ReplaySnapshot.html
+- uid: Netick.Replay.ReplaySnapshot.Clear*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.Clear
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_Clear
+  name: Clear
+  nameWithType: Replay.ReplaySnapshot.Clear
+  fullName: Netick.Replay.ReplaySnapshot.Clear
+- uid: Netick.Replay.ReplaySnapshot.AddInt*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.AddInt
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_AddInt_System_Int32_
+  name: AddInt
+  nameWithType: Replay.ReplaySnapshot.AddInt
+  fullName: Netick.Replay.ReplaySnapshot.AddInt
+- uid: Netick.Replay.ReplaySnapshot.InsertInt*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.InsertInt
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_InsertInt_System_Int32_System_Int32_
+  name: InsertInt
+  nameWithType: Replay.ReplaySnapshot.InsertInt
+  fullName: Netick.Replay.ReplaySnapshot.InsertInt
+- uid: Netick.Replay.ReplaySnapshot.AddData*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.AddData
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_AddData_System_Int32__System_Int64_
+  name: AddData
+  nameWithType: Replay.ReplaySnapshot.AddData
+  fullName: Netick.Replay.ReplaySnapshot.AddData
+- uid: Netick.Replay.ReplaySnapshot.AddEntity*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.AddEntity
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_AddEntity_Netick_Entity_
+  name: AddEntity
+  nameWithType: Replay.ReplaySnapshot.AddEntity
+  fullName: Netick.Replay.ReplaySnapshot.AddEntity
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
+- uid: Netick.Replay.ReplaySnapshot.AddAllocator*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.AddAllocator
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_AddAllocator_Netick_NetickAllocator_
+  name: AddAllocator
+  nameWithType: Replay.ReplaySnapshot.AddAllocator
+  fullName: Netick.Replay.ReplaySnapshot.AddAllocator
+- uid: Netick.NetickAllocator
+  commentId: T:Netick.NetickAllocator
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickAllocator.html
+  name: NetickAllocator
+  nameWithType: NetickAllocator
+  fullName: Netick.NetickAllocator
+- uid: Netick.Replay.ReplaySnapshot.CountWords*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.CountWords
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_CountWords
+  name: CountWords
+  nameWithType: Replay.ReplaySnapshot.CountWords
+  fullName: Netick.Replay.ReplaySnapshot.CountWords
+- uid: Netick.Replay.ReplaySnapshot.BufferSizeBytes*
+  commentId: Overload:Netick.Replay.ReplaySnapshot.BufferSizeBytes
+  isExternal: true
+  href: Netick.Replay.ReplaySnapshot.html#Netick_Replay_ReplaySnapshot_BufferSizeBytes
+  name: BufferSizeBytes
+  nameWithType: Replay.ReplaySnapshot.BufferSizeBytes
+  fullName: Netick.Replay.ReplaySnapshot.BufferSizeBytes

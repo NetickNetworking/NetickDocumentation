@@ -163,11 +163,50 @@ Struct OnChangedData
   </h3>
 
   <div class="markdown level1 summary"><p>Returns true if this OnChanged callback is due to a mismatch between the state of this variable before rollback, and the state after rollback and resimulation.</p>
+<p>This flag always returns false on the server.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool InvokedForMisprediction { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_OnChangedData_IsCatchingUp_" data-uid="Netick.OnChangedData.IsCatchingUp*"></a>
+
+  <h3 id="Netick_OnChangedData_IsCatchingUp" data-uid="Netick.OnChangedData.IsCatchingUp">
+  IsCatchingUp
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns true during the server-authoritative tick in which this client is catching up on an
+already-existing object — either because the client has just late-joined,
+or because it has just gained/regained interest in this object.</p>
+<p>This flag is only set for existing objects; it is not set for objects (ones that the client has interest in at spawn time) spawned after the client has joined. 
+It is true only during the "catching up" tick in which the object becomes relevant, 
+and false afterward.</p>
+<p>This flag always returns false on the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsCatchingUp { get; }</code></pre>
   </div>
 
 

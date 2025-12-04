@@ -6,10 +6,11 @@ items:
   parent: Netick
   children:
   - Netick.NetworkPeer.InKBps
-  - Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+  - Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
+  - Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest,System.ReadOnlySpan{System.Byte})
   - Netick.NetworkPeer.OnConnectRequest(System.Byte[],System.Int32,Netick.IEndPoint)
   - Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
-  - Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+  - Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
   - Netick.NetworkPeer.OutKBps
   - Netick.NetworkPeer.Receive(Netick.TransportConnection,Netick.BitBuffer,Netick.TransportDeliveryMethod)
   - Netick.NetworkPeer.Transport
@@ -120,27 +121,58 @@ items:
   nameWithType.vb: NetworkPeer.OnConnectRequest(Byte(), Integer, IEndPoint)
   fullName.vb: Netick.NetworkPeer.OnConnectRequest(Byte(), Integer, Netick.IEndPoint)
   name.vb: OnConnectRequest(Byte(), Integer, IEndPoint)
-- uid: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
-  commentId: M:Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
-  id: OnConnectFailed(Netick.ConnectionFailedReason)
+- uid: Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest,System.ReadOnlySpan{System.Byte})
+  id: OnConnectRequest(Netick.IConnectionRequest,System.ReadOnlySpan{System.Byte})
   parent: Netick.NetworkPeer
   langs:
   - csharp
   - vb
-  name: OnConnectFailed(ConnectionFailedReason)
-  nameWithType: NetworkPeer.OnConnectFailed(ConnectionFailedReason)
-  fullName: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason)
+  name: OnConnectRequest(IConnectionRequest, ReadOnlySpan<byte>)
+  nameWithType: NetworkPeer.OnConnectRequest(IConnectionRequest, ReadOnlySpan<byte>)
+  fullName: Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest, System.ReadOnlySpan<byte>)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public abstract void OnConnectFailed(ConnectionFailedReason reason)
+    content: public virtual void OnConnectRequest(IConnectionRequest request, ReadOnlySpan<byte> requestData = default)
+    parameters:
+    - id: request
+      type: Netick.IConnectionRequest
+    - id: requestData
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public Overridable Sub OnConnectRequest(request As IConnectionRequest, requestData As ReadOnlySpan(Of Byte) = Nothing)
+  overload: Netick.NetworkPeer.OnConnectRequest*
+  nameWithType.vb: NetworkPeer.OnConnectRequest(IConnectionRequest, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.NetworkPeer.OnConnectRequest(Netick.IConnectionRequest, System.ReadOnlySpan(Of Byte))
+  name.vb: OnConnectRequest(IConnectionRequest, ReadOnlySpan(Of Byte))
+- uid: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
+  id: OnConnectFailed(Netick.ConnectionFailedReason,System.ReadOnlySpan{System.Byte})
+  parent: Netick.NetworkPeer
+  langs:
+  - csharp
+  - vb
+  name: OnConnectFailed(ConnectionFailedReason, ReadOnlySpan<byte>)
+  nameWithType: NetworkPeer.OnConnectFailed(ConnectionFailedReason, ReadOnlySpan<byte>)
+  fullName: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason, System.ReadOnlySpan<byte>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public abstract void OnConnectFailed(ConnectionFailedReason reason, ReadOnlySpan<byte> refusalData = default)
     parameters:
     - id: reason
       type: Netick.ConnectionFailedReason
-    content.vb: Public MustOverride Sub OnConnectFailed(reason As ConnectionFailedReason)
+    - id: refusalData
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public MustOverride Sub OnConnectFailed(reason As ConnectionFailedReason, refusalData As ReadOnlySpan(Of Byte) = Nothing)
   overload: Netick.NetworkPeer.OnConnectFailed*
+  nameWithType.vb: NetworkPeer.OnConnectFailed(ConnectionFailedReason, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.NetworkPeer.OnConnectFailed(Netick.ConnectionFailedReason, System.ReadOnlySpan(Of Byte))
+  name.vb: OnConnectFailed(ConnectionFailedReason, ReadOnlySpan(Of Byte))
 - uid: Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
   commentId: M:Netick.NetworkPeer.OnConnected(Netick.TransportConnection)
   id: OnConnected(Netick.TransportConnection)
@@ -162,29 +194,34 @@ items:
       type: Netick.TransportConnection
     content.vb: Public MustOverride Sub OnConnected(peer As TransportConnection)
   overload: Netick.NetworkPeer.OnConnected*
-- uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
-  commentId: M:Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
-  id: OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason)
+- uid: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
+  commentId: M:Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
+  id: OnDisconnected(Netick.TransportConnection,Netick.TransportDisconnectReason,System.ReadOnlySpan{System.Byte})
   parent: Netick.NetworkPeer
   langs:
   - csharp
   - vb
-  name: OnDisconnected(TransportConnection, TransportDisconnectReason)
-  nameWithType: NetworkPeer.OnDisconnected(TransportConnection, TransportDisconnectReason)
-  fullName: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason)
+  name: OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan<byte>)
+  nameWithType: NetworkPeer.OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan<byte>)
+  fullName: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason, System.ReadOnlySpan<byte>)
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public abstract void OnDisconnected(TransportConnection peer, TransportDisconnectReason transportDisconnectReason)
+    content: public abstract void OnDisconnected(TransportConnection peer, TransportDisconnectReason transportDisconnectReason, ReadOnlySpan<byte> kickData = default)
     parameters:
     - id: peer
       type: Netick.TransportConnection
     - id: transportDisconnectReason
       type: Netick.TransportDisconnectReason
-    content.vb: Public MustOverride Sub OnDisconnected(peer As TransportConnection, transportDisconnectReason As TransportDisconnectReason)
+    - id: kickData
+      type: System.ReadOnlySpan{System.Byte}
+    content.vb: Public MustOverride Sub OnDisconnected(peer As TransportConnection, transportDisconnectReason As TransportDisconnectReason, kickData As ReadOnlySpan(Of Byte) = Nothing)
   overload: Netick.NetworkPeer.OnDisconnected*
+  nameWithType.vb: NetworkPeer.OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan(Of Byte))
+  fullName.vb: Netick.NetworkPeer.OnDisconnected(Netick.TransportConnection, Netick.TransportDisconnectReason, System.ReadOnlySpan(Of Byte))
+  name.vb: OnDisconnected(TransportConnection, TransportDisconnectReason, ReadOnlySpan(Of Byte))
 - uid: Netick.NetworkPeer.InKBps
   commentId: P:Netick.NetworkPeer.InKBps
   id: InKBps
@@ -709,10 +746,81 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Netick.IConnectionRequest
+  commentId: T:Netick.IConnectionRequest
+  parent: Netick
+  isExternal: true
+  href: Netick.IConnectionRequest.html
+  name: IConnectionRequest
+  nameWithType: IConnectionRequest
+  fullName: Netick.IConnectionRequest
+- uid: System.ReadOnlySpan{System.Byte}
+  commentId: T:System.ReadOnlySpan{System.Byte}
+  parent: System
+  definition: System.ReadOnlySpan`1
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<byte>
+  nameWithType: ReadOnlySpan<byte>
+  fullName: System.ReadOnlySpan<byte>
+  nameWithType.vb: ReadOnlySpan(Of Byte)
+  fullName.vb: System.ReadOnlySpan(Of Byte)
+  name.vb: ReadOnlySpan(Of Byte)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: )
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: Netick.NetworkPeer.OnConnectFailed*
   commentId: Overload:Netick.NetworkPeer.OnConnectFailed
   isExternal: true
-  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnConnectFailed_Netick_ConnectionFailedReason_System_ReadOnlySpan_System_Byte__
   name: OnConnectFailed
   nameWithType: NetworkPeer.OnConnectFailed
   fullName: Netick.NetworkPeer.OnConnectFailed
@@ -734,7 +842,7 @@ references:
 - uid: Netick.NetworkPeer.OnDisconnected*
   commentId: Overload:Netick.NetworkPeer.OnDisconnected
   isExternal: true
-  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_
+  href: Netick.NetworkPeer.html#Netick_NetworkPeer_OnDisconnected_Netick_TransportConnection_Netick_TransportDisconnectReason_System_ReadOnlySpan_System_Byte__
   name: OnDisconnected
   nameWithType: NetworkPeer.OnDisconnected
   fullName: Netick.NetworkPeer.OnDisconnected

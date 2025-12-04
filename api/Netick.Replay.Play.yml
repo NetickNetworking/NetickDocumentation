@@ -1,0 +1,1018 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Replay.Play
+  commentId: T:Netick.Replay.Play
+  id: Replay.Play
+  parent: Netick
+  children:
+  - Netick.Replay.Play.Duration
+  - Netick.Replay.Play.Engine
+  - Netick.Replay.Play.FrameCount
+  - Netick.Replay.Play.FrameIndex
+  - Netick.Replay.Play.IsFinished
+  - Netick.Replay.Play.IsInitialized
+  - Netick.Replay.Play.OnSeeked
+  - Netick.Replay.Play.Position
+  - Netick.Replay.Play.PositionNormalized
+  - Netick.Replay.Play.ReceiveSnapshot(System.Byte*,System.Int32)
+  - Netick.Replay.Play.RecordingRate
+  - Netick.Replay.Play.ReplayAddress
+  - Netick.Replay.Play.SeekToFrame(System.Int32)
+  - Netick.Replay.Play.SeekToFrameRelative(System.Int32)
+  - Netick.Replay.Play.SeekToTime(System.Single)
+  - Netick.Replay.Play.SeekToTimeRelative(System.Single)
+  - Netick.Replay.Play.StartReplaying(System.String)
+  - Netick.Replay.Play.TimeToFrameIndex(System.Single)
+  - Netick.Replay.Play.Transport
+  - Netick.Replay.Play.TryGetReplayMetadata(System.Byte[]@)
+  langs:
+  - csharp
+  - vb
+  name: Replay.Play
+  nameWithType: Replay.Play
+  fullName: Netick.Replay.Play
+  type: Class
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public sealed class Replay.Play
+    content.vb: Public NotInheritable Class Replay.Play
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: Netick.Replay.Play.Engine
+  commentId: F:Netick.Replay.Play.Engine
+  id: Engine
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: Engine
+  nameWithType: Replay.Play.Engine
+  fullName: Netick.Replay.Play.Engine
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly NetickEngine Engine
+    return:
+      type: Netick.NetickEngine
+    content.vb: Public ReadOnly Engine As NetickEngine
+- uid: Netick.Replay.Play.Transport
+  commentId: F:Netick.Replay.Play.Transport
+  id: Transport
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: Transport
+  nameWithType: Replay.Play.Transport
+  fullName: Netick.Replay.Play.Transport
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly IReplayTransport Transport
+    return:
+      type: Netick.IReplayTransport
+    content.vb: Public ReadOnly Transport As IReplayTransport
+- uid: Netick.Replay.Play.ReceiveSnapshot(System.Byte*,System.Int32)
+  commentId: M:Netick.Replay.Play.ReceiveSnapshot(System.Byte*,System.Int32)
+  id: ReceiveSnapshot(System.Byte*,System.Int32)
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: ReceiveSnapshot(byte*, int)
+  nameWithType: Replay.Play.ReceiveSnapshot(byte*, int)
+  fullName: Netick.Replay.Play.ReceiveSnapshot(byte*, int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void ReceiveSnapshot(byte* dat, int sizeBytes)
+    parameters:
+    - id: dat
+      type: System.Byte*
+    - id: sizeBytes
+      type: System.Int32
+    content.vb: Public Sub ReceiveSnapshot(dat As Byte*, sizeBytes As Integer)
+  overload: Netick.Replay.Play.ReceiveSnapshot*
+  nameWithType.vb: Replay.Play.ReceiveSnapshot(Byte*, Integer)
+  fullName.vb: Netick.Replay.Play.ReceiveSnapshot(Byte*, Integer)
+  name.vb: ReceiveSnapshot(Byte*, Integer)
+- uid: Netick.Replay.Play.TryGetReplayMetadata(System.Byte[]@)
+  commentId: M:Netick.Replay.Play.TryGetReplayMetadata(System.Byte[]@)
+  id: TryGetReplayMetadata(System.Byte[]@)
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: TryGetReplayMetadata(out byte[])
+  nameWithType: Replay.Play.TryGetReplayMetadata(out byte[])
+  fullName: Netick.Replay.Play.TryGetReplayMetadata(out byte[])
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool TryGetReplayMetadata(out byte[] data)
+    parameters:
+    - id: data
+      type: System.Byte[]
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetReplayMetadata(data As Byte()) As Boolean
+  overload: Netick.Replay.Play.TryGetReplayMetadata*
+  nameWithType.vb: Replay.Play.TryGetReplayMetadata(Byte())
+  fullName.vb: Netick.Replay.Play.TryGetReplayMetadata(Byte())
+  name.vb: TryGetReplayMetadata(Byte())
+- uid: Netick.Replay.Play.StartReplaying(System.String)
+  commentId: M:Netick.Replay.Play.StartReplaying(System.String)
+  id: StartReplaying(System.String)
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: StartReplaying(string)
+  nameWithType: Replay.Play.StartReplaying(string)
+  fullName: Netick.Replay.Play.StartReplaying(string)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void StartReplaying(string replayAddress)
+    parameters:
+    - id: replayAddress
+      type: System.String
+    content.vb: Public Sub StartReplaying(replayAddress As String)
+  overload: Netick.Replay.Play.StartReplaying*
+  nameWithType.vb: Replay.Play.StartReplaying(String)
+  fullName.vb: Netick.Replay.Play.StartReplaying(String)
+  name.vb: StartReplaying(String)
+- uid: Netick.Replay.Play.SeekToFrame(System.Int32)
+  commentId: M:Netick.Replay.Play.SeekToFrame(System.Int32)
+  id: SeekToFrame(System.Int32)
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: SeekToFrame(int)
+  nameWithType: Replay.Play.SeekToFrame(int)
+  fullName: Netick.Replay.Play.SeekToFrame(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void SeekToFrame(int frameIndex)
+    parameters:
+    - id: frameIndex
+      type: System.Int32
+    content.vb: Public Sub SeekToFrame(frameIndex As Integer)
+  overload: Netick.Replay.Play.SeekToFrame*
+  nameWithType.vb: Replay.Play.SeekToFrame(Integer)
+  fullName.vb: Netick.Replay.Play.SeekToFrame(Integer)
+  name.vb: SeekToFrame(Integer)
+- uid: Netick.Replay.Play.SeekToTime(System.Single)
+  commentId: M:Netick.Replay.Play.SeekToTime(System.Single)
+  id: SeekToTime(System.Single)
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: SeekToTime(float)
+  nameWithType: Replay.Play.SeekToTime(float)
+  fullName: Netick.Replay.Play.SeekToTime(float)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void SeekToTime(float time)
+    parameters:
+    - id: time
+      type: System.Single
+    content.vb: Public Sub SeekToTime(time As Single)
+  overload: Netick.Replay.Play.SeekToTime*
+  nameWithType.vb: Replay.Play.SeekToTime(Single)
+  fullName.vb: Netick.Replay.Play.SeekToTime(Single)
+  name.vb: SeekToTime(Single)
+- uid: Netick.Replay.Play.SeekToFrameRelative(System.Int32)
+  commentId: M:Netick.Replay.Play.SeekToFrameRelative(System.Int32)
+  id: SeekToFrameRelative(System.Int32)
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: SeekToFrameRelative(int)
+  nameWithType: Replay.Play.SeekToFrameRelative(int)
+  fullName: Netick.Replay.Play.SeekToFrameRelative(int)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void SeekToFrameRelative(int frameOffset)
+    parameters:
+    - id: frameOffset
+      type: System.Int32
+    content.vb: Public Sub SeekToFrameRelative(frameOffset As Integer)
+  overload: Netick.Replay.Play.SeekToFrameRelative*
+  nameWithType.vb: Replay.Play.SeekToFrameRelative(Integer)
+  fullName.vb: Netick.Replay.Play.SeekToFrameRelative(Integer)
+  name.vb: SeekToFrameRelative(Integer)
+- uid: Netick.Replay.Play.SeekToTimeRelative(System.Single)
+  commentId: M:Netick.Replay.Play.SeekToTimeRelative(System.Single)
+  id: SeekToTimeRelative(System.Single)
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: SeekToTimeRelative(float)
+  nameWithType: Replay.Play.SeekToTimeRelative(float)
+  fullName: Netick.Replay.Play.SeekToTimeRelative(float)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void SeekToTimeRelative(float timeOffset)
+    parameters:
+    - id: timeOffset
+      type: System.Single
+    content.vb: Public Sub SeekToTimeRelative(timeOffset As Single)
+  overload: Netick.Replay.Play.SeekToTimeRelative*
+  nameWithType.vb: Replay.Play.SeekToTimeRelative(Single)
+  fullName.vb: Netick.Replay.Play.SeekToTimeRelative(Single)
+  name.vb: SeekToTimeRelative(Single)
+- uid: Netick.Replay.Play.TimeToFrameIndex(System.Single)
+  commentId: M:Netick.Replay.Play.TimeToFrameIndex(System.Single)
+  id: TimeToFrameIndex(System.Single)
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: TimeToFrameIndex(float)
+  nameWithType: Replay.Play.TimeToFrameIndex(float)
+  fullName: Netick.Replay.Play.TimeToFrameIndex(float)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int TimeToFrameIndex(float time)
+    parameters:
+    - id: time
+      type: System.Single
+    return:
+      type: System.Int32
+    content.vb: Public Function TimeToFrameIndex(time As Single) As Integer
+  overload: Netick.Replay.Play.TimeToFrameIndex*
+  nameWithType.vb: Replay.Play.TimeToFrameIndex(Single)
+  fullName.vb: Netick.Replay.Play.TimeToFrameIndex(Single)
+  name.vb: TimeToFrameIndex(Single)
+- uid: Netick.Replay.Play.RecordingRate
+  commentId: P:Netick.Replay.Play.RecordingRate
+  id: RecordingRate
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: RecordingRate
+  nameWithType: Replay.Play.RecordingRate
+  fullName: Netick.Replay.Play.RecordingRate
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float RecordingRate { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property RecordingRate As Single
+  overload: Netick.Replay.Play.RecordingRate*
+- uid: Netick.Replay.Play.ReplayAddress
+  commentId: P:Netick.Replay.Play.ReplayAddress
+  id: ReplayAddress
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: ReplayAddress
+  nameWithType: Replay.Play.ReplayAddress
+  fullName: Netick.Replay.Play.ReplayAddress
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public string ReplayAddress { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ReplayAddress As String
+  overload: Netick.Replay.Play.ReplayAddress*
+- uid: Netick.Replay.Play.IsFinished
+  commentId: P:Netick.Replay.Play.IsFinished
+  id: IsFinished
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: IsFinished
+  nameWithType: Replay.Play.IsFinished
+  fullName: Netick.Replay.Play.IsFinished
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsFinished { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsFinished As Boolean
+  overload: Netick.Replay.Play.IsFinished*
+- uid: Netick.Replay.Play.IsInitialized
+  commentId: P:Netick.Replay.Play.IsInitialized
+  id: IsInitialized
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: IsInitialized
+  nameWithType: Replay.Play.IsInitialized
+  fullName: Netick.Replay.Play.IsInitialized
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsInitialized { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInitialized As Boolean
+  overload: Netick.Replay.Play.IsInitialized*
+- uid: Netick.Replay.Play.FrameCount
+  commentId: P:Netick.Replay.Play.FrameCount
+  id: FrameCount
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: FrameCount
+  nameWithType: Replay.Play.FrameCount
+  fullName: Netick.Replay.Play.FrameCount
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int FrameCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property FrameCount As Integer
+  overload: Netick.Replay.Play.FrameCount*
+- uid: Netick.Replay.Play.Duration
+  commentId: P:Netick.Replay.Play.Duration
+  id: Duration
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: Replay.Play.Duration
+  fullName: Netick.Replay.Play.Duration
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float Duration { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property Duration As Single
+  overload: Netick.Replay.Play.Duration*
+- uid: Netick.Replay.Play.PositionNormalized
+  commentId: P:Netick.Replay.Play.PositionNormalized
+  id: PositionNormalized
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: PositionNormalized
+  nameWithType: Replay.Play.PositionNormalized
+  fullName: Netick.Replay.Play.PositionNormalized
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float PositionNormalized { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property PositionNormalized As Single
+  overload: Netick.Replay.Play.PositionNormalized*
+- uid: Netick.Replay.Play.Position
+  commentId: P:Netick.Replay.Play.Position
+  id: Position
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: Replay.Play.Position
+  fullName: Netick.Replay.Play.Position
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float Position { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property Position As Single
+  overload: Netick.Replay.Play.Position*
+- uid: Netick.Replay.Play.FrameIndex
+  commentId: P:Netick.Replay.Play.FrameIndex
+  id: FrameIndex
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: FrameIndex
+  nameWithType: Replay.Play.FrameIndex
+  fullName: Netick.Replay.Play.FrameIndex
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int FrameIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property FrameIndex As Integer
+  overload: Netick.Replay.Play.FrameIndex*
+- uid: Netick.Replay.Play.OnSeeked
+  commentId: E:Netick.Replay.Play.OnSeeked
+  id: OnSeeked
+  parent: Netick.Replay.Play
+  langs:
+  - csharp
+  - vb
+  name: OnSeeked
+  nameWithType: Replay.Play.OnSeeked
+  fullName: Netick.Replay.Play.OnSeeked
+  type: Event
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public event Action<Tick, Tick> OnSeeked
+    return:
+      type: System.Action{Netick.Tick,Netick.Tick}
+    content.vb: Public Event OnSeeked As Action(Of Tick, Tick)
+references:
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick.NetickEngine
+  commentId: T:Netick.NetickEngine
+  parent: Netick
+  isExternal: true
+  href: Netick.NetickEngine.html
+  name: NetickEngine
+  nameWithType: NetickEngine
+  fullName: Netick.NetickEngine
+- uid: Netick.IReplayTransport
+  commentId: T:Netick.IReplayTransport
+  parent: Netick
+  isExternal: true
+  href: Netick.IReplayTransport.html
+  name: IReplayTransport
+  nameWithType: IReplayTransport
+  fullName: Netick.IReplayTransport
+- uid: Netick.Replay.Play.ReceiveSnapshot*
+  commentId: Overload:Netick.Replay.Play.ReceiveSnapshot
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_ReceiveSnapshot_System_Byte__System_Int32_
+  name: ReceiveSnapshot
+  nameWithType: Replay.Play.ReceiveSnapshot
+  fullName: Netick.Replay.Play.ReceiveSnapshot
+- uid: System.Byte*
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte*
+  nameWithType: byte*
+  fullName: byte*
+  nameWithType.vb: Byte*
+  fullName.vb: Byte*
+  name.vb: Byte*
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '*'
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Netick.Replay.Play.TryGetReplayMetadata*
+  commentId: Overload:Netick.Replay.Play.TryGetReplayMetadata
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_TryGetReplayMetadata_System_Byte____
+  name: TryGetReplayMetadata
+  nameWithType: Replay.Play.TryGetReplayMetadata
+  fullName: Netick.Replay.Play.TryGetReplayMetadata
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Netick.Replay.Play.StartReplaying*
+  commentId: Overload:Netick.Replay.Play.StartReplaying
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_StartReplaying_System_String_
+  name: StartReplaying
+  nameWithType: Replay.Play.StartReplaying
+  fullName: Netick.Replay.Play.StartReplaying
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Netick.Replay.Play.SeekToFrame*
+  commentId: Overload:Netick.Replay.Play.SeekToFrame
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_SeekToFrame_System_Int32_
+  name: SeekToFrame
+  nameWithType: Replay.Play.SeekToFrame
+  fullName: Netick.Replay.Play.SeekToFrame
+- uid: Netick.Replay.Play.SeekToTime*
+  commentId: Overload:Netick.Replay.Play.SeekToTime
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_SeekToTime_System_Single_
+  name: SeekToTime
+  nameWithType: Replay.Play.SeekToTime
+  fullName: Netick.Replay.Play.SeekToTime
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Netick.Replay.Play.SeekToFrameRelative*
+  commentId: Overload:Netick.Replay.Play.SeekToFrameRelative
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_SeekToFrameRelative_System_Int32_
+  name: SeekToFrameRelative
+  nameWithType: Replay.Play.SeekToFrameRelative
+  fullName: Netick.Replay.Play.SeekToFrameRelative
+- uid: Netick.Replay.Play.SeekToTimeRelative*
+  commentId: Overload:Netick.Replay.Play.SeekToTimeRelative
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_SeekToTimeRelative_System_Single_
+  name: SeekToTimeRelative
+  nameWithType: Replay.Play.SeekToTimeRelative
+  fullName: Netick.Replay.Play.SeekToTimeRelative
+- uid: Netick.Replay.Play.TimeToFrameIndex*
+  commentId: Overload:Netick.Replay.Play.TimeToFrameIndex
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_TimeToFrameIndex_System_Single_
+  name: TimeToFrameIndex
+  nameWithType: Replay.Play.TimeToFrameIndex
+  fullName: Netick.Replay.Play.TimeToFrameIndex
+- uid: Netick.Replay.Play.RecordingRate*
+  commentId: Overload:Netick.Replay.Play.RecordingRate
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_RecordingRate
+  name: RecordingRate
+  nameWithType: Replay.Play.RecordingRate
+  fullName: Netick.Replay.Play.RecordingRate
+- uid: Netick.Replay.Play.ReplayAddress*
+  commentId: Overload:Netick.Replay.Play.ReplayAddress
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_ReplayAddress
+  name: ReplayAddress
+  nameWithType: Replay.Play.ReplayAddress
+  fullName: Netick.Replay.Play.ReplayAddress
+- uid: Netick.Replay.Play.IsFinished*
+  commentId: Overload:Netick.Replay.Play.IsFinished
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_IsFinished
+  name: IsFinished
+  nameWithType: Replay.Play.IsFinished
+  fullName: Netick.Replay.Play.IsFinished
+- uid: Netick.Replay.Play.IsInitialized*
+  commentId: Overload:Netick.Replay.Play.IsInitialized
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_IsInitialized
+  name: IsInitialized
+  nameWithType: Replay.Play.IsInitialized
+  fullName: Netick.Replay.Play.IsInitialized
+- uid: Netick.Replay.Play.FrameCount*
+  commentId: Overload:Netick.Replay.Play.FrameCount
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_FrameCount
+  name: FrameCount
+  nameWithType: Replay.Play.FrameCount
+  fullName: Netick.Replay.Play.FrameCount
+- uid: Netick.Replay.Play.Duration*
+  commentId: Overload:Netick.Replay.Play.Duration
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_Duration
+  name: Duration
+  nameWithType: Replay.Play.Duration
+  fullName: Netick.Replay.Play.Duration
+- uid: Netick.Replay.Play.PositionNormalized*
+  commentId: Overload:Netick.Replay.Play.PositionNormalized
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_PositionNormalized
+  name: PositionNormalized
+  nameWithType: Replay.Play.PositionNormalized
+  fullName: Netick.Replay.Play.PositionNormalized
+- uid: Netick.Replay.Play.Position*
+  commentId: Overload:Netick.Replay.Play.Position
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_Position
+  name: Position
+  nameWithType: Replay.Play.Position
+  fullName: Netick.Replay.Play.Position
+- uid: Netick.Replay.Play.FrameIndex*
+  commentId: Overload:Netick.Replay.Play.FrameIndex
+  isExternal: true
+  href: Netick.Replay.Play.html#Netick_Replay_Play_FrameIndex
+  name: FrameIndex
+  nameWithType: Replay.Play.FrameIndex
+  fullName: Netick.Replay.Play.FrameIndex
+- uid: System.Action{Netick.Tick,Netick.Tick}
+  commentId: T:System.Action{Netick.Tick,Netick.Tick}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<Tick, Tick>
+  nameWithType: Action<Tick, Tick>
+  fullName: System.Action<Netick.Tick, Netick.Tick>
+  nameWithType.vb: Action(Of Tick, Tick)
+  fullName.vb: System.Action(Of Netick.Tick, Netick.Tick)
+  name.vb: Action(Of Tick, Tick)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: Netick.Tick
+    name: Tick
+    isExternal: true
+    href: Netick.Tick.html
+  - name: ','
+  - name: " "
+  - uid: Netick.Tick
+    name: Tick
+    isExternal: true
+    href: Netick.Tick.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Tick
+    name: Tick
+    isExternal: true
+    href: Netick.Tick.html
+  - name: ','
+  - name: " "
+  - uid: Netick.Tick
+    name: Tick
+    isExternal: true
+    href: Netick.Tick.html
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
