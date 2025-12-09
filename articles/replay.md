@@ -4,7 +4,7 @@
 
 The replay system in Netick allows for recording the *entire networked state* of a game (including all network objects, RPCs, and scene state) on the server. This data can later be used to replay the full game exactly as it happened.
 
-Netick employs highly efficient compression for these recordings. Therefore, replay files are significantly smaller than those found in major commercial titles with state-based replay systems (such as World of Tanks, Counter-Strike, Overwatch, Fortnite, Dota, Rocket League, and Valorant).
+Netick employs highly efficient compression for these recordings. Therefore, replay files are smaller than those found in major commercial titles with state-based replay systems (such as World of Tanks, Counter-Strike, Overwatch, Fortnite, Dota, Rocket League, and Valorant).
 
 Unlike replay systems in games such as Valorant, which store raw network packets and must process every packet sequentially to reach a target frame (making seeking very slow), Netick records snapshots of the full game state.
 This approach is conceptually similar to video compression formats, allowing for instant seeking without needing to apply all previous data.
