@@ -1,5 +1,3 @@
-Netick also compresses replay files externally well, you will have replays much smaller than most video games.
-
 # Full Game Replay
 
 ---
