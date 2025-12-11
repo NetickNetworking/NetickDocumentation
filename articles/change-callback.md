@@ -75,10 +75,11 @@ private void OnMyNetworkDictionaryChanged(OnChangedData onChangedData)
 
 `OnChangedData.IsCatchingUp` flag allows you to cull events/side-effects that should only occur when a change is "fresh," and not during the initial process (when late-joining) where the server synchronizes the object's state to the client for the first time, where the change may not be relevant anymore.
 
-The flag is set to **`true`** in two cases:
+The flag is set to **`true`** in three cases:
 
 1.  **Late-Joining:** When the client joins the game and is applying the first state data for an object.
 2.  **Gaining/Regaining Interest:** When an object enters the client's interest and the client begins receiving the object's current state.
+3.  **Seeking (Replay Mode)** When you jump around the timeline in replay mode, this flag will be set to true.
 
 ### Usage Example
 

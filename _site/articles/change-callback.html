@@ -158,10 +158,11 @@ private void OnMyNetworkDictionaryChanged(OnChangedData onChangedData)
 </div>
 <h2 id="handling-initial-replication-with-iscatchingup">Handling Initial Replication with <code>IsCatchingUp</code></h2>
 <p><code>OnChangedData.IsCatchingUp</code> flag allows you to cull events/side-effects that should only occur when a change is &quot;fresh,&quot; and not during the initial process (when late-joining) where the server synchronizes the object's state to the client for the first time, where the change may not be relevant anymore.</p>
-<p>The flag is set to <strong><code>true</code></strong> in two cases:</p>
+<p>The flag is set to <strong><code>true</code></strong> in three cases:</p>
 <ol>
 <li><strong>Late-Joining:</strong> When the client joins the game and is applying the first state data for an object.</li>
 <li><strong>Gaining/Regaining Interest:</strong> When an object enters the client's interest and the client begins receiving the object's current state.</li>
+<li><strong>Seeking (Replay Mode)</strong> When you jump around the timeline in replay mode, this flag will be set to true.</li>
 </ol>
 <h3 id="usage-example">Usage Example</h3>
 <p>You can use <code>IsCatchingUp</code> within your <code>[OnChanged]</code> callback to immediately return and skip logic that you don't want to run during those two cases. This is useful to prevent audio, particle effects, or other non-essential visual feedback from triggering when an object is merely being initialized or brought back into view.</p>
