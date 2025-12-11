@@ -90,12 +90,6 @@ if (CountdownTimer.IsRunning(Sandbox))
 {
     // Timer has not yet reached its duration
 }
-
-if (StopwatchTimer.IsStopped(Sandbox))
-{
-    // Timer finished (for countdown timers)
-    // For stopwatches (duration = 0), this is always true immediately
-}
 ```
 
 ### Getting Remaining and Elapsed Time
