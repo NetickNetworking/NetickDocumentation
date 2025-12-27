@@ -75,6 +75,9 @@ The `source` and `target` can be any of the following:
 * `Proxies` — All peers except the Owner and Input Source.
 * `Everyone` — All connected peers, including the server.
 
+> [!WARNING]
+> When the target is set to Everyone, the RPC will ignore the caller by default. If you want the method to execute on the caller's machine as well as the remote peers, you must set localInvoke: true.
+
 ## Targeted RPCs
 
 To send an RPC to a specific peer (e.g., a single player), include a parameter of type `NetworkPlayerId` decorated with the `[RpcTarget]` attribute. For instance:

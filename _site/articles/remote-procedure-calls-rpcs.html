@@ -183,6 +183,10 @@ MyStaticRpc(Sandbox.Engine, 56);
 <li><code>Proxies</code> — All peers except the Owner and Input Source.</li>
 <li><code>Everyone</code> — All connected peers, including the server.</li>
 </ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>When the target is set to Everyone, the RPC will ignore the caller by default. If you want the method to execute on the caller's machine as well as the remote peers, you must set localInvoke: true.</p>
+</div>
 <h2 id="targeted-rpcs">Targeted RPCs</h2>
 <p>To send an RPC to a specific peer (e.g., a single player), include a parameter of type <code>NetworkPlayerId</code> decorated with the <code>[RpcTarget]</code> attribute. For instance:</p>
 <pre><code class="lang-csharp">[Rpc(source: RpcPeers.Everyone, target: RpcPeers.Everyone, isReliable: true, localInvoke: false)]
