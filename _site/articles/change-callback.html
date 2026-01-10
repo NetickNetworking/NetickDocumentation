@@ -165,7 +165,7 @@ private void OnMyNetworkDictionaryChanged(OnChangedData onChangedData)
 <li><strong>Seeking (Replay Mode)</strong> When you jump around the timeline in replay mode, this flag will be set to true.</li>
 </ol>
 <h3 id="usage-example">Usage Example</h3>
-<p>You can use <code>IsCatchingUp</code> within your <code>[OnChanged]</code> callback to immediately return and skip logic that you don't want to run during those these cases. This is useful to prevent audio, particle effects, or other non-essential visual feedback from triggering when an object is merely being initialized or brought back into view.</p>
+<p>You can use <code>IsCatchingUp</code> within your <code>[OnChanged]</code> callback to immediately return and skip logic that you don't want to run during these cases. This is useful to prevent audio, particle effects, or other non-essential visual feedback from triggering when an object is merely being initialized or brought back into view.</p>
 <pre><code class="lang-csharp">[OnChanged(nameof(SomeAudioTrigger))]
 private void OnSomeAudioTriggerChanged(OnChangedData dat)
 {
