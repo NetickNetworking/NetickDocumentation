@@ -83,7 +83,7 @@ The flag is set to **`true`** in three cases:
 
 ### Usage Example
 
-You can use `IsCatchingUp` within your `[OnChanged]` callback to immediately return and skip logic that you don't want to run during those two cases. This is useful to prevent audio, particle effects, or other non-essential visual feedback from triggering when an object is merely being initialized or brought back into view.
+You can use `IsCatchingUp` within your `[OnChanged]` callback to immediately return and skip logic that you don't want to run during those these cases. This is useful to prevent audio, particle effects, or other non-essential visual feedback from triggering when an object is merely being initialized or brought back into view.
 
 ```csharp
 [OnChanged(nameof(SomeAudioTrigger))]
