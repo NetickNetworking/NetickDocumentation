@@ -2,49 +2,55 @@
 
 ---
 
-## LiteNetLib: 
+## LiteNetLib Transport: 
 * Protocol: UDP
 * Platforms: All, except WebGL
 * Download: included with Netick
 * Maintainer: Netick Staff
 
-## UnityTransport:
+## Epic Online Services (EOS) Transport: 
+* Protocol: UDP
+* Platforms: Windows, macOS, Linux, Android, iOS, PlayStation, Xbox, Nintendo Switch
+* Download: https://github.com/NetickNetworking/NetickEOSTransport
+* Maintainer: Netick Staff
+
+## Unity Transport:
 * Protocol: UDP & WebSocket
 * Platforms: All
 * Download: https://github.com/karrarrahim/UnityTransport-Netick
 * Maintainer: Netick Staff
 
-## Facepunch (Steam):
+## Facepunch (Steam) Transport:
 * Protocol: UDP
-* Platforms: Windows, Mac OS, and Linux
+* Platforms: Windows, macOS, and Linux
 * Download: https://github.com/Milk-Drinker01/Netick2-Facepunch-Transport
 * Maintainer: community
 
-## Steamworks.NET (Steam):
+## Steamworks.NET (Steam) Transport:
 * Protocol: UDP
-* Platforms: Windows, Mac OS, and Linux
+* Platforms: Windows, macOS, and Linux
 * Download: https://github.com/Milk-Drinker01/Netick2-Steamworks-Transport
 * Maintainer: community
 
-## LiteNetLib with NAT Punch support: 
+## LiteNetLib (with NAT Punch support) Transport: 
 * Protocol: UDP
 * Platforms: All, except WebGL
 * Download: https://github.com/StinkySteak/NetickLiteNetLibNatPunchTransport
 * Maintainer: community
 
-## WebRTC Embedded:
+## WebRTC Embedded Transport:
 * Protocol: UDP
 * Platforms: Native and WebGL
 * Download: https://github.com/StinkySteak/NetickWebRTCEmbeddedTransport
 * Maintainer: community
 
-## Simple Web Transport:
+## Simple Web Transport Transport:
 * Protocol: Websocket
 * Platforms: All
 * Download: https://github.com/StinkySteak/SimpleWebTransport
 * Maintainer: community
 
-## Photon Realtime:
+## Photon Realtime Transport:
 * Protocol: UDP, TCP, WS
 * Platforms: All
 * Download: https://github.com/StinkySteak/NetickRealtimeTransport
