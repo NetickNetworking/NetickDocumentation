@@ -6,7 +6,7 @@
 /* --------------------------------------------------------------------------
    FONTS
    -------------------------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* --------------------------------------------------------------------------
@@ -61,8 +61,8 @@
     --shadow-glow-accent: 0 0 20px var(--accent-glow);
 
     /* Glass */
-    --glass-bg: rgba(248, 248, 248, 0.95);
-    --glass-border: rgba(226, 232, 240, 0.8);
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(255, 255, 255, 0.5);
 
     /* Transitions */
     --transition-fast: 150ms ease;
@@ -77,7 +77,7 @@
     --radius-xl: 16px;
 
     /* Typography */
-    --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 }
 
@@ -258,79 +258,103 @@ hr {
 /* --------------------------------------------------------------------------
    NAVBAR
    -------------------------------------------------------------------------- */
+/* Header wrapper - needs to be transparent for glassmorphism */
+header {
+    background: transparent !important;
+    border-bottom: none !important;
+}
+
+header.bg-body {
+    background: transparent !important;
+}
+
 .navbar {
-    background: var(--glass-bg) !important;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border-color) !important;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-normal);
+    background: var(--bg-surface) !important;
+    border-bottom: none !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Scrolled state - transparent glossy/glass effect */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-bs-theme='dark'] .navbar.scrolled {
+    background: rgba(13, 17, 23, 0.7) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+[data-bs-theme='light'] .navbar {
+    background: #ffffff !important;
+}
+
+[data-bs-theme='light'] .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 [data-bs-theme='dark'] .navbar {
-    background: var(--glass-bg) !important;
-    border-bottom: 1px solid var(--glass-border) !important;
-    box-shadow: 0 1px 0 0 var(--border-color);
+    background: var(--bg-surface) !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .navbar-brand {
-    font-weight: 700;
-    font-size: 1.1rem;
+    font-weight: 600;
+    font-size: 1.15rem;
     color: var(--text-primary) !important;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     transition: all var(--transition-fast);
 }
 
 .navbar-brand:hover {
     color: var(--primary) !important;
-    text-shadow: 0 0 10px var(--primary-glow);
 }
 
 .navbar-brand img {
-    height: 28px;
+    height: 30px;
     width: auto;
 }
 
 /* Navbar Links */
 .navbar-nav .nav-link {
     color: var(--text-secondary) !important;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 0.9rem;
-    padding: 0.4rem 0.75rem !important;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.1rem;
     border-radius: var(--radius-md);
     transition: all var(--transition-fast);
-    position: relative;
-}
-
-.navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: all var(--transition-fast);
-    transform: translateX(-50%);
-    box-shadow: 0 0 8px var(--primary-glow);
 }
 
 .navbar-nav .nav-link:hover {
     color: var(--primary) !important;
-}
-
-.navbar-nav .nav-link:hover::after {
-    width: 80%;
+    background: rgba(59, 130, 246, 0.08);
 }
 
 .navbar-nav .nav-link.active {
     color: var(--primary) !important;
+    background: rgba(59, 130, 246, 0.1);
+    font-weight: 600;
 }
 
-.navbar-nav .nav-link.active::after {
-    width: 80%;
+[data-bs-theme='dark'] .navbar-nav .nav-link:hover {
+    background: rgba(96, 165, 250, 0.1);
+}
+
+[data-bs-theme='dark'] .navbar-nav .nav-link.active {
+    background: rgba(96, 165, 250, 0.15);
 }
 
 /* Search Input */
@@ -341,23 +365,23 @@ hr {
 
 .navbar .form-control,
 #search-query {
-    background: var(--bg-surface);
-    border: 2px solid var(--border-color);
-    border-radius: 20px;
-    padding: 0.4rem 1rem 0.4rem 2.2rem;
+    background: var(--bg-body);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.5rem 1rem 0.5rem 2.4rem;
     font-size: 0.875rem;
     color: var(--text-primary);
     transition: all var(--transition-fast);
-    width: 200px;
+    width: 220px;
 }
 
 .navbar .form-control:focus,
 #search-query:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
     background: var(--bg-surface);
-    width: 260px;
+    width: 280px;
 }
 
 .navbar .form-control::placeholder,
@@ -367,15 +391,20 @@ hr {
 
 [data-bs-theme='dark'] .navbar .form-control,
 [data-bs-theme='dark'] #search-query {
-    background: var(--bg-surface);
+    background: var(--bg-surface-elevated);
     border-color: var(--border-color);
     color: var(--text-primary);
+}
+
+[data-bs-theme='dark'] .navbar .form-control:focus,
+[data-bs-theme='dark'] #search-query:focus {
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
 }
 
 /* Search Icon */
 #search .bi-search {
     position: absolute;
-    left: 12px;
+    left: 14px;
     top: 50%;
     transform: translateY(-50%);
     color: var(--text-muted);
@@ -783,11 +812,7 @@ footer {
     font-size: 0.85rem;
     padding: 1.5rem 0;
     border-top: 1px solid var(--border-color);
-    background: var(--bg-body);
-}
-
-[data-bs-theme='light'] footer {
-    background: #f8f8f8;
+    background: var(--bg-surface);
 }
 
 footer a {
