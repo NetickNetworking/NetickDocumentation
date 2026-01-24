@@ -110,6 +110,8 @@ public override void NetworkFixedUpdate()
   {
     if (InputQueue.Count == InputQueueCapacity)
        InputQueue.Dequeue();
+      
+     i.Tick = Sandbox.Tick;
      InputQueue.Enqueue(i);
    }
 
@@ -123,4 +125,4 @@ public override void NetworkFixedUpdate()
 }
 ```
 
-Note that we've added a field called `Tick` to the input struct, which we assign it the value of `Sandbox.Tick` when setting the input struct fields.
+Note that the input struct includes a `Tick` field, which is assigned `Sandbox.Tick` when the input is enqueued in `NetworkFixedUpdate`.
