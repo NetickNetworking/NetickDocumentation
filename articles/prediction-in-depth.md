@@ -26,7 +26,7 @@ By default, Netick only predicts objects that the client is the Input Source of.
 
 <figure><img src="../images/proxy-prediction.png" alt="Client-Side Prediction"><figcaption></figcaption></figure>
 
-In Rocket Cars, we not only predict the local car, but also the other (remote) cars and the ball. Now, let's see what that means, and also let's see what happens when we don't do that.
+In [Rocket Cars](https://github.com/NetickNetworking/NetickRocketCars), we not only predict the local car, but also the other (remote) cars and the ball. Now, let's see what that means, and also let's see what happens when we don't do that.
 
 Look at the previous image. In this scenario, we assume that each car starts moving at the exact same time. Let's also assume that the cars were moving at the  exact same speed for some time, and we are looking at what they look like after that amount of time. In addition, let's say that the ball was also moving in the same direction as the cars. Therefore, all the objects in this scenario are moving, and at the same direction.
 
