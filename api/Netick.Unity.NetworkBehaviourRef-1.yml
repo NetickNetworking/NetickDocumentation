@@ -157,7 +157,10 @@ items:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: 'public T GetBehaviour<T>(NetworkSandbox sandbox) where T : NetworkBehaviour'
+    content: >-
+      [Obsolete("Use the non-generic version GetBehaviour instead.")]
+
+      public T GetBehaviour<T>(NetworkSandbox sandbox) where T : NetworkBehaviour
     parameters:
     - id: sandbox
       type: Netick.Unity.NetworkSandbox
@@ -165,8 +168,17 @@ items:
     - id: T
     return:
       type: '{T}'
-    content.vb: Public Function GetBehaviour(Of T As NetworkBehaviour)(sandbox As NetworkSandbox) As T
+    content.vb: >-
+      <Obsolete("Use the non-generic version GetBehaviour instead.")>
+
+      Public Function GetBehaviour(Of T As NetworkBehaviour)(sandbox As NetworkSandbox) As T
   overload: Netick.Unity.NetworkBehaviourRef`1.GetBehaviour*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the non-generic version GetBehaviour instead.
   nameWithType.vb: NetworkBehaviourRef(Of T).GetBehaviour(Of T)(NetworkSandbox)
   fullName.vb: Netick.Unity.NetworkBehaviourRef(Of T).GetBehaviour(Of T)(Netick.Unity.NetworkSandbox)
   name.vb: GetBehaviour(Of T)(NetworkSandbox)

@@ -51,7 +51,7 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public float GetRemainingTime(NetickEngine engine, bool usePredictedTiming = false)
+    content: public float GetRemainingTime(NetickEngine engine, bool usePredictedTiming = true)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -59,7 +59,7 @@ items:
       type: System.Boolean
     return:
       type: System.Single
-    content.vb: Public Function GetRemainingTime(engine As NetickEngine, usePredictedTiming As Boolean = False) As Single
+    content.vb: Public Function GetRemainingTime(engine As NetickEngine, usePredictedTiming As Boolean = True) As Single
   overload: Netick.NetworkTimer.GetRemainingTime*
   nameWithType.vb: NetworkTimer.GetRemainingTime(NetickEngine, Boolean)
   fullName.vb: Netick.NetworkTimer.GetRemainingTime(Netick.NetickEngine, Boolean)
@@ -79,7 +79,7 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public float GetElapsedTime(NetickEngine engine, bool usePredictedTiming = false)
+    content: public float GetElapsedTime(NetickEngine engine, bool usePredictedTiming = true)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -87,7 +87,7 @@ items:
       type: System.Boolean
     return:
       type: System.Single
-    content.vb: Public Function GetElapsedTime(engine As NetickEngine, usePredictedTiming As Boolean = False) As Single
+    content.vb: Public Function GetElapsedTime(engine As NetickEngine, usePredictedTiming As Boolean = True) As Single
   overload: Netick.NetworkTimer.GetElapsedTime*
   nameWithType.vb: NetworkTimer.GetElapsedTime(NetickEngine, Boolean)
   fullName.vb: Netick.NetworkTimer.GetElapsedTime(Netick.NetickEngine, Boolean)
@@ -107,7 +107,7 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool IsStopped(NetickEngine engine, bool usePredictedTiming = false)
+    content: public bool IsStopped(NetickEngine engine, bool usePredictedTiming = true)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -115,7 +115,7 @@ items:
       type: System.Boolean
     return:
       type: System.Boolean
-    content.vb: Public Function IsStopped(engine As NetickEngine, usePredictedTiming As Boolean = False) As Boolean
+    content.vb: Public Function IsStopped(engine As NetickEngine, usePredictedTiming As Boolean = True) As Boolean
   overload: Netick.NetworkTimer.IsStopped*
   nameWithType.vb: NetworkTimer.IsStopped(NetickEngine, Boolean)
   fullName.vb: Netick.NetworkTimer.IsStopped(Netick.NetickEngine, Boolean)
@@ -135,7 +135,7 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public bool IsRunning(NetickEngine engine, bool usePredictedTiming = false)
+    content: public bool IsRunning(NetickEngine engine, bool usePredictedTiming = true)
     parameters:
     - id: engine
       type: Netick.NetickEngine
@@ -143,7 +143,7 @@ items:
       type: System.Boolean
     return:
       type: System.Boolean
-    content.vb: Public Function IsRunning(engine As NetickEngine, usePredictedTiming As Boolean = False) As Boolean
+    content.vb: Public Function IsRunning(engine As NetickEngine, usePredictedTiming As Boolean = True) As Boolean
   overload: Netick.NetworkTimer.IsRunning*
   nameWithType.vb: NetworkTimer.IsRunning(NetickEngine, Boolean)
   fullName.vb: Netick.NetworkTimer.IsRunning(Netick.NetickEngine, Boolean)
@@ -163,7 +163,7 @@ items:
   - Netick
   namespace: Netick
   syntax:
-    content: public static NetworkTimer StartTimer(float time, NetickEngine engine, bool usePredictedTiming = false)
+    content: public static NetworkTimer StartTimer(float time, NetickEngine engine, bool usePredictedTiming = true)
     parameters:
     - id: time
       type: System.Single
@@ -173,7 +173,7 @@ items:
       type: System.Boolean
     return:
       type: Netick.NetworkTimer
-    content.vb: Public Shared Function StartTimer(time As Single, engine As NetickEngine, usePredictedTiming As Boolean = False) As NetworkTimer
+    content.vb: Public Shared Function StartTimer(time As Single, engine As NetickEngine, usePredictedTiming As Boolean = True) As NetworkTimer
   overload: Netick.NetworkTimer.StartTimer*
   nameWithType.vb: NetworkTimer.StartTimer(Single, NetickEngine, Boolean)
   fullName.vb: Netick.NetworkTimer.StartTimer(Single, Netick.NetickEngine, Boolean)

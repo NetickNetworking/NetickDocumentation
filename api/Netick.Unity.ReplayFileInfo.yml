@@ -5,7 +5,7 @@ items:
   id: ReplayFileInfo
   parent: Netick.Unity
   children:
-  - Netick.Unity.ReplayFileInfo.#ctor(Netick.Unity.ReplayFileStatus,System.Int32,System.Int32)
+  - Netick.Unity.ReplayFileInfo.Duration
   - Netick.Unity.ReplayFileInfo.FrameCount
   - Netick.Unity.ReplayFileInfo.GameVersion
   - Netick.Unity.ReplayFileInfo.Status
@@ -49,7 +49,7 @@ items:
       type: Netick.Unity.ReplayFileStatus
     content.vb: Public ReadOnly Status As ReplayFileStatus
 - uid: Netick.Unity.ReplayFileInfo.GameVersion
-  commentId: F:Netick.Unity.ReplayFileInfo.GameVersion
+  commentId: P:Netick.Unity.ReplayFileInfo.GameVersion
   id: GameVersion
   parent: Netick.Unity.ReplayFileInfo
   langs:
@@ -58,17 +58,19 @@ items:
   name: GameVersion
   nameWithType: ReplayFileInfo.GameVersion
   fullName: Netick.Unity.ReplayFileInfo.GameVersion
-  type: Field
+  type: Property
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public readonly int GameVersion
+    content: public readonly int GameVersion { get; }
+    parameters: []
     return:
       type: System.Int32
-    content.vb: Public ReadOnly GameVersion As Integer
+    content.vb: Public ReadOnly Property GameVersion As Integer
+  overload: Netick.Unity.ReplayFileInfo.GameVersion*
 - uid: Netick.Unity.ReplayFileInfo.FrameCount
-  commentId: F:Netick.Unity.ReplayFileInfo.FrameCount
+  commentId: P:Netick.Unity.ReplayFileInfo.FrameCount
   id: FrameCount
   parent: Netick.Unity.ReplayFileInfo
   langs:
@@ -77,43 +79,38 @@ items:
   name: FrameCount
   nameWithType: ReplayFileInfo.FrameCount
   fullName: Netick.Unity.ReplayFileInfo.FrameCount
-  type: Field
+  type: Property
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public readonly int FrameCount
+    content: public readonly int FrameCount { get; }
+    parameters: []
     return:
       type: System.Int32
-    content.vb: Public ReadOnly FrameCount As Integer
-- uid: Netick.Unity.ReplayFileInfo.#ctor(Netick.Unity.ReplayFileStatus,System.Int32,System.Int32)
-  commentId: M:Netick.Unity.ReplayFileInfo.#ctor(Netick.Unity.ReplayFileStatus,System.Int32,System.Int32)
-  id: '#ctor(Netick.Unity.ReplayFileStatus,System.Int32,System.Int32)'
+    content.vb: Public ReadOnly Property FrameCount As Integer
+  overload: Netick.Unity.ReplayFileInfo.FrameCount*
+- uid: Netick.Unity.ReplayFileInfo.Duration
+  commentId: P:Netick.Unity.ReplayFileInfo.Duration
+  id: Duration
   parent: Netick.Unity.ReplayFileInfo
   langs:
   - csharp
   - vb
-  name: ReplayFileInfo(ReplayFileStatus, int, int)
-  nameWithType: ReplayFileInfo.ReplayFileInfo(ReplayFileStatus, int, int)
-  fullName: Netick.Unity.ReplayFileInfo.ReplayFileInfo(Netick.Unity.ReplayFileStatus, int, int)
-  type: Constructor
+  name: Duration
+  nameWithType: ReplayFileInfo.Duration
+  fullName: Netick.Unity.ReplayFileInfo.Duration
+  type: Property
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
   syntax:
-    content: public ReplayFileInfo(ReplayFileStatus status, int gameVersion, int frameCount)
-    parameters:
-    - id: status
-      type: Netick.Unity.ReplayFileStatus
-    - id: gameVersion
-      type: System.Int32
-    - id: frameCount
-      type: System.Int32
-    content.vb: Public Sub New(status As ReplayFileStatus, gameVersion As Integer, frameCount As Integer)
-  overload: Netick.Unity.ReplayFileInfo.#ctor*
-  nameWithType.vb: ReplayFileInfo.New(ReplayFileStatus, Integer, Integer)
-  fullName.vb: Netick.Unity.ReplayFileInfo.New(Netick.Unity.ReplayFileStatus, Integer, Integer)
-  name.vb: New(ReplayFileStatus, Integer, Integer)
+    content: public readonly float Duration { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property Duration As Single
+  overload: Netick.Unity.ReplayFileInfo.Duration*
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -367,6 +364,13 @@ references:
   name: ReplayFileStatus
   nameWithType: ReplayFileStatus
   fullName: Netick.Unity.ReplayFileStatus
+- uid: Netick.Unity.ReplayFileInfo.GameVersion*
+  commentId: Overload:Netick.Unity.ReplayFileInfo.GameVersion
+  isExternal: true
+  href: Netick.Unity.ReplayFileInfo.html#Netick_Unity_ReplayFileInfo_GameVersion
+  name: GameVersion
+  nameWithType: ReplayFileInfo.GameVersion
+  fullName: Netick.Unity.ReplayFileInfo.GameVersion
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -378,13 +382,28 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: Netick.Unity.ReplayFileInfo.#ctor*
-  commentId: Overload:Netick.Unity.ReplayFileInfo.#ctor
+- uid: Netick.Unity.ReplayFileInfo.FrameCount*
+  commentId: Overload:Netick.Unity.ReplayFileInfo.FrameCount
   isExternal: true
-  href: Netick.Unity.ReplayFileInfo.html#Netick_Unity_ReplayFileInfo__ctor_Netick_Unity_ReplayFileStatus_System_Int32_System_Int32_
-  name: ReplayFileInfo
-  nameWithType: ReplayFileInfo.ReplayFileInfo
-  fullName: Netick.Unity.ReplayFileInfo.ReplayFileInfo
-  nameWithType.vb: ReplayFileInfo.New
-  fullName.vb: Netick.Unity.ReplayFileInfo.New
-  name.vb: New
+  href: Netick.Unity.ReplayFileInfo.html#Netick_Unity_ReplayFileInfo_FrameCount
+  name: FrameCount
+  nameWithType: ReplayFileInfo.FrameCount
+  fullName: Netick.Unity.ReplayFileInfo.FrameCount
+- uid: Netick.Unity.ReplayFileInfo.Duration*
+  commentId: Overload:Netick.Unity.ReplayFileInfo.Duration
+  isExternal: true
+  href: Netick.Unity.ReplayFileInfo.html#Netick_Unity_ReplayFileInfo_Duration
+  name: Duration
+  nameWithType: ReplayFileInfo.Duration
+  fullName: Netick.Unity.ReplayFileInfo.Duration
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single

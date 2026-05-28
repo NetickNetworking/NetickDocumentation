@@ -6,12 +6,15 @@ items:
   parent: Netick.Unity
   children:
   - Netick.Unity.NetworkRigidbody.#ctor
+  - Netick.Unity.NetworkRigidbody.AngularVelocity
   - Netick.Unity.NetworkRigidbody.GameEngineIntoNetcode
   - Netick.Unity.NetworkRigidbody.InternalGetStateSizeWords
   - Netick.Unity.NetworkRigidbody.InternalReset
+  - Netick.Unity.NetworkRigidbody.IsKinematic
   - Netick.Unity.NetworkRigidbody.NetcodeIntoGameEngine
   - Netick.Unity.NetworkRigidbody.NetworkFixedUpdate
   - Netick.Unity.NetworkRigidbody.NetworkStart
+  - Netick.Unity.NetworkRigidbody.Velocity
   langs:
   - csharp
   - vb
@@ -56,7 +59,6 @@ items:
   - Netick.Unity.NetworkTransform.NetworkRender
   - Netick.Unity.NetworkTransform.GetInterpolatedPosRot(UnityEngine.Vector3@,UnityEngine.Quaternion@)
   - Netick.Unity.NetworkTransform.GetInterpolatedPosRot(UnityEngine.Vector3@,UnityEngine.Quaternion@,Netick.InterpolationSource)
-  - Netick.Unity.NetworkTransform.OnBecameInterested
   - Netick.Unity.NetworkTransform.InterpolationSource
   - Netick.Unity.NetworkTransform.Position
   - Netick.Unity.NetworkTransform.Rotation
@@ -73,6 +75,7 @@ items:
   - Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Int32)
   - Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Boolean@,System.Int32)
   - Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
+  - Netick.Unity.NetworkBehaviour.OnBecameInterested
   - Netick.Unity.NetworkBehaviour.OnBecameUninterested
   - Netick.Unity.NetworkBehaviour.OnInputSourceChanged(Netick.NetworkPlayer)
   - Netick.Unity.NetworkBehaviour.OnInputSourceLeft
@@ -252,6 +255,69 @@ items:
   nameWithType.vb: NetworkRigidbody.New()
   fullName.vb: Netick.Unity.NetworkRigidbody.New()
   name.vb: New()
+- uid: Netick.Unity.NetworkRigidbody.Velocity
+  commentId: P:Netick.Unity.NetworkRigidbody.Velocity
+  id: Velocity
+  parent: Netick.Unity.NetworkRigidbody
+  langs:
+  - csharp
+  - vb
+  name: Velocity
+  nameWithType: NetworkRigidbody.Velocity
+  fullName: Netick.Unity.NetworkRigidbody.Velocity
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public Vector3 Velocity { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public ReadOnly Property Velocity As Vector3
+  overload: Netick.Unity.NetworkRigidbody.Velocity*
+- uid: Netick.Unity.NetworkRigidbody.AngularVelocity
+  commentId: P:Netick.Unity.NetworkRigidbody.AngularVelocity
+  id: AngularVelocity
+  parent: Netick.Unity.NetworkRigidbody
+  langs:
+  - csharp
+  - vb
+  name: AngularVelocity
+  nameWithType: NetworkRigidbody.AngularVelocity
+  fullName: Netick.Unity.NetworkRigidbody.AngularVelocity
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public Vector3 AngularVelocity { get; }
+    parameters: []
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public ReadOnly Property AngularVelocity As Vector3
+  overload: Netick.Unity.NetworkRigidbody.AngularVelocity*
+- uid: Netick.Unity.NetworkRigidbody.IsKinematic
+  commentId: P:Netick.Unity.NetworkRigidbody.IsKinematic
+  id: IsKinematic
+  parent: Netick.Unity.NetworkRigidbody
+  langs:
+  - csharp
+  - vb
+  name: IsKinematic
+  nameWithType: NetworkRigidbody.IsKinematic
+  fullName: Netick.Unity.NetworkRigidbody.IsKinematic
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool IsKinematic { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsKinematic As Boolean
+  overload: Netick.Unity.NetworkRigidbody.IsKinematic*
 references:
 - uid: Netick.Unity
   commentId: N:Netick.Unity
@@ -624,28 +690,6 @@ references:
   - uid: Netick.InterpolationSource
     name: InterpolationSource
     isExternal: true
-  - name: )
-- uid: Netick.Unity.NetworkTransform.OnBecameInterested
-  commentId: M:Netick.Unity.NetworkTransform.OnBecameInterested
-  parent: Netick.Unity.NetworkTransform
-  isExternal: true
-  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_OnBecameInterested
-  name: OnBecameInterested()
-  nameWithType: NetworkTransform.OnBecameInterested()
-  fullName: Netick.Unity.NetworkTransform.OnBecameInterested()
-  spec.csharp:
-  - uid: Netick.Unity.NetworkTransform.OnBecameInterested
-    name: OnBecameInterested
-    isExternal: true
-    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_OnBecameInterested
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetworkTransform.OnBecameInterested
-    name: OnBecameInterested
-    isExternal: true
-    href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_OnBecameInterested
-  - name: (
   - name: )
 - uid: Netick.Unity.NetworkTransform.InterpolationSource
   commentId: P:Netick.Unity.NetworkTransform.InterpolationSource
@@ -1199,6 +1243,28 @@ references:
     name: String
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
+  commentId: M:Netick.Unity.NetworkBehaviour.OnBecameInterested
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
+  name: OnBecameInterested()
+  nameWithType: NetworkBehaviour.OnBecameInterested()
+  fullName: Netick.Unity.NetworkBehaviour.OnBecameInterested()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
+    name: OnBecameInterested
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
+    name: OnBecameInterested
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
+  - name: (
   - name: )
 - uid: Netick.Unity.NetworkBehaviour.OnBecameUninterested
   commentId: M:Netick.Unity.NetworkBehaviour.OnBecameUninterested
@@ -1839,3 +1905,40 @@ references:
   nameWithType.vb: NetworkRigidbody.New
   fullName.vb: Netick.Unity.NetworkRigidbody.New
   name.vb: New
+- uid: Netick.Unity.NetworkRigidbody.Velocity*
+  commentId: Overload:Netick.Unity.NetworkRigidbody.Velocity
+  isExternal: true
+  href: Netick.Unity.NetworkRigidbody.html#Netick_Unity_NetworkRigidbody_Velocity
+  name: Velocity
+  nameWithType: NetworkRigidbody.Velocity
+  fullName: Netick.Unity.NetworkRigidbody.Velocity
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: Netick.Unity.NetworkRigidbody.AngularVelocity*
+  commentId: Overload:Netick.Unity.NetworkRigidbody.AngularVelocity
+  isExternal: true
+  href: Netick.Unity.NetworkRigidbody.html#Netick_Unity_NetworkRigidbody_AngularVelocity
+  name: AngularVelocity
+  nameWithType: NetworkRigidbody.AngularVelocity
+  fullName: Netick.Unity.NetworkRigidbody.AngularVelocity
+- uid: Netick.Unity.NetworkRigidbody.IsKinematic*
+  commentId: Overload:Netick.Unity.NetworkRigidbody.IsKinematic
+  isExternal: true
+  href: Netick.Unity.NetworkRigidbody.html#Netick_Unity_NetworkRigidbody_IsKinematic
+  name: IsKinematic
+  nameWithType: NetworkRigidbody.IsKinematic
+  fullName: Netick.Unity.NetworkRigidbody.IsKinematic
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

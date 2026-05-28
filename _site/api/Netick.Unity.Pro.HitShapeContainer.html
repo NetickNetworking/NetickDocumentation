@@ -128,7 +128,8 @@ Class HitShapeContainer
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class HitShapeContainer : NetickBehaviour, INetickScript, IHitShapeContainer</code></pre>
+    <pre><code class="lang-csharp hljs">[ExecutionOrder(1400)]
+public class HitShapeContainer : NetworkBehaviour, INetickNetworkScript, INetickScript</code></pre>
   </div>
 
 
@@ -140,6 +141,7 @@ Class HitShapeContainer
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="Netick.Unity.NetickBaseBehaviour.html">NetickBaseBehaviour</a></div>
       <div><a class="xref" href="Netick.Unity.NetickBehaviour.html">NetickBehaviour</a></div>
+      <div><a class="xref" href="Netick.Unity.NetworkBehaviour.html">NetworkBehaviour</a></div>
       <div><span class="xref">HitShapeContainer</span></div>
     </dd>
   </dl>
@@ -147,8 +149,8 @@ Class HitShapeContainer
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
+      <div><a class="xref" href="Netick.INetickNetworkScript.html">INetickNetworkScript</a></div>
       <div><a class="xref" href="Netick.INetickScript.html">INetickScript</a></div>
-      <div><a class="xref" href="Netick.Pro.IHitShapeContainer.html">IHitShapeContainer</a></div>
     </dd>
   </dl>
 
@@ -157,10 +159,112 @@ Class HitShapeContainer
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkUpdate">NetickBehaviour.NetworkUpdate()</a>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_StatePtr">NetworkBehaviour.StatePtr</a>
     </div>
     <div>
-      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkFixedUpdate">NetickBehaviour.NetworkFixedUpdate()</a>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GetRef__1">NetworkBehaviour.GetRef&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_GetStateRef">NetworkBehaviour.GetStateRef()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte__">NetworkBehaviour.CopyStateTo(byte*)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_CopyStateTo_System_Byte___">NetworkBehaviour.CopyStateTo(byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_Netick_Unity_BehaviourStateRef_System_Byte___System_Boolean_">NetworkBehaviour.SetStateFrom(BehaviourStateRef, byte[], bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_Netick_Unity_BehaviourStateRef_System_Byte__System_Boolean_">NetworkBehaviour.SetStateFrom(BehaviourStateRef, byte*, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte__System_Boolean_">NetworkBehaviour.SetStateFrom(byte*, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_SetStateFrom_System_Byte___System_Boolean_">NetworkBehaviour.SetStateFrom(byte[], bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_ClearState_System_Boolean_">NetworkBehaviour.ClearState(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Int32_">NetworkBehaviour.FetchInput&lt;T&gt;(out T, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FetchInput__1___0__System_Boolean__System_Int32_">NetworkBehaviour.FetchInput&lt;T&gt;(out T, out bool, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_FindInterpolator_System_String_">NetworkBehaviour.FindInterpolator(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnInputSourceChanged_Netick_NetworkPlayer_">NetworkBehaviour.OnInputSourceChanged(NetworkPlayer)</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnInputSourceLeft">NetworkBehaviour.OnInputSourceLeft()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_NetworkReset">NetworkBehaviour.NetworkReset()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalInit">NetworkBehaviour.InternalInit()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalReset">NetworkBehaviour.InternalReset()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InternalGetStateSizeWords">NetworkBehaviour.InternalGetStateSizeWords()</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_BehaviourId">NetworkBehaviour.BehaviourId</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_Id">NetworkBehaviour.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsClient">NetworkBehaviour.IsClient</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsServer">NetworkBehaviour.IsServer</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsOwner">NetworkBehaviour.IsOwner</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsHost">NetworkBehaviour.IsHost</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsPlayer">NetworkBehaviour.IsPlayer</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsReplay">NetworkBehaviour.IsReplay</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsInputSource">NetworkBehaviour.IsInputSource</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsProxy">NetworkBehaviour.IsProxy</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsResimulating">NetworkBehaviour.IsResimulating</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsPredicted">NetworkBehaviour.IsPredicted</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_IsInterested">NetworkBehaviour.IsInterested</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSource">NetworkBehaviour.InputSource</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_InputSourcePlayerId">NetworkBehaviour.InputSourcePlayerId</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_StateSize">NetworkBehaviour.StateSize</a>
+    </div>
+    <div>
+      <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkUpdate">NetickBehaviour.NetworkUpdate()</a>
     </div>
     <div>
       <a class="xref" href="Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkRender">NetickBehaviour.NetworkRender()</a>
@@ -225,36 +329,6 @@ Class HitShapeContainer
 
 
 
-  <h3 id="Netick_Unity_Pro_HitShapeContainer_BoundsSize" data-uid="Netick.Unity.Pro.HitShapeContainer.BoundsSize">
-  BoundsSize
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 BoundsSize</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><span class="xref">Vector3</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <h3 id="Netick_Unity_Pro_HitShapeContainer_HitShapes" data-uid="Netick.Unity.Pro.HitShapeContainer.HitShapes">
   HitShapes
   
@@ -284,44 +358,14 @@ Class HitShapeContainer
 
 
 
-
-  <h3 id="Netick_Unity_Pro_HitShapeContainer_RecalculateBounds" data-uid="Netick.Unity.Pro.HitShapeContainer.RecalculateBounds">
-  RecalculateBounds
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool RecalculateBounds</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
   <h2 class="section" id="properties">Properties
 </h2>
 
 
-  <a id="Netick_Unity_Pro_HitShapeContainer_LagCompContainer_" data-uid="Netick.Unity.Pro.HitShapeContainer.LagCompContainer*"></a>
+  <a id="Netick_Unity_Pro_HitShapeContainer_LagCompensation_" data-uid="Netick.Unity.Pro.HitShapeContainer.LagCompensation*"></a>
 
-  <h3 id="Netick_Unity_Pro_HitShapeContainer_LagCompContainer" data-uid="Netick.Unity.Pro.HitShapeContainer.LagCompContainer">
-  LagCompContainer
+  <h3 id="Netick_Unity_Pro_HitShapeContainer_LagCompensation" data-uid="Netick.Unity.Pro.HitShapeContainer.LagCompensation">
+  LagCompensation
   
   </h3>
 
@@ -329,7 +373,7 @@ Class HitShapeContainer
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LagCompContainer LagCompContainer { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public LagCompensation LagCompensation { get; }</code></pre>
   </div>
 
 
@@ -338,7 +382,7 @@ Class HitShapeContainer
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Netick.Pro.LagCompContainer.html">LagCompContainer</a></dt>
+    <dt><a class="xref" href="Netick.Unity.Pro.LagCompensation.html">LagCompensation</a></dt>
     <dd></dd>
   </dl>
 
@@ -351,6 +395,101 @@ Class HitShapeContainer
 
   <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="Netick_Unity_Pro_HitShapeContainer_AddHitShape_" data-uid="Netick.Unity.Pro.HitShapeContainer.AddHitShape*"></a>
+
+  <h3 id="Netick_Unity_Pro_HitShapeContainer_AddHitShape_Netick_Unity_Pro_HitShape_" data-uid="Netick.Unity.Pro.HitShapeContainer.AddHitShape(Netick.Unity.Pro.HitShape)">
+  AddHitShape(HitShape)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a> to this container at runtime.
+LOCAL call only - this change is NOT synced over the network. For server/client
+hit detection to agree, you MUST call this on BOTH the server and the client at
+the same logical moment (e.g. driven by a synced network property, RPC, etc). Calling on only one side will cause server/client
+hit divergence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddHitShape(HitShape shape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shape</code> <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_HitShapeContainer_GetBounds_" data-uid="Netick.Unity.Pro.HitShapeContainer.GetBounds*"></a>
+
+  <h3 id="Netick_Unity_Pro_HitShapeContainer_GetBounds" data-uid="Netick.Unity.Pro.HitShapeContainer.GetBounds">
+  GetBounds()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current tight world-space bounds enclosing all enabled HitShapes in this
+container (the latest captured tick's aggregate AABB).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Bounds GetBounds()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Bounds</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_HitShapeContainer_NetworkAwake_" data-uid="Netick.Unity.Pro.HitShapeContainer.NetworkAwake*"></a>
+
+  <h3 id="Netick_Unity_Pro_HitShapeContainer_NetworkAwake" data-uid="Netick.Unity.Pro.HitShapeContainer.NetworkAwake">
+  NetworkAwake()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void NetworkAwake()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Netick_Unity_Pro_HitShapeContainer_NetworkDestroy_" data-uid="Netick.Unity.Pro.HitShapeContainer.NetworkDestroy*"></a>
@@ -380,6 +519,34 @@ Class HitShapeContainer
 
 
 
+  <a id="Netick_Unity_Pro_HitShapeContainer_NetworkFixedUpdate_" data-uid="Netick.Unity.Pro.HitShapeContainer.NetworkFixedUpdate*"></a>
+
+  <h3 id="Netick_Unity_Pro_HitShapeContainer_NetworkFixedUpdate" data-uid="Netick.Unity.Pro.HitShapeContainer.NetworkFixedUpdate">
+  NetworkFixedUpdate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called every fixed-time network step. Any changes to the networked state should happen here.</p>
+<p>On the client, if you are the Input Source or if this Object.PredictionMode is set to Everyone, it will be called several times in one update/tick during resimulations. To check for resimulations, use [IsResimulating].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void NetworkFixedUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_Unity_Pro_HitShapeContainer_NetworkStart_" data-uid="Netick.Unity.Pro.HitShapeContainer.NetworkStart*"></a>
 
   <h3 id="Netick_Unity_Pro_HitShapeContainer_NetworkStart" data-uid="Netick.Unity.Pro.HitShapeContainer.NetworkStart">
@@ -395,6 +562,96 @@ Class HitShapeContainer
     <pre><code class="lang-csharp hljs">public override void NetworkStart()</code></pre>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_HitShapeContainer_OnBecameInterested_" data-uid="Netick.Unity.Pro.HitShapeContainer.OnBecameInterested*"></a>
+
+  <h3 id="Netick_Unity_Pro_HitShapeContainer_OnBecameInterested" data-uid="Netick.Unity.Pro.HitShapeContainer.OnBecameInterested">
+  OnBecameInterested()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called in the client when the client becomes interested in this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnBecameInterested()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_HitShapeContainer_OnBecameUninterested_" data-uid="Netick.Unity.Pro.HitShapeContainer.OnBecameUninterested*"></a>
+
+  <h3 id="Netick_Unity_Pro_HitShapeContainer_OnBecameUninterested" data-uid="Netick.Unity.Pro.HitShapeContainer.OnBecameUninterested">
+  OnBecameUninterested()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called in the client when the client becomes uninterested in this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnBecameUninterested()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_HitShapeContainer_RemoveHitShape_" data-uid="Netick.Unity.Pro.HitShapeContainer.RemoveHitShape*"></a>
+
+  <h3 id="Netick_Unity_Pro_HitShapeContainer_RemoveHitShape_Netick_Unity_Pro_HitShape_" data-uid="Netick.Unity.Pro.HitShapeContainer.RemoveHitShape(Netick.Unity.Pro.HitShape)">
+  RemoveHitShape(HitShape)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a> from this container at runtime.
+LOCAL call only - this change is NOT synced over the network. For server/client
+hit detection to agree, you MUST call this on BOTH the server and the client at
+the same logical moment. Calling on only one side will cause server/client hit
+divergence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveHitShape(HitShape shape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shape</code> <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a></dt>
+    <dd></dd>
+  </dl>
 
 
 

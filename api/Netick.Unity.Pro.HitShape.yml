@@ -6,10 +6,11 @@ items:
   parent: Netick.Unity.Pro
   children:
   - Netick.Unity.Pro.HitShape.#ctor
+  - Netick.Unity.Pro.HitShape.Axis
   - Netick.Unity.Pro.HitShape.Center
   - Netick.Unity.Pro.HitShape.Container
+  - Netick.Unity.Pro.HitShape.Height
   - Netick.Unity.Pro.HitShape.Index
-  - Netick.Unity.Pro.HitShape.LagCompShape
   - Netick.Unity.Pro.HitShape.Radius
   - Netick.Unity.Pro.HitShape.Raycast(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.LagCompHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
   - Netick.Unity.Pro.HitShape.Raycast2D(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.LagCompHit2D@,Netick.NetworkPlayer,System.Single,System.Boolean)
@@ -27,12 +28,10 @@ items:
   - Netick.Unity.Pro
   namespace: Netick.Unity.Pro
   syntax:
-    content: 'public class HitShape : MonoBehaviour, IHitShape'
-    content.vb: Public Class HitShape Inherits MonoBehaviour Implements IHitShape
+    content: 'public class HitShape : MonoBehaviour'
+    content.vb: Public Class HitShape Inherits MonoBehaviour
   inheritance:
   - System.Object
-  implements:
-  - Netick.Pro.IHitShape
 - uid: Netick.Unity.Pro.HitShape.Shape
   commentId: F:Netick.Unity.Pro.HitShape.Shape
   id: Shape
@@ -50,7 +49,7 @@ items:
   syntax:
     content: public HitShapeType Shape
     return:
-      type: Netick.Pro.HitShapeType
+      type: Netick.Unity.Pro.HitShapeType
     content.vb: Public Shape As HitShapeType
 - uid: Netick.Unity.Pro.HitShape.Center
   commentId: F:Netick.Unity.Pro.HitShape.Center
@@ -109,27 +108,44 @@ items:
     return:
       type: System.Single
     content.vb: Public Radius As Single
-- uid: Netick.Unity.Pro.HitShape.#ctor
-  commentId: M:Netick.Unity.Pro.HitShape.#ctor
-  id: '#ctor'
+- uid: Netick.Unity.Pro.HitShape.Height
+  commentId: F:Netick.Unity.Pro.HitShape.Height
+  id: Height
   parent: Netick.Unity.Pro.HitShape
   langs:
   - csharp
   - vb
-  name: HitShape()
-  nameWithType: HitShape.HitShape()
-  fullName: Netick.Unity.Pro.HitShape.HitShape()
-  type: Constructor
+  name: Height
+  nameWithType: HitShape.Height
+  fullName: Netick.Unity.Pro.HitShape.Height
+  type: Field
   assemblies:
   - Netick.Unity.Pro
   namespace: Netick.Unity.Pro
   syntax:
-    content: public HitShape()
-    content.vb: Public Sub New()
-  overload: Netick.Unity.Pro.HitShape.#ctor*
-  nameWithType.vb: HitShape.New()
-  fullName.vb: Netick.Unity.Pro.HitShape.New()
-  name.vb: New()
+    content: public float Height
+    return:
+      type: System.Single
+    content.vb: Public Height As Single
+- uid: Netick.Unity.Pro.HitShape.Axis
+  commentId: F:Netick.Unity.Pro.HitShape.Axis
+  id: Axis
+  parent: Netick.Unity.Pro.HitShape
+  langs:
+  - csharp
+  - vb
+  name: Axis
+  nameWithType: HitShape.Axis
+  fullName: Netick.Unity.Pro.HitShape.Axis
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public CapsuleAxis Axis
+    return:
+      type: Netick.Unity.Pro.CapsuleAxis
+    content.vb: Public Axis As CapsuleAxis
 - uid: Netick.Unity.Pro.HitShape.Raycast(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.LagCompHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
   commentId: M:Netick.Unity.Pro.HitShape.Raycast(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.LagCompHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
   id: Raycast(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.LagCompHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
@@ -202,6 +218,27 @@ items:
   nameWithType.vb: HitShape.Raycast2D(Vector3, Vector3, LagCompHit2D, NetworkPlayer, Single, Boolean)
   fullName.vb: Netick.Unity.Pro.HitShape.Raycast2D(UnityEngine.Vector3, UnityEngine.Vector3, Netick.Unity.Pro.LagCompHit2D, Netick.NetworkPlayer, Single, Boolean)
   name.vb: Raycast2D(Vector3, Vector3, LagCompHit2D, NetworkPlayer, Single, Boolean)
+- uid: Netick.Unity.Pro.HitShape.#ctor
+  commentId: M:Netick.Unity.Pro.HitShape.#ctor
+  id: '#ctor'
+  parent: Netick.Unity.Pro.HitShape
+  langs:
+  - csharp
+  - vb
+  name: HitShape()
+  nameWithType: HitShape.HitShape()
+  fullName: Netick.Unity.Pro.HitShape.HitShape()
+  type: Constructor
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public HitShape()
+    content.vb: Public Sub New()
+  overload: Netick.Unity.Pro.HitShape.#ctor*
+  nameWithType.vb: HitShape.New()
+  fullName.vb: Netick.Unity.Pro.HitShape.New()
+  name.vb: New()
 - uid: Netick.Unity.Pro.HitShape.Sandbox
   commentId: P:Netick.Unity.Pro.HitShape.Sandbox
   id: Sandbox
@@ -223,27 +260,6 @@ items:
       type: Netick.Unity.NetworkSandbox
     content.vb: Public ReadOnly Property Sandbox As NetworkSandbox
   overload: Netick.Unity.Pro.HitShape.Sandbox*
-- uid: Netick.Unity.Pro.HitShape.LagCompShape
-  commentId: P:Netick.Unity.Pro.HitShape.LagCompShape
-  id: LagCompShape
-  parent: Netick.Unity.Pro.HitShape
-  langs:
-  - csharp
-  - vb
-  name: LagCompShape
-  nameWithType: HitShape.LagCompShape
-  fullName: Netick.Unity.Pro.HitShape.LagCompShape
-  type: Property
-  assemblies:
-  - Netick.Unity.Pro
-  namespace: Netick.Unity.Pro
-  syntax:
-    content: public LagCompShape LagCompShape { get; }
-    parameters: []
-    return:
-      type: Netick.Pro.LagCompShape
-    content.vb: Public ReadOnly Property LagCompShape As LagCompShape
-  overload: Netick.Unity.Pro.HitShape.LagCompShape*
 - uid: Netick.Unity.Pro.HitShape.Container
   commentId: P:Netick.Unity.Pro.HitShape.Container
   id: Container
@@ -335,14 +351,6 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: Netick.Pro.IHitShape
-  commentId: T:Netick.Pro.IHitShape
-  parent: Netick.Pro
-  isExternal: true
-  href: Netick.Pro.IHitShape.html
-  name: IHitShape
-  nameWithType: IHitShape
-  fullName: Netick.Pro.IHitShape
 - uid: System
   commentId: N:System
   isExternal: true
@@ -350,41 +358,14 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Netick.Pro
-  commentId: N:Netick.Pro
+- uid: Netick.Unity.Pro.HitShapeType
+  commentId: T:Netick.Unity.Pro.HitShapeType
+  parent: Netick.Unity.Pro
   isExternal: true
-  href: Netick.html
-  name: Netick.Pro
-  nameWithType: Netick.Pro
-  fullName: Netick.Pro
-  spec.csharp:
-  - uid: Netick
-    name: Netick
-    isExternal: true
-    href: Netick.html
-  - name: .
-  - uid: Netick.Pro
-    name: Pro
-    isExternal: true
-    href: Netick.Pro.html
-  spec.vb:
-  - uid: Netick
-    name: Netick
-    isExternal: true
-    href: Netick.html
-  - name: .
-  - uid: Netick.Pro
-    name: Pro
-    isExternal: true
-    href: Netick.Pro.html
-- uid: Netick.Pro.HitShapeType
-  commentId: T:Netick.Pro.HitShapeType
-  parent: Netick.Pro
-  isExternal: true
-  href: Netick.Pro.HitShapeType.html
+  href: Netick.Unity.Pro.HitShapeType.html
   name: HitShapeType
   nameWithType: HitShapeType
-  fullName: Netick.Pro.HitShapeType
+  fullName: Netick.Unity.Pro.HitShapeType
 - uid: UnityEngine.Vector3
   isExternal: true
   name: Vector3
@@ -401,16 +382,14 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
-- uid: Netick.Unity.Pro.HitShape.#ctor*
-  commentId: Overload:Netick.Unity.Pro.HitShape.#ctor
+- uid: Netick.Unity.Pro.CapsuleAxis
+  commentId: T:Netick.Unity.Pro.CapsuleAxis
+  parent: Netick.Unity.Pro
   isExternal: true
-  href: Netick.Unity.Pro.HitShape.html#Netick_Unity_Pro_HitShape__ctor
-  name: HitShape
-  nameWithType: HitShape.HitShape
-  fullName: Netick.Unity.Pro.HitShape.HitShape
-  nameWithType.vb: HitShape.New
-  fullName.vb: Netick.Unity.Pro.HitShape.New
-  name.vb: New
+  href: Netick.Unity.Pro.CapsuleAxis.html
+  name: CapsuleAxis
+  nameWithType: CapsuleAxis
+  fullName: Netick.Unity.Pro.CapsuleAxis
 - uid: Netick.Unity.Pro.HitShape.Raycast*
   commentId: Overload:Netick.Unity.Pro.HitShape.Raycast
   isExternal: true
@@ -467,6 +446,16 @@ references:
   name: LagCompHit2D
   nameWithType: LagCompHit2D
   fullName: Netick.Unity.Pro.LagCompHit2D
+- uid: Netick.Unity.Pro.HitShape.#ctor*
+  commentId: Overload:Netick.Unity.Pro.HitShape.#ctor
+  isExternal: true
+  href: Netick.Unity.Pro.HitShape.html#Netick_Unity_Pro_HitShape__ctor
+  name: HitShape
+  nameWithType: HitShape.HitShape
+  fullName: Netick.Unity.Pro.HitShape.HitShape
+  nameWithType.vb: HitShape.New
+  fullName.vb: Netick.Unity.Pro.HitShape.New
+  name.vb: New
 - uid: Netick.Unity.Pro.HitShape.Sandbox*
   commentId: Overload:Netick.Unity.Pro.HitShape.Sandbox
   isExternal: true
@@ -509,21 +498,6 @@ references:
     name: Unity
     isExternal: true
     href: Netick.Unity.html
-- uid: Netick.Unity.Pro.HitShape.LagCompShape*
-  commentId: Overload:Netick.Unity.Pro.HitShape.LagCompShape
-  isExternal: true
-  href: Netick.Unity.Pro.HitShape.html#Netick_Unity_Pro_HitShape_LagCompShape
-  name: LagCompShape
-  nameWithType: HitShape.LagCompShape
-  fullName: Netick.Unity.Pro.HitShape.LagCompShape
-- uid: Netick.Pro.LagCompShape
-  commentId: T:Netick.Pro.LagCompShape
-  parent: Netick.Pro
-  isExternal: true
-  href: Netick.Pro.LagCompShape.html
-  name: LagCompShape
-  nameWithType: LagCompShape
-  fullName: Netick.Pro.LagCompShape
 - uid: Netick.Unity.Pro.HitShape.Container*
   commentId: Overload:Netick.Unity.Pro.HitShape.Container
   isExternal: true

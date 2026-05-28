@@ -10,7 +10,9 @@ items:
   - Netick.RemoteInterpolation.From
   - Netick.RemoteInterpolation.HasSnapshots
   - Netick.RemoteInterpolation.Reset
+  - Netick.RemoteInterpolation.ResetEntityToAuth(Netick.Entity)
   - Netick.RemoteInterpolation.Time
+  - Netick.RemoteInterpolation.TimeAsDouble
   - Netick.RemoteInterpolation.To
   langs:
   - csharp
@@ -57,6 +59,74 @@ items:
     content: public void Reset()
     content.vb: Public Sub Reset()
   overload: Netick.RemoteInterpolation.Reset*
+- uid: Netick.RemoteInterpolation.ResetEntityToAuth(Netick.Entity)
+  commentId: M:Netick.RemoteInterpolation.ResetEntityToAuth(Netick.Entity)
+  id: ResetEntityToAuth(Netick.Entity)
+  parent: Netick.RemoteInterpolation
+  langs:
+  - csharp
+  - vb
+  name: ResetEntityToAuth(Entity)
+  nameWithType: RemoteInterpolation.ResetEntityToAuth(Entity)
+  fullName: Netick.RemoteInterpolation.ResetEntityToAuth(Netick.Entity)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void ResetEntityToAuth(Entity entity)
+    parameters:
+    - id: entity
+      type: Netick.Entity
+    content.vb: Public Sub ResetEntityToAuth(entity As Entity)
+  overload: Netick.RemoteInterpolation.ResetEntityToAuth*
+- uid: Netick.RemoteInterpolation.Time
+  commentId: P:Netick.RemoteInterpolation.Time
+  id: Time
+  parent: Netick.RemoteInterpolation
+  langs:
+  - csharp
+  - vb
+  name: Time
+  nameWithType: RemoteInterpolation.Time
+  fullName: Netick.RemoteInterpolation.Time
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Time in seconds.
+  example: []
+  syntax:
+    content: public override float Time { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Overrides ReadOnly Property Time As Single
+  overridden: Netick.Interpolation.Time
+  overload: Netick.RemoteInterpolation.Time*
+- uid: Netick.RemoteInterpolation.TimeAsDouble
+  commentId: P:Netick.RemoteInterpolation.TimeAsDouble
+  id: TimeAsDouble
+  parent: Netick.RemoteInterpolation
+  langs:
+  - csharp
+  - vb
+  name: TimeAsDouble
+  nameWithType: RemoteInterpolation.TimeAsDouble
+  fullName: Netick.RemoteInterpolation.TimeAsDouble
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override double TimeAsDouble { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Overrides ReadOnly Property TimeAsDouble As Double
+  overridden: Netick.Interpolation.TimeAsDouble
+  overload: Netick.RemoteInterpolation.TimeAsDouble*
 - uid: Netick.RemoteInterpolation.From
   commentId: P:Netick.RemoteInterpolation.From
   id: From
@@ -170,30 +240,6 @@ items:
       type: System.Single
     content.vb: Public ReadOnly Property BufferTime As Single
   overload: Netick.RemoteInterpolation.BufferTime*
-- uid: Netick.RemoteInterpolation.Time
-  commentId: P:Netick.RemoteInterpolation.Time
-  id: Time
-  parent: Netick.RemoteInterpolation
-  langs:
-  - csharp
-  - vb
-  name: Time
-  nameWithType: RemoteInterpolation.Time
-  fullName: Netick.RemoteInterpolation.Time
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  summary: Time in seconds.
-  example: []
-  syntax:
-    content: public override float Time { get; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public Overrides ReadOnly Property Time As Single
-  overridden: Netick.Interpolation.Time
-  overload: Netick.RemoteInterpolation.Time*
 references:
 - uid: Netick.NetickEngine
   commentId: T:Netick.NetickEngine
@@ -454,6 +500,73 @@ references:
   name: Reset
   nameWithType: RemoteInterpolation.Reset
   fullName: Netick.RemoteInterpolation.Reset
+- uid: Netick.RemoteInterpolation.ResetEntityToAuth*
+  commentId: Overload:Netick.RemoteInterpolation.ResetEntityToAuth
+  isExternal: true
+  href: Netick.RemoteInterpolation.html#Netick_RemoteInterpolation_ResetEntityToAuth_Netick_Entity_
+  name: ResetEntityToAuth
+  nameWithType: RemoteInterpolation.ResetEntityToAuth
+  fullName: Netick.RemoteInterpolation.ResetEntityToAuth
+- uid: Netick.Entity
+  commentId: T:Netick.Entity
+  parent: Netick
+  isExternal: true
+  href: Netick.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Netick.Entity
+- uid: Netick.Interpolation.Time
+  commentId: P:Netick.Interpolation.Time
+  parent: Netick.Interpolation
+  isExternal: true
+  href: Netick.Interpolation.html#Netick_Interpolation_Time
+  name: Time
+  nameWithType: Interpolation.Time
+  fullName: Netick.Interpolation.Time
+- uid: Netick.RemoteInterpolation.Time*
+  commentId: Overload:Netick.RemoteInterpolation.Time
+  isExternal: true
+  href: Netick.RemoteInterpolation.html#Netick_RemoteInterpolation_Time
+  name: Time
+  nameWithType: RemoteInterpolation.Time
+  fullName: Netick.RemoteInterpolation.Time
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Netick.Interpolation.TimeAsDouble
+  commentId: P:Netick.Interpolation.TimeAsDouble
+  parent: Netick.Interpolation
+  isExternal: true
+  href: Netick.Interpolation.html#Netick_Interpolation_TimeAsDouble
+  name: TimeAsDouble
+  nameWithType: Interpolation.TimeAsDouble
+  fullName: Netick.Interpolation.TimeAsDouble
+- uid: Netick.RemoteInterpolation.TimeAsDouble*
+  commentId: Overload:Netick.RemoteInterpolation.TimeAsDouble
+  isExternal: true
+  href: Netick.RemoteInterpolation.html#Netick_RemoteInterpolation_TimeAsDouble
+  name: TimeAsDouble
+  nameWithType: RemoteInterpolation.TimeAsDouble
+  fullName: Netick.RemoteInterpolation.TimeAsDouble
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
 - uid: Netick.Interpolation.From
   commentId: P:Netick.Interpolation.From
   parent: Netick.Interpolation
@@ -507,17 +620,6 @@ references:
   name: Alpha
   nameWithType: RemoteInterpolation.Alpha
   fullName: Netick.RemoteInterpolation.Alpha
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
 - uid: Netick.Interpolation.HasSnapshots
   commentId: P:Netick.Interpolation.HasSnapshots
   parent: Netick.Interpolation
@@ -551,18 +653,3 @@ references:
   name: BufferTime
   nameWithType: RemoteInterpolation.BufferTime
   fullName: Netick.RemoteInterpolation.BufferTime
-- uid: Netick.Interpolation.Time
-  commentId: P:Netick.Interpolation.Time
-  parent: Netick.Interpolation
-  isExternal: true
-  href: Netick.Interpolation.html#Netick_Interpolation_Time
-  name: Time
-  nameWithType: Interpolation.Time
-  fullName: Netick.Interpolation.Time
-- uid: Netick.RemoteInterpolation.Time*
-  commentId: Overload:Netick.RemoteInterpolation.Time
-  isExternal: true
-  href: Netick.RemoteInterpolation.html#Netick_RemoteInterpolation_Time
-  name: Time
-  nameWithType: RemoteInterpolation.Time
-  fullName: Netick.RemoteInterpolation.Time

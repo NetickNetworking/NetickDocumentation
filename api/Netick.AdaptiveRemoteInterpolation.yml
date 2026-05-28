@@ -11,6 +11,7 @@ items:
   - Netick.AdaptiveRemoteInterpolation.HasSnapshots
   - Netick.AdaptiveRemoteInterpolation.Reset
   - Netick.AdaptiveRemoteInterpolation.Time
+  - Netick.AdaptiveRemoteInterpolation.TimeAsDouble
   - Netick.AdaptiveRemoteInterpolation.To
   langs:
   - csharp
@@ -55,6 +56,53 @@ items:
     content: public void Reset()
     content.vb: Public Sub Reset()
   overload: Netick.AdaptiveRemoteInterpolation.Reset*
+- uid: Netick.AdaptiveRemoteInterpolation.Time
+  commentId: P:Netick.AdaptiveRemoteInterpolation.Time
+  id: Time
+  parent: Netick.AdaptiveRemoteInterpolation
+  langs:
+  - csharp
+  - vb
+  name: Time
+  nameWithType: AdaptiveRemoteInterpolation.Time
+  fullName: Netick.AdaptiveRemoteInterpolation.Time
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  summary: Time in seconds.
+  example: []
+  syntax:
+    content: public override float Time { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Overrides ReadOnly Property Time As Single
+  overridden: Netick.Interpolation.Time
+  overload: Netick.AdaptiveRemoteInterpolation.Time*
+- uid: Netick.AdaptiveRemoteInterpolation.TimeAsDouble
+  commentId: P:Netick.AdaptiveRemoteInterpolation.TimeAsDouble
+  id: TimeAsDouble
+  parent: Netick.AdaptiveRemoteInterpolation
+  langs:
+  - csharp
+  - vb
+  name: TimeAsDouble
+  nameWithType: AdaptiveRemoteInterpolation.TimeAsDouble
+  fullName: Netick.AdaptiveRemoteInterpolation.TimeAsDouble
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override double TimeAsDouble { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Overrides ReadOnly Property TimeAsDouble As Double
+  overridden: Netick.Interpolation.TimeAsDouble
+  overload: Netick.AdaptiveRemoteInterpolation.TimeAsDouble*
 - uid: Netick.AdaptiveRemoteInterpolation.From
   commentId: P:Netick.AdaptiveRemoteInterpolation.From
   id: From
@@ -168,30 +216,6 @@ items:
       type: System.Single
     content.vb: Public ReadOnly Property BufferTime As Single
   overload: Netick.AdaptiveRemoteInterpolation.BufferTime*
-- uid: Netick.AdaptiveRemoteInterpolation.Time
-  commentId: P:Netick.AdaptiveRemoteInterpolation.Time
-  id: Time
-  parent: Netick.AdaptiveRemoteInterpolation
-  langs:
-  - csharp
-  - vb
-  name: Time
-  nameWithType: AdaptiveRemoteInterpolation.Time
-  fullName: Netick.AdaptiveRemoteInterpolation.Time
-  type: Property
-  assemblies:
-  - Netick
-  namespace: Netick
-  summary: Time in seconds.
-  example: []
-  syntax:
-    content: public override float Time { get; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public Overrides ReadOnly Property Time As Single
-  overridden: Netick.Interpolation.Time
-  overload: Netick.AdaptiveRemoteInterpolation.Time*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -444,6 +468,58 @@ references:
   name: Reset
   nameWithType: AdaptiveRemoteInterpolation.Reset
   fullName: Netick.AdaptiveRemoteInterpolation.Reset
+- uid: Netick.Interpolation.Time
+  commentId: P:Netick.Interpolation.Time
+  parent: Netick.Interpolation
+  isExternal: true
+  href: Netick.Interpolation.html#Netick_Interpolation_Time
+  name: Time
+  nameWithType: Interpolation.Time
+  fullName: Netick.Interpolation.Time
+- uid: Netick.AdaptiveRemoteInterpolation.Time*
+  commentId: Overload:Netick.AdaptiveRemoteInterpolation.Time
+  isExternal: true
+  href: Netick.AdaptiveRemoteInterpolation.html#Netick_AdaptiveRemoteInterpolation_Time
+  name: Time
+  nameWithType: AdaptiveRemoteInterpolation.Time
+  fullName: Netick.AdaptiveRemoteInterpolation.Time
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: Netick.Interpolation.TimeAsDouble
+  commentId: P:Netick.Interpolation.TimeAsDouble
+  parent: Netick.Interpolation
+  isExternal: true
+  href: Netick.Interpolation.html#Netick_Interpolation_TimeAsDouble
+  name: TimeAsDouble
+  nameWithType: Interpolation.TimeAsDouble
+  fullName: Netick.Interpolation.TimeAsDouble
+- uid: Netick.AdaptiveRemoteInterpolation.TimeAsDouble*
+  commentId: Overload:Netick.AdaptiveRemoteInterpolation.TimeAsDouble
+  isExternal: true
+  href: Netick.AdaptiveRemoteInterpolation.html#Netick_AdaptiveRemoteInterpolation_TimeAsDouble
+  name: TimeAsDouble
+  nameWithType: AdaptiveRemoteInterpolation.TimeAsDouble
+  fullName: Netick.AdaptiveRemoteInterpolation.TimeAsDouble
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
 - uid: Netick.Interpolation.From
   commentId: P:Netick.Interpolation.From
   parent: Netick.Interpolation
@@ -497,17 +573,6 @@ references:
   name: Alpha
   nameWithType: AdaptiveRemoteInterpolation.Alpha
   fullName: Netick.AdaptiveRemoteInterpolation.Alpha
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
 - uid: Netick.Interpolation.HasSnapshots
   commentId: P:Netick.Interpolation.HasSnapshots
   parent: Netick.Interpolation
@@ -541,18 +606,3 @@ references:
   name: BufferTime
   nameWithType: AdaptiveRemoteInterpolation.BufferTime
   fullName: Netick.AdaptiveRemoteInterpolation.BufferTime
-- uid: Netick.Interpolation.Time
-  commentId: P:Netick.Interpolation.Time
-  parent: Netick.Interpolation
-  isExternal: true
-  href: Netick.Interpolation.html#Netick_Interpolation_Time
-  name: Time
-  nameWithType: Interpolation.Time
-  fullName: Netick.Interpolation.Time
-- uid: Netick.AdaptiveRemoteInterpolation.Time*
-  commentId: Overload:Netick.AdaptiveRemoteInterpolation.Time
-  isExternal: true
-  href: Netick.AdaptiveRemoteInterpolation.html#Netick_AdaptiveRemoteInterpolation_Time
-  name: Time
-  nameWithType: AdaptiveRemoteInterpolation.Time
-  fullName: Netick.AdaptiveRemoteInterpolation.Time

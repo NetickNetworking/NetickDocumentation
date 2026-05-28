@@ -11,6 +11,7 @@ items:
   - Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync
   - Netick.Unity.FileReplayTransport.GetReplayFileInfo(System.String)
   - Netick.Unity.FileReplayTransport.GetReplayFileInfoAsync(System.String)
+  - Netick.Unity.FileReplayTransport.GetReplayFileMetadataAsync(System.String)
   - Netick.Unity.FileReplayTransport.Sandbox
   langs:
   - csharp
@@ -99,6 +100,32 @@ items:
   nameWithType.vb: FileReplayTransport.GetReplayFileInfo(String)
   fullName.vb: Netick.Unity.FileReplayTransport.GetReplayFileInfo(String)
   name.vb: GetReplayFileInfo(String)
+- uid: Netick.Unity.FileReplayTransport.GetReplayFileMetadataAsync(System.String)
+  commentId: M:Netick.Unity.FileReplayTransport.GetReplayFileMetadataAsync(System.String)
+  id: GetReplayFileMetadataAsync(System.String)
+  parent: Netick.Unity.FileReplayTransport
+  langs:
+  - csharp
+  - vb
+  name: GetReplayFileMetadataAsync(string)
+  nameWithType: FileReplayTransport.GetReplayFileMetadataAsync(string)
+  fullName: Netick.Unity.FileReplayTransport.GetReplayFileMetadataAsync(string)
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public static Task<byte[]> GetReplayFileMetadataAsync(string path)
+    parameters:
+    - id: path
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.Byte[]}
+    content.vb: Public Shared Function GetReplayFileMetadataAsync(path As String) As Task(Of Byte())
+  overload: Netick.Unity.FileReplayTransport.GetReplayFileMetadataAsync*
+  nameWithType.vb: FileReplayTransport.GetReplayFileMetadataAsync(String)
+  fullName.vb: Netick.Unity.FileReplayTransport.GetReplayFileMetadataAsync(String)
+  name.vb: GetReplayFileMetadataAsync(String)
 - uid: Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync
   commentId: M:Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync
   id: GetLatestReplayFilePathAsync
@@ -616,6 +643,52 @@ references:
   name: ReplayFileInfo
   nameWithType: ReplayFileInfo
   fullName: Netick.Unity.ReplayFileInfo
+- uid: Netick.Unity.FileReplayTransport.GetReplayFileMetadataAsync*
+  commentId: Overload:Netick.Unity.FileReplayTransport.GetReplayFileMetadataAsync
+  isExternal: true
+  href: Netick.Unity.FileReplayTransport.html#Netick_Unity_FileReplayTransport_GetReplayFileMetadataAsync_System_String_
+  name: GetReplayFileMetadataAsync
+  nameWithType: FileReplayTransport.GetReplayFileMetadataAsync
+  fullName: Netick.Unity.FileReplayTransport.GetReplayFileMetadataAsync
+- uid: System.Threading.Tasks.Task{System.Byte[]}
+  commentId: T:System.Threading.Tasks.Task{System.Byte[]}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<byte[]>
+  nameWithType: Task<byte[]>
+  fullName: System.Threading.Tasks.Task<byte[]>
+  nameWithType.vb: Task(Of Byte())
+  fullName.vb: System.Threading.Tasks.Task(Of Byte())
+  name.vb: Task(Of Byte())
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
 - uid: Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync*
   commentId: Overload:Netick.Unity.FileReplayTransport.GetLatestReplayFilePathAsync
   isExternal: true

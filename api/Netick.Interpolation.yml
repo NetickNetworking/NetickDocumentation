@@ -10,6 +10,7 @@ items:
   - Netick.Interpolation.FromSnapshot
   - Netick.Interpolation.HasSnapshots
   - Netick.Interpolation.Time
+  - Netick.Interpolation.TimeAsDouble
   - Netick.Interpolation.To
   - Netick.Interpolation.ToSnapshot
   langs:
@@ -184,6 +185,27 @@ items:
       type: System.Single
     content.vb: Public MustOverride ReadOnly Property Time As Single
   overload: Netick.Interpolation.Time*
+- uid: Netick.Interpolation.TimeAsDouble
+  commentId: P:Netick.Interpolation.TimeAsDouble
+  id: TimeAsDouble
+  parent: Netick.Interpolation
+  langs:
+  - csharp
+  - vb
+  name: TimeAsDouble
+  nameWithType: Interpolation.TimeAsDouble
+  fullName: Netick.Interpolation.TimeAsDouble
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public abstract double TimeAsDouble { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public MustOverride ReadOnly Property TimeAsDouble As Double
+  overload: Netick.Interpolation.TimeAsDouble*
 references:
 - uid: Netick.RemoteInterpolation
   commentId: T:Netick.RemoteInterpolation
@@ -518,3 +540,21 @@ references:
   name: Time
   nameWithType: Interpolation.Time
   fullName: Netick.Interpolation.Time
+- uid: Netick.Interpolation.TimeAsDouble*
+  commentId: Overload:Netick.Interpolation.TimeAsDouble
+  isExternal: true
+  href: Netick.Interpolation.html#Netick_Interpolation_TimeAsDouble
+  name: TimeAsDouble
+  nameWithType: Interpolation.TimeAsDouble
+  fullName: Netick.Interpolation.TimeAsDouble
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double

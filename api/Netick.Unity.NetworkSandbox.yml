@@ -81,6 +81,7 @@ items:
   - Netick.Unity.NetworkSandbox.IsResimulating
   - Netick.Unity.NetworkSandbox.IsRunning
   - Netick.Unity.NetworkSandbox.IsServer
+  - Netick.Unity.NetworkSandbox.IsTerminated
   - Netick.Unity.NetworkSandbox.IsVisible
   - Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayer,System.ReadOnlySpan{System.Byte})
   - Netick.Unity.NetworkSandbox.Kick(Netick.NetworkPlayerId,System.ReadOnlySpan{System.Byte})
@@ -120,6 +121,7 @@ items:
   - Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayer)
   - Netick.Unity.NetworkSandbox.NetworkInstantiate``1(``0,UnityEngine.Vector3,UnityEngine.Quaternion,Netick.NetworkPlayerId)
   - Netick.Unity.NetworkSandbox.NetworkTime
+  - Netick.Unity.NetworkSandbox.NetworkTimeAsDouble
   - Netick.Unity.NetworkSandbox.Objects
   - Netick.Unity.NetworkSandbox.OutKBps
   - Netick.Unity.NetworkSandbox.OutPacketLoss
@@ -3613,6 +3615,29 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsRunning As Boolean
   overload: Netick.Unity.NetworkSandbox.IsRunning*
+- uid: Netick.Unity.NetworkSandbox.IsTerminated
+  commentId: P:Netick.Unity.NetworkSandbox.IsTerminated
+  id: IsTerminated
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: IsTerminated
+  nameWithType: NetworkSandbox.IsTerminated
+  fullName: Netick.Unity.NetworkSandbox.IsTerminated
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Returns true when this <xref href="Netick.Unity.NetworkSandbox" data-throw-if-not-resolved="false"></xref> begins shutdown and remains true afterward.
+  example: []
+  syntax:
+    content: public bool IsTerminated { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsTerminated As Boolean
+  overload: Netick.Unity.NetworkSandbox.IsTerminated*
 - uid: Netick.Unity.NetworkSandbox.IsServer
   commentId: P:Netick.Unity.NetworkSandbox.IsServer
   id: IsServer
@@ -4162,7 +4187,7 @@ items:
   assemblies:
   - Netick.Unity
   namespace: Netick.Unity
-  summary: Time period between network simulation steps. Same as <xref href="UnityEngine.Time.fixedDeltaTime" data-throw-if-not-resolved="false"></xref>
+  summary: Time period between network simulation steps. Same as <xref href="UnityEngine.Time.fixedUnscaledDeltaTime" data-throw-if-not-resolved="false"></xref>
   example: []
   syntax:
     content: public float FixedDeltaTime { get; }
@@ -4240,6 +4265,29 @@ items:
       type: System.Single
     content.vb: Public ReadOnly Property NetworkTime As Single
   overload: Netick.Unity.NetworkSandbox.NetworkTime*
+- uid: Netick.Unity.NetworkSandbox.NetworkTimeAsDouble
+  commentId: P:Netick.Unity.NetworkSandbox.NetworkTimeAsDouble
+  id: NetworkTimeAsDouble
+  parent: Netick.Unity.NetworkSandbox
+  langs:
+  - csharp
+  - vb
+  name: NetworkTimeAsDouble
+  nameWithType: NetworkSandbox.NetworkTimeAsDouble
+  fullName: Netick.Unity.NetworkSandbox.NetworkTimeAsDouble
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  summary: Current (local/predicted) network time (as a double) in seconds. Same as <xref href="Netick.LocalInterpolation.TimeAsDouble" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public double NetworkTimeAsDouble { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property NetworkTimeAsDouble As Double
+  overload: Netick.Unity.NetworkSandbox.NetworkTimeAsDouble*
 - uid: Netick.Unity.NetworkSandbox.Tick
   commentId: P:Netick.Unity.NetworkSandbox.Tick
   id: Tick
@@ -6160,6 +6208,13 @@ references:
   name: IsRunning
   nameWithType: NetworkSandbox.IsRunning
   fullName: Netick.Unity.NetworkSandbox.IsRunning
+- uid: Netick.Unity.NetworkSandbox.IsTerminated*
+  commentId: Overload:Netick.Unity.NetworkSandbox.IsTerminated
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_IsTerminated
+  name: IsTerminated
+  nameWithType: NetworkSandbox.IsTerminated
+  fullName: Netick.Unity.NetworkSandbox.IsTerminated
 - uid: Netick.Unity.NetworkSandbox.IsServer*
   commentId: Overload:Netick.Unity.NetworkSandbox.IsServer
   isExternal: true
@@ -6525,8 +6580,8 @@ references:
   name: LocalAlpha
   nameWithType: NetworkSandbox.LocalAlpha
   fullName: Netick.Unity.NetworkSandbox.LocalAlpha
-- uid: UnityEngine.Time.fixedDeltaTime
-  commentId: P:UnityEngine.Time.fixedDeltaTime
+- uid: UnityEngine.Time.fixedUnscaledDeltaTime
+  commentId: P:UnityEngine.Time.fixedUnscaledDeltaTime
   isExternal: true
 - uid: Netick.Unity.NetworkSandbox.FixedDeltaTime*
   commentId: Overload:Netick.Unity.NetworkSandbox.FixedDeltaTime
@@ -6545,6 +6600,9 @@ references:
   name: DeltaTime
   nameWithType: NetworkSandbox.DeltaTime
   fullName: Netick.Unity.NetworkSandbox.DeltaTime
+- uid: UnityEngine.Time.fixedDeltaTime
+  commentId: P:UnityEngine.Time.fixedDeltaTime
+  isExternal: true
 - uid: UnityEngine.Time.timeScale
   commentId: P:UnityEngine.Time.timeScale
   isExternal: true
@@ -6568,6 +6626,30 @@ references:
   name: NetworkTime
   nameWithType: NetworkSandbox.NetworkTime
   fullName: Netick.Unity.NetworkSandbox.NetworkTime
+- uid: Netick.LocalInterpolation.TimeAsDouble
+  commentId: P:Netick.LocalInterpolation.TimeAsDouble
+  isExternal: true
+  name: TimeAsDouble
+  nameWithType: LocalInterpolation.TimeAsDouble
+  fullName: Netick.LocalInterpolation.TimeAsDouble
+- uid: Netick.Unity.NetworkSandbox.NetworkTimeAsDouble*
+  commentId: Overload:Netick.Unity.NetworkSandbox.NetworkTimeAsDouble
+  isExternal: true
+  href: Netick.Unity.NetworkSandbox.html#Netick_Unity_NetworkSandbox_NetworkTimeAsDouble
+  name: NetworkTimeAsDouble
+  nameWithType: NetworkSandbox.NetworkTimeAsDouble
+  fullName: Netick.Unity.NetworkSandbox.NetworkTimeAsDouble
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
 - uid: Netick.Unity.NetworkSandbox.IsResimulating
   commentId: P:Netick.Unity.NetworkSandbox.IsResimulating
   isExternal: true
@@ -6687,17 +6769,6 @@ references:
   name: RTT
   nameWithType: NetworkSandbox.RTT
   fullName: Netick.Unity.NetworkSandbox.RTT
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double
 - uid: Netick.Unity.NetworkSandbox.Monitor*
   commentId: Overload:Netick.Unity.NetworkSandbox.Monitor
   isExternal: true

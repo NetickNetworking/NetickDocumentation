@@ -6,6 +6,7 @@ items:
   parent: Netick
   children:
   - Netick.NetickUtils.Ceiling(System.Int32)
+  - Netick.NetickUtils.Clamp01(System.Double)
   - Netick.NetickUtils.Clamp01(System.Single)
   - Netick.NetickUtils.GetAllSubclassOf(System.Type)
   - Netick.NetickUtils.GetMethodName(System.Reflection.MethodInfo)
@@ -13,6 +14,7 @@ items:
   - Netick.NetickUtils.GetWordSize(System.Int32)
   - Netick.NetickUtils.GetWordSize(System.Int32,System.Int32)
   - Netick.NetickUtils.InverseLerp(System.Single,System.Single,System.Single)
+  - Netick.NetickUtils.Lerp(System.Double,System.Double,System.Double)
   - Netick.NetickUtils.Lerp(System.Single,System.Single,System.Single)
   - Netick.NetickUtils.LoadStringFromPtr(System.Text.StringBuilder,System.Int32*,System.Int32)
   - Netick.NetickUtils.PowerOfTwo(System.Int32)
@@ -176,6 +178,36 @@ items:
   nameWithType.vb: NetickUtils.Lerp(Single, Single, Single)
   fullName.vb: Netick.NetickUtils.Lerp(Single, Single, Single)
   name.vb: Lerp(Single, Single, Single)
+- uid: Netick.NetickUtils.Lerp(System.Double,System.Double,System.Double)
+  commentId: M:Netick.NetickUtils.Lerp(System.Double,System.Double,System.Double)
+  id: Lerp(System.Double,System.Double,System.Double)
+  parent: Netick.NetickUtils
+  langs:
+  - csharp
+  - vb
+  name: Lerp(double, double, double)
+  nameWithType: NetickUtils.Lerp(double, double, double)
+  fullName: Netick.NetickUtils.Lerp(double, double, double)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static double Lerp(double a, double b, double t)
+    parameters:
+    - id: a
+      type: System.Double
+    - id: b
+      type: System.Double
+    - id: t
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Shared Function Lerp(a As Double, b As Double, t As Double) As Double
+  overload: Netick.NetickUtils.Lerp*
+  nameWithType.vb: NetickUtils.Lerp(Double, Double, Double)
+  fullName.vb: Netick.NetickUtils.Lerp(Double, Double, Double)
+  name.vb: Lerp(Double, Double, Double)
 - uid: Netick.NetickUtils.InverseLerp(System.Single,System.Single,System.Single)
   commentId: M:Netick.NetickUtils.InverseLerp(System.Single,System.Single,System.Single)
   id: InverseLerp(System.Single,System.Single,System.Single)
@@ -232,6 +264,32 @@ items:
   nameWithType.vb: NetickUtils.Clamp01(Single)
   fullName.vb: Netick.NetickUtils.Clamp01(Single)
   name.vb: Clamp01(Single)
+- uid: Netick.NetickUtils.Clamp01(System.Double)
+  commentId: M:Netick.NetickUtils.Clamp01(System.Double)
+  id: Clamp01(System.Double)
+  parent: Netick.NetickUtils
+  langs:
+  - csharp
+  - vb
+  name: Clamp01(double)
+  nameWithType: NetickUtils.Clamp01(double)
+  fullName: Netick.NetickUtils.Clamp01(double)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public static double Clamp01(double a)
+    parameters:
+    - id: a
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Shared Function Clamp01(a As Double) As Double
+  overload: Netick.NetickUtils.Clamp01*
+  nameWithType.vb: NetickUtils.Clamp01(Double)
+  fullName.vb: Netick.NetickUtils.Clamp01(Double)
+  name.vb: Clamp01(Double)
 - uid: Netick.NetickUtils.LoadStringFromPtr(System.Text.StringBuilder,System.Int32*,System.Int32)
   commentId: M:Netick.NetickUtils.LoadStringFromPtr(System.Text.StringBuilder,System.Int32*,System.Int32)
   id: LoadStringFromPtr(System.Text.StringBuilder,System.Int32*,System.Int32)
@@ -664,6 +722,17 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
 - uid: Netick.NetickUtils.InverseLerp*
   commentId: Overload:Netick.NetickUtils.InverseLerp
   isExternal: true

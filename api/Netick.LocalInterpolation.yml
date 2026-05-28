@@ -10,6 +10,7 @@ items:
   - Netick.LocalInterpolation.From
   - Netick.LocalInterpolation.HasSnapshots
   - Netick.LocalInterpolation.Time
+  - Netick.LocalInterpolation.TimeAsDouble
   - Netick.LocalInterpolation.To
   langs:
   - csharp
@@ -178,6 +179,29 @@ items:
     content.vb: Public Overrides ReadOnly Property Time As Single
   overridden: Netick.Interpolation.Time
   overload: Netick.LocalInterpolation.Time*
+- uid: Netick.LocalInterpolation.TimeAsDouble
+  commentId: P:Netick.LocalInterpolation.TimeAsDouble
+  id: TimeAsDouble
+  parent: Netick.LocalInterpolation
+  langs:
+  - csharp
+  - vb
+  name: TimeAsDouble
+  nameWithType: LocalInterpolation.TimeAsDouble
+  fullName: Netick.LocalInterpolation.TimeAsDouble
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  example: []
+  syntax:
+    content: public override double TimeAsDouble { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Overrides ReadOnly Property TimeAsDouble As Double
+  overridden: Netick.Interpolation.TimeAsDouble
+  overload: Netick.LocalInterpolation.TimeAsDouble*
 references:
 - uid: Netick.NetickEngine
   commentId: T:Netick.NetickEngine
@@ -546,3 +570,29 @@ references:
   name: Time
   nameWithType: LocalInterpolation.Time
   fullName: Netick.LocalInterpolation.Time
+- uid: Netick.Interpolation.TimeAsDouble
+  commentId: P:Netick.Interpolation.TimeAsDouble
+  parent: Netick.Interpolation
+  isExternal: true
+  href: Netick.Interpolation.html#Netick_Interpolation_TimeAsDouble
+  name: TimeAsDouble
+  nameWithType: Interpolation.TimeAsDouble
+  fullName: Netick.Interpolation.TimeAsDouble
+- uid: Netick.LocalInterpolation.TimeAsDouble*
+  commentId: Overload:Netick.LocalInterpolation.TimeAsDouble
+  isExternal: true
+  href: Netick.LocalInterpolation.html#Netick_LocalInterpolation_TimeAsDouble
+  name: TimeAsDouble
+  nameWithType: LocalInterpolation.TimeAsDouble
+  fullName: Netick.LocalInterpolation.TimeAsDouble
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double

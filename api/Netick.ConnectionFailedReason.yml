@@ -6,6 +6,7 @@ items:
   parent: Netick
   children:
   - Netick.ConnectionFailedReason.Refused
+  - Netick.ConnectionFailedReason.ServerFull
   - Netick.ConnectionFailedReason.Timeout
   langs:
   - csharp
@@ -54,6 +55,24 @@ items:
   namespace: Netick
   syntax:
     content: Refused = 1
+    return:
+      type: Netick.ConnectionFailedReason
+- uid: Netick.ConnectionFailedReason.ServerFull
+  commentId: F:Netick.ConnectionFailedReason.ServerFull
+  id: ServerFull
+  parent: Netick.ConnectionFailedReason
+  langs:
+  - csharp
+  - vb
+  name: ServerFull
+  nameWithType: ConnectionFailedReason.ServerFull
+  fullName: Netick.ConnectionFailedReason.ServerFull
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: ServerFull = 2
     return:
       type: Netick.ConnectionFailedReason
 references:

@@ -63,25 +63,6 @@ items:
     return:
       type: Netick.FloatStats
     content.vb: Public ReadOnly FPS As FloatStats
-- uid: Netick.Monitor.ServerTickTime
-  commentId: F:Netick.Monitor.ServerTickTime
-  id: ServerTickTime
-  parent: Netick.Monitor
-  langs:
-  - csharp
-  - vb
-  name: ServerTickTime
-  nameWithType: Monitor.ServerTickTime
-  fullName: Netick.Monitor.ServerTickTime
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly FloatStats ServerTickTime
-    return:
-      type: Netick.FloatStats
-    content.vb: Public ReadOnly ServerTickTime As FloatStats
 - uid: Netick.Monitor.RTT
   commentId: F:Netick.Monitor.RTT
   id: RTT
@@ -139,6 +120,25 @@ items:
     return:
       type: Netick.FloatStats
     content.vb: Public ReadOnly SnapshotSize As FloatStats
+- uid: Netick.Monitor.ServerTickTime
+  commentId: F:Netick.Monitor.ServerTickTime
+  id: ServerTickTime
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: ServerTickTime
+  nameWithType: Monitor.ServerTickTime
+  fullName: Netick.Monitor.ServerTickTime
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly FloatStats ServerTickTime
+    return:
+      type: Netick.FloatStats
+    content.vb: Public ReadOnly ServerTickTime As FloatStats
 - uid: Netick.Monitor.UpdateEntryPoint
   commentId: F:Netick.Monitor.UpdateEntryPoint
   id: UpdateEntryPoint
@@ -158,6 +158,82 @@ items:
     return:
       type: Netick.NetickProfiler
     content.vb: Public ReadOnly UpdateEntryPoint As NetickProfiler
+- uid: Netick.Monitor.UpdateProfiler
+  commentId: F:Netick.Monitor.UpdateProfiler
+  id: UpdateProfiler
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: UpdateProfiler
+  nameWithType: Monitor.UpdateProfiler
+  fullName: Netick.Monitor.UpdateProfiler
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly NetickProfiler UpdateProfiler
+    return:
+      type: Netick.NetickProfiler
+    content.vb: Public ReadOnly UpdateProfiler As NetickProfiler
+- uid: Netick.Monitor.FixedUpdateProfiler
+  commentId: F:Netick.Monitor.FixedUpdateProfiler
+  id: FixedUpdateProfiler
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: FixedUpdateProfiler
+  nameWithType: Monitor.FixedUpdateProfiler
+  fullName: Netick.Monitor.FixedUpdateProfiler
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly NetickProfiler FixedUpdateProfiler
+    return:
+      type: Netick.NetickProfiler
+    content.vb: Public ReadOnly FixedUpdateProfiler As NetickProfiler
+- uid: Netick.Monitor.RenderProfiler
+  commentId: F:Netick.Monitor.RenderProfiler
+  id: RenderProfiler
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: RenderProfiler
+  nameWithType: Monitor.RenderProfiler
+  fullName: Netick.Monitor.RenderProfiler
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly NetickProfiler RenderProfiler
+    return:
+      type: Netick.NetickProfiler
+    content.vb: Public ReadOnly RenderProfiler As NetickProfiler
+- uid: Netick.Monitor.TickProfiler
+  commentId: F:Netick.Monitor.TickProfiler
+  id: TickProfiler
+  parent: Netick.Monitor
+  langs:
+  - csharp
+  - vb
+  name: TickProfiler
+  nameWithType: Monitor.TickProfiler
+  fullName: Netick.Monitor.TickProfiler
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public readonly NetickProfiler TickProfiler
+    return:
+      type: Netick.NetickProfiler
+    content.vb: Public ReadOnly TickProfiler As NetickProfiler
 - uid: Netick.Monitor.SendProfiler
   commentId: F:Netick.Monitor.SendProfiler
   id: SendProfiler
@@ -215,25 +291,6 @@ items:
     return:
       type: Netick.NetickProfiler
     content.vb: Public ReadOnly ProcessStateChangesProfiler As NetickProfiler
-- uid: Netick.Monitor.TickProfiler
-  commentId: F:Netick.Monitor.TickProfiler
-  id: TickProfiler
-  parent: Netick.Monitor
-  langs:
-  - csharp
-  - vb
-  name: TickProfiler
-  nameWithType: Monitor.TickProfiler
-  fullName: Netick.Monitor.TickProfiler
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly NetickProfiler TickProfiler
-    return:
-      type: Netick.NetickProfiler
-    content.vb: Public ReadOnly TickProfiler As NetickProfiler
 - uid: Netick.Monitor.WriteReplayProfiler
   commentId: F:Netick.Monitor.WriteReplayProfiler
   id: WriteReplayProfiler
@@ -310,63 +367,6 @@ items:
     return:
       type: Netick.NetickProfiler
     content.vb: Public ReadOnly ResimulateProfiler As NetickProfiler
-- uid: Netick.Monitor.UpdateProfiler
-  commentId: F:Netick.Monitor.UpdateProfiler
-  id: UpdateProfiler
-  parent: Netick.Monitor
-  langs:
-  - csharp
-  - vb
-  name: UpdateProfiler
-  nameWithType: Monitor.UpdateProfiler
-  fullName: Netick.Monitor.UpdateProfiler
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly NetickProfiler UpdateProfiler
-    return:
-      type: Netick.NetickProfiler
-    content.vb: Public ReadOnly UpdateProfiler As NetickProfiler
-- uid: Netick.Monitor.FixedUpdateProfiler
-  commentId: F:Netick.Monitor.FixedUpdateProfiler
-  id: FixedUpdateProfiler
-  parent: Netick.Monitor
-  langs:
-  - csharp
-  - vb
-  name: FixedUpdateProfiler
-  nameWithType: Monitor.FixedUpdateProfiler
-  fullName: Netick.Monitor.FixedUpdateProfiler
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly NetickProfiler FixedUpdateProfiler
-    return:
-      type: Netick.NetickProfiler
-    content.vb: Public ReadOnly FixedUpdateProfiler As NetickProfiler
-- uid: Netick.Monitor.RenderProfiler
-  commentId: F:Netick.Monitor.RenderProfiler
-  id: RenderProfiler
-  parent: Netick.Monitor
-  langs:
-  - csharp
-  - vb
-  name: RenderProfiler
-  nameWithType: Monitor.RenderProfiler
-  fullName: Netick.Monitor.RenderProfiler
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public readonly NetickProfiler RenderProfiler
-    return:
-      type: Netick.NetickProfiler
-    content.vb: Public ReadOnly RenderProfiler As NetickProfiler
 references:
 - uid: Netick
   commentId: N:Netick

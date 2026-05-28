@@ -8,7 +8,6 @@ items:
   - Netick.IGameEngine.GetConnectionMetaSizeWords
   - Netick.IGameEngine.GetEntityMetaSizeWords
   - Netick.IGameEngine.GetReplicateEntitiesOnReplay(System.Int32*)
-  - Netick.IGameEngine.GetTime
   - Netick.IGameEngine.OnAfterReceive(Netick.NetworkConnection)
   - Netick.IGameEngine.OnBeforeSend(Netick.NetworkConnection)
   - Netick.IGameEngine.OnConnectFailed(Netick.ConnectionFailedReason)
@@ -48,26 +47,6 @@ items:
   syntax:
     content: public interface IGameEngine
     content.vb: Public Interface IGameEngine
-- uid: Netick.IGameEngine.GetTime
-  commentId: M:Netick.IGameEngine.GetTime
-  id: GetTime
-  parent: Netick.IGameEngine
-  langs:
-  - csharp
-  - vb
-  name: GetTime()
-  nameWithType: IGameEngine.GetTime()
-  fullName: Netick.IGameEngine.GetTime()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: float GetTime()
-    return:
-      type: System.Single
-    content.vb: Function GetTime() As Single
-  overload: Netick.IGameEngine.GetTime*
 - uid: Netick.IGameEngine.SyncTransformsToColliders
   commentId: M:Netick.IGameEngine.SyncTransformsToColliders
   id: SyncTransformsToColliders
@@ -702,31 +681,6 @@ references:
   name: Netick
   nameWithType: Netick
   fullName: Netick
-- uid: Netick.IGameEngine.GetTime*
-  commentId: Overload:Netick.IGameEngine.GetTime
-  isExternal: true
-  href: Netick.IGameEngine.html#Netick_IGameEngine_GetTime
-  name: GetTime
-  nameWithType: IGameEngine.GetTime
-  fullName: Netick.IGameEngine.GetTime
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: Netick.IGameEngine.SyncTransformsToColliders*
   commentId: Overload:Netick.IGameEngine.SyncTransformsToColliders
   isExternal: true
@@ -773,6 +727,13 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: Netick.IGameEngine.SetLocalUserDataForReplayConnection*
   commentId: Overload:Netick.IGameEngine.SetLocalUserDataForReplayConnection
   isExternal: true

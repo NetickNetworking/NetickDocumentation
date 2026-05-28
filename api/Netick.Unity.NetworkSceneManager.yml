@@ -8,8 +8,6 @@ items:
   - Netick.Unity.NetworkSceneManager.#ctor
   - Netick.Unity.NetworkSceneManager.InternalGetStateSizeWords
   - Netick.Unity.NetworkSceneManager.InternalReset
-  - Netick.Unity.NetworkSceneManager.NetworkDestroy
-  - Netick.Unity.NetworkSceneManager.NetworkStart
   langs:
   - csharp
   - vb
@@ -75,6 +73,8 @@ items:
   - Netick.Unity.NetworkBehaviour.InputSource
   - Netick.Unity.NetworkBehaviour.InputSourcePlayerId
   - Netick.Unity.NetworkBehaviour.StateSize
+  - Netick.Unity.NetickBehaviour.NetworkStart
+  - Netick.Unity.NetickBehaviour.NetworkDestroy
   - Netick.Unity.NetickBehaviour.NetworkUpdate
   - Netick.Unity.NetickBehaviour.NetworkFixedUpdate
   - Netick.Unity.NetickBehaviour.NetworkRender
@@ -90,48 +90,6 @@ items:
     arguments:
     - type: System.Int32
       value: -100000
-- uid: Netick.Unity.NetworkSceneManager.NetworkStart
-  commentId: M:Netick.Unity.NetworkSceneManager.NetworkStart
-  id: NetworkStart
-  parent: Netick.Unity.NetworkSceneManager
-  langs:
-  - csharp
-  - vb
-  name: NetworkStart()
-  nameWithType: NetworkSceneManager.NetworkStart()
-  fullName: Netick.Unity.NetworkSceneManager.NetworkStart()
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: Called when this behaviour has been added to the simulation.
-  example: []
-  syntax:
-    content: public override void NetworkStart()
-    content.vb: Public Overrides Sub NetworkStart()
-  overridden: Netick.Unity.NetickBehaviour.NetworkStart
-  overload: Netick.Unity.NetworkSceneManager.NetworkStart*
-- uid: Netick.Unity.NetworkSceneManager.NetworkDestroy
-  commentId: M:Netick.Unity.NetworkSceneManager.NetworkDestroy
-  id: NetworkDestroy
-  parent: Netick.Unity.NetworkSceneManager
-  langs:
-  - csharp
-  - vb
-  name: NetworkDestroy()
-  nameWithType: NetworkSceneManager.NetworkDestroy()
-  fullName: Netick.Unity.NetworkSceneManager.NetworkDestroy()
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: Called when this behaviour has been removed from the simulation.
-  example: []
-  syntax:
-    content: public override void NetworkDestroy()
-    content.vb: Public Overrides Sub NetworkDestroy()
-  overridden: Netick.Unity.NetickBehaviour.NetworkDestroy
-  overload: Netick.Unity.NetworkSceneManager.NetworkDestroy*
 - uid: Netick.Unity.NetworkSceneManager.InternalReset
   commentId: M:Netick.Unity.NetworkSceneManager.InternalReset
   id: InternalReset
@@ -1099,6 +1057,50 @@ references:
   name: StateSize
   nameWithType: NetworkBehaviour.StateSize
   fullName: Netick.Unity.NetworkBehaviour.StateSize
+- uid: Netick.Unity.NetickBehaviour.NetworkStart
+  commentId: M:Netick.Unity.NetickBehaviour.NetworkStart
+  parent: Netick.Unity.NetickBehaviour
+  isExternal: true
+  href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
+  name: NetworkStart()
+  nameWithType: NetickBehaviour.NetworkStart()
+  fullName: Netick.Unity.NetickBehaviour.NetworkStart()
+  spec.csharp:
+  - uid: Netick.Unity.NetickBehaviour.NetworkStart
+    name: NetworkStart
+    isExternal: true
+    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetickBehaviour.NetworkStart
+    name: NetworkStart
+    isExternal: true
+    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
+  - name: (
+  - name: )
+- uid: Netick.Unity.NetickBehaviour.NetworkDestroy
+  commentId: M:Netick.Unity.NetickBehaviour.NetworkDestroy
+  parent: Netick.Unity.NetickBehaviour
+  isExternal: true
+  href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy
+  name: NetworkDestroy()
+  nameWithType: NetickBehaviour.NetworkDestroy()
+  fullName: Netick.Unity.NetickBehaviour.NetworkDestroy()
+  spec.csharp:
+  - uid: Netick.Unity.NetickBehaviour.NetworkDestroy
+    name: NetworkDestroy
+    isExternal: true
+    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetickBehaviour.NetworkDestroy
+    name: NetworkDestroy
+    isExternal: true
+    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy
+  - name: (
+  - name: )
 - uid: Netick.Unity.NetickBehaviour.NetworkUpdate
   commentId: M:Netick.Unity.NetickBehaviour.NetworkUpdate
   parent: Netick.Unity.NetickBehaviour
@@ -1365,64 +1367,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
-- uid: Netick.Unity.NetickBehaviour.NetworkStart
-  commentId: M:Netick.Unity.NetickBehaviour.NetworkStart
-  parent: Netick.Unity.NetickBehaviour
-  isExternal: true
-  href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
-  name: NetworkStart()
-  nameWithType: NetickBehaviour.NetworkStart()
-  fullName: Netick.Unity.NetickBehaviour.NetworkStart()
-  spec.csharp:
-  - uid: Netick.Unity.NetickBehaviour.NetworkStart
-    name: NetworkStart
-    isExternal: true
-    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetickBehaviour.NetworkStart
-    name: NetworkStart
-    isExternal: true
-    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkStart
-  - name: (
-  - name: )
-- uid: Netick.Unity.NetworkSceneManager.NetworkStart*
-  commentId: Overload:Netick.Unity.NetworkSceneManager.NetworkStart
-  isExternal: true
-  href: Netick.Unity.NetworkSceneManager.html#Netick_Unity_NetworkSceneManager_NetworkStart
-  name: NetworkStart
-  nameWithType: NetworkSceneManager.NetworkStart
-  fullName: Netick.Unity.NetworkSceneManager.NetworkStart
-- uid: Netick.Unity.NetickBehaviour.NetworkDestroy
-  commentId: M:Netick.Unity.NetickBehaviour.NetworkDestroy
-  parent: Netick.Unity.NetickBehaviour
-  isExternal: true
-  href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy
-  name: NetworkDestroy()
-  nameWithType: NetickBehaviour.NetworkDestroy()
-  fullName: Netick.Unity.NetickBehaviour.NetworkDestroy()
-  spec.csharp:
-  - uid: Netick.Unity.NetickBehaviour.NetworkDestroy
-    name: NetworkDestroy
-    isExternal: true
-    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetickBehaviour.NetworkDestroy
-    name: NetworkDestroy
-    isExternal: true
-    href: Netick.Unity.NetickBehaviour.html#Netick_Unity_NetickBehaviour_NetworkDestroy
-  - name: (
-  - name: )
-- uid: Netick.Unity.NetworkSceneManager.NetworkDestroy*
-  commentId: Overload:Netick.Unity.NetworkSceneManager.NetworkDestroy
-  isExternal: true
-  href: Netick.Unity.NetworkSceneManager.html#Netick_Unity_NetworkSceneManager_NetworkDestroy
-  name: NetworkDestroy
-  nameWithType: NetworkSceneManager.NetworkDestroy
-  fullName: Netick.Unity.NetworkSceneManager.NetworkDestroy
 - uid: Netick.Unity.NetworkBehaviour.InternalReset
   commentId: M:Netick.Unity.NetworkBehaviour.InternalReset
   parent: Netick.Unity.NetworkBehaviour

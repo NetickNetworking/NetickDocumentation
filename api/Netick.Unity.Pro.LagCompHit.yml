@@ -11,6 +11,7 @@ items:
   - Netick.Unity.Pro.LagCompHit.HitShape
   - Netick.Unity.Pro.LagCompHit.Normal
   - Netick.Unity.Pro.LagCompHit.Point
+  - Netick.Unity.Pro.LagCompHit.StartedInside
   - Netick.Unity.Pro.LagCompHit.Transform
   - Netick.Unity.Pro.LagCompHit.Type
   langs:
@@ -50,7 +51,7 @@ items:
   syntax:
     content: public NetHitType Type
     return:
-      type: Netick.Pro.NetHitType
+      type: Netick.Unity.Pro.NetHitType
     content.vb: Public Type As NetHitType
 - uid: Netick.Unity.Pro.LagCompHit.Point
   commentId: F:Netick.Unity.Pro.LagCompHit.Point
@@ -109,6 +110,25 @@ items:
     return:
       type: System.Single
     content.vb: Public Distance As Single
+- uid: Netick.Unity.Pro.LagCompHit.StartedInside
+  commentId: F:Netick.Unity.Pro.LagCompHit.StartedInside
+  id: StartedInside
+  parent: Netick.Unity.Pro.LagCompHit
+  langs:
+  - csharp
+  - vb
+  name: StartedInside
+  nameWithType: LagCompHit.StartedInside
+  fullName: Netick.Unity.Pro.LagCompHit.StartedInside
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public bool StartedInside
+    return:
+      type: System.Boolean
+    content.vb: Public StartedInside As Boolean
 - uid: Netick.Unity.Pro.LagCompHit.Collider
   commentId: F:Netick.Unity.Pro.LagCompHit.Collider
   id: Collider
@@ -442,41 +462,14 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Netick.Pro.NetHitType
-  commentId: T:Netick.Pro.NetHitType
-  parent: Netick.Pro
+- uid: Netick.Unity.Pro.NetHitType
+  commentId: T:Netick.Unity.Pro.NetHitType
+  parent: Netick.Unity.Pro
   isExternal: true
-  href: Netick.Pro.NetHitType.html
+  href: Netick.Unity.Pro.NetHitType.html
   name: NetHitType
   nameWithType: NetHitType
-  fullName: Netick.Pro.NetHitType
-- uid: Netick.Pro
-  commentId: N:Netick.Pro
-  isExternal: true
-  href: Netick.html
-  name: Netick.Pro
-  nameWithType: Netick.Pro
-  fullName: Netick.Pro
-  spec.csharp:
-  - uid: Netick
-    name: Netick
-    isExternal: true
-    href: Netick.html
-  - name: .
-  - uid: Netick.Pro
-    name: Pro
-    isExternal: true
-    href: Netick.Pro.html
-  spec.vb:
-  - uid: Netick
-    name: Netick
-    isExternal: true
-    href: Netick.html
-  - name: .
-  - uid: Netick.Pro
-    name: Pro
-    isExternal: true
-    href: Netick.Pro.html
+  fullName: Netick.Unity.Pro.NetHitType
 - uid: UnityEngine.Vector3
   isExternal: true
   name: Vector3
@@ -493,6 +486,17 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: UnityEngine.Collider
   commentId: '!:UnityEngine.Collider'
   isExternal: true

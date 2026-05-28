@@ -18,7 +18,6 @@ items:
   - Netick.Unity.NetworkTransform.NetworkFixedUpdate
   - Netick.Unity.NetworkTransform.NetworkRender
   - Netick.Unity.NetworkTransform.NetworkStart
-  - Netick.Unity.NetworkTransform.OnBecameInterested
   - Netick.Unity.NetworkTransform.Position
   - Netick.Unity.NetworkTransform.RenderTransform
   - Netick.Unity.NetworkTransform.Rotation
@@ -85,6 +84,7 @@ items:
   - Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Int32)
   - Netick.Unity.NetworkBehaviour.FetchInput``1({T}@,System.Boolean@,System.Int32)
   - Netick.Unity.NetworkBehaviour.FindInterpolator(System.String)
+  - Netick.Unity.NetworkBehaviour.OnBecameInterested
   - Netick.Unity.NetworkBehaviour.OnBecameUninterested
   - Netick.Unity.NetworkBehaviour.OnInputSourceChanged(Netick.NetworkPlayer)
   - Netick.Unity.NetworkBehaviour.OnInputSourceLeft
@@ -590,27 +590,6 @@ items:
   nameWithType.vb: NetworkTransform.GetInterpolatedPosRot(Vector3, Quaternion, InterpolationSource)
   fullName.vb: Netick.Unity.NetworkTransform.GetInterpolatedPosRot(UnityEngine.Vector3, UnityEngine.Quaternion, Netick.InterpolationSource)
   name.vb: GetInterpolatedPosRot(Vector3, Quaternion, InterpolationSource)
-- uid: Netick.Unity.NetworkTransform.OnBecameInterested
-  commentId: M:Netick.Unity.NetworkTransform.OnBecameInterested
-  id: OnBecameInterested
-  parent: Netick.Unity.NetworkTransform
-  langs:
-  - csharp
-  - vb
-  name: OnBecameInterested()
-  nameWithType: NetworkTransform.OnBecameInterested()
-  fullName: Netick.Unity.NetworkTransform.OnBecameInterested()
-  type: Method
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  summary: Called in the client when the client becomes interested in this object.
-  example: []
-  syntax:
-    content: public override void OnBecameInterested()
-    content.vb: Public Overrides Sub OnBecameInterested()
-  overridden: Netick.Unity.NetworkBehaviour.OnBecameInterested
-  overload: Netick.Unity.NetworkTransform.OnBecameInterested*
 - uid: Netick.Unity.NetworkTransform.NetcodeIntoGameEngine
   commentId: M:Netick.Unity.NetworkTransform.NetcodeIntoGameEngine
   id: NetcodeIntoGameEngine
@@ -1351,6 +1330,28 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
+- uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
+  commentId: M:Netick.Unity.NetworkBehaviour.OnBecameInterested
+  parent: Netick.Unity.NetworkBehaviour
+  isExternal: true
+  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
+  name: OnBecameInterested()
+  nameWithType: NetworkBehaviour.OnBecameInterested()
+  fullName: Netick.Unity.NetworkBehaviour.OnBecameInterested()
+  spec.csharp:
+  - uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
+    name: OnBecameInterested
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
+    name: OnBecameInterested
+    isExternal: true
+    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
+  - name: (
+  - name: )
 - uid: Netick.Unity.NetworkBehaviour.OnBecameUninterested
   commentId: M:Netick.Unity.NetworkBehaviour.OnBecameUninterested
   parent: Netick.Unity.NetworkBehaviour
@@ -2054,35 +2055,6 @@ references:
   name: InterpolationSource
   nameWithType: InterpolationSource
   fullName: Netick.InterpolationSource
-- uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
-  commentId: M:Netick.Unity.NetworkBehaviour.OnBecameInterested
-  parent: Netick.Unity.NetworkBehaviour
-  isExternal: true
-  href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
-  name: OnBecameInterested()
-  nameWithType: NetworkBehaviour.OnBecameInterested()
-  fullName: Netick.Unity.NetworkBehaviour.OnBecameInterested()
-  spec.csharp:
-  - uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
-    name: OnBecameInterested
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: Netick.Unity.NetworkBehaviour.OnBecameInterested
-    name: OnBecameInterested
-    isExternal: true
-    href: Netick.Unity.NetworkBehaviour.html#Netick_Unity_NetworkBehaviour_OnBecameInterested
-  - name: (
-  - name: )
-- uid: Netick.Unity.NetworkTransform.OnBecameInterested*
-  commentId: Overload:Netick.Unity.NetworkTransform.OnBecameInterested
-  isExternal: true
-  href: Netick.Unity.NetworkTransform.html#Netick_Unity_NetworkTransform_OnBecameInterested
-  name: OnBecameInterested
-  nameWithType: NetworkTransform.OnBecameInterested
-  fullName: Netick.Unity.NetworkTransform.OnBecameInterested
 - uid: Netick.Unity.NetickBehaviour.NetcodeIntoGameEngine
   commentId: M:Netick.Unity.NetickBehaviour.NetcodeIntoGameEngine
   parent: Netick.Unity.NetickBehaviour

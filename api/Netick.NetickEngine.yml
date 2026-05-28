@@ -14,7 +14,6 @@ items:
   - Netick.NetickEngine.ClientSimulationCallbacks
   - Netick.NetickEngine.Config
   - Netick.NetickEngine.Connect(System.Int32,System.String,System.Byte[],System.Int32)
-  - Netick.NetickEngine.ConnectHost
   - Netick.NetickEngine.ConnectedClients
   - Netick.NetickEngine.ConnectedPlayers
   - Netick.NetickEngine.ContainsPlayer(Netick.NetworkPlayerId)
@@ -25,7 +24,6 @@ items:
   - Netick.NetickEngine.DestroyEntity(Netick.Entity,System.Boolean,System.Boolean)
   - Netick.NetickEngine.DetachBehaviour(Netick.INetickScript)
   - Netick.NetickEngine.DisconnectFromServer
-  - Netick.NetickEngine.DisconnectHost
   - Netick.NetickEngine.Entities
   - Netick.NetickEngine.FetchInput``1(``0@,System.Boolean@,Netick.Entity,System.Int32)
   - Netick.NetickEngine.FindPlayerByEndPoint(Netick.IEndPoint)
@@ -51,12 +49,14 @@ items:
   - Netick.NetickEngine.IsInvokingNetworkRender
   - Netick.NetickEngine.IsLastNetworkFixedUpdateCall
   - Netick.NetickEngine.IsOffline
+  - Netick.NetickEngine.IsPlayer
   - Netick.NetickEngine.IsRecording
   - Netick.NetickEngine.IsReplay
   - Netick.NetickEngine.IsReplayEnabled
   - Netick.NetickEngine.IsResimulating
   - Netick.NetickEngine.IsRunning
   - Netick.NetickEngine.IsServer
+  - Netick.NetickEngine.IsTerminated
   - Netick.NetickEngine.Kick(Netick.ServerConnection,System.ReadOnlySpan{System.Byte})
   - Netick.NetickEngine.LagCompensation
   - Netick.NetickEngine.LocalInterpolation
@@ -88,6 +88,12 @@ items:
   - Netick.NetickEngine.Render
   - Netick.NetickEngine.Replay
   - Netick.NetickEngine.ResetForSceneSwitch
+  - Netick.NetickEngine.RunAfterAllNetworkFixedUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  - Netick.NetickEngine.RunAfterAllNetworkRenders(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  - Netick.NetickEngine.RunAfterAllNetworkUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  - Netick.NetickEngine.RunBeforeAllNetworkFixedUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  - Netick.NetickEngine.RunBeforeAllNetworkRenders(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  - Netick.NetickEngine.RunBeforeAllNetworkUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
   - Netick.NetickEngine.Server
   - Netick.NetickEngine.ServerEndPoint
   - Netick.NetickEngine.ServerSimulation
@@ -103,7 +109,7 @@ items:
   - Netick.NetickEngine.StartMode
   - Netick.NetickEngine.StartReplayPlayback(System.String)
   - Netick.NetickEngine.StartReplayRecording(System.String)
-  - Netick.NetickEngine.StopRecordingReplay
+  - Netick.NetickEngine.StopReplayRecording
   - Netick.NetickEngine.Tick
   - Netick.NetickEngine.Timer
   - Netick.NetickEngine.Transport
@@ -412,42 +418,6 @@ items:
     content: public void DisconnectFromServer()
     content.vb: Public Sub DisconnectFromServer()
   overload: Netick.NetickEngine.DisconnectFromServer*
-- uid: Netick.NetickEngine.ConnectHost
-  commentId: M:Netick.NetickEngine.ConnectHost
-  id: ConnectHost
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: ConnectHost()
-  nameWithType: NetickEngine.ConnectHost()
-  fullName: Netick.NetickEngine.ConnectHost()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void ConnectHost()
-    content.vb: Public Sub ConnectHost()
-  overload: Netick.NetickEngine.ConnectHost*
-- uid: Netick.NetickEngine.DisconnectHost
-  commentId: M:Netick.NetickEngine.DisconnectHost
-  id: DisconnectHost
-  parent: Netick.NetickEngine
-  langs:
-  - csharp
-  - vb
-  name: DisconnectHost()
-  nameWithType: NetickEngine.DisconnectHost()
-  fullName: Netick.NetickEngine.DisconnectHost()
-  type: Method
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public void DisconnectHost()
-    content.vb: Public Sub DisconnectHost()
-  overload: Netick.NetickEngine.DisconnectHost*
 - uid: Netick.NetickEngine.StartReplayRecording(System.String)
   commentId: M:Netick.NetickEngine.StartReplayRecording(System.String)
   id: StartReplayRecording(System.String)
@@ -472,26 +442,26 @@ items:
   nameWithType.vb: NetickEngine.StartReplayRecording(String)
   fullName.vb: Netick.NetickEngine.StartReplayRecording(String)
   name.vb: StartReplayRecording(String)
-- uid: Netick.NetickEngine.StopRecordingReplay
-  commentId: M:Netick.NetickEngine.StopRecordingReplay
-  id: StopRecordingReplay
+- uid: Netick.NetickEngine.StopReplayRecording
+  commentId: M:Netick.NetickEngine.StopReplayRecording
+  id: StopReplayRecording
   parent: Netick.NetickEngine
   langs:
   - csharp
   - vb
-  name: StopRecordingReplay()
-  nameWithType: NetickEngine.StopRecordingReplay()
-  fullName: Netick.NetickEngine.StopRecordingReplay()
+  name: StopReplayRecording()
+  nameWithType: NetickEngine.StopReplayRecording()
+  fullName: Netick.NetickEngine.StopReplayRecording()
   type: Method
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public Task StopRecordingReplay()
+    content: public Task StopReplayRecording()
     return:
       type: System.Threading.Tasks.Task
-    content.vb: Public Function StopRecordingReplay() As Task
-  overload: Netick.NetickEngine.StopRecordingReplay*
+    content.vb: Public Function StopReplayRecording() As Task
+  overload: Netick.NetickEngine.StopReplayRecording*
 - uid: Netick.NetickEngine.StartReplayPlayback(System.String)
   commentId: M:Netick.NetickEngine.StartReplayPlayback(System.String)
   id: StartReplayPlayback(System.String)
@@ -964,6 +934,162 @@ items:
   nameWithType.vb: NetickEngine.GetBehavioursOfType(Of T)(List(Of T))
   fullName.vb: Netick.NetickEngine.GetBehavioursOfType(Of T)(System.Collections.Generic.List(Of T))
   name.vb: GetBehavioursOfType(Of T)(List(Of T))
+- uid: Netick.NetickEngine.RunBeforeAllNetworkFixedUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  commentId: M:Netick.NetickEngine.RunBeforeAllNetworkFixedUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  id: RunBeforeAllNetworkFixedUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: RunBeforeAllNetworkFixedUpdates(Type, Action<BehaviourCallbackContext>)
+  nameWithType: NetickEngine.RunBeforeAllNetworkFixedUpdates(Type, Action<BehaviourCallbackContext>)
+  fullName: Netick.NetickEngine.RunBeforeAllNetworkFixedUpdates(System.Type, System.Action<Netick.BehaviourCallbackContext>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void RunBeforeAllNetworkFixedUpdates(Type behaviourType, Action<BehaviourCallbackContext> action)
+    parameters:
+    - id: behaviourType
+      type: System.Type
+    - id: action
+      type: System.Action{Netick.BehaviourCallbackContext}
+    content.vb: Public Sub RunBeforeAllNetworkFixedUpdates(behaviourType As Type, action As Action(Of BehaviourCallbackContext))
+  overload: Netick.NetickEngine.RunBeforeAllNetworkFixedUpdates*
+  nameWithType.vb: NetickEngine.RunBeforeAllNetworkFixedUpdates(Type, Action(Of BehaviourCallbackContext))
+  fullName.vb: Netick.NetickEngine.RunBeforeAllNetworkFixedUpdates(System.Type, System.Action(Of Netick.BehaviourCallbackContext))
+  name.vb: RunBeforeAllNetworkFixedUpdates(Type, Action(Of BehaviourCallbackContext))
+- uid: Netick.NetickEngine.RunAfterAllNetworkFixedUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  commentId: M:Netick.NetickEngine.RunAfterAllNetworkFixedUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  id: RunAfterAllNetworkFixedUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: RunAfterAllNetworkFixedUpdates(Type, Action<BehaviourCallbackContext>)
+  nameWithType: NetickEngine.RunAfterAllNetworkFixedUpdates(Type, Action<BehaviourCallbackContext>)
+  fullName: Netick.NetickEngine.RunAfterAllNetworkFixedUpdates(System.Type, System.Action<Netick.BehaviourCallbackContext>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void RunAfterAllNetworkFixedUpdates(Type behaviourType, Action<BehaviourCallbackContext> action)
+    parameters:
+    - id: behaviourType
+      type: System.Type
+    - id: action
+      type: System.Action{Netick.BehaviourCallbackContext}
+    content.vb: Public Sub RunAfterAllNetworkFixedUpdates(behaviourType As Type, action As Action(Of BehaviourCallbackContext))
+  overload: Netick.NetickEngine.RunAfterAllNetworkFixedUpdates*
+  nameWithType.vb: NetickEngine.RunAfterAllNetworkFixedUpdates(Type, Action(Of BehaviourCallbackContext))
+  fullName.vb: Netick.NetickEngine.RunAfterAllNetworkFixedUpdates(System.Type, System.Action(Of Netick.BehaviourCallbackContext))
+  name.vb: RunAfterAllNetworkFixedUpdates(Type, Action(Of BehaviourCallbackContext))
+- uid: Netick.NetickEngine.RunBeforeAllNetworkUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  commentId: M:Netick.NetickEngine.RunBeforeAllNetworkUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  id: RunBeforeAllNetworkUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: RunBeforeAllNetworkUpdates(Type, Action<BehaviourCallbackContext>)
+  nameWithType: NetickEngine.RunBeforeAllNetworkUpdates(Type, Action<BehaviourCallbackContext>)
+  fullName: Netick.NetickEngine.RunBeforeAllNetworkUpdates(System.Type, System.Action<Netick.BehaviourCallbackContext>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void RunBeforeAllNetworkUpdates(Type behaviourType, Action<BehaviourCallbackContext> action)
+    parameters:
+    - id: behaviourType
+      type: System.Type
+    - id: action
+      type: System.Action{Netick.BehaviourCallbackContext}
+    content.vb: Public Sub RunBeforeAllNetworkUpdates(behaviourType As Type, action As Action(Of BehaviourCallbackContext))
+  overload: Netick.NetickEngine.RunBeforeAllNetworkUpdates*
+  nameWithType.vb: NetickEngine.RunBeforeAllNetworkUpdates(Type, Action(Of BehaviourCallbackContext))
+  fullName.vb: Netick.NetickEngine.RunBeforeAllNetworkUpdates(System.Type, System.Action(Of Netick.BehaviourCallbackContext))
+  name.vb: RunBeforeAllNetworkUpdates(Type, Action(Of BehaviourCallbackContext))
+- uid: Netick.NetickEngine.RunAfterAllNetworkUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  commentId: M:Netick.NetickEngine.RunAfterAllNetworkUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  id: RunAfterAllNetworkUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: RunAfterAllNetworkUpdates(Type, Action<BehaviourCallbackContext>)
+  nameWithType: NetickEngine.RunAfterAllNetworkUpdates(Type, Action<BehaviourCallbackContext>)
+  fullName: Netick.NetickEngine.RunAfterAllNetworkUpdates(System.Type, System.Action<Netick.BehaviourCallbackContext>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void RunAfterAllNetworkUpdates(Type behaviourType, Action<BehaviourCallbackContext> action)
+    parameters:
+    - id: behaviourType
+      type: System.Type
+    - id: action
+      type: System.Action{Netick.BehaviourCallbackContext}
+    content.vb: Public Sub RunAfterAllNetworkUpdates(behaviourType As Type, action As Action(Of BehaviourCallbackContext))
+  overload: Netick.NetickEngine.RunAfterAllNetworkUpdates*
+  nameWithType.vb: NetickEngine.RunAfterAllNetworkUpdates(Type, Action(Of BehaviourCallbackContext))
+  fullName.vb: Netick.NetickEngine.RunAfterAllNetworkUpdates(System.Type, System.Action(Of Netick.BehaviourCallbackContext))
+  name.vb: RunAfterAllNetworkUpdates(Type, Action(Of BehaviourCallbackContext))
+- uid: Netick.NetickEngine.RunBeforeAllNetworkRenders(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  commentId: M:Netick.NetickEngine.RunBeforeAllNetworkRenders(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  id: RunBeforeAllNetworkRenders(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: RunBeforeAllNetworkRenders(Type, Action<BehaviourCallbackContext>)
+  nameWithType: NetickEngine.RunBeforeAllNetworkRenders(Type, Action<BehaviourCallbackContext>)
+  fullName: Netick.NetickEngine.RunBeforeAllNetworkRenders(System.Type, System.Action<Netick.BehaviourCallbackContext>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void RunBeforeAllNetworkRenders(Type behaviourType, Action<BehaviourCallbackContext> action)
+    parameters:
+    - id: behaviourType
+      type: System.Type
+    - id: action
+      type: System.Action{Netick.BehaviourCallbackContext}
+    content.vb: Public Sub RunBeforeAllNetworkRenders(behaviourType As Type, action As Action(Of BehaviourCallbackContext))
+  overload: Netick.NetickEngine.RunBeforeAllNetworkRenders*
+  nameWithType.vb: NetickEngine.RunBeforeAllNetworkRenders(Type, Action(Of BehaviourCallbackContext))
+  fullName.vb: Netick.NetickEngine.RunBeforeAllNetworkRenders(System.Type, System.Action(Of Netick.BehaviourCallbackContext))
+  name.vb: RunBeforeAllNetworkRenders(Type, Action(Of BehaviourCallbackContext))
+- uid: Netick.NetickEngine.RunAfterAllNetworkRenders(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  commentId: M:Netick.NetickEngine.RunAfterAllNetworkRenders(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  id: RunAfterAllNetworkRenders(System.Type,System.Action{Netick.BehaviourCallbackContext})
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: RunAfterAllNetworkRenders(Type, Action<BehaviourCallbackContext>)
+  nameWithType: NetickEngine.RunAfterAllNetworkRenders(Type, Action<BehaviourCallbackContext>)
+  fullName: Netick.NetickEngine.RunAfterAllNetworkRenders(System.Type, System.Action<Netick.BehaviourCallbackContext>)
+  type: Method
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public void RunAfterAllNetworkRenders(Type behaviourType, Action<BehaviourCallbackContext> action)
+    parameters:
+    - id: behaviourType
+      type: System.Type
+    - id: action
+      type: System.Action{Netick.BehaviourCallbackContext}
+    content.vb: Public Sub RunAfterAllNetworkRenders(behaviourType As Type, action As Action(Of BehaviourCallbackContext))
+  overload: Netick.NetickEngine.RunAfterAllNetworkRenders*
+  nameWithType.vb: NetickEngine.RunAfterAllNetworkRenders(Type, Action(Of BehaviourCallbackContext))
+  fullName.vb: Netick.NetickEngine.RunAfterAllNetworkRenders(System.Type, System.Action(Of Netick.BehaviourCallbackContext))
+  name.vb: RunAfterAllNetworkRenders(Type, Action(Of BehaviourCallbackContext))
 - uid: Netick.NetickEngine.#ctor
   commentId: M:Netick.NetickEngine.#ctor
   id: '#ctor'
@@ -1069,6 +1195,27 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsRunning As Boolean
   overload: Netick.NetickEngine.IsRunning*
+- uid: Netick.NetickEngine.IsTerminated
+  commentId: P:Netick.NetickEngine.IsTerminated
+  id: IsTerminated
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsTerminated
+  nameWithType: NetickEngine.IsTerminated
+  fullName: Netick.NetickEngine.IsTerminated
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsTerminated { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsTerminated As Boolean
+  overload: Netick.NetickEngine.IsTerminated*
 - uid: Netick.NetickEngine.IsOffline
   commentId: P:Netick.NetickEngine.IsOffline
   id: IsOffline
@@ -1132,6 +1279,27 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsClient As Boolean
   overload: Netick.NetickEngine.IsClient*
+- uid: Netick.NetickEngine.IsPlayer
+  commentId: P:Netick.NetickEngine.IsPlayer
+  id: IsPlayer
+  parent: Netick.NetickEngine
+  langs:
+  - csharp
+  - vb
+  name: IsPlayer
+  nameWithType: NetickEngine.IsPlayer
+  fullName: Netick.NetickEngine.IsPlayer
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool IsPlayer { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsPlayer As Boolean
+  overload: Netick.NetickEngine.IsPlayer*
 - uid: Netick.NetickEngine.IsReplay
   commentId: P:Netick.NetickEngine.IsReplay
   id: IsReplay
@@ -3075,20 +3243,6 @@ references:
   name: DisconnectFromServer
   nameWithType: NetickEngine.DisconnectFromServer
   fullName: Netick.NetickEngine.DisconnectFromServer
-- uid: Netick.NetickEngine.ConnectHost*
-  commentId: Overload:Netick.NetickEngine.ConnectHost
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_ConnectHost
-  name: ConnectHost
-  nameWithType: NetickEngine.ConnectHost
-  fullName: Netick.NetickEngine.ConnectHost
-- uid: Netick.NetickEngine.DisconnectHost*
-  commentId: Overload:Netick.NetickEngine.DisconnectHost
-  isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_DisconnectHost
-  name: DisconnectHost
-  nameWithType: NetickEngine.DisconnectHost
-  fullName: Netick.NetickEngine.DisconnectHost
 - uid: Netick.NetickEngine.StartReplayRecording*
   commentId: Overload:Netick.NetickEngine.StartReplayRecording
   isExternal: true
@@ -3096,13 +3250,13 @@ references:
   name: StartReplayRecording
   nameWithType: NetickEngine.StartReplayRecording
   fullName: Netick.NetickEngine.StartReplayRecording
-- uid: Netick.NetickEngine.StopRecordingReplay*
-  commentId: Overload:Netick.NetickEngine.StopRecordingReplay
+- uid: Netick.NetickEngine.StopReplayRecording*
+  commentId: Overload:Netick.NetickEngine.StopReplayRecording
   isExternal: true
-  href: Netick.NetickEngine.html#Netick_NetickEngine_StopRecordingReplay
-  name: StopRecordingReplay
-  nameWithType: NetickEngine.StopRecordingReplay
-  fullName: Netick.NetickEngine.StopRecordingReplay
+  href: Netick.NetickEngine.html#Netick_NetickEngine_StopReplayRecording
+  name: StopReplayRecording
+  nameWithType: NetickEngine.StopReplayRecording
+  fullName: Netick.NetickEngine.StopReplayRecording
 - uid: System.Threading.Tasks.Task
   commentId: T:System.Threading.Tasks.Task
   parent: System.Threading.Tasks
@@ -3393,6 +3547,111 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: Netick.NetickEngine.RunBeforeAllNetworkFixedUpdates*
+  commentId: Overload:Netick.NetickEngine.RunBeforeAllNetworkFixedUpdates
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_RunBeforeAllNetworkFixedUpdates_System_Type_System_Action_Netick_BehaviourCallbackContext__
+  name: RunBeforeAllNetworkFixedUpdates
+  nameWithType: NetickEngine.RunBeforeAllNetworkFixedUpdates
+  fullName: Netick.NetickEngine.RunBeforeAllNetworkFixedUpdates
+- uid: System.Action{Netick.BehaviourCallbackContext}
+  commentId: T:System.Action{Netick.BehaviourCallbackContext}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<BehaviourCallbackContext>
+  nameWithType: Action<BehaviourCallbackContext>
+  fullName: System.Action<Netick.BehaviourCallbackContext>
+  nameWithType.vb: Action(Of BehaviourCallbackContext)
+  fullName.vb: System.Action(Of Netick.BehaviourCallbackContext)
+  name.vb: Action(Of BehaviourCallbackContext)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Netick.BehaviourCallbackContext
+    name: BehaviourCallbackContext
+    isExternal: true
+    href: Netick.BehaviourCallbackContext.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.BehaviourCallbackContext
+    name: BehaviourCallbackContext
+    isExternal: true
+    href: Netick.BehaviourCallbackContext.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.NetickEngine.RunAfterAllNetworkFixedUpdates*
+  commentId: Overload:Netick.NetickEngine.RunAfterAllNetworkFixedUpdates
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_RunAfterAllNetworkFixedUpdates_System_Type_System_Action_Netick_BehaviourCallbackContext__
+  name: RunAfterAllNetworkFixedUpdates
+  nameWithType: NetickEngine.RunAfterAllNetworkFixedUpdates
+  fullName: Netick.NetickEngine.RunAfterAllNetworkFixedUpdates
+- uid: Netick.NetickEngine.RunBeforeAllNetworkUpdates*
+  commentId: Overload:Netick.NetickEngine.RunBeforeAllNetworkUpdates
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_RunBeforeAllNetworkUpdates_System_Type_System_Action_Netick_BehaviourCallbackContext__
+  name: RunBeforeAllNetworkUpdates
+  nameWithType: NetickEngine.RunBeforeAllNetworkUpdates
+  fullName: Netick.NetickEngine.RunBeforeAllNetworkUpdates
+- uid: Netick.NetickEngine.RunAfterAllNetworkUpdates*
+  commentId: Overload:Netick.NetickEngine.RunAfterAllNetworkUpdates
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_RunAfterAllNetworkUpdates_System_Type_System_Action_Netick_BehaviourCallbackContext__
+  name: RunAfterAllNetworkUpdates
+  nameWithType: NetickEngine.RunAfterAllNetworkUpdates
+  fullName: Netick.NetickEngine.RunAfterAllNetworkUpdates
+- uid: Netick.NetickEngine.RunBeforeAllNetworkRenders*
+  commentId: Overload:Netick.NetickEngine.RunBeforeAllNetworkRenders
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_RunBeforeAllNetworkRenders_System_Type_System_Action_Netick_BehaviourCallbackContext__
+  name: RunBeforeAllNetworkRenders
+  nameWithType: NetickEngine.RunBeforeAllNetworkRenders
+  fullName: Netick.NetickEngine.RunBeforeAllNetworkRenders
+- uid: Netick.NetickEngine.RunAfterAllNetworkRenders*
+  commentId: Overload:Netick.NetickEngine.RunAfterAllNetworkRenders
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_RunAfterAllNetworkRenders_System_Type_System_Action_Netick_BehaviourCallbackContext__
+  name: RunAfterAllNetworkRenders
+  nameWithType: NetickEngine.RunAfterAllNetworkRenders
+  fullName: Netick.NetickEngine.RunAfterAllNetworkRenders
 - uid: Netick.NetickEngine.#ctor*
   commentId: Overload:Netick.NetickEngine.#ctor
   isExternal: true
@@ -3431,6 +3690,13 @@ references:
   name: IsRunning
   nameWithType: NetickEngine.IsRunning
   fullName: Netick.NetickEngine.IsRunning
+- uid: Netick.NetickEngine.IsTerminated*
+  commentId: Overload:Netick.NetickEngine.IsTerminated
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_IsTerminated
+  name: IsTerminated
+  nameWithType: NetickEngine.IsTerminated
+  fullName: Netick.NetickEngine.IsTerminated
 - uid: Netick.NetickEngine.IsOffline*
   commentId: Overload:Netick.NetickEngine.IsOffline
   isExternal: true
@@ -3452,6 +3718,13 @@ references:
   name: IsClient
   nameWithType: NetickEngine.IsClient
   fullName: Netick.NetickEngine.IsClient
+- uid: Netick.NetickEngine.IsPlayer*
+  commentId: Overload:Netick.NetickEngine.IsPlayer
+  isExternal: true
+  href: Netick.NetickEngine.html#Netick_NetickEngine_IsPlayer
+  name: IsPlayer
+  nameWithType: NetickEngine.IsPlayer
+  fullName: Netick.NetickEngine.IsPlayer
 - uid: Netick.NetickEngine.IsReplay*
   commentId: Overload:Netick.NetickEngine.IsReplay
   isExternal: true

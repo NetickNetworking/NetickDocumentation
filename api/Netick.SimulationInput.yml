@@ -7,7 +7,9 @@ items:
   children:
   - Netick.SimulationInput.#ctor
   - Netick.SimulationInput.Alpha
+  - Netick.SimulationInput.RewindContext
   - Netick.SimulationInput.SrvTick
+  - Netick.SimulationInput._rewindContext
   langs:
   - csharp
   - vb
@@ -30,44 +32,25 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: Netick.SimulationInput.SrvTick
-  commentId: F:Netick.SimulationInput.SrvTick
-  id: SrvTick
+- uid: Netick.SimulationInput._rewindContext
+  commentId: F:Netick.SimulationInput._rewindContext
+  id: _rewindContext
   parent: Netick.SimulationInput
   langs:
   - csharp
   - vb
-  name: SrvTick
-  nameWithType: SimulationInput.SrvTick
-  fullName: Netick.SimulationInput.SrvTick
+  name: _rewindContext
+  nameWithType: SimulationInput._rewindContext
+  fullName: Netick.SimulationInput._rewindContext
   type: Field
   assemblies:
   - Netick
   namespace: Netick
   syntax:
-    content: public Tick SrvTick
+    content: public RewindContext _rewindContext
     return:
-      type: Netick.Tick
-    content.vb: Public SrvTick As Tick
-- uid: Netick.SimulationInput.Alpha
-  commentId: F:Netick.SimulationInput.Alpha
-  id: Alpha
-  parent: Netick.SimulationInput
-  langs:
-  - csharp
-  - vb
-  name: Alpha
-  nameWithType: SimulationInput.Alpha
-  fullName: Netick.SimulationInput.Alpha
-  type: Field
-  assemblies:
-  - Netick
-  namespace: Netick
-  syntax:
-    content: public float Alpha
-    return:
-      type: System.Single
-    content.vb: Public Alpha As Single
+      type: Netick.RewindContext
+    content.vb: Public _rewindContext As RewindContext
 - uid: Netick.SimulationInput.#ctor
   commentId: M:Netick.SimulationInput.#ctor
   id: '#ctor'
@@ -89,6 +72,93 @@ items:
   nameWithType.vb: SimulationInput.New()
   fullName.vb: Netick.SimulationInput.New()
   name.vb: New()
+- uid: Netick.SimulationInput.SrvTick
+  commentId: P:Netick.SimulationInput.SrvTick
+  id: SrvTick
+  parent: Netick.SimulationInput
+  langs:
+  - csharp
+  - vb
+  name: SrvTick
+  nameWithType: SimulationInput.SrvTick
+  fullName: Netick.SimulationInput.SrvTick
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: >-
+      [Obsolete("Use RewindContext.To instead.")]
+
+      public Tick SrvTick { get; }
+    parameters: []
+    return:
+      type: Netick.Tick
+    content.vb: >-
+      <Obsolete("Use RewindContext.To instead.")>
+
+      Public ReadOnly Property SrvTick As Tick
+  overload: Netick.SimulationInput.SrvTick*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use RewindContext.To instead.
+- uid: Netick.SimulationInput.Alpha
+  commentId: P:Netick.SimulationInput.Alpha
+  id: Alpha
+  parent: Netick.SimulationInput
+  langs:
+  - csharp
+  - vb
+  name: Alpha
+  nameWithType: SimulationInput.Alpha
+  fullName: Netick.SimulationInput.Alpha
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: >-
+      [Obsolete("Use RewindContext.Alpha instead.")]
+
+      public float Alpha { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: >-
+      <Obsolete("Use RewindContext.Alpha instead.")>
+
+      Public ReadOnly Property Alpha As Single
+  overload: Netick.SimulationInput.Alpha*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use RewindContext.Alpha instead.
+- uid: Netick.SimulationInput.RewindContext
+  commentId: P:Netick.SimulationInput.RewindContext
+  id: RewindContext
+  parent: Netick.SimulationInput
+  langs:
+  - csharp
+  - vb
+  name: RewindContext
+  nameWithType: SimulationInput.RewindContext
+  fullName: Netick.SimulationInput.RewindContext
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public RewindContext RewindContext { get; }
+    parameters: []
+    return:
+      type: Netick.RewindContext
+    content.vb: Public ReadOnly Property RewindContext As RewindContext
+  overload: Netick.SimulationInput.RewindContext*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -310,6 +380,31 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Netick.RewindContext
+  commentId: T:Netick.RewindContext
+  parent: Netick
+  isExternal: true
+  href: Netick.RewindContext.html
+  name: RewindContext
+  nameWithType: RewindContext
+  fullName: Netick.RewindContext
+- uid: Netick.SimulationInput.#ctor*
+  commentId: Overload:Netick.SimulationInput.#ctor
+  isExternal: true
+  href: Netick.SimulationInput.html#Netick_SimulationInput__ctor
+  name: SimulationInput
+  nameWithType: SimulationInput.SimulationInput
+  fullName: Netick.SimulationInput.SimulationInput
+  nameWithType.vb: SimulationInput.New
+  fullName.vb: Netick.SimulationInput.New
+  name.vb: New
+- uid: Netick.SimulationInput.SrvTick*
+  commentId: Overload:Netick.SimulationInput.SrvTick
+  isExternal: true
+  href: Netick.SimulationInput.html#Netick_SimulationInput_SrvTick
+  name: SrvTick
+  nameWithType: SimulationInput.SrvTick
+  fullName: Netick.SimulationInput.SrvTick
 - uid: Netick.Tick
   commentId: T:Netick.Tick
   parent: Netick
@@ -318,6 +413,13 @@ references:
   name: Tick
   nameWithType: Tick
   fullName: Netick.Tick
+- uid: Netick.SimulationInput.Alpha*
+  commentId: Overload:Netick.SimulationInput.Alpha
+  isExternal: true
+  href: Netick.SimulationInput.html#Netick_SimulationInput_Alpha
+  name: Alpha
+  nameWithType: SimulationInput.Alpha
+  fullName: Netick.SimulationInput.Alpha
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -329,13 +431,10 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
-- uid: Netick.SimulationInput.#ctor*
-  commentId: Overload:Netick.SimulationInput.#ctor
+- uid: Netick.SimulationInput.RewindContext*
+  commentId: Overload:Netick.SimulationInput.RewindContext
   isExternal: true
-  href: Netick.SimulationInput.html#Netick_SimulationInput__ctor
-  name: SimulationInput
-  nameWithType: SimulationInput.SimulationInput
-  fullName: Netick.SimulationInput.SimulationInput
-  nameWithType.vb: SimulationInput.New
-  fullName.vb: Netick.SimulationInput.New
-  name.vb: New
+  href: Netick.SimulationInput.html#Netick_SimulationInput_RewindContext
+  name: RewindContext
+  nameWithType: SimulationInput.RewindContext
+  fullName: Netick.SimulationInput.RewindContext

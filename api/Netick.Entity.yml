@@ -40,6 +40,7 @@ items:
   - Netick.Entity.SetStateFrom(System.Byte*,System.Int32,System.Int32,System.Boolean)
   - Netick.Entity.SetState_Collection(System.Int32*,System.Int32*,System.Int32,System.Int32,System.Int32,System.Int32)
   - Netick.Entity.StateOffsetBytes
+  - Netick.Entity.StatePreviousPtr
   - Netick.Entity.StatePtr
   - Netick.Entity.StateSizeWords
   - Netick.Entity.UserEntity
@@ -364,6 +365,25 @@ items:
     return:
       type: System.Int32*
     content.vb: Public StatePtr As Integer*
+- uid: Netick.Entity.StatePreviousPtr
+  commentId: F:Netick.Entity.StatePreviousPtr
+  id: StatePreviousPtr
+  parent: Netick.Entity
+  langs:
+  - csharp
+  - vb
+  name: StatePreviousPtr
+  nameWithType: Entity.StatePreviousPtr
+  fullName: Netick.Entity.StatePreviousPtr
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int* StatePreviousPtr
+    return:
+      type: System.Int32*
+    content.vb: Public StatePreviousPtr As Integer*
 - uid: Netick.Entity.Move(System.Numerics.Vector3)
   commentId: M:Netick.Entity.Move(System.Numerics.Vector3)
   id: Move(System.Numerics.Vector3)

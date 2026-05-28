@@ -8,6 +8,7 @@ items:
   - Netick.ReflectionData.#ctor
   - Netick.ReflectionData.Assemblies
   - Netick.ReflectionData.AssemblyIsLoaded(System.String)
+  - Netick.ReflectionData.NetickBehaviourTypes
   langs:
   - csharp
   - vb
@@ -30,6 +31,25 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+- uid: Netick.ReflectionData.NetickBehaviourTypes
+  commentId: F:Netick.ReflectionData.NetickBehaviourTypes
+  id: NetickBehaviourTypes
+  parent: Netick.ReflectionData
+  langs:
+  - csharp
+  - vb
+  name: NetickBehaviourTypes
+  nameWithType: ReflectionData.NetickBehaviourTypes
+  fullName: Netick.ReflectionData.NetickBehaviourTypes
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public List<Type> NetickBehaviourTypes
+    return:
+      type: System.Collections.Generic.List{System.Type}
+    content.vb: Public NetickBehaviourTypes As List(Of Type)
 - uid: Netick.ReflectionData.Assemblies
   commentId: F:Netick.ReflectionData.Assemblies
   id: Assemblies
@@ -317,27 +337,27 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.Collections.Generic.List{System.Reflection.Assembly}
-  commentId: T:System.Collections.Generic.List{System.Reflection.Assembly}
+- uid: System.Collections.Generic.List{System.Type}
+  commentId: T:System.Collections.Generic.List{System.Type}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<Assembly>
-  nameWithType: List<Assembly>
-  fullName: System.Collections.Generic.List<System.Reflection.Assembly>
-  nameWithType.vb: List(Of Assembly)
-  fullName.vb: System.Collections.Generic.List(Of System.Reflection.Assembly)
-  name.vb: List(Of Assembly)
+  name: List<Type>
+  nameWithType: List<Type>
+  fullName: System.Collections.Generic.List<System.Type>
+  nameWithType.vb: List(Of Type)
+  fullName.vb: System.Collections.Generic.List(Of System.Type)
+  name.vb: List(Of Type)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: System.Reflection.Assembly
-    name: Assembly
+  - uid: System.Type
+    name: Type
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+    href: https://learn.microsoft.com/dotnet/api/system.type
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -347,10 +367,10 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.Reflection.Assembly
-    name: Assembly
+  - uid: System.Type
+    name: Type
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+    href: https://learn.microsoft.com/dotnet/api/system.type
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
@@ -417,6 +437,41 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{System.Reflection.Assembly}
+  commentId: T:System.Collections.Generic.List{System.Reflection.Assembly}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Assembly>
+  nameWithType: List<Assembly>
+  fullName: System.Collections.Generic.List<System.Reflection.Assembly>
+  nameWithType.vb: List(Of Assembly)
+  fullName.vb: System.Collections.Generic.List(Of System.Reflection.Assembly)
+  name.vb: List(Of Assembly)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Reflection.Assembly
+    name: Assembly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Reflection.Assembly
+    name: Assembly
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  - name: )
 - uid: Netick.ReflectionData.#ctor*
   commentId: Overload:Netick.ReflectionData.#ctor
   isExternal: true

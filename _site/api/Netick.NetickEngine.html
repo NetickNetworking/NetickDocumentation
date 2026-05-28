@@ -1056,6 +1056,37 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
 
 
+  <a id="Netick_NetickEngine_IsPlayer_" data-uid="Netick.NetickEngine.IsPlayer*"></a>
+
+  <h3 id="Netick_NetickEngine_IsPlayer" data-uid="Netick.NetickEngine.IsPlayer">
+  IsPlayer
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPlayer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Netick_NetickEngine_IsRecording_" data-uid="Netick.NetickEngine.IsRecording*"></a>
 
   <h3 id="Netick_NetickEngine_IsRecording" data-uid="Netick.NetickEngine.IsRecording">
@@ -1224,6 +1255,37 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsServer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_IsTerminated_" data-uid="Netick.NetickEngine.IsTerminated*"></a>
+
+  <h3 id="Netick_NetickEngine_IsTerminated" data-uid="Netick.NetickEngine.IsTerminated">
+  IsTerminated
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsTerminated { get; }</code></pre>
   </div>
 
 
@@ -2531,32 +2593,6 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
 
 
-  <a id="Netick_NetickEngine_ConnectHost_" data-uid="Netick.NetickEngine.ConnectHost*"></a>
-
-  <h3 id="Netick_NetickEngine_ConnectHost" data-uid="Netick.NetickEngine.ConnectHost">
-  ConnectHost()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ConnectHost()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="Netick_NetickEngine_ContainsPlayer_" data-uid="Netick.NetickEngine.ContainsPlayer*"></a>
 
   <h3 id="Netick_NetickEngine_ContainsPlayer_Netick_NetworkPlayerId_" data-uid="Netick.NetickEngine.ContainsPlayer(Netick.NetworkPlayerId)">
@@ -2739,32 +2775,6 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DisconnectFromServer()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Netick_NetickEngine_DisconnectHost_" data-uid="Netick.NetickEngine.DisconnectHost*"></a>
-
-  <h3 id="Netick_NetickEngine_DisconnectHost" data-uid="Netick.NetickEngine.DisconnectHost">
-  DisconnectHost()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void DisconnectHost()</code></pre>
   </div>
 
 
@@ -3227,6 +3237,204 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
 
 
+  <a id="Netick_NetickEngine_RunAfterAllNetworkFixedUpdates_" data-uid="Netick.NetickEngine.RunAfterAllNetworkFixedUpdates*"></a>
+
+  <h3 id="Netick_NetickEngine_RunAfterAllNetworkFixedUpdates_System_Type_System_Action_Netick_BehaviourCallbackContext__" data-uid="Netick.NetickEngine.RunAfterAllNetworkFixedUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})">
+  RunAfterAllNetworkFixedUpdates(Type, Action&lt;BehaviourCallbackContext&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RunAfterAllNetworkFixedUpdates(Type behaviourType, Action&lt;BehaviourCallbackContext&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>behaviourType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Netick.BehaviourCallbackContext.html">BehaviourCallbackContext</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_RunAfterAllNetworkRenders_" data-uid="Netick.NetickEngine.RunAfterAllNetworkRenders*"></a>
+
+  <h3 id="Netick_NetickEngine_RunAfterAllNetworkRenders_System_Type_System_Action_Netick_BehaviourCallbackContext__" data-uid="Netick.NetickEngine.RunAfterAllNetworkRenders(System.Type,System.Action{Netick.BehaviourCallbackContext})">
+  RunAfterAllNetworkRenders(Type, Action&lt;BehaviourCallbackContext&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RunAfterAllNetworkRenders(Type behaviourType, Action&lt;BehaviourCallbackContext&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>behaviourType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Netick.BehaviourCallbackContext.html">BehaviourCallbackContext</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_RunAfterAllNetworkUpdates_" data-uid="Netick.NetickEngine.RunAfterAllNetworkUpdates*"></a>
+
+  <h3 id="Netick_NetickEngine_RunAfterAllNetworkUpdates_System_Type_System_Action_Netick_BehaviourCallbackContext__" data-uid="Netick.NetickEngine.RunAfterAllNetworkUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})">
+  RunAfterAllNetworkUpdates(Type, Action&lt;BehaviourCallbackContext&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RunAfterAllNetworkUpdates(Type behaviourType, Action&lt;BehaviourCallbackContext&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>behaviourType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Netick.BehaviourCallbackContext.html">BehaviourCallbackContext</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_RunBeforeAllNetworkFixedUpdates_" data-uid="Netick.NetickEngine.RunBeforeAllNetworkFixedUpdates*"></a>
+
+  <h3 id="Netick_NetickEngine_RunBeforeAllNetworkFixedUpdates_System_Type_System_Action_Netick_BehaviourCallbackContext__" data-uid="Netick.NetickEngine.RunBeforeAllNetworkFixedUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})">
+  RunBeforeAllNetworkFixedUpdates(Type, Action&lt;BehaviourCallbackContext&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RunBeforeAllNetworkFixedUpdates(Type behaviourType, Action&lt;BehaviourCallbackContext&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>behaviourType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Netick.BehaviourCallbackContext.html">BehaviourCallbackContext</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_RunBeforeAllNetworkRenders_" data-uid="Netick.NetickEngine.RunBeforeAllNetworkRenders*"></a>
+
+  <h3 id="Netick_NetickEngine_RunBeforeAllNetworkRenders_System_Type_System_Action_Netick_BehaviourCallbackContext__" data-uid="Netick.NetickEngine.RunBeforeAllNetworkRenders(System.Type,System.Action{Netick.BehaviourCallbackContext})">
+  RunBeforeAllNetworkRenders(Type, Action&lt;BehaviourCallbackContext&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RunBeforeAllNetworkRenders(Type behaviourType, Action&lt;BehaviourCallbackContext&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>behaviourType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Netick.BehaviourCallbackContext.html">BehaviourCallbackContext</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_NetickEngine_RunBeforeAllNetworkUpdates_" data-uid="Netick.NetickEngine.RunBeforeAllNetworkUpdates*"></a>
+
+  <h3 id="Netick_NetickEngine_RunBeforeAllNetworkUpdates_System_Type_System_Action_Netick_BehaviourCallbackContext__" data-uid="Netick.NetickEngine.RunBeforeAllNetworkUpdates(System.Type,System.Action{Netick.BehaviourCallbackContext})">
+  RunBeforeAllNetworkUpdates(Type, Action&lt;BehaviourCallbackContext&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RunBeforeAllNetworkUpdates(Type behaviourType, Action&lt;BehaviourCallbackContext&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>behaviourType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Netick.BehaviourCallbackContext.html">BehaviourCallbackContext</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Netick_NetickEngine_SetInput_" data-uid="Netick.NetickEngine.SetInput*"></a>
 
   <h3 id="Netick_NetickEngine_SetInput__1___0_System_Int32_" data-uid="Netick.NetickEngine.SetInput``1(``0,System.Int32)">
@@ -3453,10 +3661,10 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
 
 
 
-  <a id="Netick_NetickEngine_StopRecordingReplay_" data-uid="Netick.NetickEngine.StopRecordingReplay*"></a>
+  <a id="Netick_NetickEngine_StopReplayRecording_" data-uid="Netick.NetickEngine.StopReplayRecording*"></a>
 
-  <h3 id="Netick_NetickEngine_StopRecordingReplay" data-uid="Netick.NetickEngine.StopRecordingReplay">
-  StopRecordingReplay()
+  <h3 id="Netick_NetickEngine_StopReplayRecording" data-uid="Netick.NetickEngine.StopReplayRecording">
+  StopReplayRecording()
   
   </h3>
 
@@ -3464,7 +3672,7 @@ public IReadOnlyList&lt;NetworkPlayer&gt; ConnectedPlayers { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task StopRecordingReplay()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task StopReplayRecording()</code></pre>
   </div>
 
 

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LagCompensation | Netick Networking Engine </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LagCompensation | Netick Networking Engine ">
+      <meta name="description" content="Netick is a high-performance networking solution for Unity.">
+      
+      <meta property="og:title" content="Class LagCompensation | Netick Networking Engine ">
+      <meta property="og:description" content="Netick is a high-performance networking solution for Unity.">
+      <meta property="og:type" content="article">
+      <meta property="og:url" content="https://netick.net/api/Netick.Unity.Pro.LagCompensation.html">
+      <meta property="og:image" content="https://netick.net/imgs/netick_card.png">
+
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Class LagCompensation | Netick Networking Engine ">
+      <meta name="twitter:description" content="Netick is a high-performance networking solution for Unity.">
+      <meta name="twitter:image" content="https://netick.net/imgs/netick_card.png">
+
+      <link rel="canonical" href="https://netick.net/api/Netick.Unity.Pro.LagCompensation.html">
+      
+      
+      <link rel="icon" href="../images/logo.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+  <script>
+    // Navbar scroll effect - adds glossy effect when scrolled
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (navbar) {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+    });
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.png" alt="Netick Docs">
+            Netick Docs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Netick.Unity.Pro.LagCompensation">
+
+
+
+  <h1 id="Netick_Unity_Pro_LagCompensation" data-uid="Netick.Unity.Pro.LagCompensation" class="text-break">
+Class LagCompensation  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Netick.html">Netick</a>.<a class="xref" href="Netick.Unity.html">Unity</a>.<a class="xref" href="Netick.Unity.Pro.html">Pro</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Netick.Unity.Pro.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ExecutionOrder(1500)]
+public sealed class LagCompensation : INetickComponent</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">LagCompensation</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Netick.INetickComponent.html">INetickComponent</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Netick_Unity_Pro_LagCompensation__ctor_" data-uid="Netick.Unity.Pro.LagCompensation.#ctor*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation__ctor" data-uid="Netick.Unity.Pro.LagCompensation.#ctor">
+  LagCompensation()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LagCompensation()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_Compensate" data-uid="Netick.Unity.Pro.LagCompensation.Compensate">
+  Compensate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Master switch for server-side rewind. When false, queries resolve against the latest
+interpolated world for every input source instead of rewinding to each one's perceived
+tick. HitShape capture and the snapshot ring keep running either way.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Compensate</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_DrawTreeGizmos" data-uid="Netick.Unity.Pro.LagCompensation.DrawTreeGizmos">
+  DrawTreeGizmos
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DrawTreeGizmos</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_DrawTreeInternalColor" data-uid="Netick.Unity.Pro.LagCompensation.DrawTreeInternalColor">
+  DrawTreeInternalColor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color DrawTreeInternalColor</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_DrawTreeInternalNodes" data-uid="Netick.Unity.Pro.LagCompensation.DrawTreeInternalNodes">
+  DrawTreeInternalNodes
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DrawTreeInternalNodes</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_DrawTreeLeafColor" data-uid="Netick.Unity.Pro.LagCompensation.DrawTreeLeafColor">
+  DrawTreeLeafColor
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color DrawTreeLeafColor</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Color</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_DrawTreeSnapshotSlot" data-uid="Netick.Unity.Pro.LagCompensation.DrawTreeSnapshotSlot">
+  DrawTreeSnapshotSlot
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DrawTreeSnapshotSlot</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Netick_Unity_Pro_LagCompensation_CanRewind_" data-uid="Netick.Unity.Pro.LagCompensation.CanRewind*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_CanRewind_Netick_ServerConnection_" data-uid="Netick.Unity.Pro.LagCompensation.CanRewind(Netick.ServerConnection)">
+  CanRewind(ServerConnection)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns whether the server can rewind for this connection - true only on the server
+when the connection has a current input to derive the rewind tick from. When false,
+queries for this source resolve against the latest interpolated world instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool CanRewind(ServerConnection inputSource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputSource</code> <a class="xref" href="Netick.ServerConnection.html">ServerConnection</a></dt>
+    <dd><p>The connection to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if a rewound query is possible for this connection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_LagCompensation_FetchHitShapePosAndRot_" data-uid="Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_FetchHitShapePosAndRot_Netick_Unity_Pro_HitShape_Netick_NetworkPlayer_UnityEngine_Vector3__UnityEngine_Quaternion__" data-uid="Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape,Netick.NetworkPlayer,UnityEngine.Vector3@,UnityEngine.Quaternion@)">
+  FetchHitShapePosAndRot(HitShape, NetworkPlayer, out Vector3, out Quaternion)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the lag-compensated world position and rotation of a <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a> as
+the <code class="paramref">inputSource</code> perceived it — i.e. the same rewound, interpolated
+pose a query for that player would test against. Useful for spawning hit FX or debug
+gizmos that line up with the rewound world.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FetchHitShapePosAndRot(HitShape hitShape, NetworkPlayer inputSource, out Vector3 pos, out Quaternion rot)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hitShape</code> <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a></dt>
+    <dd><p>The HitShape to sample.</p>
+</dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd><p>The player to rewind for.</p>
+</dd>
+    <dt><code>pos</code> <span class="xref">Vector3</span></dt>
+    <dd><p>The rewound world position of the shape's center.</p>
+</dd>
+    <dt><code>rot</code> <span class="xref">Quaternion</span></dt>
+    <dd><p>The rewound world rotation of the shape.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_LagCompensation_FetchHitShapePosAndRot_" data-uid="Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_FetchHitShapePosAndRot_Netick_Unity_Pro_HitShape_Netick_Tick_UnityEngine_Vector3__UnityEngine_Quaternion__" data-uid="Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape,Netick.Tick,UnityEngine.Vector3@,UnityEngine.Quaternion@)">
+  FetchHitShapePosAndRot(HitShape, Tick, out Vector3, out Quaternion)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the world position and rotation a <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a> had at an exact
+historical <code class="paramref">tick</code>, read straight from the snapshot ring with no
+interpolation. The tick must still be within the ring (within MaxRewindTime).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FetchHitShapePosAndRot(HitShape hitShape, Tick tick, out Vector3 pos, out Quaternion rot)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hitShape</code> <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a></dt>
+    <dd><p>The HitShape to sample.</p>
+</dd>
+    <dt><code>tick</code> <a class="xref" href="Netick.Tick.html">Tick</a></dt>
+    <dd><p>The tick to read the stored snapshot for.</p>
+</dd>
+    <dt><code>pos</code> <span class="xref">Vector3</span></dt>
+    <dd><p>The world position of the shape's center at that tick.</p>
+</dd>
+    <dt><code>rot</code> <span class="xref">Quaternion</span></dt>
+    <dd><p>The world rotation of the shape at that tick.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_LagCompensation_NetworkFixedUpdate_" data-uid="Netick.Unity.Pro.LagCompensation.NetworkFixedUpdate*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_NetworkFixedUpdate" data-uid="Netick.Unity.Pro.LagCompensation.NetworkFixedUpdate">
+  NetworkFixedUpdate()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void NetworkFixedUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_LagCompensation_NetworkRender_" data-uid="Netick.Unity.Pro.LagCompensation.NetworkRender*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_NetworkRender" data-uid="Netick.Unity.Pro.LagCompensation.NetworkRender">
+  NetworkRender()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void NetworkRender()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_LagCompensation_OverlapSphere_" data-uid="Netick.Unity.Pro.LagCompensation.OverlapSphere*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_OverlapSphere_UnityEngine_Vector3_System_Single_System_Collections_Generic_List_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__" data-uid="Netick.Unity.Pro.LagCompensation.OverlapSphere(UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})">
+  OverlapSphere(Vector3, float, List&lt;NetHit&gt;, NetworkPlayer, int, bool, bool, Predicate&lt;HitShapeContainer&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Collects every <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a> overlapping a lag-compensated sphere into
+<code class="paramref">hits</code> (cleared first). Same rewind behavior as the cast queries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OverlapSphere(Vector3 center, float radius, List&lt;NetHit&gt; hits, NetworkPlayer inputSource, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false, Predicate&lt;HitShapeContainer&gt; filter = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>center</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Sphere center, in world space.</p>
+</dd>
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Sphere radius.</p>
+</dd>
+    <dt><code>hits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.Unity.Pro.NetHit.html">NetHit</a>&gt;</dt>
+    <dd><p>Destination list. Cleared, then filled with every overlap (unordered).</p>
+</dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd><p>The player to rewind for.</p>
+</dd>
+    <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Layer mask selecting which HitShape layers to test.</p>
+</dd>
+    <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When false, the input source's own HitShapes are skipped.</p>
+</dd>
+    <dt><code>oneHitPerHitShapeContainer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When true, at most one hit is reported per container.</p>
+</dd>
+    <dt><code>filter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;<a class="xref" href="Netick.Unity.Pro.HitShapeContainer.html">HitShapeContainer</a>&gt;</dt>
+    <dd><p>Optional predicate to reject candidate containers before testing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_LagCompensation_Raycast_" data-uid="Netick.Unity.Pro.LagCompensation.Raycast*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_Raycast_Netick_Unity_Pro_HitShape_UnityEngine_Vector3_UnityEngine_Vector3_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Boolean_" data-uid="Netick.Unity.Pro.LagCompensation.Raycast(Netick.Unity.Pro.HitShape,UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)">
+  Raycast(HitShape, Vector3, Vector3, out NetHit, NetworkPlayer, float, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts a lag-compensated ray against a single, specific <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a> and
+returns whether it was hit. Skips the broadphase entirely — use this when you
+already know which shape you want to test (e.g. a re-validation pass).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Raycast(HitShape shape, Vector3 origin, Vector3 direction, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, bool includeInputSource = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shape</code> <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a></dt>
+    <dd><p>The HitShape to test. Must belong to a live container.</p>
+</dd>
+    <dt><code>origin</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Ray start, in world space.</p>
+</dd>
+    <dt><code>direction</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Ray direction. Need not be normalized.</p>
+</dd>
+    <dt><code>hitData</code> <a class="xref" href="Netick.Unity.Pro.NetHit.html">NetHit</a></dt>
+    <dd><p>The hit, when the method returns true.</p>
+</dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd><p>The player to rewind for. See the scene-wide overload.</p>
+</dd>
+    <dt><code>maxDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Maximum ray length.</p>
+</dd>
+    <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When false, returns false if the shape belongs to the input source.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the shape was hit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_LagCompensation_Raycast_" data-uid="Netick.Unity.Pro.LagCompensation.Raycast*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_Raycast_UnityEngine_Vector3_UnityEngine_Vector3_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__" data-uid="Netick.Unity.Pro.LagCompensation.Raycast(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})">
+  Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, int, bool, Predicate&lt;HitShapeContainer&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts a lag-compensated ray against every <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a> in the scene and
+returns the closest hit. The world is rewound to the snapshot pair the
+<code class="paramref">inputSource</code> was interpolating when the input was produced, so the
+hit matches what that player saw on screen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Raycast(Vector3 origin, Vector3 direction, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, Predicate&lt;HitShapeContainer&gt; filter = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>origin</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Ray start, in world space.</p>
+</dd>
+    <dt><code>direction</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Ray direction. Need not be normalized.</p>
+</dd>
+    <dt><code>hitData</code> <a class="xref" href="Netick.Unity.Pro.NetHit.html">NetHit</a></dt>
+    <dd><p>The closest hit, when the method returns true.</p>
+</dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd><p>The player to rewind for — pass the shooting player's input source. Null (or a non-server caller) resolves against the latest interpolated world.</p>
+</dd>
+    <dt><code>maxDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Maximum ray length.</p>
+</dd>
+    <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Layer mask selecting which HitShape layers to test.</p>
+</dd>
+    <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When false, the input source's own HitShapes are skipped.</p>
+</dd>
+    <dt><code>filter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;<a class="xref" href="Netick.Unity.Pro.HitShapeContainer.html">HitShapeContainer</a>&gt;</dt>
+    <dd><p>Optional predicate to reject candidate containers before testing.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if a HitShape was hit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_LagCompensation_RaycastAll_" data-uid="Netick.Unity.Pro.LagCompensation.RaycastAll*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_RaycastAll_UnityEngine_Vector3_UnityEngine_Vector3_System_Collections_Generic_List_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__" data-uid="Netick.Unity.Pro.LagCompensation.RaycastAll(UnityEngine.Vector3,UnityEngine.Vector3,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})">
+  RaycastAll(Vector3, Vector3, List&lt;NetHit&gt;, NetworkPlayer, float, int, bool, bool, Predicate&lt;HitShapeContainer&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts a lag-compensated ray against every <a class="xref" href="Netick.Unity.Pro.HitShape.html">HitShape</a> in the scene and
+collects all hits into <code class="paramref">hits</code> (cleared first). Same rewind behavior
+as <a class="xref" href="Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation_Raycast_UnityEngine_Vector3_UnityEngine_Vector3_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__">Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, int, bool, Predicate&lt;HitShapeContainer&gt;)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RaycastAll(Vector3 origin, Vector3 direction, List&lt;NetHit&gt; hits, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false, Predicate&lt;HitShapeContainer&gt; filter = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>origin</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Ray start, in world space.</p>
+</dd>
+    <dt><code>direction</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Ray direction. Need not be normalized.</p>
+</dd>
+    <dt><code>hits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.Unity.Pro.NetHit.html">NetHit</a>&gt;</dt>
+    <dd><p>Destination list. Cleared, then filled with every hit (unordered).</p>
+</dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd><p>The player to rewind for.</p>
+</dd>
+    <dt><code>maxDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Maximum ray length.</p>
+</dd>
+    <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Layer mask selecting which HitShape layers to test.</p>
+</dd>
+    <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When false, the input source's own HitShapes are skipped.</p>
+</dd>
+    <dt><code>oneHitPerHitShapeContainer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When true, at most one hit is reported per container.</p>
+</dd>
+    <dt><code>filter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;<a class="xref" href="Netick.Unity.Pro.HitShapeContainer.html">HitShapeContainer</a>&gt;</dt>
+    <dd><p>Optional predicate to reject candidate containers before testing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_LagCompensation_SphereCast_" data-uid="Netick.Unity.Pro.LagCompensation.SphereCast*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_SphereCast_UnityEngine_Vector3_UnityEngine_Vector3_System_Single_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__" data-uid="Netick.Unity.Pro.LagCompensation.SphereCast(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})">
+  SphereCast(Vector3, Vector3, float, out NetHit, NetworkPlayer, float, int, bool, Predicate&lt;HitShapeContainer&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sweeps a lag-compensated sphere of <code class="paramref">radius</code> along a ray and returns
+the closest hit. Same rewind behavior as <a class="xref" href="Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation_Raycast_UnityEngine_Vector3_UnityEngine_Vector3_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__">Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, int, bool, Predicate&lt;HitShapeContainer&gt;)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SphereCast(Vector3 origin, Vector3 direction, float radius, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, Predicate&lt;HitShapeContainer&gt; filter = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>origin</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Center of the sphere at the start of the sweep, in world space.</p>
+</dd>
+    <dt><code>direction</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Sweep direction. Need not be normalized.</p>
+</dd>
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Sphere radius.</p>
+</dd>
+    <dt><code>hitData</code> <a class="xref" href="Netick.Unity.Pro.NetHit.html">NetHit</a></dt>
+    <dd><p>The closest hit, when the method returns true.</p>
+</dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd><p>The player to rewind for.</p>
+</dd>
+    <dt><code>maxDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Maximum sweep distance.</p>
+</dd>
+    <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Layer mask selecting which HitShape layers to test.</p>
+</dd>
+    <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When false, the input source's own HitShapes are skipped.</p>
+</dd>
+    <dt><code>filter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;<a class="xref" href="Netick.Unity.Pro.HitShapeContainer.html">HitShapeContainer</a>&gt;</dt>
+    <dd><p>Optional predicate to reject candidate containers before testing.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if a HitShape was hit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Netick_Unity_Pro_LagCompensation_SphereCastAll_" data-uid="Netick.Unity.Pro.LagCompensation.SphereCastAll*"></a>
+
+  <h3 id="Netick_Unity_Pro_LagCompensation_SphereCastAll_UnityEngine_Vector3_UnityEngine_Vector3_System_Single_System_Collections_Generic_List_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__" data-uid="Netick.Unity.Pro.LagCompensation.SphereCastAll(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})">
+  SphereCastAll(Vector3, Vector3, float, List&lt;NetHit&gt;, NetworkPlayer, float, int, bool, bool, Predicate&lt;HitShapeContainer&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sweeps a lag-compensated sphere of <code class="paramref">radius</code> along a ray and collects
+all hits into <code class="paramref">hits</code> (cleared first).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SphereCastAll(Vector3 origin, Vector3 direction, float radius, List&lt;NetHit&gt; hits, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false, Predicate&lt;HitShapeContainer&gt; filter = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>origin</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Center of the sphere at the start of the sweep, in world space.</p>
+</dd>
+    <dt><code>direction</code> <span class="xref">Vector3</span></dt>
+    <dd><p>Sweep direction. Need not be normalized.</p>
+</dd>
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Sphere radius.</p>
+</dd>
+    <dt><code>hits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Netick.Unity.Pro.NetHit.html">NetHit</a>&gt;</dt>
+    <dd><p>Destination list. Cleared, then filled with every hit (unordered).</p>
+</dd>
+    <dt><code>inputSource</code> <a class="xref" href="Netick.NetworkPlayer.html">NetworkPlayer</a></dt>
+    <dd><p>The player to rewind for.</p>
+</dd>
+    <dt><code>maxDistance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Maximum sweep distance.</p>
+</dd>
+    <dt><code>layerMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Layer mask selecting which HitShape layers to test.</p>
+</dd>
+    <dt><code>includeInputSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When false, the input source's own HitShapes are skipped.</p>
+</dd>
+    <dt><code>oneHitPerHitShapeContainer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>When true, at most one hit is reported per container.</p>
+</dd>
+    <dt><code>filter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;<a class="xref" href="Netick.Unity.Pro.HitShapeContainer.html">HitShapeContainer</a>&gt;</dt>
+    <dd><p>Optional predicate to reject candidate containers before testing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright © 2022-2025 Karrar Rahim. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

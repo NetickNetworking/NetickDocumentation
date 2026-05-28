@@ -19,17 +19,21 @@ items:
   - Netick.NetickConfigData.ExtraInterpolationDelay
   - Netick.NetickConfigData.GetNetworkHashCode
   - Netick.NetickConfigData.InputReuseOnLowFPS
+  - Netick.NetickConfigData.InvokeDestroyOnShutdown
   - Netick.NetickConfigData.InvokeNetworkUpdate
   - Netick.NetickConfigData.KickClientForBadRpc
+  - Netick.NetickConfigData.LagCompensationAlphaPrecision
   - Netick.NetickConfigData.MaxAllowedTimestep
   - Netick.NetickConfigData.MaxDataPerConnectionPerTickInBytes
   - Netick.NetickConfigData.MaxInterpolationSnapshots
   - Netick.NetickConfigData.MaxObjects
   - Netick.NetickConfigData.MaxPlayers
   - Netick.NetickConfigData.MaxPredictedTicks
+  - Netick.NetickConfigData.MaxRewindTime
   - Netick.NetickConfigData.MaxSnapshots
   - Netick.NetickConfigData.MetaAllocatorBlockSize
   - Netick.NetickConfigData.ServerDivisor
+  - Netick.NetickConfigData.SnapshotPairsToCover
   - Netick.NetickConfigData.StateAllocatorBlockSize
   - Netick.NetickConfigData.TickRate
   langs:
@@ -263,6 +267,63 @@ items:
     return:
       type: System.Single
     content.vb: Public MaxAllowedTimestep As Single
+- uid: Netick.NetickConfigData.MaxRewindTime
+  commentId: F:Netick.NetickConfigData.MaxRewindTime
+  id: MaxRewindTime
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: MaxRewindTime
+  nameWithType: NetickConfigData.MaxRewindTime
+  fullName: Netick.NetickConfigData.MaxRewindTime
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float MaxRewindTime
+    return:
+      type: System.Single
+    content.vb: Public MaxRewindTime As Single
+- uid: Netick.NetickConfigData.SnapshotPairsToCover
+  commentId: F:Netick.NetickConfigData.SnapshotPairsToCover
+  id: SnapshotPairsToCover
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: SnapshotPairsToCover
+  nameWithType: NetickConfigData.SnapshotPairsToCover
+  fullName: Netick.NetickConfigData.SnapshotPairsToCover
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public int SnapshotPairsToCover
+    return:
+      type: System.Int32
+    content.vb: Public SnapshotPairsToCover As Integer
+- uid: Netick.NetickConfigData.LagCompensationAlphaPrecision
+  commentId: F:Netick.NetickConfigData.LagCompensationAlphaPrecision
+  id: LagCompensationAlphaPrecision
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: LagCompensationAlphaPrecision
+  nameWithType: NetickConfigData.LagCompensationAlphaPrecision
+  fullName: Netick.NetickConfigData.LagCompensationAlphaPrecision
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public float LagCompensationAlphaPrecision
+    return:
+      type: System.Single
+    content.vb: Public LagCompensationAlphaPrecision As Single
 - uid: Netick.NetickConfigData.ExtraInterpolationDelay
   commentId: F:Netick.NetickConfigData.ExtraInterpolationDelay
   id: ExtraInterpolationDelay
@@ -377,6 +438,25 @@ items:
     return:
       type: System.Boolean
     content.vb: Public KickClientForBadRpc As Boolean
+- uid: Netick.NetickConfigData.InvokeDestroyOnShutdown
+  commentId: F:Netick.NetickConfigData.InvokeDestroyOnShutdown
+  id: InvokeDestroyOnShutdown
+  parent: Netick.NetickConfigData
+  langs:
+  - csharp
+  - vb
+  name: InvokeDestroyOnShutdown
+  nameWithType: NetickConfigData.InvokeDestroyOnShutdown
+  fullName: Netick.NetickConfigData.InvokeDestroyOnShutdown
+  type: Field
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public bool InvokeDestroyOnShutdown
+    return:
+      type: System.Boolean
+    content.vb: Public InvokeDestroyOnShutdown As Boolean
 - uid: Netick.NetickConfigData.EnableReplay
   commentId: F:Netick.NetickConfigData.EnableReplay
   id: EnableReplay

@@ -16,6 +16,9 @@ items:
   - uid: Netick.BadPacketException
     name: BadPacketException
     type: Class
+  - uid: Netick.BehaviourCallbackContext
+    name: BehaviourCallbackContext
+    type: Struct
   - uid: Netick.BitBuffer
     name: BitBuffer
     type: Class
@@ -69,6 +72,9 @@ items:
     type: Class
   - uid: Netick.ExecutionList
     name: ExecutionList
+    type: Class
+  - uid: Netick.ExecutionList.BehaviourList
+    name: ExecutionList.BehaviourList
     type: Class
   - uid: Netick.ExecutionOrderAttribute
     name: ExecutionOrderAttribute
@@ -454,6 +460,9 @@ items:
   - uid: Netick.ReplicatorComponent
     name: ReplicatorComponent
     type: Class
+  - uid: Netick.RewindContext
+    name: RewindContext
+    type: Struct
   - uid: Netick.Rpc
     name: Rpc
     type: Class
@@ -520,40 +529,6 @@ items:
   - uid: Netick.TransportDisconnectReason
     name: TransportDisconnectReason
     type: Enum
-- uid: Netick.Pro
-  name: Netick.Pro
-  type: Namespace
-  items:
-  - uid: Netick.Pro.HitShapeState
-    name: HitShapeState
-    type: Struct
-  - uid: Netick.Pro.HitShapeType
-    name: HitShapeType
-    type: Enum
-  - uid: Netick.Pro.IHitShape
-    name: IHitShape
-    type: Interface
-  - uid: Netick.Pro.IHitShapeContainer
-    name: IHitShapeContainer
-    type: Interface
-  - uid: Netick.Pro.LagCompContainer
-    name: LagCompContainer
-    type: Class
-  - uid: Netick.Pro.LagCompShape
-    name: LagCompShape
-    type: Class
-  - uid: Netick.Pro.LagCompensation
-    name: LagCompensation
-    type: Class
-  - uid: Netick.Pro.NetHit
-    name: NetHit
-    type: Struct
-  - uid: Netick.Pro.NetHitType
-    name: NetHitType
-    type: Enum
-  - uid: Netick.Pro.NetickRay
-    name: NetickRay
-    type: Struct
 - uid: Netick.Unity
   name: Netick.Unity
   type: Namespace
@@ -850,12 +825,18 @@ items:
   name: Netick.Unity.Pro
   type: Namespace
   items:
+  - uid: Netick.Unity.Pro.CapsuleAxis
+    name: CapsuleAxis
+    type: Enum
   - uid: Netick.Unity.Pro.HitShape
     name: HitShape
     type: Class
   - uid: Netick.Unity.Pro.HitShapeContainer
     name: HitShapeContainer
     type: Class
+  - uid: Netick.Unity.Pro.HitShapeType
+    name: HitShapeType
+    type: Enum
   - uid: Netick.Unity.Pro.LagCompFilterData
     name: LagCompFilterData
     type: Struct
@@ -865,9 +846,21 @@ items:
   - uid: Netick.Unity.Pro.LagCompHit2D
     name: LagCompHit2D
     type: Struct
+  - uid: Netick.Unity.Pro.LagCompensation
+    name: LagCompensation
+    type: Class
   - uid: Netick.Unity.Pro.LagCompensationStep
     name: LagCompensationStep
     type: Class
+  - uid: Netick.Unity.Pro.NetHit
+    name: NetHit
+    type: Struct
+  - uid: Netick.Unity.Pro.NetHitType
+    name: NetHitType
+    type: Enum
+  - uid: Netick.Unity.Pro.NetickRay
+    name: NetickRay
+    type: Struct
   - uid: Netick.Unity.Pro.NetworkSandboxExts
     name: NetworkSandboxExts
     type: Class

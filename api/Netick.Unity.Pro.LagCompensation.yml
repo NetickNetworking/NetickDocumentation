@@ -1,0 +1,1280 @@
+### YamlMime:ManagedReference
+items:
+- uid: Netick.Unity.Pro.LagCompensation
+  commentId: T:Netick.Unity.Pro.LagCompensation
+  id: LagCompensation
+  parent: Netick.Unity.Pro
+  children:
+  - Netick.Unity.Pro.LagCompensation.#ctor
+  - Netick.Unity.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
+  - Netick.Unity.Pro.LagCompensation.Compensate
+  - Netick.Unity.Pro.LagCompensation.DrawTreeGizmos
+  - Netick.Unity.Pro.LagCompensation.DrawTreeInternalColor
+  - Netick.Unity.Pro.LagCompensation.DrawTreeInternalNodes
+  - Netick.Unity.Pro.LagCompensation.DrawTreeLeafColor
+  - Netick.Unity.Pro.LagCompensation.DrawTreeSnapshotSlot
+  - Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape,Netick.NetworkPlayer,UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  - Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape,Netick.Tick,UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  - Netick.Unity.Pro.LagCompensation.NetworkFixedUpdate
+  - Netick.Unity.Pro.LagCompensation.NetworkRender
+  - Netick.Unity.Pro.LagCompensation.OverlapSphere(UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  - Netick.Unity.Pro.LagCompensation.Raycast(Netick.Unity.Pro.HitShape,UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
+  - Netick.Unity.Pro.LagCompensation.Raycast(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  - Netick.Unity.Pro.LagCompensation.RaycastAll(UnityEngine.Vector3,UnityEngine.Vector3,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  - Netick.Unity.Pro.LagCompensation.SphereCast(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  - Netick.Unity.Pro.LagCompensation.SphereCastAll(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  langs:
+  - csharp
+  - vb
+  name: LagCompensation
+  nameWithType: LagCompensation
+  fullName: Netick.Unity.Pro.LagCompensation
+  type: Class
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: >-
+      [ExecutionOrder(1500)]
+
+      public sealed class LagCompensation : INetickComponent
+    content.vb: >-
+      <ExecutionOrder(1500)>
+
+      Public NotInheritable Class LagCompensation Implements INetickComponent
+  inheritance:
+  - System.Object
+  implements:
+  - Netick.INetickComponent
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: Netick.ExecutionOrderAttribute
+    ctor: Netick.ExecutionOrderAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1500
+- uid: Netick.Unity.Pro.LagCompensation.Compensate
+  commentId: F:Netick.Unity.Pro.LagCompensation.Compensate
+  id: Compensate
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: Compensate
+  nameWithType: LagCompensation.Compensate
+  fullName: Netick.Unity.Pro.LagCompensation.Compensate
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: >-
+    Master switch for server-side rewind. When false, queries resolve against the latest
+
+    interpolated world for every input source instead of rewinding to each one's perceived
+
+    tick. HitShape capture and the snapshot ring keep running either way.
+  example: []
+  syntax:
+    content: public bool Compensate
+    return:
+      type: System.Boolean
+    content.vb: Public Compensate As Boolean
+- uid: Netick.Unity.Pro.LagCompensation.DrawTreeGizmos
+  commentId: F:Netick.Unity.Pro.LagCompensation.DrawTreeGizmos
+  id: DrawTreeGizmos
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: DrawTreeGizmos
+  nameWithType: LagCompensation.DrawTreeGizmos
+  fullName: Netick.Unity.Pro.LagCompensation.DrawTreeGizmos
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public bool DrawTreeGizmos
+    return:
+      type: System.Boolean
+    content.vb: Public DrawTreeGizmos As Boolean
+- uid: Netick.Unity.Pro.LagCompensation.DrawTreeInternalNodes
+  commentId: F:Netick.Unity.Pro.LagCompensation.DrawTreeInternalNodes
+  id: DrawTreeInternalNodes
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: DrawTreeInternalNodes
+  nameWithType: LagCompensation.DrawTreeInternalNodes
+  fullName: Netick.Unity.Pro.LagCompensation.DrawTreeInternalNodes
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public bool DrawTreeInternalNodes
+    return:
+      type: System.Boolean
+    content.vb: Public DrawTreeInternalNodes As Boolean
+- uid: Netick.Unity.Pro.LagCompensation.DrawTreeSnapshotSlot
+  commentId: F:Netick.Unity.Pro.LagCompensation.DrawTreeSnapshotSlot
+  id: DrawTreeSnapshotSlot
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: DrawTreeSnapshotSlot
+  nameWithType: LagCompensation.DrawTreeSnapshotSlot
+  fullName: Netick.Unity.Pro.LagCompensation.DrawTreeSnapshotSlot
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public int DrawTreeSnapshotSlot
+    return:
+      type: System.Int32
+    content.vb: Public DrawTreeSnapshotSlot As Integer
+- uid: Netick.Unity.Pro.LagCompensation.DrawTreeLeafColor
+  commentId: F:Netick.Unity.Pro.LagCompensation.DrawTreeLeafColor
+  id: DrawTreeLeafColor
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: DrawTreeLeafColor
+  nameWithType: LagCompensation.DrawTreeLeafColor
+  fullName: Netick.Unity.Pro.LagCompensation.DrawTreeLeafColor
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public Color DrawTreeLeafColor
+    return:
+      type: UnityEngine.Color
+    content.vb: Public DrawTreeLeafColor As Color
+- uid: Netick.Unity.Pro.LagCompensation.DrawTreeInternalColor
+  commentId: F:Netick.Unity.Pro.LagCompensation.DrawTreeInternalColor
+  id: DrawTreeInternalColor
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: DrawTreeInternalColor
+  nameWithType: LagCompensation.DrawTreeInternalColor
+  fullName: Netick.Unity.Pro.LagCompensation.DrawTreeInternalColor
+  type: Field
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public Color DrawTreeInternalColor
+    return:
+      type: UnityEngine.Color
+    content.vb: Public DrawTreeInternalColor As Color
+- uid: Netick.Unity.Pro.LagCompensation.NetworkFixedUpdate
+  commentId: M:Netick.Unity.Pro.LagCompensation.NetworkFixedUpdate
+  id: NetworkFixedUpdate
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: NetworkFixedUpdate()
+  nameWithType: LagCompensation.NetworkFixedUpdate()
+  fullName: Netick.Unity.Pro.LagCompensation.NetworkFixedUpdate()
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public void NetworkFixedUpdate()
+    content.vb: Public Sub NetworkFixedUpdate()
+  overload: Netick.Unity.Pro.LagCompensation.NetworkFixedUpdate*
+- uid: Netick.Unity.Pro.LagCompensation.NetworkRender
+  commentId: M:Netick.Unity.Pro.LagCompensation.NetworkRender
+  id: NetworkRender
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: NetworkRender()
+  nameWithType: LagCompensation.NetworkRender()
+  fullName: Netick.Unity.Pro.LagCompensation.NetworkRender()
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public void NetworkRender()
+    content.vb: Public Sub NetworkRender()
+  overload: Netick.Unity.Pro.LagCompensation.NetworkRender*
+- uid: Netick.Unity.Pro.LagCompensation.Raycast(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  commentId: M:Netick.Unity.Pro.LagCompensation.Raycast(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  id: Raycast(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, int, bool, Predicate<HitShapeContainer>)
+  nameWithType: LagCompensation.Raycast(Vector3, Vector3, out NetHit, NetworkPlayer, float, int, bool, Predicate<HitShapeContainer>)
+  fullName: Netick.Unity.Pro.LagCompensation.Raycast(UnityEngine.Vector3, UnityEngine.Vector3, out Netick.Unity.Pro.NetHit, Netick.NetworkPlayer, float, int, bool, System.Predicate<Netick.Unity.Pro.HitShapeContainer>)
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: >-
+    Casts a lag-compensated ray against every <xref href="Netick.Unity.Pro.HitShape" data-throw-if-not-resolved="false"></xref> in the scene and
+
+    returns the closest hit. The world is rewound to the snapshot pair the
+
+    <code class="paramref">inputSource</code> was interpolating when the input was produced, so the
+
+    hit matches what that player saw on screen.
+  example: []
+  syntax:
+    content: public bool Raycast(Vector3 origin, Vector3 direction, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, Predicate<HitShapeContainer> filter = null)
+    parameters:
+    - id: origin
+      type: UnityEngine.Vector3
+      description: Ray start, in world space.
+    - id: direction
+      type: UnityEngine.Vector3
+      description: Ray direction. Need not be normalized.
+    - id: hitData
+      type: Netick.Unity.Pro.NetHit
+      description: The closest hit, when the method returns true.
+    - id: inputSource
+      type: Netick.NetworkPlayer
+      description: The player to rewind for — pass the shooting player's input source. Null (or a non-server caller) resolves against the latest interpolated world.
+    - id: maxDistance
+      type: System.Single
+      description: Maximum ray length.
+    - id: layerMask
+      type: System.Int32
+      description: Layer mask selecting which HitShape layers to test.
+    - id: includeInputSource
+      type: System.Boolean
+      description: When false, the input source's own HitShapes are skipped.
+    - id: filter
+      type: System.Predicate{Netick.Unity.Pro.HitShapeContainer}
+      description: Optional predicate to reject candidate containers before testing.
+    return:
+      type: System.Boolean
+      description: True if a HitShape was hit.
+    content.vb: Public Function Raycast(origin As Vector3, direction As Vector3, hitData As NetHit, inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -1, includeInputSource As Boolean = False, filter As Predicate(Of HitShapeContainer) = Nothing) As Boolean
+  overload: Netick.Unity.Pro.LagCompensation.Raycast*
+  nameWithType.vb: LagCompensation.Raycast(Vector3, Vector3, NetHit, NetworkPlayer, Single, Integer, Boolean, Predicate(Of HitShapeContainer))
+  fullName.vb: Netick.Unity.Pro.LagCompensation.Raycast(UnityEngine.Vector3, UnityEngine.Vector3, Netick.Unity.Pro.NetHit, Netick.NetworkPlayer, Single, Integer, Boolean, System.Predicate(Of Netick.Unity.Pro.HitShapeContainer))
+  name.vb: Raycast(Vector3, Vector3, NetHit, NetworkPlayer, Single, Integer, Boolean, Predicate(Of HitShapeContainer))
+- uid: Netick.Unity.Pro.LagCompensation.Raycast(Netick.Unity.Pro.HitShape,UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
+  commentId: M:Netick.Unity.Pro.LagCompensation.Raycast(Netick.Unity.Pro.HitShape,UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
+  id: Raycast(Netick.Unity.Pro.HitShape,UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Boolean)
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: Raycast(HitShape, Vector3, Vector3, out NetHit, NetworkPlayer, float, bool)
+  nameWithType: LagCompensation.Raycast(HitShape, Vector3, Vector3, out NetHit, NetworkPlayer, float, bool)
+  fullName: Netick.Unity.Pro.LagCompensation.Raycast(Netick.Unity.Pro.HitShape, UnityEngine.Vector3, UnityEngine.Vector3, out Netick.Unity.Pro.NetHit, Netick.NetworkPlayer, float, bool)
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: >-
+    Casts a lag-compensated ray against a single, specific <xref href="Netick.Unity.Pro.HitShape" data-throw-if-not-resolved="false"></xref> and
+
+    returns whether it was hit. Skips the broadphase entirely — use this when you
+
+    already know which shape you want to test (e.g. a re-validation pass).
+  example: []
+  syntax:
+    content: public bool Raycast(HitShape shape, Vector3 origin, Vector3 direction, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, bool includeInputSource = false)
+    parameters:
+    - id: shape
+      type: Netick.Unity.Pro.HitShape
+      description: The HitShape to test. Must belong to a live container.
+    - id: origin
+      type: UnityEngine.Vector3
+      description: Ray start, in world space.
+    - id: direction
+      type: UnityEngine.Vector3
+      description: Ray direction. Need not be normalized.
+    - id: hitData
+      type: Netick.Unity.Pro.NetHit
+      description: The hit, when the method returns true.
+    - id: inputSource
+      type: Netick.NetworkPlayer
+      description: The player to rewind for. See the scene-wide overload.
+    - id: maxDistance
+      type: System.Single
+      description: Maximum ray length.
+    - id: includeInputSource
+      type: System.Boolean
+      description: When false, returns false if the shape belongs to the input source.
+    return:
+      type: System.Boolean
+      description: True if the shape was hit.
+    content.vb: Public Function Raycast(shape As HitShape, origin As Vector3, direction As Vector3, hitData As NetHit, inputSource As NetworkPlayer, maxDistance As Single = Infinity, includeInputSource As Boolean = False) As Boolean
+  overload: Netick.Unity.Pro.LagCompensation.Raycast*
+  nameWithType.vb: LagCompensation.Raycast(HitShape, Vector3, Vector3, NetHit, NetworkPlayer, Single, Boolean)
+  fullName.vb: Netick.Unity.Pro.LagCompensation.Raycast(Netick.Unity.Pro.HitShape, UnityEngine.Vector3, UnityEngine.Vector3, Netick.Unity.Pro.NetHit, Netick.NetworkPlayer, Single, Boolean)
+  name.vb: Raycast(HitShape, Vector3, Vector3, NetHit, NetworkPlayer, Single, Boolean)
+- uid: Netick.Unity.Pro.LagCompensation.RaycastAll(UnityEngine.Vector3,UnityEngine.Vector3,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  commentId: M:Netick.Unity.Pro.LagCompensation.RaycastAll(UnityEngine.Vector3,UnityEngine.Vector3,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  id: RaycastAll(UnityEngine.Vector3,UnityEngine.Vector3,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: RaycastAll(Vector3, Vector3, List<NetHit>, NetworkPlayer, float, int, bool, bool, Predicate<HitShapeContainer>)
+  nameWithType: LagCompensation.RaycastAll(Vector3, Vector3, List<NetHit>, NetworkPlayer, float, int, bool, bool, Predicate<HitShapeContainer>)
+  fullName: Netick.Unity.Pro.LagCompensation.RaycastAll(UnityEngine.Vector3, UnityEngine.Vector3, System.Collections.Generic.List<Netick.Unity.Pro.NetHit>, Netick.NetworkPlayer, float, int, bool, bool, System.Predicate<Netick.Unity.Pro.HitShapeContainer>)
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: >-
+    Casts a lag-compensated ray against every <xref href="Netick.Unity.Pro.HitShape" data-throw-if-not-resolved="false"></xref> in the scene and
+
+    collects all hits into <code class="paramref">hits</code> (cleared first). Same rewind behavior
+
+    as <xref href="Netick.Unity.Pro.LagCompensation.Raycast(UnityEngine.Vector3%2cUnityEngine.Vector3%2cNetick.Unity.Pro.NetHit%40%2cNetick.NetworkPlayer%2cSystem.Single%2cSystem.Int32%2cSystem.Boolean%2cSystem.Predicate%7bNetick.Unity.Pro.HitShapeContainer%7d)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void RaycastAll(Vector3 origin, Vector3 direction, List<NetHit> hits, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false, Predicate<HitShapeContainer> filter = null)
+    parameters:
+    - id: origin
+      type: UnityEngine.Vector3
+      description: Ray start, in world space.
+    - id: direction
+      type: UnityEngine.Vector3
+      description: Ray direction. Need not be normalized.
+    - id: hits
+      type: System.Collections.Generic.List{Netick.Unity.Pro.NetHit}
+      description: Destination list. Cleared, then filled with every hit (unordered).
+    - id: inputSource
+      type: Netick.NetworkPlayer
+      description: The player to rewind for.
+    - id: maxDistance
+      type: System.Single
+      description: Maximum ray length.
+    - id: layerMask
+      type: System.Int32
+      description: Layer mask selecting which HitShape layers to test.
+    - id: includeInputSource
+      type: System.Boolean
+      description: When false, the input source's own HitShapes are skipped.
+    - id: oneHitPerHitShapeContainer
+      type: System.Boolean
+      description: When true, at most one hit is reported per container.
+    - id: filter
+      type: System.Predicate{Netick.Unity.Pro.HitShapeContainer}
+      description: Optional predicate to reject candidate containers before testing.
+    content.vb: Public Sub RaycastAll(origin As Vector3, direction As Vector3, hits As List(Of NetHit), inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -1, includeInputSource As Boolean = False, oneHitPerHitShapeContainer As Boolean = False, filter As Predicate(Of HitShapeContainer) = Nothing)
+  overload: Netick.Unity.Pro.LagCompensation.RaycastAll*
+  nameWithType.vb: LagCompensation.RaycastAll(Vector3, Vector3, List(Of NetHit), NetworkPlayer, Single, Integer, Boolean, Boolean, Predicate(Of HitShapeContainer))
+  fullName.vb: Netick.Unity.Pro.LagCompensation.RaycastAll(UnityEngine.Vector3, UnityEngine.Vector3, System.Collections.Generic.List(Of Netick.Unity.Pro.NetHit), Netick.NetworkPlayer, Single, Integer, Boolean, Boolean, System.Predicate(Of Netick.Unity.Pro.HitShapeContainer))
+  name.vb: RaycastAll(Vector3, Vector3, List(Of NetHit), NetworkPlayer, Single, Integer, Boolean, Boolean, Predicate(Of HitShapeContainer))
+- uid: Netick.Unity.Pro.LagCompensation.SphereCast(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  commentId: M:Netick.Unity.Pro.LagCompensation.SphereCast(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  id: SphereCast(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: SphereCast(Vector3, Vector3, float, out NetHit, NetworkPlayer, float, int, bool, Predicate<HitShapeContainer>)
+  nameWithType: LagCompensation.SphereCast(Vector3, Vector3, float, out NetHit, NetworkPlayer, float, int, bool, Predicate<HitShapeContainer>)
+  fullName: Netick.Unity.Pro.LagCompensation.SphereCast(UnityEngine.Vector3, UnityEngine.Vector3, float, out Netick.Unity.Pro.NetHit, Netick.NetworkPlayer, float, int, bool, System.Predicate<Netick.Unity.Pro.HitShapeContainer>)
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: >-
+    Sweeps a lag-compensated sphere of <code class="paramref">radius</code> along a ray and returns
+
+    the closest hit. Same rewind behavior as <xref href="Netick.Unity.Pro.LagCompensation.Raycast(UnityEngine.Vector3%2cUnityEngine.Vector3%2cNetick.Unity.Pro.NetHit%40%2cNetick.NetworkPlayer%2cSystem.Single%2cSystem.Int32%2cSystem.Boolean%2cSystem.Predicate%7bNetick.Unity.Pro.HitShapeContainer%7d)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool SphereCast(Vector3 origin, Vector3 direction, float radius, out NetHit hitData, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, Predicate<HitShapeContainer> filter = null)
+    parameters:
+    - id: origin
+      type: UnityEngine.Vector3
+      description: Center of the sphere at the start of the sweep, in world space.
+    - id: direction
+      type: UnityEngine.Vector3
+      description: Sweep direction. Need not be normalized.
+    - id: radius
+      type: System.Single
+      description: Sphere radius.
+    - id: hitData
+      type: Netick.Unity.Pro.NetHit
+      description: The closest hit, when the method returns true.
+    - id: inputSource
+      type: Netick.NetworkPlayer
+      description: The player to rewind for.
+    - id: maxDistance
+      type: System.Single
+      description: Maximum sweep distance.
+    - id: layerMask
+      type: System.Int32
+      description: Layer mask selecting which HitShape layers to test.
+    - id: includeInputSource
+      type: System.Boolean
+      description: When false, the input source's own HitShapes are skipped.
+    - id: filter
+      type: System.Predicate{Netick.Unity.Pro.HitShapeContainer}
+      description: Optional predicate to reject candidate containers before testing.
+    return:
+      type: System.Boolean
+      description: True if a HitShape was hit.
+    content.vb: Public Function SphereCast(origin As Vector3, direction As Vector3, radius As Single, hitData As NetHit, inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -1, includeInputSource As Boolean = False, filter As Predicate(Of HitShapeContainer) = Nothing) As Boolean
+  overload: Netick.Unity.Pro.LagCompensation.SphereCast*
+  nameWithType.vb: LagCompensation.SphereCast(Vector3, Vector3, Single, NetHit, NetworkPlayer, Single, Integer, Boolean, Predicate(Of HitShapeContainer))
+  fullName.vb: Netick.Unity.Pro.LagCompensation.SphereCast(UnityEngine.Vector3, UnityEngine.Vector3, Single, Netick.Unity.Pro.NetHit, Netick.NetworkPlayer, Single, Integer, Boolean, System.Predicate(Of Netick.Unity.Pro.HitShapeContainer))
+  name.vb: SphereCast(Vector3, Vector3, Single, NetHit, NetworkPlayer, Single, Integer, Boolean, Predicate(Of HitShapeContainer))
+- uid: Netick.Unity.Pro.LagCompensation.SphereCastAll(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  commentId: M:Netick.Unity.Pro.LagCompensation.SphereCastAll(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  id: SphereCastAll(UnityEngine.Vector3,UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: SphereCastAll(Vector3, Vector3, float, List<NetHit>, NetworkPlayer, float, int, bool, bool, Predicate<HitShapeContainer>)
+  nameWithType: LagCompensation.SphereCastAll(Vector3, Vector3, float, List<NetHit>, NetworkPlayer, float, int, bool, bool, Predicate<HitShapeContainer>)
+  fullName: Netick.Unity.Pro.LagCompensation.SphereCastAll(UnityEngine.Vector3, UnityEngine.Vector3, float, System.Collections.Generic.List<Netick.Unity.Pro.NetHit>, Netick.NetworkPlayer, float, int, bool, bool, System.Predicate<Netick.Unity.Pro.HitShapeContainer>)
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: >-
+    Sweeps a lag-compensated sphere of <code class="paramref">radius</code> along a ray and collects
+
+    all hits into <code class="paramref">hits</code> (cleared first).
+  example: []
+  syntax:
+    content: public void SphereCastAll(Vector3 origin, Vector3 direction, float radius, List<NetHit> hits, NetworkPlayer inputSource, float maxDistance = Infinity, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false, Predicate<HitShapeContainer> filter = null)
+    parameters:
+    - id: origin
+      type: UnityEngine.Vector3
+      description: Center of the sphere at the start of the sweep, in world space.
+    - id: direction
+      type: UnityEngine.Vector3
+      description: Sweep direction. Need not be normalized.
+    - id: radius
+      type: System.Single
+      description: Sphere radius.
+    - id: hits
+      type: System.Collections.Generic.List{Netick.Unity.Pro.NetHit}
+      description: Destination list. Cleared, then filled with every hit (unordered).
+    - id: inputSource
+      type: Netick.NetworkPlayer
+      description: The player to rewind for.
+    - id: maxDistance
+      type: System.Single
+      description: Maximum sweep distance.
+    - id: layerMask
+      type: System.Int32
+      description: Layer mask selecting which HitShape layers to test.
+    - id: includeInputSource
+      type: System.Boolean
+      description: When false, the input source's own HitShapes are skipped.
+    - id: oneHitPerHitShapeContainer
+      type: System.Boolean
+      description: When true, at most one hit is reported per container.
+    - id: filter
+      type: System.Predicate{Netick.Unity.Pro.HitShapeContainer}
+      description: Optional predicate to reject candidate containers before testing.
+    content.vb: Public Sub SphereCastAll(origin As Vector3, direction As Vector3, radius As Single, hits As List(Of NetHit), inputSource As NetworkPlayer, maxDistance As Single = Infinity, layerMask As Integer = -1, includeInputSource As Boolean = False, oneHitPerHitShapeContainer As Boolean = False, filter As Predicate(Of HitShapeContainer) = Nothing)
+  overload: Netick.Unity.Pro.LagCompensation.SphereCastAll*
+  nameWithType.vb: LagCompensation.SphereCastAll(Vector3, Vector3, Single, List(Of NetHit), NetworkPlayer, Single, Integer, Boolean, Boolean, Predicate(Of HitShapeContainer))
+  fullName.vb: Netick.Unity.Pro.LagCompensation.SphereCastAll(UnityEngine.Vector3, UnityEngine.Vector3, Single, System.Collections.Generic.List(Of Netick.Unity.Pro.NetHit), Netick.NetworkPlayer, Single, Integer, Boolean, Boolean, System.Predicate(Of Netick.Unity.Pro.HitShapeContainer))
+  name.vb: SphereCastAll(Vector3, Vector3, Single, List(Of NetHit), NetworkPlayer, Single, Integer, Boolean, Boolean, Predicate(Of HitShapeContainer))
+- uid: Netick.Unity.Pro.LagCompensation.OverlapSphere(UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  commentId: M:Netick.Unity.Pro.LagCompensation.OverlapSphere(UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  id: OverlapSphere(UnityEngine.Vector3,System.Single,System.Collections.Generic.List{Netick.Unity.Pro.NetHit},Netick.NetworkPlayer,System.Int32,System.Boolean,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: OverlapSphere(Vector3, float, List<NetHit>, NetworkPlayer, int, bool, bool, Predicate<HitShapeContainer>)
+  nameWithType: LagCompensation.OverlapSphere(Vector3, float, List<NetHit>, NetworkPlayer, int, bool, bool, Predicate<HitShapeContainer>)
+  fullName: Netick.Unity.Pro.LagCompensation.OverlapSphere(UnityEngine.Vector3, float, System.Collections.Generic.List<Netick.Unity.Pro.NetHit>, Netick.NetworkPlayer, int, bool, bool, System.Predicate<Netick.Unity.Pro.HitShapeContainer>)
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: >-
+    Collects every <xref href="Netick.Unity.Pro.HitShape" data-throw-if-not-resolved="false"></xref> overlapping a lag-compensated sphere into
+
+    <code class="paramref">hits</code> (cleared first). Same rewind behavior as the cast queries.
+  example: []
+  syntax:
+    content: public void OverlapSphere(Vector3 center, float radius, List<NetHit> hits, NetworkPlayer inputSource, int layerMask = -1, bool includeInputSource = false, bool oneHitPerHitShapeContainer = false, Predicate<HitShapeContainer> filter = null)
+    parameters:
+    - id: center
+      type: UnityEngine.Vector3
+      description: Sphere center, in world space.
+    - id: radius
+      type: System.Single
+      description: Sphere radius.
+    - id: hits
+      type: System.Collections.Generic.List{Netick.Unity.Pro.NetHit}
+      description: Destination list. Cleared, then filled with every overlap (unordered).
+    - id: inputSource
+      type: Netick.NetworkPlayer
+      description: The player to rewind for.
+    - id: layerMask
+      type: System.Int32
+      description: Layer mask selecting which HitShape layers to test.
+    - id: includeInputSource
+      type: System.Boolean
+      description: When false, the input source's own HitShapes are skipped.
+    - id: oneHitPerHitShapeContainer
+      type: System.Boolean
+      description: When true, at most one hit is reported per container.
+    - id: filter
+      type: System.Predicate{Netick.Unity.Pro.HitShapeContainer}
+      description: Optional predicate to reject candidate containers before testing.
+    content.vb: Public Sub OverlapSphere(center As Vector3, radius As Single, hits As List(Of NetHit), inputSource As NetworkPlayer, layerMask As Integer = -1, includeInputSource As Boolean = False, oneHitPerHitShapeContainer As Boolean = False, filter As Predicate(Of HitShapeContainer) = Nothing)
+  overload: Netick.Unity.Pro.LagCompensation.OverlapSphere*
+  nameWithType.vb: LagCompensation.OverlapSphere(Vector3, Single, List(Of NetHit), NetworkPlayer, Integer, Boolean, Boolean, Predicate(Of HitShapeContainer))
+  fullName.vb: Netick.Unity.Pro.LagCompensation.OverlapSphere(UnityEngine.Vector3, Single, System.Collections.Generic.List(Of Netick.Unity.Pro.NetHit), Netick.NetworkPlayer, Integer, Boolean, Boolean, System.Predicate(Of Netick.Unity.Pro.HitShapeContainer))
+  name.vb: OverlapSphere(Vector3, Single, List(Of NetHit), NetworkPlayer, Integer, Boolean, Boolean, Predicate(Of HitShapeContainer))
+- uid: Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape,Netick.NetworkPlayer,UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  commentId: M:Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape,Netick.NetworkPlayer,UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  id: FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape,Netick.NetworkPlayer,UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: FetchHitShapePosAndRot(HitShape, NetworkPlayer, out Vector3, out Quaternion)
+  nameWithType: LagCompensation.FetchHitShapePosAndRot(HitShape, NetworkPlayer, out Vector3, out Quaternion)
+  fullName: Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape, Netick.NetworkPlayer, out UnityEngine.Vector3, out UnityEngine.Quaternion)
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: >-
+    Returns the lag-compensated world position and rotation of a <xref href="Netick.Unity.Pro.HitShape" data-throw-if-not-resolved="false"></xref> as
+
+    the <code class="paramref">inputSource</code> perceived it — i.e. the same rewound, interpolated
+
+    pose a query for that player would test against. Useful for spawning hit FX or debug
+
+    gizmos that line up with the rewound world.
+  example: []
+  syntax:
+    content: public void FetchHitShapePosAndRot(HitShape hitShape, NetworkPlayer inputSource, out Vector3 pos, out Quaternion rot)
+    parameters:
+    - id: hitShape
+      type: Netick.Unity.Pro.HitShape
+      description: The HitShape to sample.
+    - id: inputSource
+      type: Netick.NetworkPlayer
+      description: The player to rewind for.
+    - id: pos
+      type: UnityEngine.Vector3
+      description: The rewound world position of the shape's center.
+    - id: rot
+      type: UnityEngine.Quaternion
+      description: The rewound world rotation of the shape.
+    content.vb: Public Sub FetchHitShapePosAndRot(hitShape As HitShape, inputSource As NetworkPlayer, pos As Vector3, rot As Quaternion)
+  overload: Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot*
+  nameWithType.vb: LagCompensation.FetchHitShapePosAndRot(HitShape, NetworkPlayer, Vector3, Quaternion)
+  fullName.vb: Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape, Netick.NetworkPlayer, UnityEngine.Vector3, UnityEngine.Quaternion)
+  name.vb: FetchHitShapePosAndRot(HitShape, NetworkPlayer, Vector3, Quaternion)
+- uid: Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape,Netick.Tick,UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  commentId: M:Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape,Netick.Tick,UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  id: FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape,Netick.Tick,UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: FetchHitShapePosAndRot(HitShape, Tick, out Vector3, out Quaternion)
+  nameWithType: LagCompensation.FetchHitShapePosAndRot(HitShape, Tick, out Vector3, out Quaternion)
+  fullName: Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape, Netick.Tick, out UnityEngine.Vector3, out UnityEngine.Quaternion)
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: >-
+    Returns the world position and rotation a <xref href="Netick.Unity.Pro.HitShape" data-throw-if-not-resolved="false"></xref> had at an exact
+
+    historical <code class="paramref">tick</code>, read straight from the snapshot ring with no
+
+    interpolation. The tick must still be within the ring (within MaxRewindTime).
+  example: []
+  syntax:
+    content: public void FetchHitShapePosAndRot(HitShape hitShape, Tick tick, out Vector3 pos, out Quaternion rot)
+    parameters:
+    - id: hitShape
+      type: Netick.Unity.Pro.HitShape
+      description: The HitShape to sample.
+    - id: tick
+      type: Netick.Tick
+      description: The tick to read the stored snapshot for.
+    - id: pos
+      type: UnityEngine.Vector3
+      description: The world position of the shape's center at that tick.
+    - id: rot
+      type: UnityEngine.Quaternion
+      description: The world rotation of the shape at that tick.
+    content.vb: Public Sub FetchHitShapePosAndRot(hitShape As HitShape, tick As Tick, pos As Vector3, rot As Quaternion)
+  overload: Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot*
+  nameWithType.vb: LagCompensation.FetchHitShapePosAndRot(HitShape, Tick, Vector3, Quaternion)
+  fullName.vb: Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot(Netick.Unity.Pro.HitShape, Netick.Tick, UnityEngine.Vector3, UnityEngine.Quaternion)
+  name.vb: FetchHitShapePosAndRot(HitShape, Tick, Vector3, Quaternion)
+- uid: Netick.Unity.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
+  commentId: M:Netick.Unity.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
+  id: CanRewind(Netick.ServerConnection)
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: CanRewind(ServerConnection)
+  nameWithType: LagCompensation.CanRewind(ServerConnection)
+  fullName: Netick.Unity.Pro.LagCompensation.CanRewind(Netick.ServerConnection)
+  type: Method
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  summary: >-
+    Returns whether the server can rewind for this connection - true only on the server
+
+    when the connection has a current input to derive the rewind tick from. When false,
+
+    queries for this source resolve against the latest interpolated world instead.
+  example: []
+  syntax:
+    content: public static bool CanRewind(ServerConnection inputSource)
+    parameters:
+    - id: inputSource
+      type: Netick.ServerConnection
+      description: The connection to test.
+    return:
+      type: System.Boolean
+      description: True if a rewound query is possible for this connection.
+    content.vb: Public Shared Function CanRewind(inputSource As ServerConnection) As Boolean
+  overload: Netick.Unity.Pro.LagCompensation.CanRewind*
+- uid: Netick.Unity.Pro.LagCompensation.#ctor
+  commentId: M:Netick.Unity.Pro.LagCompensation.#ctor
+  id: '#ctor'
+  parent: Netick.Unity.Pro.LagCompensation
+  langs:
+  - csharp
+  - vb
+  name: LagCompensation()
+  nameWithType: LagCompensation.LagCompensation()
+  fullName: Netick.Unity.Pro.LagCompensation.LagCompensation()
+  type: Constructor
+  assemblies:
+  - Netick.Unity.Pro
+  namespace: Netick.Unity.Pro
+  syntax:
+    content: public LagCompensation()
+    content.vb: Public Sub New()
+  overload: Netick.Unity.Pro.LagCompensation.#ctor*
+  nameWithType.vb: LagCompensation.New()
+  fullName.vb: Netick.Unity.Pro.LagCompensation.New()
+  name.vb: New()
+references:
+- uid: Netick.Unity.Pro
+  commentId: N:Netick.Unity.Pro
+  isExternal: true
+  href: Netick.html
+  name: Netick.Unity.Pro
+  nameWithType: Netick.Unity.Pro
+  fullName: Netick.Unity.Pro
+  spec.csharp:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+  - name: .
+  - uid: Netick.Unity.Pro
+    name: Pro
+    isExternal: true
+    href: Netick.Unity.Pro.html
+  spec.vb:
+  - uid: Netick
+    name: Netick
+    isExternal: true
+    href: Netick.html
+  - name: .
+  - uid: Netick.Unity
+    name: Unity
+    isExternal: true
+    href: Netick.Unity.html
+  - name: .
+  - uid: Netick.Unity.Pro
+    name: Pro
+    isExternal: true
+    href: Netick.Unity.Pro.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Netick.INetickComponent
+  commentId: T:Netick.INetickComponent
+  parent: Netick
+  isExternal: true
+  href: Netick.INetickComponent.html
+  name: INetickComponent
+  nameWithType: INetickComponent
+  fullName: Netick.INetickComponent
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Netick
+  commentId: N:Netick
+  isExternal: true
+  href: Netick.html
+  name: Netick
+  nameWithType: Netick
+  fullName: Netick
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: UnityEngine.Color
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: Netick.Unity.Pro.LagCompensation.NetworkFixedUpdate*
+  commentId: Overload:Netick.Unity.Pro.LagCompensation.NetworkFixedUpdate
+  isExternal: true
+  href: Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation_NetworkFixedUpdate
+  name: NetworkFixedUpdate
+  nameWithType: LagCompensation.NetworkFixedUpdate
+  fullName: Netick.Unity.Pro.LagCompensation.NetworkFixedUpdate
+- uid: Netick.Unity.Pro.LagCompensation.NetworkRender*
+  commentId: Overload:Netick.Unity.Pro.LagCompensation.NetworkRender
+  isExternal: true
+  href: Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation_NetworkRender
+  name: NetworkRender
+  nameWithType: LagCompensation.NetworkRender
+  fullName: Netick.Unity.Pro.LagCompensation.NetworkRender
+- uid: Netick.Unity.Pro.HitShape
+  commentId: T:Netick.Unity.Pro.HitShape
+  parent: Netick.Unity.Pro
+  isExternal: true
+  href: Netick.Unity.Pro.HitShape.html
+  name: HitShape
+  nameWithType: HitShape
+  fullName: Netick.Unity.Pro.HitShape
+- uid: Netick.Unity.Pro.LagCompensation.Raycast*
+  commentId: Overload:Netick.Unity.Pro.LagCompensation.Raycast
+  isExternal: true
+  href: Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation_Raycast_UnityEngine_Vector3_UnityEngine_Vector3_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__
+  name: Raycast
+  nameWithType: LagCompensation.Raycast
+  fullName: Netick.Unity.Pro.LagCompensation.Raycast
+- uid: UnityEngine.Vector3
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: Netick.Unity.Pro.NetHit
+  commentId: T:Netick.Unity.Pro.NetHit
+  parent: Netick.Unity.Pro
+  isExternal: true
+  href: Netick.Unity.Pro.NetHit.html
+  name: NetHit
+  nameWithType: NetHit
+  fullName: Netick.Unity.Pro.NetHit
+- uid: Netick.NetworkPlayer
+  commentId: T:Netick.NetworkPlayer
+  parent: Netick
+  isExternal: true
+  href: Netick.NetworkPlayer.html
+  name: NetworkPlayer
+  nameWithType: NetworkPlayer
+  fullName: Netick.NetworkPlayer
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Predicate{Netick.Unity.Pro.HitShapeContainer}
+  commentId: T:System.Predicate{Netick.Unity.Pro.HitShapeContainer}
+  parent: System
+  definition: System.Predicate`1
+  href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  name: Predicate<HitShapeContainer>
+  nameWithType: Predicate<HitShapeContainer>
+  fullName: System.Predicate<Netick.Unity.Pro.HitShapeContainer>
+  nameWithType.vb: Predicate(Of HitShapeContainer)
+  fullName.vb: System.Predicate(Of Netick.Unity.Pro.HitShapeContainer)
+  name.vb: Predicate(Of HitShapeContainer)
+  spec.csharp:
+  - uid: System.Predicate`1
+    name: Predicate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  - name: <
+  - uid: Netick.Unity.Pro.HitShapeContainer
+    name: HitShapeContainer
+    isExternal: true
+    href: Netick.Unity.Pro.HitShapeContainer.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Predicate`1
+    name: Predicate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Unity.Pro.HitShapeContainer
+    name: HitShapeContainer
+    isExternal: true
+    href: Netick.Unity.Pro.HitShapeContainer.html
+  - name: )
+- uid: System.Predicate`1
+  commentId: T:System.Predicate`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  name: Predicate<T>
+  nameWithType: Predicate<T>
+  fullName: System.Predicate<T>
+  nameWithType.vb: Predicate(Of T)
+  fullName.vb: System.Predicate(Of T)
+  name.vb: Predicate(Of T)
+  spec.csharp:
+  - uid: System.Predicate`1
+    name: Predicate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Predicate`1
+    name: Predicate
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.predicate-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Netick.Unity.Pro.LagCompensation.Raycast(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  commentId: M:Netick.Unity.Pro.LagCompensation.Raycast(UnityEngine.Vector3,UnityEngine.Vector3,Netick.Unity.Pro.NetHit@,Netick.NetworkPlayer,System.Single,System.Int32,System.Boolean,System.Predicate{Netick.Unity.Pro.HitShapeContainer})
+  isExternal: true
+- uid: Netick.Unity.Pro.LagCompensation.RaycastAll*
+  commentId: Overload:Netick.Unity.Pro.LagCompensation.RaycastAll
+  isExternal: true
+  href: Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation_RaycastAll_UnityEngine_Vector3_UnityEngine_Vector3_System_Collections_Generic_List_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__
+  name: RaycastAll
+  nameWithType: LagCompensation.RaycastAll
+  fullName: Netick.Unity.Pro.LagCompensation.RaycastAll
+- uid: System.Collections.Generic.List{Netick.Unity.Pro.NetHit}
+  commentId: T:System.Collections.Generic.List{Netick.Unity.Pro.NetHit}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<NetHit>
+  nameWithType: List<NetHit>
+  fullName: System.Collections.Generic.List<Netick.Unity.Pro.NetHit>
+  nameWithType.vb: List(Of NetHit)
+  fullName.vb: System.Collections.Generic.List(Of Netick.Unity.Pro.NetHit)
+  name.vb: List(Of NetHit)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Netick.Unity.Pro.NetHit
+    name: NetHit
+    isExternal: true
+    href: Netick.Unity.Pro.NetHit.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Netick.Unity.Pro.NetHit
+    name: NetHit
+    isExternal: true
+    href: Netick.Unity.Pro.NetHit.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Netick.Unity.Pro.LagCompensation.SphereCast*
+  commentId: Overload:Netick.Unity.Pro.LagCompensation.SphereCast
+  isExternal: true
+  href: Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation_SphereCast_UnityEngine_Vector3_UnityEngine_Vector3_System_Single_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__
+  name: SphereCast
+  nameWithType: LagCompensation.SphereCast
+  fullName: Netick.Unity.Pro.LagCompensation.SphereCast
+- uid: Netick.Unity.Pro.LagCompensation.SphereCastAll*
+  commentId: Overload:Netick.Unity.Pro.LagCompensation.SphereCastAll
+  isExternal: true
+  href: Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation_SphereCastAll_UnityEngine_Vector3_UnityEngine_Vector3_System_Single_System_Collections_Generic_List_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Single_System_Int32_System_Boolean_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__
+  name: SphereCastAll
+  nameWithType: LagCompensation.SphereCastAll
+  fullName: Netick.Unity.Pro.LagCompensation.SphereCastAll
+- uid: Netick.Unity.Pro.LagCompensation.OverlapSphere*
+  commentId: Overload:Netick.Unity.Pro.LagCompensation.OverlapSphere
+  isExternal: true
+  href: Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation_OverlapSphere_UnityEngine_Vector3_System_Single_System_Collections_Generic_List_Netick_Unity_Pro_NetHit__Netick_NetworkPlayer_System_Int32_System_Boolean_System_Boolean_System_Predicate_Netick_Unity_Pro_HitShapeContainer__
+  name: OverlapSphere
+  nameWithType: LagCompensation.OverlapSphere
+  fullName: Netick.Unity.Pro.LagCompensation.OverlapSphere
+- uid: Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot*
+  commentId: Overload:Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot
+  isExternal: true
+  href: Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation_FetchHitShapePosAndRot_Netick_Unity_Pro_HitShape_Netick_NetworkPlayer_UnityEngine_Vector3__UnityEngine_Quaternion__
+  name: FetchHitShapePosAndRot
+  nameWithType: LagCompensation.FetchHitShapePosAndRot
+  fullName: Netick.Unity.Pro.LagCompensation.FetchHitShapePosAndRot
+- uid: UnityEngine.Quaternion
+  isExternal: true
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: UnityEngine.Quaternion
+- uid: Netick.Tick
+  commentId: T:Netick.Tick
+  parent: Netick
+  isExternal: true
+  href: Netick.Tick.html
+  name: Tick
+  nameWithType: Tick
+  fullName: Netick.Tick
+- uid: Netick.Unity.Pro.LagCompensation.CanRewind*
+  commentId: Overload:Netick.Unity.Pro.LagCompensation.CanRewind
+  isExternal: true
+  href: Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation_CanRewind_Netick_ServerConnection_
+  name: CanRewind
+  nameWithType: LagCompensation.CanRewind
+  fullName: Netick.Unity.Pro.LagCompensation.CanRewind
+- uid: Netick.ServerConnection
+  commentId: T:Netick.ServerConnection
+  parent: Netick
+  isExternal: true
+  href: Netick.ServerConnection.html
+  name: ServerConnection
+  nameWithType: ServerConnection
+  fullName: Netick.ServerConnection
+- uid: Netick.Unity.Pro.LagCompensation.#ctor*
+  commentId: Overload:Netick.Unity.Pro.LagCompensation.#ctor
+  isExternal: true
+  href: Netick.Unity.Pro.LagCompensation.html#Netick_Unity_Pro_LagCompensation__ctor
+  name: LagCompensation
+  nameWithType: LagCompensation.LagCompensation
+  fullName: Netick.Unity.Pro.LagCompensation.LagCompensation
+  nameWithType.vb: LagCompensation.New
+  fullName.vb: Netick.Unity.Pro.LagCompensation.New
+  name.vb: New

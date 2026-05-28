@@ -40,6 +40,8 @@ items:
   - Netick.Unity.NetworkObject.Parent
   - Netick.Unity.NetworkObject.PredictionMode
   - Netick.Unity.NetworkObject.PrefabId
+  - Netick.Unity.NetworkObject.ResetInterpOnInterest
+  - Netick.Unity.NetworkObject.ResetInterpolationBuffers
   - Netick.Unity.NetworkObject.RuntimeSceneId
   - Netick.Unity.NetworkObject.Sandbox
   - Netick.Unity.NetworkObject.SceneId
@@ -410,6 +412,24 @@ items:
     content: public void UpdateAoI()
     content.vb: Public Sub UpdateAoI()
   overload: Netick.Unity.NetworkObject.UpdateAoI*
+- uid: Netick.Unity.NetworkObject.ResetInterpolationBuffers
+  commentId: M:Netick.Unity.NetworkObject.ResetInterpolationBuffers
+  id: ResetInterpolationBuffers
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: ResetInterpolationBuffers()
+  nameWithType: NetworkObject.ResetInterpolationBuffers()
+  fullName: Netick.Unity.NetworkObject.ResetInterpolationBuffers()
+  type: Method
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public void ResetInterpolationBuffers()
+    content.vb: Public Sub ResetInterpolationBuffers()
+  overload: Netick.Unity.NetworkObject.ResetInterpolationBuffers*
 - uid: Netick.Unity.NetworkObject.UpdateAoI(UnityEngine.Vector3)
   commentId: M:Netick.Unity.NetworkObject.UpdateAoI(UnityEngine.Vector3)
   id: UpdateAoI(UnityEngine.Vector3)
@@ -838,6 +858,48 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property NarrowPhaseFilter As Boolean
   overload: Netick.Unity.NetworkObject.NarrowPhaseFilter*
+- uid: Netick.Unity.NetworkObject.ResetInterpOnInterest
+  commentId: P:Netick.Unity.NetworkObject.ResetInterpOnInterest
+  id: ResetInterpOnInterest
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: ResetInterpOnInterest
+  nameWithType: NetworkObject.ResetInterpOnInterest
+  fullName: Netick.Unity.NetworkObject.ResetInterpOnInterest
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool ResetInterpOnInterest { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ResetInterpOnInterest As Boolean
+  overload: Netick.Unity.NetworkObject.ResetInterpOnInterest*
+- uid: Netick.Unity.NetworkObject.SpatialPrioritization
+  commentId: P:Netick.Unity.NetworkObject.SpatialPrioritization
+  id: SpatialPrioritization
+  parent: Netick.Unity.NetworkObject
+  langs:
+  - csharp
+  - vb
+  name: SpatialPrioritization
+  nameWithType: NetworkObject.SpatialPrioritization
+  fullName: Netick.Unity.NetworkObject.SpatialPrioritization
+  type: Property
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool SpatialPrioritization { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property SpatialPrioritization As Boolean
+  overload: Netick.Unity.NetworkObject.SpatialPrioritization*
 - uid: Netick.Unity.NetworkObject.PredictionMode
   commentId: P:Netick.Unity.NetworkObject.PredictionMode
   id: PredictionMode
@@ -862,27 +924,6 @@ items:
   overload: Netick.Unity.NetworkObject.PredictionMode*
   implements:
   - Netick.INetickEntity.PredictionMode
-- uid: Netick.Unity.NetworkObject.SpatialPrioritization
-  commentId: P:Netick.Unity.NetworkObject.SpatialPrioritization
-  id: SpatialPrioritization
-  parent: Netick.Unity.NetworkObject
-  langs:
-  - csharp
-  - vb
-  name: SpatialPrioritization
-  nameWithType: NetworkObject.SpatialPrioritization
-  fullName: Netick.Unity.NetworkObject.SpatialPrioritization
-  type: Property
-  assemblies:
-  - Netick.Unity
-  namespace: Netick.Unity
-  syntax:
-    content: public bool SpatialPrioritization { get; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public ReadOnly Property SpatialPrioritization As Boolean
-  overload: Netick.Unity.NetworkObject.SpatialPrioritization*
 - uid: Netick.Unity.NetworkObject.IsPersistent
   commentId: P:Netick.Unity.NetworkObject.IsPersistent
   id: IsPersistent
@@ -1523,6 +1564,13 @@ references:
   name: UpdateAoI
   nameWithType: NetworkObject.UpdateAoI
   fullName: Netick.Unity.NetworkObject.UpdateAoI
+- uid: Netick.Unity.NetworkObject.ResetInterpolationBuffers*
+  commentId: Overload:Netick.Unity.NetworkObject.ResetInterpolationBuffers
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_ResetInterpolationBuffers
+  name: ResetInterpolationBuffers
+  nameWithType: NetworkObject.ResetInterpolationBuffers
+  fullName: Netick.Unity.NetworkObject.ResetInterpolationBuffers
 - uid: UnityEngine.Vector3
   isExternal: true
   name: Vector3
@@ -1820,6 +1868,20 @@ references:
   name: NarrowPhaseFilter
   nameWithType: NetworkObject.NarrowPhaseFilter
   fullName: Netick.Unity.NetworkObject.NarrowPhaseFilter
+- uid: Netick.Unity.NetworkObject.ResetInterpOnInterest*
+  commentId: Overload:Netick.Unity.NetworkObject.ResetInterpOnInterest
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_ResetInterpOnInterest
+  name: ResetInterpOnInterest
+  nameWithType: NetworkObject.ResetInterpOnInterest
+  fullName: Netick.Unity.NetworkObject.ResetInterpOnInterest
+- uid: Netick.Unity.NetworkObject.SpatialPrioritization*
+  commentId: Overload:Netick.Unity.NetworkObject.SpatialPrioritization
+  isExternal: true
+  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_SpatialPrioritization
+  name: SpatialPrioritization
+  nameWithType: NetworkObject.SpatialPrioritization
+  fullName: Netick.Unity.NetworkObject.SpatialPrioritization
 - uid: Netick.Unity.NetworkObject.PredictionMode*
   commentId: Overload:Netick.Unity.NetworkObject.PredictionMode
   isExternal: true
@@ -1834,13 +1896,6 @@ references:
   name: PredictionMode
   nameWithType: INetickEntity.PredictionMode
   fullName: Netick.INetickEntity.PredictionMode
-- uid: Netick.Unity.NetworkObject.SpatialPrioritization*
-  commentId: Overload:Netick.Unity.NetworkObject.SpatialPrioritization
-  isExternal: true
-  href: Netick.Unity.NetworkObject.html#Netick_Unity_NetworkObject_SpatialPrioritization
-  name: SpatialPrioritization
-  nameWithType: NetworkObject.SpatialPrioritization
-  fullName: Netick.Unity.NetworkObject.SpatialPrioritization
 - uid: Netick.Unity.NetworkObject.IsPersistent*
   commentId: Overload:Netick.Unity.NetworkObject.IsPersistent
   isExternal: true

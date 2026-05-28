@@ -6,6 +6,7 @@ items:
   parent: Netick
   children:
   - Netick.ServerSimulation.ClientData.CurrentInput
+  - Netick.ServerSimulation.ClientData.RewindContext
   langs:
   - csharp
   - vb
@@ -48,6 +49,27 @@ items:
     return:
       type: Netick.SimulationInput
     content.vb: Public CurrentInput As SimulationInput
+- uid: Netick.ServerSimulation.ClientData.RewindContext
+  commentId: P:Netick.ServerSimulation.ClientData.RewindContext
+  id: RewindContext
+  parent: Netick.ServerSimulation.ClientData
+  langs:
+  - csharp
+  - vb
+  name: RewindContext
+  nameWithType: ServerSimulation.ClientData.RewindContext
+  fullName: Netick.ServerSimulation.ClientData.RewindContext
+  type: Property
+  assemblies:
+  - Netick
+  namespace: Netick
+  syntax:
+    content: public RewindContext RewindContext { get; }
+    parameters: []
+    return:
+      type: Netick.RewindContext
+    content.vb: Public ReadOnly Property RewindContext As RewindContext
+  overload: Netick.ServerSimulation.ClientData.RewindContext*
 references:
 - uid: Netick
   commentId: N:Netick
@@ -301,3 +323,18 @@ references:
   name: SimulationInput
   nameWithType: SimulationInput
   fullName: Netick.SimulationInput
+- uid: Netick.ServerSimulation.ClientData.RewindContext*
+  commentId: Overload:Netick.ServerSimulation.ClientData.RewindContext
+  isExternal: true
+  href: Netick.ServerSimulation.ClientData.html#Netick_ServerSimulation_ClientData_RewindContext
+  name: RewindContext
+  nameWithType: ServerSimulation.ClientData.RewindContext
+  fullName: Netick.ServerSimulation.ClientData.RewindContext
+- uid: Netick.RewindContext
+  commentId: T:Netick.RewindContext
+  parent: Netick
+  isExternal: true
+  href: Netick.RewindContext.html
+  name: RewindContext
+  nameWithType: RewindContext
+  fullName: Netick.RewindContext

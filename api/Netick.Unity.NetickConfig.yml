@@ -26,14 +26,18 @@ items:
   - Netick.Unity.NetickConfig.FastSerialization
   - Netick.Unity.NetickConfig.IncludeInactiveObjects
   - Netick.Unity.NetickConfig.InputReuseOnLowFPS
+  - Netick.Unity.NetickConfig.InterpolateLocalRigidbodies
+  - Netick.Unity.NetickConfig.InvokeDestroyOnShutdown
   - Netick.Unity.NetickConfig.InvokeRenderInHeadless
   - Netick.Unity.NetickConfig.InvokeUpdate
+  - Netick.Unity.NetickConfig.LagCompensationAlphaPrecision
   - Netick.Unity.NetickConfig.LagCompensationDebug
   - Netick.Unity.NetickConfig.MaxAdditiveScenes
   - Netick.Unity.NetickConfig.MaxAllowedTimestep
   - Netick.Unity.NetickConfig.MaxObjects
   - Netick.Unity.NetickConfig.MaxPlayers
   - Netick.Unity.NetickConfig.MaxPredictedTicks
+  - Netick.Unity.NetickConfig.MaxRewindTime
   - Netick.Unity.NetickConfig.MaxSendableDataSize
   - Netick.Unity.NetickConfig.MetaAllocatorBlockSize
   - Netick.Unity.NetickConfig.PhysicsPrediction
@@ -49,6 +53,7 @@ items:
   - Netick.Unity.NetickConfig.ReplayKeyframeInterval
   - Netick.Unity.NetickConfig.ReplayRecordOnStartup
   - Netick.Unity.NetickConfig.ServerDivisor
+  - Netick.Unity.NetickConfig.SnapshotPairsToCover
   - Netick.Unity.NetickConfig.StateAllocatorBlockSize
   - Netick.Unity.NetickConfig.SyncTransformOnSpawn
   - Netick.Unity.NetickConfig.TickRate
@@ -336,6 +341,25 @@ items:
     return:
       type: System.Boolean
     content.vb: Public InvokeRenderInHeadless As Boolean
+- uid: Netick.Unity.NetickConfig.InvokeDestroyOnShutdown
+  commentId: F:Netick.Unity.NetickConfig.InvokeDestroyOnShutdown
+  id: InvokeDestroyOnShutdown
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: InvokeDestroyOnShutdown
+  nameWithType: NetickConfig.InvokeDestroyOnShutdown
+  fullName: Netick.Unity.NetickConfig.InvokeDestroyOnShutdown
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool InvokeDestroyOnShutdown
+    return:
+      type: System.Boolean
+    content.vb: Public InvokeDestroyOnShutdown As Boolean
 - uid: Netick.Unity.NetickConfig.InvokeUpdate
   commentId: F:Netick.Unity.NetickConfig.InvokeUpdate
   id: InvokeUpdate
@@ -431,6 +455,63 @@ items:
     return:
       type: System.Single
     content.vb: Public ExtraInterpolationDelay As Single
+- uid: Netick.Unity.NetickConfig.MaxRewindTime
+  commentId: F:Netick.Unity.NetickConfig.MaxRewindTime
+  id: MaxRewindTime
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: MaxRewindTime
+  nameWithType: NetickConfig.MaxRewindTime
+  fullName: Netick.Unity.NetickConfig.MaxRewindTime
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public float MaxRewindTime
+    return:
+      type: System.Single
+    content.vb: Public MaxRewindTime As Single
+- uid: Netick.Unity.NetickConfig.SnapshotPairsToCover
+  commentId: F:Netick.Unity.NetickConfig.SnapshotPairsToCover
+  id: SnapshotPairsToCover
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: SnapshotPairsToCover
+  nameWithType: NetickConfig.SnapshotPairsToCover
+  fullName: Netick.Unity.NetickConfig.SnapshotPairsToCover
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public int SnapshotPairsToCover
+    return:
+      type: System.Int32
+    content.vb: Public SnapshotPairsToCover As Integer
+- uid: Netick.Unity.NetickConfig.LagCompensationAlphaPrecision
+  commentId: F:Netick.Unity.NetickConfig.LagCompensationAlphaPrecision
+  id: LagCompensationAlphaPrecision
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: LagCompensationAlphaPrecision
+  nameWithType: NetickConfig.LagCompensationAlphaPrecision
+  fullName: Netick.Unity.NetickConfig.LagCompensationAlphaPrecision
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public float LagCompensationAlphaPrecision
+    return:
+      type: System.Single
+    content.vb: Public LagCompensationAlphaPrecision As Single
 - uid: Netick.Unity.NetickConfig.AccurateLocalInterpolation
   commentId: F:Netick.Unity.NetickConfig.AccurateLocalInterpolation
   id: AccurateLocalInterpolation
@@ -640,6 +721,25 @@ items:
     return:
       type: System.Boolean
     content.vb: Public FastSerialization As Boolean
+- uid: Netick.Unity.NetickConfig.InterpolateLocalRigidbodies
+  commentId: F:Netick.Unity.NetickConfig.InterpolateLocalRigidbodies
+  id: InterpolateLocalRigidbodies
+  parent: Netick.Unity.NetickConfig
+  langs:
+  - csharp
+  - vb
+  name: InterpolateLocalRigidbodies
+  nameWithType: NetickConfig.InterpolateLocalRigidbodies
+  fullName: Netick.Unity.NetickConfig.InterpolateLocalRigidbodies
+  type: Field
+  assemblies:
+  - Netick.Unity
+  namespace: Netick.Unity
+  syntax:
+    content: public bool InterpolateLocalRigidbodies
+    return:
+      type: System.Boolean
+    content.vb: Public InterpolateLocalRigidbodies As Boolean
 - uid: Netick.Unity.NetickConfig.SyncTransformOnSpawn
   commentId: F:Netick.Unity.NetickConfig.SyncTransformOnSpawn
   id: SyncTransformOnSpawn
