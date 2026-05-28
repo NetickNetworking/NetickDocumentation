@@ -116,65 +116,408 @@
 
 <hr>
 <h2 id="understanding-the-need-for-lag-compensation">Understanding the Need for Lag Compensation</h2>
-<p>Due to varying latencies (ping) of connected players, each player will see the world at a different point in time than the server. For instance, when the client sends an input to the server to shoot its weapon, the target that the client was aiming at would be at a different place in the client than the server. Therefore the client would miss its shoots. Because, usually, from the perspective of the client, the positions of other objects (players) are in the <em><strong>remote snapshot timeline</strong></em>, which is always in the past compared to the timeline of the player-controlled character, which’s the <em><strong>predicted snapshot timeline</strong></em>.<br>
-<br>
-On the server, <strong>everything is in the present</strong>. While on the client, <strong>only the player-controlled character is in the present, while other players’ (proxies) positions are in the past.</strong> Though this is not always the case, because due to the ability of Netick to do full-world prediction, it’s possible to put proxies in the predicted snapshot timeline, in which case lag compensation wouldn’t be needed.<br>
-<br>
-<strong>So, what’s Lag Compensation?</strong></p>
-<p>Lag Compensation basically means going back in time to what the client was seeing at the time of the shooting, and simulating its shooting in that past view.<br>
-<br>
-<strong>Question</strong>: why not just let the client tell the server the target that it hit and how much damage it dealt?<br>
-<strong>Answer</strong>: we can’t trust the client. We should never trust the client, especially in game-critical aspects like applying damage. <strong>Lag Compensation gives us authority over hit detection.</strong><br>
-<br>
-Watch this video for a visual explanation:</p>
+<p>Because every connected player has a different latency (ping), every player sees the world at a slightly different point in time than the server. When a client fires a weapon, the targets they were aiming at occupy <em>different</em> positions on the client than on the server at that same logical moment. Without compensation, accurate shots simply miss.</p>
+<p>On the server, <strong>everything is in the present</strong>. On the client, <strong>only the player-controlled character is in the present</strong>; other players (proxies) live in the <strong>remote snapshot timeline</strong>, which is always in the past relative to the predicted snapshot timeline. (Netick's full-world prediction can put proxies in the predicted timeline too - if you do that, lag compensation isn't needed for those entities.)</p>
+<p><strong>Lag Compensation</strong> means rewinding the server's world to what the client was actually seeing at the moment they pressed the trigger, running the shot against <em>that</em> past view, and using the result authoritatively.</p>
+<p><strong>Q:</strong> Why not just let the client say &quot;I hit X for Y damage&quot;?
+<strong>A:</strong> We can't trust the client. Authority over hit detection is non-negotiable for any competitive networked game. <strong>Lag Compensation keeps that authority on the server</strong> while still feeling responsive to the shooter.</p>
 <div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/6EwaW2iz4iA?rel=0" frameborder="0" allowfullscreen="true"></iframe></div>
-<h2 id="lag-compensation-in-netick">Lag Compensation in Netick</h2>
-<p>To use Lag Compensation in your project, you first need to enable it in Netick Settings. Go to <code>Netick Settings -&gt; Lag Compensation</code> and turn on <code>Enable</code>.</p>
-<h3 id="setting-up-your-character-for-lag-compensation"><strong>Setting up your character for Lag Compensation</strong></h3>
-<p>You have to add a HitShape component (commonly known as a hitbox) on every part of your character which can move. And in the root of your character, you have to add a <code>HitShape Container</code> component which will register all child HitShapes.</p>
-<figure><img src="../images/hitshape-container.png" alt="" height="391" width="407"><figcaption><p>
-<p>HitShape on each bone</p>
-<figure><img src="../images/arena-character.png" alt="" height="391" width="407"><figcaption><p>
-<p>HitShape Container on the root of the character.</p>
-<p>The hierarchy should be as follows:</p>
-<pre><code>&gt; Root (with NetworkObject)
-    &gt; `HitShape Container`
-        &gt; Render Transform
-            &gt; Character Rig 
-                &gt; Character Bone (with HitShape) 
-</code></pre>
+<hr>
+<h2 id="how-neticks-lag-compensation-works">How Netick's Lag Compensation Works</h2>
+<p>Each <code>HitShapeContainer</code> captures the world-space pose of all its child <code>HitShape</code>s into a per-tick snapshot ring buffer. Every query - whether it's a server-side rewound shot, a client-side predicted shot, or a query during client resimulation - resolves against an <strong>interpolated pair</strong> of snapshots: a <code>From</code> tick, a <code>To</code> tick, and an <code>Alpha</code> between them. The same <code>(From, To, Alpha)</code> triple the engine uses to drive visual interpolation is used for hit detection, so the world you query against is always the world the player is looking at.</p>
+<h3 id="supported-queries">Supported Queries</h3>
+<table>
+<thead>
+<tr>
+<th>Query</th>
+<th>Volume swept against world</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Raycast</code> / <code>Raycast2D</code></td>
+<td>A ray</td>
+<td>Closest hit</td>
+</tr>
+<tr>
+<td><code>RaycastAll</code> / <code>RaycastAll2D</code></td>
+<td>A ray</td>
+<td>Every hit</td>
+</tr>
+<tr>
+<td><code>SphereCast</code></td>
+<td>A sphere swept along a ray</td>
+<td>Closest hit</td>
+</tr>
+<tr>
+<td><code>SphereCastAll</code></td>
+<td>A sphere swept along a ray</td>
+<td>Every hit</td>
+</tr>
+<tr>
+<td><code>OverlapSphere</code> / <code>OverlapCircle</code></td>
+<td>A static sphere/circle</td>
+<td>Every overlap</td>
+</tr>
+<tr>
+<td><code>HitShape.Raycast</code></td>
+<td>A ray against one shape</td>
+<td>Hit on that shape</td>
+</tr>
+</tbody>
+</table>
+<h3 id="supported-hitshape-types">Supported HitShape Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Box</td>
+</tr>
+<tr>
+<td>Sphere</td>
+</tr>
+<tr>
+<td>Capsule</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="setup">Setup</h2>
+<h3 id="1-enable-lag-compensation-in-netick-settings">1. Enable Lag Compensation in Netick Settings</h3>
+<p><code>Netick Settings → Lag Compensation → Enable</code></p>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>Make sure to enable Lag Compensation in Netick Settings.</p>
+<p>If Lag Compensation isn't enabled in settings, every query API will log an error and return no hit.</p>
 </div>
-<h3 id="performing-a-lag-compensated-raycast-in-unity"><strong>Performing a Lag-Compensated Raycast in Unity</strong></h3>
-<pre><code class="lang-csharp">          // lag-compensated Raycast
-            if (Sandbox.Raycast(
-                shootPos,
-                shootDirection,
-                out var hit,
-                Object.InputSource,
-                Mathf.Infinity,
-                includeUnityColliders: true,
-                queryTriggerInteraction: QueryTriggerInteraction.Ignore))
+<h3 id="2-place-hitshapes-on-each-moving-part">2. Place HitShapes on each moving part</h3>
+<p>Add a <code>HitShape</code> component on every bone or part of your character that can move and should be hittable.</p>
+<figure><img src="../images/hitshape-container.png" alt="" height="391" width="407"><figcaption><p>HitShape on each bone.</p></figcaption></figure>
+<p>For each shape, set:</p>
+<ul>
+<li><strong>Shape</strong> - <code>Box</code>, <code>Sphere</code>, or <code>Capsule</code>.</li>
+<li><strong>Center</strong> - local-space offset from the transform.</li>
+<li><strong>Size</strong> / <strong>Radius</strong> / <strong>Height</strong> / <strong>Axis</strong> - geometry, per shape type.</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>HitShape transforms (and any parent transform up to the root) should have <strong>lossy scale equal to (1, 1, 1)</strong>. The capture path bypasses Unity's scale-aware <code>TransformPoint</code> for performance; non-uniform or non-identity scale on a parent will silently drift the captured pose from where Unity thinks the shape is. If you need scaled rigs, keep the scale on the visual mesh only, above the HitShape hierarchy.</p>
+</div>
+<h3 id="3-add-a-hitshape-container-on-the-character-root">3. Add a HitShape Container on the character root</h3>
+<p>Add a <code>HitShape Container</code> component to the root <code>GameObject</code> of your character. With the component selected, click <strong>Find All HitShapes</strong> in the inspector - this walks the entire transform hierarchy under the root and fills the container's <code>HitShapes</code> list with every <code>HitShape</code> it finds. Re-click it whenever you add, remove, or move HitShapes in the editor so the list stays in sync.</p>
+<figure><img src="../images/arena-character.png" alt="" height="391" width="407"><figcaption><p>HitShape Container on the root of the character.</p></figcaption></figure>
+<p>The recommended hierarchy:</p>
+<pre><code>&gt; Root (with NetworkObject + HitShape Container)
+    &gt; Render Transform
+        &gt; Character Rig
+            &gt; Character Bone (with HitShape)
+            &gt; Character Bone (with HitShape)
+            ...
+</code></pre>
+<hr>
+<h2 id="performing-queries">Performing Queries</h2>
+<p>Every lag-compensated query takes an <strong><code>inputSource</code></strong> parameter, and getting it right matters more than any other argument: pass the input source of the player whose action this query represents (the player firing the shot, throwing the grenade, swinging the melee, etc.). The server uses it to look up which <code>(From, To, Alpha)</code> to rewind to - the same one that player was visually interpolating when their input was produced. Passing the wrong source, or <code>null</code>, rewinds against the wrong timeline (or falls back to the local interpolation), and the result won't match what the acting player saw.</p>
+<h3 id="raycast">Raycast</h3>
+<pre><code class="lang-csharp">if (Sandbox.Raycast(
+        shootPos,
+        shootDirection,
+        out LagCompHit hit,
+        inputSource: Object.InputSource,        // who is shooting
+        maxDistance: Mathf.Infinity,
+        layerMask: Physics.DefaultRaycastLayers,
+        queryTriggerInteraction: QueryTriggerInteraction.Ignore,
+        includeUnityColliders: true))
+{
+    if (hit.HitShape != null)
+    {
+        // We hit a Netick HitShape - apply damage, spawn FX, etc.
+        var victim = hit.HitShape.Container.GetComponent&lt;Health&gt;();
+        victim?.TakeDamage(...);
+    }
+    else
+    {
+        // We hit a Unity collider (geometry, prop, etc.).
+    }
+}
+</code></pre>
+<h3 id="spherecast">SphereCast</h3>
+<pre><code class="lang-csharp">if (Sandbox.SphereCast(
+        origin,
+        radius: 0.25f,
+        direction,
+        out LagCompHit hit,
+        inputSource: Object.InputSource,
+        maxDistance: 30f))
+{
+    // ...
+}
+</code></pre>
+<h3 id="overlapsphere-explosions-aoe">OverlapSphere (explosions, AoE)</h3>
+<pre><code class="lang-csharp">var hits = new List&lt;LagCompHit&gt;(32);
+Sandbox.OverlapSphere(
+    blastCenter,
+    blastRadius,
+    hits,
+    inputSource: Object.InputSource,
+    queryTriggerInteraction: QueryTriggerInteraction.Ignore);
+
+foreach (var h in hits)
+    if (h.HitShape != null)
+        h.HitShape.Container.GetComponent&lt;Health&gt;()?.TakeDamage(...);
+</code></pre>
+<h3 id="per-shape-raycast">Per-shape Raycast</h3>
+<p>If you already know exactly which <code>HitShape</code> you want to test (e.g. a server-side re-validation of a client-reported hit), call <code>HitShape.Raycast</code> directly - it skips the broadphase entirely:</p>
+<pre><code class="lang-csharp">if (suspectedShape.Raycast(origin, direction, out var hit, Object.InputSource))
+    // confirmed
+</code></pre>
+<h3 id="all-hits-penetrating-shots-hitscan-with-falloff">All hits (penetrating shots, hitscan with falloff)</h3>
+<p><code>Sandbox.RaycastAll</code>, <code>Sandbox.SphereCastAll</code>, and <code>Sandbox.OverlapSphere</code> all fill a <code>List&lt;LagCompHit&gt;</code> with every result. Pass <code>oneHitPerHitShapeContainer: true</code> if you want each character counted only once.</p>
+<pre><code class="lang-csharp">var hits = new List&lt;LagCompHit&gt;(16);
+Sandbox.RaycastAll(
+    origin,
+    direction,
+    hits,
+    inputSource: Object.InputSource,
+    oneHitPerHitShapeContainer: true);
+</code></pre>
+<h3 id="filtering-candidates">Filtering candidates</h3>
+<p>For team-friendly fire, faction filters, or any custom skip rule, pass a <code>Predicate&lt;LagCompFilterData&gt;</code>:</p>
+<pre><code class="lang-csharp">Sandbox.Raycast(
+    origin, direction, out var hit, Object.InputSource,
+    filter: data =&gt;
+    {
+        // data.Candidate is the HitShapeContainer being tested;
+        // data.Player is the input source's player id.
+        var team = data.Candidate.GetComponent&lt;Team&gt;();
+        return team == null || team.Id != myTeamId;   // skip teammates
+    });
+</code></pre>
+<hr>
+<h2 id="execution-order">Execution Order</h2>
+<p>This is the one thing that <strong>must</strong> be set correctly:</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Any script that performs a lag-compensated query from <code>NetworkFixedUpdate</code> must run <strong>after</strong> <code>LagCompensationStep</code>. Order them with <code>[ExecuteAfter(typeof(LagCompensationStep))]</code>.</p>
+</div>
+<p><code>LagCompensationStep</code> is what advances the snapshot ring buffer each fixed tick. Scripts that query before it has run won't match what's drawn on screen.</p>
+<p>Animation and movement scripts that update transforms should also be ordered consistently so the lag-comp world stays in sync with the rendered pose:</p>
+<pre><code class="lang-cs">public class Movement : NetworkBehaviour { /* ... */ }
+
+[ExecuteAfter(typeof(Movement))]
+public class Animation : NetworkBehaviour
+{
+    public override void NetworkFixedUpdate()
+    {
+        Animate(state, Sandbox.TickToTime(Sandbox.AuthoritativeTick));
+    }
+
+    public override void NetworkRender()
+    {
+        Animate(state, IsClient
+            ? Sandbox.RemoteInterpolation.Time
+            : Sandbox.LocalInterpolation.Time);
+    }
+}
+
+[ExecuteAfter(typeof(LagCompensationStep))]
+public class Weapon : NetworkBehaviour
+{
+    public override void NetworkFixedUpdate()
+    {
+        if (FetchInput(out GameInput input) &amp;&amp; input.Shot)
+        {
+            if (Sandbox.Raycast(/* ... */, out var hit))
             {
-                if (hit.HitShape != null)
-                {
-                    // code to be executed when a HitShape was hit
-                }
+                // ...
             }
+        }
+    }
+}
 </code></pre>
-<h3 id="performing-a-lag-compensated-overlapsphere-in-unity"><strong>Performing a Lag-Compensated OverlapSphere in Unity</strong></h3>
-<pre><code class="lang-csharp">          // lag-compensated OverlapSphere
-            List&lt;LagCompHit&gt;  overlapSphereHits = new List&lt;LagCompHit&gt;(32);
-            Sandbox.OverlapSphere(point,
-                _projectileBlastRadius,
-                overlapSphereHits,
-                InputSource,
-                queryTriggerInteraction: QueryTriggerInteraction.Ignore);
+<p><code>Movement</code> runs first → <code>Animation</code> advances bones to match → <code>LagCompensationStep</code> captures bone poses into the snapshot ring buffer → <code>Weapon</code> queries against the updated lag comp world.</p>
+<hr>
+<h2 id="deterministic-animation">Deterministic Animation</h2>
+<p>The lag-compensation system captures whatever pose the bones - and therefore the HitShapes parented to them - happen to be in at the moment of capture. For the server's rewound world to match what the shooting client actually saw, and for client-side predicted hits to agree with the server's authoritative result, <strong>the animation must be ~deterministic from a synced game state and an explicit time value</strong>. If the server and any remote client can disagree on where a bone sits at the same logical tick, every other layer of lag-comp correctness is undermined.</p>
+<h3 id="why-mecanim--the-default-animator-doesnt-work">Why Mecanim / the default Animator doesn't work</h3>
+<p>Unity's built-in <code>Animator</code> (Mecanim) is <strong>not</strong> deterministic in the way lag compensation needs:</p>
+<ul>
+<li>It accumulates time internally from <code>Time.deltaTime</code> on its own update schedule, not from an explicit time value you supply.</li>
+<li>It runs a stateful state machine with crossfades, transition timers, layer weights, and interrupts - none of which can be jumped to a specific tick or time from outside.</li>
+<li>There's no API to say &quot;make the rig look exactly the way it should at time <code>t</code>&quot;.</li>
+</ul>
+<p>The result is that at the same logical tick, the server and a remote client running the same Mecanim setup will produce subtly different bone poses. Subtle is enough - hit detection that's two centimeters off at the shoulder is what makes shots feel inaccurate.</p>
+<h3 id="the-fix-custom-playable-based-animator">The fix: custom Playable-based animator</h3>
+<p>Use Unity's <a href="https://docs.unity3d.com/Manual/Playables.html">Playable API</a> (specifically <code>AnimationPlayableGraph</code> / <code>AnimationClipPlayable</code> / <code>AnimationMixerPlayable</code>) to write a custom animator you fully control. Each clip playable lets you <strong>set its time directly</strong> with <code>SetTime(...)</code> and then evaluate the graph - so the resulting rig pose becomes a pure function of <code>(state, time)</code>. Same inputs on server and client, same bones, same HitShape capture, consistent lag compensation.</p>
+<p>Drive your animator from a single <code>Animate(state, time)</code> method and feed it different <code>time</code> values depending on context:</p>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Time to pass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NetworkFixedUpdate</code></td>
+<td><code>Sandbox.TickToTime(Sandbox.AuthoritativeTick)</code></td>
+</tr>
+<tr>
+<td><code>NetworkRender</code> on the client</td>
+<td><code>Sandbox.RemoteInterpolation.Time</code></td>
+</tr>
+<tr>
+<td><code>NetworkRender</code> on the server/host</td>
+<td><code>Sandbox.LocalInterpolation.Time</code></td>
+</tr>
+</tbody>
+</table>
+<p>The fixed-update path is the one the lag-comp system captures from - that's how the captured pose matches the authoritative tick. The render-frame paths drive what's visually drawn, and because every lag-comp query also interpolates between the same authoritative snapshots with the same alpha, what the player sees and what the query hits stay in lockstep.</p>
+<h3 id="animatestate-time---pseudocode"><code>Animate(state, time)</code> - pseudocode</h3>
+<p><code>state</code> is the high-level gameplay state your animation reads from - what the character is <em>doing</em> (idle, walking, sprinting, shooting, reloading...) plus the tick the action began on, and any continuous parameters that drive blends (velocity, aim direction, etc.). Because it's networked, the server and every client see the same <code>state</code> at the same tick - so the clip your animator selects and the time it samples are identical everywhere. Clip ids and clip times are <em>derived</em> from state and time, not part of state itself.</p>
+<pre><code class="lang-csharp">void Animate(AnimationState state, float time)
+{
+    // 1) DERIVE which clip(s) to play from the synced gameplay state. Both
+    //    server and client see the same `state` at the same tick, so they
+    //    pick the same clip(s).
+    var clip = state.Action switch
+    {
+        CharacterAction.Idle      =&gt; _idleClip,
+        CharacterAction.Walking   =&gt; _walkClip,
+        CharacterAction.Sprinting =&gt; _sprintClip,
+        CharacterAction.Shooting  =&gt; _shootClip,
+        CharacterAction.Reloading =&gt; _reloadClip,
+        _                         =&gt; _idleClip,
+    };
+
+    // 2) Convert the global time into clip-local time using the tick this
+    //    action started on (a synced value). No internal accumulators -
+    //    pure function of (state, time).
+    float elapsed  = time - Sandbox.TickToTime(state.ActionStartTick);
+    float clipTime = clip.isLooping
+        ? elapsed % clip.length
+        : Mathf.Min(elapsed, clip.length);
+
+    // 3) Sample the rig at `clipTime`. The Playable API's SetTime+Evaluate
+    //    is what gives you exact, framerate-independent control - this is
+    //    the part Mecanim can't do. Hand-wave it as one operation here:
+    SamplePose(clip, clipTime);
+
+    // (For blends, drive a mixer's input weights from `state` the same way -
+    //  e.g. mix walk and sprint by state.Velocity.magnitude.)
+}
 </code></pre>
-<!-- For a practical example, you might want to get our comprehensive Arena Shooter sample which covers everything we talked about and more: [https://netick.net/arena-shooter-sample/](https://netick.net/arena-shooter-sample/) -->
-</figcaption></figure></figcaption></figure>
+<h3 id="animation-script---pseudocode"><code>Animation</code> script - pseudocode</h3>
+<pre><code class="lang-csharp">[ExecuteAfter(typeof(Movement))]
+public class Animation : NetworkBehaviour
+{
+    [Networked] public AnimationState State { get; set; }   // synced gameplay state
+
+    public override void NetworkFixedUpdate()
+    {
+        // Pose at the authoritative tick - LagCompensationStep (ordered after
+        // this script) captures this pose into the snapshot ring.
+        Animate(State, Sandbox.TickToTime(Sandbox.AuthoritativeTick));
+    }
+
+    public override void NetworkRender()
+    {
+        // Pose actually drawn this frame. Lag-comp queries interpolate between
+        // the same authoritative snapshots with the same alpha, so rendered
+        // and queried poses stay in lockstep.
+        float time = IsClient
+            ? Sandbox.RemoteInterpolation.Time
+            : Sandbox.LocalInterpolation.Time;
+
+        Animate(State, time);
+    }
+
+    // See Animate pseudocode above - derive a clip from state.Action, derive
+    // clip-local time from (time - Sandbox.TickToTime(state.ActionStartTick)),
+    // and sample the rig via the Playable API.
+    void Animate(AnimationState state, float time) { /* ... */ }
+}
+
+// What the character is doing - the gameplay vocabulary the animation reads from.
+public enum CharacterAction
+{
+    Idle, Walking, Sprinting, Jumping, Shooting, Reloading,
+}
+
+// Synced state the animator reads from. Networked, so the server and every
+// client see the same value at the same tick - so Animate(state, time)
+// produces the same rig pose everywhere.
+public struct AnimationState 
+{
+    public CharacterAction Action;          // what the character is doing
+    public Tick            ActionStartTick; // tick on which `Action` began
+    public Vector3         Velocity;        // drives walk/sprint blends, direction-aware motion, etc.
+    public NetworkBool     IsAiming;
+    //...//
+}
+</code></pre>
+<p><code>NetworkFixedUpdate</code> runs once per tick on both server and client and produces the pose at the authoritative tick - which is exactly what <code>LagCompensationStep</code> will capture into the snapshot ring a moment later (because of the <code>[ExecuteAfter(typeof(Movement))]</code> + <code>LagCompensationStep</code> ordering). <code>NetworkRender</code> runs every frame on top of that, producing the visually-interpolated pose for the same <code>(From, To, Alpha)</code> triple the lag-comp queries are about to interpolate against - so what's drawn and what's queried describe the same world.</p>
+<p>Because the rig pose is a pure function of <code>(state, time)</code>, the bones - and therefore every HitShape parented to them - end up in identical world-space positions on the server and on every remote client at the same authoritative tick. That's what makes the rewound world the server reconstructs genuinely match the world the shooting client saw.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Mixing a Mecanim-driven character with lag compensation will appear to <em>work</em> - queries return hits, no errors fire - but the hits will be misaligned with what the shooter saw.</p>
+</div>
+<hr>
+<h2 id="runtime-hitshape-changes">Runtime HitShape Changes</h2>
+<p>You can attach and detach <code>HitShape</code>s on a container after <code>NetworkStart</code> - for procedurally-assembled limbs, equipped weapons, breakable parts, etc.</p>
+<pre><code class="lang-csharp">container.AddHitShape(newShape);
+</code></pre>
+<pre><code class="lang-csharp">container.RemoveHitShape(oldShape);
+</code></pre>
+<p><strong>Call on both server and client at the same logical moment.</strong> These methods are <strong>local</strong> - the change is not synced over the network. Drive them from a synced network property, an RPC, or any deterministic gameplay event, and call on both sides. Calling on only one side will cause server/client hit detection to diverge.</p>
+<hr>
+<h2 id="fetching-a-rewound-hit-shape-pose">Fetching a Rewound Hit Shape Pose</h2>
+<p>If you need the exact pose a <code>HitShape</code> had from a given player's perspective - for hit FX that align with the rewound hitbox, debug gizmos, replay, etc. - use <code>FetchHitShapePosAndRot</code>:</p>
+<pre><code class="lang-csharp">Sandbox.FetchHitShapePosAndRot(
+    hitShape,
+    Object.InputSource,
+    out var pos,
+    out var rot);
+
+// pos/rot are the rewound, interpolated world-space pose the input source saw.
+</code></pre>
+<p>The <code>LagCompensation</code> class also exposes a <code>(HitShape, Tick)</code> overload that reads the stored snapshot at an exact historical tick (no interpolation) - useful for debugging or for tooling that wants the raw ring data.</p>
+<hr>
+<h2 id="settings-reference">Settings Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Where</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Enable</code></td>
+<td>Netick Settings → Lag Compensation</td>
+<td>Must be on for any lag-comp API to work.</td>
+</tr>
+<tr>
+<td><code>MaxRewindTime</code></td>
+<td>Netick Settings → Lag Compensation</td>
+<td>Upper bound on server rewind in seconds. Sizes the snapshot ring. Set high enough for your worst expected ping.</td>
+</tr>
+<tr>
+<td><code>SnapshotPairsToCover</code></td>
+<td>Netick Settings → Lag Compensation</td>
+<td>How many divisor-spaced past snapshots each broadphase leaf encapsulates. Higher = tolerates more consecutive missed snapshots before the broadphase undercovers a rewind query, at the cost of slightly looser broadphase</td>
+</tr>
+</tbody>
+</table>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>A rewind query whose <code>(To - From)</code> gap exceeds <code>(SnapshotPairsToCover - 1) * ServerDivisor</code> ticks falls outside the broadphase coverage and may silently miss hits. This happens in practice only with very high packet loss - increasing <code>SnapshotPairsToCover</code> widens the tolerance window proportionally.</p>
+</div>
+
 </article>
 
         <div class="contribution d-print-none">
