@@ -212,7 +212,7 @@ public class Animation : NetworkBehaviour
 
     public override void NetworkRender()
     {
-        Animate(state, IsClient
+        Animate(state, IsProxy
             ? Sandbox.RemoteInterpolation.Time
             : Sandbox.LocalInterpolation.Time);
     }
