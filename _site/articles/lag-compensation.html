@@ -312,7 +312,7 @@ public class Animation : NetworkBehaviour
 {
     public override void NetworkFixedUpdate()
     {
-        Animate(state, Sandbox.TickToTime(Sandbox.AuthoritativeTick));
+        Animate(State, Sandbox.TickToTime(IsProxy ? Sandbox.AuthoritativeTick : Sandbox.Tick));
     }
 
     public override void NetworkRender()
