@@ -261,11 +261,12 @@ Use Unity's [Playable API](https://docs.unity3d.com/Manual/Playables.html) (spec
 
 Drive your animator from a single `Animate(state, time)` method and feed it different `time` values depending on context:
 
-| Context                            | Time to pass                                    |
-| ---------------------------------- | ----------------------------------------------- |
-| `NetworkFixedUpdate`               | `Sandbox.TickToTime(Sandbox.AuthoritativeTick)` |
-| `NetworkRender` on the client      | `Sandbox.RemoteInterpolation.Time`              |
-| `NetworkRender` on the server/host | `Sandbox.LocalInterpolation.Time`               |
+| Context                                        | Time to pass                                    |
+| ---------------------------------------------- | ----------------------------------------------- |
+| `NetworkFixedUpdate`                           | `Sandbox.TickToTime(Sandbox.AuthoritativeTick)` |
+| `NetworkRender` on the client for proxies      | `Sandbox.RemoteInterpolation.Time`              |
+| `NetworkRender` on the client for local player | `Sandbox.LocalInterpolation.Time`               |
+| `NetworkRender` on the server/host             | `Sandbox.LocalInterpolation.Time`               |
 
 The fixed-update path is the one the lag-comp system captures from - that's how the captured pose matches the authoritative tick. The render-frame paths drive what's visually drawn, and because every lag-comp query also interpolates between the same authoritative snapshots with the same alpha, what the player sees and what the query hits stay in lockstep.
 
@@ -313,13 +314,13 @@ void Animate(AnimationState state, float time)
 [ExecuteAfter(typeof(Movement))]
 public class Animation : NetworkBehaviour
 {
-    [Networked] public AnimationState State { get; set; }   // synced gameplay state
+    [Networked, Smoothed] public AnimationState State { get; set; }   // synced gameplay state
 
     public override void NetworkFixedUpdate()
     {
         // Pose at the authoritative tick - LagCompensationStep (ordered after
         // this script) captures this pose into the snapshot ring.
-        Animate(State, Sandbox.TickToTime(Sandbox.AuthoritativeTick));
+        Animate(State, Sandbox.TickToTime(IsProxy ? Sandbox.AuthoritativeTick : Sandbox.Tick));
     }
 
     public override void NetworkRender()
@@ -327,17 +328,20 @@ public class Animation : NetworkBehaviour
         // Pose actually drawn this frame. Lag-comp queries interpolate between
         // the same authoritative snapshots with the same alpha, so rendered
         // and queried poses stay in lockstep.
-        float time = IsClient
+        float time = IsProxy
             ? Sandbox.RemoteInterpolation.Time
             : Sandbox.LocalInterpolation.Time;
 
-        Animate(State, time);
+        Animate(InterpolateState(IsProxy), time);
     }
 
     // See Animate pseudocode above - derive a clip from state.Action, derive
     // clip-local time from (time - Sandbox.TickToTime(state.ActionStartTick)),
     // and sample the rig via the Playable API.
     void Animate(AnimationState state, float time) { /* ... */ }
+
+    // interpolate State using the interpolation API, see Interpolation doc article.
+    AnimationState InterpolateState(bool isProxy) { /* ... */ }
 }
 
 // What the character is doing - the gameplay vocabulary the animation reads from.
