@@ -475,7 +475,7 @@ public struct AnimationState
 <p><strong>Call on both server and client at the same logical moment.</strong> These methods are <strong>local</strong> - the change is not synced over the network. Drive them from a synced network property or any deterministic gameplay event, and call on both sides. Calling on only one side will cause server/client hit detection to diverge.</p>
 <hr>
 <h2 id="fetching-a-rewound-hit-shape-pose">Fetching a Rewound Hit Shape Pose</h2>
-<p>If you need the exact pose a <code>HitShape</code> had from a given player's perspective - for hit FX that align with the rewound hitbox, debug gizmos, replay, etc. - use <code>FetchHitShapePosAndRot</code>:</p>
+<p>If you need the exact pose a <code>HitShape</code> had from a given player's perspective - for hit FX that align with the rewound hitbox, debug gizmos, etc. - use <code>FetchHitShapePosAndRot</code>:</p>
 <pre><code class="lang-csharp">Sandbox.FetchHitShapePosAndRot(
     hitShape,
     Object.InputSource,
