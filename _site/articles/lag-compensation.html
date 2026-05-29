@@ -220,7 +220,7 @@
 </code></pre>
 <hr>
 <h2 id="performing-queries">Performing Queries</h2>
-<p>Every lag-compensated query takes an <strong><code>inputSource</code></strong> parameter, and getting it right matters more than any other argument: pass the input source of the player whose action this query represents (the player firing the shot, throwing the grenade, swinging the melee, etc.). The server uses it to look up which <code>(From, To, Alpha)</code> to rewind to - the same one that player was visually interpolating when their input was produced. Passing the wrong source, or <code>null</code>, rewinds against the wrong timeline (or falls back to the local interpolation), and the result won't match what the acting player saw.</p>
+<p>Every lag-compensated query takes an <strong><code>inputSource</code></strong> parameter: pass the input source of the player whose action this query represents (the player firing the shot, throwing the grenade, swinging the melee, etc.). The server uses it to look up which <code>(From, To, Alpha)</code> to rewind to - the same one that player was visually interpolating when their input was produced. Passing the wrong source, or <code>null</code>, rewinds against the wrong timeline (or falls back to the local interpolation), and the result won't match what the acting player saw.</p>
 <h3 id="raycast">Raycast</h3>
 <pre><code class="lang-csharp">if (Sandbox.Raycast(
         shootPos,
@@ -340,7 +340,7 @@ public class Weapon : NetworkBehaviour
 </code></pre>
 <p><code>Movement</code> runs first → <code>Animation</code> advances bones to match → <code>LagCompensationStep</code> captures bone poses into the snapshot ring buffer → <code>Weapon</code> queries against the updated lag comp world.</p>
 <hr>
-<h2 id="deterministic-animation">Deterministic Animation</h2>
+<h2 id="animation">Animation</h2>
 <p>The lag-compensation system captures whatever pose the bones - and therefore the HitShapes parented to them - happen to be in at the moment of capture. For the server's rewound world to match what the shooting client actually saw, and for client-side predicted hits to agree with the server's authoritative result, <strong>the animation must be ~deterministic from a synced game state and an explicit time value</strong>. If the server and any remote client can disagree on where a bone sits at the same logical tick, every other layer of lag-comp correctness is undermined.</p>
 <h3 id="why-mecanim--the-default-animator-doesnt-work">Why Mecanim / the default Animator doesn't work</h3>
 <p>Unity's built-in <code>Animator</code> (Mecanim) is <strong>not</strong> deterministic in the way lag compensation needs:</p>
@@ -350,6 +350,10 @@ public class Weapon : NetworkBehaviour
 <li>There's no API to say &quot;make the rig look exactly the way it should at time <code>t</code>&quot;.</li>
 </ul>
 <p>The result is that at the same logical tick, the server and a remote client running the same Mecanim setup will produce subtly different bone poses. Subtle is enough - hit detection that's two centimeters off at the shoulder is what makes shots feel inaccurate.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Mixing a Mecanim-driven character with lag compensation will appear to <em>work</em> - queries return hits, no errors fire - but the hits will be misaligned with what the shooter saw.</p>
+</div>
 <h3 id="the-fix-custom-playable-based-animator">The fix: custom Playable-based animator</h3>
 <p>Use Unity's <a href="https://docs.unity3d.com/Manual/Playables.html">Playable API</a> (specifically <code>AnimationPlayableGraph</code> / <code>AnimationClipPlayable</code> / <code>AnimationMixerPlayable</code>) to write a custom animator you fully control. Each clip playable lets you <strong>set its time directly</strong> with <code>SetTime(...)</code> and then evaluate the graph - so the resulting rig pose becomes a pure function of <code>(state, time)</code>. Same inputs on server and client, same bones, same HitShape capture, consistent lag compensation.</p>
 <p>Drive your animator from a single <code>Animate(state, time)</code> method and feed it different <code>time</code> values depending on context:</p>
@@ -461,10 +465,6 @@ public struct AnimationState
 </code></pre>
 <p><code>NetworkFixedUpdate</code> runs once per tick on both server and client and produces the pose at the authoritative tick - which is exactly what <code>LagCompensationStep</code> will capture into the snapshot ring a moment later (because of the <code>[ExecuteAfter(typeof(Movement))]</code> + <code>LagCompensationStep</code> ordering). <code>NetworkRender</code> runs every frame on top of that, producing the visually-interpolated pose for the same <code>(From, To, Alpha)</code> triple the lag-comp queries are about to interpolate against - so what's drawn and what's queried describe the same world.</p>
 <p>Because the rig pose is a pure function of <code>(state, time)</code>, the bones - and therefore every HitShape parented to them - end up in identical world-space positions on the server and on every remote client at the same authoritative tick. That's what makes the rewound world the server reconstructs genuinely match the world the shooting client saw.</p>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>Mixing a Mecanim-driven character with lag compensation will appear to <em>work</em> - queries return hits, no errors fire - but the hits will be misaligned with what the shooter saw.</p>
-</div>
 <hr>
 <h2 id="runtime-hitshape-changes">Runtime HitShape Changes</h2>
 <p>You can attach and detach <code>HitShape</code>s on a container after <code>NetworkStart</code> - for procedurally-assembled limbs, equipped weapons, breakable parts, etc.</p>
@@ -472,7 +472,7 @@ public struct AnimationState
 </code></pre>
 <pre><code class="lang-csharp">container.RemoveHitShape(oldShape);
 </code></pre>
-<p><strong>Call on both server and client at the same logical moment.</strong> These methods are <strong>local</strong> - the change is not synced over the network. Drive them from a synced network property, an RPC, or any deterministic gameplay event, and call on both sides. Calling on only one side will cause server/client hit detection to diverge.</p>
+<p><strong>Call on both server and client at the same logical moment.</strong> These methods are <strong>local</strong> - the change is not synced over the network. Drive them from a synced network property or any deterministic gameplay event, and call on both sides. Calling on only one side will cause server/client hit detection to diverge.</p>
 <hr>
 <h2 id="fetching-a-rewound-hit-shape-pose">Fetching a Rewound Hit Shape Pose</h2>
 <p>If you need the exact pose a <code>HitShape</code> had from a given player's perspective - for hit FX that align with the rewound hitbox, debug gizmos, replay, etc. - use <code>FetchHitShapePosAndRot</code>:</p>

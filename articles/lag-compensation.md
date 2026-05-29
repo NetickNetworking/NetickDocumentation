@@ -88,7 +88,7 @@ The recommended hierarchy:
 
 ## Performing Queries
 
-Every lag-compensated query takes an **`inputSource`** parameter, and getting it right matters more than any other argument: pass the input source of the player whose action this query represents (the player firing the shot, throwing the grenade, swinging the melee, etc.). The server uses it to look up which `(From, To, Alpha)` to rewind to - the same one that player was visually interpolating when their input was produced. Passing the wrong source, or `null`, rewinds against the wrong timeline (or falls back to the local interpolation), and the result won't match what the acting player saw.
+Every lag-compensated query takes an **`inputSource`** parameter: pass the input source of the player whose action this query represents (the player firing the shot, throwing the grenade, swinging the melee, etc.). The server uses it to look up which `(From, To, Alpha)` to rewind to - the same one that player was visually interpolating when their input was produced. Passing the wrong source, or `null`, rewinds against the wrong timeline (or falls back to the local interpolation), and the result won't match what the acting player saw.
 
 ### Raycast
 
@@ -238,7 +238,7 @@ public class Weapon : NetworkBehaviour
 
 ---
 
-## Deterministic Animation
+## Animation
 
 The lag-compensation system captures whatever pose the bones - and therefore the HitShapes parented to them - happen to be in at the moment of capture. For the server's rewound world to match what the shooting client actually saw, and for client-side predicted hits to agree with the server's authoritative result, **the animation must be ~deterministic from a synced game state and an explicit time value**. If the server and any remote client can disagree on where a bone sits at the same logical tick, every other layer of lag-comp correctness is undermined.
 
@@ -251,6 +251,9 @@ Unity's built-in `Animator` (Mecanim) is **not** deterministic in the way lag co
 - There's no API to say "make the rig look exactly the way it should at time `t`".
 
 The result is that at the same logical tick, the server and a remote client running the same Mecanim setup will produce subtly different bone poses. Subtle is enough - hit detection that's two centimeters off at the shoulder is what makes shots feel inaccurate.
+
+> [!WARNING]
+> Mixing a Mecanim-driven character with lag compensation will appear to *work* - queries return hits, no errors fire - but the hits will be misaligned with what the shooter saw.
 
 ### The fix: custom Playable-based animator
 
@@ -360,9 +363,6 @@ public struct AnimationState
 
 Because the rig pose is a pure function of `(state, time)`, the bones - and therefore every HitShape parented to them - end up in identical world-space positions on the server and on every remote client at the same authoritative tick. That's what makes the rewound world the server reconstructs genuinely match the world the shooting client saw.
 
-> [!WARNING]
-> Mixing a Mecanim-driven character with lag compensation will appear to *work* - queries return hits, no errors fire - but the hits will be misaligned with what the shooter saw.
-
 ---
 
 ## Runtime HitShape Changes
@@ -377,7 +377,7 @@ container.AddHitShape(newShape);
 container.RemoveHitShape(oldShape);
 ```
 
-**Call on both server and client at the same logical moment.** These methods are **local** - the change is not synced over the network. Drive them from a synced network property, an RPC, or any deterministic gameplay event, and call on both sides. Calling on only one side will cause server/client hit detection to diverge.
+**Call on both server and client at the same logical moment.** These methods are **local** - the change is not synced over the network. Drive them from a synced network property or any deterministic gameplay event, and call on both sides. Calling on only one side will cause server/client hit detection to diverge.
 
 ---
 
