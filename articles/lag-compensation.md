@@ -383,7 +383,7 @@ container.RemoveHitShape(oldShape);
 
 ## Fetching a Rewound Hit Shape Pose
 
-If you need the exact pose a `HitShape` had from a given player's perspective - for hit FX that align with the rewound hitbox, debug gizmos, etc. - use `FetchHitShapePosAndRot`:
+If you need the exact pose a `HitShape` had from a given player's perspective - use `FetchHitShapePosAndRot`:
 
 ```csharp
 Sandbox.FetchHitShapePosAndRot(
